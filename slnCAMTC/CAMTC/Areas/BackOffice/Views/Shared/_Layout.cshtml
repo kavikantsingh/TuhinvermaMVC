@@ -2,10 +2,14 @@
 <html>
 <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <title>California Massage Therapy Council</title>
+    <link rel="icon" href="favicon.ico" sizes="16x16" type="image/ico">
 
-    @Styles.Render("~/Content/CSSLogin")
+    @*<script src="../../App_Themes/Theme1/jquery-ui/js/jquery-1.9.1.js?" type="text/javascript"></script>
+        <script src="../../App_Themes/Theme1/jquery-ui/js/jquery-ui.js?" type="text/javascript"></script>*@
+
+    @Styles.Render("~/Content/CSSBackOffice")
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
@@ -13,48 +17,186 @@
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/JQLogin")
 
-    <!--[if lt IE 9]>
-            <link rel="stylesheet" href="../../App_Themes/Login/css/sky-forms-ie8.css">
-        <![endif]-->
-    <!--[if lt IE 10]>
-            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-            <script src="../../App_Themes/Login/js/jquery.placeholder.min.js"></script>
-        <![endif]-->
-    <!--[if lt IE 9]>
-            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-            <script src="../../App_Themes/Login/js/sky-forms-ie8.js"></script>
-        <![endif]-->
-    <!--[if lte IE 7]>
-      <div id="mask1" style="display:block">
-        </div>
-        <div class="noscriptmsg" style="text-align:center">
-            You are using older version of browser which is not supporting!
-        </div>
-    <![endif]-->
-    <noscript>
-        <div id="mask1" style="display: block">
-        </div>
-    </noscript>
+    <script type="text/javascript">
+        function OpenCompliancePopup(div) {
+            $(div).addClass('visble')
+            $(div).dialog({ modal: true, height: 550, width: 630 });
+        }
+        try {
+            function disBlockMessage() {
+
+                $('.message').addClass('disBlock');
+                setTimeout(function () {
+                    $('.message').delay(800).fadeOut(1500);
+                    $('.message').removeClass('disBlock');
+                }, 800);
+            }
+        }
+        catch (e) {
+        }
+        try {
+            $(document).ready(function () {
+
+                $('#DivAlertMessage').click(function () {
+                    $(this).fadeOut('slow');
+                });
+
+                //Set opacity on each span to 0%
+                $(".rollover").css({ 'opacity': '0' });
+
+                $('.rightIcon a').hover(
+            function () {
+                $(this).find('.rightIcon a img').stop().fadeTo(500, 1);
+            },
+            function () {
+                $(this).find('.rightIcon a img').stop().fadeTo(500, 0);
+            }
+            )
+
+            });
+        }
+        catch (e) {
+        }
+        try {
+            function showDivSlide(div) {
+
+                $(div).slideDown();
+            } function hideDiv(e) {
+                $(e).slideUp();
+
+            }
+            function showDiv(e) {
+                $(e).slideDown();
+
+            }
+
+            function hideDivSlide(div) {
+                $(div).slideUp();
+            }
+
+            function navigateToURL(url) {
+                window.location = url;
+            }
+        }
+        catch (e) {
+        }
+        try {
+            function MessageShow(msg, type) {
+                $('#DivAlertMessage div').removeClass('errorbox');
+                $('#DivAlertMessage div').removeClass('confirmbox');
+                $('#DivAlertMessage div').show();
+                if (type == 1) {
+                    $('#DivAlertMessage div').addClass('confirmbox');
+                    $('#DivAlertMessage div').html('<span class="ok"></span>' + msg);
+                }
+                else {
+                    $('#DivAlertMessage div').addClass('errorbox');
+                    $('#DivAlertMessage div').html('<span class="notok"></span>' + msg);
+                }
+
+                setTimeout(function () {
+                    $('#DivAlertMessage').slideUp('slow');
+                }, 60000);
+                $('#DivAlertMessage').slideDown();
+                $("html, body").animate({ scrollTop: 0 }, 600);
+
+                $('#DivAlertMessage').click(function () {
+                    $(this).slideUp('slow');
+                });
+            }
+        }
+        catch (e) {
+        }
+        try {
+            function MessageShow_Second(msg, type) {
+                try {
+                    $('#DivAlertMessage_Second div').removeClass('errorbox');
+                    $('#DivAlertMessage_Second div').removeClass('confirmbox');
+                    $('#DivAlertMessage_Second div').show();
+                }
+                catch (e) {
+                    alert(e);
+                }
+                if (type == 1) {
+                    $('#DivAlertMessage_Second div').addClass('confirmbox');
+                    $('#DivAlertMessage_Second div').html('<span class="ok"></span>' + msg);
+                }
+                else {
+                    $('#DivAlertMessage_Second div').addClass('errorbox');
+                    $('#DivAlertMessage_Second div').html('<span class="notok"></span>' + msg);
+                }
+                try {
+                    setTimeout(function () {
+                        $('.DivAlertMessage_Second').slideUp('slow');
+                    }, 6000);
+                }
+                catch (e) {
+                    alert(e);
+                }
+                try {
+                    $('.DivAlertMessage_Second').removeAttr('style');
+                    $('.DivAlertMessage_Second').click(function () {
+                        $(this).slideUp('slow');
+                    });
+
+                }
+                catch (e) {
+                    alert(e);
+                }
+            }
+        }
+        catch (e) {
+            alert(e + '--');
+        }
+        try {
+            function MessageShow_Third(msg, type) {
+                $('#DivAlertMessage_Third div').removeClass('errorbox');
+                $('#DivAlertMessage_Third div').removeClass('confirmbox');
+                $('#DivAlertMessage_Third div').show();
+                if (type == 1) {
+                    $('#DivAlertMessage_Third div').addClass('confirmbox');
+                    $('#DivAlertMessage_Third div').html('<span class="ok"></span>' + msg);
+                }
+                else {
+                    $('#DivAlertMessage_Third div').addClass('errorbox');
+                    $('#DivAlertMessage_Third div').html('<span class="notok"></span>' + msg);
+                }
+
+                setTimeout(function () {
+                    $('#DivAlertMessage_Third').slideUp('slow');
+                }, 60000);
+                $('#DivAlertMessage_Third').slideDown();
+                $('#DivAlertMessage_Third').click(function () {
+                    $(this).slideUp('slow');
+                });
+            }
+        }
+        catch (e) {
+        }
+    </script>
+    <script>
+        function RemoveElement(e) {
+            $(e).remove();
+        }
+    </script>
+
     <style>
-        #mask1 {
-            background: #000;
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.3;
-            z-index: 99990;
-            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
-            filter: alpha(opacity=30);
+        body {
+            min-width: 1050px;
         }
 
+        doesnotexist:-o-prefocus, input[type="file"] {
+            width: 150px;
+        }
+    </style>
+    <style>
         .loader2 {
             position: fixed;
             width: 100px;
             height: 40px;
+            line-height: 40px;
             background: transparent;
-            z-index: 99999;
+            z-index: 9998;
             top: 45%;
             left: 45%;
             color: rgb(28, 112, 179);
@@ -67,16 +209,206 @@
             cursor: wait;
             border: 1px solid rgb(189, 189, 189);
         }
+
+        .errorbox ul {
+            width: 93%;
+            line-height: 20px;
+        }
     </style>
+
+    <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <link type="text/css" href="~/Content/Theme1/css/ie9.css" rel="stylesheet" />
+        <link type="text/css" href="~/Content/Theme1/css/ieAll.css" rel="stylesheet" />
+        <style>
+            .ajax__validatorcallout
+            {
+                line-height: normal !important;
+            }
+           </style>
+        <![endif]-->
+    <!--[if lte IE 7]>
+
+      <div id="mask1" style="display:block">
+        </div>
+        <div class="noscriptmsg" style="text-align:center">
+            You are using older version of browser which is not supporting!
+        </div>
+
+    <![endif]-->
+
+    <noscript>
+        <div id="mask1" style="display: block">
+        </div>
+        <div class="noscriptmsg" style="text-align: center">
+            Please enable javascript.
+        </div>
+    </noscript>
+
+    <style>
+        #mask1 {
+            background: #000;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+            z-index: 999;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+            filter: alpha(opacity=30);
+        }
+
+        .noscriptmsg {
+            border: 2px solid #eee;
+            width: 400px;
+            height: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            position: fixed;
+            top: 50%;
+            left: 34%;
+            background: #fff;
+            color: red;
+            padding: 15px;
+            overflow: hidden;
+            z-index: 9999;
+        }
+    </style>
+
+    <script>
+        $("input.us_street").blur(function () {
+            OnStreetChange(this);
+        });
+        function OnStreetChange(e) {
+            $.ajax({
+                type: 'POST',
+                url: '../../Ajax_Handler/Address.ashx?AddressStreet=' + $(e).val(),
+                dataType: 'text',
+
+                success: function (result) {
+                    $(e).val(result);
+                }
+            });
+        }
+    </script>
 
 </head>
 <body>
 
+    @*<form id="form1" enctype="multipart/form-data">*@
+
+    <input type="password" style="display: none">
+
+    <div class="header">
+        <div class="container">
+            <ul class="nav-toplinks">
+                <li class="first">
+                    <a id="nav-my-account" class="" href="javascript:void();">My Account</a>
+                    <ul>
+                        <li><a href="../UI/ChangePassword.aspx">Change Password</a></li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a id="nav-settings" class="" href="javascript:void();">Settings</a>
+                </li>
+                <li class=""><a id="nav-help" class="" href="javascript:void();">Help</a> </li>
+                <li class="last">
+
+                    @Html.ActionLink("Log Out", "LogOff", "Account", null, null)                    
+
+                </li>
+            </ul>
+            <div class="logo-container fltlft" style="height: 120px; width: 100px;">
+                <div class="box-logo">
+                </div>
+            </div>
+            <h2 class="fltlft" style="font-size: 28px; color: #062858; margin-top: 43px; font-weight: 800;
+                padding-left: 125px;">
+                California Massage Therapy Council
+            </h2>
+            <div class="clear">
+            </div>
+
+            <div class="nav-mainlinks-container ">
+
+                <ul class="nav-mainlinks custom-background">
+                    <li id="liHome" class="custom-background-dark-hover active"><a href="../UI/Dashboard.aspx" class="">Home</a></li>
+                    <li id="liIndividual" class="custom-background-dark-hover"><a href="javascript:void();" class="">Individual</a><ul><li><a href="../UI/individual.aspx" class="">Individual Info</a></li></ul></li>
+                    <li id="liAMG" class="custom-background-dark-hover"><a href="javascript:void();" class="">AMG</a><ul><li><a href="../Workflow/CertificationApplication.aspx" class="">Certification</a></li><li><a href="../Workflow/ReCertificationApplication.aspx" class="">Recertification</a></li><li><a href="../AMG/Upgrade.aspx" class="">Upgrade</a></li><li><a href="../AMG/Education.aspx" class="">Education</a></li><li><a href="../AMG/AMGComplaint.aspx" class="">Complaint</a></li><li><a href="../AMG/Audit.aspx" class="">Audit</a></li><li><a href="../Administration/Email.aspx" class="">Email</a></li></ul></li>
+                    <li id="liPSD" class="custom-background-dark-hover"><a href="javascript:void();" class="">PSD</a><ul><li><a href="../PSD/IndividualInfo.aspx" class="">Individual Info</a></li><li><a href="../Workflow/InHouseClearance.aspx" class="">In House Clearance</a></li><li><a href="../Workflow/PSDWaitingRoom.aspx" class="">PSD Waiting Room</a></li><li><a href="../Administration/CallList.aspx" class="">Call Sheet</a></li><li><a href="../Workflow/AtPSD.aspx" class="">At PSD</a></li><li><a href="../PSD/PsdMinuteMeeting.aspx" class="">PSD Meeting Notes</a></li><li><a href="../PSD/MemoToCouncil.aspx" class="">Memo to Counsel</a></li><li><a href="../PSD/PSDComplaint.aspx" class="">Complaint</a></li></ul></li>
+                    <li id="liLegal" class="custom-background-dark-hover"><a href="javascript:void();" class="">Legal</a><ul><li><a href="../ARS/ARSLegal.aspx" class="">Special Counsel</a></li><li><a href="../Legal/StaffAttorney.aspx" class="">Staff Attorneys</a></li><li><a href="../Legal/Paralegal.aspx" class="">Paralegals</a></li><li><a href="../Legal/HearingWaitingRoomt.aspx" class="">Hearing Waiting Room</a></li><li><a href="../Legal/HearingSchedule.aspx" class="">Hearing Schedule</a></li></ul></li>
+                    <li id="liESD" class="custom-background-dark-hover"><a href="javascript:void();" class="">ESD</a><ul><li><a href="../UI/School.aspx" class="">School Info</a></li><li><a href="../ESD/SchoolApplication.aspx" class="">School Workflow</a></li><li><a href="../ESD/ESDCallSheet.aspx" class="">ESD Call Sheet</a></li><li><a href="../ESD/SchoolComplaint.aspx" class="">School Complaint</a></li></ul></li>
+                    <li id="liReports" class="custom-background-dark-hover"><a href="javascript:void();" class="">Reports</a><ul class="maxWidth"><li><a href="javascript:void();" class="">Reports</a><ul><li><a href="../Reports/CertificateReport.aspx">Certificate Report</a></li><li><a href="javascript:void();">Confirmation and Affidavit Page</a></li><li><a href="javascript:void();">Expired Certificate Letter</a></li><li><a href="javascript:void();">Dissemination Log Report</a></li><li><a href="javascript:void();">Inspection Due Report</a></li><li><a href="javascript:void();">Deficient Report</a></li><li><a href="javascript:void();">Workflow Report</a></li><li><a href="javascript:void();">Re-Certification Forms</a></li><li><a href="javascript:void();">Print Certificate</a></li><li><a href="javascript:void();">Restricted Certificate Card</a></li><li><a href="javascript:void();">Temporary Certificate</a></li></ul></li><li><a href="javascript:void();" class="">Queries</a><ul><li><a href="javascript:void();">Application by Status</a></li><li><a href="javascript:void();">Daily Deposit Report</a></li><li><a href="../Reports/EmailListQuery.aspx">Email List Query</a></li><li><a href="javascript:void();">Certificate Card</a></li><li><a href="javascript:void();">Certificate by status</a></li><li><a href="javascript:void();">Mailing List</a></li><li><a href="javascript:void();">Probation List</a></li><li><a href="javascript:void();">Renewal Summary Query</a></li><li><a href="javascript:void();">SB 21 Certificate Report</a></li></ul></li><li><a href="../Reports/GLSReports.aspx" class="">Query &amp; Reporting</a></li><li><a href="javascript:void();" class="">PSD Report</a><ul><li><a href="javascript:void();">PSD Screen</a></li><li><a href="javascript:void();">Complaint Log</a></li><li><a href="javascript:void();">Disciplinary Action</a></li></ul></li><li><a href="javascript:void();" class="">Bad Address</a></li><li><a href="javascript:void();" class="">Inactive</a></li></ul></li>
+                    <li id="liAdministration" class="custom-background-dark-hover"><a href="javascript:void();" class="">Administration</a><ul class="maxWidth"><li><a href="../Administration/CouncilInfo.aspx" class="">Council Info</a></li><li><a href="javascript:void();" class="">Command</a><ul><li><a href="../Commands/Automated.aspx">Automated</a></li><li><a href="../Commands/Manual.aspx">Manual</a></li><li><a href="../Commands/LicensePrintQueue.aspx">Print Queue</a></li></ul></li><li><a href="javascript:void();" class="">User Management</a><ul><li><a href="../Administration/Role.aspx">Roles</a></li><li><a href="../Administration/UserAccount.aspx">User Accounts</a></li></ul></li><li><a href="javascript:void();" class="">Message &amp; Template</a><ul><li><a href="../Administration/Bulletin.aspx">Bulletin</a></li><li><a href="../Administration/TemplateMessage.aspx">Template Message</a></li></ul></li><li><a href="javascript:void();" class="">Workflow</a><ul><li><a href="../Workflow/PrintUserCredential.aspx">Print User Credential</a></li></ul></li><li><a href="../Administration/Configuration.aspx" class="">Configuration</a></li><li><a href="../Administration/ContentManagement.aspx" class="">Content Management</a></li><li><a href="../Administration/Determination.aspx" class="">Determination</a></li><li><a href="../Administration/Appeal.aspx" class="">Appeal</a></li><li><a href="../Administration/AuditLog.aspx" class="">Audit Log</a></li><li><a href="../Administration/MassEmail.aspx" class="">Bulk Email</a></li><li><a href="../Administration/DocumentManagement.aspx" class="">Document Management</a></li><li><a href="../Administration/SchoolHoldList.aspx" class="">School Hold List</a></li></ul></li>
+                </ul>
+
+                <style>
+                    #liPSD li {
+                        width: 172px;
+                    }
+
+                    li#liLegal ul ul {
+                        left: 125px;
+                    }
+
+                    #liLegal li {
+                        width: 240px;
+                    }
+                </style>
+
+            </div>
 
 
-    @RenderBody()
+
+            <div class="clear">
+                <div id="DivAlertMessage" style="display: none">
+                    <div style="display: none">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="position: relative">
 
 
+        @RenderBody()
+
+    </div>
+
+    <div class="clear">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+    <script>
+            var yPos = 0;
+            jQuery.fn.center = function () {
+
+                this.css("position", "absolute");
+                this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) +
+                                                    $(window).scrollTop()) + "px");
+                this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) +
+                                                    $(window).scrollLeft()) + "px");
+                return this;
+            }
+            function BeginScroll() {
+                yPos = $(window).scrollTop();
+            }
+            function EndScroll() {
+                $(window).scrollTop(yPos);
+            }
+    </script>
+
+    @*</form>*@
 
 </body>
 </html>

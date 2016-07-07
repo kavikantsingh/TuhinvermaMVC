@@ -39,6 +39,19 @@ namespace CAMTC
 
             #endregion
 
+
+            #region BackOffice
+            
+            bundles.Add(new StyleBundle("~/Content/CSSBackOffice").Include(
+                      "~/Content/Theme1/jquery-ui/css/start/jquery-ui-1.8.23.custom.css",
+                      "~/Content/Theme1/css/style.css",
+                      "~/Content/Theme1/css/navigation.css",
+                      "~/Content/Theme1/css/searchPanel.css",
+                      "~/Content/Theme1/tabs/tabs.css",
+                      "~/Content/Theme1/css/button.css"
+                      ));
+
+            #endregion
         }
     }
 }
