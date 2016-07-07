@@ -1,0 +1,140 @@
+﻿@{
+    Layout = "~/Areas/School/Views/Shared/_LayoutLogin.cshtml";
+    ViewBag.Title = "LogIn";
+}
+
+<div class="body body-s">
+
+    @using (Html.BeginForm("LogIn", "Account", FormMethod.Post, new { @class = "sky-form" }))
+    {
+        
+        <header>Log In</header>
+
+        <fieldset>
+
+            <section>
+                <div id="error_validation" class="address-box posFixed" style="display: none; color: red;"></div>
+            </section>
+
+            <section>
+                <label class="input">
+                    <input type="text" placeholder="User Name (Email)" id="txtEmail" name="txtEmail">
+                    <b class="tooltip tooltip-bottom-right">Please Enter E-mail</b>
+                </label>
+            </section>
+
+            <section>
+                <label class="input">
+                    <input type="password" placeholder="Password" id="txtPassword" name="txtPassword">
+                    <b class="tooltip tooltip-bottom-right">Please Enter Password</b>
+                </label>
+                <div class="note">
+                    @Html.ActionLink("Forgot password?", "ForgotPassword", "Account", null, null)
+                </div>
+            </section>
+
+            <section>
+                <div class="row">
+                    <div class="col col-8">
+                        <label class="checkbox">
+                            <input type="checkbox" name="checkbox-inline" checked><i></i>Keep me logged in
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+        </fieldset>
+        <footer>
+            <input type="submit" class="button" name="btnLogin" style="width: 100%" id="btnLogin" value="Log In" />
+            @Html.ActionLink("Click here to Register", "Register", "Account", null, new { @class = "button button-login", style = "width: 85%; text-align: center;" })
+        </footer>
+    }
+
+</div>
+
+<script type="text/javascript">
+
+    function checkfrm() {
+        $('#error_validation').text('');
+        var error = '';
+        error += ValidateEmail('<span class="notok"></span> @ErrorMessage.EmailFormat<br/>', '<span class="notok"></span> @ErrorMessage.Email <br/>', '#txtEmail', $('#txtEmail').val());
+        error += ValidateTextbox('<span class="notok"></span> @ErrorMessage.Password<br/>', '#txtPassword', $('#txtPassword').val());
+
+        if (error != '') {
+            $('#error_validation').show();
+
+            $(document).scrollTop(0);
+
+            $('#error_validation').html(error);
+            return false;
+        }
+        else {
+            $('#error_validation').hide();
+            return true;
+        }
+    }
+
+    $(document).ready(function () {
+
+        $("#btnLogin").click(function (event) {
+
+            event.preventDefault();
+
+            if (checkfrm()) {
+
+                ShowLoader();
+
+                $.ajax({
+                    url: "http://ws.camtc.inlumon.com/api/Provider/ProviderLogin/Key",
+                    type: "POST",
+                    data: JSON.stringify({
+                        Email: $("#txtEmail").val(),
+                        Password: $("#txtPassword").val()
+                    }),
+
+                    contentType: 'application/json; charset=utf-8',
+
+                    success: function (data) {
+                        if (data.Status === true) {
+
+                            $('#error_validation').hide();
+
+                            sessionStorage.School_ApplicationId = data.ApplicationId;
+                            sessionStorage.School_ApplicationStatus = data.ApplicationStatus;
+                            sessionStorage.School_IndividualId = data.IndividualId;
+                            sessionStorage.School_IndividualNameId = data.IndividualNameId;
+                            sessionStorage.School_ProviderId = data.ProviderId;
+                            sessionStorage.School_UserId = data.UserId;
+                            sessionStorage.School_Key = data.Key;
+                            sessionStorage.School_IsPasswordTemporary = data.IsPasswordTemporary;
+
+                            if (data.IsPasswordTemporary) {
+                                window.location.replace('@Url.Action("ResetPassword", "Account")');
+                            }
+                            else {
+                                if (data.ApplicationStatus === "Submitted")
+                                    window.location.replace('@Url.Action("SchoolApplication", "Home")');
+                                else
+                                    window.location.replace('@Url.Action("Index", "Home")');
+                            }
+                        }
+                        else {
+                            $('#error_validation').show();
+                            $('#error_validation').html("<span class='notok'></span>" + data.Message + "<br/>");
+                        }
+                    },
+                    error: function () {
+                        $('#error_validation').show();
+                        $('#error_validation').html("<span class='notok'></span>Oops! Something went wrong.<br/>");
+                    },
+                    complete: function () {
+                        HideLoader();
+                    }
+                });
+
+            }
+
+        });
+    });
+
+</script>

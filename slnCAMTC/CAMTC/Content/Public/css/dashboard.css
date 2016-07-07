@@ -1,0 +1,205 @@
+span.bold
+{
+    font-weight: bold;
+}
+.user-dashboard
+{
+    min-height: 450px;
+    clear: both;
+    overflow: hidden;
+}
+.dashboard-header
+{
+    padding: 5px 5px 8px 5px;
+    text-align: right;
+    border-bottom: 2px solid #35ADDB;
+    margin-bottom: 20px;
+}
+.dashboard-block-left
+{
+    float: left;
+    width: 600px;
+    min-height: 170px;
+    margin-bottom: 10px;
+}
+.dashboard-block
+{
+    min-height: 208px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.dashboard-block-right
+{
+    float: right;
+    width: 380px;
+    min-height: 350px;
+}
+.dashboard-border
+{
+    border: 1px solid #89CAE4;
+}
+
+.dashboard-block-right-top
+{
+    min-height: 207px;
+    margin-bottom: 10px;
+    border-radius: 4px; /*padding-bottom: 11px;*/
+}
+.dashboard-block-right-top.dashboard-border
+{
+}
+.dashboard-block-header
+{
+    background: #35ADDB;
+    padding: 5px;
+    color: #fff;
+    font-weight: bold;
+    line-height: 20px;
+}
+.dashboard-block-right-bottom
+{
+    min-height: 80px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+a.dashboard-link
+{
+    color: Blue !important;
+}
+a.dashboard-link:hover
+{
+    text-decoration: underline !important;
+}
+.imgDelete
+{
+    float: right;
+}
+
+.dashboard-block-right-bottom-middle
+{
+    /*height: 192px;*/
+    border-radius: 4px;
+}
+
+/*.linkButton
+{
+    font: bold 11px Arial;
+    text-decoration: none;
+    background-color: #EEEEEE;
+    color: #000000;
+    padding: 5px 9px 4px 10px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+    font-weight: bold;
+}
+ */
+.dashboardtbl tr td a:hover
+{
+    /* background-color: #00f; */
+    color: Black !important;
+    text-decoration: underline;
+}
+.Editbtn
+{
+    font-size: 14px;
+    color: rgb(255, 255, 255) !important;
+    border-style: solid;
+    border-width: 1px 3px 3px 1px;
+    border-color: #69f #5784E5 #5784E5 #69f;
+    margin-left: 20px;
+    padding: 2px 7px;
+    background: #4479BA;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: solid 1px #20538D;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+.index tr:first-child td
+{
+    border-top: 1px solid rgba(221, 221, 221, 0);
+}
+.link
+{
+    color: blue !important;
+}
+.link:hover
+{
+    text-decoration: underline !important;
+}
+.overflowscrollAppDetail
+{
+    height: 148px;
+    overflow: auto;
+}
+.overflowscrollPaymentDetail
+{
+    height: 162px;
+    overflow: auto;
+}
+.overflowscrollPaymentDetail table
+{
+    border: 0px !important;
+}
+.overflowscrollAppDetail table
+{
+    border: 0px !important;
+}
+table.AppDetailsHeader
+{
+    width: 100%;
+    background: rgb(13, 131, 221);
+    color: white;
+    height: 28px;
+    line-height: 28px;
+}
+
+.chkDistance input[type="checkbox"]
+{
+    margin-right: -3px;
+}
+
+
+
+ .color_S{background-color: rgb(13, 131, 221) !important;
+color: white !important;
+border: 1px solid #085C9C !important;}
+    .height_fix{height:100px !important;}
+    .Cercle{float: left;
+font-size: 8px;
+background-color: #E1EFD8;
+width: 48px;
+height: 31px;
+border-radius: 50%;
+text-align: center;
+padding-top: 18px;
+line-height: 13px;
+margin-left: 2px;
+border: 1px solid #8AB8E0;}
+
+    .cilrcle_top{border: 1px solid rgb(222, 222, 222);
+float: left;
+margin-left: 3px;
+margin-top: 10px;}
+    .header_circle{height: 29px;
+background-color: #EEEEEE;
+text-align: center;
+color: #444;}
+    .circle_cotner{margin-top: 10px;
+margin-right: 4px;
+margin-bottom: 10px;
+float: left;}

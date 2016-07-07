@@ -1,0 +1,159 @@
+﻿@{
+    Layout = "~/Areas/School/Views/Shared/_LayoutLogin.cshtml";
+    ViewBag.Title = "Register";
+}
+<div class="body body-s">
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "sky-form" }))
+    {
+
+        <header>Registration</header>
+
+        <div id="pnlSignUpStep2" style="display: none">
+            <fieldset>
+                <section>
+                    <span id="ltrSignUpSuccess" />
+                </section>
+            </fieldset>
+            <footer>
+                @Html.ActionLink("Log In", "LogIn", "Account", null, new { @class = "button button-login", style = "width: 85%; text-align: center;" })
+            </footer>
+        </div>
+
+        <div id="upRegistration">
+            <fieldset>
+
+                <section>
+                    <div id="error_validation" class="address-box posFixed" style="display: none; color: red;"></div>
+                </section>
+
+                <section>
+                    <label class="input">
+                        <input type="text" id="txtFirstName" class="OnlyAlphabet" placeholder="First Name">
+                        <b class="tooltip  tooltip-bottom-right">Please Enter First Name</b>
+                    </label>
+                </section>
+
+                <section>
+                    <label class="input">
+                        <input type="text" id="txtMiddleName" class="OnlyAlphabet" placeholder="Middle Name">
+                        <b class="tooltip tooltip-bottom-right">Please Enter Middle Name</b>
+                    </label>
+                </section>
+
+                <section>
+                    <label class="input">
+                        <input type="text" id="txtLastName" class="OnlyAlphabet" placeholder="Last Name">
+                        <b class="tooltip tooltip-bottom-right">Please Enter Last Name</b>
+                    </label>
+                </section>
+
+                <section>
+                    <label class="input">
+                        <input type="text" readonly="readonly" id="txtDOB" class="inputTextbox" placeholder="Date of Birth (mm/dd/yyyy)" style="background-image: none;" data-beatpicker="true" data-beatpicker-format="['MM','DD','YYYY'],separator:'/'" data-beatpicker-position="['right','*']" data-beatpicker-module="gotoDate,clear">
+                        <b class="tooltip tooltip-bottom-right">Enter Date of Birth</b>
+                    </label>
+                </section>
+
+                <section>
+                    <label class="input">
+                        <input type="text" id="txtEmail" placeholder="Email Address">
+                        <b class="tooltip tooltip-bottom-right">Please Enter Email Address</b>
+                    </label>
+                </section>
+
+                <section>
+                    <label class="input">
+                        <input type="text" id="txtSchoolName" placeholder="School Name">
+                        <b class="tooltip tooltip-bottom-right">Please Enter School Name</b>
+                    </label>
+                </section>
+
+            </fieldset>
+
+            <footer>
+                <input id="btnRegister" style="width: 100%" class="button" value="Submit" type="button" />
+                @Html.ActionLink("Log In", "LogIn", "Account", null, new { @class = "button button-login", style = "width: 85%; text-align: center;" })
+            </footer>
+
+        </div>
+
+    }
+</div>
+
+<script type="text/javascript">
+
+    function checkfrm() {
+
+        $('#error_validation').text('');
+        var error = '';
+        error += ValidateTextbox('<span class="notok"></span> @ErrorMessage.FirstName<br/>', '#txtFirstName', $('#txtFirstName').val());
+        error += ValidateTextbox('<span class="notok"></span> @ErrorMessage.LastName<br/>', '#txtLastName', $('#txtLastName').val());
+        error += ValidateDate('<span class="notok"></span> @ErrorMessage.FutureDate<br/>', '<span class="notok"></span> @ErrorMessage.DateFormat<br/>', '<span class="notok"></span> @ErrorMessage.DateofBirth<br/>', '#txtDOB', $('#txtDOB').val());
+        error += ValidateEmail('<span class="notok"></span> @ErrorMessage.EmailFormat<br/>', '<span class="notok"></span> @ErrorMessage.Email<br/>', '#txtEmail', $('#txtEmail').val());
+        error += ValidateTextbox('<span class="notok"></span> @ErrorMessage.SchoolName<br/>', '#txtSchoolName', $('#txtSchoolName').val());
+
+        if (error != '') {
+            $('#error_validation').show();
+            $(document).scrollTop(0);
+            $('#error_validation').html(error);
+            return false;
+        }
+        else {
+            $('#error_validation').hide();
+            $('#btnRegister').attr('type', 'submit');
+            return true;
+        }
+
+    }
+
+    $(document).ready(function () {
+
+        $("#btnRegister").click(function (event) {
+
+            event.preventDefault();
+
+            if (checkfrm()) {
+
+                ShowLoader();
+
+                $.ajax({
+                    url: "http://ws.camtc.inlumon.com/api/Provider/ProviderRegister/key", //ToDo: Send Key to the API
+                    type: "POST",
+                    data: JSON.stringify({
+                        FirstName: $("#txtFirstName").val(),
+                        MiddleName: $("#txtMiddleName").val(),
+                        LastName: $("#txtLastName").val(),
+                        DateofBirth: $("#txtDOB").val(),
+                        Email: $("#txtEmail").val(),
+                        SchoolName: $("#txtSchoolName").val()
+                    }),
+
+                    contentType: 'application/json; charset=utf-8',
+
+                    success: function (data) {
+                        if (data.Status) {
+                            $('#upRegistration').hide();
+                            $('#pnlSignUpStep2').show();
+                            $('#ltrSignUpSuccess').text('Please check your email a temporary password has been sent to you. You need to login using that password.');
+                        }
+                        else {
+                            $('#error_validation').show();
+                            $('#error_validation').html("<span class='notok'></span>" + data.Message + "<br/>");
+                        }
+                    },
+                    error: function () {
+                        $('#error_validation').show();
+                        $('#error_validation').html("<span class='notok'></span> Oops! Something went wrong.<br/>");
+                    },
+                    complete: function () {
+                        HideLoader();
+                    }
+                });
+
+            }
+
+        });
+
+    });
+
+</script>

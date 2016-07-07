@@ -1,0 +1,363 @@
+.span
+{
+    margin-left: 5px;
+    font-family: sans-serif;
+    font-size: 15px;
+}
+.span2
+{
+    margin-left: 2px;
+    font-family: sans-serif;
+    font-size: 12px;
+}
+.container
+{
+    text-align: left;
+    width: 1040px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+}
+.relative
+{
+    position: relative;
+}
+
+.divButton
+{
+    float: right;
+}
+.divLeftMain
+{
+    width: 70%;
+    float: left;
+}
+.divRightMain
+{
+    width: 29%;
+    float: right;
+}
+.divRightMain2
+{
+    margin-top: 10px;
+    height: 110px;
+    width: 29%;
+    float: right;
+}
+.heding1
+{
+   
+}
+.heding2
+{
+    height: 226px;
+    width: 49%;
+    float: right;
+    border: 1px solid black;
+}
+.center
+{
+    text-align: center;
+}
+.hgtwdt100
+{
+    height: 100%;
+    width: 100%;
+}
+.divMain
+{
+    width: 995px;
+    margin: 0 auto;
+    margin-top: 21px;
+}
+.cant1
+{
+    width: 100%;
+}
+.clear
+{
+    clear: both;
+}
+.fperiod
+{
+    width: 49%;
+    float: left;
+    margin-top: 5px;
+    height: 50px;
+}
+.License
+{
+    width: 49%;
+    float: left;
+    margin-top: 5px;
+    height: 50px;
+}
+.duedate
+{
+    width: 49%;
+    margin-left: 5px;
+    margin-top: 5px;
+    float: right;
+    height: 50px;
+}
+.Discipline
+{
+    width: 49%;
+    margin-left: 5px;
+    margin-top: 5px;
+    float: right;
+    height: 50px;
+}
+.divMakechk
+{
+    height: 70px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.divamtdue
+{
+    width: 33%;
+    height: 77%;
+    float: right;
+    border: 1px solid black;
+    margin-top: 2px;
+    margin-right: 10px;
+}
+.cant2
+{
+    min-height: 140px;
+    width: 100%;
+    margin-top: 10px;
+}
+.cant4
+{
+    height: 150px;
+    margin-top: 10px;
+    width: 100%;
+}
+.cant10
+{
+    min-height: 205px;
+    margin-top: 10px;
+    width: 100%;
+}
+.pnoofBranch
+{
+    text-align: center;
+    margin-top: 8px;
+}
+.pnbTextbox
+{
+    text-align: center;
+    margin-top: 10px;
+}
+.cant4div1
+{
+    width: 49%;
+    float: left;
+}
+.cant4div2
+{
+    width: 50%;
+    float: right;
+}
+.cant5
+{
+    min-height: 185px;
+    width: 100%;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+.cant6
+{
+    margin-top: 10px;
+    min-height: 185px;
+    width: 100%;
+    padding-bottom: 10px;
+}
+.cant11
+{
+    margin-top: 10px;
+    height: 190px;
+    width: 100%;
+}
+.cant7
+{
+    height: 111px;
+    width: 100%;
+    margin-top: 10px;
+}
+.cant8
+{
+    height: 240px;
+    width: 70%;
+    float: left;
+    margin-top: 10px;
+}
+.cant9
+{
+    height: 240px;
+    width: 29%;
+    border: 1px solid black;
+    float: right;
+    margin-top: 10px;
+}
+.cant3
+{
+    width: 100%;
+    margin-top: 5px;
+}
+.txtstyl
+{
+    font-size: 15px;
+    text-decoration: underline;
+    font-family: sans-serif;
+    font-weight: bold;
+    line-height: 10px;
+}
+.line_heifht30px
+{
+    line-height: 30px;
+}
+.txtsmp
+{
+    font-size: 15px;
+    font-family: sans-serif;
+    display: block;
+    width: 409px;
+    margin: 0 auto;
+}
+.txt
+{
+    font-size: 16px;
+    font-family: sans-serif;
+    text-decoration: underline;
+}
+.tbwidth
+{
+    width: 200px;
+}
+.mrgnlft40
+{
+    margin-left: 40px;
+}
+.width
+{
+    width: 100px;
+}
+.width100px
+{
+    width: 100px;
+    height: 35px;
+}
+.width50
+{
+    width: 50%;
+    height: 30px;
+}
+.tdwidth50
+{
+    width: 50%;
+}
+
+#tblPrinciple td
+{
+    height: 30px;
+}
+.mrglft10
+{
+    margin-left: 10px;
+}
+.mrglft20
+{
+    margin-left: 20px;
+}
+.width100
+{
+    width: 100%;
+}
+#tblRespCharge td
+{
+    height: 30px;
+}
+
+.mrgtop20
+{
+    margin-top: 20px;
+}
+#tblProffSerOffered td
+{
+    height: 30px;
+}
+#tblRespChargeOpp td
+{
+    height: 30px;
+}
+.divbutton
+{
+    height: 38px;
+    margin-bottom: 8px;
+}
+#tblFeescdl td
+{
+    height: 20px;
+}
+#tblFeescdl td label
+{
+    font-size: 14px;
+}
+.Rencant3
+{
+    width: 100%;
+    margin-top: 5px;
+}
+.divRenMakechk
+{
+    height: 139px;
+    width: 100%;
+    margin-top: 10px;
+}
+.divRenewRightMain
+{
+    width: 29%;
+    float: right;
+    padding: 0px 0px 23px;
+}
+#tblVerifiy td
+{
+    height: 30px;
+}
+.Renewcant5
+{
+    width: 100%;
+    margin-top: 10px;
+}
+.ReNewcant6
+{
+    margin-top: 10px;
+    min-height: 806px;
+    width: 100%;
+    overdlow:hidden;
+}
+/*-------------------------------------------*/
+.bordr
+{
+   border: 1px solid rgb(221, 233, 235) !important;
+box-shadow: inset 0px 0px 3px #DBDBDB;
+}
+.rads
+{
+    border-radius:2px !important;
+}
+
+ #tblProffSerOffered2 td
+{
+height: 30px;
+}
+
+.Maincant10
+{
+margin-top: 10px;
+width: 100%;
+}
