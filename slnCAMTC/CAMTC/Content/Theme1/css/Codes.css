@@ -1,0 +1,21 @@
+.alignLeft
+{
+    text-align: left;
+}
+.alignRight
+{
+    text-align: right;
+}
+.tblTextAlignRight tr td label
+{
+    padding-left: 20px;
+    float: right;
+}
+.tblTextAlignRight
+{
+    line-height: 40px !important;
+}
+
+.tblTextAlignRight tr td input[type="text"], .tblTextAlignRight tr td select, .tblTextAlignRight tr td textarea {
+float: left;
+}

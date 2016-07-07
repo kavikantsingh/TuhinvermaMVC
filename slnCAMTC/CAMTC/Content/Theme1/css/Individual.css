@@ -1,0 +1,182 @@
+.DropdownList
+{
+    width: 143px !important;
+}
+.inputTextbox
+{
+    width: 135px !important;
+}
+
+.Individual
+{
+    margin-left: -9px !important;
+    width: 97.7% !important;
+    margin-top: 8px !important;
+}
+.badAddress {
+text-align: right;
+margin-top: 30px;
+height: 12px;
+padding-right: 50px;
+padding-top: 8px;
+}
+
+.disablePager
+{
+    color: #fff !important;
+    background: #6370CC !important;
+    text-decoration: none;
+}
+.blockheader {
+  height: 30px;
+  background-color: #E5EDF2;
+  width: 99.1%;
+  border: 1px solid rgb(221, 227, 236);
+  border-radius: 2px;
+  color: rgb(89, 89, 89);
+  font-size: 15px;
+  font-weight: bold;
+  padding-left: 5px;
+  margin: 10px auto;
+}
+
+/*******
+.mrgntop16
+{
+    margin-top: 16px;
+}
+.mrgntop32
+{
+    margin-top: 32px;
+}
+******************/
+
+
+.statusrow
+{
+    min-width: 100%;
+    min-height: 23px;
+    float: left;
+    max-width: 360px;
+     
+    background-color: green; 
+    line-height: 24px;
+}
+.status
+{
+    float: left;
+    width: 100px;
+    height: 24px;
+    text-align: right;
+    color: white;
+    font-weight: bold;
+}
+.statuscontent
+{
+    height: 24px;
+    font-weight: bold;
+    color: white;
+    float: right;
+    text-align: left;
+    width: 191px;
+}
+
+.colorbox
+{
+    width: 300px;
+    height: 25px;
+    margin: 0 auto;
+}
+.statusicon
+{
+width: 14px;
+height: 14px;
+float: right;
+background: green;
+border-radius: 15px;
+-webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+border: 1px solid #000;
+    }
+
+/*****
+tr.red
+{
+    background: red;
+}
+tr.yellow
+{
+    background: yellow;
+}
+tr.black
+{
+    background: black;
+    color: white !important;
+}
+tr.blue
+{
+    background: blue;
+}
+tr.green
+{
+    background: green;
+}
+tr.orange
+{
+    background: orange;
+}
+*******************************/
+/**************For License Quistion*****************/
+    .EdittdStreetFire
+    {width:212px !important;
+        }
+        
+.EdittxtStreetFire {
+width: 466px !important;
+}
+     
+     .EdittxtZipFire
+     {width:100px !important;
+         }    
+         
+    .SavetdStreetFire
+    {width:210px !important;
+        }
+        
+     .SavettxtStreetFire
+     {width:466px !important;
+         }
+     
+     .SavetxtZipFire
+     {width:109px !important;
+         }
+         
+ @-moz-document url-prefix() {
+    h1 {
+       
+    }
+    
+    .EdittdStreetFire
+    {width:207px !important;
+        }
+        
+     .EdittxtStreetFire
+     {width:466px !important;
+         }
+     
+     .EdittxtZipFire
+     {width:102px !important;
+         }    
+         
+    .SavetdStreetFire
+    {width:209px !important;
+        }
+        
+.SavettxtStreetFire {
+width: 474px !important;
+}
+     
+     .SavetxtZipFire
+     {width:117px !important;
+         }    
+  }
