@@ -1,0 +1,425 @@
+﻿
+<div class="main" style="position: relative">
+
+    <div  ng-controller="MainController as myctrl" ng-cloak>
+        <div class="span-180 span-13 home-sidebar append-1">
+            <div class="rounded-container peel-shadows">
+                <div class="content clearfix">
+                    <!------#############################################-left member list start#####################################################---------------->
+                    <h4 style="margin: 0px 0px; float: left">
+                        Search Results
+                    </h4>
+                    <span class="fltrt">
+                        <input type="button" id="btnPrintBoardPacket" class="buttonGreen small"
+                               value="Print Board Packet" />
+                        <asp:LinkButton id="btnClearFilter" value="show all"></asp:LinkButton>
+                    </span>
+                    <div class="clear">
+                    </div>
+                    <div id="Dl1" class="activity-list">
+                        <div id="recent-activity" class="activity-list">
+                            <div>
+                                <div data-ag-grid="providerGrid" class="ag-blue" style="color: #000; height: 300px;"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!------>
+                <div class="buttonConttrol" style="text-align: center;">
+                </div>
+                <!------>
+            </div>
+            <!------#############################################-left member list end #####################################################---------------->
+        </div>
+
+        <div class="primary-column span-24" style="width: 600px;">
+
+            <div id="dashboard-panels">
+                <div class="relative-box ">
+                    <div class="dynamic-panels ui-sortable" style="">
+                        <div id="Cashflow" class=" clearfix">
+                            <div class="gridUpperDiv">
+                                <span class="fltlt" style="display: none">
+                                    <input type="button" id="lnkArchive" class="button small gray narrow pill-left" value="Archive" />
+                                    <input type="button" id="lnkDelete" class="button small gray narrow pill-right" value="Delete" />
+                                </span>
+                                <div class="fltrt rightIcon">
+                                    <input type="button" id="btnNewMember" class="button medium save green  pdng10"
+                                           value="New Member" />
+
+                                    <asp:ImageButton id="btnPrint" ImageUrl="~/Content/Theme1/images/search_icon.png" />
+                                    <a title="Print" href="javascript:void(null);" onclick="javascript:toggleDiv('.divPrint');">
+                                        <img src="../../Content/Theme1/images/Printer_Blue.png" />
+                                    </a>
+                                    <div id="Div3" style="display: none" class="divPrint">
+                                        <asp:UpdatePanel id="UpdatePanel1">
+                                            <ContentTemplate>
+                                                <h4 class="fltlft">
+                                                    Print
+                                                </h4>
+                                                <span class="close fltrt" onclick="javascript:toggleDiv('.divPrint');"></span>
+                                                <div class="clear">
+                                                </div>
+                                                <input type="button" id="Button1" Width="125px" value="Print Resume"
+                                                       class="buttonGreen small" Style="display: none;" />
+                                                <div class="clear">
+                                                    &nbsp;
+                                                </div>
+                                                <input type="button" id="Button2" Width="125px" value="Print Board Packet" class="buttonGreen small" />
+                                                <div class="clear">
+                                                    &nbsp;
+                                                </div>
+                                                <input type="button" id="Button3" Width="125px" value="Email Pocket Card" placeholder="joe@email.com"
+                                                       class="buttonGreen small" Style="display: none;" />
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
+                                    </div>
+                                    <a title="comment" href="javasript:void(null);" onclick="showDiv('.popComment');">
+                                        <img src="../../Content/Theme1/images/comment_icon.png" />
+                                    </a>
+                                    <a title="Document Upload" style="margin-left: 0px;" href="#">
+                                        <img src="../../Content/Theme1/images/Document_Upload.png" />
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 class="" style="font-size: 16px; font-weight: bold; padding: 10px 13px;">
+                                    School Details {{page.Pagename }}
+                                    <span class="fltrt" ng-bind="page.Pagename"></span>
+                                </h4>
+                            </div>
+
+                            <div id="divButtonList" class="tabBtnBorder">
+                                
+                                <input type="button" id="btnGeneral" value="School Info" data-ng-class="{'tab_activeBtn': Pagename == 'SchoolInfo' }" class="tabBtn" ng-click="TabChangeClick('SchoolInfo')" />
+                                <input type="button" id="btnPersonal" value="Eligibility" data-ng-class="{'tab_activeBtn': Pagename == 'Eligibility' }" class="tabBtn" ng-click="TabChangeClick('Eligibility')" />
+                                <input type="button" id="btnAddress" value="About" class="tabBtn" ng-click="TabChangeClick('About')" />
+                                <input type="button" id="btnStaff" value="Staff" class="tabBtn" ng-click="TabChangeClick('Staff')" />
+
+                                <input type="button" id="btnEmployment" value="School Xref" class="tabBtn" ng-click="TabChangeClick('SchoolXref')" />
+                                <input type="button" id="btnApplicationData" value="Staff Xref" class="tabBtn" ng-click="TabChangeClick('StaffXref')" />
+                                <input type="button" id="btnCertificate" value="Transcript" class="tabBtn" ng-click="TabChangeClick('Transcript')" />
+                                <input type="button" id="btnPSD" value="Enrollment Agreement" class="tabBtn" ng-click="TabChangeClick('EnrollmenAgreement')" />
+
+                                <input type="button" id="btnComplaint" value="Complaint" class="tabBtn" ng-click="TabChangeClick('Complaint')" />
+
+                                <input type="button" id="btnDOJFBI" value="Course Catalog" class="tabBtn" ng-click="TabChangeClick('CourseCatalog')" />
+                                <input type="button" id="btnDeficiency" value="Curriculum" class="tabBtn" ng-click="TabChangeClick('Curriculum')" />
+
+                                <input type="button" id="btnFinance" value="Fees" class="tabBtn" ng-click="TabChangeClick('Fees')" />
+                                <input type="button" id="btnNotes" value="Notes" class="tabBtn" ng-click="TabChangeClick('Notes')" />
+                                <input type="button" id="btnInvestigateNotes" value="Investigative Notes" class="tabBtn" ng-click="TabChangeClick('InvestigativeNotes')" />
+                                <input type="button" id="btnMiscDocument" value="Documents" class="tabBtn" ng-click="TabChangeClick('Documents')" />
+
+                            </div>
+
+                            <div class="demo">
+                                <div>
+                                    <h4 class="" style="font-size: 16px; font-weight: bold; padding: 10px 13px;">
+                                        <span class="fltrt">
+                                            <asp:ImageButton id="imgbtnOpenDetail" ToolTip="Hide"
+                                                             ImageUrl="~/Content/Theme1/Expandables/minus.png" />
+                                        </span>
+                                    </h4>
+                                </div>
+                                <div style="padding-top: 5px;">
+                                    <div class="statusrow" id="statusbar">
+                                        <div class="colorbox">
+                                            <div class="status" style="width: 65px;">
+                                                Status  :
+                                            </div>
+                                            <div class="statuscontent" style="width: 225px;">
+                                                <asp:DropDownList id="ddlAppStatus" Style="width: 160px;">
+                                                </asp:DropDownList>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+
+                                <div class="IndividuaDetail">
+                                    <div class="divindv">
+                                        <div class="brandytest">
+                                            <table class="IndividualTbl">
+                                                <tr>
+                                                    <td colspan="2"><b>School Details</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="Individualwidth1">
+                                                        <label class="hed">
+                                                            Name :
+                                                        </label>
+                                                    </td>
+                                                    <td>
+
+                                                        <asp:Literal id="ltrIndividual1"></asp:Literal>
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 135px;">
+                                                        School Approval Date :
+                                                    </td>
+                                                    <td>
+                                                        01/01/2016
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        id # :
+                                                    </td>
+                                                    <td>
+                                                        PSD1
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        Mailing Address :
+                                                    </td>
+                                                    <td>
+                                                        <asp:Literal id="ltraddress"></asp:Literal>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        Primary Phone :
+                                                    </td>
+                                                    <td>
+                                                        <asp:Literal id="ltrPhone"></asp:Literal>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        Email Address :
+                                                    </td>
+                                                    <td>
+                                                        School@inlumon.com
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <hr />
+                                            <table class="IndividualTbl" style="display: none;">
+                                                <tr>
+                                                    <td><b>Certification Details</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        Massage Therapy Pending Certification<span class="indfnt">
+                                                            <label>
+                                                                10/01/2013
+                                                            </label>
+                                                            &nbsp;-
+                                                            <label>
+                                                                9/30/2014
+                                                            </label>
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        Massage Therapy Certificate Expired <span class="indfnt">
+                                                            <label>
+                                                                10/01/2012
+                                                            </label>
+                                                            &nbsp;-
+                                                            <label>
+                                                                9/30/2013
+                                                            </label>
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        Massage Therapy Certificate Renewed <span class="indfnt">
+                                                            <label>
+                                                                10/01/2011
+                                                            </label>
+                                                            &nbsp;-
+                                                            <label>
+                                                                9/30/2012
+                                                            </label>
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="incompletetaskDiv">
+                                            <table class="IndividualTbl">
+                                                <tr>
+                                                    <td>
+                                                        <label>
+                                                            <b>Deficiency</b>
+                                                        </label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        Photo incorrect
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        Payment amount not correct
+                                                    </td>
+                                                </tr>
+
+
+                                                <tr>
+                                                    <td>
+                                                        Livescan ATI
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+                                            <hr />
+                                            <table class="IndividualTbl">
+                                                <tr style="font-size: 12px;">
+                                                    <td colspan="2">
+                                                        <label class="hed">
+                                                            <b>Unpaid Invoice</b>
+                                                        </label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="UnpaidInwdth1">
+                                                        <label class="lblp">
+                                                            Late Fee
+                                                        </label>
+                                                    </td>
+                                                    <td class="UnpaidInwdth2">
+                                                        <label class="lblp">
+                                                            $250.00
+                                                        </label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="lblp">
+                                                            Certification Fee
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <label class="lblp">
+                                                            $150.00
+                                                        </label>
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="UnpaidInvoice">
+                                        <img style="width: 211px; margin: 0px auto;" src="../../Content/Theme1/images/indiviudal-sample.jpg" />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div>
+                                <div id="error_validation" class="address-box posFixed" style="display: none; color: red; margin-top: 0px; border-radius: 5px;"></div>
+                            </div>
+                            <div id="divPanelList" style="border: 1px solid rgb(222, 222, 222); margin-top: 10px;">
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+@*<script type="text/javascript">
+    window.onload = function () {
+        //showDivSlide('.userHide');
+
+    };
+    function toggleDiv(e) {
+        $(e).toggle();
+        $('span.close').click(function () {
+            $(e).toggle();
+        });
+    }
+
+    $(function () {
+        //Navigation
+        $('.nav-mainlinks li').each(function () {
+            $(this).removeClass('active');
+        });
+        $('#liESD').addClass('active');
+
+        //Masking
+        $('.phone_us').mask('(000) 000-0000');
+        $('.ssn').mask('999-99-9999');
+    });
+
+    function RemoveElement(e) {
+        $(e).remove();
+    }
+
+    function ShowChildMessage(msg, type) {
+        $('#MsgDivUploadAll').html(BuildValidationMessage(msg, type)); HideLoader();
+    } function ShowChildMessageDiv(element, msg, type) {
+        $(element).html(BuildValidationMessage(msg, type)); HideLoader();
+    }
+    function UploadImage(input) {
+        var ext = input.files[0].name.split('.').pop().toLowerCase();
+        if ($.inArray(ext, ['bmp', 'png', 'jpg', 'jpeg', 'gif']) == -1) {
+            alert('Please upload only BMP, JPG, GIF or PNG photos.');
+        }
+        else {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#IndvidualimgProfile').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+
+            sendProfilePic(input.files[0]);
+        }
+    }
+
+
+    function sendProfilePic(file) {
+        ShowLoader();
+        $.ajax({
+            type: 'post',
+            url: '../../Ajax_Handler/IndividualProfileImage.ashx?saveFile=true&name=' + file.name + '&IndividualId=' + $('#hidIndividualId').val() + '&Documenttype=0&DocumentTypeName=Profile',
+            data: file,
+            async: true,
+            success: function () {
+                $('#IndvidualimgProfile').attr('src', $('#hidPermanentUrl').val() + "&v=2.333" + file.name); HideLoader();
+            },
+            xhrFields: {
+
+            },
+            processData: false,
+            contentType: false// file.type
+        });
+    }
+
+    $(function () {
+        $('#HeaderCheck').change(function () {
+
+            if ($(this).is(':checked')) {
+                $('.rowCheck').prop('checked', true);
+            }
+            else {
+                $('.rowCheck').prop('checked', false);
+            }
+
+        });
+    });
+
+</script>*@
