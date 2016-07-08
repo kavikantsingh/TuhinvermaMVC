@@ -1,7 +1,29 @@
-﻿
-@{
+﻿@{
+    Layout = "~/Areas/School/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "SchoolApplication";
 }
 
-<h2>SchoolApplication</h2>
+<div style="overflow: hidden; position: relative;">
+    <div class="header">
+        <span>
+            <h4 style="text-align: left; margin: 0px !important;">
+                <span>
+                    <a href="" id="ContentPlaceHolder1_ucCertificationApplication1_lnkBacktoDashboard">← Log off</a>
+                </span>
+            </h4>
+        </span>
+        <p style="text-align: center; vertical-align: middle; text-indent: 119px; margin-top: 10px; padding-bottom: 10px;">
+            <span class="header-span">Application for Massage School Approval</span>
+        </p>
+    </div>
+</div>
 
+<div class="clear"></div>
+
+<div class="divmain">
+
+    @Html.Partial("_SchoolApp_Tab")
+
+    @Html.Partial("_SchoolApp_Instructions")
+
+</div>

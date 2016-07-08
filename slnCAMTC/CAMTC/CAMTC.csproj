@@ -315,6 +315,7 @@
     <Content Include="Areas\Individual\Views\_ViewStart.cshtml" />
     <Content Include="Areas\School\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Agency\Views\Account\RequestAccess.cshtml" />
+    <Content Include="Areas\School\Views\SchoolApplication\TabViews\ViewStaff.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

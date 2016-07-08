@@ -52,6 +52,24 @@ namespace CAMTC
                       ));
 
             #endregion
+
+            #region School
+
+            bundles.Add(new StyleBundle("~/Content/CSSSchool").Include(
+                      "~/Content/Public/css/style.css",
+                      "~/Content/Public/css/searchPanel.css",
+                      "~/Content/Public/css/FirmCSS.css",
+                      "~/Content/Public/jquery-ui/css/start/jquery-ui-1.8.23.custom.css",
+                      "~/Content/Public/css/OnlineApplication.css",
+                      "~/Content/Public/css/screen.css",
+                      "~/Content/Public/css/skin.css",
+                      "~/Content/Public/css/Publicscreen.css",
+                      "~/Content/Public/css/Publicskin.css",
+                      "~/Content/Public/css/button.css"
+                      //,"~/Content/Public/css/LoginPage.css"                     
+                      ));
+
+            #endregion
         }
     }
 }
