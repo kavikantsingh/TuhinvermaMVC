@@ -1,0 +1,171 @@
+﻿
+@{
+    ViewBag.Title = "School";
+}
+<script type="text/javascript">
+    var key = 'abcd';
+</script>
+@*<script src="~/Content/Theme1/js/jquery-1.8.0.min.js"></script>*@
+<link href="~/Content/Theme1/jquery-ui/css/start/jquery-ui-1.8.23.custom.css" rel="stylesheet" />
+<link href="~/Content/Public/css/style.css" rel="stylesheet" />
+<script src="~/Content/Public/js/ebsoft-loader.js"></script>
+<script src="~/Content/Public/js/ebsoft-loader.js" type="text/javascript"></script>
+<script src="~/Content/AngularJS/angular.js" type="text/javascript"></script>
+<script src="~/Content/AngularJS/ag-grid.min.js"></script>
+<script src="~/Areas/BackOffice/AppJS/app.js"></script>
+
+<script src="~/Areas/BackOffice/AppJS/Controllers/MainController.js" type="text/javascript"></script>
+<script src="~/Areas/BackOffice/AppJS/Controllers/SchoolInfoController.js" type="text/javascript"></script>
+<script src="~/Areas/BackOffice/AppJS/Controllers/EligibilityController.js" type="text/javascript"></script>
+<script src="~/Areas/BackOffice/AppJS/Services/SchoolInfoServices.js" type="text/javascript"></script>
+<script src="~/Areas/BackOffice/AppJS/Services/EligibiltiyService.js" type="text/javascript"></script>
+<link href="~/Content/Public/css/NewButton.css" rel="stylesheet" type="text/css" />
+<script src="~/Content/Public/js/jquery.mask.min.js" type="text/javascript"></script>
+
+@*<script src="../../Validation/FormValidation.js" type="text/javascript"></script>*@
+<link href="~/Content/Theme1/css/Individual.css?" rel="stylesheet" type="text/css" />
+<link href="~/Content/Theme1/css/IndividualDetails.css?" rel="stylesheet" type="text/css" />
+<link href="~/Content/Theme1/css/OnlineApplication.css?" rel="stylesheet" type="text/css" />
+<link href="~/Content/Theme1/css/searchPanel.css?" rel="stylesheet" type="text/css" />
+<link href="~/Content/Theme1/css/button.css" rel="stylesheet" />
+<link href="~/Content/Theme1/css/NewButton.css" rel="stylesheet" />
+<link href="~/Content/Theme1/css/style.css" rel="stylesheet" />
+<div class="container primary-content ">
+    <div class="primary-column span-24" style="width: 600px;">
+        @*bottom content Here*@
+
+    </div>
+</div>
+
+
+<div data-ng-app="LAPP" class="container primary-content">
+
+    <div class="container primary-content ">
+        <div class="clearb">
+        </div>
+        <div class="userHide searchBoxhidden" style="display: block !important" id="pnlSearch">
+
+            <div class="container primary-content ">
+                <h3 style="float: left;">
+                    School
+                </h3>
+                <div class="clearb">
+                </div>
+                <div class="clearb" id="div1" style="display: none;">
+                    <asp:LinkButton ID="LinkButton1"></asp:LinkButton>
+                </div>
+                @*<%--search box start--%>*@
+                <div class="userHide searchBoxhidden" style="display: block !important" id="Div2">
+                    <div class="clear">
+                        <div class="close" onclick="javascript:hideDivSlide('.userHide'); showDivSlide('.searchBbutton');">
+                        </div>
+                    </div>
+                    <!------#############################################-Permit Search control start#####################################################---------------->
+                    <fieldset class="PermitSearch" style="position: relative">
+                        <legend></legend>
+                        <table class="SearchTable boardinfo" align="center" style="border-spacing: 2px; border-collapse: separate;">
+                            <tbody>
+                                <tr>
+                                    <td align="right" style="width: 51px;">
+                                        <label>
+                                            School :
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <input type="text" id="txtEstablishment" Style="width: 178px !important;" class="inputTextbox OnlyAlphabet" MaxLength="10" />
+                                    </td>
+                                    <td align="right" style="width: 112px;">
+                                        <label>
+                                            School ID :
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <input type="text" id="txtEstablishmentId" Style="width: 190px !important;" class="inputTextbox" MaxLength="50" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">
+                                        <table style="margin-top: -12px; border-spacing: 2px; border-collapse: separate;">
+                                            <tr>
+                                                <td align="right" style="vertical-align: middle; width: 48px;">
+                                                    <label style="margin-top: 9px;">
+                                                        Street :
+                                                    </label>
+                                                </td>
+                                                <td colspan="5">
+                                                    <input type="text" id="txtAddress1" Style="margin-top: 9px; width: 499px" class="calWidth us_street" MaxLength="500" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right">
+                                                    <label>
+                                                        City :
+                                                    </label>
+                                                </td>
+                                                <td style="width: 151px;">
+                                                    <input type="text" id="txtCity" class="calWidth us_street OnlyAlphabet" Width="124px" MaxLength="500" />
+                                                </td>
+                                                <td align="right" style="width: 52px;">
+                                                    <label>
+                                                        State :
+                                                    </label>
+                                                </td>
+                                                <td style="width: 106px;">
+                                                    <select data-ng-model="ProviderInformationDetails.SchoolAddressState" name="SchoolAddressState" class="form-control" data-ng-options="item.StateCode as item.Name for item in StateList">
+                                                        <option value="">- Select country -</option>
+                                                    </select>
+
+                                                </td>
+                                                <td align="right" style="width: 47px;">
+                                                    <label>
+                                                        Zip :
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="txtZip" class="tooltip zip_us calWidth" placeholder="xxxxx-xxxx or xxxxx" Width="98px"
+                                                           title="Enter valid Zip eg: XXXXX-XXXX or XXXXX" MaxLength="500" />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div style="width: 90%; margin: 0 auto;">
+                            <span class="fltrt">
+                                <input type="button" id="btnSearch" class="buttonGreen small" value="Search" />
+
+                                <input type="button" id="btnSearchCancel" class="secondary small" value="Cancel" />
+                            </span>
+                        </div>
+                    </fieldset>
+                    <!------#############################################-Permit Search control End#####################################################---------------->
+                </div>
+                @*<%--search box end--%>*@
+
+                <div class="clearb">
+                </div>
+                <div class="main" style="position: relative">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container primary-content ">
+
+        @Html.Partial("~/Areas/BackOffice/Views/Home/PartialView/ProviderMaster.cshtml");
+
+    </div>
+    <div class="container primary-content">
+        <div class="span-180 span-13 home-sidebar append-1">
+        </div>
+        <div class="primary-column span-24" style="width: 600px;">
+            @Html.Partial("~/Areas/BackOffice/Views/Home/PartialView/SchoolInfo.cshtml");
+            @Html.Partial("~/Areas/BackOffice/Views/Home/PartialView/Eligibility.cshtml");
+
+        </div>
+    </div>
+</div>
