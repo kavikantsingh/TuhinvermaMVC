@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @*@Styles.Render("~/Content/CSSLogin")*@
+    @*<link href="~/Content/Public/css/bootstrap.min.css" rel="stylesheet" />*@
+    <link href="~/Content/Public/css/style.css" rel="stylesheet" />
+    <link href="~/Content/Public/css/skin.css" rel="stylesheet" />
+    <link href="~/Content/Public/css/screen.css" rel="stylesheet" />
+    <link href="~/Content/Public/css/Publicscreen.css" rel="stylesheet" />
+    <link href="~/Content/Public/css/Publicskin.css" rel="stylesheet" />
+    @*@Scripts.Render("~/bundles/JQLogin")*@
+
+    <!--[if lt IE 9]>
+            <link rel="stylesheet" href="../../App_Themes/Login/css/sky-forms-ie8.css">
+        <![endif]-->
+    <!--[if lt IE 10]>
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+            <script src="../../App_Themes/Login/js/jquery.placeholder.min.js"></script>
+        <![endif]-->
+    <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+            <script src="../../App_Themes/Login/js/sky-forms-ie8.js"></script>
+        <![endif]-->
+    <!--[if lte IE 7]>
+      <div id="mask1" style="display:block">
+        </div>
+        <div class="noscriptmsg" style="text-align:center">
+            You are using older version of browser which is not supporting!
+        </div>
+    <![endif]-->
+    <noscript>
+        <div id="mask1" style="display: block">
+        </div>
+    </noscript>
+    <style>
+        #mask1 {
+            background: #000;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+            z-index: 99990;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+            filter: alpha(opacity=30);
+        }
+
+        .loader2 {
+            position: fixed;
+            width: 100px;
+            height: 40px;
+            background: transparent;
+            z-index: 99999;
+            top: 45%;
+            left: 45%;
+            color: rgb(28, 112, 179);
+            border-radius: 8px;
+            overflow: hidden;
+            padding: 10px 10px;
+            background: #fff;
+            text-align: center;
+            font-size: 11px;
+            cursor: wait;
+            border: 1px solid rgb(189, 189, 189);
+        }
+
+        .mainpage {
+            width: 1040px;
+            margin: 0 auto;
+            min-width: 940px;
+            height: 100%;
+        }
+    </style>
+    @RenderSection("styles", required: false)
+</head>
+<body class="home blog">
+    <div id="header">
+        <div class="inner">
+
+            <div id="logo_text" style="position: relative !important; text-align: center; top: 24px;">
+                <a href="#">
+                    <div class="box-logo">
+                    </div>
+                    <span id="site_name">California Massage Therapy Council</span>
+                </a>
+            </div>
+            <div id="top_area">
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="mainpage relative-box peel-shadows">
+        <div class="dashboard-panel clearfix">
+
+
+            <div class="get-started-content pdng5">
+                @RenderBody()
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="page_bottom"></div>
+    <div id="footer">
+        <div id="footer_shadow">
+        </div>
+        <div id="footer_bottom">
+            <div class="inner">
+                <div id="copyright">
+                    <center>
+                        Copyright © 2016 | <a href="javascript:void()" target="_blank">California Massage Therapy Council</a> | All Rights Reserved
+                    </center>
+                </div>
+                <div id="footer_right_area">
+                </div>
+                <div class="clearboth">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+    @RenderSection("scripts", required: false)
+
+
+</body>
+</html>
+

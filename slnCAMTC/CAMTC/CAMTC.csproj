@@ -127,6 +127,7 @@
     <Compile Include="Areas\BackOffice\Controllers\AccountController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\HomeController.cs" />
     <Compile Include="Areas\Individual\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Individual\Controllers\CertificationController.cs" />
     <Compile Include="Areas\Individual\Controllers\HomeController.cs" />
     <Compile Include="Areas\Individual\IndividualAreaRegistration.cs" />
     <Compile Include="Areas\School\Controllers\AccountController.cs" />
@@ -143,6 +144,12 @@
     <Compile Include="Utility\UserSession.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Individual\CertApplication.css">
+      <DependentUpon>CertApplication.less</DependentUpon>
+    </Content>
+    <Content Include="Content\Individual\CertApplication.min.css">
+      <DependentUpon>CertApplication.css</DependentUpon>
+    </Content>
     <Content Include="Content\Login\css\BeatPicker.min.css" />
     <Content Include="Content\Login\css\font-awesome.css" />
     <Content Include="Content\Login\css\font-awesome.min.css" />
@@ -316,7 +323,29 @@
     <Content Include="Areas\School\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Agency\Views\Account\RequestAccess.cshtml" />
     <Content Include="Areas\School\Views\SchoolApplication\TabViews\ViewStaff.cshtml" />
+    <Content Include="Areas\Individual\Views\Certification\Application.cshtml" />
+    <Content Include="Areas\Individual\Views\Certification\_LeftPanelPartial.cshtml" />
+    <Content Include="Areas\Individual\Views\Certification\_PanelChecklistPartial.cshtml" />
+    <Content Include="Areas\Individual\Views\Certification\_PanelInstructionPartial.cshtml" />
+    <Content Include="Areas\Individual\Views\Certification\_PanelPaymentPartial.cshtml" />
+    <Content Include="Areas\Individual\Views\Certification\_PanelSection1Partial.cshtml" />
+    <Content Include="Areas\Individual\Views\Certification\_PanelSection2Partial.cshtml" />
+    <Content Include="Areas\Individual\Views\Certification\_PanelSection3Partial.cshtml" />
+    <Content Include="Areas\Individual\Views\Certification\_PanelSection4Partial.cshtml" />
+    <Content Include="Areas\Individual\Views\Certification\_PanelSection5Partial.cshtml" />
+    <Content Include="Areas\Individual\Views\Certification\_PanelSection6Partial.cshtml" />
+    <Content Include="Areas\Individual\Views\Certification\_PanelSection7Partial.cshtml" />
+    <Content Include="Areas\Individual\Views\Certification\_RightPanelPartial.cshtml" />
+    <Content Include="Areas\Individual\Views\Shared\_LayoutBasic.cshtml" />
+    <Content Include="Scripts\CertApplication\SectionManager.coffee" />
+    <Content Include="Content\Individual\CertApplication.less" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\CertApplication\SectionManager.js" />
+    <Content Include="Scripts\CertApplication\SectionManager.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -353,7 +382,6 @@
     <Folder Include="Content\AngularJS\" />
     <Folder Include="Content\BackOffice\" />
     <Folder Include="Content\DatatableJS\" />
-    <Folder Include="Content\Individual\" />
     <Folder Include="Content\School\" />
     <Folder Include="Models\" />
   </ItemGroup>

@@ -1,0 +1,62 @@
+﻿
+@{
+    Layout = "~/Areas/Individual/Views/Shared/_LayoutBasic.cshtml";
+    ViewBag.Title = "Application";
+}
+@section styles{
+<link href="~/Content/Public/css/button.css" rel="stylesheet" />
+<link href="~/Content/Public/css/NewButton.css" rel="stylesheet" />
+<link href="~/Content/Public/css/OnlineApplication.css" rel="stylesheet" />
+<link href="~/Content/Public/css/FirmCSS.css" rel="stylesheet" />
+
+
+<link href="~/Content/Individual/CertApplication.min.css" rel="stylesheet" />
+
+}
+<div style="position: relative; min-height: 500px; height: 100%">
+    <div class="header">
+        <span>
+            <h4 style="text-align: left; margin: 0px !important;">
+                <span>
+                    <a ID="lnkBacktoDashboard" href="/">← Back to Home</a>
+                </span>
+            </h4>
+        </span>
+        <p style="text-align: center; vertical-align: middle; text-indent: 119px; margin-top: 10px; padding-bottom: 10px;">
+            <span class="header-span">California Massage Therapy Council</span>
+            <span style="display: block; font-size: 16px;">Application for Certification</span> <span style="display: block; font-size: 15px;"><i>Ver. 2015</i></span>
+        </p>
+    </div>
+
+    <div class="gvDivUpr">
+        <div id="ContentPlaceHolder1_ucCertificationApplication1_divVerifiy">
+            
+                <div class="divmain">
+                    @{Html.RenderPartial("_LeftPanelPartial"); }
+                    @{Html.RenderPartial("_RightPanelPartial"); }
+
+                </div>
+            
+        </div>
+    </div>
+                    @*<div class="container">
+
+                            <div class="row">
+
+                                <div class="col-xs-3" style="background-color:blue;"></div>
+
+
+                                <div class="col-xs-9" style="background-color:blue;"></div>
+                            </div>
+                        </div>*@
+                </div>
+
+
+
+
+                @section scripts{
+                    <script src="~/Scripts/bootstrap.js"></script>
+                    <script src="~/Scripts/respond.js"></script>
+                    <script src="~/Scripts/CertApplication/SectionManager.js"></script>
+                    <script src="~/Content/Public/js/ebsoft-loader.js"></script>
+                       }

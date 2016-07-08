@@ -1,0 +1,730 @@
+﻿<div id="ContentPlaceHolder1_ucCertificationApplication1_pnlSection4">
+
+    <div id="ContentPlaceHolder1_ucCertificationApplication1_upSection4">
+
+        <div id="ContentPlaceHolder1_ucCertificationApplication1_pnlApprovedSection4">
+
+            <div>
+                <div class="sectionDiv">
+                    <span>Education</span>
+                </div>
+                <fieldset class="flsNewApplReqForm flsNewApplReqForm4">
+                    <table class="tblApplReqForm5">
+                        <tbody>
+                            <tr>
+                                <td colspan="2" style="line-height: 20px;">
+                                    <b style="color: red;">
+                                        All submitted education is subject to review, even from approved schools. Not all programs/classes from approved schools are accepted for purposes of CAMTC certification.
+                                    </b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 20px;">
+                                    <b>16.</b>
+                                </td>
+                                <td style="line-height: 20px;">
+                                    <b>&nbsp;Please add all education you have received from CAMTC Approved Massage Therapy Schools.</b>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <div id="ContentPlaceHolder1_ucCertificationApplication1_divAddPanelEducation2">
+                        <table class=" tblApplReqForm5 wthtop20" style="margin: 0 auto;">
+                            <tbody>
+                                <tr>
+                                    <td class="txtalgnrgt">
+                                        <label class="input-label required">
+                                            Name of Massage Therapy School :
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <select name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$ddlSchool" id="ContentPlaceHolder1_ucCertificationApplication1_ddlSchool" style="width: 182px;" autocomplete="off">
+                                            <option selected="selected" value="-1">Select</option>
+                                            <option value="Approved School">Approved School</option>
+
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="txtalgnrgt">
+                                        <label class="input-label required">
+                                            Date Started Program :
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtEducationStartDate" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_txtEducationStartDate" class="inputTextbox" autocomplete="off">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="txtalgnrgt">
+                                        <label class="input-label required">
+                                            Date Completed Program (or expected Graduation Date) :
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtEducationEndDate" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_txtEducationEndDate" class="inputTextbox" autocomplete="off">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="txtalgnrgt">
+                                        <label class="input-label required">
+                                            Total number of documented hours of education completed at this school :
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtEducationHRS" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_txtEducationHRS" class="inputTextbox" autocomplete="off">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <label class="input-label">
+                                            If you did not graduate, please type in your own brief explanation for non-graduation.
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <label class="input-label">
+                                            My Own Explanation :
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <textarea name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtExplainNoneGraduate" rows="2" cols="20" id="ContentPlaceHolder1_ucCertificationApplication1_txtExplainNoneGraduate" class="inputTextbox" style="width:600px;line-height: 20px;" autocomplete="off"></textarea>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
+                            <span class="fltrt">
+                                <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$btnEducation2Save" value="Save" id="ContentPlaceHolder1_ucCertificationApplication1_btnEducation2Save" class="buttonGreen medium">
+                                <a id="ContentPlaceHolder1_ucCertificationApplication1_lnkEducation2Cancel" class="secondary medium bottom buttonalignment" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$ucCertificationApplication1$lnkEducation2Cancel','')">Cancel</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div id="ContentPlaceHolder1_ucCertificationApplication1_divEducationt2" class="divLicenseInfon divaddnew">
+                        <span style="float: right; margin-right: 10px;" class="AfterApproved">
+                            <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$btnEducation2AddNew" value="Add" id="ContentPlaceHolder1_ucCertificationApplication1_btnEducation2AddNew" class="buttonGreen small">
+                        </span>
+                    </div>
+
+                    <div class="divLicenseInfo">
+                        <div>
+                            <table class="index  grid" cellspacing="0" cellpadding="5" id="gvEducation2" style="color:#333333;width:100%;border-collapse:collapse;">
+                                <tbody>
+                                    <tr>
+                                        <th scope="col">Name of School</th>
+                                        <th scope="col">Start Date</th>
+                                        <th scope="col">Total HRS</th>
+                                        <th scope="col">Explanation</th>
+                                        <th class="aligncenter" scope="col">Action</th>
+                                    </tr>
+                                    <tr class="RowInEditMode">
+                                        <td colspan="5">
+                                            <div id="MassageTrainingandEducationUp2">
+
+                                                <div>
+                                                    <table class="grid-heading">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td style="width: 160px;">
+                                                                    <span id="lblDateStart">01/02/2012</span>
+                                                                </td>
+                                                                <td style="width: 204px;">
+                                                                    <span id="lblDateComplete">02/04/2014</span>
+                                                                </td>
+                                                                <td style="width: 100px;">
+                                                                    <span id="lblTotalHRS">201</span>
+                                                                </td>
+                                                                <td>
+                                                                    <span>
+                                                                        <input type="image" id="imgbtnNotepad" disabled="disabled" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." class="aspNetDisabled" src="~/Content/Public/images/notepad.png" style="width: 20px;">
+                                                                    </span>
+                                                                </td>
+                                                                <td align="center" valign="middle" style="width: 100px;"></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="divGridEdit">
+                                                    <p class="addNewDiv">
+                                                        <span>Education</span>
+                                                    </p>
+                                                    <table class=" tblApplReqForm5 wthtop20" style="margin: 0 auto;">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="txtalgnrgt">
+                                                                    <label class="input-label required">
+                                                                        Name of Massage Therapy School :
+                                                                    </label>
+                                                                </td>
+                                                                <td>
+                                                                    <select name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation2$ctl02$ddlSchoolEdit" id="ddlSchoolEdit" style="width: 182px;" autocomplete="off">
+                                                                        <option value="-1">Select</option>
+                                                                        <option selected="selected" value="1">SCHOOL OF ACUPUNTURE</option>
+
+                                                                    </select>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="txtalgnrgt">
+                                                                    <label class="input-label required">
+                                                                        Date Started Program :
+                                                                    </label>
+                                                                </td>
+                                                                <td>
+                                                                    <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation2$ctl02$txtEducationStartDateEdit" type="text" value="01/02/2012" id="txtEducationStartDateEdit" class="inputTextbox calender hasDatepicker" placeholder="MM/DD/YYYY" autocomplete="off" maxlength="10">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="txtalgnrgt">
+                                                                    <label class="input-label required">
+                                                                        Date Completed Program (Graduation Date) :
+                                                                    </label>
+                                                                </td>
+                                                                <td>
+                                                                    <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation2$ctl02$txtEducationEndDateEdit" type="text" value="02/04/2014" id="txtEducationEndDateEdit" class="inputTextbox calender hasDatepicker" placeholder="MM/DD/YYYY" autocomplete="off" maxlength="10">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="txtalgnrgt">
+                                                                    <label class="input-label required">
+                                                                        Total number of documented hours of education completed at this school :
+                                                                    </label>
+                                                                </td>
+                                                                <td>
+                                                                    <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation2$ctl02$txtEducationHRSEdit" type="text" value="201" id="txtEducationHRSEdit" class="inputTextbox" autocomplete="off">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2">
+                                                                    <label class="input-label">
+                                                                        If you did not graduate, please type in your own brief explanation for non-graduation.
+                                                                    </label>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2">
+                                                                    <label class="input-label">
+                                                                        My Own Explanation :
+                                                                    </label>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2">
+                                                                    <textarea name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation2$ctl02$txtExplainNoneGraduateEdit" rows="2" cols="20" id="txtExplainNoneGraduateEdit" class="inputTextbox" style="width:580px;line-height: 20px;" autocomplete="off">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <div class="clear">
+                                                    </div>
+                                                    <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
+                                                        <span class="fltrt">
+                                                            <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation2$ctl02$btnEducation2Update" value="Update" id="btnEducation2Update" class="buttonGreen medium">
+                                                            <a id="lnkEducation2CancelUpdate" class="secondary medium bottom buttonalignment" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation2$ctl02$lnkEducation2CancelUpdate','')">Cancel</a>
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="background-color:White;">
+                                        <td>
+                                            <span id="lblMassageSchoolName">NATIONAL HOLISTIC INSTITUTE</span>
+                                        </td>
+                                        <td>
+                                            <span id="lblDateStart">08/01/2014</span>
+                                        </td>
+                                        <td>
+                                            <span id="lblTotalHRS">302</span>
+                                        </td>
+                                        <td>
+                                            <span>
+                                                <input type="image" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation2$ctl03$imgbtnNotepad" id="imgbtnNotepad" disabled="disabled" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." class="aspNetDisabled" src="~/Content/Public/images/notepad.png" style="width:20px;">
+                                            </span>
+                                        </td>
+                                        <td align="center" valign="middle" style="width:60px;">
+                                            <span class="fltrt AfterApproved">
+                                                <input type="image" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation2$ctl03$imgbtnEducation2Edit" id="imgbtnEducation2Edit" title="Edit" class="imgDelete" rowindex="1" src="~/Content/Public/images/edit.png">
+                                                <input type="image" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation2$ctl03$imgBtnEducation2Delete" id="imgBtnEducation2Delete" title="Delete" class="imgDelete" src="~/Content/Public/images/delete.png" onclick="javascript:return confirm('Are you sure you want to delete?');">
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="ContentPlaceHolder1_ucCertificationApplication1_Upapprovedschools1">
+
+                        <div>
+                            <table style="width: 100%;" class="tblApplReqForm5">
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 20px;">
+                                            <b>17.</b>
+                                        </td>
+                                        <td style="line-height: 20px;">
+                                            <b>&nbsp;If your school is not on the list of CAMTC approved schools above, it may have an application pending with CAMTC.  Please add all education you have received from each of the schools listed here on the pending application list.</b>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div id="ContentPlaceHolder1_ucCertificationApplication1_divAddPanelapprovedschools1">
+
+                            <table class=" tblApplReqForm5 wthtop20" style="margin: 0 auto;">
+                                <tbody>
+                                    <tr>
+                                        <td class="txtalgnrgt">
+                                            <label class="input-label ">
+                                                Name of Massage Therapy School :
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <select name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$ddlSchool17" id="ContentPlaceHolder1_ucCertificationApplication1_ddlSchool17" style="width: 182px;" autocomplete="off">
+                                                <option selected="selected" value="-1">Select</option>
+                                                <option value="ABC Massage School">ABC Massage School</option>
+                                                <option value="Test Massage School">Test Massage School</option>
+
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="txtalgnrgt">
+                                            <label class="input-label ">
+                                                Date Started Program :
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtDateStartedProgram" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_txtDateStartedProgram" class="inputTextbox calender hasDatepicker" placeholder="MM/DD/YYYY" autocomplete="off" maxlength="10">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="txtalgnrgt">
+                                            <label class="input-label ">
+                                                Date Completed Program (Graduation Date) :
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtDateCompletedProgram" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_txtDateCompletedProgram" class="inputTextbox calender hasDatepicker" placeholder="MM/DD/YYYY" autocomplete="off" maxlength="10">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="txtalgnrgt">
+                                            <label class="input-label ">
+                                                Total number of documented hours of education completed at this school :
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtTotalhours" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_txtTotalhours" class="inputTextbox" autocomplete="off">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <label class="input-label">
+                                                If you did not graduate, please type in your own brief explanation for non-graduation.
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <label class="input-label">
+                                                My Own Explanation :
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <textarea name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtMyOwnExplanation" rows="2" cols="20" id="ContentPlaceHolder1_ucCertificationApplication1_txtMyOwnExplanation" class="inputTextbox" style="width:600px;line-height: 20px;" autocomplete="off"></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="line-height: 20px;">
+                                            <b>Please note, if any of your hours required for certification are from a school on the pending application list, your application will be held until a decision is made to approve or deny the school’s application for school approval.  If the school is approved, then the hold will be lifted and your application will be processed in accordance with standard procedures.  If the school is denied, you will be notified and provided a one year grace period to receive sufficient education from approved schools to meet certification requirements, and report that education to CAMTC. </b>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
+                                <span class="fltrt">
+                                    <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$btnapprovedschools1Save" value="Save" id="ContentPlaceHolder1_ucCertificationApplication1_btnapprovedschools1Save" class="buttonGreen medium">
+                                    <a id="ContentPlaceHolder1_ucCertificationApplication1_lnkapprovedschools1Cancel" class="secondary medium bottom buttonalignment" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$ucCertificationApplication1$lnkapprovedschools1Cancel','')">Cancel</a>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="ContentPlaceHolder1_ucCertificationApplication1_MassageTrainingandEducationUp">
+
+                        <div>
+                            <table style="width: 100%;" class="tblApplReqForm5">
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 20px;">
+                                            <b>18.</b>
+                                        </td>
+                                        <td style="line-height: 20px;">
+                                            <b>&nbsp;If you received education from schools not listed in Questions 16 or 17 above (for example, a school outside California), please add those schools here.</b>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div id="ContentPlaceHolder1_ucCertificationApplication1_divAddPanelEducation1">
+
+                            <table class="tblApplReqForm5">
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td colspan="3">
+                                            <label class="input-label required">
+                                                Full name of Massage Therapy School you attended :
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 0px !important;"></td>
+                                        <td colspan="3" style="padding: 0px !important;">
+                                            <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtEdu1SchoolName" type="text" maxlength="150" id="ContentPlaceHolder1_ucCertificationApplication1_txtEdu1SchoolName" class="tooltip OnlyAlphabet inputTextbox calWidth" title="Only A-Z characters are allowed." style="width:482px;" autocomplete="off">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="txtalgnrgt" style="width: 145px;">
+                                            <label class="input-label required">
+                                                Country :
+                                            </label>
+                                        </td>
+                                        <td colspan="3">
+                                            <select name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$ddlEduCountryName" id="ContentPlaceHolder1_ucCertificationApplication1_ddlEduCountryName" class="inputTextbox" autocomplete="off">
+                                                <option selected="selected" value="US">USA</option>
+
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            <table style="margin-top: -7px;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="vertical-align: middle; width: 145px;" class="txtalgnrgt">
+                                                            <label class="input-label required">
+                                                                Street :
+                                                            </label>
+                                                        </td>
+                                                        <td colspan="5">
+                                                            <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtEdu1Street" type="text" maxlength="500" id="ContentPlaceHolder1_ucCertificationApplication1_txtEdu1Street" class="calWidth us_street" style="width:482px;" autocomplete="off">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td colspan="5">
+                                                            <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtEdu1Street2" type="text" maxlength="500" id="ContentPlaceHolder1_ucCertificationApplication1_txtEdu1Street2" class="calWidth us_street" style="width:482px;" autocomplete="off">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="txtalgnrgt">
+                                                            <label class="input-label required">
+                                                                City :
+                                                            </label>
+                                                        </td>
+                                                        <td style="width: 151px;">
+                                                            <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtEdu1City" type="text" maxlength="500" id="ContentPlaceHolder1_ucCertificationApplication1_txtEdu1City" class="tooltip calWidth" style="width:124px;" autocomplete="off">
+                                                        </td>
+                                                        <td class="txtalgnrgt" style="width: 52px;">
+                                                            <label class="input-label required">
+                                                                State :
+                                                            </label>
+                                                        </td>
+                                                        <td style="width: 106px;">
+                                                            <select name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$ddlEdu1State" id="ContentPlaceHolder1_ucCertificationApplication1_ddlEdu1State" class="inputTextbox" style="width:98px;" autocomplete="off">
+                                                                <option value="-1">Select</option>
+                                                                <option value="-1">------ STATES OF USA --------</option>
+                                                                <option value="AK">ALASKA</option>
+                                                                <option value="AL">ALABAMA</option>
+                                                                <option value="AR">ARKANSAS</option>
+                                                                <option value="AZ">ARIZONA</option>
+                                                                <option selected="selected" value="CA">CALIFORNIA</option>
+                                                                <option value="CO">COLORADO</option>
+                                                                <option value="CT">CONNECTICUT</option>
+                                                                <option value="DC">DISTRICT OF COLUMBIA</option>
+                                                                <option value="DE">DELAWARE</option>
+                                                                <option value="FL">FLORIDA</option>
+                                                                <option value="GA">GEORGIA</option>
+                                                                <option value="HI">HAWAII</option>
+                                                                <option value="IA">IOWA</option>
+                                                                <option value="ID">IDAHO</option>
+                                                                <option value="IL">ILLINOIS</option>
+                                                                <option value="IN">INDIANA</option>
+                                                                <option value="KS">KANSAS</option>
+                                                                <option value="KY">KENTUCKY</option>
+                                                                <option value="LA">LOUISIANA</option>
+                                                                <option value="MA">MASSACHUSETTS</option>
+                                                                <option value="MD">MARYLAND</option>
+                                                                <option value="ME">MAINE</option>
+                                                                <option value="MI">MICHIGAN</option>
+                                                                <option value="MN">MINNESOTA</option>
+                                                                <option value="MO">MISSOURI</option>
+                                                                <option value="MS">MISSISSIPPI</option>
+                                                                <option value="MT">MONTANA</option>
+                                                                <option value="NE">NEBRASKA</option>
+                                                                <option value="NC">NORTH CAROLINA</option>
+                                                                <option value="ND">NORTH DAKOTA</option>
+                                                                <option value="NH">NEW HAMPSHIRE</option>
+                                                                <option value="NJ">NEW JERSEY</option>
+                                                                <option value="NM">NEW MEXICO</option>
+                                                                <option value="NY">NEW YORK</option>
+                                                                <option value="NV">NEVADA</option>
+                                                                <option value="OH">OHIO</option>
+                                                                <option value="OK">OKLAHOMA</option>
+                                                                <option value="OR">OREGON</option>
+                                                                <option value="PA">PENNSYLVANIA</option>
+                                                                <option value="RI">RHODE ISLAND</option>
+                                                                <option value="SC">SOUTH CAROLINA</option>
+                                                                <option value="SD">SOUTH DAKOTA</option>
+                                                                <option value="TN">TENNESSEE</option>
+                                                                <option value="TX">TEXAS</option>
+                                                                <option value="UT">UTAH</option>
+                                                                <option value="VA">VIRGINIA</option>
+                                                                <option value="VT">VERMONT</option>
+                                                                <option value="WA">WASHINGTON</option>
+                                                                <option value="WI">WISCONSIN</option>
+                                                                <option value="WV">WEST VIRGINIA</option>
+                                                                <option value="WY">WYOMING</option>
+                                                                <option value="-1">------ STATES OF CANADA -------</option>
+                                                                <option value="AB">Alberta</option>
+                                                                <option value="BC">British Columbia </option>
+                                                                <option value="MB">Manitoba </option>
+                                                                <option value="NB">New Brunswick </option>
+                                                                <option value="NL">Newfoundland and Labrador </option>
+                                                                <option value="NT">Northwest Territories </option>
+                                                                <option value="NS">Nova Scotia </option>
+                                                                <option value="NU">Nunavut </option>
+                                                                <option value="ON">Ontario </option>
+                                                                <option value="PE">Prince Edward Island </option>
+                                                                <option value="QC">Quebec </option>
+                                                                <option value="SK">Saskatchewan </option>
+                                                                <option value="YT">Yukon </option>
+                                                                <option value="00">------- Other States -------</option>
+
+                                                            </select>
+                                                        </td>
+                                                        <td class="txtalgnrgt" style="width: 47px;">
+                                                            <label class="input-label required">
+                                                                Zip :
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtEdu1Zip" type="text" maxlength="10" id="ContentPlaceHolder1_ucCertificationApplication1_txtEdu1Zip" class="zip_us" placeholder="xxxxx-xxxx or xxxxx" style="width:127px;" autocomplete="off">
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="txtalgnrgt">
+                                            <label class="input-label required">
+                                                School Phone :
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtEdu1SchoolPhone" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_txtEdu1SchoolPhone" class="inputTextbox calWidth Phone_us" autocomplete="off">
+                                        </td>
+                                        <td class="txtalgnrgt" style="width: 132px;">
+                                            <label class="input-label">
+                                                School Email :
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtEdu1SchoolEmail" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_txtEdu1SchoolEmail" class="inputTextbox calWidth" autocomplete="off">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="txtalgnrgt">
+                                            <label class="input-label required">
+                                                School Website :
+                                            </label>
+                                        </td>
+                                        <td colspan="3">
+                                            <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtEdu1SchoolWebsite" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_txtEdu1SchoolWebsite" class="inputTextbox calWidth" autocomplete="off">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
+                                <span class="fltrt">
+                                    <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$btnEducation1Save" value="Save" id="ContentPlaceHolder1_ucCertificationApplication1_btnEducation1Save" class="buttonGreen medium">
+                                    <a id="ContentPlaceHolder1_ucCertificationApplication1_lnkEducation1Cancel" class="secondary medium bottom buttonalignment" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$ucCertificationApplication1$lnkEducation1Cancel','')">Cancel</a>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="divLicenseInfo">
+                        <div>
+                            <table class="index  grid" cellspacing="0" cellpadding="5" id="gvEducation1" style="color:#333333;width:100%;border-collapse:collapse;">
+                                <tbody>
+                                    <tr>
+                                        <th scope="col">Name of School</th>
+                                        <th scope="col">School Phone</th>
+                                        <th scope="col">City</th>
+                                        <th scope="col">State</th>
+                                        <th class="aligncenter" scope="col">Zip</th>
+                                        <th class="aligncenter" scope="col">Action</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span id="lblBusinessName4">NATIONAL HOLISTIC INSTITUTE</span>
+                                        </td>
+                                        <td>
+                                            <span id="lblBusinessPhone4">(530) 542-0604</span>
+                                        </td>
+                                        <td>
+                                            <span id="lblCity4">EMERYVILLE</span>
+                                        </td>
+                                        <td class="aligncenter">
+                                            <span id="lblState4">CA</span>
+                                        </td>
+                                        <td class="aligncenter">
+                                            <span id="lblZip4">96151</span>
+                                        </td>
+                                        <td align="center" valign="middle" style="width:60px;">
+                                            <span class="fltrt AfterApproved">
+                                                <input type="image" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation1$ctl02$imgbtnEducation1Edit" id="imgbtnEducation1Edit" title="Edit" class="imgDelete" rowindex="0" src="~/Content/Public/images/edit.png">
+                                                <input type="image" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation1$ctl02$imgBtnEducation1Delete" id="imgBtnEducation1Delete" title="Delete" class="imgDelete" src="~/Content/Public/images/delete.png" onclick="javascript:return confirm('Are you sure you want to delete?');">
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr style="background-color:White;">
+                                        <td>
+                                            <span id="lblBusinessName4">DAVIDS ACADEMY OF BEAUTY</span>
+                                        </td>
+                                        <td>
+                                            <span id="lblBusinessPhone4">(775) 742-0000</span>
+                                        </td>
+                                        <td>
+                                            <span id="lblCity4">TEMPLE CITY</span>
+                                        </td>
+                                        <td class="aligncenter">
+                                            <span id="lblState4">CA</span>
+                                        </td>
+                                        <td class="aligncenter">
+                                            <span id="lblZip4">89450</span>
+                                        </td>
+                                        <td align="center" valign="middle" style="width:60px;">
+                                            <span class="fltrt AfterApproved">
+                                                <input type="image" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation1$ctl03$imgbtnEducation1Edit" id="imgbtnEducation1Edit" title="Edit" class="imgDelete" rowindex="1" src="~/Content/Public/images/edit.png">
+                                                <input type="image" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation1$ctl03$imgBtnEducation1Delete" id="imgBtnEducation1Delete" title="Delete" class="imgDelete" src="~/Content/Public/images/delete.png" onclick="javascript:return confirm('Are you sure you want to delete?');">
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <table style="width: 100%;" class="tblApplReqForm5">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <b>19.</b>
+                                        </td>
+                                        <td style="line-height: 20px;">
+                                            <b>&nbsp;Please indicate if you have passed any of the following CAMTC approved exams. If so, you are required to have the examining board send proof directly to CAMTC. You must have passed a CAMTC approved exam in order to be certified.</b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table id="ContentPlaceHolder1_ucCertificationApplication1_tbpAddNewQ22" style="width: 100%; margin-top: 10px;">
+                                <tbody>
+                                    <tr>
+                                        <td class="txtalgnrgt">
+                                            <label class="input-label require">Exam Name : </label>
+                                        </td>
+                                        <td>
+                                            <select name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$ddlExamList" id="ContentPlaceHolder1_ucCertificationApplication1_ddlExamList" class="inputTextbox " autocomplete="off">
+                                                <option selected="selected" value="Select">Select</option>
+                                                <option value="MBLEX">MBLEX</option>
+                                                <option value="BCTMB">BCTMB</option>
+                                                <option value="BCETMB">BCETMB</option>
+                                                <option value="NCETM taken on before February 1, 2015">NCETM taken on before February 1, 2015</option>
+                                                <option value="NCETMB taken on or before February 1, 2015">NCETMB taken on or before February 1, 2015</option>
+
+                                            </select>
+                                        </td>
+                                        <td class="txtalgnrgt">
+                                            <label class="input-label require">Pass Date : </label>
+                                        </td>
+                                        <td>
+                                            <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtPassedDate" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_txtPassedDate" class="inputTextbox  calender hasDatepicker" autocomplete="off" maxlength="10">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            <div class="toolBar">
+                                                <span class="fltrt">
+                                                    <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$btnSave" value="Save" id="ContentPlaceHolder1_ucCertificationApplication1_btnSave" class="buttonGreen medium">
+                                                    <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$Button16" value="Cancel" id="ContentPlaceHolder1_ucCertificationApplication1_Button16" class="secondary medium">
+
+
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+
+                            <div class="divLicenseInfo" style="margin-top: 10px">
+                                <div>
+                                    <table class="index  grid" cellspacing="0" cellpadding="5" id="gvExams" style="color:#333333;width:100%;border-collapse:collapse;">
+                                        <tbody>
+                                            <tr>
+                                                <th scope="col">Exam Name</th>
+                                                <th scope="col">Pass Date</th>
+                                                <th class="aligncenter" scope="col">Action</th>
+                                            </tr>
+                                            <tr>
+                                                <td>MBLEX</td>
+                                                <td>09/16/2014</td>
+                                                <td align="center" valign="middle" style="width:60px;">
+                                                    <span class="fltrt AfterApproved">
+                                                        <input type="image" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvExams$ctl02$imgbtnEducation1Edit" id="imgbtnEducation1Edit" title="Edit" class="imgDelete" rowindex="0" src="~/Content/Public/images/edit.png">
+                                                        <input type="image" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvExams$ctl02$imgBtnEducation1Delete" id="imgBtnEducation1Delete" title="Delete" class="imgDelete" src="~/Content/Public/images/delete.png" onclick="javascript:return confirm('Are you sure you want to delete?');">
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </fieldset>
+                <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
+                    <span class="fltrt">
+                        <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$btnNextMassageTraning" value="Save &amp; Next" id="ContentPlaceHolder1_ucCertificationApplication1_btnNextMassageTraning" class="buttonGreen medium">
+                        <a id="ContentPlaceHolder1_ucCertificationApplication1_lnkCancelNextMassageTraning" class="secondary medium bottom buttonalignment" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$ucCertificationApplication1$lnkCancelNextMassageTraning','')">Cancel</a>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

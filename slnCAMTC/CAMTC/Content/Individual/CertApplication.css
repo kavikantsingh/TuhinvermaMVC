@@ -1,0 +1,212 @@
+﻿.gvDivUpr {
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  orphans: auto;
+  text-align: left;
+  text-indent: 0px;
+  text-transform: none;
+  white-space: normal;
+  widows: auto;
+  word-spacing: 0px;
+  -webkit-text-stroke-width: 0px;
+  background-color: #ffffff;
+}
+@-moz-document url-prefix() {
+  .expinputfirefox {
+    color: red;
+  }
+  .mozillapdgnone tr th {
+    height: 0px !important;
+  }
+}
+.histdiv_space {
+  line-height: 20px;
+  margin-top: 15px;
+  margin-bottom: 8px;
+  float: left;
+}
+.listbox {
+  width: 215px;
+  height: 170px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.mrglft4 label {
+  margin-left: 4px;
+}
+.grid-header-other-name .index tr th {
+  height: 25px !important;
+  padding: 0px 0px 0px 3px !important;
+  line-height: 25px;
+}
+.histdiv {
+  border: 1px solid #dddddd;
+  padding: 10px 0px !important;
+  margin-top: 10px;
+}
+.history .tblApplReqForm5 .grid td {
+  padding: 0px 0px 0px 4px !important;
+}
+.history .tblApplReqForm5 td {
+  padding: 2px 0px 0px 0px !important;
+}
+.history .tblApplReqForm5 td:last-child {
+  vertical-align: middle !important;
+}
+table#ContentPlaceHolder1_ucCertificationApplication1_rblGenderEdit td {
+  padding: 0px !important;
+}
+.mrgnto16 {
+  margin-top: -14px;
+}
+.address-box {
+  position: relative;
+  margin-top: -115px;
+  min-height: 100px;
+  box-shadow: 0px 2px 6px 3px #CECECE;
+  background-color: #effff7;
+  z-index: 100;
+  padding: 0px 0px 13px 0px;
+  width: 98%;
+  border-radius: 4px;
+}
+.address-box table tr td {
+  padding: 0px !important;
+}
+.workinfo {
+  width: 135px;
+}
+.mrgnnon {
+  margin-left: 0px !important;
+}
+.index tbody th a {
+  color: #F9F9F9 !important;
+}
+select.inputTextbox {
+  width: 180px;
+}
+.btnBCGPass {
+  width: 80px;
+}
+.grid-heading {
+  width: 100%;
+  background-color: #ddd;
+  font-weight: bold;
+}
+.btnBCGFail:hover {
+  background-image: none;
+  border: 1px solid #9D0707 !important;
+  background-position: left 194px !important;
+  -webkit-box-shadow: 0 2px 1px -1px #E57D49 inset;
+  box-shadow: 0 2px 1px -1px #ED6640 inset;
+  -webkit-box-shadow: 0 2px 1px -1px #F8D19E inset;
+  -moz-box-shadow: 0 2px 1px -1px #b3d72d inset;
+  background: #ed2525;
+}
+.btnBCGFail {
+  -webkit-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+  -moz-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -o-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-image: url('../images/sprites.v1351539994.png');
+  color: #fff !important;
+  text-decoration: none !important;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 0;
+  margin: 0 2px;
+  outline: 0;
+  border: 1px solid #B50000 !important;
+  background-position: left 194px !important;
+  -webkit-box-shadow: 0 2px 1px -1px #E57D49 inset;
+  box-shadow: 0 2px 1px -1px #ED6640 inset;
+  -webkit-box-shadow: 0 2px 1px -1px #F8D19E inset;
+  -moz-box-shadow: 0 2px 1px -1px #b3d72d inset;
+  box-shadow: 0 2px 1px -1px #FAC59B inset;
+  padding: 0px 10px !important;
+  width: 80px;
+  background: #ed3737;
+  height: 30px;
+  font: bold 14px Arial, Helvetica, sans-serif;
+}
+.actived {
+  background: linear-gradient(#b6e026 0%, #abdc28 100%) #ddefb4 !important;
+}
+.tblApplReqForm5 td {
+  padding: 10px 0px 0px !important;
+}
+.clear.edit-mode-div {
+  border-bottom: 1px solid #ddd;
+}
+.add-mode-div tr {
+  border: 0px !important;
+}
+.add-mode-div td {
+  border: 0px !important;
+}
+.tdwidth1 {
+  width: 220px !important;
+}
+.tdwidth2 {
+  width: 199px !important;
+}
+.pragraph {
+  padding-bottom: 10px;
+}
+.hed {
+  font-weight: bold;
+}
+.divquestion {
+  margin: 3px auto;
+  width: 100%;
+  border: 1px solid #eeeeee;
+}
+.index tr {
+  border-top: 0px !important;
+}
+table#gvOtherNameEdit tbody tr td {
+  border: 1px solid #ddd;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+table#gvOtherNameEdit tbody .RowInEditMode td {
+  border: 0px !important;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+table#gvOtherNameEdit tbody tr td:First-Child {
+  padding-left: 5px !important;
+}
+.tdwidth1 {
+  width: 227px !important;
+}
+.vlignbtm {
+  vertical-align: bottom;
+}
+#rblQuestionEdit1 tr td {
+  padding: 0px !important;
+}
+#rblQuestionEdit2 tr td {
+  padding: 0px !important;
+}
+#rblQuestionEdit3 tr td {
+  padding: 0px !important;
+}
+.pdgnone td {
+  padding: 0px 0px 0px !important;
+}

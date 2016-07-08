@@ -1,0 +1,684 @@
+﻿<div id="pnlSection2">
+
+    <div id="upCSDEdit">
+
+        <div id="pnlApprovedSection2">
+
+            <div>
+                <div class="sectionDiv">
+                    <span>Identification</span>
+                </div>
+                <fieldset class="flsNewApplReqForm flsNewApplReqForm2">
+
+                    <br>
+                    <p>
+                        <b>10. Driver's License or Government Issued Identification Information (required) :</b>
+                    </p>
+                    <p>
+                        Please provide all of the following information exactly as it appears on your Driver's
+                        License or Government issued identification. This information is necessary to verify the Live Scan
+                        Fingerprint Information received from the Department of Justice ("DOJ") after you
+                        submit your fingerprints through a Live Scan Service Provider (see Application Instructions).
+                        If you do not have a Driver's License or Government issued identification, please skip this question
+                        and continue to question (11.).
+                    </p>
+                    <div style="border: 1px solid #ddd; padding-bottom: 15px;">
+                        <p style="padding-left: 10px;">
+                            <b>If Driver's License from a state other than California ?</b>&nbsp;&nbsp;
+                            <input id="chkIfDLOtherState" type="checkbox" name="chkIfDLOtherState">
+                        </p>
+                        <table class="tblApplReqForm5" style="width: 100%;">
+                            <tbody>
+                                <tr>
+                                    <td align="right">
+                                        <label class="input-label">
+                                            License State :
+                                        </label>
+                                    </td>
+                                    <td colspan="3">
+                                        <select name="ddlIfDLOtherState" id="ddlIfDLOtherState" class="inputTextbox" autocomplete="off">
+                                            <option value="-1">Select</option>
+                                            <option value="-1">------ STATES OF USA --------</option>
+                                            <option value="AK">ALASKA</option>
+                                            <option value="AL">ALABAMA</option>
+                                            <option value="AR">ARKANSAS</option>
+                                            <option value="AZ">ARIZONA</option>
+                                            <option selected="selected" value="CA">CALIFORNIA</option>
+                                            <option value="CO">COLORADO</option>
+                                            <option value="CT">CONNECTICUT</option>
+                                            <option value="DC">DISTRICT OF COLUMBIA</option>
+                                            <option value="DE">DELAWARE</option>
+                                            <option value="FL">FLORIDA</option>
+                                            <option value="GA">GEORGIA</option>
+                                            <option value="HI">HAWAII</option>
+                                            <option value="IA">IOWA</option>
+                                            <option value="ID">IDAHO</option>
+                                            <option value="IL">ILLINOIS</option>
+                                            <option value="IN">INDIANA</option>
+                                            <option value="KS">KANSAS</option>
+                                            <option value="KY">KENTUCKY</option>
+                                            <option value="LA">LOUISIANA</option>
+                                            <option value="MA">MASSACHUSETTS</option>
+                                            <option value="MD">MARYLAND</option>
+                                            <option value="ME">MAINE</option>
+                                            <option value="MI">MICHIGAN</option>
+                                            <option value="MN">MINNESOTA</option>
+                                            <option value="MO">MISSOURI</option>
+                                            <option value="MS">MISSISSIPPI</option>
+                                            <option value="MT">MONTANA</option>
+                                            <option value="NE">NEBRASKA</option>
+                                            <option value="NC">NORTH CAROLINA</option>
+                                            <option value="ND">NORTH DAKOTA</option>
+                                            <option value="NH">NEW HAMPSHIRE</option>
+                                            <option value="NJ">NEW JERSEY</option>
+                                            <option value="NM">NEW MEXICO</option>
+                                            <option value="NY">NEW YORK</option>
+                                            <option value="NV">NEVADA</option>
+                                            <option value="OH">OHIO</option>
+                                            <option value="OK">OKLAHOMA</option>
+                                            <option value="OR">OREGON</option>
+                                            <option value="PA">PENNSYLVANIA</option>
+                                            <option value="RI">RHODE ISLAND</option>
+                                            <option value="SC">SOUTH CAROLINA</option>
+                                            <option value="SD">SOUTH DAKOTA</option>
+                                            <option value="TN">TENNESSEE</option>
+                                            <option value="TX">TEXAS</option>
+                                            <option value="UT">UTAH</option>
+                                            <option value="VA">VIRGINIA</option>
+                                            <option value="VT">VERMONT</option>
+                                            <option value="WA">WASHINGTON</option>
+                                            <option value="WI">WISCONSIN</option>
+                                            <option value="WV">WEST VIRGINIA</option>
+                                            <option value="WY">WYOMING</option>
+
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="txtalgnrgt" style="width: 167px;">
+                                        <label class="input-label">
+                                            Driver's License Number :
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <input name="txtDriverLicenseNo" type="text" maxlength="150" id="txtDriverLicenseNo" class="inputTextbox NewAppPersonalTxtbx" autocomplete="off">
+                                    </td>
+                                    <td class="txtalgnrgt" style="width: 124px;">
+                                        <label class="input-label ">
+                                            Expiration Date :
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <input name="txtExpirationDate" type="text" maxlength="10" id="txtExpirationDate" class="inputTextbox NewAppPersonalTxtbx calender hasDatepicker" placeholder="MM/DD/YYYY" autocomplete="off">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4" style="padding: 0px 10px !important;">
+                                        <hr>
+                                    </td>
+                                </tr>
+                                <tr id="trAddDocument">
+                                    <td colspan="4">
+                                        <table style="width: 100%;">
+                                            <tbody>
+                                                <tr class="pdgnone">
+                                                    <td class="txtalgnrgt" style="width: 167px;">
+                                                        <label class="input-label ">
+                                                            Document Type :
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <select name="ddlDocumentType" id="ddlDocumentType" style="width: 182px;" autocomplete="off">
+                                                            <option selected="selected" value="-1">Select</option>
+                                                            <option value="1">Driver License</option>
+                                                            <option value="2">Passport</option>
+
+                                                        </select>
+                                                    </td>
+                                                    <td class="txtalgnrgt" style="width: 124px;">
+                                                        <label class="input-label ">
+                                                            Document Number :
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <input name="txtDocumentNo" type="text" maxlength="150" id="txtDocumentNo" class="inputTextbox NewAppPersonalTxtbx" autocomplete="off">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="txtalgnrgt">
+                                                        <label class="input-label ">
+                                                            Document :
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="file" name="fuDocument" id="fuDocument">
+                                                    </td>
+                                                    <td class="txtalgnrgt">
+                                                        <label class="input-label ">
+                                                            Date Expiration :
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <input name="txtDateExp" type="text" maxlength="10" id="txtDateExp" class="inputTextbox calender hasDatepicker" placeholder="MM/DD/YYYY" autocomplete="off">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3"></td>
+                                                    <td align="center">
+                                                        <span class="fltlft">
+                                                            <input type="submit" name="btnAddDoc" value="Save" id="btnAddDoc" class="buttonGreen small">
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <div id="pnlGridDocument" class="grid-header">
+                            <table class="index brdr grid mozillapdgnone" id="Table3" style="color: #333333; width: 90%; margin: 10px auto; border-collapse: collapse;" cellpadding="5" cellspacing="0">
+                                <tbody>
+                                    <tr>
+                                        <th scope="col">
+                                            Document Type
+                                        </th>
+                                        <th scope="col">
+                                            Document Number
+                                        </th>
+                                        <th scope="col">
+                                            Date Expiration
+                                        </th>
+                                        <th scope="col">
+                                            Link
+                                        </th>
+                                        <th>Action</th>
+                                    </tr>
+
+                                    <tr id="trGridRowDoc" class="bordrbtm gridrow">
+                                        <td class="InEditModetd">
+                                            Driver's License
+                                        </td>
+                                        <td>
+                                            1321
+                                        </td>
+                                        <td>
+                                            01/01/2015
+                                        </td>
+                                        <td>
+                                            <a class="hyperlink" target="_blank" href="../../App_Themes/Public/images/Chrysanthemum.jpg">Document Details </a>
+                                        </td>
+                                        <td>
+                                            <span>
+                                                <input type="image" name="imgbtnDocumentEdit" id="imgbtnDocumentEdit" title="Edit" src="../../App_Themes/Theme1/images/edit.png">
+                                                <input id="Image6" title="Delete" class="imgDelete" src="../../App_Themes/Public/images/delete.png" type="image">
+                                            </span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <table class="tblApplReqForm5">
+                        <tbody>
+                            <tr>
+                                <td class="txtalgnrgt" style="width: 170px;">
+                                    <label class="input-label required">
+                                        Date of Birth :
+                                    </label>
+                                </td>
+                                <td>
+                                    <input name="txtDOB" type="text" maxlength="10" id="txtDOB" class="inputTextbox NewAppPersonalTxtbx calenderDOB hasDatepicker" placeholder="MM/DD/YYYY" autocomplete="off">
+                                </td>
+                                <td class="txtalgnrgt" style="width: 133px;">
+                                    <label class="input-label required">
+                                        Gender :
+                                    </label>
+                                </td>
+                                <td>
+                                    <table id="rblGenderEdit">
+                                        <tbody>
+                                            <tr>
+                                                <td><input id="rblGenderEdit_0" type="radio" name="rblGenderEdit" value="M"><label for="rblGenderEdit_0">Male</label></td>
+                                                <td><input id="rblGenderEdit_1" type="radio" name="rblGenderEdit" value="F"><label for="rblGenderEdit_1">Female</label></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="txtalgnrgt">
+                                    <label class="input-label">
+                                        Height :
+                                    </label>
+                                </td>
+                                <td>
+                                    <input name="txtHeight" type="text" maxlength="150" id="txtHeight" class="inputTextbox NewAppPersonalTxtbx" autocomplete="off">
+                                </td>
+                                <td class="txtalgnrgt">
+                                    <label class="input-label">
+                                        Weight :
+                                    </label>
+                                </td>
+                                <td>
+                                    <input name="txtWeight" type="text" maxlength="150" id="txtWeight" class="inputTextbox NewAppPersonalTxtbx" autocomplete="off">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="txtalgnrgt">
+                                    <label class="input-label">
+                                        Eye Color :
+                                    </label>
+                                </td>
+                                <td>
+                                    <input name="txtEyeColor" type="text" maxlength="150" id="txtEyeColor" class="inputTextbox NewAppPersonalTxtbx  " autocomplete="off">
+                                </td>
+                                <td class="txtalgnrgt">
+                                    <label class="input-label">
+                                        Hair Color :
+                                    </label>
+                                </td>
+                                <td>
+                                    <input name="txtHaieColor" type="text" maxlength="150" id="txtHaieColor" class="inputTextbox NewAppPersonalTxtbx  " autocomplete="off">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="tblApplReqForm5">
+                        <tbody>
+                            <tr>
+                                <td style="vertical-align: middle; width: 170px;" class="txtalgnrgt">
+                                    <label class="input-label required">
+                                        Street :
+                                    </label>
+                                </td>
+                                <td colspan="5">
+                                    <input name="txtStreetIdenti" type="text" maxlength="500" id="txtStreetIdenti" class="calWidth us_street" style="width:482px;" autocomplete="off">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td colspan="5">
+                                    <input name="txtStreet2Identi" type="text" maxlength="500" id="txtStreet2Identi" class="calWidth us_street" style="width:482px;" autocomplete="off">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="txtalgnrgt">
+                                    <label class="input-label required">
+                                        City :
+                                    </label>
+                                </td>
+                                <td style="width: 151px;">
+                                    <input name="txtCityIdenti" type="text" maxlength="500" id="txtCityIdenti" class="tooltip OnlyAlphabet calWidth" title="Only A-Z characters are allowed." style="width:133px;" autocomplete="off">
+                                </td>
+                                <td class="txtalgnrgt" style="width: 52px;">
+                                    <label class="input-label required">
+                                        State :
+                                    </label>
+                                </td>
+                                <td style="width: 106px;">
+                                    <select name="ddlStateIdenti" id="ddlStateIdenti" class="inputTextbox" title="Select your state" style="width:98px;" autocomplete="off">
+                                        <option value="-1">Select</option>
+                                        <option value="-1">------ STATES OF USA --------</option>
+                                        <option value="AK">ALASKA</option>
+                                        <option value="AL">ALABAMA</option>
+                                        <option value="AR">ARKANSAS</option>
+                                        <option value="AZ">ARIZONA</option>
+                                        <option selected="selected" value="CA">CALIFORNIA</option>
+                                        <option value="CO">COLORADO</option>
+                                        <option value="CT">CONNECTICUT</option>
+                                        <option value="DC">DISTRICT OF COLUMBIA</option>
+                                        <option value="DE">DELAWARE</option>
+                                        <option value="FL">FLORIDA</option>
+                                        <option value="GA">GEORGIA</option>
+                                        <option value="HI">HAWAII</option>
+                                        <option value="IA">IOWA</option>
+                                        <option value="ID">IDAHO</option>
+                                        <option value="IL">ILLINOIS</option>
+                                        <option value="IN">INDIANA</option>
+                                        <option value="KS">KANSAS</option>
+                                        <option value="KY">KENTUCKY</option>
+                                        <option value="LA">LOUISIANA</option>
+                                        <option value="MA">MASSACHUSETTS</option>
+                                        <option value="MD">MARYLAND</option>
+                                        <option value="ME">MAINE</option>
+                                        <option value="MI">MICHIGAN</option>
+                                        <option value="MN">MINNESOTA</option>
+                                        <option value="MO">MISSOURI</option>
+                                        <option value="MS">MISSISSIPPI</option>
+                                        <option value="MT">MONTANA</option>
+                                        <option value="NE">NEBRASKA</option>
+                                        <option value="NC">NORTH CAROLINA</option>
+                                        <option value="ND">NORTH DAKOTA</option>
+                                        <option value="NH">NEW HAMPSHIRE</option>
+                                        <option value="NJ">NEW JERSEY</option>
+                                        <option value="NM">NEW MEXICO</option>
+                                        <option value="NY">NEW YORK</option>
+                                        <option value="NV">NEVADA</option>
+                                        <option value="OH">OHIO</option>
+                                        <option value="OK">OKLAHOMA</option>
+                                        <option value="OR">OREGON</option>
+                                        <option value="PA">PENNSYLVANIA</option>
+                                        <option value="RI">RHODE ISLAND</option>
+                                        <option value="SC">SOUTH CAROLINA</option>
+                                        <option value="SD">SOUTH DAKOTA</option>
+                                        <option value="TN">TENNESSEE</option>
+                                        <option value="TX">TEXAS</option>
+                                        <option value="UT">UTAH</option>
+                                        <option value="VA">VIRGINIA</option>
+                                        <option value="VT">VERMONT</option>
+                                        <option value="WA">WASHINGTON</option>
+                                        <option value="WI">WISCONSIN</option>
+                                        <option value="WV">WEST VIRGINIA</option>
+                                        <option value="WY">WYOMING</option>
+                                        <option value="-1">------ STATES OF CANADA -------</option>
+                                        <option value="AB">Alberta</option>
+                                        <option value="BC">British Columbia </option>
+                                        <option value="MB">Manitoba </option>
+                                        <option value="NB">New Brunswick </option>
+                                        <option value="NL">Newfoundland and Labrador </option>
+                                        <option value="NT">Northwest Territories </option>
+                                        <option value="NS">Nova Scotia </option>
+                                        <option value="NU">Nunavut </option>
+                                        <option value="ON">Ontario </option>
+                                        <option value="PE">Prince Edward Island </option>
+                                        <option value="QC">Quebec </option>
+                                        <option value="SK">Saskatchewan </option>
+                                        <option value="YT">Yukon </option>
+                                        <option value="00">------- Other States -------</option>
+
+                                    </select>
+                                </td>
+                                <td class="txtalgnrgt" style="width: 47px;">
+                                    <label class="input-label required">
+                                        Zip :
+                                    </label>
+                                </td>
+                                <td>
+                                    <input name="txtZipIdenti" type="text" maxlength="10" id="txtZipIdenti" class="tooltip zip_us calWidth" placeholder="xxxxx-xxxx or xxxxx" title="Enter valid Zip eg: XXXXX-XXXX or XXXXX" style="width:127px;" autocomplete="off">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="tblLiveScanApp" style="width: 100%; margin-top: 10px;">
+                        <tbody>
+                            <tr>
+                                <td style="width: 20px;">
+                                    <b>11.</b>
+                                </td>
+                                <td style="padding-left: 0px; width: 153px;">
+                                    <b>Social Security Number :</b>
+                                </td>
+                                <td class="cursorpointer">
+                                    <input name="txtSSNEdit" type="text" maxlength="11" id="txtSSNEdit" class="inputTextbox NewAppPersonalTxtbx ssn" placeholder="XXX-XX-XXXX" autocomplete="off">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="tblLiveScanApp tblLiveScanApp1" width="100%">
+                        <tbody>
+                            <tr>
+                                <td style="width: 24px;">
+                                    <b>12.</b>
+                                </td>
+                                <td style="width: 545px; padding-left: 0px;">
+                                    <b>Are you a U.S. citizen?</b>
+                                </td>
+                                <td align="left" class="cursorpointer">
+                                    <table id="rblUSCitizen">
+                                        <tbody>
+                                            <tr>
+                                                <td><input id="rblUSCitizen_0" type="radio" name="rblUSCitizen" value="1"><label for="rblUSCitizen_0">Yes</label></td>
+                                                <td><input id="rblUSCitizen_1" type="radio" name="rblUSCitizen" value="0"><label for="rblUSCitizen_1">No</label></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>
+                        If not, please provide a copy of a valid I-551 permanent residency card or valid
+                        employment authorization card.
+                    </p>
+                    <table class="tblLiveScanApp tblLiveScanApp1" width="100%">
+                        <tbody>
+                            <tr>
+                                <td style="width: 24px;">
+                                    <b>13.</b>
+                                </td>
+                                <td style="width: 545px; padding-left: 0px;">
+                                    <b>
+                                        Have you ever changed your name through marriage or through the action of a court,
+                                        used another name in your massage profession, or have you ever been known by any
+                                        other name?
+                                    </b>
+                                </td>
+                                <td align="left" class="cursorpointer">
+                                    <table id="rblOtherName">
+                                        <tbody>
+                                            <tr>
+                                                <td><input id="rblOtherName_0" type="radio" name="rblOtherName" value="1"><label for="rblOtherName_0">Yes</label></td>
+                                                <td><input id="rblOtherName_1" type="radio" name="rblOtherName" value="0"><label for="rblOtherName_1">No</label></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>
+                        If you answered "Yes" to (13.), please list all of your other name(s) :
+                    </p>
+                    <fieldset class="flsParentNewApplReqForm flsParentNewApplReqForm1" style="border: 1px solid rgb(221, 221, 221) ! important; padding-bottom: 14px ! important;">
+
+                        <table class=" tblApplReqForm5 wdtmarauto">
+                            <tbody>
+                                <tr>
+                                    <td class="txtalgnrgt tdwidth1" style="width: 100px !important; padding-bottom: 10px;">
+                                        <label class="input-label">
+                                            Other Name :
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <input name="txtNameOtherEdit" type="text" maxlength="150" id="txtNameOtherEdit" class="tooltip OnlyAlphabet inputTextbox NewAppPersonalTxtbx" title="Only A-Z characters are allowed." style="width: 290px;" autocomplete="off">
+                                        <span class="AfterApproved">
+                                            <input type="submit" name="btnSaveOtname" value="Add" id="btnSaveOtname" class="buttonGreen small">
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class=" tblApplReqForm5 wdtmarauto">
+                            <tbody>
+                                <tr>
+                                    <td class="grid-header-other-name">
+                                        <div>
+
+                                        </div>
+                                        <table class="index brdr grid" border="1" cellspacing="0" cellpadding="5" id="Table4" style="width: 55%; margin-left: 100px; border: 1px solid #ddd;">
+                                            <tbody>
+                                                <tr>
+                                                    <th style="border-right: 1px solid #ddd; padding-left: 5px !important; padding-top: 0px !important;">
+                                                        Other Name
+                                                    </th>
+                                                    <th style="padding-left: 0px; text-align: center;">
+                                                        Action
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <td class="vlignbtm" style="border-right: 1px solid #ddd; padding-left: 5px !important; padding-top: 0px !important;">
+                                                        Michael Clarcke
+                                                    </td>
+                                                    <td align="center" valign="middle" style="padding-top: 0px ! important; width: 60px;">
+                                                        <span>
+                                                            <input type="image" name="ImageButton1" id="ImageButton1" title="Edit" src="../../App_Themes/Theme1/images/edit.png">
+                                                            <input type="image" id="imgBtnOTherNameDelete" title="Delete" class="imgDelete" src="../../App_Themes/Public/images/delete.png">
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+                    <div>
+                        <table class="tblApplReqForm5">
+                            <tbody>
+                                <tr>
+                                    <td colspan="4">
+                                        <b>14.&nbsp;&nbsp;Place of Birth :</b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="txtalgnrgt" style="width: 210px">
+                                        <label class="input-label required">
+                                            Country :
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <select name="ddlPOBCountry" onchange="javascript:setTimeout('__doPostBack(\'ddlPOBCountry\',\'\')', 0)" id="ddlPOBCountry" class="inputTextbox" autocomplete="off">
+                                            <option selected="selected" value="US">USA</option>
+                                            <option value="DZ">Algeria</option>
+                                            <option value="AS">American Samoa</option>
+                                            <option value="AD">Andorra</option>
+                                            <option value="AO">Angola</option>
+                                            <option value="AI">Anguilla</option>
+                                            <option value="AQ">Antarctica</option>
+                                            <option value="BS">Bahamas</option>
+                                            <option value="BH">Bahrain</option>
+                                            <option value="BD">Bangladesh</option>
+                                            <option value="BB">Barbados</option>
+                                            <option value="BY">Belarus</option>
+                                            <option value="BE">Belgium</option>
+                                            <option value="BZ">Belize</option>
+                                            <option value="BJ">Benin</option>
+                                            <option value="BM">Bermuda</option>
+                                            <option value="BT">Bhutan</option>
+                                            <option value="BO">Bolivia, Plurinational State of</option>
+                                            <option value="CV">Cape Verde</option>
+                                            <option value="KY">Cayman Islands</option>
+                                            <option value="Canada">Canada</option>
+                                            <option value="CF">Central African Republic</option>
+                                            <option value="TD">Chad</option>
+                                            <option value="CL">Chile</option>
+                                            <option value="CN">China</option>
+                                            <option value="CX">Christmas Island</option>
+                                            <option value="CC">Cocos (Keeling) Islands</option>
+                                            <option value="HK">Hong Kong</option>
+                                            <option value="HU">Hungary</option>
+                                            <option value="IS">Iceland</option>
+                                            <option value="IN">India</option>
+                                            <option value="ID">Indonesia</option>
+                                            <option value="IR">Iran, Islamic Republic of</option>
+                                            <option value="IQ">Iraq</option>
+                                            <option value="IE">Ireland</option>
+                                            <option value="IM">Isle of Man</option>
+                                            <option value="IL">Israel</option>
+                                            <option value="IT">Italy</option>
+                                            <option value="JM">Jamaica</option>
+                                            <option value="JP">Japan</option>
+                                            <option value="JE">Jersey</option>
+                                            <option value="JO">Jordan</option>
+                                            <option value="KZ">Kazakhstan</option>
+                                            <option value="other">Other</option>
+
+                                        </select>
+                                    </td>
+                                    <td class="txtalgnrgt" style="width: 210px">
+                                        <label class="input-label required">
+                                            Province or State :
+                                        </label>
+                                    </td>
+                                    <td>
+
+                                        <select name="ddlPOBStateOfUSA" id="ddlPOBStateOfUSA" class="inputTextbox" title="Select your state" autocomplete="off">
+                                            <option value="-1">Select</option>
+                                            <option value="-1">------ STATES OF USA --------</option>
+                                            <option value="AK">ALASKA</option>
+                                            <option value="AL">ALABAMA</option>
+                                            <option value="AR">ARKANSAS</option>
+                                            <option value="AZ">ARIZONA</option>
+                                            <option selected="selected" value="CA">CALIFORNIA</option>
+                                            <option value="CO">COLORADO</option>
+                                            <option value="CT">CONNECTICUT</option>
+                                            <option value="DC">DISTRICT OF COLUMBIA</option>
+                                            <option value="DE">DELAWARE</option>
+                                            <option value="FL">FLORIDA</option>
+                                            <option value="GA">GEORGIA</option>
+                                            <option value="HI">HAWAII</option>
+                                            <option value="IA">IOWA</option>
+                                            <option value="ID">IDAHO</option>
+                                            <option value="IL">ILLINOIS</option>
+                                            <option value="IN">INDIANA</option>
+                                            <option value="KS">KANSAS</option>
+                                            <option value="KY">KENTUCKY</option>
+                                            <option value="LA">LOUISIANA</option>
+                                            <option value="MA">MASSACHUSETTS</option>
+                                            <option value="MD">MARYLAND</option>
+                                            <option value="ME">MAINE</option>
+                                            <option value="MI">MICHIGAN</option>
+                                            <option value="MN">MINNESOTA</option>
+                                            <option value="MO">MISSOURI</option>
+                                            <option value="MS">MISSISSIPPI</option>
+                                            <option value="MT">MONTANA</option>
+                                            <option value="NE">NEBRASKA</option>
+                                            <option value="NC">NORTH CAROLINA</option>
+                                            <option value="ND">NORTH DAKOTA</option>
+                                            <option value="NH">NEW HAMPSHIRE</option>
+                                            <option value="NJ">NEW JERSEY</option>
+                                            <option value="NM">NEW MEXICO</option>
+                                            <option value="NY">NEW YORK</option>
+                                            <option value="NV">NEVADA</option>
+                                            <option value="OH">OHIO</option>
+                                            <option value="OK">OKLAHOMA</option>
+                                            <option value="OR">OREGON</option>
+                                            <option value="PA">PENNSYLVANIA</option>
+                                            <option value="RI">RHODE ISLAND</option>
+                                            <option value="SC">SOUTH CAROLINA</option>
+                                            <option value="SD">SOUTH DAKOTA</option>
+                                            <option value="TN">TENNESSEE</option>
+                                            <option value="TX">TEXAS</option>
+                                            <option value="UT">UTAH</option>
+                                            <option value="VA">VIRGINIA</option>
+                                            <option value="VT">VERMONT</option>
+                                            <option value="WA">WASHINGTON</option>
+                                            <option value="WI">WISCONSIN</option>
+                                            <option value="WV">WEST VIRGINIA</option>
+                                            <option value="WY">WYOMING</option>
+
+                                        </select>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="txtalgnrgt">
+                                        <label class="input-label required">
+                                            City :
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <input name="txtPOBCity" type="text" id="txtPOBCity" class="inputTextbox" autocomplete="off">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </fieldset>
+                <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
+                    <span class="fltrt">
+                        <input type="submit" name="btnChildSupp" value="Save &amp; Next" id="btnChildSupp" class="buttonGreen medium">
+                        <a id="lnkCancelCSD" class="secondary medium bottom buttonalignment" href="javascript:__doPostBack('lnkCancelCSD','')">Cancel</a>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
