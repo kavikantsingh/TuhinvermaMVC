@@ -362,9 +362,30 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="Scripts\DocumentManager\DocumentManager.coffee" />
+    <Content Include="Scripts\DocumentManager\DocumentUploader.coffee" />
+    <Content Include="Scripts\DocumentManager\Uploader.coffee" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\CertApplication\SectionManager.js" />
     <Content Include="Scripts\CertApplication\SectionManager.min.js" />
+    <Content Include="Scripts\DocumentManager\DocumentManager.js">
+      <DependentUpon>DocumentManager.coffee</DependentUpon>
+    </Content>
+    <Content Include="Scripts\DocumentManager\DocumentManager.min.js">
+      <DependentUpon>DocumentManager.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\DocumentManager\DocumentUploader.js">
+      <DependentUpon>DocumentUploader.coffee</DependentUpon>
+    </Content>
+    <Content Include="Scripts\DocumentManager\DocumentUploader.min.js">
+      <DependentUpon>DocumentUploader.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\DocumentManager\Uploader.js">
+      <DependentUpon>Uploader.coffee</DependentUpon>
+    </Content>
+    <Content Include="Scripts\DocumentManager\Uploader.min.js">
+      <DependentUpon>Uploader.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
