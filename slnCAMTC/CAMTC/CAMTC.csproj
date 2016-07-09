@@ -322,7 +322,6 @@
     <Content Include="Areas\Individual\Views\_ViewStart.cshtml" />
     <Content Include="Areas\School\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Agency\Views\Account\RequestAccess.cshtml" />
-    <Content Include="Areas\School\Views\SchoolApplication\TabViews\ViewStaff.cshtml" />
     <Content Include="Areas\Individual\Views\Certification\Application.cshtml" />
     <Content Include="Areas\Individual\Views\Certification\_LeftPanelPartial.cshtml" />
     <Content Include="Areas\Individual\Views\Certification\_PanelChecklistPartial.cshtml" />
@@ -339,6 +338,12 @@
     <Content Include="Areas\Individual\Views\Shared\_LayoutBasic.cshtml" />
     <Content Include="Scripts\CertApplication\SectionManager.coffee" />
     <Content Include="Content\Individual\CertApplication.less" />
+    <Content Include="Areas\School\Views\Home\_SchoolApp_CourseCatalog.cshtml" />
+    <Content Include="Areas\School\Views\Home\_SchoolApp_EnrollmentAgreement.cshtml" />
+    <Content Include="Areas\School\Views\Home\_SchoolApp_Instructions.cshtml" />
+    <Content Include="Areas\School\Views\Home\_SchoolApp_Tab.cshtml" />
+    <Content Include="Areas\School\Views\Home\_SchoolApp_Staff.cshtml" />
+    <Content Include="Areas\School\Views\Home\_SchoolApp_AboutTheSchool.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
