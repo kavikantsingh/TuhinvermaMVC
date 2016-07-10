@@ -4,10 +4,10 @@
         padding: 2.5px 10px;
     }
 </style>
-<div class="clear textBoxAlign" style="border: 1px solid rgb(222, 222, 222); margin-top: 10px;">
-    <div ng-controller="EligiblityController" ng-show="hasShow == 'true'">
+<div ng-controller="EligiblityController" ng-show="hasShow == 'true'" class="clear textBoxAlign" style="border: 1px solid rgb(222, 222, 222); margin-top: 10px;">
+    <div>
         <br />
-        <input type="checkbox" data-ng-model="ChkSchoolEligibility1" style="margin-left: 10px;" />
+        <input type="checkbox" ng-model="Provider.IsChecked1" style="margin-left: 10px;" />
         <span data-ng-bind="SchoolEligibility1"></span>
         <div class="divLicenseInfon divaddnew AfterApproved" id="divAddbtnSchoolInfoPrevious">
             <span style="float: right; margin-right: 32px; margin-top: 15px;">
@@ -24,34 +24,34 @@
             <table class="tblApplReqForm5 wthtop20" style="width: 100%;">
                 <tr>
                     <td class="txtalgnrgt tdwidth1">
-                        <label class="input-label required">
+                        <span class="input-label required">
                             Approval/Accrediting Agency :
-                        </label>
+                        </span>
                     </td>
-
                     <td>
-
-                        <select data-ng-model="ProviderInformationDetails.LookupId" name="SchoolAddressState" class="form-control" data-ng-options="item.LookupId as item.LookupDesc for item in Lookup">
+                        <select data-ng-model="ApprovalAgency.ApprovalAccreditingAgencyName" name="ApprovalAccreditingAgencyName" class="form-control" data-ng-options="item.LookupId as item.LookupDesc for item in Lookup">
                             <option value="">- Select -</option>
                         </select>
+                        
                     </td>
                     <td class="txtalgnrgt tdwidth2">
-                        <label class="input-label required">
+                        <span class="input-label required">
                             Agency School Code # :
-                        </label>
+                        </span>
                     </td>
                     <td>
-                        <input type="text" id="TextBox1" Width="167px" />
+                        <input type="text" data-ng-model="ApprovalAgency.AgencySchoolCode" id="TextBox1" Width="167px" />
                     </td>
                 </tr>
                 <tr>
                     <td class="txtalgnrgt">
-                        <label class="input-label required">
+                        <span class="input-label required">
                             Expiration Date :
-                        </label>
+                        </span>
                     </td>
                     <td>
-                        <input type="text" id="TextBox15" data-ng-model="SiteVisit.SiteVisitDate" class="inputTextbox calenderEligiblity" placeholder="MM/DD/YYYY" />
+                        <input type="text" data-ng-model="ApprovalAgency.ExpirationDate" class="inputTextbox calenderSiteVisit" placeholder="MM/DD/YYYY" />
+
                     </td>
                     <td></td>
                     <td></td>
@@ -60,26 +60,71 @@
                     <td colspan="6"></td>
                 </tr>
             </table>
+        </div>
+        <div class="divLicenseInfo" id="dvagency" style="margin-top: 30px;">
+
+            <p class="addNewDiv">
+                <span>Add Additional Approval Agency</span>
+            </p>
+            <table class="tblApplReqForm5 wthtop20" style="width: 100%;">
+                <tr>
+                    <td class="txtalgnrgt tdwidth1">
+                        <span class="input-label required">
+                            Approval/Accrediting Agency :
+                        </span>
+                    </td>
+                    <td>
+                        <input type="text" data-ng-model="ApprovalAgency1.ApprovalAccreditingAgencyName" id="TextBox1" Width="167px" />
+                        
+                    </td>
+                    <td class="txtalgnrgt tdwidth2">
+                        <span class="input-label required">
+                            Agency School Code # :
+                        </span>
+                    </td>
+                    <td>
+                        <input type="text" data-ng-model="ApprovalAgency1.AgencySchoolCode" id="TextBox1" Width="167px" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="txtalgnrgt">
+                        <span class="input-label required">
+                            Expiration Date :
+                        </span>
+                    </td>
+                    <td>
+                        <input type="text" data-ng-model="ApprovalAgency1.ExpirationDate" class="inputTextbox calenderSiteVisit" placeholder="MM/DD/YYYY" />
+
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="6"></td>
+                </tr>
+            </table>
+
+
             <p class="addNewDiv">
                 <span>Approval Agency Supporting Documentation</span>
             </p>
             <table class="tblApplReqForm5 wthtop20" style="width: 100%;">
                 <tr>
                     <td class="txtalgnrgt tdwidth1">
-                        <label class="input-label required">
+                        <span class="input-label required">
                             Document Name :
-                        </label>
+                        </span>
                     </td>
                     <td>
                         <input type="text" id="TextBox13" />
                     </td>
                     <td class="txtalgnrgt tdwidth2">
-                        <label class="input-label required">
+                        <span class="input-label required">
                             Document Type :
-                        </label>
+                        </span>
                     </td>
                     <td>
-                        <select data-ng-model="ProviderInformationDetails.LookupId" name="SchoolAddressState" class="form-control" data-ng-options="item.LookupId as item.LookupDesc for item in Lookup">
+                        <select data-ng-model="ProviderInformationDetails.DocumentId" name="SchoolAddressState" class="form-control">
                             <option selected="selected" value="-1">Select</option>
                             <option value="1">Approval Letter</option>
                             <option value="2">Certificate</option>
@@ -93,9 +138,9 @@
                     <td></td>
                     <td></td>
                     <td class="txtalgnrgt" style="width: 135px;">
-                        <label class="input-label">
+                        <span class="input-label">
                             Other Document Type :
-                        </label>
+                        </span>
                     </td>
                     <td>
                         <input type="text" id="TextBox14" Width="167px" />
@@ -103,9 +148,9 @@
                 </tr>
                 <tr>
                     <td class="txtalgnrgt">
-                        <label class="input-label required">
+                        <span class="input-label required">
                             Document :
-                        </label>
+                        </span>
                     </td>
                     <td>
                         <input type="file" />
@@ -119,9 +164,9 @@
 
             <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
                 <span class="fltrt">
-                    <input type="button" id="Button6" class="buttonGreen medium" ng-click="Button6()"
+                    <input type="button" id="Button6" class="buttonGreen medium" ng-click="Save_ApprovalAgency()"
                            value="Save" />
-                    <input type="button" id="LinkButton2" class="secondary medium bottom buttonalignment" value="Cancel" />
+                    <input type="button" class="secondary medium bottom buttonalignment" value="Cancel" ng-click="clearApprovalAgency()" />
                 </span>
             </div>
 
@@ -132,15 +177,15 @@
 
         <br />
         <hr />
-        <input type="checkbox" data-ng-model="ChkSchoolEligibility2" style="margin-left: 10px;" />
+        <input type="checkbox" ng-model="Provider.IsChecked2" style="margin-left: 10px;" />
         <span data-ng-bind="SchoolEligibility2"></span>
         <br />
         <hr />
-        <input type="checkbox" data-ng-model="ChkSchoolEligibility3" style="margin-left: 10px;" />
+        <input type="checkbox" ng-model="Provider.IsChecked3" style="margin-left: 10px;" />
         <span data-ng-bind="SchoolEligibility3"></span>
         <br />
         <hr />
-        <input type="checkbox" data-ng-model="ChkSchoolEligibility4" style="margin-left: 10px;" />
+        <input type="checkbox" ng-model="Provider.IsChecked4" style="margin-left: 10px;" />
         <span data-ng-bind="SchoolEligibility4"></span>
         <br />
         <hr />
@@ -165,24 +210,24 @@
                     <tbody>
                         <tr>
                             <td class="txtalgnrgt tdwidth1">
-                                <label class="input-label required">
+                                <span class="input-label required">
                                     Massage Program Name :
-                                </label>
+                                </span>
                             </td>
                             <td>
-                                <input name="MassageProgName" type="text" maxlength="15" class="inputTextbox" autocomplete="off">
+                                <input name="MassageProgName" data-ng-model="Massage.ProgramName" type="text" maxlength="15" class="inputTextbox" autocomplete="off">
 
                             </td>
                         </tr>
                         <tr>
                             <td class="txtalgnrgt tdwidth2">
-                                <label class="input-label required">
+                                <span class="input-label required">
                                     Total Number of Program Hours :
-                                </label>
+                                </span>
                             </td>
                             <td>
-                                <input name="ProgrameHours" type="text" maxlength="8" class="inputTextbox" autocomplete="off">
-                                
+                                <input name="ProgrameHours" data-ng-model="Massage.TotalNoofPgmHours" type="text" maxlength="8" class="inputTextbox" autocomplete="off">
+
                             </td>
                         </tr>
 
@@ -190,7 +235,7 @@
                 </table>
                 <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
                     <span class="fltrt">
-                        <input type="button" value="Save" data-ng-click="AddMassageProgram()" class="buttonGreen medium" />
+                        <input type="button" value="Save" data-ng-click="Save_MassgeProgram()" class="buttonGreen medium" />
 
                         <input type="button" value="Cancel" data-ng-click="clearMassageProgram()" class="secondary medium bottom buttonalignment" />
                     </span>
@@ -201,12 +246,11 @@
         </div>
         <div data-ag-grid="MassageProgramGrid" class="ag-blue" style="color: #000; width: 98%; border: 1px solid rgb(221, 221, 221) ! important; margin-left: 7px; box-shadow: none; margin-top: 23px;"></div>
     </div>
-
     <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
         <span class="fltrt">
-            <input type="button" value="Save" data-ng-click="Save_providermblex()" class="buttonGreen medium" />
 
-            <input type="button" value="Cancel" data-ng-click="clearMblex()" class="secondary medium bottom buttonalignment" />
+            <input type="button" value="Save" data-ng-click="Save_EligibilityTabInfo()" class="buttonGreen medium" />
+            <input type="button" value="Cancel" ng-click="GetEligibilityInfoByProviderId()" class="secondary medium bottom buttonalignment" />
         </span>
     </div>
 
@@ -215,7 +259,7 @@
 
 
 <script type="text/javascript">
-    $('.calenderEligiblity').datepicker({
+    $('.calenderSiteVisit').datepicker({
         inline: true,
         changeMonth: true,
         changeYear: true, maxDate: "-18Y",

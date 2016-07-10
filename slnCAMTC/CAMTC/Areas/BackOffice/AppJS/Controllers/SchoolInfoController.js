@@ -359,7 +359,6 @@
     // add/update previous address
 
 
-
     // Delete previous address
     $scope.DeletePreviousSchoolInSchoolInformation = function (ProviderNameId) {
         ShowLoader();
@@ -417,7 +416,7 @@
     //Populate Edit Previous school name
 
 
-    //Populate Edit Satelite Address
+    //Populate Edit Mblex 
     $scope.showUpdatevalueMblex = function (ProviderMBLExId, PassingRates, PassingYear, PassingHalf) {
         $scope.ProviderMBLExId = ProviderMBLExId;
 
@@ -426,7 +425,7 @@
         $scope.Mblex.PassingHalf = PassingHalf;
 
     }
-    //Populate Edit Previous school name
+    //Populate Edit Mblex
 
     $scope.SaveSchoolInformation = function () {
         ShowLoader();
@@ -537,9 +536,11 @@
 
 
     $scope.$on('handleBroadcast', function () {
+        alert(mySharedService.CurrentPage);
+
         if (mySharedService.CurrentPage == '') {
-            //mySharedService.prepForBroadcastTabClick('SchoolInfo');
-            mySharedService.prepForBroadcastTabClick('Eligibility');
+            mySharedService.prepForBroadcastTabClick('SchoolInfo');
+            //mySharedService.prepForBroadcastTabClick('Eligibility');
         }
         $scope.ProviderId = mySharedService.message;
         $scope.ProviderName = mySharedService.message1;
@@ -549,6 +550,7 @@
     });
 
     $scope.$on('handleBroadcastForTab', function () {
+        alert(mySharedService.CurrentPage);
         if (mySharedService.CurrentPage == 'SchoolInfo') {
             $scope.GetProviderdataonchange();
             $scope.hasShow = 'true';

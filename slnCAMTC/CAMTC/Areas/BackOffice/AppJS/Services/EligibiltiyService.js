@@ -1,48 +1,47 @@
 ﻿
 LAPP.factory('EligiblitiyFactory', function ($http, $q) {
 
-    var Eligiblityurl = BaseURL + '/Content';
+    var Contenturl = BaseURL + '/Content';
     var Lookupurl = BaseURL + '/Lookup';
+    var Eligiblityurl = BaseURL + '/Provider';
 
     var ProviderFactory = {
 
         LookupContentGetBYContentItemLkID: function (key, Id) {
-            return $http.get(Eligiblityurl + '/LookupContentGetBYContentItemLkID/' + key + '/?ID=' + Id);
+            return $http.get(Contenturl + '/LookupContentGetBYContentItemLkID/' + key + '/?ID=' + Id);
         },
         LookupGetBYLookupTypeID: function (key, Id) {
             return $http.get(Lookupurl + '/LookupGetBYLookupTypeID/' + key + '/?LookupTypeID=' + Id);// );
         },
-        AddPreviousAddress: function (AddressInfo, key) {
-            return $http.post(Eligiblityurl + '/SaveAddressRequestFromSchoolInformationTab/' + key, AddressInfo);//{ Key: key, objAddress: AddressInfo }
+        GetAllProviderProgram: function (key, objProviderProgram) {
+            return $http.post(Eligiblityurl + '/GetAllProviderProgram/' + key, objProviderProgram);
+        },
+        GetAllProviderApprovalAgency: function (key, AddressInfo) {
+            return $http.post(Eligiblityurl + '/GetAllProviderApprovalAgency/' + key, AddressInfo);//{ Key: key, objAddress: AddressInfo }
         },
 
-        AddPreviousSchoolInSchoolInformation: function (PreviousScName, key) {
-            return $http.post(Eligiblityurl + '/AddPreviousSchoolInSchoolInformation/' + key, PreviousScName);
-        },
-        SaveSchoolInformation: function (SchoolInfo, key) {
-            return $http.post(Eligiblityurl + '/SaveSchoolInformation/' + key, SchoolInfo);
+        Save_MassgeProgram: function (key, obj) {
+            return $http.post(Eligiblityurl + '/SaveProviderProgram/' + key, obj);
         },
 
-        Get_All_providermblex: function (key, objAprovidermblex) {
-            return $http.post(Eligiblityurl + '/GetAllProvidermblex/' + key, objAprovidermblex);
-        },
-        Save_providermblex: function (key, objAprovidermblex) {
-            return $http.post(Eligiblityurl + '/SaveProvidermblex/' + key, objAprovidermblex);
-        },
-        DeletePreviousSchoolInSchoolInformation: function (AddressInfo, key) {
-            return $http.post(Eligiblityurl + '/DeletePreviousSchoolInSchoolInformation/' + key, AddressInfo);//{ Key: key, objAddress: AddressInfo }
+        Save_ApprovalAgency: function (key, SchoolInfo) {
+            return $http.post(Eligiblityurl + '/SaveProviderApprovalAgency/' + key, SchoolInfo);
         },
 
-        DeleteaddressRequestFromSchoolInformationTab: function (PreviousScName, key) {
-            return $http.post(Eligiblityurl + '/DeleteaddressRequestFromSchoolInformationTab/' + key, PreviousScName);
+        GetAllEligibilityDetails: function (key, objAprovidermblex) {
+            return $http.post(Eligiblityurl + '/GetAllEligibilityDetails/' + key, objAprovidermblex);
         },
-        Get_All_Providersitevisittype: function (key) {
-            return $http.get(Eligiblityurl + '/Get_All_Providersitevisittype/' + key);
+        SaveProviderEntityInformation: function (key, obj) {
+            return $http.post(Eligiblityurl + '/SaveProviderEntityInformation/' + key, obj);
         },
-        //schoolInfo
+        DeleteProviderApprovalAgency: function (key,obj) {
+            return $http.post(Eligiblityurl + '/DeleteProviderApprovalAgency/' + key, obj);
+        },
 
-
-
+        DeleteProviderProgram: function ( key,obj) {
+            return $http.post(Eligiblityurl + '/DeleteProviderProgram/' + key, obj);
+        },
+        
 
     };
     return ProviderFactory;

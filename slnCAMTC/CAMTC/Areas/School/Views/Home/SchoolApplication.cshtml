@@ -3,27 +3,69 @@
     ViewBag.Title = "SchoolApplication";
 }
 
-<div style="overflow: hidden; position: relative;">
-    <div class="header">
-        <span>
+<script type="text/javascript">
+    var key = 'abcd';
+</script>
+@*<script src="~/Content/Theme1/js/jquery-1.8.0.min.js"></script>*@
+<link href="~/Content/Theme1/jquery-ui/css/start/jquery-ui-1.8.23.custom.css" rel="stylesheet" />
+<link href="~/Content/Public/css/style.css" rel="stylesheet" />
+<script src="~/Content/Public/js/ebsoft-loader.js"></script>
+<script src="~/Content/Public/js/ebsoft-loader.js" type="text/javascript"></script>
+<script src="~/Content/AngularJS/angular.js" type="text/javascript"></script>
+<script src="~/Content/AngularJS/ag-grid.min.js"></script>
+<script src="~/Areas/BackOffice/AppJS/app.js"></script>
+
+@*<script src="~/Areas/BackOffice/AppJS/Controllers/MainController.js" type="text/javascript"></script>*@
+<script src="~/Areas/School/AppJS/SchoolController.js"></script>
+<script src="~/Areas/BackOffice/AppJS/Controllers/SchoolInfoController.js" type="text/javascript"></script>
+<script src="~/Areas/BackOffice/AppJS/Controllers/EligibilityController.js" type="text/javascript"></script>
+<script src="~/Areas/BackOffice/AppJS/Services/SchoolInfoServices.js" type="text/javascript"></script>
+<script src="~/Areas/BackOffice/AppJS/Services/EligibiltiyService.js" type="text/javascript"></script>
+<link href="~/Content/Public/css/NewButton.css" rel="stylesheet" type="text/css" />
+<script src="~/Content/Public/js/jquery.mask.min.js" type="text/javascript"></script>
+
+@*<script src="../../Validation/FormValidation.js" type="text/javascript"></script>*@
+<link href="~/Content/Theme1/css/Individual.css?" rel="stylesheet" type="text/css" />
+<link href="~/Content/Theme1/css/IndividualDetails.css?" rel="stylesheet" type="text/css" />
+<link href="~/Content/Theme1/css/OnlineApplication.css?" rel="stylesheet" type="text/css" />
+<link href="~/Content/Theme1/css/searchPanel.css?" rel="stylesheet" type="text/css" />
+<link href="~/Content/Theme1/css/button.css" rel="stylesheet" />
+<link href="~/Content/Theme1/css/NewButton.css" rel="stylesheet" />
+<link href="~/Content/Theme1/css/style.css" rel="stylesheet" />
+
+
+<div data-ng-app="LAPP" ng-cloak>
+
+    <div style="overflow: hidden; position: relative;">
+        <div class="header">
+
             <h4 style="text-align: left; margin: 0px !important;">
                 <span>
                     <a href="" id="ContentPlaceHolder1_ucCertificationApplication1_lnkBacktoDashboard">← Log off</a>
                 </span>
             </h4>
-        </span>
-        <p style="text-align: center; vertical-align: middle; text-indent: 119px; margin-top: 10px; padding-bottom: 10px;">
-            <span class="header-span">Application for Massage School Approval</span>
-        </p>
+
+            <p style="text-align: center; vertical-align: middle; text-indent: 119px; margin-top: 10px; padding-bottom: 10px;">
+                <span class="header-span">Application for Massage School Approval</span>
+            </p>
+        </div>
     </div>
-</div>
 
-<div class="clear"></div>
+    <div class="clear"></div>
 
-<div class="divmain">
+    <div class="divmain">
 
-    @Html.Partial("_SchoolApp_Tab")
+        @Html.Partial("~/Areas/School/Views/Home/_SchoolApp_Tab.cshtml")
 
-    @Html.Partial("_SchoolApp_Instructions")
+        @*@Html.Partial("_SchoolApp_Instructions")*@
+        <div class="container primary-content">
+            <div class="span-180 span-13 home-sidebar append-1">
+            </div>
+            <div class="primary-column span-24" style="width: 600px;">
+                @Html.Partial("~/Areas/BackOffice/Views/Home/PartialView/SchoolInfo.cshtml");
+                @Html.Partial("~/Areas/BackOffice/Views/Home/PartialView/Eligibility.cshtml");
 
+            </div>
+        </div>
+    </div>
 </div>

@@ -24,9 +24,9 @@
                     <table class=" tblApplReqForm5 wdtmarauto">
                         <tr>
                             <td class="txtalgnrgt" style="width: 115px;">
-                                <label class="input-label required">
+                                <span class="input-label required">
                                     School Name :
-                                </label>
+                                </span>
                             </td>
                             <td colspan="6">
                                 <input type="text" style="width: 482px !important;" class="tooltip OnlyAlphabet inputTextbox capitalize-text NewAppPersonalTxtbx" data-ng-model="ProviderName" readonly="readonly" title="Only A-Z characters are allowed." />
@@ -35,9 +35,9 @@
                         </tr>
                         <tr>
                             <td class="txtalgnrgt" style="width: 115px;">
-                                <label class="input-label required">
+                                <span class="input-label required">
                                     School Telephone :
-                                </label>
+                                </span>
                             </td>
                             <td style="width: 180px;">
                                 <input type="text" id="txtSchoolTel" style="width: 170px;" class="phone_us" placeholder="(xxx) xxx-xxxx" data-ng-model="ProviderInformationDetails.SchoolTelephone"
@@ -51,7 +51,7 @@
                         </tr>
                         <tr>
                             <td class="txtalgnrgt" style="width: 130px;">
-                                <label class="input-label required">School Website :</label>
+                                <span class="input-label required">School Website :</span>
                             </td>
                             <td colspan="6">
                                 <input type="text" id="txtschoolwebsite" class="inputTextbox NewAppPersonalTxtbx" data-ng-model="ProviderInformationDetails.SchoolWebsite"
@@ -69,6 +69,23 @@
             <p>
                 <b>2.&nbsp;&nbsp;Previous School's Names (if any) :</b>
             </p>
+            <table class="tblApplReqForm5 wdtmarauto">
+                <tbody>
+                    <tr>
+                        <td class="txtalgnrgt tdwidth1" style="width: 180px !important; padding-bottom: 10px;">
+                            <span class="input-label">
+                                Previous School Name :
+                            </span>
+                        </td>
+                        <td>
+                            <input type="text" maxlength="150" class="tooltip OnlyAlphabet inputTextbox NewAppPersonalTxtbx" ng-model="PrevSchoolname" title="Only A-Z characters are allowed." style="width: 314px !important;" autocomplete="off">
+                            <span class="AfterApproved">
+                                <input type="submit" value="Add" ng-click="AddPreviousSchoolInSchoolInformation()" class="buttonGreen small">
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
             <div data-ag-grid="PrevAddrGrid" class="ag-blue" style="width: 55%; margin-left: 180px; border: 1px solid #ddd;"></div>
 
@@ -77,7 +94,7 @@
         <fieldset class="flsApplReqForm flsApplReqForm5">
             @*--start--*@
 
-            <table class=" tblApplReqForm5">
+            <table class="tblApplReqForm5">
                 <tr>
                     <td colspan="5">
                         <b>3.&nbsp;&nbsp;School Address :</b>
@@ -85,7 +102,7 @@
                 </tr>
                 <tr>
                     <td style="vertical-align: middle; width: 130px;" class="txtalgnrgt">
-                        <label class="input-label required">Street : </label>
+                        <span class="input-label required">Street : </span>
                     </td>
                     <td colspan="6">
                         <input type="text" id="TextBox3" style="width: 482px;" class="calWidth us_street" data-ng-model="ProviderInformationDetails.SchoolAddressStreet1"
@@ -101,18 +118,18 @@
                 </tr>
                 <tr>
                     <td class="txtalgnrgt">
-                        <label class="input-label required">
+                        <span class="input-label required">
                             City :
-                        </label>
+                        </span>
                     </td>
                     <td style="width: 151px;">
                         <input type="text" id="txtCityResEdit" class="tooltip OnlyAlphabet calWidth" data-ng-model="ProviderInformationDetails.SchoolAddressCity"
                                width="124px" maxlength="500" title="Only A-Z characters are allowed." />
                     </td>
                     <td class="txtalgnrgt" style="width: 52px;">
-                        <label class="input-label required">
+                        <span class="input-label required">
                             State :
-                        </label>
+                        </span>
                     </td>
                     <td style="width: 106px;">
                         <select data-ng-model="ProviderInformationDetails.SchoolAddressState" name="SchoolAddressState" class="form-control" data-ng-options="item.StateCode as item.Name for item in StateList">
@@ -121,7 +138,7 @@
 
                     </td>
                     <td class="txtalgnrgt" style="width: 47px;">
-                        <label class="input-label required">Zip :</label>
+                        <span class="input-label required">Zip :</span>
                     </td>
                     <td>
                         <input type="text" id="txtZipResEdit" placeholder="xxxxx-xxxx or xxxxx" class="tooltip zip_us calWidth" width="124px" maxlength="500" title="Enter valid Zip eg: XXXXX-XXXX or XXXXX" data-ng-model="ProviderInformationDetails.SchoolAddressZip" />
@@ -140,7 +157,7 @@
             <div id="divVerifySchoolAddressPnl" ng-show="false" class="address-box">
                 <div>
                     <span class="fltrt">
-                        <asp:ImageButton ID="imgbtnCloseVerifyAddress" ImageUrl="~/Content/Theme1/images/close-icon.png" />
+                        <input type="image" id="imgbtnCloseVerifyAddress" src="~/Content/Theme1/images/close-icon.png" />
                     </span>
                 </div>
                 <div>
@@ -165,9 +182,9 @@
                                 <table style="width: 100%">
                                     <tr>
                                         <td align="right" style="width: 110px;">
-                                            <label class="input-label">
+                                            <span class="input-label">
                                                 <b>Street :</b>
-                                            </label>
+                                            </span>
                                         </td>
                                         <td style="width: 220px;">
                                             <asp:Label ID="lblUSchoolStreet1"></asp:Label>
@@ -181,9 +198,9 @@
                                     </tr>
                                     <tr>
                                         <td align="right">
-                                            <label class="input-label">
+                                            <span class="input-label">
                                                 <b>City :</b>Previous School Name
-                                            </label>
+                                            </span>
                                         </td>
                                         <td>
                                             <asp:Label ID="lblUSchoolCity"></asp:Label>
@@ -191,9 +208,9 @@
                                     </tr>
                                     <tr>
                                         <td align="right">
-                                            <label class="input-label">
+                                            <span class="input-label">
                                                 <b>State :</b>
-                                            </label>
+                                            </span>
                                         </td>
                                         <td>
                                             <asp:Label ID="lblUSchoolState"></asp:Label>
@@ -201,9 +218,9 @@
                                     </tr>
                                     <tr>
                                         <td align="right">
-                                            <label class="input-label">
+                                            <span class="input-label">
                                                 <b>Zip :</b>
-                                            </label>
+                                            </span>
                                         </td>
                                         <td>
                                             <asp:Label ID="lblUSchoolZip"></asp:Label>
@@ -216,9 +233,9 @@
                                     <table style="width: 100%">
                                         <tr>
                                             <td align="right" style="width: 107px;">
-                                                <label class="input-label">
+                                                <span class="input-label">
                                                     <b>Street :</b>
-                                                </label>
+                                                </span>
                                             </td>
                                             <td style="width: 220px;">
                                                 <asp:Label ID="lblVSchoolStreet1"></asp:Label>
@@ -232,9 +249,9 @@
                                         </tr>
                                         <tr>
                                             <td align="right">
-                                                <label class="input-label">
+                                                <span class="input-label">
                                                     <b>City :</b>
-                                                </label>
+                                                </span>
                                             </td>
                                             <td>
                                                 <asp:Label ID="lblVSchoolCity"></asp:Label>
@@ -242,9 +259,9 @@
                                         </tr>
                                         <tr>
                                             <td align="right">
-                                                <label class="input-label">
+                                                <span class="input-label">
                                                     <b>State :</b>
-                                                </label>
+                                                </span>
                                             </td>
                                             <td>
                                                 <asp:Label ID="lblVSchoolState"></asp:Label>
@@ -252,9 +269,9 @@
                                         </tr>
                                         <tr>
                                             <td align="right">
-                                                <label class="input-label">
+                                                <span class="input-label">
                                                     <b>Zip :</b>
-                                                </label>
+                                                </span>
                                             </td>
                                             <td>
                                                 <asp:Label ID="lblVSchoolZip"></asp:Label>
@@ -285,7 +302,7 @@
             <div class="clear">
             </div>
             @*--start--*@
-            <table class=" tblApplReqForm5">
+            <table class="tblApplReqForm5">
                 <tr>
                     <td colspan="5">
                         <b>4.&nbsp;&nbsp;Previous Address (if any) :</b>
@@ -295,12 +312,10 @@
             <div class="divLicenseInfon divaddnew AfterApproved" id="divAddbtnSchoolInfoPrevious">
                 <span style="float: right; margin-right: 32px; margin-top: 15px;">
                     <input type="button" value="Add" data-ng-click="ShowPopup(1)" class="buttonGreen small" />
-                    @*--<input type="button" ID="btnSchoolInfoPreviousAddNew" class="buttonGreen small"
-                        value="Add" CausesValidation="true" />--*@
+                    
                 </span>
             </div>
 
-            <asp:Literal ID="ltrSchoolInfoPrevious"></asp:Literal>
 
             <div class="divLicenseInfo" id="divAddSchoolInfoPrevious" style="width: 91%; margin-top: 20px; margin-bottom: 10px;">
                 <p class="addNewDiv">
@@ -309,9 +324,9 @@
                 <table class="tblApplReqForm5 wthtop20" style="width: 96%;">
                     <tr>
                         <td style="vertical-align: middle; width: 97px;" class="txtalgnrgt">
-                            <label class="input-label">
+                            <span class="input-label">
                                 Street :
-                            </label>
+                            </span>
                         </td>
                         <td colspan="5">
                             <input type="text" id="txtPreviousAdd" style="width: 482px;" class="calWidth us_street" data-ng-model="PrevAdd.StreetLine1"
@@ -327,18 +342,18 @@
                     </tr>
                     <tr>
                         <td class="txtalgnrgt">
-                            <label class="input-label">
+                            <span class="input-label">
                                 City :
-                            </label>
+                            </span>
                         </td>
                         <td style="width: 151px;">
                             <input type="text" id="txtPreviousCity" class="tooltip OnlyAlphabet calWidth" data-ng-model="PrevAdd.City"
                                    width="124px" maxlength="500" title="Only A-Z characters are allowed." />
                         </td>
                         <td class="txtalgnrgt" style="width: 52px;">
-                            <label class="input-label">
+                            <span class="input-label">
                                 State :
-                            </label>
+                            </span>
                         </td>
                         <td style="width: 106px;">
 
@@ -350,9 +365,9 @@
 
 
                         <td class="txtalgnrgt" style="width: 47px;">
-                            <label class="input-label">
+                            <span class="input-label">
                                 Zip :
-                            </label>
+                            </span>
                         </td>
                         <td>
                             <input type="text" id="txtPreviousAddzip" placeholder="xxxxx-xxxx or xxxxx" data-ng-model="PrevAdd.Zip"
@@ -399,9 +414,9 @@
                                         <table style="width: 100%">
                                             <tr>
                                                 <td align="right" style="width: 110px;">
-                                                    <label class="input-label">
+                                                    <span class="input-label">
                                                         <b>Street :</b>
-                                                    </label>
+                                                    </span>
                                                 </td>
                                                 <td style="width: 220px;">
                                                     <asp:Label ID="lblUPreviousStreet1"></asp:Label>
@@ -415,9 +430,9 @@
                                             </tr>
                                             <tr>
                                                 <td align="right">
-                                                    <label class="input-label">
+                                                    <span class="input-label">
                                                         <b>City :</b>
-                                                    </label>
+                                                    </span>
                                                 </td>
                                                 <td>
                                                     <asp:Label ID="lblUPreviousCity"></asp:Label>
@@ -425,9 +440,9 @@
                                             </tr>
                                             <tr>
                                                 <td align="right">
-                                                    <label class="input-label">
+                                                    <span class="input-label">
                                                         <b>State :</b>
-                                                    </label>
+                                                    </span>
                                                 </td>
                                                 <td>
                                                     <asp:Label ID="lblUPreviousState"></asp:Label>
@@ -435,9 +450,9 @@
                                             </tr>
                                             <tr>
                                                 <td align="right">
-                                                    <label class="input-label">
+                                                    <span class="input-label">
                                                         <b>Zip :</b>
-                                                    </label>
+                                                    </span>
                                                 </td>
                                                 <td>
                                                     <asp:Label ID="lblUPreviousZip"></asp:Label>
@@ -450,9 +465,9 @@
                                             <table style="width: 100%">
                                                 <tr>
                                                     <td align="right" style="width: 107px;">
-                                                        <label class="input-label">
+                                                        <span class="input-label">
                                                             <b>Street :</b>
-                                                        </label>
+                                                        </span>
                                                     </td>
                                                     <td style="width: 220px;">
                                                         <asp:Label ID="lblVPreviousStreet1"></asp:Label>
@@ -466,9 +481,9 @@
                                                 </tr>
                                                 <tr>
                                                     <td align="right">
-                                                        <label class="input-label">
+                                                        <span class="input-label">
                                                             <b>City :</b>
-                                                        </label>
+                                                        </span>
                                                     </td>
                                                     <td>
                                                         <asp:Label ID="lblVPreviousCity"></asp:Label>
@@ -476,17 +491,17 @@
                                                 </tr>
                                                 <tr>
                                                     <td align="right">
-                                                        <label class="input-label">
+                                                        <span class="input-label">
                                                             <b>State :</b>
-                                                        </label>
+                                                        </span>
                                                     </td>
                                                     <td></td>
                                                 </tr>
                                                 <tr>
                                                     <td align="right">
-                                                        <label class="input-label">
+                                                        <span class="input-label">
                                                             <b>Zip :</b>
-                                                        </label>
+                                                        </span>
                                                     </td>
                                                     <td></td>
                                                 </tr>
@@ -537,9 +552,9 @@
                 </tr>
                 <tr>
                     <td style="vertical-align: middle; width: 130px;" class="txtalgnrgt">
-                        <label class="input-label required">
+                        <span class="input-label required">
                             Street :
-                        </label>
+                        </span>
                     </td>
                     <td colspan="5">
                         <input type="text" id="txtMailingAdd" style="width: 482px;" class="calWidth us_street" data-ng-model="ProviderInformationDetails.MailingAddressStreet1"
@@ -556,18 +571,18 @@
 
                 <tr>
                     <td class="txtalgnrgt">
-                        <label class="input-label required">
+                        <span class="input-label required">
                             City :
-                        </label>
+                        </span>
                     </td>
                     <td style="width: 151px;">
                         <input type="text" id="txtMailingCity" class="tooltip OnlyAlphabet calWidth" data-ng-model="ProviderInformationDetails.MailingAddressCity"
                                width="124px" maxlength="500" title="Only A-Z characters are allowed." />
                     </td>
                     <td class="txtalgnrgt" style="width: 52px;">
-                        <label class="input-label required">
+                        <span class="input-label required">
                             State :
-                        </label>
+                        </span>
                     </td>
                     <td style="width: 106px;">
                         <select data-ng-model="ProviderInformationDetails.MailingAddressState" name="MailingAddressState" class="form-control" data-ng-options="item.StateCode as item.Name for item in StateList">
@@ -576,9 +591,9 @@
 
                     </td>
                     <td class="txtalgnrgt" style="width: 47px;">
-                        <label class="input-label required">
+                        <span class="input-label required">
                             Zip :
-                        </label>
+                        </span>
                     </td>
                     <td>
                         <input type="text" id="txtMailngZip" placeholder="xxxxx-xxxx or xxxxx" data-ng-model="ProviderInformationDetails.MailingAddressZip"
@@ -600,7 +615,7 @@
             <div id="divVerifySchoolMailingAddressPnl" ng-show="false" class="address-box">
                 <div>
                     <span class="fltrt">
-                        <asp:ImageButton ID="ImageButton3" ImageUrl="~/Content/Theme1/images/close-icon.png" />
+                        <input type="image" id="btnimgbtn" src="~/Content/Theme1/images/close-icon.png" />
                     </span>
                 </div>
                 <div>
@@ -627,9 +642,9 @@
                                 <table style="width: 100%">
                                     <tr>
                                         <td align="right" style="width: 110px;">
-                                            <label class="input-label">
+                                            <span class="input-label">
                                                 <b>Street :</b>
-                                            </label>
+                                            </span>
                                         </td>
                                         <td style="width: 220px;"></td>
                                     </tr>
@@ -639,25 +654,25 @@
                                     </tr>
                                     <tr>
                                         <td align="right">
-                                            <label class="input-label">
+                                            <span class="input-label">
                                                 <b>City :</b>
-                                            </label>
+                                            </span>
                                         </td>
                                         <td></td>
                                     </tr>
                                     <tr>
                                         <td align="right">
-                                            <label class="input-label">
+                                            <span class="input-label">
                                                 <b>State :</b>
-                                            </label>
+                                            </span>
                                         </td>
                                         <td></td>
                                     </tr>
                                     <tr>
                                         <td align="right">
-                                            <label class="input-label">
+                                            <span class="input-label">
                                                 <b>Zip :</b>
-                                            </label>
+                                            </span>
                                         </td>
                                         <td></td>
                                     </tr>
@@ -668,9 +683,9 @@
                                     <table style="width: 100%">
                                         <tr>
                                             <td align="right" style="width: 107px;">
-                                                <label class="input-label">
+                                                <span class="input-label">
                                                     <b>Street :</b>
-                                                </label>
+                                                </span>
                                             </td>
                                             <td style="width: 220px;">
                                                 <asp:Label ID="lblVSchoolMailingStreet1"></asp:Label>
@@ -684,9 +699,9 @@
                                         </tr>
                                         <tr>
                                             <td align="right">
-                                                <label class="input-label">
+                                                <span class="input-label">
                                                     <b>City :</b>
-                                                </label>
+                                                </span>
                                             </td>
                                             <td>
                                                 <asp:Label ID="lblVSchoolMailingCity"></asp:Label>
@@ -694,9 +709,9 @@
                                         </tr>
                                         <tr>
                                             <td align="right">
-                                                <label class="input-label">
+                                                <span class="input-label">
                                                     <b>State :</b>
-                                                </label>
+                                                </span>
                                             </td>
                                             <td>
                                                 @*--<asp:Label ID="lblVSchoolMailingState"></asp:Label>--*@
@@ -704,9 +719,9 @@
                                         </tr>
                                         <tr>
                                             <td align="right">
-                                                <label class="input-label">
+                                                <span class="input-label">
                                                     <b>Zip :</b>
-                                                </label>
+                                                </span>
                                             </td>
                                             <td>
                                                 @*--<asp:Label ID="lblVSchoolMailingZip"></asp:Label>--*@
@@ -743,9 +758,9 @@
                 </tr>
                 <tr>
                     <td class="txtalgnrgt" style="width: 124px;">
-                        <label class="input-label required">
+                        <span class="input-label required">
                             Name :
-                        </label>
+                        </span>
                     </td>
 
                     <td style="width: 151px;">
@@ -756,9 +771,9 @@
 
 
                     <td class="txtalgnrgt" style="width: 110px;">
-                        <label class="input-label required">
+                        <span class="input-label required">
                             Administrator Email :
-                        </label>
+                        </span>
                     </td>
                     <td style="width: 150px;">
                         <input type="text" id="txtDirectorEmail" class="inputTextbox NewAppPersonalTxtbx" placeholder="joe@email.com" data-ng-model="ProviderInformationDetails.DirectorAdministratorEmail"
@@ -767,9 +782,9 @@
                 </tr>
                 <tr>
                     <td class="txtalgnrgt" style="width: 124px;">
-                        <label class="input-label required">
+                        <span class="input-label required">
                             Job Title  :
-                        </label>
+                        </span>
                     </td>
 
                     <td style="width: 151px;">
@@ -780,9 +795,9 @@
                 </tr>
                 <tr>
                     <td class="txtalgnrgt" style="width: 124px;">
-                        <label class="input-label required">
+                        <span class="input-label required">
                             Primary Number :
-                        </label>
+                        </span>
                     </td>
                     <td style="width: 151px;">
                         <input type="text" id="txtDirectorTel" class="phone_us" autocomplete="off" placeholder="(xxx) xxx-xxxx" data-ng-model="ProviderInformationDetails.DirectorPrimaryNumber"
@@ -796,9 +811,9 @@
                 </tr>
                 <tr>
                     <td class="txtalgnrgt" style="width: 124px;">
-                        <label class="input-label">
+                        <span class="input-label">
                             Secondary Number :
-                        </label>
+                        </span>
                     </td>
                     <td style="width: 151px;">
                         <input type="text" id="TextBox142" class="phone_us" autocomplete="off" placeholder="(xxx) xxx-xxxx" data-ng-model="ProviderInformationDetails.DirectorSecondaryNumber"
@@ -825,9 +840,9 @@
                 </tr>
                 <tr>
                     <td class="txtalgnrgt" style="width: 124px;">
-                        <label class="input-label">
+                        <span class="input-label">
                             Name :
-                        </label>
+                        </span>
                     </td>
 
                     <td style="width: 151px;">
@@ -838,9 +853,9 @@
 
 
                     <td class="txtalgnrgt" style="width: 110px;">
-                        <label class="input-label">
+                        <span class="input-label">
                             Contact Email :
-                        </label>
+                        </span>
                     </td>
                     <td style="width: 150px;">
                         <input type="text" id="txtApplicationEmail" class="inputTextbox NewAppPersonalTxtbx" placeholder="joe@email.com" data-ng-model="ProviderInformationDetails.ContactNameAdministratorEmail"
@@ -849,9 +864,9 @@
                 </tr>
                 <tr>
                     <td class="txtalgnrgt" style="width: 124px;">
-                        <label class="input-label">
+                        <span class="input-label">
                             Job Title  :
-                        </label>
+                        </span>
                     </td>
 
                     <td style="width: 151px;">
@@ -862,9 +877,9 @@
                 </tr>
                 <tr>
                     <td class="txtalgnrgt" style="width: 124px;">
-                        <label class="input-label">
+                        <span class="input-label">
                             Primary Number :
-                        </label>
+                        </span>
                     </td>
                     <td style="width: 151px;">
                         <input type="text" id="txtApplicationNum" class="phone_us" autocomplete="off" placeholder="(xxx) xxx-xxxx" data-ng-model="ProviderInformationDetails.ContactNamePrimaryNumber"
@@ -878,9 +893,9 @@
                 </tr>
                 <tr>
                     <td class="txtalgnrgt" style="width: 124px;">
-                        <label class="input-label">
+                        <span class="input-label">
                             Secondary Number :
-                        </label>
+                        </span>
                     </td>
                     <td style="width: 151px;">
                         <input type="text" id="TextBox143" class="phone_us" autocomplete="off" placeholder="(xxx) xxx-xxxx" data-ng-model="ProviderInformationDetails.ContactNameSecondaryNumber"
@@ -920,7 +935,7 @@
 
             </div>
 
-            <asp:Literal ID="ltrSatelliteLocation"></asp:Literal>
+            @*<asp:Literal ID="ltrSatelliteLocation"></asp:Literal>*@
 
             <div class="divLicenseInfo" id="divAddSatelliteLocation" style="width: 91%; margin-top: 20px; margin-bottom: 10px;">
                 <p class="addNewDiv">
@@ -929,9 +944,9 @@
                 <table class="tblApplReqForm5 wthtop20" style="width: 96%;">
                     <tr>
                         <td style="vertical-align: middle; width: 130px;" class="txtalgnrgt">
-                            <label class="input-label">
+                            <span class="input-label">
                                 Street :
-                            </label>
+                            </span>
                         </td>
 
                         <td colspan="5">
@@ -949,18 +964,18 @@
 
                     <tr>
                         <td class="txtalgnrgt">
-                            <label class="input-label">
+                            <span class="input-label">
                                 City :
-                            </label>
+                            </span>
                         </td>
                         <td style="width: 151px;">
                             <input type="text" id="txtSatelliteCity" class="tooltip OnlyAlphabet calWidth" data-ng-model="SateliteAdd.City"
                                    width="124px" maxlength="500" title="Only A-Z characters are allowed." />
                         </td>
                         <td class="txtalgnrgt" style="width: 52px;">
-                            <label class="input-label">
+                            <span class="input-label">
                                 State :
-                            </label>
+                            </span>
                         </td>
 
                         <td style="width: 106px;">
@@ -969,9 +984,9 @@
                             </select>
                         </td>
                         <td class="txtalgnrgt" style="width: 47px;">
-                            <label class="input-label">
+                            <span class="input-label">
                                 Zip :
-                            </label>
+                            </span>
                         </td>
                         <td>
                             <input type="text" id="txtSatelliteZip" placeholder="xxxxx-xxxx or xxxxx" data-ng-model="SateliteAdd.Zip"
@@ -992,7 +1007,7 @@
                 <div id="divVerifySatelliteLocationAddressPnl" ng-show="false" class="address-box">
                     <div>
                         <span class="fltrt">
-                            <asp:ImageButton ID="ImageButton4" ImageUrl="~/Content/Theme1/images/close-icon.png" />
+                            <input type="image" id="btnimg" src="~/Content/Theme1/images/close-icon.png" />
                         </span>
                     </div>
                     <div>
@@ -1019,9 +1034,9 @@
                                     <table style="width: 100%">
                                         <tr>
                                             <td align="right" style="width: 110px;">
-                                                <label class="input-label">
+                                                <span class="input-label">
                                                     <b>Street :</b>
-                                                </label>
+                                                </span>
                                             </td>
                                             <td style="width: 220px;">
                                                 @*--<asp:Label ID="lblUSatelliteLocationStreet1"></asp:Label>--*@
@@ -1035,9 +1050,9 @@
                                         </tr>
                                         <tr>
                                             <td align="right">
-                                                <label class="input-label">
+                                                <span class="input-label">
                                                     <b>City :</b>
-                                                </label>
+                                                </span>
                                             </td>
                                             <td>
                                                 @*--<asp:Label ID="lblUSatelliteLocationCity"></asp:Label>--*@
@@ -1045,9 +1060,9 @@
                                         </tr>
                                         <tr>
                                             <td align="right">
-                                                <label class="input-label">
+                                                <span class="input-label">
                                                     <b>State :</b>
-                                                </label>
+                                                </span>
                                             </td>
                                             <td>
                                                 @*--<asp:Label ID="lblUSatelliteLocationState"></asp:Label>--*@
@@ -1055,9 +1070,9 @@
                                         </tr>
                                         <tr>
                                             <td align="right">
-                                                <label class="input-label">
+                                                <span class="input-label">
                                                     <b>Zip :</b>
-                                                </label>
+                                                </span>
                                             </td>
                                             <td>
                                                 @*--<asp:Label ID="lblUSatelliteLocationZip"></asp:Label>--*@
@@ -1070,9 +1085,9 @@
                                         <table style="width: 100%">
                                             <tr>
                                                 <td align="right" style="width: 107px;">
-                                                    <label class="input-label">
+                                                    <span class="input-label">
                                                         <b>Street :</b>
-                                                    </label>
+                                                    </span>
                                                 </td>
                                                 <td style="width: 220px;">
                                                     @*--                        <asp:Label ID="lblVSatelliteLocationStreet1"></asp:Label>--*@
@@ -1086,9 +1101,9 @@
                                             </tr>
                                             <tr>
                                                 <td align="right">
-                                                    <label class="input-label">
+                                                    <span class="input-label">
                                                         <b>City :</b>
-                                                    </label>
+                                                    </span>
                                                 </td>
                                                 <td>
                                                     @*--<asp:Label ID="lblVSatelliteLocationCity"></asp:Label>--*@
@@ -1096,9 +1111,9 @@
                                             </tr>
                                             <tr>
                                                 <td align="right">
-                                                    <label class="input-label">
+                                                    <span class="input-label">
                                                         <b>State :</b>
-                                                    </label>
+                                                    </span>
                                                 </td>
                                                 <td>
                                                     <asp:Label ID="lblVSatelliteLocationState"></asp:Label>
@@ -1106,9 +1121,9 @@
                                             </tr>
                                             <tr>
                                                 <td align="right">
-                                                    <label class="input-label">
+                                                    <span class="input-label">
                                                         <b>Zip :</b>
-                                                    </label>
+                                                    </span>
                                                 </td>
                                                 <td>
                                                     <asp:Label ID="lblVSatelliteLocationZip"></asp:Label>
@@ -1140,8 +1155,7 @@
                     <span class="fltrt">
                         <input type="button" value="Save" data-ng-click="AddSateliteAddress()" class="buttonGreen medium" />
                         <input type="button" value="Cancel" data-ng-click="clearsateliteAddress()" class="secondary medium bottom buttonalignment medium" />
-                        @*--<asp:LinkButton ID="lnkSatelliteLocationAddNewCancel" class="secondary medium bottom buttonalignment">Cancel</asp:LinkButton>
-                            </span>--*@
+                        
                 </div>
             </div>
             <div class="divLicenseInfo" style="margin-top: 20px; width: 91%;">
@@ -1176,9 +1190,9 @@
                 <table class="tblApplReqForm5 wthtop20" style="width: 99%;">
                     <tr>
                         <td class="txtalgnrgt">
-                            <label class="input-label">
+                            <span class="input-label">
                                 Passing Rate :
-                            </label>
+                            </span>
                         </td>
                         <td>
                             <input type="text" id="TextBox5" data-ng-model="Mblex.PassingRates" />
@@ -1187,9 +1201,9 @@
                     </tr>
                     <tr>
                         <td class="txtalgnrgt">
-                            <label class="input-label">
+                            <span class="input-label">
                                 Year :
-                            </label>
+                            </span>
                         </td>
                         <td>
 
@@ -1210,9 +1224,9 @@
                     </tr>
                     <tr>
                         <td class="txtalgnrgt">
-                            <label class="input-label">
+                            <span class="input-label">
                                 Half :
-                            </label>
+                            </span>
                         </td>
                         <td>
                             <select data-ng-model="Mblex.PassingHalf" style="width: 105px !important;" class="inputTextbox">
@@ -1231,8 +1245,6 @@
                     <span class="fltrt">
                         <input type="button" value="Save" data-ng-click="Save_providermblex()" class="buttonGreen medium" />
 
-                        @*--<asp:LinkButton ID="LinkButton1" class="secondary medium bottom buttonalignment">Cancel</asp:LinkButton>
-                            </span>--*@
                         <input type="button" value="Cancel" data-ng-click="clearMblex()" class="secondary medium bottom buttonalignment" />
                 </div>
 
@@ -1264,9 +1276,9 @@
                 <table class="tblApplReqForm5 wthtop20" style="width: 100%;">
                     <tr>
                         <td class="txtalgnrgt">
-                            <label class="input-label required">
+                            <span class="input-label required">
                                 Site Visit Date :
-                            </label>
+                            </span>
                         </td>
                         <td>
                             <input type="text" id="TextBox15" data-ng-model="SiteVisit.SiteVisitDate" class="inputTextbox calendersite" placeholder="MM/DD/YYYY" />
@@ -1276,9 +1288,9 @@
                     </tr>
                     <tr>
                         <td class="txtalgnrgt">
-                            <label class="input-label required">
+                            <span class="input-label required">
                                 Type of Site Visit :
-                            </label>
+                            </span>
                         </td>
                         <td>
 
@@ -1292,9 +1304,9 @@
                     </tr>
                     <tr>
                         <td class="txtalgnrgt">
-                            <label class="input-label required">
+                            <span class="input-label required">
                                 Site Inspector :
-                            </label>
+                            </span>
                         </td>
                         <td>
                             <select data-ng-model="SiteVisit.SiteInspector" style="width: 105px !important;" class="inputTextbox">
@@ -1315,17 +1327,17 @@
                     </tr>
                     <tr>
                         <td class="txtalgnrgt">
-                            <label class="input-label required">
+                            <span class="input-label required">
                                 Document Name :
-                            </label>
+                            </span>
                         </td>
                         <td>
                             <input type="text" id="TextBox13" />
                         </td>
                         <td class="txtalgnrgt">
-                            <label class="input-label required">
+                            <span class="input-label required">
                                 Document Type :
-                            </label>
+                            </span>
                         </td>
                         <td>
                             <select data-ng-model="ProviderInformationDetails.SchoolAddressState1" name="SchoolAddressState" class="form-control" data-ng-options="item.StateCode as item.Name for item in StateList">
@@ -1343,9 +1355,9 @@
                         <td></td>
                         <td></td>
                         <td class="txtalgnrgt" style="width: 135px;">
-                            <label class="input-label">
+                            <span class="input-label">
                                 Other Document Type :
-                            </label>
+                            </span>
                         </td>
                         <td>
                             <input type="text" id="TextBox14" width="167px" />
@@ -1353,9 +1365,9 @@
                     </tr>
                     <tr>
                         <td class="txtalgnrgt">
-                            <label class="input-label required">
+                            <span class="input-label required">
                                 Document :
-                            </label>
+                            </span>
                         </td>
                         <td>
                             <asp:FileUpload ID="FileUpload1" />
@@ -1403,7 +1415,7 @@
 
                 <input type="button" value="Save" data-ng-click="SaveSchoolInformation()" class="buttonGreen medium" />
                 @*--<input type="button" value="Cancel" data-ng-click="clearMblex()" class="secondary medium bottom buttonalignment" />--*@
-                @*--<asp:LinkButton ID="lnkCancelPersonalInfo" class="secondary medium bottom buttonalignment">Cancel</asp:LinkButton>--*@
+                
             </span>
         </div>
 

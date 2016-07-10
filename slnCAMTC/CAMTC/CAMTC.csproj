@@ -143,6 +143,22 @@
     <Compile Include="Utility\UserSession.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\BackOffice\AppJS\app.js" />
+    <Content Include="Areas\BackOffice\AppJS\Controllers\EligibilityController.js" />
+    <Content Include="Areas\BackOffice\AppJS\Controllers\MainController.js" />
+    <Content Include="Areas\BackOffice\AppJS\Controllers\SchoolInfoController.js" />
+    <Content Include="Areas\BackOffice\AppJS\Services\EligibiltiyService.js" />
+    <Content Include="Areas\BackOffice\AppJS\Services\SchoolInfoServices.js" />
+    <Content Include="Areas\School\AppJS\SchoolController.js" />
+    <Content Include="Content\AngularJS\ag-grid.min.js" />
+    <Content Include="Content\AngularJS\angular-mocks.js" />
+    <Content Include="Areas\School\Views\Home\_SchoolApp_EnrollmentAgreement.cshtml" />
+    <Content Include="Areas\School\Views\Home\_SchoolApp_Instructions.cshtml" />
+    <Content Include="Areas\School\Views\Home\_SchoolApp_Tab.cshtml" />
+    <None Include="Content\AngularJS\angular.intellisense.js" />
+    <Content Include="Content\AngularJS\angular.js" />
+    <Content Include="Content\AngularJS\angular.min.js" />
+    <None Include="Content\AngularJS\_references.js" />
     <Content Include="Content\Login\css\BeatPicker.min.css" />
     <Content Include="Content\Login\css\font-awesome.css" />
     <Content Include="Content\Login\css\font-awesome.min.css" />
@@ -316,6 +332,13 @@
     <Content Include="Areas\School\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Agency\Views\Account\RequestAccess.cshtml" />
     <Content Include="Areas\School\Views\SchoolApplication\TabViews\ViewStaff.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Home\PartialView\About.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Home\PartialView\Eligibility.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Home\PartialView\ProviderMaster.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Home\PartialView\SchoolInfo.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Home\PartialView\Staff.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Home\School.cshtml" />
+    <Content Include="Content\AngularJS\angular.min.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -350,7 +373,6 @@
     <Folder Include="Areas\Individual\Models\" />
     <Folder Include="Areas\School\Models\" />
     <Folder Include="Content\Agency\" />
-    <Folder Include="Content\AngularJS\" />
     <Folder Include="Content\BackOffice\" />
     <Folder Include="Content\DatatableJS\" />
     <Folder Include="Content\Individual\" />

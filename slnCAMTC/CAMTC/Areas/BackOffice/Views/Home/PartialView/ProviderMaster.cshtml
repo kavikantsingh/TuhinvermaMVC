@@ -1,7 +1,7 @@
 ﻿
 <div class="main" style="position: relative">
 
-    <div  ng-controller="MainController as myctrl" ng-cloak>
+    <div ng-controller="MainController as myctrl" ng-cloak>
         <div class="span-180 span-13 home-sidebar append-1">
             <div class="rounded-container peel-shadows">
                 <div class="content clearfix">
@@ -12,7 +12,7 @@
                     <span class="fltrt">
                         <input type="button" id="btnPrintBoardPacket" class="buttonGreen small"
                                value="Print Board Packet" />
-                        <asp:LinkButton id="btnClearFilter" value="show all"></asp:LinkButton>
+                        <input type="button" id="btnClearFilter" value="show all">
                     </span>
                     <div class="clear">
                     </div>
@@ -48,32 +48,31 @@
                                     <input type="button" id="btnNewMember" class="button medium save green  pdng10"
                                            value="New Member" />
 
-                                    <asp:ImageButton id="btnPrint" ImageUrl="~/Content/Theme1/images/search_icon.png" />
+                                    <input type="image" id="btnPrint" src="~/Content/Theme1/images/search_icon.png" />
                                     <a title="Print" href="javascript:void(null);" onclick="javascript:toggleDiv('.divPrint');">
                                         <img src="../../Content/Theme1/images/Printer_Blue.png" />
                                     </a>
                                     <div id="Div3" style="display: none" class="divPrint">
-                                        <asp:UpdatePanel id="UpdatePanel1">
-                                            <ContentTemplate>
-                                                <h4 class="fltlft">
-                                                    Print
-                                                </h4>
-                                                <span class="close fltrt" onclick="javascript:toggleDiv('.divPrint');"></span>
-                                                <div class="clear">
-                                                </div>
-                                                <input type="button" id="Button1" Width="125px" value="Print Resume"
-                                                       class="buttonGreen small" Style="display: none;" />
-                                                <div class="clear">
-                                                    &nbsp;
-                                                </div>
-                                                <input type="button" id="Button2" Width="125px" value="Print Board Packet" class="buttonGreen small" />
-                                                <div class="clear">
-                                                    &nbsp;
-                                                </div>
-                                                <input type="button" id="Button3" Width="125px" value="Email Pocket Card" placeholder="joe@email.com"
-                                                       class="buttonGreen small" Style="display: none;" />
-                                            </ContentTemplate>
-                                        </asp:UpdatePanel>
+
+
+                                        <h4 class="fltlft">
+                                            Print
+                                        </h4>
+                                        <span class="close fltrt" onclick="javascript:toggleDiv('.divPrint');"></span>
+                                        <div class="clear">
+                                        </div>
+                                        <input type="button" id="Button1" Width="125px" value="Print Resume"
+                                               class="buttonGreen small" Style="display: none;" />
+                                        <div class="clear">
+                                            &nbsp;
+                                        </div>
+                                        <input type="button" id="Button2" Width="125px" value="Print Board Packet" class="buttonGreen small" />
+                                        <div class="clear">
+                                            &nbsp;
+                                        </div>
+                                        <input type="button" id="Button3" Width="125px" value="Email Pocket Card" placeholder="joe@email.com"
+                                               class="buttonGreen small" Style="display: none;" />
+
                                     </div>
                                     <a title="comment" href="javasript:void(null);" onclick="showDiv('.popComment');">
                                         <img src="../../Content/Theme1/images/comment_icon.png" />
@@ -92,7 +91,7 @@
                             </div>
 
                             <div id="divButtonList" class="tabBtnBorder">
-                                
+
                                 <input type="button" id="btnGeneral" value="School Info" data-ng-class="{'tab_activeBtn': Pagename == 'SchoolInfo' }" class="tabBtn" ng-click="TabChangeClick('SchoolInfo')" />
                                 <input type="button" id="btnPersonal" value="Eligibility" data-ng-class="{'tab_activeBtn': Pagename == 'Eligibility' }" class="tabBtn" ng-click="TabChangeClick('Eligibility')" />
                                 <input type="button" id="btnAddress" value="About" class="tabBtn" ng-click="TabChangeClick('About')" />
@@ -119,8 +118,7 @@
                                 <div>
                                     <h4 class="" style="font-size: 16px; font-weight: bold; padding: 10px 13px;">
                                         <span class="fltrt">
-                                            <asp:ImageButton id="imgbtnOpenDetail" ToolTip="Hide"
-                                                             ImageUrl="~/Content/Theme1/Expandables/minus.png" />
+                                            <input type="image" id="btnContent" src="~/Content/Theme1/Expandables/minus.png" />
                                         </span>
                                     </h4>
                                 </div>
@@ -131,8 +129,8 @@
                                                 Status  :
                                             </div>
                                             <div class="statuscontent" style="width: 225px;">
-                                                <asp:DropDownList id="ddlAppStatus" Style="width: 160px;">
-                                                </asp:DropDownList>
+                                                @*<asp:DropDownList id="ddlAppStatus" Style="width: 160px;">
+                                                </asp:DropDownList>*@
                                             </div>
 
                                         </div>
@@ -149,13 +147,13 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="Individualwidth1">
-                                                        <label class="hed">
+                                                        <span class="hed">
                                                             Name :
-                                                        </label>
+                                                        </span>
                                                     </td>
                                                     <td>
 
-                                                        <asp:Literal id="ltrIndividual1"></asp:Literal>
+                                                        @*<asp:Literal id="ltrIndividual1"></asp:Literal>*@
 
                                                     </td>
                                                 </tr>
@@ -180,7 +178,7 @@
                                                         Mailing Address :
                                                     </td>
                                                     <td>
-                                                        <asp:Literal id="ltraddress"></asp:Literal>
+                                                        @*<asp:Literal id="ltraddress"></asp:Literal>*@
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -188,7 +186,7 @@
                                                         Primary Phone :
                                                     </td>
                                                     <td>
-                                                        <asp:Literal id="ltrPhone"></asp:Literal>
+                                                        @*<asp:Literal id="ltrPhone"></asp:Literal>*@
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -208,39 +206,39 @@
                                                 <tr>
                                                     <td>
                                                         Massage Therapy Pending Certification<span class="indfnt">
-                                                            <label>
+                                                            <span>
                                                                 10/01/2013
-                                                            </label>
+                                                            </span>
                                                             &nbsp;-
-                                                            <label>
+                                                            <span>
                                                                 9/30/2014
-                                                            </label>
+                                                            </span>
                                                         </span>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
                                                         Massage Therapy Certificate Expired <span class="indfnt">
-                                                            <label>
+                                                            <span>
                                                                 10/01/2012
-                                                            </label>
+                                                            </span>
                                                             &nbsp;-
-                                                            <label>
+                                                            <span>
                                                                 9/30/2013
-                                                            </label>
+                                                            </span>
                                                         </span>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
                                                         Massage Therapy Certificate Renewed <span class="indfnt">
-                                                            <label>
+                                                            <span>
                                                                 10/01/2011
-                                                            </label>
+                                                            </span>
                                                             &nbsp;-
-                                                            <label>
+                                                            <span>
                                                                 9/30/2012
-                                                            </label>
+                                                            </span>
                                                         </span>
                                                     </td>
                                                 </tr>
@@ -250,9 +248,9 @@
                                             <table class="IndividualTbl">
                                                 <tr>
                                                     <td>
-                                                        <label>
+                                                        <span>
                                                             <b>Deficiency</b>
-                                                        </label>
+                                                        </span>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -278,33 +276,33 @@
                                             <table class="IndividualTbl">
                                                 <tr style="font-size: 12px;">
                                                     <td colspan="2">
-                                                        <label class="hed">
+                                                        <span class="hed">
                                                             <b>Unpaid Invoice</b>
-                                                        </label>
+                                                        </span>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="UnpaidInwdth1">
-                                                        <label class="lblp">
+                                                        <span class="lblp">
                                                             Late Fee
-                                                        </label>
+                                                        </span>
                                                     </td>
                                                     <td class="UnpaidInwdth2">
-                                                        <label class="lblp">
+                                                        <span class="lblp">
                                                             $250.00
-                                                        </label>
+                                                        </span>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <label class="lblp">
+                                                        <span class="lblp">
                                                             Certification Fee
-                                                        </label>
+                                                        </span>
                                                     </td>
                                                     <td>
-                                                        <label class="lblp">
+                                                        <span class="lblp">
                                                             $150.00
-                                                        </label>
+                                                        </span>
                                                     </td>
                                                 </tr>
 
@@ -338,88 +336,88 @@
 
 
 @*<script type="text/javascript">
-    window.onload = function () {
-        //showDivSlide('.userHide');
+        window.onload = function () {
+            //showDivSlide('.userHide');
 
-    };
-    function toggleDiv(e) {
-        $(e).toggle();
-        $('span.close').click(function () {
+        };
+        function toggleDiv(e) {
             $(e).toggle();
-        });
-    }
-
-    $(function () {
-        //Navigation
-        $('.nav-mainlinks li').each(function () {
-            $(this).removeClass('active');
-        });
-        $('#liESD').addClass('active');
-
-        //Masking
-        $('.phone_us').mask('(000) 000-0000');
-        $('.ssn').mask('999-99-9999');
-    });
-
-    function RemoveElement(e) {
-        $(e).remove();
-    }
-
-    function ShowChildMessage(msg, type) {
-        $('#MsgDivUploadAll').html(BuildValidationMessage(msg, type)); HideLoader();
-    } function ShowChildMessageDiv(element, msg, type) {
-        $(element).html(BuildValidationMessage(msg, type)); HideLoader();
-    }
-    function UploadImage(input) {
-        var ext = input.files[0].name.split('.').pop().toLowerCase();
-        if ($.inArray(ext, ['bmp', 'png', 'jpg', 'jpeg', 'gif']) == -1) {
-            alert('Please upload only BMP, JPG, GIF or PNG photos.');
+            $('span.close').click(function () {
+                $(e).toggle();
+            });
         }
-        else {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
 
-                reader.onload = function (e) {
-                    $('#IndvidualimgProfile').attr('src', e.target.result);
-                }
+        $(function () {
+            //Navigation
+            $('.nav-mainlinks li').each(function () {
+                $(this).removeClass('active');
+            });
+            $('#liESD').addClass('active');
 
-                reader.readAsDataURL(input.files[0]);
-            }
-
-            sendProfilePic(input.files[0]);
-        }
-    }
-
-
-    function sendProfilePic(file) {
-        ShowLoader();
-        $.ajax({
-            type: 'post',
-            url: '../../Ajax_Handler/IndividualProfileImage.ashx?saveFile=true&name=' + file.name + '&IndividualId=' + $('#hidIndividualId').val() + '&Documenttype=0&DocumentTypeName=Profile',
-            data: file,
-            async: true,
-            success: function () {
-                $('#IndvidualimgProfile').attr('src', $('#hidPermanentUrl').val() + "&v=2.333" + file.name); HideLoader();
-            },
-            xhrFields: {
-
-            },
-            processData: false,
-            contentType: false// file.type
+            //Masking
+            $('.phone_us').mask('(000) 000-0000');
+            $('.ssn').mask('999-99-9999');
         });
-    }
 
-    $(function () {
-        $('#HeaderCheck').change(function () {
+        function RemoveElement(e) {
+            $(e).remove();
+        }
 
-            if ($(this).is(':checked')) {
-                $('.rowCheck').prop('checked', true);
+        function ShowChildMessage(msg, type) {
+            $('#MsgDivUploadAll').html(BuildValidationMessage(msg, type)); HideLoader();
+        } function ShowChildMessageDiv(element, msg, type) {
+            $(element).html(BuildValidationMessage(msg, type)); HideLoader();
+        }
+        function UploadImage(input) {
+            var ext = input.files[0].name.split('.').pop().toLowerCase();
+            if ($.inArray(ext, ['bmp', 'png', 'jpg', 'jpeg', 'gif']) == -1) {
+                alert('Please upload only BMP, JPG, GIF or PNG photos.');
             }
             else {
-                $('.rowCheck').prop('checked', false);
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#IndvidualimgProfile').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+
+                sendProfilePic(input.files[0]);
             }
+        }
 
+
+        function sendProfilePic(file) {
+            ShowLoader();
+            $.ajax({
+                type: 'post',
+                url: '../../Ajax_Handler/IndividualProfileImage.ashx?saveFile=true&name=' + file.name + '&IndividualId=' + $('#hidIndividualId').val() + '&Documenttype=0&DocumentTypeName=Profile',
+                data: file,
+                async: true,
+                success: function () {
+                    $('#IndvidualimgProfile').attr('src', $('#hidPermanentUrl').val() + "&v=2.333" + file.name); HideLoader();
+                },
+                xhrFields: {
+
+                },
+                processData: false,
+                contentType: false// file.type
+            });
+        }
+
+        $(function () {
+            $('#HeaderCheck').change(function () {
+
+                if ($(this).is(':checked')) {
+                    $('.rowCheck').prop('checked', true);
+                }
+                else {
+                    $('.rowCheck').prop('checked', false);
+                }
+
+            });
         });
-    });
 
-</script>*@
+    </script>*@

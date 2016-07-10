@@ -38,7 +38,7 @@
 </div>
 
 
-<div data-ng-app="LAPP" class="container primary-content">
+<div data-ng-app="LAPP" class="container primary-content" ng-cloak>
 
     <div class="container primary-content ">
         <div class="clearb">
@@ -52,7 +52,7 @@
                 <div class="clearb">
                 </div>
                 <div class="clearb" id="div1" style="display: none;">
-                    <asp:LinkButton ID="LinkButton1"></asp:LinkButton>
+                    
                 </div>
                 @*<%--search box start--%>*@
                 <div class="userHide searchBoxhidden" style="display: block !important" id="Div2">
@@ -67,17 +67,17 @@
                             <tbody>
                                 <tr>
                                     <td align="right" style="width: 51px;">
-                                        <label>
+                                        <span>
                                             School :
-                                        </label>
+                                        </span>
                                     </td>
                                     <td>
                                         <input type="text" id="txtEstablishment" Style="width: 178px !important;" class="inputTextbox OnlyAlphabet" MaxLength="10" />
                                     </td>
                                     <td align="right" style="width: 112px;">
-                                        <label>
+                                        <span>
                                             School ID :
-                                        </label>
+                                        </span>
                                     </td>
                                     <td>
                                         <input type="text" id="txtEstablishmentId" Style="width: 190px !important;" class="inputTextbox" MaxLength="50" />
@@ -88,9 +88,9 @@
                                         <table style="margin-top: -12px; border-spacing: 2px; border-collapse: separate;">
                                             <tr>
                                                 <td align="right" style="vertical-align: middle; width: 48px;">
-                                                    <label style="margin-top: 9px;">
+                                                    <span style="margin-top: 9px;">
                                                         Street :
-                                                    </label>
+                                                    </span>
                                                 </td>
                                                 <td colspan="5">
                                                     <input type="text" id="txtAddress1" Style="margin-top: 9px; width: 499px" class="calWidth us_street" MaxLength="500" />
@@ -98,17 +98,17 @@
                                             </tr>
                                             <tr>
                                                 <td align="right">
-                                                    <label>
+                                                    <span>
                                                         City :
-                                                    </label>
+                                                    </span>
                                                 </td>
                                                 <td style="width: 151px;">
                                                     <input type="text" id="txtCity" class="calWidth us_street OnlyAlphabet" Width="124px" MaxLength="500" />
                                                 </td>
                                                 <td align="right" style="width: 52px;">
-                                                    <label>
+                                                    <span>
                                                         State :
-                                                    </label>
+                                                    </span>
                                                 </td>
                                                 <td style="width: 106px;">
                                                     <select data-ng-model="ProviderInformationDetails.SchoolAddressState" name="SchoolAddressState" class="form-control" data-ng-options="item.StateCode as item.Name for item in StateList">
@@ -117,9 +117,9 @@
 
                                                 </td>
                                                 <td align="right" style="width: 47px;">
-                                                    <label>
+                                                    <span>
                                                         Zip :
-                                                    </label>
+                                                    </span>
                                                 </td>
                                                 <td>
                                                     <input type="text" id="txtZip" class="tooltip zip_us calWidth" placeholder="xxxxx-xxxx or xxxxx" Width="98px"

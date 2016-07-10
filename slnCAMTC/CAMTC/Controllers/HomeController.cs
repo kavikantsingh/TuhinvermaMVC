@@ -11,6 +11,8 @@ namespace CAMTC.Controllers
         public ActionResult Index()
         {
             return RedirectToAction("LogIn", "Account", new { area = "BackOffice" });
-        }        
+        }
+
+        
     }
 }

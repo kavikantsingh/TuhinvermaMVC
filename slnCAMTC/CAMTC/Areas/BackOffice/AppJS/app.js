@@ -18,6 +18,7 @@ LAPP.factory('mySharedService', function ($rootScope) {
     };
 
     sharedService.prepForBroadcast = function (msg, msg1) {
+        alert('inn directive');
         this.message = msg;
         this.message1 = msg1;
         this.broadcastItem();

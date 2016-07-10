@@ -471,26 +471,26 @@
     </div>
 
     <script type="text/javascript">
-        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
-        Sys.WebForms.PageRequestManager.getInstance().add_beginRequest(BeginRequestHandler);
+        //Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
+        //Sys.WebForms.PageRequestManager.getInstance().add_beginRequest(BeginRequestHandler);
 
-        function BeginRequestHandler(sender, args) {
-            try {
-                ShowLoader();
-                onUpdate();
-            }
-            catch (e) {
-            }
-        }
+        //function BeginRequestHandler(sender, args) {
+        //    try {
+        //        ShowLoader();
+        //        onUpdate();
+        //    }
+        //    catch (e) {
+        //    }
+        //}
 
-        function EndRequestHandler(sender, args) {
-            try {
-                HideLoader();
-                onUpdate();
-            }
-            catch (e) {
-            }
-        }
+        //function EndRequestHandler(sender, args) {
+        //    try {
+        //        HideLoader();
+        //        onUpdate();
+        //    }
+        //    catch (e) {
+        //    }
+        //}
 
         function onUpdate() {
             $('.zip_us').mask("99999-9999");

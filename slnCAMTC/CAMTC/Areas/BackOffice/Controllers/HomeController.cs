@@ -13,5 +13,11 @@ namespace CAMTC.Areas.BackOffice.Controllers
         {
             return View();
         }
+
+        public ActionResult School()
+        {
+            return View();
+        }
+
     }
 }
