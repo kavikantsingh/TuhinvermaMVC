@@ -1,7 +1,7 @@
 ﻿class @['DocumentManager']
     @p = @::
     
-    @p.ApiBaseUrl = ""
+    @p.ApiBaseUrl = "http://ws.camtc.inlumon.com/"
     @p.ApplicationId = ""
     @p.ProviderId = ""
     @p.ApiSaveEndpoint = ""
@@ -14,7 +14,9 @@
     @p.DocumentUploader = {}
     
     @p.DocumentContainerBuilder
+    
     @p.ApplicationDocuments = []
+    @p.DocumentTypeNames = []
     
     @p.DocumentWrapperClass = "documentContainer"
     
@@ -23,7 +25,9 @@
     constructor : (@opts  = {}) ->
         (@[k] = v) for own k, v of opts
         @CurrentInstance = @
+        @DocumentTypeNames = []
         #console.log @CurrentInstance
+        ShowLoader()
         @init()
         
     @p.init = ()->
@@ -32,22 +36,61 @@
         #console.log _self
         $("." + @DocumentWrapperClass).each ()->
             console.log _self
-            _self.addUploader(this)
+            docid = $(this).data('docid')
+            doccode =  $(this).data('docCode')
+            wrp = @
+            console.log _self.DocumentTypeNames['doc_'+ docid ]?
+            if not $(this).data('simple') and not _self.DocumentTypeNames['doc_'+ docid ]?
+                _self.loadDocTypeName(docid, doccode)
+                    .success (resp)->
+                        if resp.Status
+                            _self.DocumentTypeNames['doc_'+ docid ] = resp.DocumentMasterGET
+                            #console.log _self.DocumentTypeNames['doc_'+ docid ], "Success"
+                        _self.addUploader(wrp)
+            else
+                _self.addUploader(this)
             return
             #Prepare Container 
-        
+        HideLoader()
         return
         
-    @p.loadAllDocument = ()->
+    @p.loadAllDocument = (docid)->
         obj = @CurrentInstance
+        
+        console.log obj.ApiBaseUrl + obj.ApiGetDocumentsEndpoint  + obj.Key
         $.ajax({
-            url : obj.ApiBaseUrl + obj.ApiGetDocumentsEndpoint + "/" + obj.Key
+            url : obj.ApiBaseUrl + obj.ApiGetDocumentsEndpoint  + obj.Key
+            type : "GET"
+            data : { 
+            
+                ProviderId : obj.ProviderId
+                ApplicationId : obj.ApplicationId
+                DocumentId : docid
+                }
         })
         
+    @p.loadDocTypeName = (docid, doccode)->
+        obj = @
+        $.ajax({
+            url : obj.ApiBaseUrl + "api/Document/DocumentGetDocumentTypeName/"  + obj.Key
+            type : "GET"
+            data : { 
+                DocId  : docid
+                DocCode : doccode
+                }
+        })
+    @p.getDocTypeNames = (docid) ->
+        console.log @DocumentTypeNames, docid
+        for k, v of @ApplicationDocuments
+            if k is 'doc_' + docid
+                console.log @CurrentInstance.DocumentTypeNames[k]
+                @CurrentInstance.DocumentTypeNames[k]
+                
+        
     @p.addUploader = (wrapper)->
-        console.log 'Wrapper', @checkWrapper(wrapper.id)
-        if @checkWrapper(wrapper.id).length is 0
-            @ApplicationDocuments[wrapper.id] = { Wrapper : wrapper, Uploader : new DocumentUploader({ Manager : @self, Wrapper : wrapper })}
+        #console.log 'Wrapper', @checkWrapper(wrapper.id)
+        if @checkWrapper(wrapper.id).length is 0 or  @checkWrapper(wrapper.id)[0] is undefined
+            @ApplicationDocuments[wrapper.id] = { Wrapper : wrapper, Uploader : new DocumentUploader({ Manager : @CurrentInstance, Wrapper : wrapper })}
         #@ApplicationDocuments[wrapper.id].Uploader.check()
     
     @p.getAllWrapper = ()->
@@ -55,7 +98,9 @@
         for k, v of @ApplicationDocuments
             console.log @CurrentInstance.ApplicationDocuments[k]
         return
+    
     @p.checkWrapper = (id)->
+        console.log id
         for k, v of @ApplicationDocuments
             if k is id
                 console.log @CurrentInstance.ApplicationDocuments[k]
@@ -68,12 +113,3 @@
             
         return
 
-$(document).ready ()->
-    window.DefaultDocumentManager = new DocumentManager({
-        ApiBaseUrl : "/test/"
-        ApplicationId : '1'
-        ProviderId : "0"
-        ApiSaveEndpoint : "Save"
-        ApiDeleteEndpoint : "Delete"
-        ApiGetDocumentsEndpoint : "Get"
-    })

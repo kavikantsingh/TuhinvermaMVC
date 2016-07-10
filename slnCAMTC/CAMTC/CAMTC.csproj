@@ -981,6 +981,7 @@
     <Content Include="Scripts\DocumentManager\DocumentUploader.min.js" />
     <Content Include="Scripts\DocumentManager\Uploader.js" />
     <Content Include="Scripts\DocumentManager\Uploader.min.js" />
+    <Content Include="Scripts\elementExt.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

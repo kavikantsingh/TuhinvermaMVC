@@ -5,7 +5,7 @@
   this['DocumentManager'] = (function() {
     _Class.p = _Class.prototype;
 
-    _Class.p.ApiBaseUrl = "";
+    _Class.p.ApiBaseUrl = "http://ws.camtc.inlumon.com/";
 
     _Class.p.ApplicationId = "";
 
@@ -27,6 +27,8 @@
 
     _Class.p.ApplicationDocuments = [];
 
+    _Class.p.DocumentTypeNames = [];
+
     _Class.p.DocumentWrapperClass = "documentContainer";
 
     _Class.p.CurrentInstance = {};
@@ -40,6 +42,8 @@
         this[k] = v;
       }
       this.CurrentInstance = this;
+      this.DocumentTypeNames = [];
+      ShowLoader();
       this.init();
     }
 
@@ -47,26 +51,77 @@
       var _self;
       _self = this.CurrentInstance;
       $("." + this.DocumentWrapperClass).each(function() {
+        var doccode, docid, wrp;
         console.log(_self);
-        _self.addUploader(this);
+        docid = $(this).data('docid');
+        doccode = $(this).data('docCode');
+        wrp = this;
+        console.log(_self.DocumentTypeNames['doc_' + docid] != null);
+        if (!$(this).data('simple') && (_self.DocumentTypeNames['doc_' + docid] == null)) {
+          _self.loadDocTypeName(docid, doccode).success(function(resp) {
+            if (resp.Status) {
+              _self.DocumentTypeNames['doc_' + docid] = resp.DocumentMasterGET;
+            }
+            return _self.addUploader(wrp);
+          });
+        } else {
+          _self.addUploader(this);
+        }
+      });
+      HideLoader();
+    };
+
+    _Class.p.loadAllDocument = function(docid) {
+      var obj;
+      obj = this.CurrentInstance;
+      console.log(obj.ApiBaseUrl + obj.ApiGetDocumentsEndpoint + obj.Key);
+      return $.ajax({
+        url: obj.ApiBaseUrl + obj.ApiGetDocumentsEndpoint + obj.Key,
+        type: "GET",
+        data: {
+          ProviderId: obj.ProviderId,
+          ApplicationId: obj.ApplicationId,
+          DocumentId: docid
+        }
       });
     };
 
-    _Class.p.loadAllDocument = function() {
+    _Class.p.loadDocTypeName = function(docid, doccode) {
       var obj;
-      obj = this.CurrentInstance;
+      obj = this;
       return $.ajax({
-        url: obj.ApiBaseUrl + obj.ApiGetDocumentsEndpoint + "/" + obj.Key
+        url: obj.ApiBaseUrl + "api/Document/DocumentGetDocumentTypeName/" + obj.Key,
+        type: "GET",
+        data: {
+          DocId: docid,
+          DocCode: doccode
+        }
       });
+    };
+
+    _Class.p.getDocTypeNames = function(docid) {
+      var k, v, _ref, _results;
+      console.log(this.DocumentTypeNames, docid);
+      _ref = this.ApplicationDocuments;
+      _results = [];
+      for (k in _ref) {
+        v = _ref[k];
+        if (k === 'doc_' + docid) {
+          console.log(this.CurrentInstance.DocumentTypeNames[k]);
+          _results.push(this.CurrentInstance.DocumentTypeNames[k]);
+        } else {
+          _results.push(void 0);
+        }
+      }
+      return _results;
     };
 
     _Class.p.addUploader = function(wrapper) {
-      console.log('Wrapper', this.checkWrapper(wrapper.id));
-      if (this.checkWrapper(wrapper.id).length === 0) {
+      if (this.checkWrapper(wrapper.id).length === 0 || this.checkWrapper(wrapper.id)[0] === void 0) {
         return this.ApplicationDocuments[wrapper.id] = {
           Wrapper: wrapper,
           Uploader: new DocumentUploader({
-            Manager: this.self,
+            Manager: this.CurrentInstance,
             Wrapper: wrapper
           })
         };
@@ -85,6 +140,7 @@
 
     _Class.p.checkWrapper = function(id) {
       var k, v, _ref, _results;
+      console.log(id);
       _ref = this.ApplicationDocuments;
       _results = [];
       for (k in _ref) {
@@ -108,16 +164,5 @@
     return _Class;
 
   })();
-
-  $(document).ready(function() {
-    return window.DefaultDocumentManager = new DocumentManager({
-      ApiBaseUrl: "/test/",
-      ApplicationId: '1',
-      ProviderId: "0",
-      ApiSaveEndpoint: "Save",
-      ApiDeleteEndpoint: "Delete",
-      ApiGetDocumentsEndpoint: "Get"
-    });
-  });
 
 }).call(this);

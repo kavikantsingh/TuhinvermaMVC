@@ -130,6 +130,7 @@
 /// <reference path="../../scripts/documentmanager/documentmanager.js" />
 /// <reference path="../../scripts/documentmanager/documentuploader.js" />
 /// <reference path="../../scripts/documentmanager/uploader.js" />
+/// <reference path="../../scripts/elementext.js" />
 /// <reference path="../../Scripts/jquery.validate.js" />
 /// <reference path="../../Scripts/jquery.validate.unobtrusive.js" />
 /// <reference path="../../Scripts/jquery-1.10.2.js" />

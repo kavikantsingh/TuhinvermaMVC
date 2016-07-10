@@ -75,7 +75,8 @@
         return $(this).removeClass("activeSection");
       });
       $(item).addClass("activeSection");
-      return $(item).css('display', 'block');
+      $(item).css('display', 'block');
+      return obj.hideLoading();
     };
 
     vm.getSelf = function() {

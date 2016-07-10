@@ -67,6 +67,7 @@ class @['SectionManager']
             $(@).removeClass("activeSection")
         $(item).addClass("activeSection")
         $(item).css('display', 'block')
+        obj.hideLoading()
         
         
     vm.getSelf = ()->

@@ -5,15 +5,17 @@
   this['DocumentUploader'] = (function() {
     _Class.p = _Class.prototype;
 
-    _Class.p.Manager = null;
+    _Class.p.Manager;
 
-    _Class.p.Wrapper = null;
+    _Class.p.Wrapper;
 
-    _Class.p.UploadWrapper = $("<div />").addClass("docUploader");
+    _Class.p.UploadWrapper;
 
-    _Class.p.UploadInput = $('<input/>').attr('type', 'file');
+    _Class.p.UploadInput;
 
-    _Class.p.UploadBtn = $('<button />').addClass("buttonGreen small").text('Upload Document');
+    _Class.p.UploadBtn;
+
+    _Class.p.Identifier;
 
     function _Class(opts) {
       var k, v;
@@ -24,13 +26,49 @@
         this[k] = v;
       }
       console.log(this.Manager, 'Manager');
+      this.UploadWrapper = $("<div />").addClass("docUploader");
+      this.Identifier = $(this.Wrapper).attr('id');
+      this.isSimple = $(this.Wrapper).data('simple');
+      this.UploadInput = $('<input/>').attr('type', 'file');
+      this.UploadBtn = $('<button />').addClass("buttonGreen small").text('Upload Document');
+      if (!this.isSimple) {
+        this.$complexWrapper = $.el('table', {
+          'class': 'wthtop20',
+          'width': '99%',
+          'margin-left': '5px'
+        }).append($.el('tr', {}).append($.el('td', {
+          'class': 'txtalgnrgt'
+        }).append($.el('label', {
+          'class': 'input-label required'
+        }).text("Document Name : ")), $.el('td', {}).append($.el('input', {
+          'type': 'text',
+          'name': this.Identifier + "_docName",
+          'id': this.Identifier + "_docName"
+        })), $.el('td', {
+          'class': 'txtalgnrgt'
+        }).append($.el('label', {
+          'class': 'input-label required'
+        }).text("Document Type : ")), $.el('td', {}).append($.el('select', {
+          'name': this.Identifier + "_docType",
+          'id': this.Identifier + "_docType"
+        }).append($.el('option', {
+          'selected': 'selected',
+          'value': 0
+        }).text("Select Type")))), $.el('tr', {}).append($.el('td', {
+          'class': 'txtalgnrgt'
+        }).append($.el('label', {
+          'class': 'input-label required'
+        }).text("Document : ")), $.el('td', {}).append(this.UploadInput), $.el('td', {
+          'class': ''
+        }).append(this.UploadBtn), $.el('td', {})));
+        console.log(this.$complexWrapper);
+      }
       this.init(this);
     }
 
     _Class.p.init = function(self) {
-      var $uploadWrapper, $wrapperMain;
+      var $uploadWrapper, $wrapperMain, k, v, _i, _len, _ref;
       this.self = self;
-      this.Identifier = $(this.Wrapper).attr('id');
       $wrapperMain = $(this.Wrapper);
       $uploadWrapper = $(this.UploadWrapper);
       $(this.UploadInput).attr('id', this.Identifier + "_input");
@@ -42,12 +80,25 @@
         return uploadWorker = new FileUploader("Upload", null, e.data.input, e.data.uplWrapper);
       });
       $(this.UploadWrapper).attr('id', this.Identifier + "_Uploader");
+      if (!this.isSimple) {
+        $uploadWrapper.append(this.$complexWrapper);
+      } else {
+        $uploadWrapper.append(this.UploadInput);
+        $uploadWrapper.append(this.UploadBtn);
+      }
       $wrapperMain.append(this.UploadWrapper);
-      $uploadWrapper.append(this.UploadInput);
-      return $uploadWrapper.append(this.UploadBtn);
+      this.Manager.loadAllDocument($wrapperMain.data('docid'));
+      this.docTypes = this.Manager.DocumentTypeNames["doc_" + $(this.Wrapper).data('docid')];
+      if (this.docTypes != null) {
+        console.log(this.docTypes);
+        _ref = this.docTypes;
+        for (k = _i = 0, _len = _ref.length; _i < _len; k = ++_i) {
+          v = _ref[k];
+          console.log(v, 'Value', k, "Key");
+          this.$complexWrapper.find("#" + this.Identifier + "_docType").first().append($.el('option', {}).val(v.DocumentTypeId).text(v.DocumentTypeIdName));
+        }
+      }
     };
-
-    _Class.p.check = function() {};
 
     return _Class;
 
