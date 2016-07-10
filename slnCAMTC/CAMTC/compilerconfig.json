@@ -1,0 +1,18 @@
+﻿[
+  {
+    "outputFile": "Content/Individual/CertApplication.css",
+    "inputFile": "Content/Individual/CertApplication.less"
+  },
+  {
+    "outputFile": "Scripts/DocumentManager/DocumentManager.js",
+    "inputFile": "Scripts/DocumentManager/DocumentManager.coffee"
+  },
+  {
+    "outputFile": "Scripts/DocumentManager/DocumentUploader.js",
+    "inputFile": "Scripts/DocumentManager/DocumentUploader.coffee"
+  },
+  {
+    "outputFile": "Scripts/DocumentManager/Uploader.js",
+    "inputFile": "Scripts/DocumentManager/Uploader.coffee"
+  }
+]
