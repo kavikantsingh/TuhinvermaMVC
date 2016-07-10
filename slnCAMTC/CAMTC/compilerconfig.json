@@ -14,5 +14,9 @@
   {
     "outputFile": "Scripts/DocumentManager/Uploader.js",
     "inputFile": "Scripts/DocumentManager/Uploader.coffee"
+  },
+  {
+    "outputFile": "Scripts/CertApplication/SectionManager.js",
+    "inputFile": "Scripts/CertApplication/SectionManager.coffee"
   }
 ]

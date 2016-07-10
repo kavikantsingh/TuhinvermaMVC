@@ -108,6 +108,8 @@
             };
             $(obj.sectionWrapper).append(el);
             obj.updateSection(obj, el);
+            console.log(DefaultDocumentManager);
+            DefaultDocumentManager.init();
             obj.hideLoading();
           }
         });

@@ -165,6 +165,10 @@
     <Content Include="Areas\School\Views\Certification\_SchoolApp_Staff.cshtml" />
     <Content Include="Areas\School\Views\Certification\_SchoolApp_Tab.cshtml" />
     <Content Include="Areas\School\Views\Certification\_SchoolApp_Transcript.cshtml" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="Content\AngularJS\angular.intellisense.js" />
     <Content Include="Content\AngularJS\angular.js" />
     <Content Include="Content\AngularJS\angular.min.js" />

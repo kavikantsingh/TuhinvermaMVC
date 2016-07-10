@@ -23,5 +23,13 @@ namespace CAMTC.Areas.School.Controllers
         {
             return PartialView(id);
         }
+
+        [HttpPost]
+        public JsonResult Upload(HttpPostedFileBase file, dynamic data)
+        {
+
+
+            return Json("");
+        }
     }
 }

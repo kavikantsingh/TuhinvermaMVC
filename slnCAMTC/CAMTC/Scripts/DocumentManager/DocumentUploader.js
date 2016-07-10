@@ -39,7 +39,7 @@
         uplWrapper: this.UploadWrapper
       }, function(e) {
         var uploadWorker;
-        return uploadWorker = new FileUploader("", null, e.data.input, e.data.uplWrapper);
+        return uploadWorker = new FileUploader("Upload", null, e.data.input, e.data.uplWrapper);
       });
       $(this.UploadWrapper).attr('id', this.Identifier + "_Uploader");
       $wrapperMain.append(this.UploadWrapper);

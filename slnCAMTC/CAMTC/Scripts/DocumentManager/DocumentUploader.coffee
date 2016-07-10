@@ -20,7 +20,7 @@
         $(@UploadInput).attr('id', @Identifier + "_input")
         
         $(@UploadBtn).click {input : @UploadInput, uplWrapper : @UploadWrapper}, (e)->
-            uploadWorker = new FileUploader("", null, e.data.input, e.data.uplWrapper)
+            uploadWorker = new FileUploader("Upload", null, e.data.input, e.data.uplWrapper)
         #console.log @Wrapper, @UploadWrapper
         
         $(@UploadWrapper).attr('id',  @Identifier + "_Uploader")

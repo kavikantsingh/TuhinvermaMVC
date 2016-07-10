@@ -41,8 +41,9 @@ class @['SectionManager']
         loadingSectionId = $(item).data("section")
         if !@sectionState[loadingSectionId]
             @loadSection(loadingSectionId, @)
+            
         else
-            @updateSection(@, @sectionState[loadingSectionId].element) 
+            @updateSection(@, @sectionState[loadingSectionId].element)
         @unSelectOther(@)
         $(item).addClass(@listItemActiveClass)
         #@updateSection(@, item)
@@ -99,6 +100,8 @@ class @['SectionManager']
                             }
                         $(obj.sectionWrapper).append(el)
                         obj.updateSection(obj, el)
+                        console.log DefaultDocumentManager
+                        DefaultDocumentManager.init()
                         obj.hideLoading()
                         return
                     )

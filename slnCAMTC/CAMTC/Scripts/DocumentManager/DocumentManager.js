@@ -3,35 +3,33 @@
   var __hasProp = {}.hasOwnProperty;
 
   this['DocumentManager'] = (function() {
-    var p;
+    _Class.p = _Class.prototype;
 
-    p = _Class.prototype;
+    _Class.p.ApiBaseUrl = "";
 
-    p.ApiBaseUrl = "";
+    _Class.p.ApplicationId = "";
 
-    p.ApplicationId = "";
+    _Class.p.ProviderId = "";
 
-    p.ProviderId = "";
+    _Class.p.ApiSaveEndpoint = "";
 
-    p.ApiSaveEndpoint = "";
+    _Class.p.ApiDeleteEndpoint = "";
 
-    p.ApiDeleteEndpoint = "";
+    _Class.p.ApiGetDocumentsEndpoint = "";
 
-    p.ApiGetDocumentsEndpoint = "";
+    _Class.p.Key = "";
 
-    p.Key = "";
+    _Class.p.UserId = "";
 
-    p.UserId = "";
+    _Class.p.DocumentUploader = {};
 
-    p.DocumentUploader = {};
+    _Class.p.DocumentContainerBuilder;
 
-    p.DocumentContainerBuilder;
+    _Class.p.ApplicationDocuments = [];
 
-    p.ApplicationDocuments = [];
+    _Class.p.DocumentWrapperClass = "documentContainer";
 
-    p.DocumentWrapperClass = "documentContainer";
-
-    p.CurrentInstance = {};
+    _Class.p.CurrentInstance = {};
 
     function _Class(opts) {
       var k, v;
@@ -41,44 +39,70 @@
         v = opts[k];
         this[k] = v;
       }
-      this.init(this);
+      this.CurrentInstance = this;
+      this.init();
     }
 
-    p.init = function(self) {
-      this.self = self;
-      p.CurrentInstance = this.self;
+    _Class.p.init = function() {
+      var _self;
+      _self = this.CurrentInstance;
       $("." + this.DocumentWrapperClass).each(function() {
-        return p.CurrentInstance.addUploader(this);
+        console.log(_self);
+        _self.addUploader(this);
       });
     };
 
-    p.loadAllDocument = function() {
+    _Class.p.loadAllDocument = function() {
       var obj;
-      obj = p.CurrentInstance;
+      obj = this.CurrentInstance;
       return $.ajax({
         url: obj.ApiBaseUrl + obj.ApiGetDocumentsEndpoint + "/" + obj.Key
       });
     };
 
-    p.addUploader = function(wrapper) {
-      console.log(wrapper);
-      return this.ApplicationDocuments[wrapper.id] = {
-        Wrapper: wrapper,
-        Uploader: new DocumentUploader({
-          Manager: this.self,
-          Wrapper: wrapper
-        })
-      };
+    _Class.p.addUploader = function(wrapper) {
+      console.log('Wrapper', this.checkWrapper(wrapper.id));
+      if (this.checkWrapper(wrapper.id).length === 0) {
+        return this.ApplicationDocuments[wrapper.id] = {
+          Wrapper: wrapper,
+          Uploader: new DocumentUploader({
+            Manager: this.self,
+            Wrapper: wrapper
+          })
+        };
+      }
     };
 
-    p.getAllWrapper = function() {
+    _Class.p.getAllWrapper = function() {
       var k, v, _ref;
       this.ApplicationDocuments;
       _ref = this.ApplicationDocuments;
       for (k in _ref) {
         v = _ref[k];
-        console.log(p.CurrentInstance.ApplicationDocuments[k]);
+        console.log(this.CurrentInstance.ApplicationDocuments[k]);
       }
+    };
+
+    _Class.p.checkWrapper = function(id) {
+      var k, v, _ref, _results;
+      _ref = this.ApplicationDocuments;
+      _results = [];
+      for (k in _ref) {
+        v = _ref[k];
+        if (k === id) {
+          console.log(this.CurrentInstance.ApplicationDocuments[k]);
+          _results.push(this.CurrentInstance.ApplicationDocuments[k]);
+        } else {
+          _results.push(void 0);
+        }
+      }
+      return _results;
+    };
+
+    _Class.p.refresh = function() {
+      $("." + this.DocumentWrapperClass).each(function(e) {
+        return _self.addUploader(this);
+      });
     };
 
     return _Class;
