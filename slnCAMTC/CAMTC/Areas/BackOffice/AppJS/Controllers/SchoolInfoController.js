@@ -1,4 +1,11 @@
 ﻿LAPP.controller('SchoolController', ['$scope', '$rootScope', 'mySharedService', 'SchoolInfoFactory', function ($scope, $rootScope, mySharedService, SchoolInfoFactory) {
+    if (mySharedService.ApplicationName == 'BackOffice') {
+        $scope.IsSchoolApplication = false;
+    }
+    else {
+        $scope.IsSchoolApplication = true;
+    }
+
     $scope.hasShow = 'false';
     var Provider = { ProviderId: '-1' };
     $('#divAddSchoolInfoPrevious').hide();
@@ -216,7 +223,7 @@
 
             {
                 headerName: "Action", width: 130, cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, field: "IsActive", cellRenderer: function (params) {
-                    return "<a data-ng-click=\"showUpdatevalue('" + params.data.ProviderNameId + "','" + params.data.ProviderName + "')\" href=\"javascript:;\"><img src='../../Content/Public/images/edit.png' /></a><span ng-show=\"!IsReadOnly\"> |</span><a data-ng-click=\"DeletePreviousSchoolInSchoolInformation('" + params.data.ProviderNameId + "')\" href=\"javascript:;\"> <img src='../../Content/Public/images/delete.png' /></a>";
+                    return "<a data-ng-click=\"showUpdatevalue('" + params.data.ProviderNameId + "','" + params.data.ProviderName + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a><span ng-show=\"!IsReadOnly\"> |</span><a data-ng-click=\"DeletePreviousSchoolInSchoolInformation('" + params.data.ProviderNameId + "')\" href=\"javascript:;\"> <img src='\\Content/Public/images/delete.png' /></a>";
                 }
             },
         ],
@@ -242,7 +249,7 @@
             { headerName: "Zip", width: 125, field: "Zip", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
              {
                  headerName: "Action", width: 80, cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, field: "IsActive", cellRenderer: function (params) {
-                     return "<a data-ng-click=\"showUpdatevaluePreviousAddress('" + params.data.AddressId + "','" + params.data.StreetLine1 + "','" + params.data.StreetLine2 + "','" + params.data.City + "','" + params.data.StateCode + "','" + params.data.Zip + "')\" href=\"javascript:;\"><img src='../../Content/Public/images/edit.png' /></a> |</span><a data-ng-click=\"DeleteaddressRequestFromSchoolInformationTab('" + params.data.AddressId + "',3)\" href=\"javascript:;\"> <img src='../../Content/Public/images/delete.png' /></a>";
+                     return "<a data-ng-click=\"showUpdatevaluePreviousAddress('" + params.data.AddressId + "','" + params.data.StreetLine1 + "','" + params.data.StreetLine2 + "','" + params.data.City + "','" + params.data.StateCode + "','" + params.data.Zip + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a> |</span><a data-ng-click=\"DeleteaddressRequestFromSchoolInformationTab('" + params.data.AddressId + "',3)\" href=\"javascript:;\"> <img src='\\Content/Public/images/delete.png' /></a>";
                  }
              },
         ],
@@ -269,7 +276,7 @@
             { headerName: "Zip", width: 125, field: "Zip", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
               {
                   headerName: "Action", width: 80, cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, field: "IsActive", cellRenderer: function (params) {
-                      return "<a data-ng-click=\"showUpdatevalueSateliteAddress('" + params.data.AddressId + "','" + params.data.StreetLine1 + "','" + params.data.StreetLine2 + "','" + params.data.City + "','" + params.data.StateCode + "','" + params.data.Zip + "')\" href=\"javascript:;\"><img src='../../Content/Public/images/edit.png' /></a> | </span><a data-ng-click=\"DeleteaddressRequestFromSchoolInformationTab('" + params.data.AddressId + "',7)\" href=\"javascript:;\"> <img src='../../Content/Public/images/delete.png' /></a>";
+                      return "<a data-ng-click=\"showUpdatevalueSateliteAddress('" + params.data.AddressId + "','" + params.data.StreetLine1 + "','" + params.data.StreetLine2 + "','" + params.data.City + "','" + params.data.StateCode + "','" + params.data.Zip + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a> | </span><a data-ng-click=\"DeleteaddressRequestFromSchoolInformationTab('" + params.data.AddressId + "',7)\" href=\"javascript:;\"> <img src='\\Content/Public/images/delete.png' /></a>";
                   }
               },
         ],
@@ -297,7 +304,7 @@
             {
                 headerName: "Action", width: 80, cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, field: "IsActive", cellRenderer: function (params) {
 
-                    return "<a data-ng-click=\"showUpdatevalueMblex('" + params.data.ProviderMBLExId + "','" + params.data.PassingRates + "','" + params.data.PassingYear + "','" + params.data.PassingHalf + "')\" href=\"javascript:;\"><img src='../../Content/Public/images/edit.png' /></a><span ng-show=\"!IsReadOnly\"> |</span><a data-ng-click=\"EditUser('" + params.data.userId + "')\" href=\"javascript:;\"> <img src='../../Content/Public/images/delete.png' /></a>";
+                    return "<a data-ng-click=\"showUpdatevalueMblex('" + params.data.ProviderMBLExId + "','" + params.data.PassingRates + "','" + params.data.PassingYear + "','" + params.data.PassingHalf + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a><span ng-show=\"!IsReadOnly\"> |</span><a data-ng-click=\"EditUser('" + params.data.userId + "')\" href=\"javascript:;\"> <img src='\\Content/Public/images/delete.png' /></a>";
                 }
             },
         ],
@@ -536,11 +543,8 @@
 
 
     $scope.$on('handleBroadcast', function () {
-        alert(mySharedService.CurrentPage);
-
         if (mySharedService.CurrentPage == '') {
             mySharedService.prepForBroadcastTabClick('SchoolInfo');
-            //mySharedService.prepForBroadcastTabClick('Eligibility');
         }
         $scope.ProviderId = mySharedService.message;
         $scope.ProviderName = mySharedService.message1;
@@ -550,7 +554,7 @@
     });
 
     $scope.$on('handleBroadcastForTab', function () {
-        alert(mySharedService.CurrentPage);
+
         if (mySharedService.CurrentPage == 'SchoolInfo') {
             $scope.GetProviderdataonchange();
             $scope.hasShow = 'true';

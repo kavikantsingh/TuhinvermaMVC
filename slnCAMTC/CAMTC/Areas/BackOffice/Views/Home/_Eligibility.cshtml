@@ -1,0 +1,341 @@
+﻿<style>
+    .link-edit {
+        text-decoration: none;
+        padding: 2.5px 10px;
+    }
+</style>
+<div ng-controller="EligiblityController" ng-show="hasShow == 'true'" class="clear textBoxAlign" style="border: 1px solid rgb(222, 222, 222); margin-top: 10px;">
+    <div>
+        <br />
+        <input type="checkbox" ng-model="Provider.IsChecked1" style="margin-left: 10px;" />
+        <span data-ng-bind="SchoolEligibility1"></span>
+        <div class="divLicenseInfon divaddnew AfterApproved" id="divAddbtnSchoolInfoPrevious">
+            <span style="float: right; margin-right: 32px; margin-top: 15px;">
+                <input type="button" value="Add" data-ng-click="ShowPopup(1)" class="buttonGreen small" />
+            </span>
+        </div>
+
+        <div id="dvagency">
+            <div class="divLicenseInfo" id="dvagency" style="margin-top: 30px;">
+                <p class="addNewDiv">
+                    <span>Add Approval Agency</span>
+                </p>
+
+                <table class="tblApplReqForm5 wthtop20" style="width: 100%;">
+                    <tr>
+                        <td class="txtalgnrgt tdwidth1">
+                            <span class="input-label required">
+                                Approval/Accrediting Agency :
+                            </span>
+                        </td>
+                        <td>
+                            <select ng-model="selectedItem" ng-change="update()" name="ApprovalAccreditingAgencyName" class="form-control" data-ng-options="item as item.LookupDesc for item in Lookup">
+                                <option value="">- Select -</option>
+                            </select>
+                        </td>
+                        <td class="txtalgnrgt tdwidth2">
+                            <span class="input-label required">
+                                Agency School Code # :
+                            </span>
+                        </td>
+                        <td>
+                            <input type="text" data-ng-model="ApprovalAgency.AgencySchoolCode" id="TextBox1" Width="167px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="txtalgnrgt">
+                            <span class="input-label required">
+                                Expiration Date :
+                            </span>
+                        </td>
+                        <td>
+                            <input type="text" data-ng-model="ApprovalAgency.ExpirationDate" class="inputTextbox calenderSiteVisit" placeholder="MM/DD/YYYY" />
+
+                        </td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="6"></td>
+                    </tr>
+                </table>
+
+                <p class="addNewDiv">
+                    <span>Approval Agency Supporting Documentation</span>
+                </p>
+
+                <table class="tblApplReqForm5 wthtop20" style="width: 100%;">
+                    <tr>
+                        <td class="txtalgnrgt tdwidth1">
+                            <span class="input-label required">
+                                Document Name :
+                            </span>
+                        </td>
+                        <td>
+                            <input type="text" id="TextBox13" />
+                        </td>
+                        <td class="txtalgnrgt tdwidth2">
+                            <span class="input-label required">
+                                Document Type :
+                            </span>
+                        </td>
+                        <td>
+                            <select data-ng-model="ProviderInformationDetails.DocumentId" name="SchoolAddressState" class="form-control">
+                                <option selected="selected" value="-1">Select</option>
+                                <option value="1">Approval Letter</option>
+                                <option value="2">Certificate</option>
+                                <option value="3">Site Visit Report</option>
+                                <option value="4">Other (specify)</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr id="tr1" ng-show="false">
+                        <td></td>
+                        <td></td>
+                        <td class="txtalgnrgt" style="width: 135px;">
+                            <span class="input-label">
+                                Other Document Type :
+                            </span>
+                        </td>
+                        <td>
+                            <input type="text" id="TextBox14" Width="167px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="txtalgnrgt">
+                            <span class="input-label required">
+                                Document :
+                            </span>
+                        </td>
+                        <td>
+                            <input type="file" />
+                        </td>
+                        <td colspan="3">
+                            <input type="button" id="Button4" Style="margin-left: 10px;" class="buttonGreen small" value="Upload" />
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+
+
+                <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
+                    <span class="fltrt">
+                        <input type="button" id="Button6" class="buttonGreen medium" ng-click="Save_ApprovalAgency()"
+                               value="Save" />
+                        <input type="button" class="secondary medium bottom buttonalignment" value="Cancel" ng-click="clearApprovalAgency()" />
+                    </span>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="divLicenseInfo" id="dvagency" style="margin-top: 30px;">
+                <p class="addNewDiv">
+                    <span>Add Additional Approval Agency</span>
+                </p>
+
+                <table class="tblApplReqForm5 wthtop20" style="width: 100%;">
+                    <tr>
+                        <td class="txtalgnrgt tdwidth1">
+                            <span class="input-label required">
+                                Approval/Accrediting Agency :
+                            </span>
+                        </td>
+                        <td>
+                            <input type="text" data-ng-model="ApprovalAgency1.ApprovalAccreditingAgencyName" id="TextBox1" Width="167px" />
+
+                        </td>
+                        <td class="txtalgnrgt tdwidth2">
+                            <span class="input-label required">
+                                Agency School Code # :
+                            </span>
+                        </td>
+                        <td>
+                            <input type="text" data-ng-model="ApprovalAgency1.AgencySchoolCode" id="TextBox1" Width="167px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="txtalgnrgt">
+                            <span class="input-label required">
+                                Expiration Date :
+                            </span>
+                        </td>
+                        <td>
+                            <input type="text" data-ng-model="ApprovalAgency1.ExpirationDate" class="inputTextbox calenderSiteVisit" placeholder="MM/DD/YYYY" />
+
+                        </td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="6"></td>
+                    </tr>
+                </table>
+
+
+                <p class="addNewDiv">
+                    <span>Approval Agency Supporting Documentation</span>
+                </p>
+
+                <table class="tblApplReqForm5 wthtop20" style="width: 100%;">
+                    <tr>
+                        <td class="txtalgnrgt tdwidth1">
+                            <span class="input-label required">
+                                Document Name :
+                            </span>
+                        </td>
+                        <td>
+                            <input type="text" id="TextBox13" />
+                        </td>
+                        <td class="txtalgnrgt tdwidth2">
+                            <span class="input-label required">
+                                Document Type :
+                            </span>
+                        </td>
+                        <td>
+                            <select data-ng-model="ProviderInformationDetails.DocumentId" name="SchoolAddressState" class="form-control">
+                                <option selected="selected" value="-1">Select</option>
+                                <option value="1">Approval Letter</option>
+                                <option value="2">Certificate</option>
+                                <option value="3">Site Visit Report</option>
+                                <option value="4">Other (specify)</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr id="tr1" ng-show="false">
+                        <td></td>
+                        <td></td>
+                        <td class="txtalgnrgt" style="width: 135px;">
+                            <span class="input-label">
+                                Other Document Type :
+                            </span>
+                        </td>
+                        <td>
+                            <input type="text" id="TextBox14" Width="167px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="txtalgnrgt">
+                            <span class="input-label required">
+                                Document :
+                            </span>
+                        </td>
+                        <td>
+                            <input type="file" />
+                        </td>
+                        <td colspan="3">
+                            <input type="button" id="Button4" Style="margin-left: 10px;" class="buttonGreen small" value="Upload" />
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+
+                <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
+                    <span class="fltrt">
+                        <input type="button" id="Button6" class="buttonGreen medium" ng-click="Save_ApprovalAgency1()"
+                               value="Save" />
+                        <input type="button" class="secondary medium bottom buttonalignment" value="Cancel" ng-click="clearApprovalAgency1()" />
+                    </span>
+                </div>
+
+            </div>
+        </div>
+
+        <div data-ag-grid="ApprovalGrid" class="ag-blue" style="color: #000; width: 98%; border: 1px solid rgb(221, 221, 221) ! important; margin-left: 7px; box-shadow: none; margin-top: 23px;"></div>
+
+
+        <br />
+        <hr />
+        <input type="checkbox" ng-model="Provider.IsChecked2" style="margin-left: 10px;" />
+        <span data-ng-bind="SchoolEligibility2"></span>
+        <br />
+        <hr />
+        <input type="checkbox" ng-model="Provider.IsChecked3" style="margin-left: 10px;" />
+        <span data-ng-bind="SchoolEligibility3"></span>
+        <br />
+        <hr />
+        <input type="checkbox" ng-model="Provider.IsChecked4" style="margin-left: 10px;" />
+        <span data-ng-bind="SchoolEligibility4"></span>
+        <br />
+        <hr />
+
+        <span style="font-weight:800" data-ng-bind="SchoolEligibility5"></span>
+        <br />
+        <hr />
+        <div style="width: 100%;">
+            <div class="divLicenseInfon divaddnew AfterApproved" id="div2">
+                <span style="float: right; margin-right: 32px; margin-top: 15px;">
+                    <input type="button" value="Add" data-ng-click="ShowPopup(2)" class="buttonGreen small" />
+
+                </span>
+            </div>
+
+            <div class="divLicenseInfo" id="divmassageprogram" style="margin-top: 30px;">
+
+                <p class="addNewDiv">
+                    <span>Add Massage Program Name</span>
+                </p>
+                <table class="tblApplReqForm5 wthtop20" style="width: 100%;">
+                    <tbody>
+                        <tr>
+                            <td class="txtalgnrgt tdwidth1">
+                                <span class="input-label required">
+                                    Massage Program Name :
+                                </span>
+                            </td>
+                            <td>
+                                <input name="MassageProgName" data-ng-model="Massage.ProgramName" type="text" maxlength="15" class="inputTextbox" autocomplete="off">
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="txtalgnrgt tdwidth2">
+                                <span class="input-label required">
+                                    Total Number of Program Hours :
+                                </span>
+                            </td>
+                            <td>
+                                <input name="ProgrameHours" data-ng-model="Massage.TotalNoofPgmHours" type="text" maxlength="8" class="inputTextbox" autocomplete="off">
+
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
+                    <span class="fltrt">
+                        <input type="button" value="Save" data-ng-click="Save_MassgeProgram()" class="buttonGreen medium" />
+
+                        <input type="button" value="Cancel" data-ng-click="clearMassageProgram()" class="secondary medium bottom buttonalignment" />
+                    </span>
+                </div>
+            </div>
+
+
+        </div>
+        <div data-ag-grid="MassageProgramGrid" class="ag-blue" style="color: #000; width: 98%; border: 1px solid rgb(221, 221, 221) ! important; margin-left: 7px; box-shadow: none; margin-top: 23px;"></div>
+    </div>
+    <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
+        <span class="fltrt">
+
+            <input type="button" value="Save" data-ng-click="Save_EligibilityTabInfo()" class="buttonGreen medium" />
+            <input type="button" value="Cancel" ng-click="GetEligibilityInfoByProviderId()" class="secondary medium bottom buttonalignment" />
+        </span>
+    </div>
+
+</div>
+
+
+
+<script type="text/javascript">
+    $('.calenderSiteVisit').datepicker({
+        inline: true,
+        changeMonth: true,
+        changeYear: true, maxDate: "-18Y",
+        yearRange: "1900:+nn"
+
+    });
+
+</script>
+

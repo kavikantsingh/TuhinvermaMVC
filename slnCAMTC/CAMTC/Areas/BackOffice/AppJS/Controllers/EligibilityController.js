@@ -130,7 +130,7 @@
             { headerName: "Program Approved End", width: 125, field: "ProgramApprovalEndDate", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
             {
                 headerName: "Action", width: 80, cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, field: "IsActive", cellRenderer: function (params) {
-                    return "<a data-ng-click=\"showUpdatevalueMassgeProgram('" + params.data.ProviderProgramId + "','" + params.data.ProgramName + "','" + params.data.TotalNoofPgmHours + "')\" href=\"javascript:;\"><img src='../../Content/Public/images/edit.png' /></a><span ng-show=\"!IsReadOnly\"> |</span><a data-ng-click=\"DeleteProviderProgram('" + params.data.ProviderProgramId + "')\" href=\"javascript:;\"> <img src='../../Content/Public/images/delete.png' /></a>";
+                    return "<a data-ng-click=\"showUpdatevalueMassgeProgram('" + params.data.ProviderProgramId + "','" + params.data.ProgramName + "','" + params.data.TotalNoofPgmHours + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a><span ng-show=\"!IsReadOnly\"> |</span><a data-ng-click=\"DeleteProviderProgram('" + params.data.ProviderProgramId + "')\" href=\"javascript:;\"> <img src='\\Content/Public/images/delete.png' /></a>";
                 }
             },
         ],
@@ -159,6 +159,29 @@
         $scope.ProviderApprovalAgencyId = 0;
         $('#dvagency').hide();
     }
+
+    $scope.clearApprovalAgency1 = function () {
+        $scope.ApprovalAgency1 = {};
+        $scope.ProviderApprovalAgencyId1 = 0;
+        $('#dvagency').hide();
+    }
+
+
+    //Adding ApprovalAgency 
+    $scope.Save_ApprovalAgency1 = function () {
+        $scope.ApprovalAgency1.IsActive = 1;
+        $scope.ApprovalAgency1.IsDeleted = 0;
+        $scope.ApprovalAgency1.IsAdditional = true;
+        $scope.ApprovalAgency1.ProviderApprovalAgencyId = $scope.ProviderApprovalAgencyId1;
+        $scope.ApprovalAgency1.ProviderId = $scope.ProviderId;
+        EligiblitiyFactory.Save_ApprovalAgency(key, $scope.ApprovalAgency1).success(function (data) {
+            $scope.clearApprovalAgency1();
+            $scope.ApprovalGrid.api.setRowData(data.ProviderApprovalAgencyResponseList);
+        }).error(function (error) {
+            $scope.Error = error;
+        });
+    }
+    //Adding Mblex
 
 
     //Adding ApprovalAgency 
@@ -210,26 +233,49 @@
     // add/update previous address
 
     //Populate Edit ApprovalAgency 
-    $scope.showUpdatevalueSave_ApprovalAgency = function (ProviderApprovalAgencyId, ApprovalAccreditingAgencyName, AgencySchoolCode, ExpirationDate) {
+    $scope.showUpdatevalueSave_ApprovalAgency = function (ProviderApprovalAgencyId, ApprovalAccreditingAgencyName, AgencySchoolCode, ExpirationDate, agentid, isadditonal) {
+
+        $scope.clearApprovalAgency();
+        $scope.clearApprovalAgency1();
         $('#dvagency').show();
-        $scope.ProviderApprovalAgencyId = ProviderApprovalAgencyId;
-        $scope.ApprovalAgency.ApprovalAccreditingAgencyName = ApprovalAccreditingAgencyName;
-        $scope.ApprovalAgency.AgencySchoolCode = AgencySchoolCode;
-        $scope.ApprovalAgency.ExpirationDate = ExpirationDate;
+        debugger
+        if (isadditonal == 'true') {
+            $scope.ProviderApprovalAgencyId1 = ProviderApprovalAgencyId;
+            $scope.ApprovalAgency1.ApprovalAccreditingAgencyName = ApprovalAccreditingAgencyName;
+            $scope.ApprovalAgency1.AgencySchoolCode = AgencySchoolCode;
+            $scope.ApprovalAgency1.ExpirationDate = ExpirationDate;
+        }
+        else {
+            $scope.ProviderApprovalAgencyId = ProviderApprovalAgencyId;
+            var selection = { "ApprovalAccreditingAgencyId": agentid, "ApprovalAccreditingAgencyName ": ApprovalAccreditingAgencyName, "Selected": true };
+            $scope.selectedItem = selection;
+            //$scope.ApprovalAgency1.ApprovalAccreditingAgencyName = ApprovalAccreditingAgencyName;
+            $scope.ApprovalAgency.ApprovalAccreditingAgencyName = ApprovalAccreditingAgencyName;
+            $scope.ApprovalAgency.AgencySchoolCode = AgencySchoolCode;
+            $scope.ApprovalAgency.ExpirationDate = ExpirationDate;
+        }
     }
     //Populate Edit ApprovalAgency 
+
+    $scope.update = function () {
+        $scope.ApprovalAgency.ApprovalAccreditingAgencyId = $scope.selectedItem.LookupId;
+        $scope.ApprovalAgency.ApprovalAccreditingAgencyName = $scope.selectedItem.LookupDesc;
+
+    }
 
     $scope.ApprovalGrid = {
         columnDefs: [
         { headerName: "", hide: true, width: 250, field: "ProviderApprovalAgencyId", },
         { headerName: "", hide: true, width: 250, field: "ProviderApprovalAgencyGuid", },
+        { headerName: "", hide: true, width: 250, field: "ApprovalAccreditingAgencyId", },
+        { headerName: "", hide: true, width: 250, field: "IsAdditional", },
         { headerName: "Approval/Accrediting Agency", width: 250, field: "ApprovalAccreditingAgencyName", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
             { headerName: "School Code #", width: 200, field: "AgencySchoolCode", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
             { headerName: "Expiration Date", width: 125, field: "ExpirationDate", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
             {
                 headerName: "Action", width: 120, cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, field: "IsActive", cellRenderer: function (params) {
 
-                    return "<a data-ng-click=\"showUpdatevalueSave_ApprovalAgency('" + params.data.ProviderApprovalAgencyId + "','" + params.data.ApprovalAccreditingAgencyName + "','" + params.data.AgencySchoolCode + "','" + params.data.ExpirationDate + "')\" href=\"javascript:;\"><img src='../../Content/Public/images/edit.png' /></a><span ng-show=\"!IsReadOnly\"> |</span><a data-ng-click=\"DeleteApprovalAgency('" + params.data.ProviderApprovalAgencyId + "')\" href=\"javascript:;\"> <img src='../../Content/Public/images/delete.png' /></a>";
+                    return "<a data-ng-click=\"showUpdatevalueSave_ApprovalAgency('" + params.data.ProviderApprovalAgencyId + "','" + params.data.ApprovalAccreditingAgencyName + "','" + params.data.AgencySchoolCode + "','" + params.data.ExpirationDate + "','" + params.data.ApprovalAccreditingAgencyId + "','" + params.data.IsAdditional + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a><span ng-show=\"!IsReadOnly\"> |</span><a data-ng-click=\"DeleteApprovalAgency('" + params.data.ProviderApprovalAgencyId + "')\" href=\"javascript:;\"> <img src='\\Content/Public/images/delete.png' /></a>";
                 }
             },
         ],
@@ -268,9 +314,7 @@
 
 
     $scope.Save_EligibilityTabInfo = function () {
-       
         ShowLoader();
-
         $scope.Provider.ProviderId = $scope.ProviderId;
         EligiblitiyFactory.SaveProviderEntityInformation(key, $scope.Provider).success(function (data) {
             HideLoader();
@@ -282,13 +326,11 @@
 
 
     $scope.$on('handleBroadcast', function () {
-        alert('in elgiblitu lis')
+        $scope.ProviderId = mySharedService.message;
+        $scope.ProviderName = mySharedService.message1;
         if (mySharedService.CurrentPage == 'Eligibility') {
-            $scope.ProviderId = mySharedService.message;
-            $scope.ProviderName = mySharedService.message1;
             docommoncall();
         }
-
     });
 
     function docommoncall() {
@@ -310,10 +352,13 @@
     }
 
     $scope.$on('handleBroadcastForTab', function () {
-        alert('in elgiblitu lis1')
+        debugger;
+
         if (mySharedService.CurrentPage == 'Eligibility') {
-            if ($scope.ProviderId != '-1')
+            if (mySharedService.message != '-1') {
+                $scope.ProviderId = mySharedService.message;
                 docommoncall();
+            }
         }
         else {
             $scope.hasShow = 'false';
