@@ -11,14 +11,13 @@ LAPP.factory('mySharedService', function ($rootScope) {
     sharedService.message = '';
     sharedService.message1 = '';
     sharedService.CurrentPage = '';
-
+    sharedService.ApplicationName = '';
     sharedService.prepForBroadcastTabClick = function (Pagename) {
         this.CurrentPage = Pagename;
         this.broadcastTabItem();
     };
 
     sharedService.prepForBroadcast = function (msg, msg1) {
-        alert('inn directive');
         this.message = msg;
         this.message1 = msg1;
         this.broadcastItem();

@@ -1,6 +1,8 @@
 ﻿LAPP.controller('MainController', ['$scope', '$rootScope', 'mySharedService', 'SchoolInfoFactory',  function ($scope, $rootScope, mySharedService, SchoolInfoFactory) {
-    
+    mySharedService.ApplicationName = 'BackOffice';
+
     $scope.Pagename = 'SchoolInfo';
+
     $scope.TabChangeClick = function (Pagename) {
         $scope.Pagename = Pagename;
         mySharedService.prepForBroadcastTabClick(Pagename);
@@ -19,8 +21,6 @@
         $scope.message1 = mySharedService.message1;
     });
 
-    
-    
 
     //left pane all provider list
     $scope.providerGrid = {
@@ -35,7 +35,7 @@
             {
                 headerName: "Status", width: 95, field: "Status", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' },
                 cellRenderer: function (params) {
-                    return "<a data-ng-click=\"GetProviderdataonchange('" + params.data.ProviderId + "','" + params.data.ProviderName + "')\" href=\"javascript:;\"><img src='../../Content/Public/images/edit.png' /></a><span ng-show=\"!IsReadOnly\">";
+                    return "<a data-ng-click=\"GetProviderdataonchange('" + params.data.ProviderId + "','" + params.data.ProviderName + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a><span ng-show=\"!IsReadOnly\">";
 
                     //if (params.data.IsActive == 'true')
                     //    datab +='<div class="statusicon" style="color:green;"></div>';

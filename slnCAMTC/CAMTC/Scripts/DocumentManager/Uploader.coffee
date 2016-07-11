@@ -2,29 +2,33 @@
     fu = @::
     _self = self
     fu.thisObj = ""
-    constructor: (@url, @successCallback, @FileInput, @uploadWrapper,  @progressContainer = "#ProgressContainer")->
+    fu.fileData
+    constructor: (@url, @successCallback, @FileInput, @uploadWrapper, @parent,  @progressContainer = "#ProgressContainer")->
         @fileInput = null
         thisObj = @
+        _parent = @parent
         console.log @FileInput
         @request = new XMLHttpRequest()
         @request.onreadystatechange = ()->
           if `this.readyState` is 4
            console.log "state Changed to 4" 
            try 
+            console.log this
             resp = JSON.parse `this.response`
-            console.log resp
+            _parent.documentUploadSuccess(JSON.parse(resp))
            catch e
             resp = {
              status: 'error',
              data: 'Unknown error occurred: [' + `this.responseText` + ']'
             }
             console.log resp
-           if resp.status is "success"
+           if resp.Status
+            console.log thisObj
             thisObj.processReadystate(resp)
             return
 
         @fileData = new FormData()
-        console.log @FileInput[0].files[0]
+        
         @fileData.append('file', @FileInput[0].files[0])
                 
 #        formdata = $(element).data("formargs")
@@ -37,7 +41,8 @@
                 
         @fileInput = @FileInput
         console.log "reached input"
-        @upload()
+        if @validate()
+            @upload()
         #console.log thisObj
         return
         
@@ -55,10 +60,44 @@
                 #$("span#UploadProgress").text(percent + "%");
             , false);
             @request.open('POST', @url);
+            console.log @fileData
             @request.send(@fileData);
             return
+            
     fu.processReadystate = (response) ->
+        console.log response
         if @successCallback && typeof(@successCallback) is "function"
             console.log "callback"
             @successCallback(response)
             return# CoffeeScript
+            
+    fu.validate = ()->
+        success = no
+        
+        if @FileInput[0].files[0]?
+            success = yes
+        console.log @parent.Manager.UserId? and @parent.Manager.ApplicationId? and @parent.Manager.Key? and @parent.Manager.ProviderId?
+        if @parent.Manager.UserId? and @parent.Manager.ApplicationId? and @parent.Manager.Key? and @parent.Manager.ProviderId?
+            @fileData.append('applicationId',  @parent.Manager.ApplicationId)
+            @fileData.append('providerId',  @parent.Manager.ProviderId)
+            @fileData.append('key',  @parent.Manager.Key)
+            @fileData.append('userId',  @parent.Manager.UserId)
+            @fileData.append('docId', $(@parent.Wrapper).data('docid'))
+            @fileData.append('docCode', $(@parent.Wrapper).data('docCode'))
+            success = yes
+        else
+            success = no
+        console.log @parent.isSimple
+        
+        if @parent.isSimple
+            @fileData.append('isSimple', "true")
+            
+        if not @parent.isSimple and @parent.DocumentName? and @parent.DocumentType? and @parent.DocumentTypeId?
+            @fileData.append('isSimple', "false")
+            @fileData.append('docTypeId', @parent.DocumentTypeId)
+            @fileData.append('docTypeName', @parent.DocumentType)
+            success = yes
+        else
+            #success = no
+        #console.log @parent 
+        success

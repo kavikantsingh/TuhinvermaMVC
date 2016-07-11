@@ -126,7 +126,6 @@
 /// <reference path="../Theme1/slider/js/jquery-1.7.2.min.js" />
 /// <reference path="../Theme1/slider/js/jquery-ui-1.8.20.custom.min.js" />
 /// <reference path="../Theme1/venobox/js/venobox.js" />
-/// <reference path="../../Scripts/_references.js" />
 /// <reference path="../../Scripts/bootstrap.js" />
 /// <reference path="../../scripts/certapplication/sectionmanager.js" />
 /// <reference path="../../scripts/documentmanager/documentmanager.js" />

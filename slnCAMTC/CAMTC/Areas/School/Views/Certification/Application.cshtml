@@ -30,7 +30,7 @@
 
 
 @section scripts{
-
+    <script src="~/Scripts/elementExt.js"></script>
     <script src="~/Content/AngularJS/angular.js"></script>
     <script src="~/Scripts/DocumentManager/Uploader.js"></script>
     <script src="~/Scripts/DocumentManager/DocumentUploader.js"></script>
@@ -44,15 +44,30 @@
 
         $(document).ready(function () {
             ShowLoader()
+
+            window.DefaultDocumentManager = new DocumentManager({
+                ApiBaseUrl: "http://ws.camtc.inlumon.com/",
+                ApplicationId: sessionStorage.School_ApplicationId,
+                ProviderId: sessionStorage.School_ProviderId,
+                ApiSaveEndpoint: "api/Provider/ProviderDocumentSave/",
+                ApiDeleteEndpoint: "api/Provider/ProviderDocumentDelete/",
+                ApiGetDocumentsEndpoint: "api/Provider/ProviderGetProviderDocumentByProviderIdAndDocumentId/",
+                Key: sessionStorage.School_Key
+            })
+
             window.mySectionManager = new SectionManager({
                 ulElement: '#menu-w-licensure',
                 sectionWrapper: '#sectionWrapper',
                 listItemActiveClass: 'actived'
             })
+
+            
+
             HideLoader()
         });
 
 
 
+        
     </script>
 }

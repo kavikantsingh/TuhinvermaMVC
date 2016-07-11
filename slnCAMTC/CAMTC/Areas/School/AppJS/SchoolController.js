@@ -1,5 +1,5 @@
-﻿LAPP.controller('MainController', ['$scope', '$rootScope', 'mySharedService', 'SchoolInfoFactory', function ($scope, $rootScope, mySharedService, SchoolInfoFactory) {
-
+﻿LAPP.controller('MainController', ['$scope', '$rootScope', 'mySharedService', 'SchoolInfoFactory', '$window', '$timeout', function ($scope, $rootScope, mySharedService, SchoolInfoFactory, $window, $timeout) {
+    mySharedService.ApplicationName = 'SchoolApp';
     $scope.Pagename = 'SchoolInfo';
     $scope.TabChangeClick = function (Pagename) {
         $scope.Pagename = Pagename;
@@ -10,8 +10,9 @@
         $scope.Pagename = mySharedService.Pagename;
     });
 
-    $scope.GetProviderdataonchange = function (msg, msg1) {
-        mySharedService.prepForBroadcast(msg, msg1);
+    $scope.GetProviderdataonchange = function () {
+        var providerid = $window.sessionStorage.getItem('School_ProviderId');
+        mySharedService.prepForBroadcast(providerid, '');
     };
 
     $scope.$on('handleBroadcast', function () {
@@ -19,15 +20,18 @@
         $scope.message1 = mySharedService.message1;
     });
 
-    //$scope.GetProviderdataonchange('1163', '');
-    //$scope.TabChangeClick('SchoolInfo');
 
-
-    $scope.handleClick = function () {
+    $scope.handleClick = function (tabnumber) {
         //    sharedService.prepForBroadcast(msg);
-        mySharedService.prepForBroadcast(1163, '');
+        if (tabnumber == 2)
+            $scope.TabChangeClick('SchoolInfo');
+        else if (tabnumber == 3)
+            $scope.TabChangeClick('Eligibility');
         //$scope.TabChangeClick('SchoolInfo');
         //$scope.GetProviderdataonchange('1163', '');
     };
+
+    $timeout($scope.GetProviderdataonchange(), 1000);
+
 
 }]);
