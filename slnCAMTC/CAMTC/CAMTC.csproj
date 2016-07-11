@@ -145,9 +145,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\BackOffice\AppJS\app.js" />
+    <Content Include="Areas\BackOffice\AppJS\Controllers\ConfigurationController.js" />
     <Content Include="Areas\BackOffice\AppJS\Controllers\EligibilityController.js" />
     <Content Include="Areas\BackOffice\AppJS\Controllers\MainController.js" />
     <Content Include="Areas\BackOffice\AppJS\Controllers\SchoolInfoController.js" />
+    <Content Include="Areas\BackOffice\AppJS\Services\ConfigurationService.js" />
     <Content Include="Areas\BackOffice\AppJS\Services\EligibiltiyService.js" />
     <Content Include="Areas\BackOffice\AppJS\Services\SchoolInfoServices.js" />
     <Content Include="Areas\School\AppJS\SchoolController.js" />
@@ -165,6 +167,8 @@
     <Content Include="Areas\School\Views\Certification\_SchoolApp_Staff.cshtml" />
     <Content Include="Areas\School\Views\Certification\_SchoolApp_Tab.cshtml" />
     <Content Include="Areas\School\Views\Certification\_SchoolApp_Transcript.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Home\PartialView\DeficiencyTemplate.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Home\Configuration.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
