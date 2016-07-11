@@ -33,6 +33,7 @@
     @p.init = ()->
         #alert("Initializing")
         _self = @CurrentInstance
+        @UserId = sessionStorage.School_UserId
         #console.log _self
         $("." + @DocumentWrapperClass).each ()->
             console.log _self

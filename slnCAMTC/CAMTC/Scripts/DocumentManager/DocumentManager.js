@@ -50,6 +50,7 @@
     _Class.p.init = function() {
       var _self;
       _self = this.CurrentInstance;
+      this.UserId = sessionStorage.School_UserId;
       $("." + this.DocumentWrapperClass).each(function() {
         var doccode, docid, wrp;
         console.log(_self);

@@ -9,6 +9,10 @@
     @p.Identifier
     @p.AllDocuments = []
     @p.listWrapper
+    @p.DocumentName = ""
+    @p.DocumentType = ""
+    @p.DocumentTypeId = ""
+    @p.isSimple
     constructor: (@opts = {})->
         (@[k] = v) for own k, v of opts
         console.log @Manager, 'Manager' 
@@ -17,6 +21,7 @@
         @isSimple = $(@Wrapper).data('simple')
         @UploadInput = $('<input/>').attr('type', 'file')
         @UploadBtn = $('<button />').addClass("buttonGreen small").text('Upload Document')
+        
         @AllDocuments = []
         @listWrapper
         if not @isSimple
@@ -32,6 +37,10 @@
                                 $.el('td', {})
                                     .append(
                                         $.el('input', {'type' : 'text', 'name' : @Identifier + "_docName", 'id' :  @Identifier + "_docName" })
+                                            #Attach Event to DocName
+                                            .blur {parent : @},(e)->
+                                                parent.DocumentName = $(this).val()
+                                                #console.log $(this).val(), "Document Name Value"
                                     )
                                 $.el('td', {'class' : 'txtalgnrgt'})
                                     .append(
@@ -43,6 +52,10 @@
                                             .append(
                                                 $.el('option', {'selected' : 'selected', 'value' : 0}).text("Select Type")
                                             )
+                                            .change {parent : @}, (e)->
+                                                parent.DocumentTypeId = this.value
+                                                parent.DocumentType = $(this).find('option:selected').text()
+                                                #console.log parent.DocumentType, this.value , "Select Change"
                                     )
                             )
                             
@@ -80,8 +93,8 @@
         
         $(@UploadInput).attr('id', @Identifier + "_input")
         
-        $(@UploadBtn).click {input : @UploadInput, uplWrapper : @UploadWrapper}, (e)->
-            uploadWorker = new FileUploader("Upload", null, e.data.input, e.data.uplWrapper)
+        $(@UploadBtn).click {input : @UploadInput, uplWrapper : @UploadWrapper, parent : _self}, (e)->
+            uploadWorker = new FileUploader("Upload", _self.documentUploadSuccess, e.data.input, e.data.uplWrapper, e.data.parent)
         #console.log @Wrapper, @UploadWrapper
         
         $(@UploadWrapper).attr('id',  @Identifier + "_Uploader")
@@ -111,7 +124,10 @@
                 @$complexWrapper.find("#" + @Identifier + "_docType").first()
                 .append($.el('option', { }).val(v.DocumentTypeId).text(v.DocumentTypeIdName))
         return
-    
+    @p.documentUploadSuccess = (resp)->
+        console.log resp, "from Document Uploader"
+        alert("document Uploaded Successfully")
+        
     @p.createDocumentsList = (docid, docs)->
         console.log docid, 'DocId', docs, 'Documents'
         @listWrapper = $(@Wrapper).find(@Identifier + "_docList").first()

@@ -21,6 +21,14 @@
 
     _Class.p.listWrapper;
 
+    _Class.p.DocumentName = "";
+
+    _Class.p.DocumentType = "";
+
+    _Class.p.DocumentTypeId = "";
+
+    _Class.p.isSimple;
+
     function _Class(opts) {
       var k, v;
       this.opts = opts != null ? opts : {};
@@ -50,6 +58,10 @@
           'type': 'text',
           'name': this.Identifier + "_docName",
           'id': this.Identifier + "_docName"
+        }).blur({
+          parent: this
+        }, function(e) {
+          return parent.DocumentName = $(this).val();
         })), $.el('td', {
           'class': 'txtalgnrgt'
         }).append($.el('label', {
@@ -60,7 +72,12 @@
         }).append($.el('option', {
           'selected': 'selected',
           'value': 0
-        }).text("Select Type")))), $.el('tr', {}).append($.el('td', {
+        }).text("Select Type")).change({
+          parent: this
+        }, function(e) {
+          parent.DocumentTypeId = this.value;
+          return parent.DocumentType = $(this).find('option:selected').text();
+        }))), $.el('tr', {}).append($.el('td', {
           'class': 'txtalgnrgt'
         }).append($.el('label', {
           'class': 'input-label required'
@@ -81,10 +98,11 @@
       $(this.UploadInput).attr('id', this.Identifier + "_input");
       $(this.UploadBtn).click({
         input: this.UploadInput,
-        uplWrapper: this.UploadWrapper
+        uplWrapper: this.UploadWrapper,
+        parent: _self
       }, function(e) {
         var uploadWorker;
-        return uploadWorker = new FileUploader("Upload", null, e.data.input, e.data.uplWrapper);
+        return uploadWorker = new FileUploader("Upload", _self.documentUploadSuccess, e.data.input, e.data.uplWrapper, e.data.parent);
       });
       $(this.UploadWrapper).attr('id', this.Identifier + "_Uploader");
       if (!this.isSimple) {
@@ -111,6 +129,11 @@
           this.$complexWrapper.find("#" + this.Identifier + "_docType").first().append($.el('option', {}).val(v.DocumentTypeId).text(v.DocumentTypeIdName));
         }
       }
+    };
+
+    _Class.p.documentUploadSuccess = function(resp) {
+      console.log(resp, "from Document Uploader");
+      return alert("document Uploaded Successfully");
     };
 
     _Class.p.createDocumentsList = function(docid, docs) {
