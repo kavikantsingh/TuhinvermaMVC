@@ -1,246 +1,211 @@
-﻿<div id="pnlRight" class="mainrightpanel">
-
-
-
+﻿<div ng-controller="CourseCatalogController"  ng-show="hasShow == 'true'">
     <div id="error_validation" class="address-box posFixed" style="display: none; color: red;"></div>
 
-    <div id="ContentPlaceHolder1_ucCertificationApplication1_PnlCoCatChecklist">
-
-        <div id="ContentPlaceHolder1_ucCertificationApplication1_UpdatePanel6">
-
-            <div id="ContentPlaceHolder1_ucCertificationApplication1_Panel7">
-
-
-
-                <div>
-                    <div class="sectionDiv">
-                        <span>Course Catalog</span>
-                    </div>
-                </div>
-                <fieldset class="flsNewApplReqForm flsCharacterReferences" style="text-align: left;">
-
-                    <table>
-
-                        <tbody>
-                            <tr>
-
-                                <td>
-                                    <b>27. Current Course Catalog.</b>
-                                    <p style="padding-left: 22px;">
-                                        A Current course catalog must be provided. Per CAMTC’s Policies and Procedures for Approval of Schools,
-                                        course catalogs should include at minimum :
-                                    </p>
-
-
-                                    <ul class="lipadding" style="margin-left: 35px;">
-                                        <li>
-                                            <p>
-                                                School name, address, additional addresses where classes will be held, telephone number, website,
-                                                and CAMTC School Approval Code (once approved).
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p>Date printed/revised. </p>
-                                        </li>
-                                        <li>
-                                            <p>Title of massage program(s) and total number of scheduled supervised hours received upon completion. </p>
-                                        </li>
-                                        <li>
-                                            <p style="text-align: left;">
-                                                Program prerequisites, including but not limited to admission requirements, previous training, and language comprehension skills.
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p style="text-align: left;">Completion and graduation requirements, including but not limited to clock hours to attend, assignments to complete, and assessments to pass. </p>
-                                        </li>
-                                        <li>
-                                            <p style="text-align: left;">
-                                                Transfer credit policy.
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p style="text-align: left;">Attendance and leave of absence policies. </p>
-                                        </li>
-                                        <li>
-                                            <p>
-                                                Hygiene, dress code, and draping policies.
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p>
-                                                If the school admits foreign or ESL students, the catalog shall contain language proficiency information, including the level of English language proficiency required of students and the kind of documentation of proficiency that will be accepted; and whether English language services are provided and, if so, the nature of the service and its cost. The catalog shall also identify whether any instruction will occur in a language other than English and, if so, identify the other language(s) instruction will be provided in, the level of English proficiency required, and the kind of documentation of proficiency that will be accepted.
-
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p style="text-align: left;">
-                                                Publication of CAMTC’s Law related to unfair business practices as related to massage.
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p style="text-align: left;">
-                                                Clearly visible disclosure statement: “Attendance and/or graduation from a California Massage Therapy Council approved school does not guarantee certification by CAMTC. Applicants for certification shall meet all requirements as listed in California Business and Professions Code section 4600 et. seq.”
-                                            </p>
-                                        </li>
-
-                                        <li>
-                                            <p>Statement directing students to CAMTC for unanswered questions and for filing a complaint: “A student or any member of the public with questions that have not been satisfactorily answered by the school or who would like to file a complaint about this school may contact the California Massage Therapy Council at One Capitol Mall, Suite 800, Sacramento, CA 95814, www.camtc.org, phone (916) 669-5336, or fax (916) 669-5337.”</p>
-                                        </li>
-                                    </ul>
-
-
-
-
-
-
-                                    <div class="dvuploadgrid" style="margin-left: 22px; margin-top:20px;">
-
-                                        <div class="dvuploadclass">
-                                            <div id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog1_upDoc">
-
-
-
-                                                <input type="hidden" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$fuCourseCatalog1$hfStatus" id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog1_hfStatus" value="0">
-
-
-
-                                                <div id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog1_upSimple">
-
-                                                    <table class="withoutbrder">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td style="min-width: 205px; text-align: right;">
-                                                                    <span id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog1_lblSimpleDocText" class="input-label required">Property Tax Bill</span>
-                                                                </td>
-                                                                <td>
-                                                                    <input type="file" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$fuCourseCatalog1$fuSimpleDocUpload" id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog1_fuSimpleDocUpload">
-                                                                </td>
-                                                                <td>
-                                                                    <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$fuCourseCatalog1$btnSimpleDocUpload" value="Upload Document" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$ucCertificationApplication1$fuCourseCatalog1$btnSimpleDocUpload&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog1_btnSimpleDocUpload" class="buttonGreen small" style="margin-left: 10px;">
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td colspan="3">
-                                                                    <div style="text-align: center">
-
-                                                                        <span id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog1_lblSimpleError" style="color: red; align-content: center; display:none">Please fill *required fileds.</span>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td colspan="3"></td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-
-                                                </div>
-
-
-                                            </div>
-
-
-
-                                        </div>
-                                    </div><br/>
-                                </td>
-
-                            </tr>
-
-                            <tr>
-
-                                <td>
-                                    <b>28. Massage program addendum, if any.</b>
-                                    <div class="dvuploadgrid" style="margin-left: 22px; margin-top:20px;">
-
-                                        <div class="dvuploadclass">
-                                            <div id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog2_upDoc">
-
-
-
-                                                <input type="hidden" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$fuCourseCatalog2$hfStatus" id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog2_hfStatus" value="0">
-
-
-
-                                                <div id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog2_upSimple">
-
-                                                    <table class="withoutbrder">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td style="min-width: 205px; text-align: right;">
-                                                                    <span id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog2_lblSimpleDocText" class="input-label required">Property Tax Bill</span>
-                                                                </td>
-                                                                <td>
-                                                                    <input type="file" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$fuCourseCatalog2$fuSimpleDocUpload" id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog2_fuSimpleDocUpload">
-                                                                </td>
-                                                                <td>
-                                                                    <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$fuCourseCatalog2$btnSimpleDocUpload" value="Upload Document" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$ucCertificationApplication1$fuCourseCatalog2$btnSimpleDocUpload&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog2_btnSimpleDocUpload" class="buttonGreen small" style="margin-left: 10px;">
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td colspan="3">
-                                                                    <div style="text-align: center">
-
-                                                                        <span id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog2_lblSimpleError" style="color: red; align-content: center; display:none">Please fill *required fileds.</span>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td colspan="3"></td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-
-                                                </div>
-
-
-                                            </div>
-
-
-
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-
-
-                </fieldset>
-
-                <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
-                    <div style="float: left;">
-                    </div>
-                    <span class="fltrt">
-                        <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$btnNextCourseChkList" value="Save &amp; Next" id="ContentPlaceHolder1_ucCertificationApplication1_btnNextCourseChkList" class="buttonGreen medium">
-
-                        <a id="ContentPlaceHolder1_ucCertificationApplication1_LinkButton6" class="secondary medium bottom buttonalignment" href='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$ContentPlaceHolder1$ucCertificationApplication1$LinkButton6", "", true, "", "", false, true))'>Cancel</a>
-                    </span>
-                </div>
-
-            </div>
-
+    <div>
+        <div class="sectionDiv">
+            <span>Course Catalog</span>
         </div>
+    </div>
+    <fieldset class="flsNewApplReqForm flsCharacterReferences" style="text-align: left;">
 
+        <table>
+
+            <tbody>
+                <tr>
+
+                    <td>
+                        <b>27. Current Course Catalog.</b>
+                        <p style="padding-left: 22px;">
+                            A Current course catalog must be provided. Per CAMTC’s Policies and Procedures for Approval of Schools,
+                            course catalogs should include at minimum :
+                        </p>
+
+
+                        <ul class="lipadding" style="margin-left: 35px;">
+                            <li>
+                                <p>
+                                    School name, address, additional addresses where classes will be held, telephone number, website,
+                                    and CAMTC School Approval Code (once approved).
+                                </p>
+                            </li>
+                            <li>
+                                <p>Date printed/revised. </p>
+                            </li>
+                            <li>
+                                <p>Title of massage program(s) and total number of scheduled supervised hours received upon completion. </p>
+                            </li>
+                            <li>
+                                <p style="text-align: left;">
+                                    Program prerequisites, including but not limited to admission requirements, previous training, and language comprehension skills.
+                                </p>
+                            </li>
+                            <li>
+                                <p style="text-align: left;">Completion and graduation requirements, including but not limited to clock hours to attend, assignments to complete, and assessments to pass. </p>
+                            </li>
+                            <li>
+                                <p style="text-align: left;">
+                                    Transfer credit policy.
+                                </p>
+                            </li>
+                            <li>
+                                <p style="text-align: left;">Attendance and leave of absence policies. </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Hygiene, dress code, and draping policies.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    If the school admits foreign or ESL students, the catalog shall contain language proficiency information, including the level of English language proficiency required of students and the kind of documentation of proficiency that will be accepted; and whether English language services are provided and, if so, the nature of the service and its cost. The catalog shall also identify whether any instruction will occur in a language other than English and, if so, identify the other language(s) instruction will be provided in, the level of English proficiency required, and the kind of documentation of proficiency that will be accepted.
+
+                                </p>
+                            </li>
+                            <li>
+                                <p style="text-align: left;">
+                                    Publication of CAMTC’s Law related to unfair business practices as related to massage.
+                                </p>
+                            </li>
+                            <li>
+                                <p style="text-align: left;">
+                                    Clearly visible disclosure statement: “Attendance and/or graduation from a California Massage Therapy Council approved school does not guarantee certification by CAMTC. Applicants for certification shall meet all requirements as listed in California Business and Professions Code section 4600 et. seq.”
+                                </p>
+                            </li>
+
+                            <li>
+                                <p>Statement directing students to CAMTC for unanswered questions and for filing a complaint: “A student or any member of the public with questions that have not been satisfactorily answered by the school or who would like to file a complaint about this school may contact the California Massage Therapy Council at One Capitol Mall, Suite 800, Sacramento, CA 95814, www.camtc.org, phone (916) 669-5336, or fax (916) 669-5337.”</p>
+                            </li>
+                        </ul>
+
+
+
+
+
+
+                        <div class="dvuploadgrid" style="margin-left: 22px; margin-top:20px;">
+
+                            <div class="dvuploadclass">
+                                <div id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog1_upDoc">
+
+
+
+                                    <input type="hidden" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$fuCourseCatalog1$hfStatus" id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog1_hfStatus" value="0">
+
+
+
+                                    <div id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog1_upSimple">
+
+                                        <table class="withoutbrder">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="min-width: 205px; text-align: right;">
+                                                        <span id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog1_lblSimpleDocText" class="input-label required">Property Tax Bill</span>
+                                                    </td>
+                                                    <td>
+                                                        <input type="file" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$fuCourseCatalog1$fuSimpleDocUpload" id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog1_fuSimpleDocUpload">
+                                                    </td>
+                                                    <td>
+                                                        <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$fuCourseCatalog1$btnSimpleDocUpload" value="Upload Document" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$ucCertificationApplication1$fuCourseCatalog1$btnSimpleDocUpload&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog1_btnSimpleDocUpload" class="buttonGreen small" style="margin-left: 10px;">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3">
+                                                        <div style="text-align: center">
+
+                                                            <span id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog1_lblSimpleError" style="color: red; align-content: center; display:none">Please fill *required fileds.</span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+
+
+                                </div>
+
+
+
+                            </div>
+                        </div><br />
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+                        <b>28. Massage program addendum, if any.</b>
+                        <div class="dvuploadgrid" style="margin-left: 22px; margin-top:20px;">
+
+                            <div class="dvuploadclass">
+                                <div id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog2_upDoc">
+
+
+
+                                    <input type="hidden" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$fuCourseCatalog2$hfStatus" id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog2_hfStatus" value="0">
+
+
+
+                                    <div id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog2_upSimple">
+
+                                        <table class="withoutbrder">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="min-width: 205px; text-align: right;">
+                                                        <span id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog2_lblSimpleDocText" class="input-label required">Property Tax Bill</span>
+                                                    </td>
+                                                    <td>
+                                                        <input type="file" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$fuCourseCatalog2$fuSimpleDocUpload" id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog2_fuSimpleDocUpload">
+                                                    </td>
+                                                    <td>
+                                                        <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$fuCourseCatalog2$btnSimpleDocUpload" value="Upload Document" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$ucCertificationApplication1$fuCourseCatalog2$btnSimpleDocUpload&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog2_btnSimpleDocUpload" class="buttonGreen small" style="margin-left: 10px;">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3">
+                                                        <div style="text-align: center">
+
+                                                            <span id="ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog2_lblSimpleError" style="color: red; align-content: center; display:none">Please fill *required fileds.</span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+
+
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+
+    </fieldset>
+
+    <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
+        <div style="float: left;">
+        </div>
+        <span class="fltrt">
+            <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$btnNextCourseChkList" value="Save &amp; Next" id="ContentPlaceHolder1_ucCertificationApplication1_btnNextCourseChkList" class="buttonGreen medium">
+
+            <a id="ContentPlaceHolder1_ucCertificationApplication1_LinkButton6" class="secondary medium bottom buttonalignment" href='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$ContentPlaceHolder1$ucCertificationApplication1$LinkButton6", "", true, "", "", false, true))'>Cancel</a>
+        </span>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
+

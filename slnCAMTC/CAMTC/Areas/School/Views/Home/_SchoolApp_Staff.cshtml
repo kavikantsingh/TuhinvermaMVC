@@ -1,322 +1,305 @@
-﻿<div id="pnlRight" class="mainrightpanel">
-
+﻿<div ng-controller="StaffController"  ng-show="hasShow == 'true'">
     <div id="error_validation" class="address-box posFixed" style="display: none; color: red;"></div>
 
-    <div id="PnlBackChecklist">
+    <div>
+        <div class="sectionDiv">
+            <span>Staff</span>
+        </div>
+    </div>
+    <fieldset class="flsNewApplReqForm flsCharacterReferences" style="text-align: justify;">
+        <b>32.</b>&nbsp;ALL owners, administrators, and faculty who are  required to submit an Owner Worksheet, Administrator Qualification Form,
+        or Instructor Qualification Form are also required to submit to a background check. (Current CAMTC certificate holders, those who have submitted a CAMTC
+        background check for another school in the past two years, and employees of public colleges or universities of the California state higher education system,
+        as defined in section 100850 of the Education Code, are exempt from providing a background check.)
 
-        <div id="UpdatePanel3">
 
-            <div id="Panel4">
+        <table class="tblApplReqForm5">
+            <tbody>
+                <tr>
 
+                    <td style="padding-left: 0px; line-height: 20px; text-align: justify;">
+                        <b></b>&nbsp;A non-refundable $41 fee for each background check must be included with the school’s application fee.
 
+                    </td>
 
-                <div>
-                    <div class="sectionDiv">
-                        <span>Staff</span>
-                    </div>
-                </div>
-                <fieldset class="flsNewApplReqForm flsCharacterReferences" style="text-align: justify;">
-                    <b>32.</b>&nbsp;ALL owners, administrators, and faculty who are  required to submit an Owner Worksheet, Administrator Qualification Form,
-                    or Instructor Qualification Form are also required to submit to a background check. (Current CAMTC certificate holders, those who have submitted a CAMTC
-                    background check for another school in the past two years, and employees of public colleges or universities of the California state higher education system,
-                    as defined in section 100850 of the Education Code, are exempt from providing a background check.)
+                </tr>
 
+            </tbody>
+        </table>
+        <table class="tblApplReqForm5">
+            <tbody>
+                <tr>
 
-                    <table class="tblApplReqForm5">
-                        <tbody>
-                            <tr>
+                    <td style="padding-left: 0px; line-height: 20px; text-align: left;">
+                        <b></b>&nbsp;Instructions for completing background checks will be emailed to each individual who is required to complete one once the school application is submitted. The school application is considered incomplete until all background checks are completed. .
 
-                                <td style="padding-left: 0px; line-height: 20px; text-align: justify;">
-                                    <b></b>&nbsp;A non-refundable $41 fee for each background check must be included with the school’s application fee.
+                    </td>
 
-                                </td>
+                </tr>
 
-                            </tr>
+            </tbody>
+        </table>
+        <table class="tblApplReqForm5">
 
-                        </tbody>
-                    </table>
-                    <table class="tblApplReqForm5">
-                        <tbody>
-                            <tr>
+            <tbody>
+                <tr>
 
-                                <td style="padding-left: 0px; line-height: 20px; text-align: left;">
-                                    <b></b>&nbsp;Instructions for completing background checks will be emailed to each individual who is required to complete one once the school application is submitted. The school application is considered incomplete until all background checks are completed. .
+                    <td style="padding-left: 0px; line-height: 20px; text-align: left;">
+                        <b></b>&nbsp;Providing incomplete or misleading information to CAMTC may result in processing delays, denial of your application, disciplinary action, revocation of your approval, or additional processing fees.
 
-                                </td>
+                    </td>
 
-                            </tr>
+                </tr>
 
-                        </tbody>
-                    </table>
-                    <table class="tblApplReqForm5">
+            </tbody>
+        </table>
 
-                        <tbody>
-                            <tr>
 
-                                <td style="padding-left: 0px; line-height: 20px; text-align: left;">
-                                    <b></b>&nbsp;Providing incomplete or misleading information to CAMTC may result in processing delays, denial of your application, disciplinary action, revocation of your approval, or additional processing fees.
 
-                                </td>
-
-                            </tr>
-
-                        </tbody>
-                    </table>
-
-
-
-                    <div id="divAddbtnBackgroundCheck" class="divLicenseInfon divaddnew AfterApproved">
-                        <span style="float: right; margin-top: 15px; margin-bottom: 15px;">
-                            <input type="submit" name="btnBackgroundCheckAddNew" value="Add" id="btnBackgroundCheckAddNew" class="buttonGreen small">
-                        </span>
-                    </div>
-
-
-
-
-
-                    <div class="dvdecorate" style="display: block;">
-                        <div>
-                            <table class="index  grid" cellspacing="0" cellpadding="5" id="gvStaff" style="color:#333333;width:100%;border-collapse:collapse;">
-                                <tbody>
-                                    <tr>
-                                        <th scope="col">Last Name</th>
-                                        <th scope="col">First Name</th>
-                                        <th scope="col">Title/ Position </th>
-                                        <th scope="col">Background Check Required </th>
-                                        <th scope="col">If No, Reason Why?</th>
-                                        <th class="aligncenter" scope="col">Action</th>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-
-                    <table style="width: 100%;">
-                        <tbody>
-                            <tr id="btnstaffpay_visible" style="float: right;">
-                                <td></td>
-                            </tr>
-
-                            <tr style="float: right; margin-right:10px;">
-
-                                <td style="width: 162px; margin-left: 10px; padding-left: 45px;">
-                                    Total “Yes” :
-                                    <input type="text" id="TextBox104" class="tooltip OnlyAlphabet inputTextbox capitalize-text NewAppPersonalTxtbx" style="width:67px;" autocomplete="off">
-
-                                </td>
-                                <td>
-                                    Amount Due :
-                                    <input type="text" id="TextBox106" class="tooltip OnlyAlphabet inputTextbox capitalize-text NewAppPersonalTxtbx" placeholder="(Total “Yes” x $41 = )" style="width:148px;" autocomplete="off">
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-
-
-
-                    <table style="margin-top: 45px; margin-bottom: 15px; width: 91%; display: none;">
-                        <tbody>
-                            <tr>
-                                <td align="right">
-                                    <label class="input-label required">
-                                        Signature :
-                                    </label>
-                                </td>
-                                <td>
-                                    <input name="TextBox154" type="text" id="TextBox154" autocomplete="off">
-                                </td>
-                                <td align="right">
-                                    <label class="input-label required">
-                                        Date :
-                                    </label>
-                                </td>
-                                <td>
-                                    <input name="TextBox183" type="text" id="TextBox183" class="calender inputTextbox hasDatepicker" placeholder="MM/DD/YYYY" autocomplete="off" maxlength="10">
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-
-                </fieldset>
-
-                <div id="ContentPlaceHolder1_ucCertificationApplication1_dvAboutStaffUpSection" class="dvdecorate" style="margin-top: 30px; width: 95%; margin-left: 18px;">
-                    <p>
-                        <b>33.&nbsp;&nbsp;Staffing Policies and Procedures :</b>
-                    </p>
-
-
-
-                    @*fileupload partialview*@
-                    @*Document File Upload Partial View -> Type :: Simple*@
-                    @*docId = "5";
-                        docCode = "D1005";
-                        isSimple = true;*@
-
-
-                    <br>
-                    @*fileupload partialview*@
-                    @*Document File Upload Partial View -> Type :: Simple*@
-                    @*docId = "6";
-                        docCode = "D1006";
-                        isSimple = true;*@
-
-
-                    <br>
-                    @*fileupload partialview*@
-                    @*Document File Upload Partial View -> Type :: Simple*@
-                    @*docId = "5";
-                        docCode = "D1005";
-                        isSimple = true;*@
-
-
-                    <br>
-                </div>
-
-
-
-                <fieldset class="flsNewApplReqForm flsCharacterReferences">
-                    <table style="margin-bottom: 5px;">
-                        <tbody>
-                            <tr>
-                                <td colspan="3">
-                                    <b>34.&nbsp;&nbsp;Attestations.</b>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table style="margin-bottom: 5px;">
-                        <tbody>
-                            <tr>
-                                <td style="width: 3%;"></td>
-                                <td style="width: 85%; padding-left: 4px;">I understand that it is my responsibility to submit an application to CAMTC and receive written approval from CAMTC for any CHANGE of APPROVAL or ACCREDITATION, any CHANGE of OWNERSHIP, any CHANGE of SCHOOL LOCATION or CHANGE or ADDITION of ADDITIONAL LOCATIONS, and any CHANGE of SCHOOL NAME PRIOR  to any such change or addition, and that failure to apply for and receive CAMTC approval for such changes or additions may result in disciplinary action by CAMTC against the school, including but not limited to revocation of school approval.</td>
-                                <td style="text-align: center; vertical-align: middle;">
-                                    <input id="chkAttestations1" type="checkbox"><label for="chkAttestations1">Yes</label>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table style="margin-bottom: 5px;">
-
-                        <tbody>
-                            <tr>
-                                <td style="width: 3%;"></td>
-                                <td style="width: 85%; padding-left: 4px;">I understand that if my school’s application is not complete, it will be purged one (1) year after the last date of activity and after a reminder to my stated email and address have been sent by CAMTC. Once it is purged, I understand that I will need to start the entire process over, including paying the application fee and meeting all of the requirements for school approval that exist at the time. I understand that once my application is considered to be complete, it may not be withdrawn.</td>
-                                <td style="text-align: center; vertical-align: middle;">
-                                    <input id="chkAttestations2" type="checkbox"><label for="chkAttestations2">Yes</label>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table style="margin-bottom: 5px;">
-                        <tbody>
-                            <tr>
-                                <td style="width: 3%;"></td>
-                                <td style="width: 85%; padding-left: 4px;">I understand that my Application Fee is non-refundable regardless of the ultimate disposition of my application. I understand that if I am granted CAMTC school approval, it is only for a period of two (2) years, and it is my responsibility to submit a fully completed application for re-approval and ensure that it is received by CAMTC at least six ( 6 ) months before the expiration date listed on my school approval . I understand that a reminder notification may be sent to me as a courtesy, but failure to receive the reminder notification does not waive my responsibility to submit a fully completed application for re-approval and ensure that it is received at least six ( 6 ) months before my current school approval expires. I understand that if a fully completed application for re-approval is not received by CAMTC at least six ( 6 ) months prior to my school approval expiring, I will be required to apply for school approval as a new applicant and I will have to meet all of the requirements for school approval that exist at the time. I understand that CAMTC per law can only accept education from CAMTC approved schools and that any education received by students during times when this school is not approved cannot be accepted by CAMTC for certification purposes. I UNDERSTAND THAT UNDER NO CIRCUMSTANCES CAN THIS POLICY BE WAIVED. </td>
-                                <td style="text-align: center; vertical-align: middle;">
-                                    <input id="chkAttestations3" type="checkbox"><label for="chkAttestations3">Yes</label>
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                    <table style="margin-bottom: 5px;">
-                        <tbody>
-                            <tr>
-                                <td style="width: 3%;"></td>
-                                <td style="width: 85%; padding-left: 4px;">I understand that it is my duty and responsibility to fully disclose all requested information and to supplement and/or update my Application for school approval after it has been submitted and to update my information and notify CAMTC should I receive school approval, if and when any change in circumstances or conditions occurs which might affect CAMTC's decision concerning my school approval. Failure to supplement and/or update my Application or update my information with CAMTC as an approved school may result in disciplinary action by CAMTC against the school, including but not limited to denial of my application or revocation of my school approval.</td>
-                                <td style="text-align: center; vertical-align: middle;">
-                                    <input id="chkAttestations4" type="checkbox"><label for="chkAttestations4">Yes</label>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <table style="margin-bottom: 5px;">
-                        <tbody>
-                            <tr>
-                                <td style="width: 3%;"></td>
-                                <td style="width: 85%; padding-left: 4px;">I HAVE CAREFULLY READ THE QUESTIONS IN THE FOREGOING APPLICATION AND HAVE ANSWERED THEM COMPLETELY, WITHOUT RESERVATION OF ANY KIND, AND I DECLARE, UNDER PENALTY OF PERJURY UNDER THE LAWS OF THE STATE OF CALIFORNIA, THAT MY ANSWERS AND ALL STATEMENTS MADE BY ME HERE IN AND IN SUPPORT OF THIS APPLICATION ARE COMPLETE, TRUE, ACCURATE, AND CORRECT. Should I furnish any false information on or in support of this Application and/or Worksheet, or fail to fully provide all requested information, I understand that such action shall constitute cause for denial, suspension, revocation, or action against my CAMTC School Approval.</td>
-                                <td style="text-align: center; vertical-align: middle;">
-                                    <input id="chkAttestations5" type="checkbox"><label for="chkAttestations5">Yes</label>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <table style="margin-bottom: 5px;">
-                        <tbody>
-                            <tr>
-                                <td style="width: 3%;"></td>
-                                <td style="width: 85%; padding-left: 4px;">I HAVE READ, UNDERSTAND, AND AGREE  TO COMPLY WITH THE STATUTES AND RULES APPLICABLE TO CAMTC’S APPROVAL OF SCHOOLS IN CALIFORNIA.</td>
-                                <td style="text-align: center; vertical-align: middle;">
-                                    <input id="chkAttestations6" type="checkbox"><label for="chkAttestations6">Yes</label>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table style="margin-top: 5px; margin-bottom: 5px; width: 100%;">
-                        <tbody>
-                            <tr>
-                                <td align="right">
-                                    <label class="input-label required">
-                                        Signature :
-                                    </label>
-                                </td>
-                                <td>
-                                    <input type="text" id="TextBox72" autocomplete="off">
-                                </td>
-                                <td align="right">
-                                    <label class="input-label required">
-                                        Date :
-                                    </label>
-                                </td>
-                                <td>
-                                    <input type="text" id="TextBox74" class="calender inputTextbox hasDatepicker" placeholder="MM/DD/YYYY" autocomplete="off" maxlength="10">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="4" style="height: 10px;"></td>
-                            </tr>
-                            <tr>
-                                <td align="right">
-                                    <label class="input-label required">
-                                        Title :
-                                    </label>
-                                </td>
-                                <td>
-                                    <input type="text" id="TextBox94" autocomplete="off">
-                                </td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </fieldset>
-
-                <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
-                    <div style="float: left;">
-                    </div>
-                    <span class="fltrt">
-                        <input type="submit" value="Enter Payment" id="btnPayNow" class="buttonGreen medium">
-
-
-                        <input type="submit" value="Save" id="btnsaveSclContct" class="buttonGreen medium">
-
-                        <a id="lnkContactStaffCancel" class="secondary medium bottom buttonalignment">Cancel</a>
-                    </span>
-                </div>
-
-
-
-
-
-            </div>
-
+        <div id="divAddbtnBackgroundCheck" class="divLicenseInfon divaddnew AfterApproved">
+            <span style="float: right; margin-top: 15px; margin-bottom: 15px;">
+                <input type="submit" name="btnBackgroundCheckAddNew" value="Add" id="btnBackgroundCheckAddNew" class="buttonGreen small">
+            </span>
         </div>
 
+
+
+
+
+        <div class="dvdecorate" style="display: block;">
+            <div>
+                <table class="index  grid" cellspacing="0" cellpadding="5" id="gvStaff" style="color:#333333;width:100%;border-collapse:collapse;">
+                    <tbody>
+                        <tr>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Title/ Position </th>
+                            <th scope="col">Background Check Required </th>
+                            <th scope="col">If No, Reason Why?</th>
+                            <th class="aligncenter" scope="col">Action</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <table style="width: 100%;">
+            <tbody>
+                <tr id="btnstaffpay_visible" style="float: right;">
+                    <td></td>
+                </tr>
+
+                <tr style="float: right; margin-right:10px;">
+
+                    <td style="width: 162px; margin-left: 10px; padding-left: 45px;">
+                        Total “Yes” :
+                        <input type="text" id="TextBox104" class="tooltip OnlyAlphabet inputTextbox capitalize-text NewAppPersonalTxtbx" style="width:67px;" autocomplete="off">
+
+                    </td>
+                    <td>
+                        Amount Due :
+                        <input type="text" id="TextBox106" class="tooltip OnlyAlphabet inputTextbox capitalize-text NewAppPersonalTxtbx" placeholder="(Total “Yes” x $41 = )" style="width:148px;" autocomplete="off">
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+
+
+        <table style="margin-top: 45px; margin-bottom: 15px; width: 91%; display: none;">
+            <tbody>
+                <tr>
+                    <td align="right">
+                        <label class="input-label required">
+                            Signature :
+                        </label>
+                    </td>
+                    <td>
+                        <input name="TextBox154" type="text" id="TextBox154" autocomplete="off">
+                    </td>
+                    <td align="right">
+                        <label class="input-label required">
+                            Date :
+                        </label>
+                    </td>
+                    <td>
+                        <input name="TextBox183" type="text" id="TextBox183" class="calender inputTextbox hasDatepicker" placeholder="MM/DD/YYYY" autocomplete="off" maxlength="10">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </fieldset>
+
+    <div id="ContentPlaceHolder1_ucCertificationApplication1_dvAboutStaffUpSection" class="dvdecorate" style="margin-top: 30px; width: 95%; margin-left: 18px;">
+        <p>
+            <b>33.&nbsp;&nbsp;Staffing Policies and Procedures :</b>
+        </p>
+
+
+
+        @*fileupload partialview*@
+        @*Document File Upload Partial View -> Type :: Simple*@
+        @*docId = "5";
+            docCode = "D1005";
+            isSimple = true;*@
+
+
+        <br>
+        @*fileupload partialview*@
+        @*Document File Upload Partial View -> Type :: Simple*@
+        @*docId = "6";
+            docCode = "D1006";
+            isSimple = true;*@
+
+
+        <br>
+        @*fileupload partialview*@
+        @*Document File Upload Partial View -> Type :: Simple*@
+        @*docId = "5";
+            docCode = "D1005";
+            isSimple = true;*@
+
+
+        <br>
     </div>
+
+
+
+    <fieldset class="flsNewApplReqForm flsCharacterReferences">
+        <table style="margin-bottom: 5px;">
+            <tbody>
+                <tr>
+                    <td colspan="3">
+                        <b>34.&nbsp;&nbsp;Attestations.</b>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="margin-bottom: 5px;">
+            <tbody>
+                <tr>
+                    <td style="width: 3%;"></td>
+                    <td style="width: 85%; padding-left: 4px;">I understand that it is my responsibility to submit an application to CAMTC and receive written approval from CAMTC for any CHANGE of APPROVAL or ACCREDITATION, any CHANGE of OWNERSHIP, any CHANGE of SCHOOL LOCATION or CHANGE or ADDITION of ADDITIONAL LOCATIONS, and any CHANGE of SCHOOL NAME PRIOR  to any such change or addition, and that failure to apply for and receive CAMTC approval for such changes or additions may result in disciplinary action by CAMTC against the school, including but not limited to revocation of school approval.</td>
+                    <td style="text-align: center; vertical-align: middle;">
+                        <input id="chkAttestations1" type="checkbox"><label for="chkAttestations1">Yes</label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="margin-bottom: 5px;">
+
+            <tbody>
+                <tr>
+                    <td style="width: 3%;"></td>
+                    <td style="width: 85%; padding-left: 4px;">I understand that if my school’s application is not complete, it will be purged one (1) year after the last date of activity and after a reminder to my stated email and address have been sent by CAMTC. Once it is purged, I understand that I will need to start the entire process over, including paying the application fee and meeting all of the requirements for school approval that exist at the time. I understand that once my application is considered to be complete, it may not be withdrawn.</td>
+                    <td style="text-align: center; vertical-align: middle;">
+                        <input id="chkAttestations2" type="checkbox"><label for="chkAttestations2">Yes</label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="margin-bottom: 5px;">
+            <tbody>
+                <tr>
+                    <td style="width: 3%;"></td>
+                    <td style="width: 85%; padding-left: 4px;">I understand that my Application Fee is non-refundable regardless of the ultimate disposition of my application. I understand that if I am granted CAMTC school approval, it is only for a period of two (2) years, and it is my responsibility to submit a fully completed application for re-approval and ensure that it is received by CAMTC at least six ( 6 ) months before the expiration date listed on my school approval . I understand that a reminder notification may be sent to me as a courtesy, but failure to receive the reminder notification does not waive my responsibility to submit a fully completed application for re-approval and ensure that it is received at least six ( 6 ) months before my current school approval expires. I understand that if a fully completed application for re-approval is not received by CAMTC at least six ( 6 ) months prior to my school approval expiring, I will be required to apply for school approval as a new applicant and I will have to meet all of the requirements for school approval that exist at the time. I understand that CAMTC per law can only accept education from CAMTC approved schools and that any education received by students during times when this school is not approved cannot be accepted by CAMTC for certification purposes. I UNDERSTAND THAT UNDER NO CIRCUMSTANCES CAN THIS POLICY BE WAIVED. </td>
+                    <td style="text-align: center; vertical-align: middle;">
+                        <input id="chkAttestations3" type="checkbox"><label for="chkAttestations3">Yes</label>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table style="margin-bottom: 5px;">
+            <tbody>
+                <tr>
+                    <td style="width: 3%;"></td>
+                    <td style="width: 85%; padding-left: 4px;">I understand that it is my duty and responsibility to fully disclose all requested information and to supplement and/or update my Application for school approval after it has been submitted and to update my information and notify CAMTC should I receive school approval, if and when any change in circumstances or conditions occurs which might affect CAMTC's decision concerning my school approval. Failure to supplement and/or update my Application or update my information with CAMTC as an approved school may result in disciplinary action by CAMTC against the school, including but not limited to denial of my application or revocation of my school approval.</td>
+                    <td style="text-align: center; vertical-align: middle;">
+                        <input id="chkAttestations4" type="checkbox"><label for="chkAttestations4">Yes</label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table style="margin-bottom: 5px;">
+            <tbody>
+                <tr>
+                    <td style="width: 3%;"></td>
+                    <td style="width: 85%; padding-left: 4px;">I HAVE CAREFULLY READ THE QUESTIONS IN THE FOREGOING APPLICATION AND HAVE ANSWERED THEM COMPLETELY, WITHOUT RESERVATION OF ANY KIND, AND I DECLARE, UNDER PENALTY OF PERJURY UNDER THE LAWS OF THE STATE OF CALIFORNIA, THAT MY ANSWERS AND ALL STATEMENTS MADE BY ME HERE IN AND IN SUPPORT OF THIS APPLICATION ARE COMPLETE, TRUE, ACCURATE, AND CORRECT. Should I furnish any false information on or in support of this Application and/or Worksheet, or fail to fully provide all requested information, I understand that such action shall constitute cause for denial, suspension, revocation, or action against my CAMTC School Approval.</td>
+                    <td style="text-align: center; vertical-align: middle;">
+                        <input id="chkAttestations5" type="checkbox"><label for="chkAttestations5">Yes</label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table style="margin-bottom: 5px;">
+            <tbody>
+                <tr>
+                    <td style="width: 3%;"></td>
+                    <td style="width: 85%; padding-left: 4px;">I HAVE READ, UNDERSTAND, AND AGREE  TO COMPLY WITH THE STATUTES AND RULES APPLICABLE TO CAMTC’S APPROVAL OF SCHOOLS IN CALIFORNIA.</td>
+                    <td style="text-align: center; vertical-align: middle;">
+                        <input id="chkAttestations6" type="checkbox"><label for="chkAttestations6">Yes</label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="margin-top: 5px; margin-bottom: 5px; width: 100%;">
+            <tbody>
+                <tr>
+                    <td align="right">
+                        <label class="input-label required">
+                            Signature :
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" id="TextBox72" autocomplete="off">
+                    </td>
+                    <td align="right">
+                        <label class="input-label required">
+                            Date :
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" id="TextBox74" class="calender inputTextbox hasDatepicker" placeholder="MM/DD/YYYY" autocomplete="off" maxlength="10">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="height: 10px;"></td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label class="input-label required">
+                            Title :
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" id="TextBox94" autocomplete="off">
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+
+    <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
+        <div style="float: left;">
+        </div>
+        <span class="fltrt">
+            <input type="submit" value="Enter Payment" id="btnPayNow" class="buttonGreen medium">
+
+
+            <input type="submit" value="Save" id="btnsaveSclContct" class="buttonGreen medium">
+
+            <a id="lnkContactStaffCancel" class="secondary medium bottom buttonalignment">Cancel</a>
+        </span>
+    </div>
+
 </div>
+

@@ -352,8 +352,6 @@
     }
 
     $scope.$on('handleBroadcastForTab', function () {
-        debugger;
-
         if (mySharedService.CurrentPage == 'Eligibility') {
             if (mySharedService.message != '-1') {
                 $scope.ProviderId = mySharedService.message;
