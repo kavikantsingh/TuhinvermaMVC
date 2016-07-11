@@ -19,5 +19,10 @@ namespace CAMTC.Areas.BackOffice.Controllers
             return View();
         }
 
+        public ActionResult Configuration()
+        {
+            return View();
+        }
+
     }
 }

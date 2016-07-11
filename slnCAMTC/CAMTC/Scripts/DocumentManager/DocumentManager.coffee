@@ -33,6 +33,7 @@
     @p.init = ()->
         #alert("Initializing")
         _self = @CurrentInstance
+        @UserId = sessionStorage.School_UserId
         #console.log _self
         $("." + @DocumentWrapperClass).each ()->
             console.log _self
@@ -62,7 +63,6 @@
             url : obj.ApiBaseUrl + obj.ApiGetDocumentsEndpoint  + obj.Key
             type : "GET"
             data : { 
-            
                 ProviderId : obj.ProviderId
                 ApplicationId : obj.ApplicationId
                 DocumentId : docid
@@ -79,6 +79,8 @@
                 DocCode : doccode
                 }
         })
+    
+          
     @p.getDocTypeNames = (docid) ->
         console.log @DocumentTypeNames, docid
         for k, v of @ApplicationDocuments
@@ -88,8 +90,9 @@
                 
         
     @p.addUploader = (wrapper)->
-        #console.log 'Wrapper', @checkWrapper(wrapper.id)
-        if @checkWrapper(wrapper.id).length is 0 or  @checkWrapper(wrapper.id)[0] is undefined
+        console.log 'Has Wrapper', @checkWrapper(wrapper.id)?
+        #if @checkWrapper(wrapper.id).length is 0 or  @checkWrapper(wrapper.id)[0] is undefined
+        if not @checkWrapper(wrapper.id)?
             @ApplicationDocuments[wrapper.id] = { Wrapper : wrapper, Uploader : new DocumentUploader({ Manager : @CurrentInstance, Wrapper : wrapper })}
         #@ApplicationDocuments[wrapper.id].Uploader.check()
     
@@ -100,11 +103,7 @@
         return
     
     @p.checkWrapper = (id)->
-        console.log id
-        for k, v of @ApplicationDocuments
-            if k is id
-                console.log @CurrentInstance.ApplicationDocuments[k]
-                @CurrentInstance.ApplicationDocuments[k]
+        @CurrentInstance.ApplicationDocuments[id]
             
     @p.refresh = ()->
         $("." + @DocumentWrapperClass).each (e)->

@@ -17,6 +17,18 @@
 
     _Class.p.Identifier;
 
+    _Class.p.AllDocuments = [];
+
+    _Class.p.listWrapper;
+
+    _Class.p.DocumentName = "";
+
+    _Class.p.DocumentType = "";
+
+    _Class.p.DocumentTypeId = "";
+
+    _Class.p.isSimple;
+
     function _Class(opts) {
       var k, v;
       this.opts = opts != null ? opts : {};
@@ -31,6 +43,8 @@
       this.isSimple = $(this.Wrapper).data('simple');
       this.UploadInput = $('<input/>').attr('type', 'file');
       this.UploadBtn = $('<button />').addClass("buttonGreen small").text('Upload Document');
+      this.AllDocuments = [];
+      this.listWrapper;
       if (!this.isSimple) {
         this.$complexWrapper = $.el('table', {
           'class': 'wthtop20',
@@ -44,6 +58,10 @@
           'type': 'text',
           'name': this.Identifier + "_docName",
           'id': this.Identifier + "_docName"
+        }).blur({
+          parent: this
+        }, function(e) {
+          return parent.DocumentName = $(this).val();
         })), $.el('td', {
           'class': 'txtalgnrgt'
         }).append($.el('label', {
@@ -54,7 +72,12 @@
         }).append($.el('option', {
           'selected': 'selected',
           'value': 0
-        }).text("Select Type")))), $.el('tr', {}).append($.el('td', {
+        }).text("Select Type")).change({
+          parent: this
+        }, function(e) {
+          parent.DocumentTypeId = this.value;
+          return parent.DocumentType = $(this).find('option:selected').text();
+        }))), $.el('tr', {}).append($.el('td', {
           'class': 'txtalgnrgt'
         }).append($.el('label', {
           'class': 'input-label required'
@@ -67,17 +90,19 @@
     }
 
     _Class.p.init = function(self) {
-      var $uploadWrapper, $wrapperMain, k, v, _i, _len, _ref;
+      var $uploadWrapper, $wrapperMain, k, v, _i, _len, _ref, _self;
       this.self = self;
+      _self = this.self;
       $wrapperMain = $(this.Wrapper);
       $uploadWrapper = $(this.UploadWrapper);
       $(this.UploadInput).attr('id', this.Identifier + "_input");
       $(this.UploadBtn).click({
         input: this.UploadInput,
-        uplWrapper: this.UploadWrapper
+        uplWrapper: this.UploadWrapper,
+        parent: _self
       }, function(e) {
         var uploadWorker;
-        return uploadWorker = new FileUploader("Upload", null, e.data.input, e.data.uplWrapper);
+        return uploadWorker = new FileUploader("Upload", _self.documentUploadSuccess, e.data.input, e.data.uplWrapper, e.data.parent);
       });
       $(this.UploadWrapper).attr('id', this.Identifier + "_Uploader");
       if (!this.isSimple) {
@@ -87,7 +112,13 @@
         $uploadWrapper.append(this.UploadBtn);
       }
       $wrapperMain.append(this.UploadWrapper);
-      this.Manager.loadAllDocument($wrapperMain.data('docid'));
+      this.Manager.loadAllDocument($wrapperMain.data('docid')).done(function(resp) {
+        console.log(resp, "loaded All Documents");
+        if (resp.Status) {
+          _self.AllDocuments["doc_" + $(_self.Wrapper).data('docid')] = resp.ProviderDocumentGET;
+          return _self.createDocumentsList("doc_" + $(_self.Wrapper).data('docid'), _self.AllDocuments["doc_" + $(_self.Wrapper).data('docid')]);
+        }
+      });
       this.docTypes = this.Manager.DocumentTypeNames["doc_" + $(this.Wrapper).data('docid')];
       if (this.docTypes != null) {
         console.log(this.docTypes);
@@ -97,6 +128,78 @@
           console.log(v, 'Value', k, "Key");
           this.$complexWrapper.find("#" + this.Identifier + "_docType").first().append($.el('option', {}).val(v.DocumentTypeId).text(v.DocumentTypeIdName));
         }
+      }
+    };
+
+    _Class.p.documentUploadSuccess = function(resp) {
+      console.log(resp, "from Document Uploader");
+      return alert("document Uploaded Successfully");
+    };
+
+    _Class.p.createDocumentsList = function(docid, docs) {
+      var doc, i, _i, _len;
+      console.log(docid, 'DocId', docs, 'Documents');
+      this.listWrapper = $(this.Wrapper).find(this.Identifier + "_docList").first();
+      console.log($(this.Wrapper).find(this.Identifier + "_docList").length === 0);
+      if ($(this.Wrapper).find(this.Identifier + "_docList").length === 0) {
+        this.listWrapper = this.createDocumentTableTemplate();
+        $(this.Wrapper).append(this.listWrapper);
+      }
+      for (i = _i = 0, _len = docs.length; _i < _len; i = ++_i) {
+        doc = docs[i];
+        this.addDocumentToList(doc, i);
+      }
+    };
+
+    _Class.p.createDocumentTableTemplate = function() {
+      var obj;
+      obj = $.el('table', {
+        'class': 'index vlign grid gridtable',
+        'width': '100%'
+      }).append($.el('tr', {}).append($.el('th', {
+        'class': 'txtalgnrgt'
+      }).text("Document Type"), $.el('th', {
+        'style': 'text-align : center'
+      }).text("Document Name"), $.el('th', {}).text("Document Link"), $.el('th', {}).text("Action")));
+      return obj;
+    };
+
+    _Class.p.addDocumentToList = function(doc, index) {
+      var deleteBtn, docElement, obj;
+      console.log(this.listWrapper);
+      obj = this;
+      deleteBtn = $.el('button', {
+        'class': ''
+      }).text("Delete");
+      docElement = $.el('tr', {}).append($.el('td', {}).text(doc.DocumentTypeIdName), $.el('td', {}).text(doc.DocumentName), $.el('td', {}).append($.el('a', {
+        'href': doc.DocumentPath,
+        'class': 'documentdetail'
+      }).text("Document Detail")), $.el('td', {}).append(deleteBtn));
+      deleteBtn.click({
+        document: doc,
+        ind: index,
+        _self: obj,
+        docEle: docElement
+      }, function(e) {
+        if (confirm("Really want delete this document?")) {
+          return e.data._self.removeDocument(e.data.document, e.data.ind, e.data.docEle);
+        }
+      });
+      $(this.listWrapper).append(docElement);
+    };
+
+    _Class.p.removeDocument = function(document, index, element) {
+      console.log(document);
+      $(element).remove();
+      this.AllDocuments = $.grep(this.AllDocuments, function(val) {
+        return val === !document;
+      });
+      return this.refreshDocumentList();
+    };
+
+    _Class.p.refreshDocumentList = function() {
+      if (this.AllDocuments.length === 0) {
+        return $(this.listWrapper).css('display', 'none');
       }
     };
 

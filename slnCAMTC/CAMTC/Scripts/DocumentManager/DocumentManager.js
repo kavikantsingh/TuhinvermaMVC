@@ -50,6 +50,7 @@
     _Class.p.init = function() {
       var _self;
       _self = this.CurrentInstance;
+      this.UserId = sessionStorage.School_UserId;
       $("." + this.DocumentWrapperClass).each(function() {
         var doccode, docid, wrp;
         console.log(_self);
@@ -117,7 +118,8 @@
     };
 
     _Class.p.addUploader = function(wrapper) {
-      if (this.checkWrapper(wrapper.id).length === 0 || this.checkWrapper(wrapper.id)[0] === void 0) {
+      console.log('Has Wrapper', this.checkWrapper(wrapper.id) != null);
+      if (this.checkWrapper(wrapper.id) == null) {
         return this.ApplicationDocuments[wrapper.id] = {
           Wrapper: wrapper,
           Uploader: new DocumentUploader({
@@ -139,20 +141,7 @@
     };
 
     _Class.p.checkWrapper = function(id) {
-      var k, v, _ref, _results;
-      console.log(id);
-      _ref = this.ApplicationDocuments;
-      _results = [];
-      for (k in _ref) {
-        v = _ref[k];
-        if (k === id) {
-          console.log(this.CurrentInstance.ApplicationDocuments[k]);
-          _results.push(this.CurrentInstance.ApplicationDocuments[k]);
-        } else {
-          _results.push(void 0);
-        }
-      }
-      return _results;
+      return this.CurrentInstance.ApplicationDocuments[id];
     };
 
     _Class.p.refresh = function() {

@@ -1,8 +1,10 @@
 ﻿/// <autosync enabled="true" />
 /// <reference path="../../Areas/BackOffice/AppJS/app.js" />
+/// <reference path="../../areas/backoffice/appjs/controllers/configurationcontroller.js" />
 /// <reference path="../../Areas/BackOffice/AppJS/Controllers/EligibilityController.js" />
 /// <reference path="../../Areas/BackOffice/AppJS/Controllers/MainController.js" />
 /// <reference path="../../Areas/BackOffice/AppJS/Controllers/SchoolInfoController.js" />
+/// <reference path="../../areas/backoffice/appjs/services/configurationservice.js" />
 /// <reference path="../../Areas/BackOffice/AppJS/Services/EligibiltiyService.js" />
 /// <reference path="../../Areas/BackOffice/AppJS/Services/SchoolInfoServices.js" />
 /// <reference path="../../areas/school/appjs/controllers/aboutcontroller.js" />
@@ -132,6 +134,13 @@
 /// <reference path="../Theme1/slider/js/jquery-ui-1.8.20.custom.min.js" />
 /// <reference path="../Theme1/venobox/js/venobox.js" />
 /// <reference path="../../Scripts/bootstrap.js" />
+<<<<<<< HEAD
+=======
+/// <reference path="../../scripts/certapplication/sectionmanager.js" />
+/// <reference path="../../scripts/documentmanager/documentmanager.js" />
+/// <reference path="../../scripts/documentmanager/documentuploader.js" />
+/// <reference path="../../scripts/documentmanager/uploader.js" />
+>>>>>>> 1591a6456990b38f751920f0e85b936579bb793b
 /// <reference path="../../Scripts/jquery.validate.js" />
 /// <reference path="../../Scripts/jquery.validate.unobtrusive.js" />
 /// <reference path="../../Scripts/jquery-1.10.2.js" />
