@@ -2,7 +2,7 @@
     fu = @::
     _self = self
     fu.thisObj = ""
-    constructor: (@url, @successCallback, @FileInput, @uploadWrapper, @formTypeSelector = "MediaUploader", @progressContainer = "#ProgressContainer")->
+    constructor: (@url, @successCallback, @FileInput, @uploadWrapper,  @progressContainer = "#ProgressContainer")->
         @fileInput = null
         thisObj = @
         console.log @FileInput

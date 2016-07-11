@@ -1,0 +1,73 @@
+﻿@{
+    Layout = "~/Areas/School/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "SchoolApplication";
+}
+
+<div style="overflow: hidden; position: relative;">
+    <div class="header">
+        <span>
+            <h4 style="text-align: left; margin: 0px !important;">
+                <span>
+                    <a href="" id="ContentPlaceHolder1_ucCertificationApplication1_lnkBacktoDashboard">← Log off</a>
+                </span>
+            </h4>
+        </span>
+        <p style="text-align: center; vertical-align: middle; text-indent: 119px; margin-top: 10px; padding-bottom: 10px;">
+            <span class="header-span">Application for Massage School Approval</span>
+        </p>
+    </div>
+</div>
+
+<div class="clear"></div>
+
+<div class="divmain">
+
+    @Html.Partial("_SchoolApp_Tab")
+
+    @Html.Partial("_RightPanelPartial")
+
+</div>
+
+
+@section scripts{
+    <script src="~/Scripts/elementExt.js"></script>
+    <script src="~/Content/AngularJS/angular.js"></script>
+    <script src="~/Scripts/DocumentManager/Uploader.js"></script>
+    <script src="~/Scripts/DocumentManager/DocumentUploader.js"></script>
+    <script src="~/Scripts/DocumentManager/DocumentManager.js"></script>
+    <script src="~/Scripts/CertApplication/SectionManager.js"></script>
+    <script src="~/Content/Public/js/ebsoft-loader.js"></script>
+
+
+    <script>
+
+
+        $(document).ready(function () {
+            ShowLoader()
+
+            window.DefaultDocumentManager = new DocumentManager({
+                ApiBaseUrl: "http://ws.camtc.inlumon.com/",
+                ApplicationId: sessionStorage.School_ApplicationId,
+                ProviderId: sessionStorage.School_ProviderId,
+                ApiSaveEndpoint: "api/Provider/ProviderDocumentSave/",
+                ApiDeleteEndpoint: "api/Provider/ProviderDocumentDelete/",
+                ApiGetDocumentsEndpoint: "api/Provider/ProviderGetProviderDocumentByProviderIdAndDocumentId/",
+                Key: sessionStorage.School_Key
+            })
+
+            window.mySectionManager = new SectionManager({
+                ulElement: '#menu-w-licensure',
+                sectionWrapper: '#sectionWrapper',
+                listItemActiveClass: 'actived'
+            })
+
+            
+
+            HideLoader()
+        });
+
+
+
+        
+    </script>
+}

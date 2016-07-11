@@ -3,35 +3,35 @@
   var __hasProp = {}.hasOwnProperty;
 
   this['DocumentManager'] = (function() {
-    var p;
+    _Class.p = _Class.prototype;
 
-    p = _Class.prototype;
+    _Class.p.ApiBaseUrl = "http://ws.camtc.inlumon.com/";
 
-    p.ApiBaseUrl = "";
+    _Class.p.ApplicationId = "";
 
-    p.ApplicationId = "";
+    _Class.p.ProviderId = "";
 
-    p.ProviderId = "";
+    _Class.p.ApiSaveEndpoint = "";
 
-    p.ApiSaveEndpoint = "";
+    _Class.p.ApiDeleteEndpoint = "";
 
-    p.ApiDeleteEndpoint = "";
+    _Class.p.ApiGetDocumentsEndpoint = "";
 
-    p.ApiGetDocumentsEndpoint = "";
+    _Class.p.Key = "";
 
-    p.Key = "";
+    _Class.p.UserId = "";
 
-    p.UserId = "";
+    _Class.p.DocumentUploader = {};
 
-    p.DocumentUploader = {};
+    _Class.p.DocumentContainerBuilder;
 
-    p.DocumentContainerBuilder;
+    _Class.p.ApplicationDocuments = [];
 
-    p.ApplicationDocuments = [];
+    _Class.p.DocumentTypeNames = [];
 
-    p.DocumentWrapperClass = "documentContainer";
+    _Class.p.DocumentWrapperClass = "documentContainer";
 
-    p.CurrentInstance = {};
+    _Class.p.CurrentInstance = {};
 
     function _Class(opts) {
       var k, v;
@@ -41,59 +41,128 @@
         v = opts[k];
         this[k] = v;
       }
-      this.init(this);
+      this.CurrentInstance = this;
+      this.DocumentTypeNames = [];
+      ShowLoader();
+      this.init();
     }
 
-    p.init = function(self) {
-      this.self = self;
-      p.CurrentInstance = this.self;
+    _Class.p.init = function() {
+      var _self;
+      _self = this.CurrentInstance;
       $("." + this.DocumentWrapperClass).each(function() {
-        return p.CurrentInstance.addUploader(this);
+        var doccode, docid, wrp;
+        console.log(_self);
+        docid = $(this).data('docid');
+        doccode = $(this).data('docCode');
+        wrp = this;
+        console.log(_self.DocumentTypeNames['doc_' + docid] != null);
+        if (!$(this).data('simple') && (_self.DocumentTypeNames['doc_' + docid] == null)) {
+          _self.loadDocTypeName(docid, doccode).success(function(resp) {
+            if (resp.Status) {
+              _self.DocumentTypeNames['doc_' + docid] = resp.DocumentMasterGET;
+            }
+            return _self.addUploader(wrp);
+          });
+        } else {
+          _self.addUploader(this);
+        }
       });
+      HideLoader();
     };
 
-    p.loadAllDocument = function() {
+    _Class.p.loadAllDocument = function(docid) {
       var obj;
-      obj = p.CurrentInstance;
+      obj = this.CurrentInstance;
+      console.log(obj.ApiBaseUrl + obj.ApiGetDocumentsEndpoint + obj.Key);
       return $.ajax({
-        url: obj.ApiBaseUrl + obj.ApiGetDocumentsEndpoint + "/" + obj.Key
+        url: obj.ApiBaseUrl + obj.ApiGetDocumentsEndpoint + obj.Key,
+        type: "GET",
+        data: {
+          ProviderId: obj.ProviderId,
+          ApplicationId: obj.ApplicationId,
+          DocumentId: docid
+        }
       });
     };
 
-    p.addUploader = function(wrapper) {
-      console.log(wrapper);
-      return this.ApplicationDocuments[wrapper.id] = {
-        Wrapper: wrapper,
-        Uploader: new DocumentUploader({
-          Manager: this.self,
-          Wrapper: wrapper
-        })
-      };
+    _Class.p.loadDocTypeName = function(docid, doccode) {
+      var obj;
+      obj = this;
+      return $.ajax({
+        url: obj.ApiBaseUrl + "api/Document/DocumentGetDocumentTypeName/" + obj.Key,
+        type: "GET",
+        data: {
+          DocId: docid,
+          DocCode: doccode
+        }
+      });
     };
 
-    p.getAllWrapper = function() {
+    _Class.p.getDocTypeNames = function(docid) {
+      var k, v, _ref, _results;
+      console.log(this.DocumentTypeNames, docid);
+      _ref = this.ApplicationDocuments;
+      _results = [];
+      for (k in _ref) {
+        v = _ref[k];
+        if (k === 'doc_' + docid) {
+          console.log(this.CurrentInstance.DocumentTypeNames[k]);
+          _results.push(this.CurrentInstance.DocumentTypeNames[k]);
+        } else {
+          _results.push(void 0);
+        }
+      }
+      return _results;
+    };
+
+    _Class.p.addUploader = function(wrapper) {
+      if (this.checkWrapper(wrapper.id).length === 0 || this.checkWrapper(wrapper.id)[0] === void 0) {
+        return this.ApplicationDocuments[wrapper.id] = {
+          Wrapper: wrapper,
+          Uploader: new DocumentUploader({
+            Manager: this.CurrentInstance,
+            Wrapper: wrapper
+          })
+        };
+      }
+    };
+
+    _Class.p.getAllWrapper = function() {
       var k, v, _ref;
       this.ApplicationDocuments;
       _ref = this.ApplicationDocuments;
       for (k in _ref) {
         v = _ref[k];
-        console.log(p.CurrentInstance.ApplicationDocuments[k]);
+        console.log(this.CurrentInstance.ApplicationDocuments[k]);
       }
+    };
+
+    _Class.p.checkWrapper = function(id) {
+      var k, v, _ref, _results;
+      console.log(id);
+      _ref = this.ApplicationDocuments;
+      _results = [];
+      for (k in _ref) {
+        v = _ref[k];
+        if (k === id) {
+          console.log(this.CurrentInstance.ApplicationDocuments[k]);
+          _results.push(this.CurrentInstance.ApplicationDocuments[k]);
+        } else {
+          _results.push(void 0);
+        }
+      }
+      return _results;
+    };
+
+    _Class.p.refresh = function() {
+      $("." + this.DocumentWrapperClass).each(function(e) {
+        return _self.addUploader(this);
+      });
     };
 
     return _Class;
 
   })();
-
-  $(document).ready(function() {
-    return window.DefaultDocumentManager = new DocumentManager({
-      ApiBaseUrl: "/test/",
-      ApplicationId: '1',
-      ProviderId: "0",
-      ApiSaveEndpoint: "Save",
-      ApiDeleteEndpoint: "Delete",
-      ApiGetDocumentsEndpoint: "Get"
-    });
-  });
 
 }).call(this);

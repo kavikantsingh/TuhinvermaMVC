@@ -14,7 +14,7 @@ class @['SectionManager']
         @iam = @
         @sectionState= {}
         @initSections(@iam)
-        
+        @hideLoading()
     
     vm.getListElement = ()->
         @iam['ulElement']
@@ -22,6 +22,8 @@ class @['SectionManager']
     vm.initSections = (obj)->
         #console.log @,  @iam
         $(@ulElement + " li") .each ->
+            if $(this).hasClass("initial")
+                obj.changeSelection(this)
             $(this).click(()->
                 #console.log @
                 obj.changeSelection(@)
@@ -39,8 +41,9 @@ class @['SectionManager']
         loadingSectionId = $(item).data("section")
         if !@sectionState[loadingSectionId]
             @loadSection(loadingSectionId, @)
+            
         else
-            @updateSection(@, @sectionState[loadingSectionId].element) 
+            @updateSection(@, @sectionState[loadingSectionId].element)
         @unSelectOther(@)
         $(item).addClass(@listItemActiveClass)
         #@updateSection(@, item)
@@ -64,6 +67,7 @@ class @['SectionManager']
             $(@).removeClass("activeSection")
         $(item).addClass("activeSection")
         $(item).css('display', 'block')
+        obj.hideLoading()
         
         
     vm.getSelf = ()->
@@ -97,18 +101,11 @@ class @['SectionManager']
                             }
                         $(obj.sectionWrapper).append(el)
                         obj.updateSection(obj, el)
+                        console.log DefaultDocumentManager
+                        DefaultDocumentManager.init()
                         obj.hideLoading()
                         return
                     )
             
         return
         
-ShowLoader()
-$(document).ready ()->   
-    
-    window.mySectionManager = new SectionManager({
-        ulElement : '#menu-w-licensure'
-        sectionWrapper : '#sectionWrapper' 
-        listItemActiveClass : 'actived'
-    })
-    HideLoader()

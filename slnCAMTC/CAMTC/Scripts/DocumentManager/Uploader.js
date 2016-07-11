@@ -9,13 +9,12 @@
 
     fu.thisObj = "";
 
-    function _Class(url, successCallback, FileInput, uploadWrapper, formTypeSelector, progressContainer) {
+    function _Class(url, successCallback, FileInput, uploadWrapper, progressContainer) {
       var thisObj;
       this.url = url;
       this.successCallback = successCallback;
       this.FileInput = FileInput;
       this.uploadWrapper = uploadWrapper;
-      this.formTypeSelector = formTypeSelector != null ? formTypeSelector : "MediaUploader";
       this.progressContainer = progressContainer != null ? progressContainer : "#ProgressContainer";
       this.fileInput = null;
       thisObj = this;

@@ -28,6 +28,7 @@
       this.iam = this;
       this.sectionState = {};
       this.initSections(this.iam);
+      this.hideLoading();
     }
 
     vm.getListElement = function() {
@@ -36,6 +37,9 @@
 
     vm.initSections = function(obj) {
       $(this.ulElement + " li").each(function() {
+        if ($(this).hasClass("initial")) {
+          obj.changeSelection(this);
+        }
         $(this).click(function() {
           obj.changeSelection(this);
         });
@@ -55,7 +59,6 @@
       }
       this.unSelectOther(this);
       $(item).addClass(this.listItemActiveClass);
-      this.hideLoading();
     };
 
     vm.validateSelection = function(item) {};
@@ -72,7 +75,8 @@
         return $(this).removeClass("activeSection");
       });
       $(item).addClass("activeSection");
-      return $(item).css('display', 'block');
+      $(item).css('display', 'block');
+      return obj.hideLoading();
     };
 
     vm.getSelf = function() {
@@ -105,6 +109,9 @@
             };
             $(obj.sectionWrapper).append(el);
             obj.updateSection(obj, el);
+            console.log(DefaultDocumentManager);
+            DefaultDocumentManager.init();
+            obj.hideLoading();
           }
         });
       }
@@ -113,15 +120,5 @@
     return _Class;
 
   })();
-
-  $(document).ready(function() {
-    ShowLoader();
-    window.mySectionManager = new SectionManager({
-      ulElement: '#menu-w-licensure',
-      sectionWrapper: '#sectionWrapper',
-      listItemActiveClass: 'actived'
-    });
-    return HideLoader();
-  });
 
 }).call(this);
