@@ -1,0 +1,372 @@
+﻿@{
+    ViewBag.Title = "ContentManagement";
+    Layout = "~/Areas/BackOffice/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    .text-center {
+        text-align: center;
+    }
+
+    .pagination {
+        border-radius: 4px;
+        display: inline-block;
+        margin: 20px 0;
+        padding-left: 0;
+    }
+
+        .pagination > li {
+            display: inline;
+        }
+
+    *::after, *::before {
+        box-sizing: border-box;
+    }
+
+    *::after, *::before {
+        box-sizing: border-box;
+    }
+
+    .pagination > li:first-child > a, .pagination > li:first-child > span {
+        border-bottom-left-radius: 4px;
+        border-top-left-radius: 4px;
+        margin-left: 0;
+    }
+
+    .pagination > .disabled > a, .pagination > .disabled > a:focus, .pagination > .disabled > a:hover, .pagination > .disabled > span, .pagination > .disabled > span:focus, .pagination > .disabled > span:hover {
+        background-color: #fff;
+        border-color: #ddd;
+        color: #777;
+        cursor: not-allowed;
+    }
+
+    .pagination > li:first-child > a, .pagination > li:first-child > span {
+        border-bottom-left-radius: 4px;
+        border-top-left-radius: 4px;
+        margin-left: 0;
+    }
+
+    .pagination > .disabled > a, .pagination > .disabled > a:focus, .pagination > .disabled > a:hover, .pagination > .disabled > span, .pagination > .disabled > span:focus, .pagination > .disabled > span:hover {
+        background-color: #fff;
+        border-color: #ddd;
+        color: #777;
+        cursor: not-allowed;
+    }
+
+    .pagination > li > a, .pagination > li > span {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        color: #337ab7;
+        float: left;
+        line-height: 1.42857;
+        margin-left: -1px;
+        padding: 6px 12px;
+        position: relative;
+        text-decoration: none;
+    }
+
+    a {
+        color: #337ab7;
+        text-decoration: none;
+    }
+
+    a {
+        background-color: transparent;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+
+    .pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+        background-color: #337ab7;
+        border-color: #337ab7;
+        color: #fff;
+        cursor: default;
+        z-index: 3;
+    }
+
+    .pagination > li > a, .pagination > li > span {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        color: #337ab7;
+        float: left;
+        line-height: 1.42857;
+        margin-left: -1px;
+        padding: 6px 12px;
+        position: relative;
+        text-decoration: none;
+    }
+</style>
+
+<script src="http://cdn.tinymce.com/4/tinymce.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+
+<script data-require="angular.js@1.3.0" data-semver="1.3.0" src="https://code.angularjs.org/1.3.0/angular.js"></script>
+
+<script src="~/Content/AngularJS/CustomPaging/dirPagination.js"></script>
+
+<script src="~/Areas/BackOffice/AppJS/Controllers/ContentManagement.Controller.js"></script>
+<script src="~/Areas/BackOffice/AppJS/Services/ContentManagement.Service.js"></script>
+
+<div class="clearb">
+</div>
+<div id="myCtrl" ng-app="contentApp" ng-controller="contentController" class="main" style="position: relative">
+    <div class="container primary-content ">
+        <div class="clear">
+        </div>
+        <h3>
+            Manage Content
+        </h3>
+        <div class="clearb">
+        </div>
+        <div id="dashboard-panels">
+            <div class="relative-box ">
+                <div class="dynamic-panels ui-sortable" style="">
+                    <div id="Cashflow" class="clearfix">
+
+                        <div id="ShowContent">
+                            <div class="userHide searchBoxhidden">
+                                <div class="clear">
+                                    <div class="close" onclick="javascript:hideDivSlide('.userHide'); showDivSlide('.searchBbutton');">
+                                    </div>
+                                </div>
+                                <fieldset class="PermitSearch" style="position: relative">
+                                    <div class="clearb">
+                                    </div>
+
+                                    <div style="width: 100%">
+
+                                        <div style="float: left; width: 15%">
+                                            <table class="SearchTable" align="left">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="width: 20px;">&nbsp;</td>
+                                                        <td style="width: 20px;">&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <div style="float: left; width: 60%">
+                                            <table class="SearchTable" align="left">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <select id="ddlPage" ng-model="pageList" ng-change="GetAllTabsSubModule()">
+                                                                <option value="" selected>-- Page --</option>
+                                                                <option ng-repeat="m in PageList" value="{{m.PageModuleId}}">{{m.PageModuleName}}</option>
+                                                            </select>
+                                                        </td>
+                                                        <td style="width: 20px;">&nbsp;</td>
+                                                        <td>
+                                                            <select id="ddlPageModuleTabsSubModule" ng-model="pageModuleTabsSubModule" ng-change="GetAllTabSection()">
+                                                                <option value="" selected>-- TabsSubModule --</option>
+                                                                <option ng-repeat="m in PageModuleTabsSubModuleList" value="{{m.PageModuleTabSubModuleId}}">{{m.PageModuleTabSubModuleName}}</option>
+                                                            </select>
+                                                        </td>
+                                                        <td style="width: 20px;">&nbsp;</td>
+                                                        <td>
+                                                            <select id="ddlPageTabSection" ng-model="pageTabSection" ng-change="GetAllContentType()">
+                                                                <option value="" selected>-- PageTabSection --</option>
+                                                                <option ng-repeat="m in PageTabSectionList" value="{{m.PageTabSectionId}}">{{m.PageTabSectionName}}</option>
+                                                            </select>
+                                                        </td>
+                                                        <td style="width: 20px;">&nbsp;</td>
+                                                        <td>
+                                                            <select id="ddlContentType">
+                                                                <option value="" selected>-- ContentType --</option>
+                                                                <option ng-repeat="m in ContentLkToPageTabSectionList" value="{{m.ContentLkToPageTabSectionId}}">{{m.ContentTypeName}}</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <div style="float: left; width: 20%">
+                                            <table class="SearchTable" align="left">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="width: 20px;">&nbsp;</td>
+                                                        <td>
+                                                            <span class="fltrt">
+                                                                <input type="button" ng-click="FillContentGrid()" id="btnSearch" class="buttonGreen small" value="Search" />
+                                                                &nbsp;
+                                                                <input type="button" id="btnCancel" class="secondary small" value="Cancel" />
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <div class="clearb">
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="gridUpperDiv">
+                                <a class="down_arrow"></a>
+                                <span class="fltlt">
+                                    <button style="background-color:#EEEEEE;" ng-click="FillContentGrid('')" id="lnkShowAll" class="">Show All</button>
+                                </span>
+                                <div class="fltrt rightIcon">
+                                    <a title="find" href="javascript:void()" onclick="javascript:showDivSlide('.userHide');hideDivSlide('.searchBbutton');">
+                                        <img src="~/Content/Theme1/images/search_icon.png" />
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div id="Datatable" class="brdr">
+                                <div class="brdr radius pdng5">
+
+                                    <table id="example" class="display dataTable no-footer" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr style="color: White; background-color: #0D83DD; border-style: None; font-weight: bold;">
+                                                <th>Content Item Code</th>
+                                                <th>Content Item#</th>
+                                                <th>Content Description</th>
+                                                <th>Effective Date</th>
+                                                <th>End Date</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody dir-paginate="m in ContentList | itemsPerPage: 10" current-page="currentPage">
+
+                                            <tr>
+                                                <td style="border-top: 1px solid #ddd;">{{m.ContentItemLkCode}}</td>
+                                                <td style="border-top: 1px solid #ddd;">{{m.ContentItemHash}}</td>
+                                                <td style="border-top: 1px solid #ddd;">{{m.ContentItemLkDesc}}</td>
+                                                <td style="border-top: 1px solid #ddd;">{{m.EffectiveDate | date: 'MM/dd/yyyy'}}</td>
+                                                <td style="border-top: 1px solid #ddd;">{{m.EndDate | date: 'MM/dd/yyyy'}}</td>
+                                                <td style="border-top: 1px solid #ddd;">
+                                                    <input type="image" id="imgDelete" class='{{m.ContentItemLkId}}' onclick="showStuff(this); return false" src="~/Content/Theme1/images/edit.png" alt="Submit">
+                                                </td>
+                                            </tr>
+
+                                            <tr id='{{m.ContentItemLkId}}' style="display: none;">
+                                                <td colspan='6'>
+                                                    <div class="pdng5" style="padding: 15px 0px 15px 0px; width: 100%;">
+
+                                                        <table style="margin: 0 auto; width: 100%;">
+                                                            <tr>
+                                                                <td align="right">
+                                                                    <label class="input-label required">
+                                                                        Effective Date :
+                                                                    </label>
+                                                                </td>
+                                                                <td align="left">
+                                                                    <input type="text" id="txtEffectiveDate_{{m.ContentItemLkId}}" class="inputTextbox" ng-value="m.EffectiveDate  | date: 'MM/dd/yyyy'" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="right">
+                                                                    <label class="input-label required">
+                                                                        End Date :
+                                                                    </label>
+                                                                </td>
+                                                                <td align="left">
+                                                                    <input type="text" id="txtEndDate_{{m.ContentItemLkId}}" class="inputTextbox" ng-value="m.EndDate  | date: 'MM/dd/yyyy'" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="right">
+                                                                    <label class="input-label required">
+                                                                        Content Text :
+                                                                    </label>
+                                                                </td>
+                                                                <td align="left">
+                                                                    <input type="hidden" id="hdnContentItemLkId_{{m.ContentItemLkId}}" value='{{m.ContentItemLkId}}' />
+                                                                    <input type="hidden" id="hdnContentItemHash_{{m.ContentItemLkId}}" value='{{m.ContentItemHash}}' />
+                                                                    <textarea id="txtEditor_{{m.ContentItemLkId}}">{{m.ContentItemLkDesc}}</textarea>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+
+                                                    </div>
+                                                    <div class="toolbar clear" style="">
+                                                        <span class="fltrt">
+                                                            <input type="button" id="btnUpdate_{{m.ContentItemLkId}}" onclick="doStuff(this);" title='{{m.ContentItemLkId}}' value="Save" class="buttongreen medium" />
+                                                            <input id="btnCancel" type="button" name='{{m.ContentItemLkId}}' value="Cancel" class="secondary medium" onclick="hideStuff(this); return false" />
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                    <div class="text-center">
+                                        <dir-pagination-controls boundary-links="true" template-url="~/Content/AngularJS/CustomPaging/dirPagination.tpl.html"></dir-pagination-controls>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        &nbsp;
+                        <div class="ribbon" style="width: 100%">
+                            <div class="holder peel-shadows Individual" style="width: 98.4%; margin-top: -15px;">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+
+    function showStuff(id) {
+        var index = $(id).attr('class');
+        document.getElementById(index).style.display = 'table-row';
+
+        tinymce.init({ mode: 'textareas' });
+
+        $('#txtEffectiveDate_' + index).datepicker({
+            inline: true,
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "2016:2030"
+        });
+        $('#txtEndDate_' + index).datepicker({
+            inline: true,
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "2016:2030"
+        });
+
+    }
+
+    function hideStuff(id) {
+        var val = $(id).attr('name');
+        document.getElementById(val).style.display = 'none';
+    }
+
+    function doStuff(id) {
+
+        var index = $(id).attr('title');
+
+        var contentId = $('#hdnContentItemLkId_' + index).val();
+        var contentHash = $('#hdnContentItemLkId_' + index).val();
+        var contentDesc = tinyMCE.get('txtEditor_' + index).getContent();
+        var startDate = $('#txtEffectiveDate_' + index).val();
+        var endDate = $('#txtEndDate_' + index).val();
+
+        angular.element('#myCtrl').scope().UpdateContentById(contentId, contentHash, contentDesc, startDate, endDate);
+
+        setTimeout(function () { location.reload(); }, 1000);
+
+    };
+
+    //function loadGrid() {
+    //    angular.element('#myCtrl').scope().FillContentGrid($("#ddlContentType").val());
+    //}
+
+</script>
