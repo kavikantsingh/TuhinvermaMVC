@@ -211,7 +211,7 @@
                             <div class="gridUpperDiv">
                                 <a class="down_arrow"></a>
                                 <span class="fltlt">
-                                    <button style="background-color:#EEEEEE;" ng-click="FillContentGrid('')" id="lnkShowAll" class="">Show All</button>
+                                    <button style="background-color:#EEEEEE;" onclick="reloadPage()" id="lnkShowAll" class="">Show All</button>
                                 </span>
                                 <div class="fltrt rightIcon">
                                     <a title="find" href="javascript:void()" onclick="javascript:showDivSlide('.userHide');hideDivSlide('.searchBbutton');">
@@ -329,6 +329,8 @@
 
         tinymce.init({ mode: 'textareas' });
 
+        //tinymce.init({ mode: 'textareas', elements: '#txtEditor_' + index });
+
         $('#txtEffectiveDate_' + index).datepicker({
             inline: true,
             changeMonth: true,
@@ -342,6 +344,10 @@
             yearRange: "2016:2030"
         });
 
+    }
+
+    function reloadPage() {
+        location.reload();
     }
 
     function hideStuff(id) {
@@ -364,9 +370,5 @@
         setTimeout(function () { location.reload(); }, 1000);
 
     };
-
-    //function loadGrid() {
-    //    angular.element('#myCtrl').scope().FillContentGrid($("#ddlContentType").val());
-    //}
 
 </script>
