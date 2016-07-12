@@ -30,6 +30,8 @@ namespace CAMTC.Areas.School.Controllers
         [HttpPost]
         public JsonResult Upload(HttpPostedFileBase file, FormCollection data)
         {
+            string OtherDocumentTypeName = data["otherDocType"] != null ? data["otherDocType"] : "" ;
+            
             var responseString = "";
             if (file != null) {
 
@@ -55,7 +57,7 @@ namespace CAMTC.Areas.School.Controllers
                     IsDocumentUploadedbyStaff = false,
                     ModifiedBy = 0,
                     ModifiedOn = "",
-                    OtherDocumentTypeName = "",
+                    OtherDocumentTypeName = OtherDocumentTypeName,
                     ProviderDocumentGuid = "",
                     ProviderDocumentId = 0,
                     ReferenceNumber = "",

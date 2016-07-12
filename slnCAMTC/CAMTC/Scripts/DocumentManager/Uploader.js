@@ -22,15 +22,12 @@
       this.fileInput = null;
       thisObj = this;
       _parent = this.parent;
-      console.log(this.FileInput);
       this.request = new XMLHttpRequest();
       this.request.onreadystatechange = function() {
         var e, resp;
         if (this.readyState === 4) {
-          console.log("state Changed to 4");
           _parent.wait(false);
           try {
-            console.log(this);
             resp = JSON.parse(this.response);
             resp = JSON.parse(resp);
           } catch (_error) {
@@ -40,9 +37,7 @@
               data: 'Unknown error occurred: [' + this.response + ']'
             };
           }
-          console.log(resp);
           if (resp.Status) {
-            console.log(thisObj);
             _parent.addDocumentToList(resp.ProviderDocumentGET[0]);
           }
         }
@@ -50,7 +45,6 @@
       this.fileData = new FormData();
       this.fileData.append('file', this.FileInput[0].files[0]);
       this.fileInput = this.FileInput;
-      console.log("reached input");
       if (this.validate()) {
         this.upload();
       }
@@ -67,7 +61,6 @@
 
     fu.upload = function() {
       var progressCont;
-      console.log("Uploading File");
       progressCont = $(this.progressContainer).show();
       this.request.upload.addEventListener('progress', function(e) {
         var percent;
@@ -75,14 +68,11 @@
         return progressCont.find("span.UploadProgress").first().text(percent + "%");
       }, false);
       this.request.open('POST', this.url);
-      console.log(this.fileData);
       this.request.send(this.fileData);
     };
 
     fu.processReadystate = function(response) {
-      console.log(response);
       if (this.successCallback && typeof this.successCallback === "function") {
-        console.log("callback");
         this.successCallback(response);
       }
     };
@@ -93,7 +83,6 @@
       if (this.FileInput[0].files[0] != null) {
         success = true;
       }
-      console.log((this.parent.Manager.UserId != null) && (this.parent.Manager.ApplicationId != null) && (this.parent.Manager.Key != null) && (this.parent.Manager.ProviderId != null));
       if ((this.parent.Manager.UserId != null) && (this.parent.Manager.ApplicationId != null) && (this.parent.Manager.Key != null) && (this.parent.Manager.ProviderId != null)) {
         this.fileData.append('applicationId', this.parent.Manager.ApplicationId);
         this.fileData.append('providerId', this.parent.Manager.ProviderId);
@@ -105,12 +94,12 @@
       } else {
         success = false;
       }
-      console.log(this.parent.isSimple);
       if (this.parent.isSimple) {
         this.fileData.append('isSimple', "true");
+        console.log(this.parent);
+        this.fileData.append('otherDocType', this.parent.docTypes[0].DocumentTypeIdName);
       }
       if (!this.parent.isSimple && (this.parent.DocumentName != null) && (this.parent.DocumentType != null) && (this.parent.DocumentTypeId != null)) {
-        console.log(this.parent.DocumentType, this.parent.DocumentTypeId);
         this.fileData.append('isSimple', "false");
         this.fileData.append('docTypeId', this.parent.DocumentTypeId);
         this.fileData.append('docTypeName', this.parent.DocumentType);
