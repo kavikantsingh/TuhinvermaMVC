@@ -100,6 +100,15 @@
       });
     };
 
+    _Class.p.removeDocument = function(doc) {
+      var obj;
+      obj = this;
+      return $.ajax({
+        url: obj.ApiBaseUrl + obj.ApiDeleteEndpoint + obj.Key + "?ProviderDocId=" + doc.ProviderDocumentId + "&UserId=" + obj.UserId + "&ProviderId=" + obj.ProviderId + "&ApplicationId=" + obj.ApplicationId,
+        type: "POST"
+      });
+    };
+
     _Class.p.getDocTypeNames = function(docid) {
       var k, v, _ref, _results;
       console.log(this.DocumentTypeNames, docid);

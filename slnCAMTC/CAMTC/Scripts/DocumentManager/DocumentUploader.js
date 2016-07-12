@@ -29,8 +29,10 @@
 
     _Class.p.isSimple;
 
+    _Class.p.WaitWrapper;
+
     function _Class(opts) {
-      var k, v;
+      var k, v, _self;
       this.opts = opts != null ? opts : {};
       for (k in opts) {
         if (!__hasProp.call(opts, k)) continue;
@@ -38,16 +40,18 @@
         this[k] = v;
       }
       console.log(this.Manager, 'Manager');
+      _self = this;
       this.UploadWrapper = $("<div />").addClass("docUploader");
       this.Identifier = $(this.Wrapper).attr('id');
       this.isSimple = $(this.Wrapper).data('simple');
       this.UploadInput = $('<input/>').attr('type', 'file');
       this.UploadBtn = $('<button />').addClass("buttonGreen small").text('Upload Document');
+      this.WaitWrapper = $('<div />').text("Please wait.").css('display', 'none');
       this.AllDocuments = [];
       this.listWrapper;
       if (!this.isSimple) {
         this.$complexWrapper = $.el('table', {
-          'class': 'wthtop20',
+          'class': 'wthtop20 complex uploader',
           'width': '99%',
           'margin-left': '5px'
         }).append($.el('tr', {}).append($.el('td', {
@@ -75,8 +79,8 @@
         }).text("Select Type")).change({
           parent: this
         }, function(e) {
-          parent.DocumentTypeId = this.value;
-          return parent.DocumentType = $(this).find('option:selected').text();
+          e.data.parent.DocumentTypeId = this.value;
+          return e.data.parent.DocumentType = $(this).find('option:selected').text();
         }))), $.el('tr', {}).append($.el('td', {
           'class': 'txtalgnrgt'
         }).append($.el('label', {
@@ -90,11 +94,12 @@
     }
 
     _Class.p.init = function(self) {
-      var $uploadWrapper, $wrapperMain, k, v, _i, _len, _ref, _self;
+      var $uploadWrapper, $waitWrapper, $wrapperMain, k, v, _i, _len, _ref, _self;
       this.self = self;
       _self = this.self;
       $wrapperMain = $(this.Wrapper);
       $uploadWrapper = $(this.UploadWrapper);
+      $waitWrapper = $(this.WaitWrapper);
       $(this.UploadInput).attr('id', this.Identifier + "_input");
       $(this.UploadBtn).click({
         input: this.UploadInput,
@@ -102,21 +107,22 @@
         parent: _self
       }, function(e) {
         var uploadWorker;
-        return uploadWorker = new FileUploader("Upload", _self.documentUploadSuccess, e.data.input, e.data.uplWrapper, e.data.parent);
+        e.data.parent.wait(true);
+        return uploadWorker = new FileUploader("Upload", e.data.parent.documentUploadSuccess, e.data.input, e.data.uplWrapper, e.data.parent);
       });
       $(this.UploadWrapper).attr('id', this.Identifier + "_Uploader");
       if (!this.isSimple) {
         $uploadWrapper.append(this.$complexWrapper);
       } else {
-        $uploadWrapper.append(this.UploadInput);
-        $uploadWrapper.append(this.UploadBtn);
+        $uploadWrapper.append(this.UploadInput, this.UploadBtn);
       }
+      $uploadWrapper.append($waitWrapper);
       $wrapperMain.append(this.UploadWrapper);
       this.Manager.loadAllDocument($wrapperMain.data('docid')).done(function(resp) {
         console.log(resp, "loaded All Documents");
         if (resp.Status) {
-          _self.AllDocuments["doc_" + $(_self.Wrapper).data('docid')] = resp.ProviderDocumentGET;
-          return _self.createDocumentsList("doc_" + $(_self.Wrapper).data('docid'), _self.AllDocuments["doc_" + $(_self.Wrapper).data('docid')]);
+          _self.AllDocuments = resp.ProviderDocumentGET;
+          return _self.createDocumentsList("doc_" + $(_self.Wrapper).data('docid'), _self.AllDocuments);
         }
       });
       this.docTypes = this.Manager.DocumentTypeNames["doc_" + $(this.Wrapper).data('docid')];
@@ -131,10 +137,7 @@
       }
     };
 
-    _Class.p.documentUploadSuccess = function(resp) {
-      console.log(resp, "from Document Uploader");
-      return alert("document Uploaded Successfully");
-    };
+    _Class.p.documentUploadSuccess = function(resp) {};
 
     _Class.p.createDocumentsList = function(docid, docs) {
       var doc, i, _i, _len;
@@ -166,11 +169,11 @@
 
     _Class.p.addDocumentToList = function(doc, index) {
       var deleteBtn, docElement, obj;
-      console.log(this.listWrapper);
+      console.log(doc, Document);
       obj = this;
-      deleteBtn = $.el('button', {
-        'class': ''
-      }).text("Delete");
+      deleteBtn = $.el('img', {
+        'src': '../\../\Content/\Theme1/\images/\delete.png'
+      }).css('cursor', 'pointer');
       docElement = $.el('tr', {}).append($.el('td', {}).text(doc.DocumentTypeIdName), $.el('td', {}).text(doc.DocumentName), $.el('td', {}).append($.el('a', {
         'href': doc.DocumentPath,
         'class': 'documentdetail'
@@ -182,24 +185,32 @@
         docEle: docElement
       }, function(e) {
         if (confirm("Really want delete this document?")) {
-          return e.data._self.removeDocument(e.data.document, e.data.ind, e.data.docEle);
+          return e.data._self.removeDocument(e.data.document, e.data.ind, e.data.docEle, e.data._self);
         }
       });
       $(this.listWrapper).append(docElement);
     };
 
-    _Class.p.removeDocument = function(document, index, element) {
-      console.log(document);
+    _Class.p.removeDocument = function(document, index, element, selfObj) {
       $(element).remove();
-      this.AllDocuments = $.grep(this.AllDocuments, function(val) {
-        return val === !document;
+      return selfObj.Manager.removeDocument(document).done(function() {
+        $(document).remove();
+        $(element).remove();
+        return this.refreshDocumentList();
       });
-      return this.refreshDocumentList();
     };
 
     _Class.p.refreshDocumentList = function() {
       if (this.AllDocuments.length === 0) {
         return $(this.listWrapper).css('display', 'none');
+      }
+    };
+
+    _Class.p.wait = function(isWait) {
+      if (isWait) {
+        return $(this.WaitWrapper).css('display', 'block');
+      } else {
+        return $(this.WaitWrapper).css('display', 'none');
       }
     };
 

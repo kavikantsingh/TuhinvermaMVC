@@ -79,6 +79,13 @@
                 DocCode : doccode
                 }
         })
+        
+    @p.removeDocument = (doc)->
+        obj = @
+        $.ajax({
+            url : obj.ApiBaseUrl + obj.ApiDeleteEndpoint  + obj.Key + "?ProviderDocId=" + doc.ProviderDocumentId + "&UserId=" + obj.UserId + "&ProviderId=" + obj.ProviderId + "&ApplicationId=" + obj.ApplicationId
+            type : "POST"
+        })
     
           
     @p.getDocTypeNames = (docid) ->

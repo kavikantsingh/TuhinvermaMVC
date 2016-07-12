@@ -12,19 +12,22 @@
         @request.onreadystatechange = ()->
           if `this.readyState` is 4
            console.log "state Changed to 4" 
+           _parent.wait(false)
            try 
             console.log this
-            resp = JSON.parse `this.response`
-            _parent.documentUploadSuccess(JSON.parse(resp))
+            resp = JSON.parse @response
+            resp = JSON.parse resp
+            
            catch e
             resp = {
              status: 'error',
-             data: 'Unknown error occurred: [' + `this.responseText` + ']'
+             data: 'Unknown error occurred: [' + @response + ']'
             }
-            console.log resp
+           console.log resp
            if resp.Status
             console.log thisObj
-            thisObj.processReadystate(resp)
+            #thisObj.processReadystate(resp)
+            _parent.addDocumentToList(resp.ProviderDocumentGET[0])
             return
 
         @fileData = new FormData()
@@ -93,11 +96,12 @@
             @fileData.append('isSimple', "true")
             
         if not @parent.isSimple and @parent.DocumentName? and @parent.DocumentType? and @parent.DocumentTypeId?
+            console.log @parent.DocumentType, @parent.DocumentTypeId
             @fileData.append('isSimple', "false")
             @fileData.append('docTypeId', @parent.DocumentTypeId)
             @fileData.append('docTypeName', @parent.DocumentType)
             success = yes
-        else
+        #else
             #success = no
         #console.log @parent 
         success
