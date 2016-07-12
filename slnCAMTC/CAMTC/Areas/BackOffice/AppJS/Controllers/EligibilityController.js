@@ -334,6 +334,9 @@
     });
 
     function docommoncall() {
+        $scope.ProviderId = mySharedService.message;
+        $scope.applicationid = mySharedService.Applicationid;
+
         $scope.clearMassageProgram();
         $scope.clearApprovalAgency();
         $scope.LookupContentGetBYContentItemLkID(21);

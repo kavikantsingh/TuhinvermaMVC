@@ -14,6 +14,7 @@
 
     $scope.GetProviderdataonchange = function () {
         var providerid = $window.sessionStorage.getItem('School_ProviderId');
+        mySharedService.Applicationid = $window.sessionStorage.getItem('School_ApplicationId');
         mySharedService.prepForBroadcast(providerid, '');
     };
 

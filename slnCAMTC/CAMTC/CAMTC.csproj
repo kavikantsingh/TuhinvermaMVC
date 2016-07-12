@@ -161,6 +161,7 @@
     <Content Include="Areas\School\AppJS\Controllers\CurriculumController.js" />
     <Content Include="Areas\School\AppJS\Controllers\AboutController.js" />
     <Content Include="Areas\School\AppJS\Controllers\SchoolController.js" />
+    <Content Include="Areas\School\AppJS\Services\AboutService.js" />
     <Content Include="Content\AngularJS\ag-grid.min.js" />
     <Content Include="Content\AngularJS\angular-mocks.js" />
     <Content Include="Areas\School\Views\Home\_SchoolApp_AboutTheSchool.cshtml" />
@@ -188,16 +189,12 @@
     <Content Include="Areas\School\Views\Certification\_SchoolApp_Staff.cshtml" />
     <Content Include="Areas\School\Views\Certification\_SchoolApp_Tab.cshtml" />
     <Content Include="Areas\School\Views\Certification\_SchoolApp_Transcript.cshtml" />
-<<<<<<< HEAD
-=======
-
     <Content Include="Areas\BackOffice\Views\Home\PartialView\DeficiencyTemplate.cshtml" />
     <Content Include="Areas\BackOffice\Views\Home\Configuration.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
-
     <Content Include="Areas\Individual\Views\Certification\Application.cshtml" />
     <Content Include="Areas\Individual\Views\Certification\_LeftPanelPartial.cshtml" />
     <Content Include="Areas\Individual\Views\Certification\_PanelChecklistPartial.cshtml" />
@@ -211,8 +208,6 @@
     <Content Include="Areas\Individual\Views\Certification\_PanelSection6Partial.cshtml" />
     <Content Include="Areas\Individual\Views\Certification\_PanelSection7Partial.cshtml" />
     <Content Include="Areas\Individual\Views\Certification\_RightPanelPartial.cshtml" />
-
->>>>>>> 1591a6456990b38f751920f0e85b936579bb793b
     <None Include="Content\AngularJS\angular.intellisense.js" />
     <Content Include="Content\AngularJS\angular.js" />
     <Content Include="Content\AngularJS\angular.min.js" />
@@ -1050,7 +1045,6 @@
     <Folder Include="Areas\Agency\Models\" />
     <Folder Include="Areas\BackOffice\Models\" />
     <Folder Include="Areas\Individual\Models\" />
-    <Folder Include="Areas\School\AppJS\Services\" />
     <Folder Include="Areas\School\Models\" />
     <Folder Include="Content\Agency\" />
     <Folder Include="Content\BackOffice\" />

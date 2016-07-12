@@ -533,6 +533,9 @@
 
     // on selecting provider
     $scope.GetProviderdataonchange = function (id, name) {
+        $scope.ProviderId = mySharedService.message;
+        $scope.applicationid = mySharedService.Applicationid;
+
         Provider.ProviderId = $scope.ProviderId;
         $scope.clearPreviousAddress();
         $scope.clearsateliteAddress();

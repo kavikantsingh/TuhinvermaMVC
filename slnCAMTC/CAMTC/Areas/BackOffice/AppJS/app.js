@@ -8,6 +8,7 @@ var BaseURL = 'http://localhost:1530/api';
 LAPP.factory('mySharedService', function ($rootScope) {
     var sharedService = {};
 
+    sharedService.Applicationid = '';
     sharedService.message = '';
     sharedService.message1 = '';
     sharedService.CurrentPage = '';
