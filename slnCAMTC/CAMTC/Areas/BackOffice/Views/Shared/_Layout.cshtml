@@ -14,7 +14,7 @@
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/JQLogin")
 
-    <script type="text/javascript">
+    @*<script type="text/javascript">
         function OpenCompliancePopup(div) {
             $(div).addClass('visble')
             $(div).dialog({ modal: true, height: 550, width: 630 });
@@ -175,7 +175,7 @@
         function RemoveElement(e) {
             $(e).remove();
         }
-    </script>
+    </script>*@
 
     <style>
         body {
@@ -272,7 +272,7 @@
         }
     </style>
 
-    <script>
+    @*<script>
         $("input.us_street").blur(function () {
             OnStreetChange(this);
         });
@@ -287,12 +287,10 @@
                 }
             });
         }
-    </script>
+    </script>*@
 
 </head>
 <body>
-
-    @*<form id="form1" enctype="multipart/form-data">*@
 
     <input type="password" style="display: none">
 
@@ -402,7 +400,7 @@
         <br />
         <br />
     </div>
-    <script>
+    @*<script>
         var yPos = 0;
         jQuery.fn.center = function () {
 
@@ -419,9 +417,7 @@
         function EndScroll() {
             $(window).scrollTop(yPos);
         }
-    </script>
-
-    @*</form>*@
+    </script>*@
 
 </body>
 </html>

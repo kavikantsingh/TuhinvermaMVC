@@ -125,6 +125,7 @@
     <Compile Include="Areas\Agency\Controllers\HomeController.cs" />
     <Compile Include="Areas\BackOffice\BackOfficeAreaRegistration.cs" />
     <Compile Include="Areas\BackOffice\Controllers\AccountController.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\AdministrationController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\HomeController.cs" />
     <Compile Include="Areas\Individual\Controllers\AccountController.cs" />
     <Compile Include="Areas\Individual\Controllers\CertificationController.cs" />
@@ -147,10 +148,12 @@
   <ItemGroup>
     <Content Include="Areas\BackOffice\AppJS\app.js" />
     <Content Include="Areas\BackOffice\AppJS\Controllers\ConfigurationController.js" />
+    <Content Include="Areas\BackOffice\AppJS\Controllers\ContentManagement.Controller.js" />
     <Content Include="Areas\BackOffice\AppJS\Controllers\EligibilityController.js" />
     <Content Include="Areas\BackOffice\AppJS\Controllers\MainController.js" />
     <Content Include="Areas\BackOffice\AppJS\Controllers\SchoolInfoController.js" />
     <Content Include="Areas\BackOffice\AppJS\Services\ConfigurationService.js" />
+    <Content Include="Areas\BackOffice\AppJS\Services\ContentManagement.Service.js" />
     <Content Include="Areas\BackOffice\AppJS\Services\EligibiltiyService.js" />
     <Content Include="Areas\BackOffice\AppJS\Services\SchoolInfoServices.js" />
     <Content Include="Areas\School\AppJS\Controllers\CourseCatalogController.js" />
@@ -191,6 +194,7 @@
     <Content Include="Areas\School\Views\Certification\_SchoolApp_Transcript.cshtml" />
     <Content Include="Areas\BackOffice\Views\Home\PartialView\DeficiencyTemplate.cshtml" />
     <Content Include="Areas\BackOffice\Views\Home\Configuration.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Administration\ContentManagement.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -212,6 +216,9 @@
     <Content Include="Content\AngularJS\angular.js" />
     <Content Include="Content\AngularJS\angular.min.js" />
     <None Include="Content\AngularJS\_references.js" />
+    <Content Include="Content\AngularJS\CustomPaging\dirPagination.js" />
+    <Content Include="Content\AngularJS\CustomPaging\dirPagination.spec.js" />
+    <Content Include="Content\AngularJS\CustomPaging\dirPagination.tpl.html" />
     <Content Include="Content\Login\css\BeatPicker.min.css" />
     <Content Include="Content\Login\css\font-awesome.css" />
     <Content Include="Content\Login\css\font-awesome.min.css" />
