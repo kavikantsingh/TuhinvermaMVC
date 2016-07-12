@@ -7,7 +7,7 @@
 
     @using (Html.BeginForm("LogIn", "Account", FormMethod.Post, new { @class = "sky-form" }))
     {
-        
+
         <header>Log In</header>
 
         <fieldset>
@@ -112,7 +112,7 @@
                                 window.location.replace('@Url.Action("ResetPassword", "Account")');
                             }
                             else {
-                                if (data.ApplicationStatus === "Submitted")
+                                if (data.ApplicationStatus === "Registration Requested" || data.ApplicationStatus === "Registration Complete" || data.ApplicationStatus === "School Application Started" || data.ApplicationStatus === "School Application In Process")
                                     window.location.replace('@Url.Action("SchoolApplication", "Home")');
                                 else
                                     window.location.replace('@Url.Action("Index", "Home")');

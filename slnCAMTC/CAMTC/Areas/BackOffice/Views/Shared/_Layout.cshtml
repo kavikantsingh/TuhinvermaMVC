@@ -6,9 +6,6 @@
     <title>California Massage Therapy Council</title>
     <link rel="icon" href="favicon.ico" sizes="16x16" type="image/ico">
 
-    @*<script src="../../App_Themes/Theme1/jquery-ui/js/jquery-1.9.1.js?" type="text/javascript"></script>
-        <script src="../../App_Themes/Theme1/jquery-ui/js/jquery-ui.js?" type="text/javascript"></script>*@
-
     @Styles.Render("~/Content/CSSBackOffice")
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -193,10 +190,9 @@
         .loader2 {
             position: fixed;
             width: 100px;
-            height: 40px;
-            line-height: 40px;
+            /*height: 40px;*/
             background: transparent;
-            z-index: 9998;
+            z-index: 99999;
             top: 45%;
             left: 45%;
             color: rgb(28, 112, 179);
@@ -315,7 +311,7 @@
                 <li class=""><a id="nav-help" class="" href="javascript:void();">Help</a> </li>
                 <li class="last">
 
-                    @Html.ActionLink("Log Out", "LogOff", "Account", null, null)                    
+                    @Html.ActionLink("Log Out", "LogOff", "Account", null, null)
 
                 </li>
             </ul>
@@ -340,7 +336,24 @@
                     <li id="liLegal" class="custom-background-dark-hover"><a href="javascript:void();" class="">Legal</a><ul><li><a href="../ARS/ARSLegal.aspx" class="">Special Counsel</a></li><li><a href="../Legal/StaffAttorney.aspx" class="">Staff Attorneys</a></li><li><a href="../Legal/Paralegal.aspx" class="">Paralegals</a></li><li><a href="../Legal/HearingWaitingRoomt.aspx" class="">Hearing Waiting Room</a></li><li><a href="../Legal/HearingSchedule.aspx" class="">Hearing Schedule</a></li></ul></li>
                     <li id="liESD" class="custom-background-dark-hover"><a href="javascript:void();" class="">ESD</a><ul><li><a href="../UI/School.aspx" class="">School Info</a></li><li><a href="../ESD/SchoolApplication.aspx" class="">School Workflow</a></li><li><a href="../ESD/ESDCallSheet.aspx" class="">ESD Call Sheet</a></li><li><a href="../ESD/SchoolComplaint.aspx" class="">School Complaint</a></li></ul></li>
                     <li id="liReports" class="custom-background-dark-hover"><a href="javascript:void();" class="">Reports</a><ul class="maxWidth"><li><a href="javascript:void();" class="">Reports</a><ul><li><a href="../Reports/CertificateReport.aspx">Certificate Report</a></li><li><a href="javascript:void();">Confirmation and Affidavit Page</a></li><li><a href="javascript:void();">Expired Certificate Letter</a></li><li><a href="javascript:void();">Dissemination Log Report</a></li><li><a href="javascript:void();">Inspection Due Report</a></li><li><a href="javascript:void();">Deficient Report</a></li><li><a href="javascript:void();">Workflow Report</a></li><li><a href="javascript:void();">Re-Certification Forms</a></li><li><a href="javascript:void();">Print Certificate</a></li><li><a href="javascript:void();">Restricted Certificate Card</a></li><li><a href="javascript:void();">Temporary Certificate</a></li></ul></li><li><a href="javascript:void();" class="">Queries</a><ul><li><a href="javascript:void();">Application by Status</a></li><li><a href="javascript:void();">Daily Deposit Report</a></li><li><a href="../Reports/EmailListQuery.aspx">Email List Query</a></li><li><a href="javascript:void();">Certificate Card</a></li><li><a href="javascript:void();">Certificate by status</a></li><li><a href="javascript:void();">Mailing List</a></li><li><a href="javascript:void();">Probation List</a></li><li><a href="javascript:void();">Renewal Summary Query</a></li><li><a href="javascript:void();">SB 21 Certificate Report</a></li></ul></li><li><a href="../Reports/GLSReports.aspx" class="">Query &amp; Reporting</a></li><li><a href="javascript:void();" class="">PSD Report</a><ul><li><a href="javascript:void();">PSD Screen</a></li><li><a href="javascript:void();">Complaint Log</a></li><li><a href="javascript:void();">Disciplinary Action</a></li></ul></li><li><a href="javascript:void();" class="">Bad Address</a></li><li><a href="javascript:void();" class="">Inactive</a></li></ul></li>
-                    <li id="liAdministration" class="custom-background-dark-hover"><a href="javascript:void();" class="">Administration</a><ul class="maxWidth"><li><a href="../Administration/CouncilInfo.aspx" class="">Council Info</a></li><li><a href="javascript:void();" class="">Command</a><ul><li><a href="../Commands/Automated.aspx">Automated</a></li><li><a href="../Commands/Manual.aspx">Manual</a></li><li><a href="../Commands/LicensePrintQueue.aspx">Print Queue</a></li></ul></li><li><a href="javascript:void();" class="">User Management</a><ul><li><a href="../Administration/Role.aspx">Roles</a></li><li><a href="../Administration/UserAccount.aspx">User Accounts</a></li></ul></li><li><a href="javascript:void();" class="">Message &amp; Template</a><ul><li><a href="../Administration/Bulletin.aspx">Bulletin</a></li><li><a href="../Administration/TemplateMessage.aspx">Template Message</a></li></ul></li><li><a href="javascript:void();" class="">Workflow</a><ul><li><a href="../Workflow/PrintUserCredential.aspx">Print User Credential</a></li></ul></li><li><a href="../Administration/Configuration.aspx" class="">Configuration</a></li><li><a href="../Administration/ContentManagement.aspx" class="">Content Management</a></li><li><a href="../Administration/Determination.aspx" class="">Determination</a></li><li><a href="../Administration/Appeal.aspx" class="">Appeal</a></li><li><a href="../Administration/AuditLog.aspx" class="">Audit Log</a></li><li><a href="../Administration/MassEmail.aspx" class="">Bulk Email</a></li><li><a href="../Administration/DocumentManagement.aspx" class="">Document Management</a></li><li><a href="../Administration/SchoolHoldList.aspx" class="">School Hold List</a></li></ul></li>
+                    <li id="liAdministration" class="custom-background-dark-hover">
+                        <a href="javascript:void();" class="">Administration</a>
+                        <ul class="maxWidth">
+                            <li><a href="../Administration/CouncilInfo.aspx" class="">Council Info</a></li>
+                            <li><a href="javascript:void();" class="">Command</a><ul><li><a href="../Commands/Automated.aspx">Automated</a></li><li><a href="../Commands/Manual.aspx">Manual</a></li><li><a href="../Commands/LicensePrintQueue.aspx">Print Queue</a></li></ul></li>
+                            <li><a href="javascript:void();" class="">User Management</a><ul><li><a href="../Administration/Role.aspx">Roles</a></li><li><a href="../Administration/UserAccount.aspx">User Accounts</a></li></ul></li>
+                            <li><a href="javascript:void();" class="">Message &amp; Template</a><ul><li><a href="../Administration/Bulletin.aspx">Bulletin</a></li><li><a href="../Administration/TemplateMessage.aspx">Template Message</a></li></ul></li>
+                            <li><a href="javascript:void();" class="">Workflow</a><ul><li><a href="../Workflow/PrintUserCredential.aspx">Print User Credential</a></li></ul></li>
+                            <li><a href="../Administration/Configuration.aspx" class="">Configuration</a></li>
+                            <li><a href="@Url.Action("ContentManagement","Administration")" class="">Content Management</a></li>
+                            <li><a href="../Administration/Determination.aspx" class="">Determination</a></li>
+                            <li><a href="../Administration/Appeal.aspx" class="">Appeal</a></li>
+                            <li><a href="../Administration/AuditLog.aspx" class="">Audit Log</a></li>
+                            <li><a href="../Administration/MassEmail.aspx" class="">Bulk Email</a></li>
+                            <li><a href="../Administration/DocumentManagement.aspx" class="">Document Management</a></li>
+                            <li><a href="../Administration/SchoolHoldList.aspx" class="">School Hold List</a></li>
+                        </ul>
+                    </li>
                 </ul>
 
                 <style>
@@ -390,22 +403,22 @@
         <br />
     </div>
     <script>
-            var yPos = 0;
-            jQuery.fn.center = function () {
+        var yPos = 0;
+        jQuery.fn.center = function () {
 
-                this.css("position", "absolute");
-                this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) +
-                                                    $(window).scrollTop()) + "px");
-                this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) +
-                                                    $(window).scrollLeft()) + "px");
-                return this;
-            }
-            function BeginScroll() {
-                yPos = $(window).scrollTop();
-            }
-            function EndScroll() {
-                $(window).scrollTop(yPos);
-            }
+            this.css("position", "absolute");
+            this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) +
+                                                $(window).scrollTop()) + "px");
+            this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) +
+                                                $(window).scrollLeft()) + "px");
+            return this;
+        }
+        function BeginScroll() {
+            yPos = $(window).scrollTop();
+        }
+        function EndScroll() {
+            $(window).scrollTop(yPos);
+        }
     </script>
 
     @*</form>*@

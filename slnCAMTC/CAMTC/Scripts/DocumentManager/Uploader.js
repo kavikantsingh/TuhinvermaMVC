@@ -28,21 +28,22 @@
         var e, resp;
         if (this.readyState === 4) {
           console.log("state Changed to 4");
+          _parent.wait(false);
           try {
             console.log(this);
             resp = JSON.parse(this.response);
-            _parent.documentUploadSuccess(JSON.parse(resp));
+            resp = JSON.parse(resp);
           } catch (_error) {
             e = _error;
             resp = {
               status: 'error',
-              data: 'Unknown error occurred: [' + this.responseText + ']'
+              data: 'Unknown error occurred: [' + this.response + ']'
             };
-            console.log(resp);
           }
+          console.log(resp);
           if (resp.Status) {
             console.log(thisObj);
-            thisObj.processReadystate(resp);
+            _parent.addDocumentToList(resp.ProviderDocumentGET[0]);
           }
         }
       };
@@ -109,12 +110,11 @@
         this.fileData.append('isSimple', "true");
       }
       if (!this.parent.isSimple && (this.parent.DocumentName != null) && (this.parent.DocumentType != null) && (this.parent.DocumentTypeId != null)) {
+        console.log(this.parent.DocumentType, this.parent.DocumentTypeId);
         this.fileData.append('isSimple', "false");
         this.fileData.append('docTypeId', this.parent.DocumentTypeId);
         this.fileData.append('docTypeName', this.parent.DocumentType);
         success = true;
-      } else {
-
       }
       return success;
     };

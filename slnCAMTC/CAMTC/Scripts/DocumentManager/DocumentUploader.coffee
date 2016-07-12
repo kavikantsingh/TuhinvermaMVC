@@ -13,20 +13,22 @@
     @p.DocumentType = ""
     @p.DocumentTypeId = ""
     @p.isSimple
+    @p.WaitWrapper
     constructor: (@opts = {})->
         (@[k] = v) for own k, v of opts
         console.log @Manager, 'Manager' 
+        _self = @
         @UploadWrapper = $("<div />").addClass("docUploader")
         @Identifier = $(@Wrapper).attr('id')  
         @isSimple = $(@Wrapper).data('simple')
         @UploadInput = $('<input/>').attr('type', 'file')
         @UploadBtn = $('<button />').addClass("buttonGreen small").text('Upload Document')
-        
+        @WaitWrapper = $('<div />').text("Please wait.").css('display', 'none')
         @AllDocuments = []
         @listWrapper
         if not @isSimple
             @$complexWrapper = 
-                $.el('table', {'class' :  'wthtop20', 'width' : '99%', 'margin-left' : '5px'})
+                $.el('table', {'class' :  'wthtop20 complex uploader', 'width' : '99%', 'margin-left' : '5px'})
                     .append(
                         $.el('tr', {})
                             .append(
@@ -53,8 +55,8 @@
                                                 $.el('option', {'selected' : 'selected', 'value' : 0}).text("Select Type")
                                             )
                                             .change {parent : @}, (e)->
-                                                parent.DocumentTypeId = this.value
-                                                parent.DocumentType = $(this).find('option:selected').text()
+                                                e.data.parent.DocumentTypeId = this.value
+                                                e.data.parent.DocumentType = $(this).find('option:selected').text()
                                                 #console.log parent.DocumentType, this.value , "Select Change"
                                     )
                             )
@@ -90,11 +92,14 @@
         _self = @self
         $wrapperMain = $(@Wrapper)
         $uploadWrapper = $(@UploadWrapper)
+        $waitWrapper = $(@WaitWrapper)
+        
         
         $(@UploadInput).attr('id', @Identifier + "_input")
         
         $(@UploadBtn).click {input : @UploadInput, uplWrapper : @UploadWrapper, parent : _self}, (e)->
-            uploadWorker = new FileUploader("Upload", _self.documentUploadSuccess, e.data.input, e.data.uplWrapper, e.data.parent)
+            e.data.parent.wait(true)
+            uploadWorker = new FileUploader("Upload", e.data.parent.documentUploadSuccess, e.data.input, e.data.uplWrapper, e.data.parent)
         #console.log @Wrapper, @UploadWrapper
         
         $(@UploadWrapper).attr('id',  @Identifier + "_Uploader")
@@ -102,17 +107,21 @@
         if not @isSimple
             $uploadWrapper.append @$complexWrapper
         else
-            $uploadWrapper.append(@UploadInput)
-            $uploadWrapper.append(@UploadBtn)
+            $uploadWrapper.append(@UploadInput, @UploadBtn)
+            #$uploadWrapper.append()
         
+        $uploadWrapper.append($waitWrapper)
         $wrapperMain.append(@UploadWrapper)
         
         @Manager.loadAllDocument($wrapperMain.data('docid'))
             .done (resp)->
                 console.log resp, "loaded All Documents"
                 if(resp.Status)
-                    _self.AllDocuments["doc_" + $(_self.Wrapper).data('docid')] = resp.ProviderDocumentGET
-                    _self.createDocumentsList("doc_" + $(_self.Wrapper).data('docid'), _self.AllDocuments["doc_" + $(_self.Wrapper).data('docid')])
+                    #_self.AllDocuments["doc_" + $(_self.Wrapper).data('docid')] = resp.ProviderDocumentGET
+                    _self.AllDocuments = resp.ProviderDocumentGET
+                    #_self.createDocumentsList("doc_" + $(_self.Wrapper).data('docid'), _self.AllDocuments["doc_" + $(_self.Wrapper).data('docid')])
+                    _self.createDocumentsList("doc_" + $(_self.Wrapper).data('docid'), _self.AllDocuments)
+                    
                 
                 
         @docTypes =  @Manager.DocumentTypeNames["doc_" + $(@Wrapper).data('docid')]
@@ -125,8 +134,10 @@
                 .append($.el('option', { }).val(v.DocumentTypeId).text(v.DocumentTypeIdName))
         return
     @p.documentUploadSuccess = (resp)->
-        console.log resp, "from Document Uploader"
-        alert("document Uploaded Successfully")
+        
+#        addDocumentToList(resp)
+#        alert("document Uploaded Successfully")
+        
         
     @p.createDocumentsList = (docid, docs)->
         console.log docid, 'DocId', docs, 'Documents'
@@ -155,9 +166,9 @@
         obj
                     
     @p.addDocumentToList = (doc, index)->
-        console.log @listWrapper
+        console.log doc, Document
         obj = @
-        deleteBtn = $.el('button', {'class' : ''}).text("Delete")
+        deleteBtn = $.el('img', {'src' : '../\../\Content/\Theme1/\images/\delete.png'}).css('cursor', 'pointer')
         docElement = 
             $.el('tr', {})
                 .append(
@@ -173,19 +184,27 @@
         
         deleteBtn.click {document : doc, ind : index, _self : obj, docEle : docElement}, (e)->
             if confirm("Really want delete this document?")
-                e.data._self.removeDocument(e.data.document, e.data.ind, e.data.docEle)
+                e.data._self.removeDocument(e.data.document, e.data.ind, e.data.docEle, e.data._self)
                 
         $(@listWrapper).append(docElement)
         return
-        
-    @p.removeDocument = (document, index, element)->
-        console.log document
-        $(element).remove()
-        @AllDocuments = $.grep(@AllDocuments, (val)->
-            val is not document
-        )
-        @refreshDocumentList()
+    
+    #@p.addUploadedDocumentToList = ()-> 
+    @p.removeDocument = (document, index, element, selfObj)->
+        $(element).remove() #<--temporary Remove this line once api bug fixed
+        selfObj.Manager.removeDocument(document).done ()->
+            $(document).remove()
+            $(element).remove()
+            #@AllDocuments[index] = null
+            @refreshDocumentList()
         
     @p.refreshDocumentList = ()->
         if @AllDocuments.length is 0
             $(@listWrapper).css('display', 'none')
+            
+    
+    @p.wait = (isWait)->
+        if isWait
+            $(@WaitWrapper).css('display', 'block')
+        else
+            $(@WaitWrapper).css('display', 'none')
