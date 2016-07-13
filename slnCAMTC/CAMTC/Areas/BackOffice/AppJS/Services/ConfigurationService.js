@@ -4,9 +4,13 @@
 
     var ConfigurationFactory = {
         //schoolInfo
-        GetDeficiencyTemplate: function (key) {
-            return $http.get(configurationurl + '/GetDeficiencyTemplate/' + key);
+        GetDeficiencyTemplate: function (key, deficiencyTemplateSearch) {
+            return $http.post(configurationurl + '/GetDeficiencyTemplate/' + key, deficiencyTemplateSearch);
         },
+        GetAllMasterTransaction: function (key) {
+            return $http.get(configurationurl + '/GetAllMasterTransaction/' + key);
+        },
+
     };
     return ConfigurationFactory;
 });

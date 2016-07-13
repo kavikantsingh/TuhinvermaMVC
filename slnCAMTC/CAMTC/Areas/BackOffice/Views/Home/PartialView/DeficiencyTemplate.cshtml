@@ -30,9 +30,14 @@
 
                         </td>
                         <td>
-                            @*<asp:DropDownList ID="ddlMasterTransaction" Style="width: 208px;" CssClass="DropdownList"
-                                                  runat="server">
-                                </asp:DropDownList>*@
+                            <select name="sddlMasterTransaction" id="sddlMasterTransaction" ng-model="DTSearch.sMasterTransactionId">
+
+                                <option value="-1" selected="selected">Select</option>
+
+                                <option ng-repeat="option in ddlMasterTransaction" value="{{option.MasterTransactionId}}">{{option.MasterTransactionName}}</option>
+
+                            </select>
+
                         </td>
                         <td>
                             <label>
@@ -40,7 +45,8 @@
                             </label>
                         </td>
                         <td>
-                            <input type="text" CssClass="inputTextbox" Style="width: 200px;" ID="txtDefNameSearch" />
+                            <input type="text" CssClass="inputTextbox" Style="width: 200px;" ID="txtDefNameSearch" ng-model="DTSearch.sDeficiencyTemplateName" />
+
                         </td>
                     </tr>
                     <tr>
@@ -50,7 +56,8 @@
                             </label>
                         </td>
                         <td>
-                            <input type="checkbox" ID="chkIsActiveSearch" />
+                            <input type="checkbox" ID="chkIsActiveSearch" ng-model="DTSearch.sIsActive" />
+
                         </td>
                     </tr>
                 </tbody>
@@ -58,7 +65,8 @@
             <div class="clear">
             </div>
             <span class="fltrt">
-                <input type="button" ID="btnSearch" CssClass="buttonGreen small" value="Search" />
+                <input type="button" ID="btnSearch" CssClass="buttonGreen small" value="Search" ng-click="GetDeficiencyTemplate(true)" />
+
                 <input type="button" ID="btnSearchCancel" CssClass="secondary small" value="Cancel" />
             </span>
         </fieldset>
@@ -88,9 +96,14 @@
                         </label>
                     </td>
                     <td>
-                        @*<asp:DropDownList ID="ddlMasterTransaction1" Style="width: 208px;" CssClass="DropdownList"
-                                              runat="server">
-                            </asp:DropDownList>*@
+                        <select name="ddlMasterTransaction" id="ddlMasterTransaction" ng-model="DeficiencyTemplateInfo.MasterTransactionId">
+
+                            <option value="-1">Select</option>
+
+                            <option ng-repeat="option in ddlMasterTransaction" value="{{option.MasterTransactionId}}">{{option.MasterTransactionName}}</option>
+
+                        </select>
+
                     </td>
                 </tr>
                 <tr>
