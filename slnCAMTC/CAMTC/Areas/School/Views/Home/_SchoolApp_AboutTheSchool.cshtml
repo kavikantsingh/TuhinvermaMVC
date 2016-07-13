@@ -1,7 +1,5 @@
-﻿<div id="wrapper" ng-controller="AboutController" class="clear textBoxAlign" ng-show="hasShow == 'true'">
-
+﻿<div ng-controller="AboutController" class="clear textBoxAlign" ng-show="hasShow == 'true'">
     <div id="error_validation" class="address-box posFixed" style="display: none; color: red;"></div>
-
     <div>
         <div id="error_aboutschool" class="address-box posFixed" style="display: none; color: red;"></div>
         <div class="sectionDiv">
@@ -33,8 +31,8 @@
                             </label>
                         </td>
                         <td>
-                            <input name="txtGradYear" type="text" value="12" maxlength="150" id="txtGradYear" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
-                            <input type="hidden" name="hdnGradYear" id="hdnGradYear" value="33">
+                            <input name="txtGradYear" ng-model="txtGradYear2016" type="text" value="12" maxlength="150" id="txtGradYear" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+
                         </td>
                     </tr>
                     <tr style="height: 10px; width: 100px;"></tr>
@@ -45,8 +43,8 @@
                             </label>
                         </td>
                         <td>
-                            <input name="txtGradYear_1" type="text" value="15" maxlength="150" id="txtGradYear_1" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
-                            <input type="hidden" name="hdnGradYear_1" id="hdnGradYear_1" value="34">
+                            <input ng-model="txtGradYear2015" type="text" value="15" maxlength="150" id="txtGradYear_1" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+
                         </td>
                     </tr>
                     <tr style="height: 10px; width: 100px;"></tr>
@@ -57,8 +55,8 @@
                             </label>
                         </td>
                         <td>
-                            <input name="txtGradYear_2" type="text" value="0" maxlength="150" id="txtGradYear_2" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
-                            <input type="hidden" name="hdnGradYear_2" id="hdnGradYear_2" value="35">
+                            <input name="txtGradYear_2" ng-model="txtGradYear2014" type="text" value="0" maxlength="150" id="txtGradYear_2" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+
                         </td>
                     </tr>
                     <tr style="height: 10px; width: 100px;"></tr>
@@ -69,8 +67,8 @@
                             </label>
                         </td>
                         <td>
-                            <input name="txtGradYear_3" type="text" value="9" maxlength="150" id="txtGradYear_3" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
-                            <input type="hidden" name="hdnGradYear_3" id="hdnGradYear_3" value="36">
+                            <input name="txtGradYear_3" ng-model="txtGradYear2013" type="text" value="9" maxlength="150" id="txtGradYear_3" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+
                         </td>
                     </tr>
                     <tr style="height: 10px; width: 100px;"></tr>
@@ -81,8 +79,8 @@
                             </label>
                         </td>
                         <td>
-                            <input name="txtGradYear_4" type="text" value="18" maxlength="150" id="txtGradYear_4" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
-                            <input type="hidden" name="hdnGradYear_4" id="hdnGradYear_4" value="37">
+                            <input name="txtGradYear_4" ng-model="txtGradYear2012" type="text" value="18" maxlength="150" id="txtGradYear_4" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+
                         </td>
                     </tr>
                     <tr style="height: 10px; width: 100px;"></tr>
@@ -93,8 +91,8 @@
                             </label>
                         </td>
                         <td>
-                            <input name="txtGradYear_5" type="text" value="79" maxlength="150" id="txtGradYear_5" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
-                            <input type="hidden" name="hdnGradYear_5" id="hdnGradYear_5" value="38">
+                            <input name="txtGradYear_5" ng-model="txtGradYear2011" type="text" value="79" maxlength="150" id="txtGradYear_5" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+
                         </td>
                     </tr>
                     <tr style="height: 10px; width: 100px;"></tr>
@@ -105,8 +103,8 @@
                             </label>
                         </td>
                         <td>
-                            <input name="txtGradYear_6" type="text" value="0" maxlength="150" id="txtGradYear_6" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
-                            <input type="hidden" name="hdnGradYear_6" id="hdnGradYear_6" value="39">
+                            <input name="txtGradYear_6" ng-model="txtGradYear2010" type="text" value="0" maxlength="150" id="txtGradYear_6" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+
                         </td>
                     </tr>
                     <tr style="height: 10px; width: 100px;"></tr>
@@ -117,8 +115,8 @@
                             </label>
                         </td>
                         <td>
-                            <input name="txtGradYear_7" type="text" value="56" maxlength="150" id="txtGradYear_7" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
-                            <input type="hidden" name="hdnGradYear_7" id="hdnGradYear_7" value="40">
+                            <input name="txtGradYear_7" ng-model="txtGradYear2009" type="text" value="56" maxlength="150" id="txtGradYear_7" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+
                         </td>
                     </tr>
                 </table>
@@ -135,6 +133,7 @@
                         <td><b>12. Type of Business Organization</b></td>
                     </tr>
                 </table>
+
                 <table style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">
                     <tr>
                         <td>
@@ -150,6 +149,7 @@
                         </td>
                     </tr>
                 </table>
+
                 <table>
                     <tr>
                         <td>
@@ -162,9 +162,7 @@
                     </tr>
                 </table>
 
-
-                <div id="fuAdvertisingATS" class="documentContainer" data-docid="3" data-doc-code="D1003" data-simple="false">
-
+                <div id="fuAdvertisingATS1" class="documentContainer" data-docid="3" data-doc-code="D1003" data-simple="false">
                 </div>
                 @*<div>
                     Document File Upload Partial View -> Type :: Complex*@
@@ -172,7 +170,6 @@
                             docCode = "D1003";
                             isSimple = false;
                     </div>*@
-
                 <table style="margin-top: 15px; float: left; width: 100%;">
                     <tr>
                         <td><b>14. Proof of Business Operations</b></td>
@@ -190,7 +187,6 @@
                         </tr>
                     </table>
                     <div id="fuApprovalATS" class="documentContainer" data-docid="4" data-doc-code="D1004" data-simple="false">
-
                     </div>
                     @* <div id="fuAboutSchool2_upDoc">
                         Document File Upload Partial View -> Type :: Complex*@
@@ -199,11 +195,8 @@
                                 isSimple = false;
                         </div>*@
 
-
                     <div id="fuAdvertisingATS" class="documentContainer" data-docid="5" data-doc-code="D1005" data-simple="true">
-
                     </div>
-
                     @*<div id="fuAboutSchool3_upDoc">
                         Document File Upload Partial View -> Type :: Simple*@
                     @*docId = "5";
@@ -212,9 +205,7 @@
                         </div>
 
                         <br>*@
-
                     <div id="fuAboutSchool4_upDoc" class="documentContainer" data-docid="6" data-doc-code="D1006" data-simple="true">
-
                     </div>
                     @*<div id="fuAboutSchool4_upDoc">
                         Document File Upload Partial View -> Type :: Simple*@
@@ -225,9 +216,7 @@
 
                                         <br>*@
 
-
                     <div id="fuAboutSchool5_upDoc" class="documentContainer" data-docid="9" data-doc-code="D1009" data-simple="true">
-
                     </div>
                     @*<div id="fuAboutSchool5_upDoc">
                         Document File Upload Partial View -> Type :: Simple*@
@@ -238,10 +227,7 @@
 
                                         <br>*@
 
-
-
                     <div id="fuAboutSchool6_upDoc" class="documentContainer" data-docid="10" data-doc-code="D1010" data-simple="true">
-
                     </div>
                     @*<div id="fuAboutSchool6_upDoc">
                         Document File Upload Partial View -> Type :: Simple*@
@@ -252,9 +238,7 @@
 
                         <br>*@
 
-
                     <div id="fuAboutSchool7_upDoc" class="documentContainer" data-docid="11" data-doc-code="D1011" data-simple="true">
-
                     </div>
                     @*<div id="fuAboutSchool7_upDoc">
                         Document File Upload Partial View -> Type :: Complex*@
@@ -264,9 +248,7 @@
                         </div>
 
                         <br>*@
-
                 </div>
-
                 <table>
                     <tr>
                         <td style="width: 100%; line-height: 20px;">
@@ -279,34 +261,36 @@
                         </td>
                     </tr>
                 </table>
-                <table style="width: 95%; margin-top: 10px; margin-left: 50px;">
-                    <tbody>
-                        <tr>
-                            <td class="6">
 
 
-                                <div id="ContentPlaceHolder1_ucCertificationApplication1_divAddNewRelatedSchools">
+                <div class="divLicenseInfon divaddnew AfterApproved" id="divAddbtnSatelliteLocation">
+                    <span style="float: right; margin-right: 32px; margin-top: 15px;">
+                        <input type="button" value="Add" data-ng-click="ShowPopup(1)" class="buttonGreen small" />
+                    </span>
+
+                </div>
+                <br />
+
+                <div id="divAddRelatedschool" style="width: 95%; margin-top: 10px; margin-left: 50px;">
+                    <table style="width: 95%; margin-top: 10px; margin-left: 50px;">
+                        <tbody>
+                            <tr>
+                                <td class="6">
+
                                     <table class="tblApplReqForm5">
-
                                         <tbody>
                                             <tr>
-                                                <td colspan="6">
-                                                    <table class="tblApplReqForm5">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="txtalgnrgt" style="width: 110px;">
-                                                                    <label class="input-label required">
-                                                                        School Name :
-                                                                    </label>
-                                                                </td>
-                                                                <td>
-                                                                    <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox2" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox2" class="inputTextbox NewAppPersonalTxtbx" style="width:518px;" autocomplete="off">
-                                                                </td>
 
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
+                                                <td class="txtalgnrgt" style="width: 110px;">
+                                                    <label class="input-label required">
+                                                        School Name :
+                                                    </label>
                                                 </td>
+                                                <td colspan="5">
+                                                    <input data-ng-model="RelatedSchool.ProviderName" type="text" class="inputTextbox NewAppPersonalTxtbx " style="width:518px;" autocomplete="off">
+                                                </td>
+
+
                                             </tr>
 
                                             <tr>
@@ -320,7 +304,7 @@
                                                                     </label>
                                                                 </td>
                                                                 <td style="padding-top: 20px ! important;">
-                                                                    <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox65" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox65" class="inputTextbox NewAppPersonalTxtbx" style="width: 170px;" autocomplete="off">
+                                                                    <input name="txt" data-ng-model="RelatedSchool.ContactFirstName" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox65" class="inputTextbox NewAppPersonalTxtbx" style="width: 170px;" autocomplete="off">
                                                                 </td>
                                                                 <td class="txtalgnrgt" style="width: 195px;">
                                                                     <label class="input-label required">
@@ -328,7 +312,7 @@
                                                                     </label>
                                                                 </td>
                                                                 <td style="padding-top: 20px ! important;">
-                                                                    <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox66" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox66" class="inputTextbox NewAppPersonalTxtbx" style="width:140px;" autocomplete="off">
+                                                                    <input name="box66" data-ng-model="RelatedSchool.ContactLastName" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox66" class="inputTextbox NewAppPersonalTxtbx" style="width:140px;" autocomplete="off">
                                                                 </td>
                                                             </tr>
                                                         </tbody>
@@ -343,13 +327,13 @@
                                                     </label>
                                                 </td>
                                                 <td colspan="5" style="padding-top: 20px !important;">
-                                                    <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox6" type="text" maxlength="500" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox6" class="calWidth us_street" style="width:518px;" autocomplete="off">
+                                                    <input name="Box6" data-ng-model="RelatedSchool.StreetLine1" type="text" maxlength="500" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox6" class="calWidth us_street" style="width:518px;" autocomplete="off">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
                                                 <td colspan="5" style="padding-top: 20px ! important;">
-                                                    <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox7" type="text" maxlength="500" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox7" class="calWidth us_street" style="width:518px;" autocomplete="off">
+                                                    <input data-ng-model="RelatedSchool.StreetLine2" type="text" maxlength="500" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox7" class="calWidth us_street" style="width:518px;" autocomplete="off">
                                                 </td>
                                             </tr>
                                             <tr>
@@ -359,7 +343,7 @@
                                                     </label>
                                                 </td>
                                                 <td style="width: 151px; padding-top: 20px ! important;">
-                                                    <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox8" type="text" maxlength="500" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox8" class="tooltip OnlyAlphabet calWidth" title="Only A-Z characters are allowed." style="width:133px;" autocomplete="off">
+                                                    <input data-ng-model="RelatedSchool.City" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox8" type="text" maxlength="500" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox8" class="tooltip OnlyAlphabet calWidth" title="Only A-Z characters are allowed." style="width:133px;" autocomplete="off">
                                                 </td>
                                                 <td class="txtalgnrgt" style="width: 52px; padding-top: 20px ! important;">
                                                     <label class="input-label required">
@@ -367,9 +351,8 @@
                                                     </label>
                                                 </td>
                                                 <td style="width: 140px; padding-top: 20px ! important;">
-                                                    <select name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$DropDownList1" id="ContentPlaceHolder1_ucCertificationApplication1_DropDownList1" class="inputTextbox" title="Select your state" style="width:135px;" autocomplete="off">
+                                                    <select data-ng-model="RelatedSchool.StateCode" class="inputTextbox" title="Select your state" style="width:135px;" autocomplete="off" data-ng-options="item.StateCode as item.Name for item in StateList">
                                                         <option value="-1">Select</option>
-                                                        <option value="-1">------ STATES OF USA --------</option>
                                                     </select>
                                                 </td>
                                                 <td class="txtalgnrgt" style="width: 47px;">
@@ -378,7 +361,8 @@
                                                     </label>
                                                 </td>
                                                 <td>
-                                                    <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox9" type="text" maxlength="10" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox9" class="tooltip zip_us calWidth" placeholder="xxxxx-xxxx or xxxxx" title="Enter valid Zip eg: XXXXX-XXXX or XXXXX" style="width:127px;" autocomplete="off">
+
+                                                    <input data-ng-model="RelatedSchool.ZIP" type="text" maxlength="10" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox9" class="tooltip zip_us calWidth" placeholder="xxxxx-xxxx or xxxxx" title="Enter valid Zip eg: XXXXX-XXXX or XXXXX" style="width:127px;" autocomplete="off">
                                                 </td>
                                             </tr>
                                             <tr>
@@ -392,8 +376,9 @@
                                                                     </label>
                                                                 </td>
                                                                 <td>
-                                                                    <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox10" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox10" class="inputTextbox NewAppPersonalTxtbx phone_us" style="width:135px;" autocomplete="off" maxlength="14">
-                                                                    <span style="margin-left: 5px;"><input id="ContentPlaceHolder1_ucCertificationApplication1_CheckBox58" type="checkbox" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$CheckBox58"><label for="ContentPlaceHolder1_ucCertificationApplication1_CheckBox58">Mobile</label></span>
+
+                                                                    <input data-ng-model="RelatedSchool.Phone" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox10" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox10" class="inputTextbox NewAppPersonalTxtbx phone_us" style="width:135px;" autocomplete="off" maxlength="14">
+                                                                    <span style="margin-left: 5px;"><input data-ng-model="RelatedSchool.IsMobile" id="ContentPlaceHolder1_ucCertificationApplication1_CheckBox58" type="checkbox" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$CheckBox58"><label for="ContentPlaceHolder1_ucCertificationApplication1_CheckBox58">Mobile</label></span>
                                                                 </td>
                                                                 <td class="txtalgnrgt" style="width: 143px;">
                                                                     <label class="input-label">
@@ -401,7 +386,7 @@
                                                                     </label>
                                                                 </td>
                                                                 <td>
-                                                                    <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox11" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox11" class="inputTextbox NewAppPersonalTxtbx" autocomplete="off">
+                                                                    <input data-ng-model="RelatedSchool.Website" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox11" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox11" class="inputTextbox NewAppPersonalTxtbx" autocomplete="off">
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -411,13 +396,13 @@
                                                                     </label>
                                                                 </td>
                                                                 <td>
-                                                                    <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox12" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox12" class="inputTextbox NewAppPersonalTxtbx" autocomplete="off">
+                                                                    <input data-ng-model="RelatedSchool.Email" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox12" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox12" class="inputTextbox NewAppPersonalTxtbx" autocomplete="off">
                                                                 </td>
                                                                 <td class="txtalgnrgt"></td>
                                                                 <td>
                                                                     <div id="ContentPlaceHolder1_ucCertificationApplication1_div26" style="width: 100%; float: right;">
                                                                         <span class="fltrt">
-                                                                            <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$Button20" value="Verify Address" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$ucCertificationApplication1$Button20&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ContentPlaceHolder1_ucCertificationApplication1_Button20" class="btn-success btn-xs">
+                                                                            <input type="button" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$Button20" value="Verify Address" class="btn-success btn-xs">
                                                                         </span>
                                                                     </div>
                                                                 </td>
@@ -429,39 +414,17 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <table style="margin-left: -;">
-                                        <tbody>
-                                            <tr>
-                                                <td class="txtalgnrgt">
-                                                    <label class="input-label required">
-                                                        Approximate Date Associated :
-                                                    </label>
-                                                </td>
-                                                <td style="width: 151px; padding-top: 20px ! important;">
-                                                    <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtApproxDateAssociate" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_txtApproxDateAssociate" class="inputTextbox calender hasDatepicker" style="width:133px;" autocomplete="off" maxlength="10">
-                                                </td>
-                                                <td class="txtalgnrgt" style="width: 52px; padding-top: 20px ! important;"></td>
-                                                <td style="width: 140px; padding-top: 20px ! important;"></td>
-                                                <td class="txtalgnrgt" style="width: 47px;"></td>
-                                                <td></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;float:left;">
-                                        <span class="fltrt">
-                                            <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$btnSaveRelatedSchool" value="Save" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$ucCertificationApplication1$btnSaveRelatedSchool&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ContentPlaceHolder1_ucCertificationApplication1_btnSaveRelatedSchool" class="buttonGreen medium">
-                                            <a id="ContentPlaceHolder1_ucCertificationApplication1_lnkCancelRelatedSchool" class="secondary medium bottom buttonalignment" href='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$ContentPlaceHolder1$ucCertificationApplication1$lnkCancelRelatedSchool", "", true, "", "", false, true))'>Cancel</a>
-                                        </span>
-                                    </div>
-                                </div>
-
-
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
+                        <span class="fltrt">
+                            <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$btnSaveRelatedSchool" value="Save" data-ng-click="SaveRelatedAddress()" class="buttonGreen medium">
+                            <a id="ContentPlaceHolder1_ucCertificationApplication1_lnkCancelRelatedSchool" class="secondary medium bottom buttonalignment" href='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$ContentPlaceHolder1$ucCertificationApplication1$lnkCancelRelatedSchool", "", true, "", "", false, true))'>Cancel</a>
+                        </span>
+                    </div>
+                </div>
                 <div data-ag-grid="ProviderRelatedProgramGrid" class="ag-blue" style="width: 650px;margin-left:50px;  border: 1px solid #ddd;"></div>
                 <table style="margin-bottom: 15px; margin-top: 15px;">
                     <tr>
@@ -471,7 +434,6 @@
                         </td>
                     </tr>
                 </table>
-
                 <table style="width: 95%; margin-top: 10px; margin-left: 50px; margin-bottom: 5px;">
                     <tr>
                         <td class="6">
@@ -492,12 +454,10 @@
                                     </tr>
                                 </tbody>
                             </table>
-
                         </td>
                     </tr>
                 </table>
                 <div data-ag-grid="ProviderOtherProgramGrid" class="ag-blue" style="width: 410px; margin-left: 140px; border: 1px solid #ddd;"></div>
-
 
                 <table style="margin-top: 15px; float: left; width: 100%;">
                     <tr>
@@ -505,11 +465,8 @@
                     </tr>
                 </table>
 
-
                 <div>
-
                     <div id="fuAboutSchool8_upDoc" class="documentContainer" data-docid="12" data-doc-code="D1012" data-simple="true">
-
                     </div>
                     @*<div id="fuAboutSchool8_upDoc">
                         Document File Upload Partial View -> Type :: Simple*@
@@ -520,9 +477,7 @@
 
                         <br>*@
 
-
                     <div id="fuAboutSchool9_upDoc" class="documentContainer" data-docid="13" data-doc-code="D1013" data-simple="false">
-
                     </div>
                     @* <div id="fuAboutSchool9_upDoc">
                         Document File Upload Partial View -> Type :: Complex*@
@@ -532,9 +487,7 @@
                         </div>
 
                         <br>*@
-
                     <div id="fuAboutSchool10_upDoc" class="documentContainer" data-docid="14" data-doc-code="D1014" data-simple="true">
-
                     </div>
                     @*<div id="fuAboutSchool10_upDoc">
                         Document File Upload Partial View -> Type :: Simple*@
@@ -545,10 +498,7 @@
 
                         <br>*@
 
-
-
                     <div id="fuAboutSchool11_upDoc" class="documentContainer" data-docid="15" data-doc-code="D1015" data-simple="true">
-
                     </div>
                     @*<div id="fuAboutSchool11_upDoc">
                         Document File Upload Partial View -> Type :: Simple*@
@@ -559,10 +509,7 @@
 
                         <br>*@
 
-
-
                     <div id="fuAboutSchool12_upDoc" class="documentContainer" data-docid="16" data-doc-code="D1016" data-simple="true">
-
                     </div>
                     @*<div id="fuAboutSchool12_upDoc">
                         Document File Upload Partial View -> Type :: Simple*@
@@ -573,11 +520,8 @@
 
                         <br>*@
 
-
                     <div id="fuAboutSchool13_upDoc" class="documentContainer" data-docid="17" data-doc-code="D1017" data-simple="true">
-
                     </div>
-
                     @*<div id="fuAboutSchool13_upDoc">
                         Document File Upload Partial View -> Type :: Simple*@
                     @*docId = "17";
@@ -587,8 +531,6 @@
 
                         <br>*@
 
-
-
                     <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px 4px 4px 30px; width: 91%;">
                         <span class="fltrt">
                             <input type="submit" name="btnSaveAboutFacility" value="Save" id="btnSaveAboutFacility" class="buttonGreen medium">
@@ -596,7 +538,6 @@
                         </span>
                     </div>
                 </div>
-
                 <table style="margin-left:20px; margin-top: 15px; float: left; width: 100%;">
                     <tbody>
                         <tr>
@@ -604,14 +545,10 @@
                                 <b>18. Advertising</b>
                                 <p style="margin-left:20px;">Please provide copies of <u>all</u> advertising.</p>
                             </td>
-
                         </tr>
-
                     </tbody>
                 </table>
-
                 <div id="fuAboutSchool14_upDoc" class="documentContainer" data-docid="18" data-doc-code="D1018" data-simple="false">
-
                 </div>
                 @*<div id="fuAboutSchool14_upDoc">
                     Document File Upload Partial View -> Type :: Complex*@
@@ -664,27 +601,22 @@
                         </tr>
                     </tbody>
                 </table>*@
-
             <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px; display: none;">
                 <span class="fltrt">
                     <input type="submit" name="btnSaveAboutAdvertising" value="Save" id="btnSaveAboutAdvertising" class="buttonGreen medium">
                     <a id="lblCancelAboutAdvertising" class="secondary medium bottom buttonalignment">Cancel</a>
                 </span>
             </div>
-
         </div>
-
 
         <div class="toolBar" style="padding: 4px; margin: 4px;">
             <span class="fltrt">
-                <input type="submit" name="btnLicInfoNext" value="Save &amp; Next" id="btnLicInfoNext" class="buttonGreen medium">
+                <input type="button" ng-click="Save_Final()" name="btnLicInfoNext" value="Save &amp; Next" id="btnLicInfoNext" class="buttonGreen medium">
                 <a id="lnkCancelLiceInfo" class="secondary medium bottom buttonalignment">Cancel</a>
             </span>
         </div>
-
     </div>
 </div>
-
 
 <style>
     #wrapper {

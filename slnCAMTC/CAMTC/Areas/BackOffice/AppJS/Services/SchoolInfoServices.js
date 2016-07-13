@@ -9,6 +9,10 @@ LAPP.factory('SchoolInfoFactory', function ($http, $q) {
         GetAllProvider: function (key) {
             return $http.get(providerurl + '/GetAllProvider/' + key);
         },
+        GetProviderById: function (key, providerid) {
+            return $http.get(providerurl + '/GetProviderById/' + key + '?providerid=' + providerid);
+        },
+
         GetSchoolInfoByProviderId: function (Provider, key) {
             return $http.post(providerurl + '/GetAllSchoolInformationDetails/' + key, Provider);// );
         },
