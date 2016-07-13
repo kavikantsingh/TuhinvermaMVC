@@ -17,6 +17,8 @@
 
     _Class.p.ApiGetDocumentsEndpoint = "";
 
+    _Class.p.UploadUrl = "School/Certification/Upload";
+
     _Class.p.Key = "";
 
     _Class.p.UserId = "";

@@ -5,6 +5,8 @@
   this['DocumentUploader'] = (function() {
     _Class.p = _Class.prototype;
 
+    _Class.p.UploadUrl = "Upload";
+
     _Class.p.Manager;
 
     _Class.p.Wrapper;
@@ -42,6 +44,7 @@
         this[k] = v;
       }
       _self = this;
+      this.UploadUrl = this.Manager.UploadUrl;
       this.UploadWrapper = $("<div />").addClass("docUploader");
       this.Identifier = $(this.Wrapper).attr('id');
       this.isSimple = $(this.Wrapper).data('simple');
@@ -134,7 +137,7 @@
       }, function(e) {
         var uploadWorker;
         e.data.parent.wait(true);
-        return uploadWorker = new FileUploader("Upload", e.data.parent.documentUploadSuccess, e.data.input, e.data.uplWrapper, e.data.parent);
+        return uploadWorker = new FileUploader(e.data.parent.UploadUrl, e.data.parent.documentUploadSuccess, e.data.input, e.data.uplWrapper, e.data.parent);
       });
       $(this.UploadWrapper).attr('id', this.Identifier + "_Uploader");
       if (!this.isSimple) {

@@ -1,6 +1,8 @@
 ﻿class @['DocumentUploader']
     @p = @::
     
+    @p.UploadUrl = "Upload"
+    
     @p.Manager
     @p.Wrapper
     @p.UploadWrapper
@@ -15,10 +17,13 @@
     @p.isSimple
     @p.WaitWrapper
     @p.DocumentLable
+    
     constructor: (@opts = {})->
         (@[k] = v) for own k, v of opts
         #console.log @Manager, 'Manager' 
         _self = @
+        
+        @UploadUrl = @Manager.UploadUrl
         @UploadWrapper = $("<div />").addClass("docUploader")
         @Identifier = $(@Wrapper).attr('id')  
         @isSimple = $(@Wrapper).data('simple')
@@ -127,7 +132,7 @@
         
         $(@UploadBtn).click {input : @UploadInput, uplWrapper : @UploadWrapper, parent : _self}, (e)->
             e.data.parent.wait(true)
-            uploadWorker = new FileUploader("Upload", e.data.parent.documentUploadSuccess, e.data.input, e.data.uplWrapper, e.data.parent)
+            uploadWorker = new FileUploader(e.data.parent.UploadUrl, e.data.parent.documentUploadSuccess, e.data.input, e.data.uplWrapper, e.data.parent)
         ##console.log @Wrapper, @UploadWrapper
         
         $(@UploadWrapper).attr('id',  @Identifier + "_Uploader")

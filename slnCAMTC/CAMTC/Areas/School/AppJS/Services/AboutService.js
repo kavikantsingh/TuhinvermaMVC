@@ -1,7 +1,7 @@
 ﻿LAPP.factory('AboutFactory', function ($http, $q) {
 
-    var providerurl = BaseURL + '/Provider';
-    var LookupUrl = BaseURL + '/Lookup';
+    var providerurl = BaseURL + '/api/Provider';
+    var LookupUrl = BaseURL + '/api/Lookup';
 
     var ConfigurationFactory = {
         //schoolInfo

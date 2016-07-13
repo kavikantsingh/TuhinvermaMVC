@@ -7,7 +7,7 @@
     @p.ApiSaveEndpoint = ""
     @p.ApiDeleteEndpoint = ""
     @p.ApiGetDocumentsEndpoint = ""
-    
+    @p.UploadUrl = "School/Certification/Upload"
     @p.Key = ""
     @p.UserId = ""
     
@@ -24,6 +24,7 @@
     
     constructor : (@opts  = {}) ->
         (@[k] = v) for own k, v of opts
+        #@UploadUrl = "School/Certification/Upload"
         @CurrentInstance = @
         @DocumentTypeNames = []
         ##console.log @CurrentInstance

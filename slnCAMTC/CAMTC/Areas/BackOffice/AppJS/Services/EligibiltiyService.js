@@ -1,9 +1,9 @@
 ﻿
 LAPP.factory('EligiblitiyFactory', function ($http, $q) {
 
-    var Contenturl = BaseURL + '/Content';
-    var Lookupurl = BaseURL + '/Lookup';
-    var Eligiblityurl = BaseURL + '/Provider';
+    var Contenturl = BaseURL + '/api/Content';
+    var Lookupurl = BaseURL + '/api/Lookup';
+    var Eligiblityurl = BaseURL + '/api/Provider';
 
     var ProviderFactory = {
 

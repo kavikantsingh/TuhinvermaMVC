@@ -79,6 +79,9 @@
         
         if @FileInput[0].files[0]?
             success = yes
+        else
+            alert "Please select file."
+            #return no
         #console.log @parent.Manager.UserId? and @parent.Manager.ApplicationId? and @parent.Manager.Key? and @parent.Manager.ProviderId?
         if @parent.Manager.UserId? and @parent.Manager.ApplicationId? and @parent.Manager.Key? and @parent.Manager.ProviderId?
             @fileData.append('applicationId',  @parent.Manager.ApplicationId)

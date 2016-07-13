@@ -82,6 +82,8 @@
       success = false;
       if (this.FileInput[0].files[0] != null) {
         success = true;
+      } else {
+        alert("Please select file.");
       }
       if ((this.parent.Manager.UserId != null) && (this.parent.Manager.ApplicationId != null) && (this.parent.Manager.Key != null) && (this.parent.Manager.ProviderId != null)) {
         this.fileData.append('applicationId', this.parent.Manager.ApplicationId);
