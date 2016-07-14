@@ -1,4 +1,4 @@
-﻿LAPP.factory('ConfigurationFactory', function ($http, $q) {
+﻿contentApp.factory('ConfigurationFactory', function ($http, $q) {
 
     var configurationurl = BaseURL + '/Configuration';
 
@@ -10,7 +10,6 @@
         GetAllMasterTransaction: function (key) {
             return $http.get(configurationurl + '/GetAllMasterTransaction/' + key);
         },
-
     };
     return ConfigurationFactory;
 });
