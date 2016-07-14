@@ -135,6 +135,8 @@
     <Compile Include="Areas\School\Controllers\CertificationController.cs" />
     <Compile Include="Areas\School\Controllers\HomeController.cs" />
     <Compile Include="Areas\School\SchoolAreaRegistration.cs" />
+    <Compile Include="Constants\ErrorMessages.cs" />
+    <Compile Include="Controllers\AppContentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

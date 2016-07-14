@@ -16,10 +16,10 @@
         $scope.Pagename = mySharedService.Pagename;
     });
 
-    $scope.GetProviderdataonchange = function () {
+    $scope.GetProviderdataonchange = function (name) {
         var providerid = $window.sessionStorage.getItem('School_ProviderId');
         mySharedService.Applicationid = $window.sessionStorage.getItem('School_ApplicationId');
-        mySharedService.prepForBroadcast(providerid, '');
+        mySharedService.prepForBroadcast(providerid, name);
     };
 
     $scope.$on('handleBroadcast', function () {
@@ -51,7 +51,21 @@
 
     };
 
-    $timeout($scope.GetProviderdataonchange(), 5000);
+
+    $scope.GetProviderById = function () {
+
+        SchoolInfoFactory.GetProviderById(key, $window.sessionStorage.getItem('School_ProviderId')).success(function (data) {
+
+            mySharedService.message1 = data.ProviderResponse.ProviderName;
+            $scope.GetProviderdataonchange(mySharedService.message1);
+
+        }).error(function (error) {
+            $scope.Error = error;
+        });
+    }
+    $scope.GetProviderById();
+
+
 
 
 }]);
