@@ -43,7 +43,7 @@ namespace CAMTC.Areas.BackOffice.Controllers
         [HttpPost]
         public ActionResult SearchGetDocumentResultSet(DocumentMaster objDocumentMaster)
         {
-            string WebAPIUrl = "http://localhost:1530/Api/Document/Search_GetDocumentResultSet/" + Convert.ToString(ConfigurationManager.AppSettings["Key"]);
+            string WebAPIUrl = "http://ws.camtc.inlumon.com/Api/Document/Search_GetDocumentResultSet/" + Convert.ToString(ConfigurationManager.AppSettings["Key"]);
             var aa = WebApiUtility.Post<DocumentResultSetResponse>(WebAPIUrl, objDocumentMaster);
 
             return PartialView("_DocumentView", aa.DocumentViewModel);
