@@ -1,0 +1,409 @@
+﻿@{
+    ViewBag.Title = "DcoumentType";
+    Layout = "~/Areas/BackOffice/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/bundles/jquery")
+<style>
+    .loader2 {
+        position: fixed;
+        width: 100px;
+        height: 40px;
+        line-height: 40px;
+        background: transparent;
+        z-index: 9998;
+        top: 45%;
+        left: 45%;
+        color: rgb(28, 112, 179);
+        border-radius: 8px;
+        overflow: hidden;
+        padding: 10px 10px;
+        background: #fff;
+        text-align: center;
+        font-size: 11px;
+        cursor: wait;
+        border: 1px solid rgb(189, 189, 189);
+    }
+</style>
+
+<script type="text/javascript">
+    var key = @ViewBag.Key;
+    loadApplicationTypes();
+    loadDocumentTypes();
+    loadTransactionTypes();
+    loadDocumentResultSet();
+    function loadApplicationTypes() {
+        $.getJSON('http://ws.camtc.inlumon.com/Api/TypeValues/ApplicationTypeGetAll/'+ key,
+               function (data) {
+                   //debugger;
+                   //alert(data.ApplicationTypeGetList);
+                   var items = '<option>Select</option>';
+                   $.each(data.ApplicationTypeGetList, function (i, state) {
+                       items += "<option value='" + state.ApplicationTypeId + "'>" + state.Name + "</option>";
+                   });
+                   $('[id*=ApplicationId]').html(items);
+               }
+           );
+    }
+
+    function loadDocumentTypes() {
+        $.getJSON('http://ws.camtc.inlumon.com/Api/Document/DocumentMasterGetALL/'+ key,
+               function (data) {
+                   //debugger;
+                   //alert(data.DocumentMasterGET);
+                   var items = '<option>Select</option>';
+                   $.each(data.DocumentMasterGET, function (i, state) {
+                       items += "<option value='" + state.DocumentTypeId + "'>" + state.DocumentTypeIdName + "</option>";
+                   });
+                   $('[id*=DocumentTypeId]').html(items);
+               }
+           );
+    }
+    function loadTransactionTypes() {
+        $.getJSON('http://ws.camtc.inlumon.com/api/Common/GetMasterTransactions/'+ key,
+               function (data) {
+                   //debugger;
+                   //alert(data.MasterTransactionList);
+                   var items = '<option>Select</option>';
+                   $.each(data.MasterTransactionList, function (i, state) {
+                       items += "<option value='" + state.MasterTransactionId + "'>" + state.MasterTransactionName + "</option>";
+                   });
+                   $('[id*=TransactionTypeId]').html(items);
+               }
+           );
+    }
+    function loadDocumentResultSet() {
+        //debugger;
+        ShowLoader();
+        $.ajax({
+            url: '@Url.Action("GetDocumentResultSet", "Administration")',
+            type: 'GET',
+            cache: false,
+            success: function (result) {
+                debugger;
+                //alert(result);
+                $('#container1').html(result);
+            },
+            error: function (data) {
+                debugger;
+            },
+            complete: function () {
+                HideLoader();
+            }
+        });
+    }
+
+    $(document).on('change', '#TransactionTypeId', function () {
+        $.getJSON('http://ws.camtc.inlumon.com/Api/Page/PageGetAllPageNamesByMasterTransactionId',{ Key: key, MasterTransactionId: $("#TransactionTypeId").val() },
+           function (data) {
+               var items = '<option>Select</option>';
+               $.each(data.PageModule, function (i, state) {
+                   items += "<option value='" + state.PageModuleId + "'>" + state.PageModuleName + "</option>";
+               });
+               $("#PageId").html(items);
+           }
+       );
+    });
+
+
+    $(document).on('change', '#PageId', function () {
+        $.getJSON('http://ws.camtc.inlumon.com/Api/Page/PageGetAllTabsByPageModuleId',{ Key: key, PageModuleId: $("#PageId").val() },
+           function (data) {
+               var items = '<option>Select</option>';
+               $.each(data.PageModuleTabSubModule, function (i, state) {
+                   items += "<option value='" + state.PageModuleTabSubModuleId + "'>" + state.PageModuleTabSubModuleName + "</option>";
+               });
+               $("#SubPageId").html(items);
+           }
+       );
+    });
+
+    $(document).on('change', '#SubPageId', function () {
+        $.getJSON('http://ws.camtc.inlumon.com/Api/Page/PageGetAllSectionsByTabId',{ Key: key, PageModuleTabSubModuleId: $("#SubPageId").val() },
+           function (data) {
+               var items = '<option>Select</option>';
+               $.each(data.PageTabSection, function (i, state) {
+                   items += "<option value='" + state.PageTabSectionId + "'>" + state.PageTabSectionName + "</option>";
+               });
+               $("#PageSectionId").html(items);
+           }
+       );
+    });
+    $(document).on('change', '#PageSectionId', function () {
+        $.getJSON('http://ws.camtc.inlumon.com/Api/Document/DocumentMasterGetByPageTabSectionId',{ Key: key, PageTabSectionId: $("#SubPageId").val() },
+           function (data) {
+               var items = '<option>Select</option>';
+               $.each(data.PageTabSection, function (i, state) {
+                   items += "<option value='" + state.PageTabSectionId + "'>" + state.PageTabSectionName + "</option>";
+               });
+               $("#DocumentNameId").html(items);
+           }
+       );
+    });
+
+    $(document).ready(function () {
+        //btnShowAll
+        $("#btnShowAll").click(function () {
+            loadDocumentResultSet();
+        });
+
+        $('#btnRefresh').click(function () {
+            $('#ApplicationId').find('option:first').attr('selected', 'selected');
+            $('#DocumentTypeId').find('option:first').attr('selected', 'selected');
+            $('#txtMaxSize').val("");
+            $('#txtDesc').val("");
+        });
+
+        $('#btnRefresh1').click(function () {
+            $('#TransactionTypeId').find('option:first').attr('selected', 'selected');
+            $('#PageId').find('option:first').attr('selected', 'selected');
+            $('#SubPageId').find('option:first').attr('selected', 'selected');
+            $('#PageSectionId').find('option:first').attr('selected', 'selected');
+            $('#DocumentNameId').find('option:first').attr('selected', 'selected');
+        });
+
+        $("#btnSearch").click(function () {
+            ShowLoader();
+            debugger;
+            var xx=parseInt($("#TransactionTypeId").val());
+            var objDocumentMaster = {
+                "MasterTransactionId": $("#TransactionTypeId").val(),
+                "PageModuleId":  $("#PageId").val(),
+                "PageModuleTabSubModuleId": $("#SubPageId").val(),
+                "PageTabSectionId":  $("#PageSectionId").val(),
+                "DocumentId": $("#DocumentNameId").val()
+            };
+
+            $.ajax({
+                url: '@Url.Action("SearchGetDocumentResultSet", "Administration")',
+                type: 'POST',
+                cache: false,
+                data: JSON.stringify({ objDocumentMaster: objDocumentMaster }),
+                contentType: 'application/json; charset=utf-8',
+                success: function (result) {
+                    debugger;
+                    $('#container1').html(result);
+                    if(result.Status)
+                    {
+                        MessageShow(result.Message, 1);
+                    }
+                },
+                error: function (data) {
+                    HideLoader();
+                    debugger;
+                    MessageShow(result.Message, 0);
+                }
+            });
+            //  loadDocumentResultSet();
+        });
+        $('#btnAdd').click(function (e) {
+            var tabularData = null;
+            ShowLoader();
+            $.ajax({
+                url: 'http://localhost:1530/Api/Document/DocumentMasterSave/'+ key,
+                type: 'POST',
+                cache: false,
+                data: JSON.stringify({
+                    "DocumentMasterId": 0,
+                    "DocumentId": 0,
+                    "DocumentCd": 1,
+                    "DocumentName":  $("#DocumentNameId option:selected").text(),
+                    "DocumentTypeId":  $("#DocumentTypeId").val(),
+                    "DocumentTypeIdName":  $("#DocumentTypeId option:selected").text(),
+                    "DocumentTypeDesc":  $("#txtDesc").val(),
+                    "Max_size":  $("#txtMaxSize").val(),
+                    "MasterTransactionId":  $("#TransactionTypeId").val(),
+                    "PageModuleId":  $("#PageId").val(),
+                    "PageModuleTabSubModuleId": $("#SubPageId").val(),
+                    "PageTabSectionId":  $("#PageSectionId").val(),
+                    "CreatedBy": 19
+                }),
+                contentType: 'application/json; charset=utf-8',
+                success: function (result) {
+                    debugger;
+                    //alert(result.Message);
+                    //alert(result.Status);
+                    //alert(result.StatusCode);
+                    if(result.Status)
+                    {
+                        loadDocumentResultSet();
+                        MessageShow(result.Message, 1);
+                    }
+                },
+                error: function (data) {
+                    HideLoader();
+                    debugger;
+                    alert(data.responseText);
+                }
+            });
+        });
+    });
+
+</script>
+
+@*<div style="padding: 10px 0px 25px;" class="divDocumentType divaddnew" id="divAddNewbutton">
+        <h4 style="float: left;">
+            Application Document
+        </h4>
+        <span style="float: right; margin-right: 0px;">
+            <button type="button" id="btnAddNew" class="buttonGreen small" title="Add new">
+                Add New
+            </button>
+        </span>
+    </div>
+    <br />*@
+<div class="container primary-content">
+    <div class="clear">
+    </div>
+    <h3>
+        Configuration
+    </h3>
+    <div class="clearb">
+    </div>
+    <div id="dashboard-panels">
+        <div class="relative-box ">
+            <div class="dynamic-panels ui-sortable" style="">
+                <div id="Cashflow" class="clearfix">
+                    <div id="ShowContent">
+                        <div class="gridUpperDiv">
+                            <a class="down_arrow"></a><span class="fltlt">
+                                <a title="Show All" id="btnShowAll" href="#">Show All</a>
+                            </span>
+                            <div class="fltrt rightIcon">
+                                <a title="find" href="javascript:void()" onclick="javascript:showDivSlide('.userHide');hideDivSlide('.searchBbutton');">
+                                    <img src="~/images/search_icon.png" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="brdr radius" id="divAddAppReqPanel">
+                            <div style="padding: 25px 0px 12px 0px;">
+                                <table style="width: 65%; margin: 0px auto;">
+                                    <tr>
+                                        <td align="right">
+                                            <label class="input-label required">
+                                                Application Type  :
+                                            </label>
+                                        </td>
+                                        <td>
+                                            @Html.DropDownList("ApplicationId", new SelectList(Enumerable.Empty<SelectListItem>()))
+                                        </td>
+                                        <td align="right">
+                                            <label class="input-label required">
+                                                Max Size in KB :
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="inputTextbox" style="width: 200px;" id="txtMaxSize" />
+                                            <br />
+                                            <label class="input-label" style="font-size: 10px; color: red; margin-left: 18px;">
+                                                Please Enter Size in KB (1024=1MB)
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right">
+                                            <label class="input-label required">
+                                                Document Type  :
+                                            </label>
+                                        </td>
+                                        <td>
+                                            @Html.DropDownList("DocumentTypeId", new SelectList(Enumerable.Empty<SelectListItem>()))
+                                        </td>
+                                        <td align="right">
+                                            <label class="input-label required">
+                                                Description  :
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <textarea name="Text1" cols="40" rows="3" class="inputTextbox" style="width: 200px;" id="txtDesc"></textarea>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="toolBar" style="padding: 4px; margin: 6px;">
+                                <span class="fltrt">
+                                    <button type="button" id="btnAdd" class="buttonGreen medium" title="Add">
+                                        Add
+                                    </button>
+                                    <button type="button" id="btnRefresh" class="secondary medium" title="Reset">
+                                        Reset
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="brdr radius">
+                            <div style="padding: 25px 0px 12px 0px;">
+                                <table class="SearchTable" style="margin: 0 auto; width:65%">
+                                    <tbody>
+                                        <tr>
+                                            <td align="right">
+                                                <label>
+                                                    Transaction Type :
+                                                </label>
+                                            </td>
+                                            <td>
+                                                @Html.DropDownList("TransactionTypeId", new SelectList(Enumerable.Empty<SelectListItem>(), "MasterTransactionId", "MasterTransactionName"), "Select")
+                                            </td>
+                                            <td align="right">
+                                                <label>
+                                                    Page Section Name :
+                                                </label>
+                                            </td>
+                                            <td>
+                                                @Html.DropDownList("PageSectionId", new SelectList(Enumerable.Empty<SelectListItem>(), "PageTabSectionId", "PageTabSectionName"), "Select")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right">
+                                                <label>
+                                                    Page Name :
+                                                </label>
+                                            </td>
+                                            <td>
+                                                @Html.DropDownList("PageId", new SelectList(Enumerable.Empty<SelectListItem>(), "PageModuleId", "PageModuleName"), "Select")
+                                            </td>
+                                            <td align="right">
+                                                <label>
+                                                    Document Name :
+                                                </label>
+                                            </td>
+                                            <td>
+                                                @Html.DropDownList("DocumentNameId", new SelectList(Enumerable.Empty<SelectListItem>(), "PageTabSectionId", "PageTabSectionName"), "Select")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right">
+                                                <label>
+                                                    Sub Page Name :
+                                                </label>
+                                            </td>
+                                            <td>
+                                                @Html.DropDownList("SubPageId", new SelectList(Enumerable.Empty<SelectListItem>(), "PageModuleTabSubModuleId", "PageModuleTabSubModuleName"), "Select")
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="toolBar" style="padding: 4px; margin: 6px;">
+                                <span class="fltrt">
+                                    <button type="button" id="btnSearch" class="buttonGreen medium" title="Search">
+                                        Search
+                                    </button>
+                                    <button type="button" id="btnRefresh1" class="secondary medium" title="Reset">
+                                        Reset
+                                    </button>
+                                </span>
+                            </div>
+                            <div class="clearb">
+                            </div>
+                        </div>
+                        <div class="brdr radius">
+                            <div id="container1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
