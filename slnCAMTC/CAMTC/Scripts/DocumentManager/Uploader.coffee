@@ -28,6 +28,7 @@
             #console.log thisObj
             #thisObj.processReadystate(resp)
             _parent.addDocumentToList(resp.ProviderDocumentGET[0])
+            _parent.reset()
             return
 
         @fileData = new FormData()
@@ -46,6 +47,8 @@
         #console.log "reached input"
         if @validate()
             @upload()
+        else
+            _parent.wait(false)
         ##console.log thisObj
         return
         
@@ -77,36 +80,63 @@
     fu.validate = ()->
         success = no
         
-        if @FileInput[0].files[0]?
-            success = yes
-        else
-            alert "Please select file."
+        
             #return no
         #console.log @parent.Manager.UserId? and @parent.Manager.ApplicationId? and @parent.Manager.Key? and @parent.Manager.ProviderId?
-        if @parent.Manager.UserId? and @parent.Manager.ApplicationId? and @parent.Manager.Key? and @parent.Manager.ProviderId?
+        if  @parent.Manager.UserId? and @parent.Manager.ApplicationId? and @parent.Manager.Key? and @parent.Manager.ProviderId?
             @fileData.append('applicationId',  @parent.Manager.ApplicationId)
             @fileData.append('providerId',  @parent.Manager.ProviderId)
             @fileData.append('key',  @parent.Manager.Key)
             @fileData.append('userId',  @parent.Manager.UserId)
             @fileData.append('docId', $(@parent.Wrapper).data('docid'))
             @fileData.append('docCode', $(@parent.Wrapper).data('docCode'))
+            @parent.showMessage(false, "systemData", systemErrorMessages.ErrorOccured, "error")
             success = yes
         else
+            @parent.showMessage(true, "systemData", systemErrorMessages.ErrorOccured, "error")
             success = no
         ##console.log @parent.isSimple
         
         if @parent.isSimple
             @fileData.append('isSimple', "true")
-            console.log @parent
+            #console.log @parent
             @fileData.append('otherDocType', @parent.docTypes[0].DocumentTypeIdName)
             
-        if not @parent.isSimple and @parent.DocumentName? and @parent.DocumentType? and @parent.DocumentTypeId?
-            #console.log @parent.DocumentType, @parent.DocumentTypeId
+        if success and not @parent.isSimple  
             @fileData.append('isSimple', "false")
-            @fileData.append('docTypeId', @parent.DocumentTypeId)
-            @fileData.append('docTypeName', @parent.DocumentType)
+            if @parent.DocumentName? and @parent.DocumentName != ""
+                @fileData.append('docName', @parent.DocumentName)
+                @parent.showMessage(false, "docName", systemErrorMessages.DocumentUploadName, "error")
+            else
+                @parent.showMessage(true, "docName", systemErrorMessages.DocumentUploadName, "error")
+                success = no
+                
+            if @parent.DocumentTypeId? and @parent.DocumentTypeId > 0
+                @fileData.append('docTypeId', @parent.DocumentTypeId)
+                @parent.showMessage(false, "docType", systemErrorMessages.DocumentUploadType, "error")
+            else 
+                @parent.showMessage(true, "docType", systemErrorMessages.DocumentUploadType, "error")
+                success = no    
+                
+            if @parent.DocumentType? and @parent.DocumentType != ""
+                @fileData.append('docTypeName', @parent.DocumentType)
+                #@parent.showMessage(false, "docTypeName", systemErrorMessages.DocumentUploadType, "error")
+            else
+                #@parent.showMessage(true, "docTypeName", systemErrorMessages.DocumentUploadType, "error")
+                success = no
+                
+        if success and @FileInput[0].files[0]?
             success = yes
-        #else
+            @parent.showMessage(false, "file", systemErrorMessages.DocumentUploadFile, "error")
+        else
+            @parent.showMessage(true, "file", systemErrorMessages.DocumentUploadFile, "error")
+            success = no
+                
+            #console.log @parent.DocumentName, "Document Name"
+            
+            
+            #success = yes
+            
             #success = no
         ##console.log @parent 
         success

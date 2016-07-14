@@ -30,17 +30,22 @@
         @UploadInput = $('<input/>').attr('type', 'file')
         @UploadBtn = $('<button />').addClass("buttonGreen small").text('Upload Document')
         @WaitWrapper = $('<div />').text("Please wait.").css('display', 'none')
+        
+        @MessageWrapper = $('<div id=\"' + @Identifier + '_messages"></div>').css('display', '')
+        
         @DocumentLable = "Document : "
+        @DocumentName = ""
         
         if $(@Wrapper).data('doclable')?
             @DocumentLable = $(@Wrapper).data('doclable') + ": "
         
+        console.log 'doc_'+ $(@Wrapper).data('docid'), 'doc_'+ $(@Wrapper).data('doccode')
         tempLable = @Manager.DocumentTypeNames['doc_'+ $(@Wrapper).data('docid')][0]
         
         @docTypes =  @Manager.DocumentTypeNames["doc_" + $(@Wrapper).data('docid')]
         
         
-        
+        @docNameInput = 
         @AllDocuments = []
         @listWrapper
         if not @isSimple
@@ -57,11 +62,14 @@
                                     .append(
                                         $.el('input', {'type' : 'text', 'name' : @Identifier + "_docName", 'id' :  @Identifier + "_docName" })
                                             #Attach Event to DocName
-                                            .blur {parent : @},(e)->
-                                                console.log this.value
-                                                if this.value? and this.value is not ""
-                                                    parent.DocumentName = $(this).val()
-                                                else alert "Please enter document name."
+                                            .blur {parent : _self},(e)->
+                                                console.log e.data.parent, "Parent Object Blur"
+                                                if this.value? and this.value != ""
+                                                    e.data.parent.DocumentName = $(this).val()
+                                                    e.data.parent.showMessage(false, "docName", systemErrorMessages.DocumentUploadName, "error")
+                                                else 
+                                                    e.data.parent.DocumentName = ""
+                                                    e.data.parent.showMessage(true, "docName", systemErrorMessages.DocumentUploadName, "error")
                                                 ##console.log $(this).val(), "Document Name Value"
                                     )
                                 $.el('td', {'class' : 'txtalgnrgt'})
@@ -78,7 +86,11 @@
                                                 if this.value > 0
                                                     e.data.parent.DocumentTypeId = this.value
                                                     e.data.parent.DocumentType = $(this).find('option:selected').text()
-                                                else alert "Please Select Document Type"
+                                                    e.data.parent.showMessage(false, "docType", systemErrorMessages.DocumentUploadType, "error")
+                                                else 
+                                                    e.data.parent.DocumentTypeId = 0
+                                                    e.data.parent.DocumentType = ""
+                                                    e.data.parent.showMessage(true, "docType", systemErrorMessages.DocumentUploadType, "error")
                                                 ##console.log parent.DocumentType, this.value , "Select Change"
                                     )
                             )
@@ -144,7 +156,7 @@
             #$uploadWrapper.append()
         
         $uploadWrapper.append($waitWrapper)
-        $wrapperMain.append(@UploadWrapper)
+        $wrapperMain.append(@UploadWrapper, @MessageWrapper)
         
         @Manager.loadAllDocument($wrapperMain.data('docid'))
             .done (resp)->
@@ -244,3 +256,25 @@
             $(@WaitWrapper).css('display', '')
         else
             $(@WaitWrapper).css('display', 'none')
+            
+    @p.showMessage = (show, type, message, _class)->
+        errObj = $(@MessageWrapper).find('.' + type)
+        console.log errObj, "Error Object", message, "Message"
+        if show
+            if errObj.length is 0
+                $(@MessageWrapper).append($.el('div', {'class' : type + " " + _class}).text(message))
+            else
+                errObj.css('display', '')
+        if not show
+            if errObj?
+                errObj.css('display', 'none')
+
+    
+    @p.reset = ()->
+        @UploadInput.replaceWith $(@UploadInput).clone()
+        if not @isSimple
+            $("#" + @Identifier + "_docName").val('')
+            $("#" + @Identifier + "_docType").val(0)
+            @DocumentTypeId = 0
+            @DocumentType = ""
+            @DocumentName = ""

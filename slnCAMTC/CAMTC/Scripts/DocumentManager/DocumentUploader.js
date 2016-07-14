@@ -51,13 +51,16 @@
       this.UploadInput = $('<input/>').attr('type', 'file');
       this.UploadBtn = $('<button />').addClass("buttonGreen small").text('Upload Document');
       this.WaitWrapper = $('<div />').text("Please wait.").css('display', 'none');
+      this.MessageWrapper = $('<div id=\"' + this.Identifier + '_messages"></div>').css('display', '');
       this.DocumentLable = "Document : ";
+      this.DocumentName = "";
       if ($(this.Wrapper).data('doclable') != null) {
         this.DocumentLable = $(this.Wrapper).data('doclable') + ": ";
       }
+      console.log('doc_' + $(this.Wrapper).data('docid'), 'doc_' + $(this.Wrapper).data('doccode'));
       tempLable = this.Manager.DocumentTypeNames['doc_' + $(this.Wrapper).data('docid')][0];
       this.docTypes = this.Manager.DocumentTypeNames["doc_" + $(this.Wrapper).data('docid')];
-      this.AllDocuments = [];
+      this.docNameInput = this.AllDocuments = [];
       this.listWrapper;
       if (!this.isSimple) {
         this.$complexWrapper = $.el('table', {
@@ -73,13 +76,15 @@
           'name': this.Identifier + "_docName",
           'id': this.Identifier + "_docName"
         }).blur({
-          parent: this
+          parent: _self
         }, function(e) {
-          console.log(this.value);
-          if ((this.value != null) && this.value === !"") {
-            return parent.DocumentName = $(this).val();
+          console.log(e.data.parent, "Parent Object Blur");
+          if ((this.value != null) && this.value !== "") {
+            e.data.parent.DocumentName = $(this).val();
+            return e.data.parent.showMessage(false, "docName", systemErrorMessages.DocumentUploadName, "error");
           } else {
-            return alert("Please enter document name.");
+            e.data.parent.DocumentName = "";
+            return e.data.parent.showMessage(true, "docName", systemErrorMessages.DocumentUploadName, "error");
           }
         })), $.el('td', {
           'class': 'txtalgnrgt'
@@ -96,9 +101,12 @@
         }, function(e) {
           if (this.value > 0) {
             e.data.parent.DocumentTypeId = this.value;
-            return e.data.parent.DocumentType = $(this).find('option:selected').text();
+            e.data.parent.DocumentType = $(this).find('option:selected').text();
+            return e.data.parent.showMessage(false, "docType", systemErrorMessages.DocumentUploadType, "error");
           } else {
-            return alert("Please Select Document Type");
+            e.data.parent.DocumentTypeId = 0;
+            e.data.parent.DocumentType = "";
+            return e.data.parent.showMessage(true, "docType", systemErrorMessages.DocumentUploadType, "error");
           }
         }))), $.el('tr', {}).append($.el('td', {
           'class': 'txtalgnrgt'
@@ -148,7 +156,7 @@
         }).text(this.DocumentLable + " : "), this.UploadInput, this.UploadBtn);
       }
       $uploadWrapper.append($waitWrapper);
-      $wrapperMain.append(this.UploadWrapper);
+      $wrapperMain.append(this.UploadWrapper, this.MessageWrapper);
       this.Manager.loadAllDocument($wrapperMain.data('docid')).done(function(resp) {
         console.log(resp, "loaded All Documents");
         if (resp.Status) {
@@ -243,6 +251,37 @@
         return $(this.WaitWrapper).css('display', '');
       } else {
         return $(this.WaitWrapper).css('display', 'none');
+      }
+    };
+
+    _Class.p.showMessage = function(show, type, message, _class) {
+      var errObj;
+      errObj = $(this.MessageWrapper).find('.' + type);
+      console.log(errObj, "Error Object", message, "Message");
+      if (show) {
+        if (errObj.length === 0) {
+          $(this.MessageWrapper).append($.el('div', {
+            'class': type + " " + _class
+          }).text(message));
+        } else {
+          errObj.css('display', '');
+        }
+      }
+      if (!show) {
+        if (errObj != null) {
+          return errObj.css('display', 'none');
+        }
+      }
+    };
+
+    _Class.p.reset = function() {
+      this.UploadInput.replaceWith($(this.UploadInput).clone());
+      if (!this.isSimple) {
+        $("#" + this.Identifier + "_docName").val('');
+        $("#" + this.Identifier + "_docType").val(0);
+        this.DocumentTypeId = 0;
+        this.DocumentType = "";
+        return this.DocumentName = "";
       }
     };
 

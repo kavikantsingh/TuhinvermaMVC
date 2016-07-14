@@ -31,7 +31,7 @@ namespace CAMTC.Areas.School.Controllers
         public JsonResult Upload(HttpPostedFileBase file, FormCollection data)
         {
             string OtherDocumentTypeName = data["otherDocType"] != null ? data["otherDocType"] : "" ;
-            
+            string _documentName = data["docName"] != null ?  data["docName"] : file.FileName.Split('.').FirstOrDefault();
             var responseString = "";
             if (file != null) {
 
@@ -72,7 +72,7 @@ namespace CAMTC.Areas.School.Controllers
                     DocumentTypeId = data["docTypeId"],
                     DocumentTypeIdName = data["docTypeName"],
 
-                    DocumentName = file.FileName.Replace(extension, ""),
+                    DocumentName = _documentName,
 
                     Base64Str = Base64File,
                     Extension = extension
@@ -104,14 +104,30 @@ namespace CAMTC.Areas.School.Controllers
                 responseString = content;
 
                 //Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(responseString);
-                //if(data["isSimple"] == "false")
+                //if (data["isSimple"] == "false")
                 //{
+                    
                 //    objUpload.DocumentTypeId = data["docTypeId"];
                 //    objUpload.DocumentTypeIdName = data["docTypeName"];
+                //}else if (data["isSimple"] == "true")
+                //{
+                    
                 //}
 
             }
             return Json(responseString);
         }
+    }
+    public class ProviderDocumentGET 
+    {
+        public int ProviderId { get; set; }
+        public int DocumentId { get; set; }
+        public int ProviderDocumentId { get; set; }
+        public string DocumentTypeIdName { get; set; }
+        public string DocumentTypeDesc { get; set; }
+        public string DocumentName { get; set; }
+        public string OtherDocumentTypeName { get; set; }
+        public int DocumentTypeId { get; set; }
+        public string DocumentPath { get; set; }
     }
 }

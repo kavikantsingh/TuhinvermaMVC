@@ -13,8 +13,6 @@ namespace CAMTC.Controllers
         // GET: AppContents
         public JavaScriptResult ErrorMessages()
         {
-
-            
             return JavaScript("var systemErrorMessages = " + JsonConvert.SerializeObject(new ErrorMessage()) + ";");
         }
     }
