@@ -21,6 +21,7 @@ namespace CAMTC
             #region Login-Provider|Indiviudal|Agency|BackOffice
 
             bundles.Add(new ScriptBundle("~/bundles/JQLogin").Include(
+                        //"~/AppContents/Errormessages",
                         "~/Content/Public/js/jquery.mask.min.js",
                         "~/Scripts/Validation/FormValidation.js",
                         "~/Scripts/Validation/TextboxFormating.js",
