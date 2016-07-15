@@ -10,7 +10,38 @@ min-width: 1050px;
 height: 100%;
 zoom:1;
 }
+/*instruction css*/
 .space_20 { margin-top:20px; margin-bottom:10px;}
+.space_left {padding-left: 15px;}
+.rightchek{width: 110px; vertical-align: middle;}
+.pading_text_instruct{padding-left: 15px; padding-top: 5px;}
+.boldtext_instruct{font-size: 13px; padding-left: 15px; padding-top: 5px;}
+.toolbar_instruct{padding: 4px; margin: 4px;}
+/*end*/
+
+/*SchoolInfo css*/
+.error_top_Sinfo{ color: red; margin-top: 0px; border-radius: 5px;}
+.panle_list_SInfo{border: 1px solid rgb(222, 222, 222); margin-top: 10px;}
+.width100p{width:100%;}
+.width50p{ width:50%;}
+.width115P{ width:115px;}
+.SclNameTxtboxmain{width: 515px !important;}
+.width180P{ width:180px;}
+.width130P{ width:130px;}
+.width518p{ width:518px;}
+.width110p{ width:110px;}
+.padding_t{ padding-top:10px;}
+.marginRig{ margin-right:18px;}
+.margin_10{ margin-left:10px !important;}
+.prev_scltext{width: 180px !important; padding-bottom: 10px;}
+.Prevsclgrid{width: 415px !important;}
+.Prev_Grid_design{width: 68%; margin-left: 195px; border: 1px solid #ddd;}
+.street_desgn{vertical-align: middle; width: 130px;}
+.city_width{ width:148px;}
+.verify_add_user{font-size: 14px; font-weight: bold; padding-left: 58px;}
+.verify_add_user_txt{font-size: 14px; font-weight: bold; padding-left: 55px;}
+/**/
+
 .input-label {padding-right: 10px;
 margin-right: 2px;}
 a{
