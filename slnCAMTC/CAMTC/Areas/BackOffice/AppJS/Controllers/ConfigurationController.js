@@ -55,7 +55,7 @@ contentApp.controller('DeficiencyTemplate', ['$scope', '$rootScope', 'Configurat
         deficiencyTemplateSearch.IsActive = $scope.DTSearch.sIsActive;
         ConfigurationFactory.GetDeficiencyTemplate(key, deficiencyTemplateSearch).success(function (data) {
             //$scope.DeficiencyTemplateGrid.api.setRowData(data.DeficiencyTemplateResponseList);
-            $scope.DeficiencyTemplateList = data.DeficiencyTemplateResponseList;
+            $scope.DeficiencyTemplateList = data.MasterTransactionList;
         }).error(function (error) {
             $scope.Error = error;
         });
