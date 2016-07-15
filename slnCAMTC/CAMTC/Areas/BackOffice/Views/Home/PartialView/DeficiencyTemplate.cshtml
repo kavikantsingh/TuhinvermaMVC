@@ -249,7 +249,7 @@
         </div>
         <div class="toolBar" style="padding: 4px; margin: 6px;">
             <span class="fltrt">
-                <input type="button" ID="btnSaveDocument" CssClass="buttonGreen medium" value="Save" onclick="javascript:$('#divAddAppReqPanel').hide();"/>
+                <input type="button" ID="btnSaveDocument" CssClass="buttonGreen medium" value="Save" ng-click="SaveDeficiencyTemplate()"/>
                 <input type="button" ID="btnCancelSave" CssClass="secondary medium" value="Cancel"  onclick="javascript: $('#divAddAppReqPanel').hide();"/>
             </span>
         </div>
@@ -275,11 +275,11 @@
                                 <td style="border-top: 1px solid #ddd;">{{m.Name}}</td>
                                 <td style="border-top: 1px solid #ddd;">{{m.Deficiency_Template_Name}}</td>
                                 <td style="border-top: 1px solid #ddd;">{{m.End_Date | date: 'MM/dd/yyyy'}}</td>
-                                <td style="border-top: 1px solid #ddd;"><input type="checkbox" ng-value="m.Is_Active" /></td>
+                                <td style="border-top: 1px solid #ddd;"><input type="checkbox" ng-checked="m.Is_Active" /></td>
                                
                                 <td style="border-top: 1px solid #ddd;">
-                                    <input type="image" id="imgEdit" class='{{m.Deficiency_Template_ID}}' onclick="EditStuff(this); return false" src="~/Content/Theme1/images/edit.png" alt="Submit">
-                                    <input type="image" id="imgDelete" class='{{m.Deficiency_Template_ID}}' onclick="EditStuff(this); return false" src="~/Content/Theme1/images/delete.png" alt="Submit">
+                                   <input type="image" id="imgEdit" class='{{m.Deficiency_Template_ID}}' ng-click="EditStuff(this)" title='{{m.Deficiency_Template_ID}}' src="~/Content/Theme1/images/edit.png" alt="Submit">
+                                    <input type="image" id="imgDelete_{{m.Deficiency_Template_ID}}" class='{{m.Deficiency_Template_ID}}' ng-click="DeleteStuff(this)" title='{{m.Deficiency_Template_ID}}' src="~/Content/Theme1/images/delete.png" alt="Submit">
                                 </td>
                             </tr>
 
@@ -295,6 +295,13 @@
                                                     </label>
                                                 </td>
                                                 <td align="left">
+                                                    <select id="ddlMasterTransaction_{{m.Deficiency_Template_ID}}" ng-model="m.Master_Transaction_Id">
+
+                                                        <option value="-1" selected="selected">Select</option>
+
+                                                        <option ng-repeat="option in ddlMasterTransaction" value="{{option.MasterTransactionId}}">{{option.MasterTransactionName}}</option>
+
+                                                    </select>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -304,7 +311,7 @@
                                                     </label>
                                                 </td>
                                                 <td align="left">
-                                                    <input type="text" id="txtEndDate_{{m.Deficiency_Template_ID}}" class="inputTextbox" ng-value="m.Deficiency_Template_Name" />
+                                                    <input type="text" id="txtName_{{m.Deficiency_Template_ID}}" class="inputTextbox" ng-value="m.Deficiency_Template_Name" />
                                                 </td>
                                             </tr>
                                             <tr>
@@ -314,7 +321,7 @@
                                                     </label>
                                                 </td>
                                                 <td align="left">
-                                                    <textarea id="txtEditor_{{m.Deficiency_Template_ID}}">{{m.Deficiency_Template_Subject}}</textarea>
+                                                    <textarea id="txtsub_{{m.Deficiency_Template_ID}}">{{m.Deficiency_Template_Subject}}</textarea>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -324,7 +331,7 @@
                                                     </label>
                                                 </td>
                                                 <td align="left">
-                                                    <textarea id="txtEditor_{{m.Deficiency_Template_ID}}">{{m.Deficiency_Template_Message}}</textarea>
+                                                    <textarea id="txtmsg_{{m.Deficiency_Template_ID}}">{{m.Deficiency_Template_Message}}</textarea>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -334,7 +341,7 @@
                                                     </label>
                                                 </td>
                                                 <td align="left">
-                                                    <input type="checkbox" id="txtEndDate_{{m.Deficiency_Template_ID}}" ng-value="m.Is_Active" />
+                                                    <input type="checkbox" id="txtIsActive_{{m.Deficiency_Template_ID}}" ng-checked="m.Is_Active" />
                                                 </td>
                                             </tr>
                                         </table>
@@ -342,8 +349,8 @@
                                     </div>
                                     <div class="toolbar clear" style="">
                                         <span class="fltrt">
-                                            <input type="button" id="btnUpdate_{{m.Deficiency_Template_ID}}" onclick="doStuff(this);" title='{{m.Deficiency_Template_ID}}' value="Update" class="buttongreen medium" />
-                                            <input id="btnCancel" type="button" name='{{m.Deficiency_Template_ID}}' value="Cancel" class="secondary medium" onclick="hideStuff(this); return false" />
+                                            <input type="button" id="btnUpdate_{{m.Deficiency_Template_ID}}" ng-click="doStuff(this);" title='{{m.Deficiency_Template_ID}}' value="Update" class="buttongreen medium" />
+                                            <input id="btnCancel" type="button" name='{{m.Deficiency_Template_ID}}' value="Cancel" class="secondary medium" ng-click="hideStuff(this)" />
                                         </span>
                                     </div>
                                 </td>
@@ -365,52 +372,54 @@
 
 <script type="text/javascript">
 
-    function EditStuff(id) {
-        //var index = $(id).attr('class');
-        //document.getElementById(index).style.display = 'table-row';
+    //function EditStuff(id) {
+    //    var index = $(id).attr('class');
+    //    document.getElementById(index).style.display = 'table-row';
 
-        //tinymce.init({ mode: 'textareas' });
+    //    //tinymce.init({ mode: 'textareas' });
 
-        ////tinymce.init({ mode: 'textareas', elements: '#txtEditor_' + index });
+    //    ////tinymce.init({ mode: 'textareas', elements: '#txtEditor_' + index });
 
-        //$('#txtEffectiveDate_' + index).datepicker({
-        //    inline: true,
-        //    changeMonth: true,
-        //    changeYear: true,
-        //    yearRange: "2016:2030"
-        //});
-        //$('#txtEndDate_' + index).datepicker({
-        //    inline: true,
-        //    changeMonth: true,
-        //    changeYear: true,
-        //    yearRange: "2016:2030"
-        //});
+    //    //$('#txtEffectiveDate_' + index).datepicker({
+    //    //    inline: true,
+    //    //    changeMonth: true,
+    //    //    changeYear: true,
+    //    //    yearRange: "2016:2030"
+    //    //});
+    //    //$('#txtEndDate_' + index).datepicker({
+    //    //    inline: true,
+    //    //    changeMonth: true,
+    //    //    changeYear: true,
+    //    //    yearRange: "2016:2030"
+    //    //});
 
-    }
-
-    //function reloadPage() {
-    //    location.reload();
     //}
 
-    function hideStuff(id) {
-        //var val = $(id).attr('name');
-        //document.getElementById(val).style.display = 'none';
-    }
+    ////function reloadPage() {
+    ////    location.reload();
+    ////}
 
-    function doStuff(id) {
+    //function hideStuff(id) {
+    //    //var val = $(id).attr('name');
+    //    //document.getElementById(val).style.display = 'none';
+    //}
 
-        //var index = $(id).attr('title');
+    //function doStuff(id) {
 
-        //var contentId = $('#hdnContentItemLkId_' + index).val();
-        //var contentHash = $('#hdnContentItemLkId_' + index).val();
-        //var contentDesc = tinyMCE.get('txtEditor_' + index).getContent();
-        //var startDate = $('#txtEffectiveDate_' + index).val();
-        //var endDate = $('#txtEndDate_' + index).val();
+    //    //var index = $(id).attr('title');
 
-        //angular.element('#myCtrl').scope().UpdateContentById(contentId, contentHash, contentDesc, startDate, endDate);
+    //    //var contentId = $('#hdnContentItemLkId_' + index).val();
+    //    //var contentHash = $('#hdnContentItemLkId_' + index).val();
+    //    //var contentDesc = tinyMCE.get('txtEditor_' + index).getContent();
+    //    //var startDate = $('#txtEffectiveDate_' + index).val();
+    //    //var endDate = $('#txtEndDate_' + index).val();
 
-        //setTimeout(function () { location.reload(); }, 1000);
+    //    //angular.element('#myCtrl').scope().UpdateContentById(contentId, contentHash, contentDesc, startDate, endDate);
 
-    };
+    //    //setTimeout(function () { location.reload(); }, 1000);
+
+    //};
+
+    
 
 </script>

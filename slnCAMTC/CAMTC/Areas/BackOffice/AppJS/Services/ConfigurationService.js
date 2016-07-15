@@ -10,6 +10,9 @@
         GetAllMasterTransaction: function (key) {
             return $http.get(configurationurl + '/GetAllMasterTransaction/' + key);
         },
+        SaveDeficiencyTemplate: function (key, objContent) {
+            return $http.post(configurationurl + '/SaveDeficiencyTemplate/' + key, objContent);
+        },
     };
     return ConfigurationFactory;
 });
