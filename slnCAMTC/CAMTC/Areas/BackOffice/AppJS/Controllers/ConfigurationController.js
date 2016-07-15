@@ -1,43 +1,47 @@
-﻿LAPP.controller('DeficiencyTemplate', ['$scope', '$rootScope', 'mySharedService', 'ConfigurationFactory', function ($scope, $rootScope, mySharedService, ConfigurationFactory) {
+﻿var contentApp = angular.module("contentApp", ['angularUtils.directives.dirPagination'])
+//var BaseURL = 'http://localhost/LAPP.WS/api';
+var BaseURL = 'http://ws.camtc.inlumon.com/api';
+
+contentApp.controller('DeficiencyTemplate', ['$scope', '$rootScope', 'ConfigurationFactory', function ($scope, $rootScope, ConfigurationFactory) {
     $scope.ddlMasterTransaction = [];
     $scope.DTSearch = {};
     $scope.DeficiencyTemplateInfo = {};
 
 
-    $scope.DeficiencyTemplateGrid = {
-        columnDefs: [
-             { headerName: "Transaction Type", width: 250, field: "Name", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-             { headerName: "Deficiency Template Name", width: 250, field: "Deficiency_Template_Name", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-             { headerName: "End Date", width: 250, field: "End_Date", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-              {
-                  headerName: "Is Active", width: 200, field: "Is_Active", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, cellRenderer: function (params) {
-                      if (params.data.Is_Active)
-                          return "<input type='checkbox' checked />";
-                      else
-                          return "<input type='checkbox' />";
-                  }
-              },
-             {
-                 headerName: "Action", width: 150, cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, field: "IsActive", cellRenderer: function (params) {
-                     return "<a data-ng-click=\"UpdateDeficiencyTemplate('" + params.data.Deficiency_Template_ID + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a><span ng-show=\"!IsReadOnly\"> |</span><a data-ng-click=\"DeleteDeficiencyTemplate('" + params.data.Deficiency_Template_ID + "')\" href=\"javascript:;\"> <img src='\\Content/Public/images/delete.png' /></a>";
-                 }
-             },
+    //$scope.DeficiencyTemplateGrid = {
+    //    columnDefs: [
+    //         { headerName: "Transaction Type", width: 250, field: "Name", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
+    //         { headerName: "Deficiency Template Name", width: 250, field: "Deficiency_Template_Name", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
+    //         { headerName: "End Date", width: 250, field: "End_Date", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
+    //          {
+    //              headerName: "Is Active", width: 200, field: "Is_Active", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, cellRenderer: function (params) {
+    //                  if (params.data.Is_Active)
+    //                      return "<input type='checkbox' checked />";
+    //                  else
+    //                      return "<input type='checkbox' />";
+    //              }
+    //          },
+    //         {
+    //             headerName: "Action", width: 150, cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, field: "IsActive", cellRenderer: function (params) {
+    //                 return "<a data-ng-click=\"UpdateDeficiencyTemplate('" + params.data.Deficiency_Template_ID + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a><span ng-show=\"!IsReadOnly\"> |</span><a data-ng-click=\"DeleteDeficiencyTemplate('" + params.data.Deficiency_Template_ID + "')\" href=\"javascript:;\"> <img src='\\Content/Public/images/delete.png' /></a>";
+    //             }
+    //         },
 
-        ],
-        angularCompileRows: true,
-        rowData: [],
-        // enableFilter: true,
-        rowHeight: 25,
-        headerHeight: 30,
-        // pinnedColumnCount: 1,
-        enableColResize: true,
-        suppressRowClickSelection: true,
-        suppressHorizontalScroll: true,
-        suppressCellSelection: true,
-        onGridReady: function (event) {
-            //$scope.providerGrid.api.sizeColumnsToFit();
-        }
-    };
+    //    ],
+    //    angularCompileRows: true,
+    //    rowData: [],
+    //    // enableFilter: true,
+    //    rowHeight: 25,
+    //    headerHeight: 30,
+    //    // pinnedColumnCount: 1,
+    //    enableColResize: true,
+    //    suppressRowClickSelection: true,
+    //    suppressHorizontalScroll: true,
+    //    suppressCellSelection: true,
+    //    onGridReady: function (event) {
+    //        //$scope.providerGrid.api.sizeColumnsToFit();
+    //    }
+    //};
 
 
     $scope.GetDeficiencyTemplate = function (isSearch) {
@@ -50,7 +54,8 @@
         deficiencyTemplateSearch.DeficiencyTemplateName = $scope.DTSearch.sDeficiencyTemplateName;
         deficiencyTemplateSearch.IsActive = $scope.DTSearch.sIsActive;
         ConfigurationFactory.GetDeficiencyTemplate(key, deficiencyTemplateSearch).success(function (data) {
-            $scope.DeficiencyTemplateGrid.api.setRowData(data.DeficiencyTemplateResponseList);
+            //$scope.DeficiencyTemplateGrid.api.setRowData(data.DeficiencyTemplateResponseList);
+            $scope.DeficiencyTemplateList = data.DeficiencyTemplateResponseList;
         }).error(function (error) {
             $scope.Error = error;
         });

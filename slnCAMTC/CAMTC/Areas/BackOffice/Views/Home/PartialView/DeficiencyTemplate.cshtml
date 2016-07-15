@@ -2,13 +2,111 @@
 <script src="~/Areas/BackOffice/AppJS/Controllers/ConfigurationController.js" type="text/javascript"></script>
 <script src="~/Areas/BackOffice/AppJS/Services/ConfigurationService.js" type="text/javascript"></script>
 
+<style type="text/css">
+    .text-center {
+        text-align: center;
+    }
+
+    .pagination {
+        border-radius: 4px;
+        display: inline-block;
+        margin: 20px 0;
+        padding-left: 0;
+    }
+
+        .pagination > li {
+            display: inline;
+        }
+
+    *::after, *::before {
+        box-sizing: border-box;
+    }
+
+    *::after, *::before {
+        box-sizing: border-box;
+    }
+
+    .pagination > li:first-child > a, .pagination > li:first-child > span {
+        border-bottom-left-radius: 4px;
+        border-top-left-radius: 4px;
+        margin-left: 0;
+    }
+
+    .pagination > .disabled > a, .pagination > .disabled > a:focus, .pagination > .disabled > a:hover, .pagination > .disabled > span, .pagination > .disabled > span:focus, .pagination > .disabled > span:hover {
+        background-color: #fff;
+        border-color: #ddd;
+        color: #777;
+        cursor: not-allowed;
+    }
+
+    .pagination > li:first-child > a, .pagination > li:first-child > span {
+        border-bottom-left-radius: 4px;
+        border-top-left-radius: 4px;
+        margin-left: 0;
+    }
+
+    .pagination > .disabled > a, .pagination > .disabled > a:focus, .pagination > .disabled > a:hover, .pagination > .disabled > span, .pagination > .disabled > span:focus, .pagination > .disabled > span:hover {
+        background-color: #fff;
+        border-color: #ddd;
+        color: #777;
+        cursor: not-allowed;
+    }
+
+    .pagination > li > a, .pagination > li > span {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        color: #337ab7;
+        float: left;
+        line-height: 1.42857;
+        margin-left: -1px;
+        padding: 6px 12px;
+        position: relative;
+        text-decoration: none;
+    }
+
+    a {
+        color: #337ab7;
+        text-decoration: none;
+    }
+
+    a {
+        background-color: transparent;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+
+    .pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+        background-color: #337ab7;
+        border-color: #337ab7;
+        color: #fff;
+        cursor: default;
+        z-index: 3;
+    }
+
+    .pagination > li > a, .pagination > li > span {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        color: #337ab7;
+        float: left;
+        line-height: 1.42857;
+        margin-left: -1px;
+        padding: 6px 12px;
+        position: relative;
+        text-decoration: none;
+    }
+</style>
+
+
+
 <div ng-controller="DeficiencyTemplate as myctrl" ng-cloak>
     <div style="padding: 10px 0px 25px;" class="divDocumentType divaddnew" id="divAddNewbutton">
         <h4 style="float: left;">
             Deficiency Template
         </h4>
         <span style="float: right; margin-right: 0px;">
-            <input type="button" ID="btnAddNew" CssClass="buttonGreen small" value="Add New" />
+            <input type="button" ID="btnAddNew" CssClass="buttonGreen small" value="Add New" onclick="javascript:$('#divAddAppReqPanel').show();" />
         </span>
     </div>
     <br />
@@ -18,7 +116,6 @@
             </div>
         </div>
         <fieldset class="PermitSearch" style="position: relative">
-            <legend></legend>
             <table class="SearchTable" align="center" style="margin: 0 auto;">
                 <tbody>
                     <tr>
@@ -67,7 +164,7 @@
             <span class="fltrt">
                 <input type="button" ID="btnSearch" CssClass="buttonGreen small" value="Search" ng-click="GetDeficiencyTemplate(true)" />
 
-                <input type="button" ID="btnSearchCancel" CssClass="secondary small" value="Cancel" />
+                <input type="button" ID="btnSearchCancel" CssClass="secondary small" value="Cancel" ng-click="GetDeficiencyTemplate()" onclick="javascript: hideDivSlide('.userHide'); showDivSlide('.searchBbutton');" />
             </span>
         </fieldset>
         <div class="clearb">
@@ -86,7 +183,7 @@
         </div>
     </div>
     <div ID="ltrDocumentType"></div>
-    <div class="brdr radius" id="divAddAppReqPanel" visible="false">
+    <div class="brdr radius" id="divAddAppReqPanel" style="display:none">
         <div style="padding: 25px 0px 12px 0px;">
             <table style="width: 100%; margin: 0px auto;">
                 <tr>
@@ -152,15 +249,168 @@
         </div>
         <div class="toolBar" style="padding: 4px; margin: 6px;">
             <span class="fltrt">
-                <input type="button" ID="btnSaveDocument" CssClass="buttonGreen medium" value="Save" />
-                <input type="button" ID="btnCancelSave" CssClass="secondary medium" value="Cancel" />
+                <input type="button" ID="btnSaveDocument" CssClass="buttonGreen medium" value="Save" onclick="javascript:$('#divAddAppReqPanel').hide();"/>
+                <input type="button" ID="btnCancelSave" CssClass="secondary medium" value="Cancel"  onclick="javascript: $('#divAddAppReqPanel').hide();"/>
             </span>
         </div>
     </div>
     <div id="divGridView" visible="true" class="">
         <div style="margin-top: 3px;">
-            <div data-ag-grid="DeficiencyTemplateGrid" class="ag-blue" style="color: #000;"></div>
+            <div id="Datatable" class="brdr">
+                <div class="brdr radius pdng5">
+
+                    <table id="example" class="display dataTable no-footer" cellspacing="0" width="100%">
+                        <thead>
+                            <tr style="color: White; background-color: #0D83DD; border-style: None; font-weight: bold;">
+                                <th>Transaction Type</th>
+                                <th>Deficiency Template Name</th>
+                                <th>End Date</th>
+                                <th>Is Active</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody dir-paginate="m in DeficiencyTemplateList | itemsPerPage: 10">
+
+                            <tr>
+                                <td style="border-top: 1px solid #ddd;">{{m.Name}}</td>
+                                <td style="border-top: 1px solid #ddd;">{{m.Deficiency_Template_Name}}</td>
+                                <td style="border-top: 1px solid #ddd;">{{m.End_Date | date: 'MM/dd/yyyy'}}</td>
+                                <td style="border-top: 1px solid #ddd;"><input type="checkbox" ng-value="m.Is_Active" /></td>
+                               
+                                <td style="border-top: 1px solid #ddd;">
+                                    <input type="image" id="imgEdit" class='{{m.Deficiency_Template_ID}}' onclick="EditStuff(this); return false" src="~/Content/Theme1/images/edit.png" alt="Submit">
+                                    <input type="image" id="imgDelete" class='{{m.Deficiency_Template_ID}}' onclick="EditStuff(this); return false" src="~/Content/Theme1/images/delete.png" alt="Submit">
+                                </td>
+                            </tr>
+
+                            <tr id='{{m.Deficiency_Template_ID}}' style="display: none;">
+                                <td colspan='6'>
+                                    <div class="pdng5" style="padding: 15px 0px 15px 0px; width: 100%;">
+
+                                        <table style="margin: 0 auto; width: 100%;">
+                                            <tr>
+                                                <td align="right">
+                                                    <label class="input-label required">
+                                                        Transaction Type :
+                                                    </label>
+                                                </td>
+                                                <td align="left">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right">
+                                                    <label class="input-label required">
+                                                        Deficiency Template Name :
+                                                    </label>
+                                                </td>
+                                                <td align="left">
+                                                    <input type="text" id="txtEndDate_{{m.Deficiency_Template_ID}}" class="inputTextbox" ng-value="m.Deficiency_Template_Name" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right">
+                                                    <label class="input-label required">
+                                                        Deficiency Template Subject :
+                                                    </label>
+                                                </td>
+                                                <td align="left">
+                                                    <textarea id="txtEditor_{{m.Deficiency_Template_ID}}">{{m.Deficiency_Template_Subject}}</textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right">
+                                                    <label class="input-label required">
+                                                        Deficiency Template Message :
+                                                    </label>
+                                                </td>
+                                                <td align="left">
+                                                    <textarea id="txtEditor_{{m.Deficiency_Template_ID}}">{{m.Deficiency_Template_Message}}</textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right">
+                                                    <label class="input-label required">
+                                                        Is Active? :
+                                                    </label>
+                                                </td>
+                                                <td align="left">
+                                                    <input type="checkbox" id="txtEndDate_{{m.Deficiency_Template_ID}}" ng-value="m.Is_Active" />
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </div>
+                                    <div class="toolbar clear" style="">
+                                        <span class="fltrt">
+                                            <input type="button" id="btnUpdate_{{m.Deficiency_Template_ID}}" onclick="doStuff(this);" title='{{m.Deficiency_Template_ID}}' value="Update" class="buttongreen medium" />
+                                            <input id="btnCancel" type="button" name='{{m.Deficiency_Template_ID}}' value="Cancel" class="secondary medium" onclick="hideStuff(this); return false" />
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <div class="text-center">
+                        <dir-pagination-controls boundary-links="true" template-url="~/Content/AngularJS/CustomPaging/dirPagination.tpl.html"></dir-pagination-controls>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
 
 </div>
+
+<script type="text/javascript">
+
+    function EditStuff(id) {
+        //var index = $(id).attr('class');
+        //document.getElementById(index).style.display = 'table-row';
+
+        //tinymce.init({ mode: 'textareas' });
+
+        ////tinymce.init({ mode: 'textareas', elements: '#txtEditor_' + index });
+
+        //$('#txtEffectiveDate_' + index).datepicker({
+        //    inline: true,
+        //    changeMonth: true,
+        //    changeYear: true,
+        //    yearRange: "2016:2030"
+        //});
+        //$('#txtEndDate_' + index).datepicker({
+        //    inline: true,
+        //    changeMonth: true,
+        //    changeYear: true,
+        //    yearRange: "2016:2030"
+        //});
+
+    }
+
+    //function reloadPage() {
+    //    location.reload();
+    //}
+
+    function hideStuff(id) {
+        //var val = $(id).attr('name');
+        //document.getElementById(val).style.display = 'none';
+    }
+
+    function doStuff(id) {
+
+        //var index = $(id).attr('title');
+
+        //var contentId = $('#hdnContentItemLkId_' + index).val();
+        //var contentHash = $('#hdnContentItemLkId_' + index).val();
+        //var contentDesc = tinyMCE.get('txtEditor_' + index).getContent();
+        //var startDate = $('#txtEffectiveDate_' + index).val();
+        //var endDate = $('#txtEndDate_' + index).val();
+
+        //angular.element('#myCtrl').scope().UpdateContentById(contentId, contentHash, contentDesc, startDate, endDate);
+
+        //setTimeout(function () { location.reload(); }, 1000);
+
+    };
+
+</script>

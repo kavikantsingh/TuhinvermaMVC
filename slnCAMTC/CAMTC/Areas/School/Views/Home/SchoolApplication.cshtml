@@ -7,6 +7,7 @@
     var key = window.sessionStorage.getItem('School_Key');
 </script>
 @*<script src="~/Content/Theme1/js/jquery-1.8.0.min.js"></script>*@
+<script type="text/javascript" src="~/AppContents/Errormessages/"></script>
 <link href="~/Content/Theme1/jquery-ui/css/start/jquery-ui-1.8.23.custom.css" rel="stylesheet" />
 <link href="~/Content/Public/css/style.css" rel="stylesheet" />
 <script src="~/Content/Public/js/ebsoft-loader.js"></script>
@@ -74,8 +75,8 @@
             <div class="span-180 span-13 home-sidebar append-1">
             </div>
             <div class="primary-column span-24" style="width: 600px;">
-                @Html.Partial("~/Areas/BackOffice/Views/Home/_SchoolInfo.cshtml");
-                @Html.Partial("~/Areas/BackOffice/Views/Home/_Eligibility.cshtml");
+                @Html.Partial("~/Areas/BackOffice/Views/Home/_SchoolInfo.cshtml")
+                @Html.Partial("~/Areas/BackOffice/Views/Home/_Eligibility.cshtml")
                 @Html.Partial("_SchoolApp_Instructions")
                 @Html.Partial("_SchoolApp_AboutTheSchool")
                 @Html.Partial("_SchoolApp_Transcript")
