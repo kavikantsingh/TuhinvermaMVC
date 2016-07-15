@@ -39,6 +39,7 @@
           }
           if (resp.Status) {
             _parent.addDocumentToList(resp.ProviderDocumentGET[0]);
+            _parent.reset();
           }
         }
       };
@@ -47,6 +48,8 @@
       this.fileInput = this.FileInput;
       if (this.validate()) {
         this.upload();
+      } else {
+        _parent.wait(false);
       }
       return;
     }
@@ -80,11 +83,6 @@
     fu.validate = function() {
       var success;
       success = false;
-      if (this.FileInput[0].files[0] != null) {
-        success = true;
-      } else {
-        alert("Please select file.");
-      }
       if ((this.parent.Manager.UserId != null) && (this.parent.Manager.ApplicationId != null) && (this.parent.Manager.Key != null) && (this.parent.Manager.ProviderId != null)) {
         this.fileData.append('applicationId', this.parent.Manager.ApplicationId);
         this.fileData.append('providerId', this.parent.Manager.ProviderId);
@@ -92,20 +90,44 @@
         this.fileData.append('userId', this.parent.Manager.UserId);
         this.fileData.append('docId', $(this.parent.Wrapper).data('docid'));
         this.fileData.append('docCode', $(this.parent.Wrapper).data('docCode'));
+        this.parent.showMessage(false, "systemData", systemErrorMessages.ErrorOccured, "error");
         success = true;
       } else {
+        this.parent.showMessage(true, "systemData", systemErrorMessages.ErrorOccured, "error");
         success = false;
       }
       if (this.parent.isSimple) {
         this.fileData.append('isSimple', "true");
-        console.log(this.parent);
         this.fileData.append('otherDocType', this.parent.docTypes[0].DocumentTypeIdName);
       }
-      if (!this.parent.isSimple && (this.parent.DocumentName != null) && (this.parent.DocumentType != null) && (this.parent.DocumentTypeId != null)) {
+      if (success && !this.parent.isSimple) {
         this.fileData.append('isSimple', "false");
-        this.fileData.append('docTypeId', this.parent.DocumentTypeId);
-        this.fileData.append('docTypeName', this.parent.DocumentType);
+        if ((this.parent.DocumentName != null) && this.parent.DocumentName !== "") {
+          this.fileData.append('docName', this.parent.DocumentName);
+          this.parent.showMessage(false, "docName", systemErrorMessages.DocumentUploadName, "error");
+        } else {
+          this.parent.showMessage(true, "docName", systemErrorMessages.DocumentUploadName, "error");
+          success = false;
+        }
+        if ((this.parent.DocumentTypeId != null) && this.parent.DocumentTypeId > 0) {
+          this.fileData.append('docTypeId', this.parent.DocumentTypeId);
+          this.parent.showMessage(false, "docType", systemErrorMessages.DocumentUploadType, "error");
+        } else {
+          this.parent.showMessage(true, "docType", systemErrorMessages.DocumentUploadType, "error");
+          success = false;
+        }
+        if ((this.parent.DocumentType != null) && this.parent.DocumentType !== "") {
+          this.fileData.append('docTypeName', this.parent.DocumentType);
+        } else {
+          success = false;
+        }
+      }
+      if (success && (this.FileInput[0].files[0] != null)) {
         success = true;
+        this.parent.showMessage(false, "file", systemErrorMessages.DocumentUploadFile, "error");
+      } else {
+        this.parent.showMessage(true, "file", systemErrorMessages.DocumentUploadFile, "error");
+        success = false;
       }
       return success;
     };

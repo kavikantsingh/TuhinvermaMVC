@@ -17,7 +17,7 @@
 }
 input[type=button], button, select, textarea
 {
-    font-family: inherit;
+    font-family: Verdana,sans-serif !important;
     font-size: inherit;
     line-height: inherit;
 }

@@ -125,7 +125,15 @@
         { headerName: "", hide: true, width: 250, field: "ProviderProgramGuid", },
         { headerName: "Massage Program Name", width: 180, field: "ProgramName", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
             { headerName: "Total Number of Program Hours", width: 125, field: "TotalNoofPgmHours", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-            { headerName: "CAMTC Approved", width: 125, field: "IsProgramApproved", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
+            {
+                headerName: "CAMTC Approved", width: 125, field: "IsProgramApproved", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, cellRenderer: function (params) {
+                    if (params.data.IsProgramApproved)
+                        return "<img src='\\Content/Theme1/images/StatusYes.png' />";
+                    else
+                        return "<img src='\\Content/Theme1/images/StatusNo.png' />";
+
+                }
+            },
             { headerName: "Approved	Program Approved Start", width: 125, field: "ProgramApprovalStartDate", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
             { headerName: "Program Approved End", width: 125, field: "ProgramApprovalEndDate", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
             {
@@ -247,8 +255,12 @@
         }
         else {
             $scope.ProviderApprovalAgencyId = ProviderApprovalAgencyId;
-            var selection = { "ApprovalAccreditingAgencyId": agentid, "ApprovalAccreditingAgencyName ": ApprovalAccreditingAgencyName, "Selected": true };
-            $scope.selectedItem = selection;
+            //var selection = { 'ApprovalAccreditingAgencyId': agentid, 'ApprovalAccreditingAgencyName': ApprovalAccreditingAgencyName };
+            for (var i = 0; i < $scope.Lookup.length ; i++) {
+                if ($scope.Lookup[i].LookupId == agentid)
+                    $scope.selectedItem = $scope.Lookup[i];
+            }
+
             //$scope.ApprovalAgency1.ApprovalAccreditingAgencyName = ApprovalAccreditingAgencyName;
             $scope.ApprovalAgency.ApprovalAccreditingAgencyName = ApprovalAccreditingAgencyName;
             $scope.ApprovalAgency.AgencySchoolCode = AgencySchoolCode;
@@ -265,19 +277,35 @@
 
     $scope.ApprovalGrid = {
         columnDefs: [
-        { headerName: "", hide: true, width: 250, field: "ProviderApprovalAgencyId", },
-        { headerName: "", hide: true, width: 250, field: "ProviderApprovalAgencyGuid", },
-        { headerName: "", hide: true, width: 250, field: "ApprovalAccreditingAgencyId", },
-        { headerName: "", hide: true, width: 250, field: "IsAdditional", },
-        { headerName: "Approval/Accrediting Agency", width: 250, field: "ApprovalAccreditingAgencyName", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-            { headerName: "School Code #", width: 200, field: "AgencySchoolCode", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-            { headerName: "Expiration Date", width: 125, field: "ExpirationDate", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-            {
-                headerName: "Action", width: 120, cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, field: "IsActive", cellRenderer: function (params) {
+        {
+            headerName: "", hide: true, width: 250, field: "ProviderApprovalAgencyId",
+        },
+        {
+            headerName: "", hide: true, width: 250, field: "ProviderApprovalAgencyGuid",
+        },
+        {
+            headerName: "", hide: true, width: 250, field: "ApprovalAccreditingAgencyId",
+        },
+        {
+            headerName: "", hide: true, width: 250, field: "IsAdditional",
+        },
+        {
+            headerName: "Approval/Accrediting Agency", width: 250, field: "ApprovalAccreditingAgencyName", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }
+        },
+        {
+            headerName: "School Code #", width: 200, field: "AgencySchoolCode", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }
+        },
+        {
+            headerName: "Expiration Date", width: 125, field: "ExpirationDate", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }
+        },
+        {
+            headerName: "Action", width: 120, cellStyle: {
+                'text-align': 'center', 'display': 'flex', 'align-items': 'center'
+            }, field: "IsActive", cellRenderer: function (params) {
 
-                    return "<a data-ng-click=\"showUpdatevalueSave_ApprovalAgency('" + params.data.ProviderApprovalAgencyId + "','" + params.data.ApprovalAccreditingAgencyName + "','" + params.data.AgencySchoolCode + "','" + params.data.ExpirationDate + "','" + params.data.ApprovalAccreditingAgencyId + "','" + params.data.IsAdditional + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a><span ng-show=\"!IsReadOnly\"> |</span><a data-ng-click=\"DeleteApprovalAgency('" + params.data.ProviderApprovalAgencyId + "')\" href=\"javascript:;\"> <img src='\\Content/Public/images/delete.png' /></a>";
-                }
-            },
+                return "<a data-ng-click=\"showUpdatevalueSave_ApprovalAgency('" + params.data.ProviderApprovalAgencyId + "','" + params.data.ApprovalAccreditingAgencyName + "','" + params.data.AgencySchoolCode + "','" + params.data.ExpirationDate + "','" + params.data.ApprovalAccreditingAgencyId + "','" + params.data.IsAdditional + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a><span ng-show=\"!IsReadOnly\"> |</span><a data-ng-click=\"DeleteApprovalAgency('" + params.data.ProviderApprovalAgencyId + "')\" href=\"javascript:;\"> <img src='\\Content/Public/images/delete.png' /></a>";
+            }
+        },
         ],
         angularCompileRows: true,
         rowData: [],

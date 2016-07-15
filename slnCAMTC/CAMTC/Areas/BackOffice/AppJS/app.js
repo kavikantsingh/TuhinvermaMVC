@@ -2,8 +2,8 @@
 var LAPP = angular.module('LAPP', ['agGrid']);
 
 //Configuration
-//var BaseURL = 'http://localhost:1530/api';
-var BaseURL = 'http://ws.camtc.inlumon.com';
+var BaseURL = 'http://localhost:1530';
+//var BaseURL = 'http://ws.camtc.inlumon.com';
 
 
 LAPP.factory('mySharedService', function ($rootScope) {

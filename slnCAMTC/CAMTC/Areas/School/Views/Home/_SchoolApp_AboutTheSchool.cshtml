@@ -142,7 +142,7 @@
                                 <div data-ng-repeat="Lookup in LookupList">
                                     @*LookupId*@
 
-                                    <input type="checkbox" checkbox-group data-ng-model="Lookup.IsEnabled" /> <label>{{Lookup.LookupDesc }}</label>
+                                    <input type="checkbox" checkbox-group data-ng-model="Lookup.LookupId" ng-checked="Lookup.IsChecked" /> <label>{{Lookup.LookupDesc }}</label>
                                 </div>
 
                             </div>
@@ -272,7 +272,7 @@
                 <br />
 
                 <div id="divAddRelatedschool" style="width: 95%; margin-top: 10px; margin-left: 50px;">
-                    <table style="width: 95%; margin-top: 10px; margin-left: 50px;">
+                    <table class="tblApplReqForm5" style="width: 95%; margin-top: 10px; margin-left: 50px;">
                         <tbody>
                             <tr>
                                 <td class="6">
@@ -304,7 +304,7 @@
                                                                     </label>
                                                                 </td>
                                                                 <td style="padding-top: 20px ! important;">
-                                                                    <input name="txt" data-ng-model="RelatedSchool.ContactFirstName" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox65" class="inputTextbox NewAppPersonalTxtbx" style="width: 170px;" autocomplete="off">
+                                                                    <input name="txt" data-ng-model="RelatedSchool.FirstName" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox65" class="inputTextbox NewAppPersonalTxtbx" style="width: 170px;" autocomplete="off">
                                                                 </td>
                                                                 <td class="txtalgnrgt" style="width: 195px;">
                                                                     <label class="input-label required">
@@ -312,7 +312,7 @@
                                                                     </label>
                                                                 </td>
                                                                 <td style="padding-top: 20px ! important;">
-                                                                    <input name="box66" data-ng-model="RelatedSchool.ContactLastName" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox66" class="inputTextbox NewAppPersonalTxtbx" style="width:140px;" autocomplete="off">
+                                                                    <input name="box66" data-ng-model="RelatedSchool.LastName" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox66" class="inputTextbox NewAppPersonalTxtbx" style="width:140px;" autocomplete="off">
                                                                 </td>
                                                             </tr>
                                                         </tbody>
@@ -415,6 +415,24 @@
                                         </tbody>
                                     </table>
                                 </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table style="margin-left: -68px;">
+                        <tbody>
+                            <tr>
+                                <td class="txtalgnrgt">
+                                    <label class="input-label required">
+                                        Approximate Date Associated :
+                                    </label>
+                                </td>
+                                <td style="width: 151px; padding-top: 20px ! important;">
+                                    <input type="text" id="TextBox15" data-ng-model="RelatedSchool.DateAssociated" class="inputTextbox calenderdateassociate" placeholder="MM/DD/YYYY" />
+                                </td>
+                                <td class="txtalgnrgt" style="width: 52px; padding-top: 20px ! important;"></td>
+                                <td style="width: 140px; padding-top: 20px ! important;"></td>
+                                <td class="txtalgnrgt" style="width: 47px;"></td>
+                                <td></td>
                             </tr>
                         </tbody>
                     </table>
@@ -625,3 +643,13 @@
         width: auto;
     }
 </style>
+<script type="text/javascript">
+    $('.calenderdateassociate').datepicker({
+        inline: true,
+        changeMonth: true,
+        changeYear: true, maxDate: "-18Y",
+        yearRange: "1900:+nn"
+
+    });
+
+</script>

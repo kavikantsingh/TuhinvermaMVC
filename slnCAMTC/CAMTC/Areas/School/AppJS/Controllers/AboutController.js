@@ -3,7 +3,6 @@
     $scope.ProgramOtherName = '';
     $scope.hasShow = 'false';
 
-
     $scope.ProviderGraduatesNumberId1 = 0;
     $scope.ProviderGraduatesNumberId2 = 0;
     $scope.ProviderGraduatesNumberId3 = 0;
@@ -30,6 +29,7 @@
 
     $scope.ShowPopup = function (id) {
         if (id == 1) {
+            $scope.clearRelatedAddress();
             $('#divAddRelatedschool').show();
         }
     }
@@ -172,6 +172,18 @@
             $scope.Error = error;
         });
 
+        var selectedBusTypes = [];
+        for (var i = 0; i < $scope.LookupList.length; i++) {
+            if ($scope.LookupList[i].IsChecked) {
+                selectedBusTypes.push($scope.LookupList[i]);
+            }
+        }
+
+        AboutFactory.SaveProviderBusinessType(key, selectedBusTypes).success(function (data) {
+            alert(data);
+        }).error(function (error) {
+            $scope.Error = error;
+        });
 
         //$scope.Mblex.ProviderMBLExId = $scope.ProviderMBLExId;
         //$scope.Mblex.$scope.ProviderId = $scope.$scope.ProviderId;
@@ -189,7 +201,6 @@
         $scope.applicationid = mySharedService.Applicationid;
         if (mySharedService.CurrentPage == 'About') {
             $scope.hasShow = 'true';
-
             $scope.GetAllProviderOtherProgram();
         }
         else
@@ -231,7 +242,6 @@
         $scope.ProviderGraduateNumber.AddressId = $scope.SateliteAddressId;
         AboutFactory.SaveProviderGraduatesNumber(key, $scope.ProviderGraduateNumber).success(function (data) {
 
-            $scope.clearsateliteAddress();
             $scope.ProviderOtherProgramGrid.api.setRowData(data.ListOfPreviousAddress);
             HideLoader();
         }).error(function (error) {
@@ -261,6 +271,8 @@
     }
     //Adding SaveProviderOtherProgram 
 
+
+
     $scope.GetAllProviderOtherProgram = function () {
         //  ShowLoader();
         AboutFactory.GetAllProviderOtherProgram(key, $scope.applicationid, $scope.ProviderId).success(function (data) {
@@ -271,14 +283,42 @@
             $scope.Error = error;
         });
 
+        $scope.List = [];
         AboutFactory.LookupGetBYLookupTypeID(key).success(function (data) {
-            $scope.LookupList = data.Lookup;
+            $scope.List = data.Lookup;
+
+            AboutFactory.GetProviderBusinessTypeByProviderId(key, $scope.applicationid, $scope.ProviderId).success(function (data) {
+                debugger;
+
+                for (var j = 0; j < $scope.List.length; j++) {
+
+                    if (data.ProviderBusinessTypeList != null) {
+                        for (var i = 0; i < data.ProviderBusinessTypeList.length; i++) {
+                            if ($scope.List[j].ProviderBusinessTypeId == $scope.List[i].ProviderBusinessTypeList) {
+                                $scope.List[j].IsChecked = true;
+                            }
+                        }
+                    }
+                    else {
+                        $scope.List[j].IsChecked = false;
+                    }
+
+                }
+                $scope.LookupList = $scope.List;
+
+
+            }).error(function (error) {
+                $scope.Error = error;
+            });
+            var selectedBusTypes = [];
+
+
         }).error(function (error) {
             $scope.Error = error;
         });
 
         AboutFactory.GetAllProviderGraduatesNumber(key, $scope.applicationid, $scope.ProviderId).success(function (data) {
-            
+
             $scope.GraduatesGrid.api.setRowData(data.ProviderGraduatesNumberList);
 
             if (data.ProviderGraduatesNumberList.length > 0) {
@@ -323,14 +363,10 @@
         });
 
 
-        AboutFactory.GetProviderBusinessTypeByProviderId(key, $scope.applicationid, $scope.ProviderId).success(function (data) {
-            $scope.ProviderBusinessTypeList = data.ProviderBusinessTypeList;
-        }).error(function (error) {
-            $scope.Error = error;
-        });
 
-        AboutFactory.GetAllProviderRelatedSchools(key, $scope.applicationid, $scope.ProviderId).success(function (data) {
-            $scope.ProviderOtherProgramList = data.ProviderOtherProgramList;
+        AboutFactory.GetAllProviderRelatedSchools(key, $scope.ProviderId, $scope.applicationid).success(function (data) {
+            debugger;
+            $scope.ProviderRelatedProgramGrid.api.setRowData(data.ProviderRelatedSchoolsList);
         }).error(function (error) {
             $scope.Error = error;
         });
@@ -388,15 +424,26 @@
     $scope.ProviderRelatedProgramGrid = {
         columnDefs: [
             { headerName: "", hide: true, width: 250, field: "ProviderRelatedSchoolId", },
-            { headerName: "", hide: true, width: 250, field: "ProviderRelatedSchoolId", },
-           { headerName: "School Name", width: 180, field: "ProviderName", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
+            { headerName: "", hide: true, width: 250, field: "EmailId", },
+            { headerName: "", hide: true, width: 250, field: "WebsiteId", },
+            { headerName: "", hide: true, width: 250, field: "PhoneId", },
+            { headerName: "", hide: true, width: 250, field: "Email", },
+            { headerName: "", hide: true, width: 250, field: "Website", },
+            { headerName: "", hide: true, width: 250, field: "Phone", },
+            { headerName: "", hide: true, width: 250, field: "AddressId", },
+            { headerName: "", hide: true, width: 250, field: "ProviderNameId", },
+            { headerName: "", hide: true, width: 250, field: "LastName", },
+            { headerName: "", hide: true, width: 250, field: "FirstName", },
+            { headerName: "", hide: true, width: 250, field: "StreetLine1", },
+            { headerName: "", hide: true, width: 250, field: "StreetLine2", },
+           { headerName: "School Name", width: 150, field: "ProviderName", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
             { headerName: "School Phone", width: 130, field: "Phone", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-            { headerName: "City", width: 125, field: "City", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-            { headerName: "State", width: 125, field: "StateCode", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-            { headerName: "Zip", width: 125, field: "ZIP", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
+            { headerName: "City", width: 100, field: "City", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
+            { headerName: "State", width: 100, field: "StateCode", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
+            { headerName: "Zip", width: 110, field: "ZIP", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
               {
                   headerName: "Action", width: 80, cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, field: "IsActive", cellRenderer: function (params) {
-                      return "<a data-ng-click=\"showUpdateRelatedProgram('" + params.data.AddressId + "','" + params.data.StreetLine1 + "','" + params.data.StreetLine2 + "','" + params.data.City + "','" + params.data.StateCode + "','" + params.data.Zip + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a> | </span><a data-ng-click=\"DeleteaddressRequestFromSchoolInformationTab('" + params.data.AddressId + "',7)\" href=\"javascript:;\"> <img src='\\Content/Public/images/delete.png' /></a>";
+                      return "<a data-ng-click=\"showUpdateRelatedProgram('" + params.data.ProviderRelatedSchoolId + "','" + params.data.ProviderName + "','" + params.data.FirstName + "','" + params.data.LastName + "','" + params.data.EmailId + "','" + params.data.WebsiteId + "','" + params.data.PhoneId + "','" + params.data.AddressId + "','" + params.data.ProviderNameId + "','" + params.data.AddressId + "','" + params.data.StreetLine1 + "','" + params.data.StreetLine2 + "','" + params.data.City + "','" + params.data.StateCode + "','" + params.data.ZIP + "','" + params.data.Email + "','" + params.data.Website + "','" + params.data.Phone + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a> | </span><a data-ng-click=\"DeleteaddressRequestFromSchoolInformationTab('" + params.data.AddressId + "',7)\" href=\"javascript:;\"> <img src='\\Content/Public/images/delete.png' /></a>";
                   }
               },
         ],
@@ -413,6 +460,33 @@
         }
     };
 
+    $scope.showUpdateRelatedProgram = function (ProviderRelatedSchoolId, ProviderName, FirstName, LastName, EmailId, WebsiteId, PhoneId, AddressId, ProviderNameId, AddressId, StreetLine1, StreetLine2, City, StateCode, Zip, Email, Website, Phone) {
+        $('#divAddRelatedschool').show();
+        debugger;
+        $scope.RelatedSchool.IsUpdate = true;
+        $scope.RelatedSchool.StreetLine1 = StreetLine1;
+        $scope.RelatedSchool.StreetLine2 = StreetLine2;
+        $scope.RelatedSchool.ProviderName = ProviderName;
+        $scope.RelatedSchool.FirstName = FirstName;
+        $scope.RelatedSchool.LastName = LastName;
+        $scope.RelatedSchool.ProviderId = $scope.ProviderId;
+        $scope.RelatedSchool.ApplicationId = $scope.applicationid;
+        $scope.ProviderRelatedSchoolId = ProviderRelatedSchoolId;
+        $scope.EmailId = EmailId,
+        $scope.WebsiteId = WebsiteId;
+        $scope.PhoneId = PhoneId;
+        $scope.AddressId = AddressId;
+        $scope.ProviderNameId = ProviderNameId;
+        $scope.AddressId = AddressId;
+
+        $scope.RelatedSchool.City = City;
+        $scope.RelatedSchool.StateCode = StateCode;
+        $scope.RelatedSchool.ZIP = Zip;
+        $scope.RelatedSchool.Phone = Phone;
+        $scope.RelatedSchool.Website = Website;
+        $scope.RelatedSchool.Email = Email;
+
+    }
 
     //Satellite address only
     $scope.GraduatesGrid = {
@@ -448,18 +522,25 @@
     };
 
 
+
     $scope.clearRelatedAddress = function () {
         $scope.RelatedSchool = {};
         $scope.RelatedSchool.ProviderId = $scope.ProviderId;
         $scope.RelatedSchool.ApplicationId = $scope.applicationid;
         $scope.ProviderRelatedSchoolId = 0;
+        $scope.ProviderRelatedSchoolId = 0;
+        $scope.EmailId = 0,
+        $scope.WebsiteId = 0;
+        $scope.PhoneId = 0;
+        $scope.AddressId = 0;
+        $scope.ProviderNameId = 0;
+        $scope.AddressId = 0;
 
         $('#divAddRelatedschool').hide();
     }
 
 
 
-    
     //Adding SaveProviderOtherProgram 
     $scope.SaveRelatedAddress = function () {
         //  ShowLoader();
@@ -468,12 +549,23 @@
         $scope.RelatedSchool.IsDeleted = 0;
         $scope.RelatedSchool.ProviderId = $scope.ProviderId;
         $scope.RelatedSchool.ApplicationId = $scope.applicationid;
+        $scope.RelatedSchool.ApplicationId = $scope.applicationid;
+        $scope.RelatedSchool.CountryId = null;
+        $scope.RelatedSchool.CountyId = null;
 
+        $scope.RelatedSchool.ProviderId = $scope.ProviderId;
+        $scope.RelatedSchool.ApplicationId = $scope.applicationid;
         $scope.RelatedSchool.ProviderRelatedSchoolId = $scope.ProviderRelatedSchoolId;
+        $scope.RelatedSchool.EmailId = $scope.EmailId,
+        $scope.RelatedSchool.WebsiteId = $scope.WebsiteId;
+        $scope.RelatedSchool.PhoneId = $scope.PhoneId;
+        $scope.RelatedSchool.AddressId = $scope.AddressId;
+        $scope.RelatedSchool.ProviderNameId = $scope.ProviderNameId;
+        $scope.RelatedSchool.AddressId = $scope.AddressId;
 
         AboutFactory.SaveProviderRelatedSchools(key, $scope.RelatedSchool).success(function (data) {
 
-            $scope.GetAllProviderOtherProgram();
+
         }).error(function (error) {
             $scope.Error = error;
         });
