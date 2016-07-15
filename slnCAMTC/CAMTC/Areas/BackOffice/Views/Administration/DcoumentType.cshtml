@@ -74,7 +74,7 @@
     }
     function loadDocumentResultSet() {
         //debugger;
-        ShowLoader();
+
         $.ajax({
             url: '@Url.Action("GetDocumentResultSet", "Administration")',
             type: 'GET',
@@ -140,18 +140,21 @@
            }
        );
     });
+    function clearCtrls() {
+        $('#ApplicationId').find('option:first').attr('selected', 'selected');
+        $('#DocumentTypeId').find('option:first').attr('selected', 'selected');
+        $('#txtMaxSize').val("");
+        $('#txtDesc').val("");
+    }
 
     $(document).ready(function () {
-        //btnShowAll
+        ShowLoader();
         $("#btnShowAll").click(function () {
             loadDocumentResultSet();
         });
 
         $('#btnRefresh').click(function () {
-            $('#ApplicationId').find('option:first').attr('selected', 'selected');
-            $('#DocumentTypeId').find('option:first').attr('selected', 'selected');
-            $('#txtMaxSize').val("");
-            $('#txtDesc').val("");
+            clearCtrls();
         });
 
         $('#btnRefresh1').click(function () {
@@ -228,6 +231,12 @@
                     {
                         loadDocumentResultSet();
                         MessageShow(result.Message, 1);
+                        clearCtrls();
+                        $('#TransactionTypeId').find('option:first').attr('selected', 'selected');
+                        $('#PageId').find('option:first').attr('selected', 'selected');
+                        $('#SubPageId').find('option:first').attr('selected', 'selected');
+                        $('#PageSectionId').find('option:first').attr('selected', 'selected');
+                        $('#DocumentNameId').find('option:first').attr('selected', 'selected');
                     }
                 },
                 error: function (data) {
