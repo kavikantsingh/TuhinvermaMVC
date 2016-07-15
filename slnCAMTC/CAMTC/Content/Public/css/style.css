@@ -28,10 +28,10 @@ zoom:1;
 .SclNameTxtboxmain{width: 515px !important;}
 .width180P{ width:180px;}
 .width130P{ width:130px;}
-.width518p{ width:518px;}
+.width518p{ width:518px !important;}
 .width110p{ width:110px;}
 .padding_t{ padding-top:10px;}
-.marginRig{ margin-right:18px;}
+.marginRig{ margin-right:24px;}
 .margin_10{ margin-left:10px !important;}
 .prev_scltext{width: 180px !important; padding-bottom: 10px;}
 .Prevsclgrid{width: 415px !important;}
