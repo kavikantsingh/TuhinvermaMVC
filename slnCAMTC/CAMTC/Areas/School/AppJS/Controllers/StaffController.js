@@ -43,9 +43,7 @@
     }
 
 
-
-
-    $scope.showUpdateRelatedProgram = function (ProviderIndvNameInfoId, ProviderStaffId, contactid, InduvidualNameId, posids, ids, titles, ProviderStaffFirstName, ProviderStaffLastName, ProviderStaffEmail, IsBackgroundCheckReq, CAMTCNumber) {
+    $scope.showUpdateRelatedProgram = function (ProviderIndvNameInfoId, ProviderStaffId, contactid, InduvidualNameId, posids, ids, titles, ProviderStaffFirstName, ProviderStaffLastName, ProviderStaffEmail, IsBackgroundCheckReq, CAMTCNumber, ActionList) {
         $scope.clearRelatedAddress();
         $('#divAddRelatedschool').show();
         $scope.idlist = [];
@@ -71,22 +69,24 @@
         var datas = $scope.posids.split(',');
         var datasid = $scope.ids.split(',');
         var count = 0;
-
+        var yn = ActionList.split(',');
         for (var i = 0; i < datasid.length; i++) {
             {
                 if (datasid[i].trim() == '1') {
-                    if ($scope.idlist.IsActive)
+                    if (yn[count].trim() == 'Y')
                         $scope.idlist.push('1')
                     $scope.roles[0].posid = datas[count].trim();
                     count++;
                 }
                 else if (datasid[i].trim() == '2') {
-                    $scope.idlist.push('2')
+                    if (yn[count].trim() == 'Y')
+                        $scope.idlist.push('2')
                     $scope.roles[1].posid = datas[count].trim();
                     count++;
                 }
                 else if (datasid[i].trim() == '3') {
-                    $scope.idlist.push('3')
+                    if (yn[count].trim() == 'Y')
+                        $scope.idlist.push('3')
                     $scope.roles[1].posid = datas[count].trim();
                     count++;
                 }
@@ -96,7 +96,38 @@
 
     }
 
-    $scope.DeleteRelatedProgram = function (ProviderStaffId, InduvidualNameId, posids, ids, titles, ProviderStaffFirstName, ProviderStaffLastName, ProviderStaffEmail, IsBackgroundCheckReq, CAMTCNumber) {
+    $scope.DeleteRelatedProgram = function (ProviderIndvNameInfoId, ProviderStaffId, contactid, InduvidualNameId, posids, ids, titles, ProviderStaffFirstName, ProviderStaffLastName, ProviderStaffEmail, IsBackgroundCheckReq, CAMTCNumber, ActionList) {
+
+        $scope.staff.IsActive = 0;
+        $scope.staff.IsDeleted = 0;
+        $scope.staff.ProviderId = $scope.ProviderId;
+        $scope.staff.ApplicationId = $scope.applicationid;
+
+        $scope.staff.ProviderIndvNameInfoId = ProviderIndvNameInfoId;
+        $scope.staff.ProviderStaffId = ProviderStaffId;
+        $scope.staff.InduvidualNameId = InduvidualNameId,
+        $scope.staff.ContactId = contactid;
+        $scope.staff.ProvIndvNameTitlePositionId = '';
+        $scope.staff.ProvIndvNameTitlePosition = '';
+        $scope.staff.posids = '';
+        $scope.staff.trueset = '';
+
+        $scope.staff.IsBackgroundCheckReq = IsBackgroundCheckReq;
+
+        $scope.staff.CAMTCNumber = CAMTCNumber;
+        //$scope.staff.WebsiteId = $scope.WebsiteId;
+        //$scope.staff.PhoneId = $scope.PhoneId;
+        //$scope.staff.AddressId = $scope.AddressId;
+        //$scope.staff.ProviderNameId = $scope.ProviderNameId;
+        //$scope.staff.AddressId = $scope.AddressId;
+
+        StaffFactory.DeleteProviderStaff(key, $scope.staff).success(function (data) {
+            //$scope.StaffGrid.api.setRowData(data.ProviderRelatedSchoolsList);
+            $scope.clearRelatedAddress();
+            $scope.getallthestaffinfo();
+        }).error(function (error) {
+            $scope.Error = error;
+        });
 
         $scope.staff.ProviderId = $scope.ProviderId;
         $scope.staff.ApplicationId = $scope.applicationid;
@@ -114,7 +145,6 @@
         });
 
     }
-
 
 
     $scope.clearRelatedAddress = function () {
@@ -153,30 +183,29 @@
         $scope.staff.ProvIndvNameTitlePositionId = '';
         $scope.staff.ProvIndvNameTitlePosition = '';
         $scope.staff.posids = '';
-        $scope.staff.trues = '';
+        $scope.staff.trueset = '';
 
         var len = $scope.roles.length;
 
         if (len > 0) {
+            debugger;
             for (var i = 0; i < len; i++) {
                 $scope.staff.posids += $scope.roles[i].posid;
-
-                var result = _.contains($scope.idlist, { 'Id': $scope.roles[j].Id });
+                $scope.staff.ProvIndvNameTitlePositionId += $scope.idlist[i];
+                $scope.staff.ProvIndvNameTitlePosition += $scope.roles[i].Name;
+                var test = angular.copy($scope.idlist);
+                var result = _.contains(test, $scope.roles[i].Id);
                 if (result) {
-                    $scope.staff.ProvIndvNameTitlePositionId += $scope.idlist[i];
-                    $scope.staff.ProvIndvNameTitlePosition += $scope.roles[i].Name;
-                    $scope.staff.trues += 'Y';
+                    $scope.staff.trueset += 'Y';
                 }
                 else {
-                    $scope.staff.ProvIndvNameTitlePositionId += 'N';
-                    $scope.staff.ProvIndvNameTitlePosition += 'N';
-                    $scope.staff.trues += 'N';
+                    $scope.staff.trueset += 'N';
                 }
                 if ((len - 1) != i) {
                     $scope.staff.posids += ',';
                     $scope.staff.ProvIndvNameTitlePositionId += ',';
                     $scope.staff.ProvIndvNameTitlePosition += ',';
-                    $scope.staff.trues += ',';
+                    $scope.staff.trueset += ',';
                 }
             }
         }
@@ -194,6 +223,7 @@
 
         StaffFactory.SaveProviderStaff(key, $scope.staff).success(function (data) {
             //$scope.StaffGrid.api.setRowData(data.ProviderRelatedSchoolsList);
+            $scope.clearRelatedAddress();
             $scope.getallthestaffinfo();
         }).error(function (error) {
             $scope.Error = error;
@@ -234,7 +264,7 @@
             },
               {
                   headerName: "Action", width: 80, cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, field: "IsActive", cellRenderer: function (params) {
-                      return "<a data-ng-click=\"showUpdateRelatedProgram('" + params.data.ProviderIndvNameInfoId + "','" + params.data.ProviderStaffId + "','" + params.data.ContactId + "','" + params.data.InduvidualNameId + "','" + params.data.posids + "','" + params.data.ids + "','" + params.data.titles + "','" + params.data.ProviderStaffFirstName + "','" + params.data.ProviderStaffLastName + "','" + params.data.ProviderStaffEmail + "','" + params.data.IsBackgroundCheckReq + "','" + params.data.CAMTCNumber + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a> | </span><a data-ng-click=\"DeleteaddressRequestFromSchoolInformationTab('" + params.data.AddressId + "',7)\" href=\"javascript:;\"> <img src='\\Content/Public/images/delete.png' /></a>";
+                      return "<a data-ng-click=\"showUpdateRelatedProgram('" + params.data.ProviderIndvNameInfoId + "','" + params.data.ProviderStaffId + "','" + params.data.ContactId + "','" + params.data.InduvidualNameId + "','" + params.data.posids + "','" + params.data.ids + "','" + params.data.titles + "','" + params.data.ProviderStaffFirstName + "','" + params.data.ProviderStaffLastName + "','" + params.data.ProviderStaffEmail + "','" + params.data.IsBackgroundCheckReq + "','" + params.data.CAMTCNumber + "','" + params.data.ActionList + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a> | </span><a data-ng-click=\"DeleteRelatedProgram('" + params.data.ProviderIndvNameInfoId + "','" + params.data.ProviderStaffId + "','" + params.data.ContactId + "','" + params.data.InduvidualNameId + "','" + params.data.posids + "','" + params.data.ids + "','" + params.data.titles + "','" + params.data.ProviderStaffFirstName + "','" + params.data.ProviderStaffLastName + "','" + params.data.ProviderStaffEmail + "','" + params.data.IsBackgroundCheckReq + "','" + params.data.CAMTCNumber + "','" + params.data.ActionList + "')\" href=\"javascript:;\"> <img src='\\Content/Public/images/delete.png' /></a>";
                       //('" + params.data.ProviderStaffId + "','" + params.data.ContactId + "','" + params.data.InduvidualNameId + "','" + params.data.posids + "','" + params.data.ids + "','" + params.data.titles + "','" + params.data.ProviderStaffFirstName + "','" + params.data.ProviderStaffLastName + "','" + params.data.ProviderStaffEmail + "','" + params.data.IsBackgroundCheckReq + "','" + params.data.CAMTCNumber + "')
                   }
               },

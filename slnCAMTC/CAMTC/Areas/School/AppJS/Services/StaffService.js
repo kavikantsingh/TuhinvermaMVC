@@ -11,7 +11,9 @@
         SaveProviderStaff: function (key, obj) {
             return $http.post(providerurl + '/SaveProviderStaff/' + key, obj);
         },
-
+        DeleteProviderStaff: function (key, obj) {
+            return $http.post(providerurl + '/DeleteProviderStaff/' + key, obj);
+        },
 
     };
     return StaffFactory;

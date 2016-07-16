@@ -19,6 +19,7 @@
 /// <reference path="../../areas/school/appjs/controllers/transcriptcontroller.js" />
 /// <reference path="../../areas/school/appjs/directive/checkboxselection.js" />
 /// <reference path="../../areas/school/appjs/services/aboutservice.js" />
+/// <reference path="../../areas/school/appjs/services/curriculumservice.js" />
 /// <reference path="../../areas/school/appjs/services/staffservice.js" />
 /// <reference path="ag-grid.min.js" />
 /// <reference path="angular.js" />
