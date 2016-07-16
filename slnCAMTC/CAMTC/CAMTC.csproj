@@ -166,7 +166,9 @@
     <Content Include="Areas\School\AppJS\Controllers\CurriculumController.js" />
     <Content Include="Areas\School\AppJS\Controllers\AboutController.js" />
     <Content Include="Areas\School\AppJS\Controllers\SchoolController.js" />
+    <Content Include="Areas\School\AppJS\Directive\CheckBoxSelection.js" />
     <Content Include="Areas\School\AppJS\Services\AboutService.js" />
+    <Content Include="Areas\School\AppJS\Services\StaffService.js" />
     <Content Include="Content\AngularJS\ag-grid.min.js" />
     <Content Include="Content\AngularJS\angular-mocks.js" />
     <Content Include="Areas\School\Views\Home\_SchoolApp_AboutTheSchool.cshtml" />
@@ -215,6 +217,7 @@
     <Content Include="Areas\Individual\Views\Certification\_PanelSection7Partial.cshtml" />
     <Content Include="Areas\Individual\Views\Certification\_RightPanelPartial.cshtml" />
     <None Include="Content\AngularJS\angular.intellisense.js" />
+    <Content Include="Content\AngularJS\angular-underscore.js" />
     <Content Include="Content\AngularJS\angular.js" />
     <Content Include="Content\AngularJS\angular.min.js" />
     <None Include="Content\AngularJS\_references.js" />

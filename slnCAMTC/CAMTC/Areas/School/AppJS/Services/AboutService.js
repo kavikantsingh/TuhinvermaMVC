@@ -27,7 +27,9 @@
         SaveProviderBusinessType: function (key, obj) {
             return $http.post(providerurl + '/SaveProviderBusinessType/' + key, obj);
         },
-       
+        DeleteProviderRelatedSchools: function (key, obj) {
+            return $http.post(providerurl + '/DeleteProviderRelatedSchools/' + key, obj);//{ Key: key, objAddress: AddressInfo }
+        },     
         SaveProviderRelatedSchools: function (key, obj) {
             return $http.post(providerurl + '/SaveProviderRelatedSchools/' + key, obj);//{ Key: key, objAddress: AddressInfo }
         },

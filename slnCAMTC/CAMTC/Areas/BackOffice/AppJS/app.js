@@ -1,5 +1,5 @@
 ﻿agGrid.initialiseAgGridWithAngular1(angular);
-var LAPP = angular.module('LAPP', ['agGrid']);
+var LAPP = angular.module('LAPP', ['agGrid','checklist-model']);
 
 //Configuration
 var BaseURL = 'http://localhost:1530';
@@ -37,3 +37,8 @@ LAPP.factory('mySharedService', function ($rootScope) {
 });
 
 
+
+
+LAPP.factory('_', ['$window', function ($window) {
+    return $window._; // assumes underscore has already been loaded on the page
+}]);

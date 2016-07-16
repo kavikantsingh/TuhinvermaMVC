@@ -6,7 +6,6 @@
         $scope.ProviderName = mySharedService.message1;
         if (mySharedService.CurrentPage == 'Instructions') {
             $scope.hasShow = 'true';
-            alert('instrcu')
 
         }
         else

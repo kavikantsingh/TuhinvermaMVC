@@ -138,12 +138,14 @@
                     <tr>
                         <td>
                             <div class="listbox_auto">
+                                <label ng-repeat="role in roles">
+                                    <input type="checkbox" checklist-model="user" checklist-value="role.LookupId"> {{role.LookupDesc }}<br />
+                                </label>
 
-                                <div data-ng-repeat="Lookup in LookupList">
-                                    @*LookupId*@
+                                @*<div data-ng-repeat="Lookup in LookupList">
 
-                                    <input type="checkbox" checkbox-group data-ng-model="Lookup.LookupId" ng-checked="Lookup.IsChecked" /> <label>{{Lookup.LookupDesc }}</label>
-                                </div>
+                                        <input type="checkbox" checkbox-group data-ng-model="Lookup.LookupId" ng-click="onchagecheck(Lookup)" ng-checked="Lookup.IsChecked" /> <label>{{Lookup.LookupDesc }}</label>
+                                    </div>*@
 
                             </div>
                         </td>
@@ -427,7 +429,7 @@
                                     </label>
                                 </td>
                                 <td style="width: 151px; padding-top: 20px ! important;">
-                                    <input type="text" id="TextBox15" data-ng-model="RelatedSchool.DateAssociated" class="inputTextbox calenderdateassociate" placeholder="MM/DD/YYYY" />
+                                    <input type="text" data-ng-model="RelatedSchool.DateAssociated" class="inputTextbox calenderdateassociate" placeholder="MM/DD/YYYY" />
                                 </td>
                                 <td class="txtalgnrgt" style="width: 52px; padding-top: 20px ! important;"></td>
                                 <td style="width: 140px; padding-top: 20px ! important;"></td>
@@ -438,8 +440,10 @@
                     </table>
                     <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
                         <span class="fltrt">
-                            <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$btnSaveRelatedSchool" value="Save" data-ng-click="SaveRelatedAddress()" class="buttonGreen medium">
-                            <a id="ContentPlaceHolder1_ucCertificationApplication1_lnkCancelRelatedSchool" class="secondary medium bottom buttonalignment" href='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$ContentPlaceHolder1$ucCertificationApplication1$lnkCancelRelatedSchool", "", true, "", "", false, true))'>Cancel</a>
+                            <input type="button" value="Save" data-ng-click="SaveRelatedAddress()" class="buttonGreen medium">
+
+                            <input type="button" value="Cancel" data-ng-click="clearRelatedAddress()" class="secondary medium bottom buttonalignment">
+
                         </span>
                     </div>
                 </div>
@@ -459,9 +463,9 @@
                                 <tbody>
                                     <tr>
                                         <td class="txtalgnrgt tdwidth1" style="width: 180px !important; padding-bottom: 10px;">
-                                            <label class="input-label">
+                                            <span class="input-label">
                                                 Other Program Name :
-                                            </label>
+                                            </span>
                                         </td>
                                         <td>
                                             <input name="txtOtherProgramNameEdit" type="text" maxlength="150" id="txtOtherProgramNameEdit" ng-model="ProgramOtherName" class="tooltip OnlyAlphabet inputTextbox NewAppPersonalTxtbx" title="Only A-Z characters are allowed." style="width: 290px;" autocomplete="off">
