@@ -7,44 +7,8 @@ contentApp.controller('DeficiencyTemplate', ['$scope', '$rootScope', 'Configurat
     $scope.DTSearch = {};
     $scope.DeficiencyTemplateInfo = {};
 
-
-    //$scope.DeficiencyTemplateGrid = {
-    //    columnDefs: [
-    //         { headerName: "Transaction Type", width: 250, field: "Name", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-    //         { headerName: "Deficiency Template Name", width: 250, field: "Deficiency_Template_Name", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-    //         { headerName: "End Date", width: 250, field: "End_Date", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-    //          {
-    //              headerName: "Is Active", width: 200, field: "Is_Active", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, cellRenderer: function (params) {
-    //                  if (params.data.Is_Active)
-    //                      return "<input type='checkbox' checked />";
-    //                  else
-    //                      return "<input type='checkbox' />";
-    //              }
-    //          },
-    //         {
-    //             headerName: "Action", width: 150, cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, field: "IsActive", cellRenderer: function (params) {
-    //                 return "<a data-ng-click=\"UpdateDeficiencyTemplate('" + params.data.Deficiency_Template_ID + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a><span ng-show=\"!IsReadOnly\"> |</span><a data-ng-click=\"DeleteDeficiencyTemplate('" + params.data.Deficiency_Template_ID + "')\" href=\"javascript:;\"> <img src='\\Content/Public/images/delete.png' /></a>";
-    //             }
-    //         },
-
-    //    ],
-    //    angularCompileRows: true,
-    //    rowData: [],
-    //    // enableFilter: true,
-    //    rowHeight: 25,
-    //    headerHeight: 30,
-    //    // pinnedColumnCount: 1,
-    //    enableColResize: true,
-    //    suppressRowClickSelection: true,
-    //    suppressHorizontalScroll: true,
-    //    suppressCellSelection: true,
-    //    onGridReady: function (event) {
-    //        //$scope.providerGrid.api.sizeColumnsToFit();
-    //    }
-    //};
-
-
     $scope.GetDeficiencyTemplate = function (isSearch) {
+        ShowLoader();
         var deficiencyTemplateSearch = {};
         if (isSearch)
             deficiencyTemplateSearch.IsSearch = true;
@@ -53,22 +17,26 @@ contentApp.controller('DeficiencyTemplate', ['$scope', '$rootScope', 'Configurat
         deficiencyTemplateSearch.MasterTransactionId = $scope.DTSearch.sMasterTransactionId;
         deficiencyTemplateSearch.DeficiencyTemplateName = $scope.DTSearch.sDeficiencyTemplateName;
         deficiencyTemplateSearch.IsActive = $scope.DTSearch.sIsActive;
-        ConfigurationFactory.GetDeficiencyTemplate(key, deficiencyTemplateSearch).success(function (data) {
+        ConfigurationFactory.GetDeficiencyTemplate(sessionStorage.BackOffice_Key, deficiencyTemplateSearch).success(function (data) {
             //$scope.DeficiencyTemplateGrid.api.setRowData(data.DeficiencyTemplateResponseList);
             $scope.DeficiencyTemplateList = data.DeficiencyTemplateResponseList;
+            HideLoader();
         }).error(function (error) {
             $scope.Error = error;
+            HideLoader();
         });
     }
 
     $scope.GetAllMasterTransaction = function () {
-
-        ConfigurationFactory.GetAllMasterTransaction(key).success(function (data) {
-            $scope.ddlMasterTransaction = data.MasterTransactionResponseList;
+        ShowLoader();
+        ConfigurationFactory.GetAllMasterTransaction(sessionStorage.BackOffice_Key).success(function (data) {
+            $scope.ddlMasterTransaction = data.MasterTransactionList;
             $scope.DTSearch.sMasterTransactionId = "-1";
             $scope.DeficiencyTemplateInfo.MasterTransactionId = "-1";
+            HideLoader();
         }).error(function (error) {
             $scope.Error = error;
+            HideLoader();
         });
     }
 
@@ -77,10 +45,87 @@ contentApp.controller('DeficiencyTemplate', ['$scope', '$rootScope', 'Configurat
 
     $scope.GetAllMasterTransaction();
 
-    $scope.UpdateDeficiencyTemplate = function (Deficiency_Template_ID) {
-        alert(Deficiency_Template_ID);
+    $scope.SaveDeficiencyTemplateAPI = function (Deficiency_Template_ID, Deficiency_Template_Name, Deficiency_Template_Message, Deficiency_Template_Subject, Is_Active, Master_Transaction_Id,IsDeleted) {
+
+        ShowLoader();
+
+        var objContent = {};
+        objContent.Deficiency_Template_ID = Deficiency_Template_ID;
+        objContent.Deficiency_Template_Name = Deficiency_Template_Name;
+        objContent.Deficiency_Template_Message=Deficiency_Template_Message;
+        objContent.Deficiency_Template_Subject=Deficiency_Template_Subject;
+        objContent.Master_Transaction_Id=Master_Transaction_Id;
+        objContent.Is_Active = Is_Active;
+        objContent.Is_Deleted = IsDeleted;
+
+        ConfigurationFactory.SaveDeficiencyTemplate(sessionStorage.BackOffice_Key, objContent)
+                        .success(function (response) {
+
+
+                            //alert(response.Message);
+                            HideLoader();
+                            //$scope.GetDeficiencyTemplate();
+                            $scope.DeficiencyTemplateList = response.DeficiencyTemplateResponseList;
+
+                        })
+                        .error(function (data) {
+                            alert('Oops! Some Error Occurred.');
+                            HideLoader();
+                        });
+
     }
-    $scope.DeleteDeficiencyTemplate = function (Deficiency_Template_ID) {
-        alert(Deficiency_Template_ID);
+
+    $scope.SaveDeficiencyTemplate = function () {
+        $('#divAddAppReqPanel').hide();
+        $scope.SaveDeficiencyTemplateAPI(0, $("#txtName").val(), $("#txtmsg").val(), $("#txtsub").val(), $("chkIsActive1").is(":checked"), $scope.DeficiencyTemplateInfo.MasterTransactionId,false);
     }
+
+    $scope.EditStuff = function (id) {
+        //var index = $(id).attr('class');
+        document.getElementById(id.m.Deficiency_Template_ID).style.display = 'table-row';
+        $('#ddlMasterTransaction_' + id.m.Deficiency_Template_ID).val(id.m.Master_Transaction_Id);
+
+        //tinymce.init({ mode: 'textareas' });
+
+        ////tinymce.init({ mode: 'textareas', elements: '#txtEditor_' + index });
+
+        //$('#txtEffectiveDate_' + index).datepicker({
+        //    inline: true,
+        //    changeMonth: true,
+        //    changeYear: true,
+        //    yearRange: "2016:2030"
+        //});
+        //$('#txtEndDate_' + index).datepicker({
+        //    inline: true,
+        //    changeMonth: true,
+        //    changeYear: true,
+        //    yearRange: "2016:2030"
+        //});
+
+    }
+
+    $scope.hideStuff = function (id) {
+        //var val = $(id).attr('name');
+        document.getElementById(id.m.Deficiency_Template_ID).style.display = 'none';
+    }
+
+    $scope.doStuff = function (id) {
+
+        $scope.SaveDeficiencyTemplateAPI(id.m.Deficiency_Template_ID, $('#txtName_' + id.m.Deficiency_Template_ID).val(), $('#txtmsg_' + id.m.Deficiency_Template_ID).val(), $('#txtsub_' + id.m.Deficiency_Template_ID).val(), $('#txtIsActive_' + id.m.Deficiency_Template_ID).is(":checked"), $('#ddlMasterTransaction_' + id.m.Deficiency_Template_ID).val(),false);
+        document.getElementById(id.m.Deficiency_Template_ID).style.display = 'none';
+    };
+    $scope.IsConfirm = false;
+    $scope.DeleteStuff = function (id) {
+        if ($scope.IsConfirm) {
+            $scope.SaveDeficiencyTemplateAPI(id.m.Deficiency_Template_ID, id.m.Deficiency_Template_Name, id.m.Deficiency_Template_Message, id.m.Deficiency_Template_Subject, id.m.Is_Active, id.m.Master_Transaction_Id, true);
+            $scope.IsConfirm = false;
+        }
+        else {
+            if (confirm('Are you sure you want to delete?')) {
+                $scope.IsConfirm = true;
+                $scope.DeleteStuff(id);
+            }
+        }
+    };
+
 }]);

@@ -199,6 +199,7 @@
     <Content Include="Areas\BackOffice\Views\Home\PartialView\DeficiencyTemplate.cshtml" />
     <Content Include="Areas\BackOffice\Views\Home\Configuration.cshtml" />
     <Content Include="Areas\BackOffice\Views\Administration\ContentManagement.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Home\PartialView\DeficiencyReason.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
