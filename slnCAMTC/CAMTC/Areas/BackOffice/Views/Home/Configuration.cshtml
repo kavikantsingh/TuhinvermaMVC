@@ -38,6 +38,9 @@
 
 <script src="~/Content/AngularJS/CustomPaging/dirPagination.js"></script>
 
+<script src="~/Areas/BackOffice/AppJS/Controllers/ConfigurationController.js" type="text/javascript"></script>
+<script src="~/Areas/BackOffice/AppJS/Services/ConfigurationService.js" type="text/javascript"></script>
+
 <div data-ng-app="contentApp" class="main" style="position: relative">
     <div class="container primary-content ">
         <div>
@@ -63,11 +66,15 @@
                         </div>
                         <div ng-show="tab === 1" CssClass="fancy fancy-green"> </div>
                         <div ng-show="tab === 2" CssClass="fancy fancy-green"></div>
-                        <div ng-show="tab === 3" CssClass="fancy fancy-green"> </div>
+                        <div ng-show="tab === 3" CssClass="fancy fancy-green">
+                            
+                        </div>
                         <div ng-show="tab === 4" CssClass="fancy fancy-green">
                             @Html.Partial("~/Areas/BackOffice/Views/Home/PartialView/DeficiencyTemplate.cshtml");
                         </div>
-                        <div ng-show="tab === 5" CssClass="fancy fancy-green">  </div>
+                        <div ng-show="tab === 5" CssClass="fancy fancy-green">
+                            @Html.Partial("~/Areas/BackOffice/Views/Home/PartialView/DeficiencyReason.cshtml");  
+                        </div>
                         <div ng-show="tab === 6" CssClass="fancy fancy-green">  </div>
                         <div ng-show="tab === 7" CssClass="fancy fancy-green">  </div>
                         <div ng-show="tab === 8" CssClass="fancy fancy-green">  </div>

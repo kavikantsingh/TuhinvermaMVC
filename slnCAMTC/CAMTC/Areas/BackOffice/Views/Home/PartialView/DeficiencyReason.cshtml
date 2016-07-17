@@ -1,1 +1,398 @@
 ﻿
+
+
+<style type="text/css">
+    .text-center {
+        text-align: center;
+    }
+
+    .pagination {
+        border-radius: 4px;
+        display: inline-block;
+        margin: 20px 0;
+        padding-left: 0;
+    }
+
+        .pagination > li {
+            display: inline;
+        }
+
+    *::after, *::before {
+        box-sizing: border-box;
+    }
+
+    *::after, *::before {
+        box-sizing: border-box;
+    }
+
+    .pagination > li:first-child > a, .pagination > li:first-child > span {
+        border-bottom-left-radius: 4px;
+        border-top-left-radius: 4px;
+        margin-left: 0;
+    }
+
+    .pagination > .disabled > a, .pagination > .disabled > a:focus, .pagination > .disabled > a:hover, .pagination > .disabled > span, .pagination > .disabled > span:focus, .pagination > .disabled > span:hover {
+        background-color: #fff;
+        border-color: #ddd;
+        color: #777;
+        cursor: not-allowed;
+    }
+
+    .pagination > li:first-child > a, .pagination > li:first-child > span {
+        border-bottom-left-radius: 4px;
+        border-top-left-radius: 4px;
+        margin-left: 0;
+    }
+
+    .pagination > .disabled > a, .pagination > .disabled > a:focus, .pagination > .disabled > a:hover, .pagination > .disabled > span, .pagination > .disabled > span:focus, .pagination > .disabled > span:hover {
+        background-color: #fff;
+        border-color: #ddd;
+        color: #777;
+        cursor: not-allowed;
+    }
+
+    .pagination > li > a, .pagination > li > span {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        color: #337ab7;
+        float: left;
+        line-height: 1.42857;
+        margin-left: -1px;
+        padding: 6px 12px;
+        position: relative;
+        text-decoration: none;
+    }
+
+    a {
+        color: #337ab7;
+        text-decoration: none;
+    }
+
+    a {
+        background-color: transparent;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+
+    .pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+        background-color: #337ab7;
+        border-color: #337ab7;
+        color: #fff;
+        cursor: default;
+        z-index: 3;
+    }
+
+    .pagination > li > a, .pagination > li > span {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        color: #337ab7;
+        float: left;
+        line-height: 1.42857;
+        margin-left: -1px;
+        padding: 6px 12px;
+        position: relative;
+        text-decoration: none;
+    }
+</style>
+
+
+
+<div ng-controller="DeficiencyReason as myctrl" ng-cloak>
+    <div style="padding: 10px 0px 25px;" class="divDocumentType divaddnew" id="divAddNewbutton">
+        <h4 style="float: left;">
+            Deficiency Reason
+        </h4>
+        <span style="float: right; margin-right: 0px;">
+            <input type="button" ID="btnAddNew" CssClass="buttonGreen small" value="Add New" onclick="javascript:$('#DRdivAddAppReqPanel').show();" />
+        </span>
+    </div>
+    <br />
+    <div class="userHide searchBoxhidden">
+        <div class="clear">
+            <div class="close" onclick="javascript:hideDivSlide('.userHide'); showDivSlide('.searchBbutton');">
+            </div>
+        </div>
+        <fieldset class="PermitSearch" style="position: relative">
+            <table class="SearchTable" align="center" style="margin: 0 auto;">
+                <tbody>
+                    <tr>
+                        <td>
+                            <label>
+                                Transaction Type :
+                            </label>
+                        </td>
+                        <td>
+                            <select id="sDRddlMasterTransaction" ng-model="DRSearch.sMasterTransactionId">
+
+                                <option value="-1" selected="selected">Select</option>
+
+                                <option ng-repeat="option in ddlMasterTransaction" value="{{option.MasterTransactionId}}">{{option.MasterTransactionName}}</option>
+
+                            </select>
+                        </td>
+                        <td>
+                            <label>
+                                Deficiency Name :
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" CssClass="inputTextbox" Style="width: 200px;" ID="txtDefNameSearch" ng-model="DRSearch.sDeficiencyTemplateName" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                Display Only Active Records :
+                            </label>
+                        </td>
+                        <td>
+                            <input type="checkbox" ID="chkIsActiveSearch" ng-model="DRSearch.sIsActive" />
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <div class="clear">
+            </div>
+            <span class="fltrt">
+                <input type="button" ID="btnSearch" CssClass="buttonGreen small" value="Search" ng-click="GetDeficiencyReason(true)" />
+
+                <input type="button" ID="btnSearchCancel" CssClass="secondary small" value="Cancel" ng-click="GetDeficiencyReason()" onclick="javascript: hideDivSlide('.userHide'); showDivSlide('.searchBbutton');" />
+            </span>
+        </fieldset>
+        <div class="clearb">
+        </div>
+    </div>
+    <div class="clear">
+    </div>
+    <div class="gridUpperDiv">
+        <a class="down_arrow"></a><span class="fltlt">
+            <input type="button" ID="LinkButton1" CssClass="" value="Show All" />
+        </span>
+        <div class="fltrt rightIcon">
+            <a title="find" href="javascript:void()" onclick="javascript:showDivSlide('.userHide');hideDivSlide('.searchBbutton');">
+                <img src="~/Content/Theme1/images/search_icon.png" />
+            </a>
+        </div>
+    </div>
+    <div ID="ltrDocumentType"></div>
+    <div class="brdr radius" id="DRdivAddAppReqPanel" style="display:none">
+        <div style="padding: 25px 0px 12px 0px;">
+            <table style="width: 100%; margin: 0px auto;">
+                <tr>
+                    <td align="right">
+                        <label class="input-label required">
+                            Transaction Type :
+                        </label>
+                    </td>
+                    <td>
+                        <select name="ddlMasterTransaction" id="DRddlMasterTransaction" ng-model="DeficiencyReasonInfo.MasterTransactionId">
+
+                            <option value="-1">Select</option>
+
+                            <option ng-repeat="option in ddlMasterTransaction" value="{{option.MasterTransactionId}}">{{option.MasterTransactionName}}</option>
+
+                        </select>
+
+                    </td>
+                    <td align="right">
+                        <label class="input-label required">
+                            Deficiency Name :
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" CssClass="inputTextbox" Style="width: 200px;" ID="DRtxtName" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label class="input-label ">
+                            Message :
+                        </label>
+                    </td>
+                    <td colspan="3">
+                        <input type="text" CssClass="inputTextbox" Style="width: 542px; height: 60px;" ID="DRtxtDesc"
+                                         TextMode="MultiLine" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label class="input-label ">
+                            Additional Text? :
+                        </label>
+                    </td>
+                    <td>
+                        <input type="checkbox" ID="DRchkadditional"  />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label class="input-label ">
+                            Is Active? :
+                        </label>
+                    </td>
+                    <td>
+                        <input type="checkbox" ID="DRchkIsActive1" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label class="input-label ">
+                            Deficiency Template to Use :
+                        </label>
+                    </td>
+                    <td>
+                        <select id="DRddldeftemp" ng-model="DeficiencyReasonInfo.Deficiency_Template_ID">
+
+                            <option value="-1">Select</option>
+
+                            <option ng-repeat="option in ddlddldeftemp" value="{{option.Deficiency_Template_ID}}">{{option.Deficiency_Template_Name}}</option>
+
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="toolBar" style="padding: 4px; margin: 6px;">
+            <span class="fltrt">
+                <input type="button" ID="btnSaveDocument" CssClass="buttonGreen medium" value="Save" ng-click="SaveDeficiencyReason()" />
+                <input type="button" ID="btnCancelSave" CssClass="secondary medium" value="Cancel" onclick="javascript: $('#DRdivAddAppReqPanel').hide();" />
+            </span>
+        </div>
+    </div>
+    <div id="divGridView" visible="true" class="">
+        <div style="margin-top: 3px;">
+            <div id="Datatable" class="brdr">
+                <div class="brdr radius pdng5">
+
+                    <table id="example" class="display dataTable no-footer" cellspacing="0" width="100%">
+                        <thead>
+                            <tr style="color: White; background-color: #0D83DD; border-style: None; font-weight: bold;">
+                                <th>Transaction Type</th>
+                                <th>Deficiency Name</th>
+                                <th>End Date</th>
+                                <th>Additional Text?</th>
+                                <th>Is Active</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody dir-paginate="m in DeficiencyReasonList | itemsPerPage: 10">
+
+                            <tr>
+                                <td style="border-top: 1px solid #ddd;">{{m.Name}}</td>
+                                <td style="border-top: 1px solid #ddd;">{{m.Deficiency_Name}}</td>
+                                <td style="border-top: 1px solid #ddd;">{{m.End_Date | date: 'MM/dd/yyyy'}}</td>
+                                <td style="border-top: 1px solid #ddd;"><input type="checkbox" ng-checked="m.Additional_Text" /></td>
+                                <td style="border-top: 1px solid #ddd;"><input type="checkbox" ng-checked="m.Is_Active" /></td>
+
+                                <td style="border-top: 1px solid #ddd;">
+                                    <input type="image" id="DRimgEdit" class='{{m.Deficiency_ID}}' ng-click="DREditStuff(this)" title='{{m.Deficiency_ID}}' src="~/Content/Theme1/images/edit.png" alt="Submit">
+                                    <input type="image" id="DRimgDelete_{{m.Deficiency_ID}}" class='{{m.Deficiency_ID}}' ng-click="DRDeleteStuff(this)" title='{{m.Deficiency_ID}}' src="~/Content/Theme1/images/delete.png" alt="Submit">
+                                </td>
+                            </tr>
+
+                            <tr id='{{m.Deficiency_ID}}' style="display: none;">
+                                <td colspan='6'>
+                                    <div class="pdng5" style="padding: 15px 0px 15px 0px; width: 100%;">
+
+                                        <table style="margin: 0 auto; width: 100%;">
+                                            <tr>
+                                                <td align="right">
+                                                    <label class="input-label required">
+                                                        Transaction Type :
+                                                    </label>
+                                                </td>
+                                                <td align="left">
+                                                    <select id="DRddlMasterTransaction_{{m.Deficiency_ID}}" ng-model="m.Application_Type_ID">
+
+                                                        <option value="-1" selected="selected">Select</option>
+
+                                                        <option ng-repeat="option in ddlMasterTransaction" value="{{option.MasterTransactionId}}">{{option.MasterTransactionName}}</option>
+
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right">
+                                                    <label class="input-label required">
+                                                        Deficiency Name :
+                                                    </label>
+                                                </td>
+                                                <td align="left">
+                                                    <input type="text" id="DRtxtName_{{m.Deficiency_ID}}" class="inputTextbox" ng-value="m.Deficiency_Name" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right">
+                                                    <label class="input-label required">
+                                                        Message :
+                                                    </label>
+                                                </td>
+                                                <td align="left">
+                                                    <textarea id="DRtxtmsg_{{m.Deficiency_ID}}">{{m.Description}}</textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right">
+                                                    <label class="input-label required">
+                                                        Additional Text? :
+                                                    </label>
+                                                </td>
+                                                <td align="left">
+                                                    <input type="checkbox" id="DRchkadditionalEdit_{{m.Deficiency_ID}}" ng-checked="m.Additional_Text" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right">
+                                                    <label class="input-label required">
+                                                        Is Active? :
+                                                    </label>
+                                                </td>
+                                                <td align="left">
+                                                    <input type="checkbox" id="DRtxtIsActive_{{m.Deficiency_ID}}" ng-checked="m.Is_Active" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right">
+                                                    <label class="input-label ">
+                                                        Deficiency Template to Use :
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <select id="DRddldeftempEdit_{{m.Deficiency_ID}}" ng-model="m.Deficiency_Template_ID">
+
+                                                        <option value="-1">Select</option>
+
+                                                        <option ng-repeat="option in ddlddldeftemp" value="{{option.Deficiency_Template_ID}}">{{option.Deficiency_Template_Name}}</option>
+
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </div>
+                                    <div class="toolbar clear" style="">
+                                        <span class="fltrt">
+                                            <input type="button" id="btnUpdate_{{m.Deficiency_ID}}" ng-click="DRdoStuff(this);" title='{{m.Deficiency_Template_ID}}' value="Update" class="buttongreen medium" />
+                                            <input id="btnCancel" type="button" name='{{m.Deficiency_ID}}' value="Cancel" class="secondary medium" ng-click="DRhideStuff(this)" />
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <div class="text-center">
+                        <dir-pagination-controls boundary-links="true" template-url="~/Content/AngularJS/CustomPaging/dirPagination.tpl.html"></dir-pagination-controls>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
