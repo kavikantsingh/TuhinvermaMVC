@@ -256,7 +256,7 @@
             <div id="Datatable" class="brdr">
                 <div class="brdr radius pdng5">
 
-                    <table id="example" class="display dataTable no-footer" cellspacing="0" width="100%">
+                    <table id="example" class="display dataTable no-footer" style="width: 100%; margin: 0px auto;">
                         <thead>
                             <tr style="color: White; background-color: #0D83DD; border-style: None; font-weight: bold;">
                                 <th>Transaction Type</th>
@@ -274,9 +274,9 @@
                                 <td style="border-top: 1px solid #ddd;">{{m.End_Date | date: 'MM/dd/yyyy'}}</td>
                                 <td style="border-top: 1px solid #ddd;"><input type="checkbox" ng-checked="m.Is_Active" /></td>
                                
-                                <td style="border-top: 1px solid #ddd;">
-                                   <input type="image" id="imgEdit" class='{{m.Deficiency_Template_ID}}' ng-click="EditStuff(this)" title='{{m.Deficiency_Template_ID}}' src="~/Content/Theme1/images/edit.png" alt="Submit">
-                                    <input type="image" id="imgDelete_{{m.Deficiency_Template_ID}}" class='{{m.Deficiency_Template_ID}}' ng-click="DeleteStuff(this)" title='{{m.Deficiency_Template_ID}}' src="~/Content/Theme1/images/delete.png" alt="Submit">
+                                <td style="border-top: 1px solid #ddd;" >
+                                   <input type="image" id="imgEdit" ng-click="EditStuff(this)" title='{{m.Deficiency_Template_ID}}' src="~/Content/Theme1/images/edit.png" alt="Submit" ng-class="{'button-hidden':!m.Is_Editable}">
+                                    <input type="image" id="imgDelete_{{m.Deficiency_Template_ID}}" ng-click="DeleteStuff(this)" title='{{m.Deficiency_Template_ID}}' src="~/Content/Theme1/images/delete.png" alt="Submit" ng-class="{'button-hidden':!m.Is_Editable}">
                                 </td>
                             </tr>
 
@@ -313,27 +313,27 @@
                                             </tr>
                                             <tr>
                                                 <td align="right">
-                                                    <label class="input-label required">
+                                                    <label class="input-label">
                                                         Deficiency Template Subject :
                                                     </label>
                                                 </td>
                                                 <td align="left">
-                                                    <textarea id="txtsub_{{m.Deficiency_Template_ID}}">{{m.Deficiency_Template_Subject}}</textarea>
-                                                </td>
+                                                    <input type="text" id="txtsub_{{m.Deficiency_Template_ID}}" Style="width: 542px; height: 60px;" ng-value="m.Deficiency_Template_Subject" TextMode="MultiLine"/>
+                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td align="right">
-                                                    <label class="input-label required">
+                                                    <label class="input-label">
                                                         Deficiency Template Message :
                                                     </label>
                                                 </td>
                                                 <td align="left">
-                                                    <textarea id="txtmsg_{{m.Deficiency_Template_ID}}">{{m.Deficiency_Template_Message}}</textarea>
+                                                    <input type="text" id="txtmsg_{{m.Deficiency_Template_ID}}" Style="width: 542px; height: 60px;" ng-value="m.Deficiency_Template_Message" TextMode="MultiLine" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td align="right">
-                                                    <label class="input-label required">
+                                                    <label class="input-label">
                                                         Is Active? :
                                                     </label>
                                                 </td>
