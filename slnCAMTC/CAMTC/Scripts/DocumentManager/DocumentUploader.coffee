@@ -54,7 +54,7 @@
                     .append(
                         $.el('tr', {})
                             .append(
-                                $.el('td', {'class' : 'txtalgnrgt'})
+                                $.el('td', {'class' : 'txtalgnrgt tdwidth1'})
                                     .append(
                                         $.el('label', {'class' : 'input-label required'}).text("Document Name : ")
                                     )
