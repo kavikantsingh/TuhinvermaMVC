@@ -83,7 +83,7 @@ contentApp.controller('DeficiencyTemplate', ['$scope', '$rootScope', 'Configurat
 
     $scope.EditStuff = function (id) {
         //var index = $(id).attr('class');
-        document.getElementById(id.m.Deficiency_Template_ID).style.display = 'table-row';
+        document.getElementById('DT_'+id.m.Deficiency_Template_ID).style.display = 'table-row';
         $('#ddlMasterTransaction_' + id.m.Deficiency_Template_ID).val(id.m.Master_Transaction_Id);
 
         //tinymce.init({ mode: 'textareas' });
@@ -107,7 +107,7 @@ contentApp.controller('DeficiencyTemplate', ['$scope', '$rootScope', 'Configurat
 
     $scope.hideStuff = function (id) {
         //var val = $(id).attr('name');
-        document.getElementById(id.m.Deficiency_Template_ID).style.display = 'none';
+        document.getElementById('DT_' + id.m.Deficiency_Template_ID).style.display = 'none';
     }
 
     $scope.doStuff = function (id) {
@@ -227,7 +227,7 @@ contentApp.controller('DeficiencyReason', ['$scope', '$rootScope', 'Configuratio
 
     $scope.DREditStuff = function (id) {
         //var index = $(id).attr('class');
-        document.getElementById(id.m.Deficiency_ID).style.display = 'table-row';
+        document.getElementById('DR_'+id.m.Deficiency_ID).style.display = 'table-row';
         $('#DRddlMasterTransaction_' + id.m.Deficiency_ID).val(id.m.Application_Type_ID);
         $('#DRddldeftempEdit_' + id.m.Deficiency_ID).val(id.m.Deficiency_Template_ID);
 
@@ -252,7 +252,7 @@ contentApp.controller('DeficiencyReason', ['$scope', '$rootScope', 'Configuratio
 
     $scope.DRhideStuff = function (id) {
         //var val = $(id).attr('name');
-        document.getElementById(id.m.Deficiency_ID).style.display = 'none';
+        document.getElementById('DR_'+id.m.Deficiency_ID).style.display = 'none';
     }
 
     $scope.DRdoStuff = function (id) {
