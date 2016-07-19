@@ -1,6 +1,5 @@
-﻿<div ng-controller="CurriculumController"  ng-show="hasShow == 'true'">
+﻿<div ng-controller="CurriculumController" ng-show="hasShow == 'true'">
     <div id="error_validation" class="address-box posFixed" style="display: none; color: red;"></div>
-
 
     <div>
         <div class="sectionDiv">
@@ -10,82 +9,65 @@
     <fieldset class="flsNewApplReqForm flsCharacterReferences">
         <b>29. Curriculum.</b>
         <p style="padding-left: 21px;">Please indicate which classes or subjects fulfill the minimum core educational requirements as set forth in CAMTC’s Policies and Procedures for Approval of Schools : </p>
-
         <div class="table_design" style="margin-top: 22px;">
-            <div>
-                <table class="index  grid" cellspacing="0" cellpadding="5" id="gvProgHrWrkSheet" style="color:#333333;width:100%;border-collapse:collapse;">
+            <div data-ag-grid="CurriculumGrid" class="ag-blue" style="width: 620px;margin-left:10px; border: 1px solid #ddd;"></div>
+        </div>
+        <div id="upProgHrWrkSheet">
+            <div class="divLicenseInfon divaddnew AfterApproved" id="divAddbtnSchoolInfoPrevious">
+                <span style="float: right; margin-right: 32px; margin-top: 15px;">
+                    <input type="button" value="Add" data-ng-click="ShowPopup(1)" class="buttonGreen small" />
+                </span>
+            </div>
+            <div id="divAddCourseReq" class="divLicenseInfo">
+                <p class="addNewDiv">
+                    <span>Courses that Fulfill Requirements</span>
+                </p>
+                <table class="tblApplReqForm5 wdtmarauto" style="width: 96%; margin: 0px auto;">
                     <tbody>
                         <tr>
-                            <th scope="col">Required Course of Study</th>
-                            <th scope="col">Minimum Required Course Hours</th>
-                            <th class="aligncenter" scope="col">Action</th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span id="lblProgHrWrkSheetCourse">Anatomy &amp; Physiology</span>
+                            <td class="txtalgnrgt">
+                                <label class="input-label">
+                                    Course Title :
+                                </label>
                             </td>
                             <td>
-                                <span id="lblProgHrWrkSheetCourseHr">64</span>
-                            </td>
-                            <td align="center" valign="middle" style="width:200px;">
-                                <span class="fltrt AfterApproved">
-                                    <a id="lnkCoursesRequirementsOpen" title="Open Courses Required" class="hyperlink" rowindex="0" href='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvProgHrWrkSheet$ctl02$lnkCoursesRequirementsOpen", "", true, "", "", false, true))'>Courses that Fulfill Requirements </a>
-                                </span>
+                                <input ng-model="CourseTitleName" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvProgHrWrkSheet$ctl02$TextBox63" type="text" maxlength="150" id="TextBox63" class="tooltip OnlyAlphabet inputTextbox capitalize-text NewAppPersonalTxtbx" title="Only A-Z characters are allowed." autocomplete="off">
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                <span id="lblProgHrWrkSheetCourse">Contraindications</span>
+                            <td class="txtalgnrgt">
+                                <label class="input-label">
+                                    No. of Hours :
+                                </label>
                             </td>
                             <td>
-                                <span id="lblProgHrWrkSheetCourseHr">13</span>
-                            </td>
-                            <td align="center" valign="middle" style="width:200px;">
-                                <span class="fltrt AfterApproved">
-                                    <a id="lnkCoursesRequirementsOpen" title="Open Courses Required" class="hyperlink" rowindex="1" href='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvProgHrWrkSheet$ctl03$lnkCoursesRequirementsOpen", "", true, "", "", false, true))'>Courses that Fulfill Requirements </a>
-                                </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span id="lblProgHrWrkSheetCourse">Health &amp; Hygiene</span>
-                            </td>
-                            <td>
-                                <span id="lblProgHrWrkSheetCourseHr">5</span>
-                            </td>
-                            <td align="center" valign="middle" style="width:200px;">
-                                <span class="fltrt AfterApproved">
-                                    <a id="lnkCoursesRequirementsOpen" title="Open Courses Required" class="hyperlink" rowindex="2" href='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvProgHrWrkSheet$ctl04$lnkCoursesRequirementsOpen", "", true, "", "", false, true))'>Courses that Fulfill Requirements </a>
-                                </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span id="lblProgHrWrkSheetCourse">Business &amp; Ethics</span>
-                            </td>
-                            <td>
-                                <span id="lblProgHrWrkSheetCourseHr">18</span>
-                            </td>
-                            <td align="center" valign="middle" style="width:200px;">
-                                <span class="fltrt AfterApproved">
-                                    <a id="lnkCoursesRequirementsOpen" title="Open Courses Required" class="hyperlink" rowindex="3" href='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvProgHrWrkSheet$ctl05$lnkCoursesRequirementsOpen", "", true, "", "", false, true))'>Courses that Fulfill Requirements </a>
-                                </span>
+                                <input ng-model="CourseHours" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvProgHrWrkSheet$ctl02$TextBox1450" type="text" maxlength="3" id="TextBox1450" class="tooltip OnlyNumeric inputTextbox NewAppPersonalTxtbx" title="Only numbers are allowed." autocomplete="off">
                             </td>
                         </tr>
                     </tbody>
                 </table>
+
+                <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
+                    <span class="fltrt">
+                        <input type="button" data-ng-click="SaveProviderOtherProgram()" value="Save" class="buttonGreen medium">
+                        <input type="button" data-ng-click="clearRelatedAddress ()" value="Cancel" class="secondary medium bottom buttonalignment">
+
+                    </span>
+                </div>
             </div>
+
+            <div class="divLicenseInfo">
+                <div>
+                    <div data-ag-grid="CurriculumSubGrid" class="ag-blue" style="width: 700px;margin-left:10px; border: 1px solid #ddd;"></div>
+                </div>
+            </div>
+
         </div>
-
-
-
         <table class="tblApplReqForm5" style="margin-top: 15px;">
             <tbody>
                 <tr>
                     <td style="width: 3%"><b>30.</b></td>
-
                     <td style="padding-left: 0px; line-height: 20px; text-align: left;">
-
                         <label class="input-label required">
                             <span>
                                 <b>
@@ -94,42 +76,32 @@
                                 </b> (cannot exceed 75 hours)?
                             </span>
                         </label>
-                        <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtcarculam" type="text" value="76" onchange="javascript:setTimeout('__doPostBack(\'ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtcarculam\',\'\')', 0)" onkeypress="if (WebForm_TextBoxKeyHandler(event) == false) return false;" id="ContentPlaceHolder1_ucCertificationApplication1_txtcarculam" class="OnlyNumeric" style="width: 75px;" autocomplete="off">
-
+                        <input data-ng-model="viewProvClinicHours" type="text" value="76" class="OnlyNumeric" style="width: 75px;" autocomplete="off">
                     </td>
-
                 </tr>
                 <tr id="ContentPlaceHolder1_ucCertificationApplication1_trClinicHour">
                     <td colspan="2">
                         <div class="error_header" style="background-color: rgb(254, 234, 234); padding-top: 7px; display:none; border: 1px solid rgb(254, 193, 193);">
                             <span id="ContentPlaceHolder1_ucCertificationApplication1_lblClinicHour">Maximum number of clinic hours cannot exceed 75 hours.</span>
-
                         </div>
                     </td>
                 </tr>
 
-
             </tbody>
         </table>
 
-
     </fieldset>
-
     <div id="ContentPlaceHolder1_ucCertificationApplication1_dvAboutCurriculumUpSection" class="dvdecorate" style="margin-top: 30px; width: 95%;">
         <p>
             <b>31. Curriculum Supporting Documentation :</b>
         </p>
-
         <table class="dvdecorate" style="width: 97%; margin-left: 22px; margin-top: 15px;">
             <tbody>
                 <tr>
                     <td></td>
                     <td>
                         <div id="fuCourseCurriculum1_upDoc" class="documentContainer" data-docid="30" data-doc-code="D1030" data-simple="true">
-
                         </div>
-
-
 
                     </td>
                     <td></td>
@@ -143,11 +115,7 @@
                     <td></td>
                     <td>
                         <div id="fuCourseCurriculum2_upDoc" class="documentContainer" data-docid="31" data-doc-code="D1031" data-simple="true">
-
                         </div>
-
-
-
 
 
                     </td>
@@ -162,11 +130,7 @@
                     <td></td>
                     <td>
                         <div id="fuCourseCurriculum3_upDoc" class="documentContainer" data-docid="32" data-doc-code="D1032" data-simple="true">
-
                         </div>
-
-
-
 
 
                     </td>
@@ -181,11 +145,7 @@
                     <td></td>
                     <td>
                         <div id="fuCourseCurriculum4_upDoc" class="documentContainer" data-docid="33" data-doc-code="D1033" data-simple="true">
-
                         </div>
-
-
-
 
 
                     </td>
@@ -200,11 +160,7 @@
                     <td></td>
                     <td>
                         <div id="fuCourseCurriculum5_upDoc" class="documentContainer" data-docid="34" data-doc-code="D1034" data-simple="true">
-
                         </div>
-
-
-
 
 
                     </td>
@@ -219,11 +175,7 @@
                     <td></td>
                     <td>
                         <div id="fuCourseCurriculum6_upDoc" class="documentContainer" data-docid="35" data-doc-code="D1035" data-simple="true">
-
                         </div>
-
-
-
 
 
                     </td>
@@ -238,7 +190,6 @@
                     <td></td>
                     <td>
                         <div id="fuCourseCurriculum7_upDoc" class="documentContainer" data-docid="36" data-doc-code="D1036" data-simple="true">
-
                         </div>
                     </td>
                     <td></td>
@@ -251,10 +202,7 @@
                 <tr>
                     <td>
                         <div id="fuCourseCurriculum8_upDoc" class="documentContainer" data-docid="37" data-doc-code="D1037" data-simple="false">
-
                         </div>
-
-
 
 
                     </td>
@@ -262,27 +210,20 @@
                 </tr>
             </tbody>
         </table>
-
         <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px; display: none;">
             <span class="fltrt">
                 <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$btnSaveAboutCurriculum" value="Save" onclick="SaveAboutCurriculum();WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$ucCertificationApplication1$btnSaveAboutCurriculum&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ContentPlaceHolder1_ucCertificationApplication1_btnSaveAboutCurriculum" class="buttonGreen medium">
                 <a id="ContentPlaceHolder1_ucCertificationApplication1_lblCancelAboutCurriculum" class="secondary medium bottom buttonalignment" href='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$ContentPlaceHolder1$ucCertificationApplication1$lblCancelAboutCurriculum", "", true, "", "", false, true))'>Cancel</a>
             </span>
         </div>
-
     </div>
-
-
 
     <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
         <div style="float: left;">
         </div>
         <span class="fltrt">
-            <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$btnNextProHo" value="Save &amp; Next" onclick="btnNextProHo();" id="ContentPlaceHolder1_ucCertificationApplication1_btnNextProHo" class="buttonGreen medium">
-
+            <input type="button" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$btnNextProHo" value="Save &amp; Next" ng-click="Savefinal()" id="ContentPlaceHolder1_ucCertificationApplication1_btnNextProHo" class="buttonGreen medium">
             <a id="ContentPlaceHolder1_ucCertificationApplication1_LinkButton7" class="secondary medium bottom buttonalignment" href='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$ContentPlaceHolder1$ucCertificationApplication1$LinkButton7", "", true, "", "", false, true))'>Cancel</a>
         </span>
     </div>
-
 </div>
-
