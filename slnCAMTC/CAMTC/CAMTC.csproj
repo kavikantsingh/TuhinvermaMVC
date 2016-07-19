@@ -125,8 +125,11 @@
     <Compile Include="Areas\Agency\Controllers\HomeController.cs" />
     <Compile Include="Areas\BackOffice\BackOfficeAreaRegistration.cs" />
     <Compile Include="Areas\BackOffice\Controllers\AccountController.cs" />
-    <Compile Include="Areas\BackOffice\Controllers\AdministrationController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\HomeController.cs" />
+    <Compile Include="Areas\BackOffice\Models\Administration\Configuration\ApplicationTypeGetResponse.cs" />
+    <Compile Include="Areas\BackOffice\Models\Administration\Configuration\BaseEntityServiceResponse.cs" />
+    <Compile Include="Areas\BackOffice\Models\Administration\Configuration\DocumentViewModel.cs" />
+    <Compile Include="Areas\BackOffice\Models\Administration\Configuration\PageSectionNameViewModel.cs" />
     <Compile Include="Areas\Individual\Controllers\AccountController.cs" />
     <Compile Include="Areas\Individual\Controllers\CertificationController.cs" />
     <Compile Include="Areas\Individual\Controllers\HomeController.cs" />
@@ -168,6 +171,7 @@
     <Content Include="Areas\School\AppJS\Controllers\SchoolController.js" />
     <Content Include="Areas\School\AppJS\Directive\CheckBoxSelection.js" />
     <Content Include="Areas\School\AppJS\Services\AboutService.js" />
+    <Content Include="Areas\School\AppJS\Services\CurriculumService.js" />
     <Content Include="Areas\School\AppJS\Services\StaffService.js" />
     <Content Include="Content\AngularJS\ag-grid.min.js" />
     <Content Include="Content\AngularJS\angular-mocks.js" />
@@ -200,6 +204,8 @@
     <Content Include="Areas\BackOffice\Views\Home\Configuration.cshtml" />
     <Content Include="Areas\BackOffice\Views\Administration\ContentManagement.cshtml" />
     <Content Include="Areas\BackOffice\Views\Home\PartialView\DeficiencyReason.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Administration\DcoumentType.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Administration\Index.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -1056,7 +1062,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Agency\Models\" />
-    <Folder Include="Areas\BackOffice\Models\" />
     <Folder Include="Areas\Individual\Models\" />
     <Folder Include="Areas\School\Models\" />
     <Folder Include="Content\Agency\" />
