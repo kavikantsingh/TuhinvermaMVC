@@ -38,8 +38,14 @@ zoom:1;
 .Prev_Grid_design{width: 68%; margin-left: 195px; border: 1px solid #ddd;}
 .street_desgn{vertical-align: middle; width: 130px;}
 .city_width{ width:148px;}
+.width145p{width:145px !important;}
 .verify_add_user{font-size: 14px; font-weight: bold; padding-left: 58px;}
 .verify_add_user_txt{font-size: 14px; font-weight: bold; padding-left: 55px;}
+.AddButton_grid{float: right; margin-right: 28px; margin-top: 15px;}
+.grdi_design_style{ width: 674px;float: right;margin-right: 27px;margin-top: 10px;}
+.AddGrid{width: 96%;margin-bottom: 10px;margin-top: 20px;border: 1px solid #dedede; float:left;}
+.chkdesign{float: left; margin-top: 10px; text-align:justify;}
+.buttomboldtexteligble{font-weight: 800; float: left; margin-top: 10px;}
 /**/
 
 .input-label {padding-right: 10px;
