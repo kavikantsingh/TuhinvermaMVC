@@ -113,5 +113,9 @@ namespace ErrorModel
         public static string SiteInspector = "Please select site inspector.";
         public static string Comment = "Please enter comment.";
 
+        public static string TransactionType = "Please select Transaction Type.";
+        public static string DeficiencyTemplateName = "Please enter Deficiency Template Name."; 
+        public static string DeficiencyName = "Please enter Deficiency Name.";
+
     }
 }

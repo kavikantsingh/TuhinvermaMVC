@@ -179,7 +179,7 @@
             </a>
         </div>
     </div>
-    <div ID="ltrDocumentType"></div>
+    <div id="DTerror_validation" class="address-box posFixed" style="display: none; color: red;"></div>
     <div class="brdr radius" id="divAddAppReqPanel" style="display:none">
         <div style="padding: 25px 0px 12px 0px;">
             <table style="width: 100%; margin: 0px auto;">
@@ -369,54 +369,27 @@
 
 <script type="text/javascript">
 
-    //function EditStuff(id) {
-    //    var index = $(id).attr('class');
-    //    document.getElementById(index).style.display = 'table-row';
+    function checkDTform() {
+        $('#DTerror_validation').text('');
+        var error = '';
 
-    //    //tinymce.init({ mode: 'textareas' });
+        error += ValidateDropdown('-1', '<span class=notok></span> @ErrorModel.ErrorMessage.TransactionType<br/>', '#ddlMasterTransaction', $('#ddlMasterTransaction').val());
+        error += ValidateTextbox('<span class="notok"></span> @ErrorModel.ErrorMessage.DeficiencyTemplateName<br/>', '#txtName', $('#txtName').val());
 
-    //    ////tinymce.init({ mode: 'textareas', elements: '#txtEditor_' + index });
+        if (error != '') {
+            $('#DTerror_validation').show();
 
-    //    //$('#txtEffectiveDate_' + index).datepicker({
-    //    //    inline: true,
-    //    //    changeMonth: true,
-    //    //    changeYear: true,
-    //    //    yearRange: "2016:2030"
-    //    //});
-    //    //$('#txtEndDate_' + index).datepicker({
-    //    //    inline: true,
-    //    //    changeMonth: true,
-    //    //    changeYear: true,
-    //    //    yearRange: "2016:2030"
-    //    //});
+            $(document).scrollTop(0);
 
-    //}
+            $('#DTerror_validation').html(error);
+            return false;
+        }
+        else {
+            $('#DTerror_validation').hide();
+            return true;
+        }
+    }
 
-    ////function reloadPage() {
-    ////    location.reload();
-    ////}
 
-    //function hideStuff(id) {
-    //    //var val = $(id).attr('name');
-    //    //document.getElementById(val).style.display = 'none';
-    //}
-
-    //function doStuff(id) {
-
-    //    //var index = $(id).attr('title');
-
-    //    //var contentId = $('#hdnContentItemLkId_' + index).val();
-    //    //var contentHash = $('#hdnContentItemLkId_' + index).val();
-    //    //var contentDesc = tinyMCE.get('txtEditor_' + index).getContent();
-    //    //var startDate = $('#txtEffectiveDate_' + index).val();
-    //    //var endDate = $('#txtEndDate_' + index).val();
-
-    //    //angular.element('#myCtrl').scope().UpdateContentById(contentId, contentHash, contentDesc, startDate, endDate);
-
-    //    //setTimeout(function () { location.reload(); }, 1000);
-
-    //};
-
-    
 
 </script>

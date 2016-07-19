@@ -177,7 +177,7 @@
             </a>
         </div>
     </div>
-    <div ID="ltrDocumentType"></div>
+    <div id="DRerror_validation" class="address-box posFixed" style="display: none; color: red;"></div>
     <div class="brdr radius" id="DRdivAddAppReqPanel" style="display:none">
         <div style="padding: 25px 0px 12px 0px;">
             <table style="width: 100%; margin: 0px auto;">
@@ -397,4 +397,31 @@
     </div>
 
 </div>
+
+<script type="text/javascript">
+
+    function checkDRform() {
+        $('#DRerror_validation').text('');
+        var error = '';
+
+        error += ValidateDropdown('-1', '<span class=notok></span> @ErrorModel.ErrorMessage.TransactionType<br/>', '#DRddlMasterTransaction', $('#DRddlMasterTransaction').val());
+        error += ValidateTextbox('<span class="notok"></span> @ErrorModel.ErrorMessage.DeficiencyName<br/>', '#DRtxtName', $('#DRtxtName').val());
+
+        if (error != '') {
+            $('#DRerror_validation').show();
+
+            $(document).scrollTop(0);
+
+            $('#DRerror_validation').html(error);
+            return false;
+        }
+        else {
+            $('#DRerror_validation').hide();
+            return true;
+        }
+    }
+
+
+
+</script>
 

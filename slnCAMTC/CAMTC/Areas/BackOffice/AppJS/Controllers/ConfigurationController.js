@@ -78,7 +78,9 @@ contentApp.controller('DeficiencyTemplate', ['$scope', '$rootScope', 'Configurat
 
     $scope.SaveDeficiencyTemplate = function () {
         $('#divAddAppReqPanel').hide();
-        $scope.SaveDeficiencyTemplateAPI(0, $("#txtName").val(), $("#txtmsg").val(), $("#txtsub").val(), $("chkIsActive1").is(":checked"), $scope.DeficiencyTemplateInfo.MasterTransactionId,false);
+        if (checkDTform()) {
+            $scope.SaveDeficiencyTemplateAPI(0, $("#txtName").val(), $("#txtmsg").val(), $("#txtsub").val(), $("chkIsActive1").is(":checked"), $scope.DeficiencyTemplateInfo.MasterTransactionId, false);
+        }
     }
 
     $scope.EditStuff = function (id) {
@@ -128,6 +130,8 @@ contentApp.controller('DeficiencyTemplate', ['$scope', '$rootScope', 'Configurat
             }
         }
     };
+
+    
 
 }]);
 
@@ -222,7 +226,9 @@ contentApp.controller('DeficiencyReason', ['$scope', '$rootScope', 'Configuratio
 
     $scope.SaveDeficiencyReason = function () {
         $('#DRdivAddAppReqPanel').hide();
-        $scope.SaveDeficiencyReasonAPI(0, $("#DRtxtName").val(), $("#DRtxtDesc").val(), $("#DRchkIsActive1").is(":checked"), $scope.DeficiencyReasonInfo.MasterTransactionId, $scope.DeficiencyReasonInfo.Deficiency_Template_ID, $("#DRchkadditional").is(":checked"), false);
+        if (checkDRform()) {
+            $scope.SaveDeficiencyReasonAPI(0, $("#DRtxtName").val(), $("#DRtxtDesc").val(), $("#DRchkIsActive1").is(":checked"), $scope.DeficiencyReasonInfo.MasterTransactionId, $scope.DeficiencyReasonInfo.Deficiency_Template_ID, $("#DRchkadditional").is(":checked"), false);
+        }
     }
 
     $scope.DREditStuff = function (id) {
