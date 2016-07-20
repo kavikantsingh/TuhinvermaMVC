@@ -9,21 +9,19 @@
             <fieldset class="flsNewApplReqForm flsNewApplReqForm3" style="text-align: justify;">
                 <table class="tblApplReqForm5">
                     <tr>
-                        <td style="width: 100%; line-height: 20px; padding-top: 0px ! important;">
+                        <td class="about_text">
                             <b>11. Number of Graduates</b>
-                            <p style="padding-left: 20px; width: 95%;">
+                            <p class="about_text_pading">
                                 Please list the TOTAL number of graduates from ALL massage programs for which the school
                                 seeks approval. Do not include continuing education classes or other programs.
                                 Put “0” if the program is new or had no graduates.
                             </p>
                         </td>
-                        <td style="width: 545px; padding-left: 0px; line-height: 18px; text-align: justify;"></td>
+                        <td></td>
                     </tr>
                 </table>
-                <table>
-                    <tr style="height: 15px; width: 100%; float: left;"></tr>
-                </table>
-                <table style="margin-left: 50px;">
+                
+                <table class="estimate_css">
                     <tr>
                         <td class="txtalgnrgt">
                             <label class="input-label required">
@@ -31,7 +29,7 @@
                             </label>
                         </td>
                         <td>
-                            <input name="txtGradYear" ng-model="txtGradYear2016" type="text" value="12" maxlength="150" id="txtGradYear" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+                            <input name="txtGradYear" class="width115P" ng-model="txtGradYear2016" type="text" value="12" maxlength="150" id="txtGradYear" onkeypress="return numeric(event)" autocomplete="off">
 
                         </td>
                     </tr>
@@ -43,7 +41,7 @@
                             </label>
                         </td>
                         <td>
-                            <input ng-model="txtGradYear2015" type="text" value="15" maxlength="150" id="txtGradYear_1" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+                            <input ng-model="txtGradYear2015" type="text" value="15" maxlength="150" id="txtGradYear_1" class="inputTextbox txtGradYear" onkeypress="return numeric(event)" autocomplete="off">
 
                         </td>
                     </tr>
@@ -55,7 +53,7 @@
                             </label>
                         </td>
                         <td>
-                            <input name="txtGradYear_2" ng-model="txtGradYear2014" type="text" value="0" maxlength="150" id="txtGradYear_2" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+                            <input name="txtGradYear_2" ng-model="txtGradYear2014" type="text" value="0" maxlength="150" id="txtGradYear_2" class="inputTextbox txtGradYear" onkeypress="return numeric(event)" autocomplete="off">
 
                         </td>
                     </tr>
@@ -67,7 +65,7 @@
                             </label>
                         </td>
                         <td>
-                            <input name="txtGradYear_3" ng-model="txtGradYear2013" type="text" value="9" maxlength="150" id="txtGradYear_3" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+                            <input name="txtGradYear_3" ng-model="txtGradYear2013" type="text" value="9" maxlength="150" id="txtGradYear_3" class="inputTextbox txtGradYear" onkeypress="return numeric(event)" autocomplete="off">
 
                         </td>
                     </tr>
@@ -79,7 +77,7 @@
                             </label>
                         </td>
                         <td>
-                            <input name="txtGradYear_4" ng-model="txtGradYear2012" type="text" value="18" maxlength="150" id="txtGradYear_4" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+                            <input name="txtGradYear_4" ng-model="txtGradYear2012" type="text" value="18" maxlength="150" id="txtGradYear_4" class="inputTextbox txtGradYear" onkeypress="return numeric(event)" autocomplete="off">
 
                         </td>
                     </tr>
@@ -91,7 +89,7 @@
                             </label>
                         </td>
                         <td>
-                            <input name="txtGradYear_5" ng-model="txtGradYear2011" type="text" value="79" maxlength="150" id="txtGradYear_5" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+                            <input name="txtGradYear_5" ng-model="txtGradYear2011" type="text" value="79" maxlength="150" id="txtGradYear_5" class="inputTextbox txtGradYear" onkeypress="return numeric(event)" autocomplete="off">
 
                         </td>
                     </tr>
@@ -103,7 +101,7 @@
                             </label>
                         </td>
                         <td>
-                            <input name="txtGradYear_6" ng-model="txtGradYear2010" type="text" value="0" maxlength="150" id="txtGradYear_6" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+                            <input name="txtGradYear_6" ng-model="txtGradYear2010" type="text" value="0" maxlength="150" id="txtGradYear_6" class="inputTextbox txtGradYear" onkeypress="return numeric(event)" autocomplete="off">
 
                         </td>
                     </tr>
@@ -115,26 +113,28 @@
                             </label>
                         </td>
                         <td>
-                            <input name="txtGradYear_7" ng-model="txtGradYear2009" type="text" value="56" maxlength="150" id="txtGradYear_7" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+                            <input name="txtGradYear_7" ng-model="txtGradYear2009" type="text" value="56" maxlength="150" id="txtGradYear_7" class="inputTextbox txtGradYear" onkeypress="return numeric(event)" autocomplete="off">
 
                         </td>
                     </tr>
                 </table>
+                <div data-ag-grid="GraduatesGrid" class="ag-blue grdi_design_style"></div>
                 <table>
-                    <tr style="height: 15px; width: 100%; float: left;"></tr>
-                </table>
-                <div data-ag-grid="GraduatesGrid" class="ag-blue" style="width: 450px;margin-left:90px; border: 1px solid #ddd;"></div>
-
-                <table>
-                    <tr style="height: 15px; width: 100%; float: left;"></tr>
-                </table>
-                <table>
-                    <tr>
-                        <td><b>12. Type of Business Organization</b></td>
+                    <tr class="tblApplReqForm5">
+                        <td></td>
                     </tr>
                 </table>
+                <table class="tblApplReqForm5">
+                    <tr>
+                        <td class="about_te_pading">
 
-                <table style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">
+                            <b>12. Type of Business Organization</b>
+
+                        </td>
+                    </tr>
+                </table>
+                
+                <table class="chekbox_about width100p">
                     <tr>
                         <td>
                             <div class="listbox_auto">
@@ -144,19 +144,19 @@
 
                                 @*<div data-ng-repeat="Lookup in LookupList">
 
-                                        <input type="checkbox" checkbox-group data-ng-model="Lookup.LookupId" ng-click="onchagecheck(Lookup)" ng-checked="Lookup.IsChecked" /> <label>{{Lookup.LookupDesc }}</label>
-                                    </div>*@
+                            <input type="checkbox" checkbox-group data-ng-model="Lookup.LookupId" ng-click="onchagecheck(Lookup)" ng-checked="Lookup.IsChecked" /> <label>{{Lookup.LookupDesc }}</label>
+                        </div>*@
 
                             </div>
                         </td>
                     </tr>
                 </table>
 
-                <table>
+                <table class="tblApplReqForm5">
                     <tr>
-                        <td>
+                        <td class="about_te_pading">
                             <b>13. Proof of Ownership</b>
-                            <p style="padding-left: 20px; width: 95%;">
+                            <p class="about_text_pading">
                                 Please provide all documents, as directed by the Policies and Procedures for
                                 Approval of Schools, that support Proof of Ownership.
                             </p>
@@ -172,22 +172,19 @@
                             docCode = "D1003";
                             isSimple = false;
                     </div>*@
-                <table style="margin-top: 15px; float: left; width: 100%;">
+                <table class="tblApplReqForm5">
                     <tr>
-                        <td><b>14. Proof of Business Operations</b></td>
+                        <td class="about_te_pading">
+                            <b>14. Proof of Business Operations</b>
+                            <p class="about_text_pading">
+                                Please provide all documents, as directed by the Policies and Procedures for
+                                Approval of Schools, that support Proof of Business Operations.
+                            </p>
+                        </td>
                     </tr>
                 </table>
-                <div style="margin-bottom: 30px;">
-                    <table class="wthtop20" style="width: 97%; margin-left: 13px;">
-                        <tr style="line-height: 20px;">
-                            <td colspan="4">
-                                <p>
-                                    Please provide all documents, as directed by the Policies and Procedures for
-                                    Approval of Schools, that support Proof of Business Operations.
-                                </p>
-                            </td>
-                        </tr>
-                    </table>
+                <div>
+                    
                     <div id="fuApprovalATS" class="documentContainer" data-docid="4" data-doc-code="D1004" data-simple="false">
                     </div>
                     @* <div id="fuAboutSchool2_upDoc">
@@ -251,11 +248,11 @@
 
                         <br>*@
                 </div>
-                <table>
+                <table class="tblApplReqForm5">
                     <tr>
-                        <td style="width: 100%; line-height: 20px;">
+                        <td class="about_te_pading">
                             <b>15. Related Schools</b>
-                            <p style="padding-left: 20px; width: 95%; padding-top: 5px;">
+                            <p class="about_text_pading">
                                 If this school or campus shares its name, address, and/or ownership with another school(s),
                                 please list (NOTE: each campus seeking CAMTC school approval must submit a separate
                                 application).
@@ -266,12 +263,12 @@
 
 
                 <div class="divLicenseInfon divaddnew AfterApproved" id="divAddbtnSatelliteLocation">
-                    <span style="float: right; margin-right: 32px; margin-top: 15px;">
-                        <input type="button" value="Add" data-ng-click="ShowPopup(1)" class="buttonGreen small" />
+                    <span class="AddButton_grid">
+                        <input type="button" value="Add" data-ng-click="ShowPopup(1)" class="buttonGreen medium" />
                     </span>
 
                 </div>
-                <br />
+                
 
                 <div id="divAddRelatedschool" style="width: 95%; margin-top: 10px; margin-left: 50px;">
                     <table class="tblApplReqForm5" style="width: 95%; margin-top: 10px; margin-left: 50px;">
@@ -447,16 +444,16 @@
                         </span>
                     </div>
                 </div>
-                <div data-ag-grid="ProviderRelatedProgramGrid" class="ag-blue" style="width: 650px;margin-left:50px;  border: 1px solid #ddd;"></div>
-                <table style="margin-bottom: 15px; margin-top: 15px;">
+                <div data-ag-grid="ProviderRelatedProgramGrid" class="ag-blue grdi_design_style"></div>
+                <table class="tblApplReqForm5">
                     <tr>
-                        <td style="width: 100%; line-height: 20px;">
+                        <td class="about_te_pading">
                             <b>16. Other Program(s)</b>
-                            <p style="padding-left: 21px; padding-top: 5px;">If this school offers educational program(s) other than massage, please list.</p>
+                            <p class="about_text_pading">If this school offers educational program(s) other than massage, please list.</p>
                         </td>
                     </tr>
                 </table>
-                <table style="width: 95%; margin-top: 10px; margin-left: 50px; margin-bottom: 5px;">
+                <table class="otherPName">
                     <tr>
                         <td class="6">
                             <table>
@@ -470,7 +467,7 @@
                                         <td>
                                             <input name="txtOtherProgramNameEdit" type="text" maxlength="150" id="txtOtherProgramNameEdit" ng-model="ProgramOtherName" class="tooltip OnlyAlphabet inputTextbox NewAppPersonalTxtbx" title="Only A-Z characters are allowed." style="width: 290px;" autocomplete="off">
                                             <span class="AfterApproved">
-                                                <input type="button" name="btnSaveOtProgName" value="Add" id="btnSaveOtProgName" class="buttonGreen small" ng-click="SaveProviderOtherProgram()">
+                                                <input type="button" name="btnSaveOtProgName" value="Add" id="btnSaveOtProgName" class="buttonGreen medium" ng-click="SaveProviderOtherProgram()">
                                             </span>
                                         </td>
                                     </tr>
@@ -479,11 +476,11 @@
                         </td>
                     </tr>
                 </table>
-                <div data-ag-grid="ProviderOtherProgramGrid" class="ag-blue" style="width: 410px; margin-left: 140px; border: 1px solid #ddd;"></div>
+                <div data-ag-grid="ProviderOtherProgramGrid" class="ag-blue othergrid"></div>
 
-                <table style="margin-top: 15px; float: left; width: 100%;">
+                <table class="tblApplReqForm5">
                     <tr>
-                        <td><b>17. Facility</b></td>
+                        <td class="about_te_pading"><b>17. Facility</b></td>
                     </tr>
                 </table>
 
@@ -560,12 +557,12 @@
                         </span>
                     </div>
                 </div>
-                <table style="margin-left:20px; margin-top: 15px; float: left; width: 100%;">
+                <table class="tblApplReqForm5">
                     <tbody>
                         <tr>
-                            <td>
+                            <td class="about_te_pading">
                                 <b>18. Advertising</b>
-                                <p style="margin-left:20px;">Please provide copies of <u>all</u> advertising.</p>
+                                <p class="about_text_pading">Please provide copies of <u>all</u> advertising.</p>
                             </td>
                         </tr>
                     </tbody>
@@ -623,7 +620,7 @@
                         </tr>
                     </tbody>
                 </table>*@
-            <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px; display: none;">
+            <div class="toolBar AfterApproved toolbar_instruct" style=" display: none;">
                 <span class="fltrt">
                     <input type="submit" name="btnSaveAboutAdvertising" value="Save" id="btnSaveAboutAdvertising" class="buttonGreen medium">
                     <a id="lblCancelAboutAdvertising" class="secondary medium bottom buttonalignment">Cancel</a>
@@ -631,7 +628,7 @@
             </div>
         </div>
 
-        <div class="toolBar" style="padding: 4px; margin: 4px;">
+        <div class="toolBar toolbar_instruct">
             <span class="fltrt">
                 <input type="button" ng-click="Save_Final()" name="btnLicInfoNext" value="Save &amp; Next" id="btnLicInfoNext" class="buttonGreen medium">
                 <a id="lnkCancelLiceInfo" class="secondary medium bottom buttonalignment">Cancel</a>

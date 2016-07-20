@@ -21,7 +21,6 @@ input[type=button], button, select, textarea
 {
     font-family: inherit;
     font-size: inherit;
-    line-height: inherit;
 }
 button, html input[type=button], input[type=reset], input[type=submit]
 {
