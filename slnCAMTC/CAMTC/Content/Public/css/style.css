@@ -1134,10 +1134,7 @@ Author: Amir
 }
 
 
-.width200
-{
-    width:200px !important;
-}
+.width200{    width:200px !important;}
 input[type="text"].error, input[type="password"].error, select.error{
 color: #bd2727;
 border-color: #EDCFCF !important;
