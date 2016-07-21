@@ -540,7 +540,7 @@
         var txtappagenDocNAme = ValidateTextbox('<span class="notok"></span> Please enter document name<br/>', '#fuEligibility2_upDoc_docName', $('#fuEligibility2_upDoc_docName').val());
         var txtAddExpirationDate = CheckDateFormat('<span class="notok"></span> Please enter date in correct format (mm/dd/yyyy)<br/>', '#txtAddExpirationDate', $('#txtAddExpirationDate').val());
         var ddlAppAgencSup = ValidateDropdown('-1', '<span class="notok"></span> Please select document type<br/>', '#fuEligibility2_upDoc_docType', $('#fuEligibility2_upDoc_docType').val());
-        error = ddlAddApprovalAgency + txtAddExpirationDate + txtappagenDocNAme + ddlAppAgencSup;
+        error = txtApprovalAgency + txtAddExpirationDate + txtappagenDocNAme + ddlAppAgencSup;
         $('.errorinfo').html(error);
         if (error != '') {
             return false;

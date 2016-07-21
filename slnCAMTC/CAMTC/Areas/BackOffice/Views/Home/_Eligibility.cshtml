@@ -37,7 +37,7 @@
                                 </span>
                             </td>
                             <td>
-                                <select ng-model="selectedItem" ng-change="update()" name="ApprovalAccreditingAgencyName" class="form-control width145p" data-ng-options="item as item.LookupDesc for item in Lookup">
+                                <select id="ContentPlaceHolder1_ucCertificationApplication1_ddlAddApprovalAgency" ng-model="selectedItem" ng-change="update()" name="ApprovalAccreditingAgencyName" class="form-control width145p" data-ng-options="item as item.LookupDesc for item in Lookup">
                                     <option value="">- Select -</option>
                                 </select>
                             </td>
@@ -72,58 +72,58 @@
                     <div id="fuEligibility1_upDoc" class="documentContainer" data-docid="1" data-doc-code="D1001" data-simple="false">
                     </div>
                     @*<table class="tblApplReqForm5 wthtop20" style="width: 100%;">
-                <tr>
-                    <td class="txtalgnrgt tdwidth1">
-                        <span class="input-label required">
-                            Document Name :
-                        </span>
-                    </td>
-                    <td>
-                        <input type="text" id="TextBox13" />
-                    </td>
-                    <td class="txtalgnrgt tdwidth2">
-                        <span class="input-label required">
-                            Document Type :
-                        </span>
-                    </td>
-                    <td>
-                        <select data-ng-model="ProviderInformationDetails.DocumentId" name="SchoolAddressState" class="form-control">
-                            <option selected="selected" value="-1">Select</option>
-                            <option value="1">Approval Letter</option>
-                            <option value="2">Certificate</option>
-                            <option value="3">Site Visit Report</option>
-                            <option value="4">Other (specify)</option>
-                        </select>
-                    </td>
-                </tr>
+                            <tr>
+                                <td class="txtalgnrgt tdwidth1">
+                                    <span class="input-label required">
+                                        Document Name :
+                                    </span>
+                                </td>
+                                <td>
+                                    <input type="text" id="TextBox13" />
+                                </td>
+                                <td class="txtalgnrgt tdwidth2">
+                                    <span class="input-label required">
+                                        Document Type :
+                                    </span>
+                                </td>
+                                <td>
+                                    <select data-ng-model="ProviderInformationDetails.DocumentId" name="SchoolAddressState" class="form-control">
+                                        <option selected="selected" value="-1">Select</option>
+                                        <option value="1">Approval Letter</option>
+                                        <option value="2">Certificate</option>
+                                        <option value="3">Site Visit Report</option>
+                                        <option value="4">Other (specify)</option>
+                                    </select>
+                                </td>
+                            </tr>
 
-                <tr id="tr1" ng-show="false">
-                    <td></td>
-                    <td></td>
-                    <td class="txtalgnrgt" style="width: 135px;">
-                        <span class="input-label">
-                            Other Document Type :
-                        </span>
-                    </td>
-                    <td>
-                        <input type="text" id="TextBox14" Width="167px" />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="txtalgnrgt">
-                        <span class="input-label required">
-                            Document :
-                        </span>
-                    </td>
-                    <td>
-                        <input type="file" />
-                    </td>
-                    <td colspan="3">
-                        <input type="button" id="Button4" Style="margin-left: 10px;" class="buttonGreen small" value="Upload" />
-                    </td>
-                    <td></td>
-                </tr>
-            </table>*@
+                            <tr id="tr1" ng-show="false">
+                                <td></td>
+                                <td></td>
+                                <td class="txtalgnrgt" style="width: 135px;">
+                                    <span class="input-label">
+                                        Other Document Type :
+                                    </span>
+                                </td>
+                                <td>
+                                    <input type="text" id="TextBox14" Width="167px" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="txtalgnrgt">
+                                    <span class="input-label required">
+                                        Document :
+                                    </span>
+                                </td>
+                                <td>
+                                    <input type="file" />
+                                </td>
+                                <td colspan="3">
+                                    <input type="button" id="Button4" Style="margin-left: 10px;" class="buttonGreen small" value="Upload" />
+                                </td>
+                                <td></td>
+                            </tr>
+                        </table>*@
 
                     <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
                         <span class="fltrt">
@@ -135,7 +135,7 @@
                     <div class="clear">
                     </div>
                 </div>
-                <div class="AddGrid" id="dvagency" >
+                <div class="AddGrid" id="dvagency">
                     <p class="addNewDiv">
                         <span>Add Additional Approval Agency</span>
                     </p>
@@ -147,7 +147,7 @@
                                 </span>
                             </td>
                             <td>
-                                <input type="text" id="manualid" data-ng-model="ApprovalAgency1.ApprovalAccreditingAgencyName" id="TextBox1" width="167px" />
+                                <input type="text" id="txtApprovalAgency" data-ng-model="ApprovalAgency1.ApprovalAccreditingAgencyName" id="TextBox1" width="167px" />
                             </td>
                             <td class="txtalgnrgt tdwidth2">
                                 <span class="input-label required">
@@ -165,7 +165,7 @@
                                 </span>
                             </td>
                             <td>
-                                <input type="text" data-ng-model="ApprovalAgency1.ExpirationDate" class="inputTextbox calenderSiteVisit" placeholder="MM/DD/YYYY" />
+                                <input type="text" id="txtAddExpirationDate" data-ng-model="ApprovalAgency1.ExpirationDate" class="inputTextbox calenderSiteVisit" placeholder="MM/DD/YYYY" />
                             </td>
                             <td></td>
                             <td></td>
@@ -181,58 +181,58 @@
                     <div id="fuEligibility2_upDoc" class="documentContainer" data-docid="2" data-doc-code="D1002" data-simple="false">
                     </div>
                     @*<table class="tblApplReqForm5 wthtop20" style="width: 100%;">
-                <tr>
-                    <td class="txtalgnrgt tdwidth1">
-                        <span class="input-label required">
-                            Document Name :
-                        </span>
-                    </td>
-                    <td>
-                        <input type="text" id="TextBox13" />
-                    </td>
-                    <td class="txtalgnrgt tdwidth2">
-                        <span class="input-label required">
-                            Document Type :
-                        </span>
-                    </td>
-                    <td>
-                        <select data-ng-model="ProviderInformationDetails.DocumentId" name="SchoolAddressState" class="form-control">
-                            <option selected="selected" value="-1">Select</option>
-                            <option value="1">Approval Letter</option>
-                            <option value="2">Certificate</option>
-                            <option value="3">Site Visit Report</option>
-                            <option value="4">Other (specify)</option>
-                        </select>
-                    </td>
-                </tr>
+                            <tr>
+                                <td class="txtalgnrgt tdwidth1">
+                                    <span class="input-label required">
+                                        Document Name :
+                                    </span>
+                                </td>
+                                <td>
+                                    <input type="text" id="TextBox13" />
+                                </td>
+                                <td class="txtalgnrgt tdwidth2">
+                                    <span class="input-label required">
+                                        Document Type :
+                                    </span>
+                                </td>
+                                <td>
+                                    <select data-ng-model="ProviderInformationDetails.DocumentId" name="SchoolAddressState" class="form-control">
+                                        <option selected="selected" value="-1">Select</option>
+                                        <option value="1">Approval Letter</option>
+                                        <option value="2">Certificate</option>
+                                        <option value="3">Site Visit Report</option>
+                                        <option value="4">Other (specify)</option>
+                                    </select>
+                                </td>
+                            </tr>
 
-                <tr id="tr1" ng-show="false">
-                    <td></td>
-                    <td></td>
-                    <td class="txtalgnrgt" style="width: 135px;">
-                        <span class="input-label">
-                            Other Document Type :
-                        </span>
-                    </td>
-                    <td>
-                        <input type="text" id="TextBox14" Width="167px" />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="txtalgnrgt">
-                        <span class="input-label required">
-                            Document :
-                        </span>
-                    </td>
-                    <td>
-                        <input type="file" />
-                    </td>
-                    <td colspan="3">
-                        <input type="button" id="Button4" Style="margin-left: 10px;" class="buttonGreen small" value="Upload" />
-                    </td>
-                    <td></td>
-                </tr>
-            </table>*@
+                            <tr id="tr1" ng-show="false">
+                                <td></td>
+                                <td></td>
+                                <td class="txtalgnrgt" style="width: 135px;">
+                                    <span class="input-label">
+                                        Other Document Type :
+                                    </span>
+                                </td>
+                                <td>
+                                    <input type="text" id="TextBox14" Width="167px" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="txtalgnrgt">
+                                    <span class="input-label required">
+                                        Document :
+                                    </span>
+                                </td>
+                                <td>
+                                    <input type="file" />
+                                </td>
+                                <td colspan="3">
+                                    <input type="button" id="Button4" Style="margin-left: 10px;" class="buttonGreen small" value="Upload" />
+                                </td>
+                                <td></td>
+                            </tr>
+                        </table>*@
                     <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
                         <span class="fltrt">
                             <input type="button" id="Button6" class="buttonGreen medium" ng-click="Save_ApprovalAgency1()"
@@ -256,9 +256,9 @@
             </div>
 
             <div class="chkdesign">
-            <input type="checkbox" ng-model="Provider.IsChecked4" />
-            <span data-ng-bind="SchoolEligibility4"></span>
-                </div>
+                <input type="checkbox" ng-model="Provider.IsChecked4" />
+                <span data-ng-bind="SchoolEligibility4"></span>
+            </div>
 
             <span class="buttomboldtexteligble" data-ng-bind="SchoolEligibility5"></span>
 
@@ -309,9 +309,9 @@
             <div data-ag-grid="MassageProgramGrid" class="ag-blue grdi_design_style"></div>
         </fieldset>
 
-        
-        
-        
+
+
+
     </div>
     <div class="toolBar AfterApproved toolbar_instruct">
         <span class="fltrt">
