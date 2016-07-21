@@ -2,7 +2,7 @@
     $scope.ProviderOtherProgramId = 0;
     $scope.ProgramOtherName = '';
     $scope.hasShow = 'false';
-
+    $('#error_validation').hide();
     $scope.ProviderGraduatesNumberId1 = 0;
     $scope.ProviderGraduatesNumberId2 = 0;
     $scope.ProviderGraduatesNumberId3 = 0;
@@ -37,7 +37,7 @@
     }
 
     $scope.Save_Final = function () {
-
+        ShowLoader();
         var schooldata = {};
         schooldata.ProviderId = $scope.ProviderId;
         schooldata.ApplicationId = $scope.applicationid;
@@ -169,7 +169,7 @@
 
 
         AboutFactory.SaveProviderGraduatesNumber(key, schooldata7).success(function (data) {
-
+            
         }).error(function (error) {
             $scope.Error = error;
         });
@@ -208,7 +208,11 @@
 
 
         AboutFactory.SaveProviderBusinessType(key, selectedBusTypes).success(function (data) {
-            alert(data);
+            
+            HideLoader();
+            mySharedService.prepForBroadcastTabClick('Transcript');
+            
+            
         }).error(function (error) {
             $scope.Error = error;
         });
@@ -292,7 +296,7 @@
 
     //Adding SaveProviderOtherProgram 
     $scope.SaveProviderOtherProgram = function () {
-        //  ShowLoader();
+        ShowLoader();
         $scope.ProviderOtherProgramList = {};
         $scope.ProviderOtherProgramList.IsActive = 1;
         $scope.ProviderOtherProgramList.IsDeleted = 0;
@@ -301,12 +305,18 @@
 
         $scope.ProviderOtherProgramList.ProviderOtherProgramId = $scope.ProviderOtherProgramId;
         $scope.ProviderOtherProgramList.ProgramOtherName = $scope.ProgramOtherName;
-        AboutFactory.SaveProviderOtherProgram(key, $scope.ProviderOtherProgramList).success(function (data) {
-            $scope.ProgramOtherName = '';
-            $scope.ProviderOtherProgramGrid.api.setRowData(data.ProviderOtherProgramList);
-        }).error(function (error) {
-            $scope.Error = error;
-        });
+        if ($scope.ProgramOtherName.trim() != '') {
+            AboutFactory.SaveProviderOtherProgram(key, $scope.ProviderOtherProgramList).success(function (data) {
+                HideLoader();
+                $scope.ProgramOtherName = '';
+                $scope.ProviderOtherProgramGrid.api.setRowData(data.ProviderOtherProgramList);
+            }).error(function (error) {
+                $scope.Error = error;
+            });
+        }
+        else
+            HideLoader();
+
     }
     //Adding SaveProviderOtherProgram 
 
@@ -419,7 +429,7 @@
 
 
         AboutFactory.GetAllProviderRelatedSchools(key, $scope.ProviderId, $scope.applicationid).success(function (data) {
-            
+
             $scope.ProviderRelatedProgramGrid.api.setRowData(data.ProviderRelatedSchoolsList);
         }).error(function (error) {
             $scope.Error = error;
@@ -617,34 +627,183 @@
 
     //Adding SaveProviderOtherProgram 
     $scope.SaveRelatedAddress = function () {
-        //  ShowLoader();
+        ShowLoader();
+        if (SaveRelatedSchool()) {
+            $scope.RelatedSchool.IsActive = 1;
+            $scope.RelatedSchool.IsDeleted = 0;
+            $scope.RelatedSchool.ProviderId = $scope.ProviderId;
+            $scope.RelatedSchool.ApplicationId = $scope.applicationid;
+            $scope.RelatedSchool.ApplicationId = $scope.applicationid;
+            $scope.RelatedSchool.CountryId = null;
+            $scope.RelatedSchool.CountyId = null;
 
-        $scope.RelatedSchool.IsActive = 1;
-        $scope.RelatedSchool.IsDeleted = 0;
-        $scope.RelatedSchool.ProviderId = $scope.ProviderId;
-        $scope.RelatedSchool.ApplicationId = $scope.applicationid;
-        $scope.RelatedSchool.ApplicationId = $scope.applicationid;
-        $scope.RelatedSchool.CountryId = null;
-        $scope.RelatedSchool.CountyId = null;
+            $scope.RelatedSchool.ProviderId = $scope.ProviderId;
+            $scope.RelatedSchool.ApplicationId = $scope.applicationid;
+            $scope.RelatedSchool.ProviderRelatedSchoolId = $scope.ProviderRelatedSchoolId;
+            $scope.RelatedSchool.EmailId = $scope.EmailId,
+            $scope.RelatedSchool.WebsiteId = $scope.WebsiteId;
+            $scope.RelatedSchool.PhoneId = $scope.PhoneId;
+            $scope.RelatedSchool.AddressId = $scope.AddressId;
+            $scope.RelatedSchool.ProviderNameId = $scope.ProviderNameId;
+            $scope.RelatedSchool.AddressId = $scope.AddressId;
 
-        $scope.RelatedSchool.ProviderId = $scope.ProviderId;
-        $scope.RelatedSchool.ApplicationId = $scope.applicationid;
-        $scope.RelatedSchool.ProviderRelatedSchoolId = $scope.ProviderRelatedSchoolId;
-        $scope.RelatedSchool.EmailId = $scope.EmailId,
-        $scope.RelatedSchool.WebsiteId = $scope.WebsiteId;
-        $scope.RelatedSchool.PhoneId = $scope.PhoneId;
-        $scope.RelatedSchool.AddressId = $scope.AddressId;
-        $scope.RelatedSchool.ProviderNameId = $scope.ProviderNameId;
-        $scope.RelatedSchool.AddressId = $scope.AddressId;
-
-        AboutFactory.SaveProviderRelatedSchools(key, $scope.RelatedSchool).success(function (data) {
-            $scope.ProviderRelatedProgramGrid.api.setRowData(data.ProviderRelatedSchoolsList);
-
-        }).error(function (error) {
-            $scope.Error = error;
-        });
+            AboutFactory.SaveProviderRelatedSchools(key, $scope.RelatedSchool).success(function (data) {
+                $scope.ProviderRelatedProgramGrid.api.setRowData(data.ProviderRelatedSchoolsList);
+                HideLoader();
+            }).error(function (error) {
+                $scope.Error = error;
+            });
+        }
+        else {
+            HideLoader();
+        }
     }
     //Adding SaveProviderOtherProgram 
+
+
+    function btnLicInfoNext() {
+        $('#error_validation').text('');
+        var error = '';
+        var txtGradYear = ValidateTextbox('<span class="notok"></span>   Please enter estimated graduates for 2016 calendar year<br/>', '#txtGradYear', $('#txtGradYear').val());
+        var txtGradYear_1 = ValidateTextbox('<span class="notok"></span>  Please enter graduates for 2015 calendar year<br/>', '#txtGradYear1', $('#txtGradYear1').val());
+        var txtGradYear_2 = ValidateTextbox('<span class="notok"></span>   Please enter graduates for 2014 calendar year<br/>', '#txtGradYear2', $('#txtGradYear2').val());
+        var txtGradYear_3 = ValidateTextbox('<span class="notok"></span>   Please enter graduates for 2013 calendar year<br/>', '#txtGradYear3', $('#txtGradYear3').val());
+        var txtGradYear_4 = ValidateTextbox('<span class="notok"></span>   Please enter graduates for 2012 calendar year<br/>', '#txtGradYear4', $('#txtGradYear4').val());
+        var txtGradYear_5 = ValidateTextbox('<span class="notok"></span>   Please enter graduates for 2011 calendar year<br/>', '#txtGradYear5', $('#txtGradYear5').val());
+        var txtGradYear_6 = ValidateTextbox('<span class="notok"></span>  Please enter graduates for 2010 calendar year<br/>', '#txtGradYear6', $('#txtGradYear6').val());
+        var txtGradYear_7 = ValidateTextbox('<span class="notok"></span>   Please enter graduates for 2009 calendar year<br/>', '#txtGradYear7', $('#txtGradYear7').val());
+        var txtDocNameAboutOwnership = ValidateTextbox('<span class="notok"></span>  Please enter proof of ownership document name<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameAboutOwnership', $('#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameAboutOwnership').val());
+        //var TextBox141 = ValidateTextbox('<span class="notok"></span>  Please enter proof of business operations document name<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_TextBox141', $('#ContentPlaceHolder1_ucCertificationApplication1_TextBox141').val());
+        //var txtDocNameClin = ValidateTextbox('<span class="notok"></span>   Please enter facility document name<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameClin', $('#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameClin').val());
+        //var txtDocNameAboutAdvertising = ValidateTextbox('<span class="notok"></span>   Please enter advertising document name<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameAboutAdvertising', $('#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameAboutAdvertising').val());
+
+        //var ddlOwnAboutAdvertising = ValidateDropdown('-1', '<span class="notok"></span>  Please select advertising document type<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutAdvertising', $('#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutAdvertising').val());
+        //var ddlOtherClin = ValidateDropdown('-1', '<span class="notok"></span>   Please select facility document type<br/> ', '#ContentPlaceHolder1_ucCertificationApplication1_ddlOtherClin', $('#ContentPlaceHolder1_ucCertificationApplication1_ddlOtherClin').val());
+        //var ddlOwnAboutBusinessDoc = ValidateDropdown('-1', '<span class="notok"></span>   Please select proof of business operations document type<br/> ', '#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutBusinessDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutBusinessDoc').val());
+        //var DropDownList6 = ValidateDropdown('-1', '<span class="notok"></span>   Please select proof of business operations document type<br/> ', '#ContentPlaceHolder1_ucCertificationApplication1_DropDownList6', $('#ContentPlaceHolder1_ucCertificationApplication1_DropDownList6').val());
+        //var ddlOwnAboutOwnership = ValidateDropdown('-1', '<span class="notok"></span>   Please select proof of ownership document type<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutOwnership', $('#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutOwnership').val());
+        rr
+        //var fluLocalBusiness = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Local Business License.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool4_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool4_hfStatus').val());
+        //var fluOrgChart = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Local Business License.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool6_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool6_hfStatus').val());
+        //var fluFloorPlan = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Floor Plan (including approximate square footage).<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool8_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool8_hfStatus').val());
+        //var fluExteriorSign = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Photograph(s) of Exterior Signage.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool10_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool10_hfStatus').val());
+        //var fluBuildExterior = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Photograph(s) of Buiding exterior.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool11_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool11_hfStatus').val());
+        //var fluMassageClassRoom = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Photograph(s) of Massage Classroom(s).<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool12_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool12_hfStatus').val());
+        //var fluMassageClinic = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Photograph(s) of Massage Clinic(s).<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool13_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool13_hfStatus').val());
+        error = txtGradYear + txtGradYear_1 + txtGradYear_2 + txtGradYear_3 + txtGradYear_4 + txtGradYear_5 + txtGradYear_6 + txtGradYear_7;
+        //error = txtGradYear + txtGradYear_1 + txtGradYear_2 + txtGradYear_3 + txtGradYear_4 + txtGradYear_5 + txtGradYear_6 + txtGradYear_7 + txtDocNameAboutOwnership + ddlOwnAboutOwnership + TextBox141 + DropDownList6 + fluLocalBusiness + fluOrgChart + fluFloorPlan + fluExteriorSign + fluBuildExterior + fluMassageClassRoom + fluMassageClinic + txtDocNameClin + ddlOtherClin + ddlOwnAboutBusinessDoc + txtDocNameAboutAdvertising + ddlOwnAboutAdvertising;
+        //error = txtGradYear + txtGradYear_1 + txtGradYear_2 + txtGradYear_3 + txtGradYear_4 + txtGradYear_5 + txtGradYear_6 + txtGradYear_7 + fluLocalBusiness + fluOrgChart + fluFloorPlan + fluExteriorSign + fluBuildExterior + fluMassageClassRoom + fluMassageClinic;
+        if (error != '') {
+            $('#error_validation').show();
+            $(document).scrollTop(0);
+            $('#error_validation').html(error);
+            return false;
+        }
+        else {
+            return true;
+        }
+
+    }
+
+    function SaveAboutOwnership() {
+        $('#error_validation').text('');
+        var error = '';
+        var txtDocNameAboutOwnership = ValidateTextbox('<span class="notok"></span> Please enter proof of ownership document name<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameAboutOwnership', $('#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameAboutOwnership').val());
+        var ddlOwnAboutOwnership = ValidateDropdown('-1', '<span class="notok"></span> Please select proof of ownership document type<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutOwnership', $('#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutOwnership').val());
+        error = txtDocNameAboutOwnership + ddlOwnAboutOwnership;
+        if (error != '') {
+            $('#error_validation').show();
+            $('#ContentPlaceHolder1_ucCertificationApplication1_btnSaveAboutOwnership').attr('type', 'button');
+            $(document).scrollTop(0);
+        }
+        else {
+            $('#error_validation').hide();
+            $('#ContentPlaceHolder1_ucCertificationApplication1_btnSaveAboutOwnership').attr('type', 'submit');
+        }
+        $('#error_validation').html(error);
+    }
+
+    function SaveAboutBusinessDoc() {
+        $('#error_validation').text('');
+        var error = '';
+        var TextBox141 = ValidateTextbox('<span class="notok"></span>Please enter proof of business operations document name<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_TextBox141', $('#ContentPlaceHolder1_ucCertificationApplication1_TextBox141').val());
+        var DropDownList6 = ValidateDropdown('-1', '<span class="notok"></span> Please select proof of business operations document type<br/> ', '#ContentPlaceHolder1_ucCertificationApplication1_DropDownList6', $('#ContentPlaceHolder1_ucCertificationApplication1_DropDownList6').val());
+        var ddlOwnAboutBusinessDoc = ValidateDropdown('-1', '<span class="notok"></span> Please select proof of business operations document type<br/> ', '#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutBusinessDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutBusinessDoc').val());
+        error = ddlOwnAboutBusinessDoc + TextBox141 + DropDownList6;
+        if (error != '') {
+            $('#error_validation').show();
+            $('#ContentPlaceHolder1_ucCertificationApplication1_btnSaveAboutBusinessDoc').attr('type', 'button');
+            $(document).scrollTop(0);
+        }
+        else {
+            $('#error_validation').hide();
+            $('#ContentPlaceHolder1_ucCertificationApplication1_btnSaveAboutBusinessDoc').attr('type', 'submit');
+        }
+        $('#error_validation').html(error);
+    }
+
+    function SaveAboutFacility() {
+        $('#error_validation').text('');
+        var error = '';
+        var txtDocNameClin = ValidateTextbox('<span class="notok"></span> Please enter facility document name<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameClin', $('#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameClin').val());
+        var ddlOtherClin = ValidateDropdown('-1', '<span class="notok"></span> Please select facility document type<br/> ', '#ContentPlaceHolder1_ucCertificationApplication1_ddlOtherClin', $('#ContentPlaceHolder1_ucCertificationApplication1_ddlOtherClin').val());
+        error = txtDocNameClin + ddlOtherClin;
+        if (error != '') {
+            $('#error_validation').show();
+            $('#ContentPlaceHolder1_ucCertificationApplication1_btnSaveAboutFacility').attr('type', 'button');
+            $(document).scrollTop(0);
+        }
+        else {
+            $('#error_validation').hide();
+            $('#ContentPlaceHolder1_ucCertificationApplication1_btnSaveAboutFacility').attr('type', 'submit');
+        }
+        $('#error_validation').html(error);
+    }
+
+    function SaveAboutAdvertising() {
+        $('#error_validation').text('');
+        var error = '';
+        var txtDocNameAboutAdvertising = ValidateTextbox('<span class="notok"></span> Please enter advertising document name<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameAboutAdvertising', $('#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameAboutAdvertising').val());
+        var ddlOwnAboutAdvertising = ValidateDropdown('-1', '<span class="notok"></span>Please select advertising document type<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutAdvertising', $('#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutAdvertising').val());
+        error = txtDocNameAboutAdvertising + ddlOwnAboutAdvertising;
+        if (error != '') {
+            $('#error_validation').show();
+            $('#ContentPlaceHolder1_ucCertificationApplication1_btnSaveAboutAdvertising').attr('type', 'button');
+            $(document).scrollTop(0);
+        }
+        else {
+            $('#error_validation').hide();
+            $('#ContentPlaceHolder1_ucCertificationApplication1_btnSaveAboutAdvertising').attr('type', 'submit');
+        }
+        $('#error_validation').html(error);
+    }
+
+    function SaveRelatedSchool() {
+        $('#error_validation').text('');
+        var error = '';
+        var TextBox2 = ValidateTextbox('<span class="notok"></span> Please enter related school name <br/>', '#schoolname', $('#schoolname').val());
+        var TextBox65 = ValidateTextbox('<span class="notok"></span> Please enter related school primary contact first name<br/>', '#first', $('#first').val());
+        var TextBox66 = ValidateTextbox('<span class="notok"></span>Please enter related school primary contact last name <br/>', '#last', $('#last').val());
+        var TextBox6 = ValidateTextbox('<span class="notok"></span>Please enter related school address<br/>', '#address1', $('#address1').val());
+        var txtSchoolCity = ValidateTextbox('<span class="notok"></span> Please enter related school city<br/>', '#city', $('#city').val());
+        var DropDownList1 = ValidateDropdown('-1', '<span class="notok"></span> Please select related school state <br/>', '#state', $('#state').val());
+        var TextBox9 = ValidateTextbox('<span class="notok"></span> Please enter related school zip<br/>', '#zip', $('#zip').val());
+        var TextBox10 = ValidateTextbox('<span class="notok"></span>Please enter related school phone <br/>', '#phone', $('#phone').val());
+        var TextBox11 = CheckWebsite('<span class="notok"></span>Please enter website in correct format (www.websitename.com)<br/>', '#rwebsite', $('#rwebsite').val());
+        var TextBox12 = ValidateEmail('<span class="notok"></span> Please enter email in correct format (joe@email.com) <br/>', '<span class="notok"></span>Please enter related school email<br/>', '#remail', $('#remail').val());
+        var txtApproxDateAssociate = ValidateDate('<span class="notok"></span> Future dates are not accepted. <br/>', '<span class="notok"></span> Please enter date in correct format (mm/dd/yyyy) <br/>', '<span class="notok"></span> Please enter related school approximate date associated<br/>', '#rdate', $('#rdate').val());
+        error = TextBox2 + TextBox65 + TextBox66 + TextBox6 + txtSchoolCity + DropDownList1 + TextBox9 + TextBox10 + TextBox11 + TextBox12 + txtApproxDateAssociate;
+        if (error != '') {
+            $('#error_validation').show();
+            $(document).scrollTop(0);
+            return false;
+        }
+        else {
+            $('#error_validation').hide();
+            return true;
+        }
+        $('#error_validation').html(error);
+    }
 
 
 

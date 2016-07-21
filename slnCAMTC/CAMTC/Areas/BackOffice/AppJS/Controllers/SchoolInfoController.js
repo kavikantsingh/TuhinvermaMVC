@@ -1,11 +1,14 @@
-﻿LAPP.controller('SchoolController', ['$scope', '$rootScope', 'mySharedService', 'SchoolInfoFactory', function ($scope, $rootScope, mySharedService, SchoolInfoFactory) {
+﻿LAPP.controller('SchoolController', function ($scope, $rootScope, mySharedService, SchoolInfoFactory) {
+
     if (mySharedService.ApplicationName == 'BackOffice') {
         $scope.IsSchoolApplication = false;
     }
     else {
+
         $scope.IsSchoolApplication = true;
     }
 
+    $('#error_validation').hide();
     $scope.hasShow = 'false';
     var Provider = { ProviderId: '-1' };
     $('#divAddSchoolInfoPrevious').hide();
@@ -84,20 +87,27 @@
         $scope.PrevAdd.IsActive = 1;
         $scope.PrevAdd.IsDeleted = 0;
         $scope.PrevAdd.AddressId = $scope.PreviousAddressId;
-        SchoolInfoFactory.AddPreviousAddress($scope.PrevAdd, key).success(function (data) {
-            $scope.clearPreviousAddress();
-            $scope.PrevAddrIfanyGrid.api.setRowData(data.ListOfPreviousAddress);
+        if ($scope.PrevAdd.StreetLine1 != '' && $scope.PrevAdd.City != '' && $scope.PrevAdd.StateCode != '' && $scope.PrevAdd.StateCode != '0' && $scope.PrevAdd.Zip != '') {
+            SchoolInfoFactory.AddPreviousAddress($scope.PrevAdd, key).success(function (data) {
+                $scope.clearPreviousAddress();
+                $scope.PrevAddrIfanyGrid.api.setRowData(data.ListOfPreviousAddress);
+                HideLoader();
+            }).error(function (error) {
+                $scope.Error = error;
+            });
+        }
+        else
             HideLoader();
-        }).error(function (error) {
-            $scope.Error = error;
-        });
     }
+
     //Adding PRevious school Information with address 4
 
     //Adding PRevious school Information with address 4
     $scope.DeleteaddressRequestFromSchoolInformationTab = function (AddressId, AddressTypeId) {
         ShowLoader();
-        var addresss = { 'AddressId': AddressId, 'AddressTypeId': AddressTypeId, 'ProviderId': $scope.ProviderId };
+        var addresss = {
+            'AddressId': AddressId, 'AddressTypeId': AddressTypeId, 'ProviderId': $scope.ProviderId
+        };
 
         SchoolInfoFactory.DeleteaddressRequestFromSchoolInformationTab(addresss, key).success(function (data) {
             $scope.clearPreviousAddress();
@@ -115,14 +125,18 @@
         $scope.SateliteAdd.IsActive = 1;
         $scope.SateliteAdd.IsDeleted = 0;
         $scope.SateliteAdd.AddressId = $scope.SateliteAddressId;
-        SchoolInfoFactory.AddPreviousAddress($scope.SateliteAdd, key).success(function (data) {
-
-            $scope.clearsateliteAddress();
-            $scope.SateliteAddrIfanyGrid.api.setRowData(data.ListOfPreviousAddress);
+        if ($scope.SateliteAdd.StreetLine1 != '' && $scope.SateliteAdd.City != '' && $scope.SateliteAdd.StateCode != '' && $scope.SateliteAdd.StateCode != '0' && $scope.SateliteAdd.Zip != '') {
+            SchoolInfoFactory.AddPreviousAddress($scope.SateliteAdd, key).success(function (data) {
+                $scope.clearsateliteAddress();
+                $scope.SateliteAddrIfanyGrid.api.setRowData(data.ListOfPreviousAddress);
+                HideLoader();
+            }).error(function (error) {
+                $scope.Error = error;
+            });
+        }
+        else {
             HideLoader();
-        }).error(function (error) {
-            $scope.Error = error;
-        });
+        }
     }
     //Adding Satellite school Information with address 4
 
@@ -218,14 +232,22 @@
     //Previous school name only
     $scope.PrevAddrGrid = {
         columnDefs: [
-            { headerName: "", hide: true, width: 250, field: "ProviderNameId", },
-            { headerName: "Previous School Name", width: 250, field: "ProviderName", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
+        {
+            headerName: "", hide: true, width: 250, field: "ProviderNameId",
+        },
+        {
+            headerName: "Previous School Name", width: 250, field: "ProviderName", cellStyle: {
+                'text-align': 'center', 'display': 'flex', 'align-items': 'center'
+            }
+        },
 
-            {
-                headerName: "Action", width: 130, cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, field: "IsActive", cellRenderer: function (params) {
-                    return "<a data-ng-click=\"showUpdatevalue('" + params.data.ProviderNameId + "','" + params.data.ProviderName + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a><span ng-show=\"!IsReadOnly\"> |</span><a data-ng-click=\"DeletePreviousSchoolInSchoolInformation('" + params.data.ProviderNameId + "')\" href=\"javascript:;\"> <img src='\\Content/Public/images/delete.png' /></a>";
-                }
-            },
+        {
+            headerName: "Action", width: 130, cellStyle: {
+                'text-align': 'center', 'display': 'flex', 'align-items': 'center'
+            }, field: "IsActive", cellRenderer: function (params) {
+                return "<a data-ng-click=\"showUpdatevalue('" + params.data.ProviderNameId + "','" + params.data.ProviderName + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a><span ng-show=\"!IsReadOnly\"> |</span><a data-ng-click=\"DeletePreviousSchoolInSchoolInformation('" + params.data.ProviderNameId + "')\" href=\"javascript:;\"> <img src='\\Content/Public/images/delete.png' /></a>";
+            }
+        },
         ],
         angularCompileRows: true,
         rowData: [],
@@ -241,17 +263,39 @@
     //Previous school address only
     $scope.PrevAddrIfanyGrid = {
         columnDefs: [
-            { headerName: "", hide: true, width: 250, field: "AddressId", },
-            { headerName: "", hide: true, width: 250, field: "StreetLine2", },
-            { headerName: "Street", width: 180, field: "StreetLine1", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-            { headerName: "City", width: 130, field: "City", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-            { headerName: "State", width: 125, field: "StateCode", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-            { headerName: "Zip", width: 125, field: "Zip", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-             {
-                 headerName: "Action", width: 80, cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, field: "IsActive", cellRenderer: function (params) {
-                     return "<a data-ng-click=\"showUpdatevaluePreviousAddress('" + params.data.AddressId + "','" + params.data.StreetLine1 + "','" + params.data.StreetLine2 + "','" + params.data.City + "','" + params.data.StateCode + "','" + params.data.Zip + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a> |</span><a data-ng-click=\"DeleteaddressRequestFromSchoolInformationTab('" + params.data.AddressId + "',3)\" href=\"javascript:;\"> <img src='\\Content/Public/images/delete.png' /></a>";
-                 }
-             },
+        {
+            headerName: "", hide: true, width: 250, field: "AddressId",
+        },
+        {
+            headerName: "", hide: true, width: 250, field: "StreetLine2",
+        },
+        {
+            headerName: "Street", width: 180, field: "StreetLine1", cellStyle: {
+                'text-align': 'center', 'display': 'flex', 'align-items': 'center'
+            }
+        },
+        {
+            headerName: "City", width: 130, field: "City", cellStyle: {
+                'text-align': 'center', 'display': 'flex', 'align-items': 'center'
+            }
+        },
+        {
+            headerName: "State", width: 125, field: "StateCode", cellStyle: {
+                'text-align': 'center', 'display': 'flex', 'align-items': 'center'
+            }
+        },
+        {
+            headerName: "Zip", width: 125, field: "Zip", cellStyle: {
+                'text-align': 'center', 'display': 'flex', 'align-items': 'center'
+            }
+        },
+        {
+            headerName: "Action", width: 80, cellStyle: {
+                'text-align': 'center', 'display': 'flex', 'align-items': 'center'
+            }, field: "IsActive", cellRenderer: function (params) {
+                return "<a data-ng-click=\"showUpdatevaluePreviousAddress('" + params.data.AddressId + "','" + params.data.StreetLine1 + "','" + params.data.StreetLine2 + "','" + params.data.City + "','" + params.data.StateCode + "','" + params.data.Zip + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a> |</span><a data-ng-click=\"DeleteaddressRequestFromSchoolInformationTab('" + params.data.AddressId + "',3)\" href=\"javascript:;\"> <img src='\\Content/Public/images/delete.png' /></a>";
+            }
+        },
         ],
         angularCompileRows: true,
         rowData: [],
@@ -269,16 +313,36 @@
     //Satellite address only
     $scope.SateliteAddrIfanyGrid = {
         columnDefs: [
-            { headerName: "", hide: true, width: 250, field: "AddressId", },
-           { headerName: "Street", width: 180, field: "StreetLine1", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-            { headerName: "City", width: 130, field: "City", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-            { headerName: "State", width: 125, field: "StateCode", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-            { headerName: "Zip", width: 125, field: "Zip", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-              {
-                  headerName: "Action", width: 80, cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, field: "IsActive", cellRenderer: function (params) {
-                      return "<a data-ng-click=\"showUpdatevalueSateliteAddress('" + params.data.AddressId + "','" + params.data.StreetLine1 + "','" + params.data.StreetLine2 + "','" + params.data.City + "','" + params.data.StateCode + "','" + params.data.Zip + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a> | </span><a data-ng-click=\"DeleteaddressRequestFromSchoolInformationTab('" + params.data.AddressId + "',7)\" href=\"javascript:;\"> <img src='\\Content/Public/images/delete.png' /></a>";
-                  }
-              },
+        {
+            headerName: "", hide: true, width: 250, field: "AddressId",
+        },
+        {
+            headerName: "Street", width: 180, field: "StreetLine1", cellStyle: {
+                'text-align': 'center', 'display': 'flex', 'align-items': 'center'
+            }
+        },
+        {
+            headerName: "City", width: 130, field: "City", cellStyle: {
+                'text-align': 'center', 'display': 'flex', 'align-items': 'center'
+            }
+        },
+        {
+            headerName: "State", width: 125, field: "StateCode", cellStyle: {
+                'text-align': 'center', 'display': 'flex', 'align-items': 'center'
+            }
+        },
+        {
+            headerName: "Zip", width: 125, field: "Zip", cellStyle: {
+                'text-align': 'center', 'display': 'flex', 'align-items': 'center'
+            }
+        },
+        {
+            headerName: "Action", width: 80, cellStyle: {
+                'text-align': 'center', 'display': 'flex', 'align-items': 'center'
+            }, field: "IsActive", cellRenderer: function (params) {
+                return "<a data-ng-click=\"showUpdatevalueSateliteAddress('" + params.data.AddressId + "','" + params.data.StreetLine1 + "','" + params.data.StreetLine2 + "','" + params.data.City + "','" + params.data.StateCode + "','" + params.data.Zip + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a> | </span><a data-ng-click=\"DeleteaddressRequestFromSchoolInformationTab('" + params.data.AddressId + "',7)\" href=\"javascript:;\"> <img src='\\Content/Public/images/delete.png' /></a>";
+            }
+        },
         ],
         angularCompileRows: true,
         rowData: [],
@@ -295,18 +359,40 @@
 
     $scope.MBLExGrid = {
         columnDefs: [
-        { headerName: "", hide: true, width: 250, field: "ProviderMBLExId", },
-        { headerName: "", hide: true, width: 250, field: "ProviderMBLExIdGuid", },
-        { headerName: "MBLEx Passing Rates", width: 180, field: "PassingRates", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-            { headerName: "Year", width: 125, field: "PassingYear", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-            { headerName: "Half", width: 125, field: "PassingHalf", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-            { headerName: "Entered", width: 175, field: "DateEntered", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-            {
-                headerName: "Action", width: 80, cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, field: "IsActive", cellRenderer: function (params) {
+    {
+        headerName: "", hide: true, width: 250, field: "ProviderMBLExId",
+    },
+    {
+        headerName: "", hide: true, width: 250, field: "ProviderMBLExIdGuid",
+    },
+    {
+        headerName: "MBLEx Passing Rates", width: 180, field: "PassingRates", cellStyle: {
+            'text-align': 'center', 'display': 'flex', 'align-items': 'center'
+        }
+    },
+    {
+        headerName: "Year", width: 125, field: "PassingYear", cellStyle: {
+            'text-align': 'center', 'display': 'flex', 'align-items': 'center'
+        }
+    },
+    {
+        headerName: "Half", width: 125, field: "PassingHalf", cellStyle: {
+            'text-align': 'center', 'display': 'flex', 'align-items': 'center'
+        }
+    },
+    {
+        headerName: "Entered", width: 175, field: "DateEntered", cellStyle: {
+            'text-align': 'center', 'display': 'flex', 'align-items': 'center'
+        }
+    },
+    {
+        headerName: "Action", width: 80, cellStyle: {
+            'text-align': 'center', 'display': 'flex', 'align-items': 'center'
+        }, field: "IsActive", cellRenderer: function (params) {
 
-                    return "<a data-ng-click=\"showUpdatevalueMblex('" + params.data.ProviderMBLExId + "','" + params.data.PassingRates + "','" + params.data.PassingYear + "','" + params.data.PassingHalf + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a><span ng-show=\"!IsReadOnly\"> |</span><a data-ng-click=\"EditUser('" + params.data.userId + "')\" href=\"javascript:;\"> <img src='\\Content/Public/images/delete.png' /></a>";
-                }
-            },
+            return "<a data-ng-click=\"showUpdatevalueMblex('" + params.data.ProviderMBLExId + "','" + params.data.PassingRates + "','" + params.data.PassingYear + "','" + params.data.PassingHalf + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a><span ng-show=\"!IsReadOnly\"> |</span><a data-ng-click=\"EditUser('" + params.data.userId + "')\" href=\"javascript:;\"> <img src='\\Content/Public/images/delete.png' /></a>";
+        }
+    },
         ],
         angularCompileRows: true,
         rowData: [],
@@ -323,16 +409,38 @@
 
     $scope.SiteDetailsGrid = {
         columnDefs: [
-            { headerName: "Site Visit Date", width: 125, field: "Street", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-            { headerName: "Type of Site Visit ", width: 125, field: "City", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-            { headerName: "Site Inspector", width: 125, field: "State", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-            { headerName: "Date Completed", width: 125, field: "Zip", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-            { headerName: "Supporting Docs", width: 125, field: "Zip", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-            {
-                headerName: "Action", width: 80, cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, field: "IsActive", cellRenderer: function (params) {
-                    return "<a data-ng-click=\"GetUser('" + params.data.userId + "')\" href=\"javascript:;\">View</a> |  <a data-ng-click=\"EditUser('" + params.data.userId + "')\" href=\"javascript:;\"> Edit</a>";
-                }
-            },
+    {
+        headerName: "Site Visit Date", width: 125, field: "Street", cellStyle: {
+            'text-align': 'center', 'display': 'flex', 'align-items': 'center'
+        }
+    },
+    {
+        headerName: "Type of Site Visit ", width: 125, field: "City", cellStyle: {
+            'text-align': 'center', 'display': 'flex', 'align-items': 'center'
+        }
+    },
+    {
+        headerName: "Site Inspector", width: 125, field: "State", cellStyle: {
+            'text-align': 'center', 'display': 'flex', 'align-items': 'center'
+        }
+    },
+    {
+        headerName: "Date Completed", width: 125, field: "Zip", cellStyle: {
+            'text-align': 'center', 'display': 'flex', 'align-items': 'center'
+        }
+    },
+    {
+        headerName: "Supporting Docs", width: 125, field: "Zip", cellStyle: {
+            'text-align': 'center', 'display': 'flex', 'align-items': 'center'
+        }
+    },
+    {
+        headerName: "Action", width: 80, cellStyle: {
+            'text-align': 'center', 'display': 'flex', 'align-items': 'center'
+        }, field: "IsActive", cellRenderer: function (params) {
+            return "<a data-ng-click=\"GetUser('" + params.data.userId + "')\" href=\"javascript:;\">View</a> |  <a data-ng-click=\"EditUser('" + params.data.userId + "')\" href=\"javascript:;\"> Edit</a>";
+        }
+    },
         ],
         angularCompileRows: true,
         rowData: [],
@@ -350,18 +458,26 @@
     // add/update previous address
     $scope.AddPreviousSchoolInSchoolInformation = function () {
         ShowLoader();
-        var prevschooldata = {};
-        prevschooldata.ProviderId = $scope.ProviderId;
-        prevschooldata.ProviderNameId = $scope.ProviderNameId;
-        prevschooldata.ProviderName = $scope.PrevSchoolname;
-        SchoolInfoFactory.AddPreviousSchoolInSchoolInformation(prevschooldata, key).success(function (data) {
-            $scope.PrevSchoolname = null;
-            $scope.ProviderNameId = 0;
-            $scope.PrevAddrGrid.api.setRowData(data.ListOfPreviousSchool);
+
+        if ($scope.PrevSchoolname.trim() != '') {
+            var prevschooldata = {
+            };
+            prevschooldata.ProviderId = $scope.ProviderId;
+            prevschooldata.ProviderNameId = $scope.ProviderNameId;
+            prevschooldata.ProviderName = $scope.PrevSchoolname;
+
+            SchoolInfoFactory.AddPreviousSchoolInSchoolInformation(prevschooldata, key).success(function (data) {
+                $scope.PrevSchoolname = null;
+                $scope.ProviderNameId = 0;
+                $scope.PrevAddrGrid.api.setRowData(data.ListOfPreviousSchool);
+                HideLoader();
+            }).error(function (error) {
+                $scope.Error = error;
+            });
+        }
+        else {
             HideLoader();
-        }).error(function (error) {
-            $scope.Error = error;
-        });
+        }
     }
     // add/update previous address
 
@@ -412,7 +528,6 @@
     //Populate Edit Satelite Address
     $scope.showUpdatevalueSateliteAddress = function (AddressId, StreetLine1, StreetLine2, City, StateCode, Zip) {
         $scope.SateliteAddressId = AddressId;
-
         $scope.SateliteAdd.StreetLine1 = StreetLine1;
         $scope.SateliteAdd.StreetLine2 = StreetLine2
         $scope.SateliteAdd.City = City;
@@ -426,7 +541,6 @@
     //Populate Edit Mblex 
     $scope.showUpdatevalueMblex = function (ProviderMBLExId, PassingRates, PassingYear, PassingHalf) {
         $scope.ProviderMBLExId = ProviderMBLExId;
-
         $scope.Mblex.PassingRates = PassingRates;
         $scope.Mblex.PassingYear = PassingYear
         $scope.Mblex.PassingHalf = PassingHalf;
@@ -436,80 +550,93 @@
 
     $scope.SaveSchoolInformation = function () {
         ShowLoader();
-        var SchoolInfo = {};
+        if (checkfrm()) {
+            var SchoolInfo = {
+            };
+
+            //SchoolInfo.SchoolTelephone = $scope.ProviderInformationDetails.SchoolTelephone;
+            //SchoolInfo.IsSchoolTelephoneMobile = $scope.ProviderInformationDetails.IsSchoolTelephoneMobile;
+            //SchoolInfo.SchoolWebsite = $scope.ProviderInformationDetails.SchoolWebsite;
 
 
-        //SchoolInfo.SchoolTelephone = $scope.ProviderInformationDetails.SchoolTelephone;
-        //SchoolInfo.IsSchoolTelephoneMobile = $scope.ProviderInformationDetails.IsSchoolTelephoneMobile;
-        //SchoolInfo.SchoolWebsite = $scope.ProviderInformationDetails.SchoolWebsite;
+            //SchoolInfo.SchoolAddressStreet1 = $scope.ProviderInformationDetails.SchoolAddressStreet1;
+            //SchoolInfo.SchoolAddressStreet2 = $scope.ProviderInformationDetails.SchoolAddressStreet2;
+            //SchoolInfo.SchoolAddressCity = $scope.ProviderInformationDetails.SchoolAddressCity;
+            //SchoolInfo.SchoolAddressState = $scope.ProviderInformationDetails.SchoolAddressState;
+            //SchoolInfo.SchoolAddressZip = $scope.ProviderInformationDetails.SchoolAddressZip;
+            //SchoolInfo.SchoolAddressIsVerifiedClicked = $scope.ProviderInformationDetails.SchoolAddressIsVerifiedClicked;
+            //SchoolInfo.SchoolAddressIsNotVerifiedClicked = $scope.ProviderInformationDetails.SchoolAddressIsNotVerifiedClicked;
+
+            //SchoolInfo.MailingAddressStreet1 = $scope.ProviderInformationDetails.MailingAddressStreet1;
+            //SchoolInfo.MailingAddressStreet2 = $scope.ProviderInformationDetails.MailingAddressStreet2;
+            //SchoolInfo.MailingAddressCity = $scope.ProviderInformationDetails.MailingAddressCity;
+            //SchoolInfo.MailingAddressState = $scope.ProviderInformationDetails.MailingAddressState;
+            //SchoolInfo.MailingAddressZip = $scope.ProviderInformationDetails.MailingAddressZip;
+            ////SchoolInfo.MailingAddressIsVerifiedClicked = $scope.ProviderInformationDetails.MailingAddressIsVerifiedClicked;
+            ////SchoolInfo.MailingAddressIsNotVerifiedClicked = $scope.ProviderInformationDetails.MailingAddressIsNotVerifiedClicked;
 
 
-        //SchoolInfo.SchoolAddressStreet1 = $scope.ProviderInformationDetails.SchoolAddressStreet1;
-        //SchoolInfo.SchoolAddressStreet2 = $scope.ProviderInformationDetails.SchoolAddressStreet2;
-        //SchoolInfo.SchoolAddressCity = $scope.ProviderInformationDetails.SchoolAddressCity;
-        //SchoolInfo.SchoolAddressState = $scope.ProviderInformationDetails.SchoolAddressState;
-        //SchoolInfo.SchoolAddressZip = $scope.ProviderInformationDetails.SchoolAddressZip;
-        //SchoolInfo.SchoolAddressIsVerifiedClicked = $scope.ProviderInformationDetails.SchoolAddressIsVerifiedClicked;
-        //SchoolInfo.SchoolAddressIsNotVerifiedClicked = $scope.ProviderInformationDetails.SchoolAddressIsNotVerifiedClicked;
+            //SchoolInfo.DirectorFirstName = $scope.ProviderInformationDetails.DirectorFirstName;
+            //SchoolInfo.DirectorLastName = $scope.ProviderInformationDetails.DirectorLastName;
+            //SchoolInfo.DirectorAdministratorEmail = $scope.ProviderInformationDetails.DirectorAdministratorEmail;
+            //SchoolInfo.DirectorJobTitle = $scope.ProviderInformationDetails.DirectorJobTitle;
+            //SchoolInfo.DirectorPrimaryNumber = $scope.ProviderInformationDetails.DirectorPrimaryNumber;
+            //SchoolInfo.DirectorPrimaryNumberIsMobile = $scope.ProviderInformationDetails.DirectorPrimaryNumberIsMobile;
+            //SchoolInfo.DirectorSecondaryNumber = $scope.ProviderInformationDetails.DirectorSecondaryNumber;
+            //SchoolInfo.DirectorSecondaryNumberIsMobile = $scope.ProviderInformationDetails.DirectorSecondaryNumberIsMobile;
 
-        //SchoolInfo.MailingAddressStreet1 = $scope.ProviderInformationDetails.MailingAddressStreet1;
-        //SchoolInfo.MailingAddressStreet2 = $scope.ProviderInformationDetails.MailingAddressStreet2;
-        //SchoolInfo.MailingAddressCity = $scope.ProviderInformationDetails.MailingAddressCity;
-        //SchoolInfo.MailingAddressState = $scope.ProviderInformationDetails.MailingAddressState;
-        //SchoolInfo.MailingAddressZip = $scope.ProviderInformationDetails.MailingAddressZip;
-        ////SchoolInfo.MailingAddressIsVerifiedClicked = $scope.ProviderInformationDetails.MailingAddressIsVerifiedClicked;
-        ////SchoolInfo.MailingAddressIsNotVerifiedClicked = $scope.ProviderInformationDetails.MailingAddressIsNotVerifiedClicked;
+            //SchoolInfo.ContactNameFirstName = $scope.ProviderInformationDetails.ContactNameFirstName;
+            //SchoolInfo.ContactNameLastName = $scope.ProviderInformationDetails.ContactNameLastName;
+            //SchoolInfo.ContactNameAdministratorEmail = $scope.ProviderInformationDetails.ContactNameAdministratorEmail;
+            //SchoolInfo.ContactNameJobTitle = $scope.ProviderInformationDetails.ContactNameJobTitle;
+            //SchoolInfo.ContactNamePrimaryNumber = $scope.ProviderInformationDetails.ContactNamePrimaryNumber;
+            //SchoolInfo.ContactNamePrimaryNumberIsMobile = $scope.ProviderInformationDetails.ContactNamePrimaryNumberIsMobile;
+            //SchoolInfo.ContactNameSecondaryNumber = $scope.ProviderInformationDetails.ContactNameSecondaryNumber;
+            //SchoolInfo.ContactNameSecondaryNumberIsMobile = $scope.ProviderInformationDetails.ContactNameSecondaryNumberIsMobile;
 
-
-        //SchoolInfo.DirectorFirstName = $scope.ProviderInformationDetails.DirectorFirstName;
-        //SchoolInfo.DirectorLastName = $scope.ProviderInformationDetails.DirectorLastName;
-        //SchoolInfo.DirectorAdministratorEmail = $scope.ProviderInformationDetails.DirectorAdministratorEmail;
-        //SchoolInfo.DirectorJobTitle = $scope.ProviderInformationDetails.DirectorJobTitle;
-        //SchoolInfo.DirectorPrimaryNumber = $scope.ProviderInformationDetails.DirectorPrimaryNumber;
-        //SchoolInfo.DirectorPrimaryNumberIsMobile = $scope.ProviderInformationDetails.DirectorPrimaryNumberIsMobile;
-        //SchoolInfo.DirectorSecondaryNumber = $scope.ProviderInformationDetails.DirectorSecondaryNumber;
-        //SchoolInfo.DirectorSecondaryNumberIsMobile = $scope.ProviderInformationDetails.DirectorSecondaryNumberIsMobile;
-
-        //SchoolInfo.ContactNameFirstName = $scope.ProviderInformationDetails.ContactNameFirstName;
-        //SchoolInfo.ContactNameLastName = $scope.ProviderInformationDetails.ContactNameLastName;
-        //SchoolInfo.ContactNameAdministratorEmail = $scope.ProviderInformationDetails.ContactNameAdministratorEmail;
-        //SchoolInfo.ContactNameJobTitle = $scope.ProviderInformationDetails.ContactNameJobTitle;
-        //SchoolInfo.ContactNamePrimaryNumber = $scope.ProviderInformationDetails.ContactNamePrimaryNumber;
-        //SchoolInfo.ContactNamePrimaryNumberIsMobile = $scope.ProviderInformationDetails.ContactNamePrimaryNumberIsMobile;
-        //SchoolInfo.ContactNameSecondaryNumber = $scope.ProviderInformationDetails.ContactNameSecondaryNumber;
-        //SchoolInfo.ContactNameSecondaryNumberIsMobile = $scope.ProviderInformationDetails.ContactNameSecondaryNumberIsMobile;
-
-        ////SchoolInfo.IsActive =$scope.ProviderInformationDetails.
-        ////SchoolInfo.IsDeleted =$scope.ProviderInformationDetails.
+            ////SchoolInfo.IsActive =$scope.ProviderInformationDetails.
+            ////SchoolInfo.IsDeleted =$scope.ProviderInformationDetails.
 
 
-        //SchoolInfo.ContactInfo = $scope.ProviderInformationDetails.ContactInfo;
-        //SchoolInfo.ContactTypeId = $scope.ProviderInformationDetails.ContactTypeId;
-        $scope.ProviderInformationDetails.ProviderId = $scope.ProviderId;
-        //SchoolInfo.IsMobile = $scope.ProviderInformationDetails.IsMobile
-        //SchoolInfo.IsPreferredContact = $scope.ProviderInformationDetails.IsPreferredContact
+            //SchoolInfo.ContactInfo = $scope.ProviderInformationDetails.ContactInfo;
+            //SchoolInfo.ContactTypeId = $scope.ProviderInformationDetails.ContactTypeId;
+            $scope.ProviderInformationDetails.ProviderId = $scope.ProviderId;
+            //SchoolInfo.IsMobile = $scope.ProviderInformationDetails.IsMobile
+            //SchoolInfo.IsPreferredContact = $scope.ProviderInformationDetails.IsPreferredContact
 
 
-        ////  SchoolInfo.ApplicationId =
-        ////SchoolInfo.AddressId = $scope.ProviderInformationDetails.AddressId;
-        ////  SchoolInfo.DateValidated =$scope.ProviderInformationDetails.
-        ////SchoolInfo.UseUserAddress =$scope.ProviderInformationDetails.
-        ////SchoolInfo.UseVerifiedAddress =$scope.ProviderInformationDetails.
-        //// SchoolInfo.AddressTypeId =$scope.ProviderInformationDetails.
-        ////SchoolInfo.IsMailingSameasPhysical =$scope.ProviderInformationDetails.
-        ////SchoolInfo.IndividualId =$scope.ProviderInformationDetails.
+            ////  SchoolInfo.ApplicationId =
+            ////SchoolInfo.AddressId = $scope.ProviderInformationDetails.AddressId;
+            ////  SchoolInfo.DateValidated =$scope.ProviderInformationDetails.
+            ////SchoolInfo.UseUserAddress =$scope.ProviderInformationDetails.
+            ////SchoolInfo.UseVerifiedAddress =$scope.ProviderInformationDetails.
+            //// SchoolInfo.AddressTypeId =$scope.ProviderInformationDetails.
+            ////SchoolInfo.IsMailingSameasPhysical =$scope.ProviderInformationDetails.
+            ////SchoolInfo.IndividualId =$scope.ProviderInformationDetails.
 
-        SchoolInfoFactory.SaveSchoolInformation($scope.ProviderInformationDetails, key).success(function (data) {
-            $scope.GetSchoolInfoByProviderId();
+            SchoolInfoFactory.SaveSchoolInformation($scope.ProviderInformationDetails, key).success(function (data) {
+                $scope.GetSchoolInfoByProviderId();
 
-        }).error(function (error) {
-            $scope.Error = error;
-        });
+                if (mySharedService.ApplicationName == 'BackOffice') {
+                    mySharedService.prepForBroadcastTabClick('Eligibility');
+                }
+
+            }).error(function (error) {
+                $scope.Error = error;
+            });
+        }
+
+
+        else {
+            HideLoader();
+        }
     }
 
 
     $scope.Get_All_providermblex = function () {
-        var obj = { ProviderId: $scope.ProviderId };
+        var obj = {
+            ProviderId: $scope.ProviderId
+        };
 
         SchoolInfoFactory.Get_All_providermblex(key, obj).success(function (data) {
 
@@ -541,11 +668,13 @@
         $scope.clearsateliteAddress();
         $scope.GetSchoolInfoByProviderId();
         $scope.Get_All_providermblex();
+        $('#error_validation').hide();
     }
     // on selecting provider
 
 
     $scope.$on('handleBroadcast', function () {
+        $('#error_validation').hide();
         if (mySharedService.CurrentPage == '') {
             mySharedService.prepForBroadcastTabClick('SchoolInfo');
         }
@@ -556,8 +685,9 @@
         }
     });
 
-    $scope.$on('handleBroadcastForTab', function () {
 
+    $scope.$on('handleBroadcastForTab', function () {
+        $('#error_validation').hide();
         if (mySharedService.CurrentPage == 'SchoolInfo') {
             $scope.GetProviderdataonchange();
             $scope.hasShow = 'true';
@@ -568,4 +698,59 @@
         //$scope.GetProviderdataonchange();
     });
 
-}]);
+
+
+
+    function checkfrm() {
+        $('#error_validation').text('');
+        var error = '';
+        var SchoolName = ValidateTextbox('<span class="notok"></span> Please enter the school name.<br/>', '#first', $('#first').val());
+        var SchoolTelephone = ValidateTextbox('<span class="notok"></span> Please enter school telephone<br/>', '#tel', $('#tel').val());
+        var SchoolWebsite = ValidateWebsite('<span class="notok"></span> Please enter website in correct format (www.websitename.com) <br/>', '<span class="notok"></span> Please enter school website<br/>', '#website', $('#website').val());
+        var _DateofNameChange = CheckDate('<span class="notok"></span> Future dates are not accepted. <br/>', '<span class="notok"></span> Please enter date in correct format (mm/dd/yyyy)<br/>', '#txtnamechange', $('#txtnamechange').val());
+        var SchoolAddress = ValidateTextbox('<span class="notok"></span> Please enter school address<br/>', '#SchoolStreet', $('#SchoolStreet').val());
+        var SchoolCity = ValidateTextbox('<span class="notok"></span> Please enter school city<br/>', '#city', $('#city').val());
+        var SchoolState = ValidateDropdown('<span class="notok"></span> Please enter school state<br/>', '#State', $('#State').val());
+        var SchoolZip = ValidateTextbox('<span class="notok"></span> Please enter school zip<br/>', '#zip', $('#zip').val());
+        var DirectorFirstName = ValidateTextbox('<span class="notok"></span> Please enter director first name<br/>', '#DirFirstName', $('#DirFirstName').val());
+        //var DirectorLastName = ValidateTextbox('<span class="notok"></span> Please enter director last name<br/>', '#DirLastName', $('#DirLastName').val());
+        var AdministratorEmail = ValidateEmail('<span class="notok"></span> Please enter administrator email<br/>', '#DirectorEmail', $('#DirectorEmail').val());
+        var JobTitle = ValidateTextbox('<span class="notok"></span> Please enter administrator job title<br/>', '#SclInfoJobTitle', $('#SclInfoJobTitle').val());
+        var PrimaryNumber = ValidateTextbox('<span class="notok"></span> Please enter administrator primary number<br/>', '#SclInfoPriNumber', $('#SclInfoPriNumber').val());
+        //var _ContactEmail = CheckEmail('<span class="notok"></span> Please enter email in correct format (joe@email.com)<br/>', '#ApplicationEmail', $('#ApplicationEmail').val());
+
+        error = SchoolName + SchoolTelephone + SchoolWebsite + _DateofNameChange + SchoolAddress + SchoolCity + SchoolState + SchoolZip + DirectorFirstName + AdministratorEmail + JobTitle + PrimaryNumber;//DirectorLastName + _ContactEmail
+
+        $('.errorinfo').html(error);
+
+        if (error != '') {
+            $('#error_validation').show();
+            $(document).scrollTop(0);
+            return false;
+        }
+        else {
+            return true;
+        }
+
+    }
+
+    function btnSchoolInfoPreviousAddNewSave() {
+        $('#error_validation').text('');
+        var error = '';
+        var txtDateOfAddChange = CheckDate('<span class="notok"></span> Future dates are not accepted. <br/>', '<span class="notok"></span>  Please enter date in correct format (mm/dd/yyyy).<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtDateOfAddChange', $('#ContentPlaceHolder1_ucCertificationApplication1_txtDateOfAddChange').val());
+        error = txtDateOfAddChange;
+        $('#error_validation').html(error);
+        if (error != '') {
+            $('#error_validation').show();
+            $('#ContentPlaceHolder1_ucCertificationApplication1_btnSchoolInfoPreviousAddNewSave').attr('type', 'button');
+            $(document).scrollTop(0);
+        }
+        else {
+            $('#error_validation').hide();
+            $('#ContentPlaceHolder1_ucCertificationApplication1_btnSchoolInfoPreviousAddNewSave').attr('type', 'submit');
+        }
+
+    }
+
+
+});

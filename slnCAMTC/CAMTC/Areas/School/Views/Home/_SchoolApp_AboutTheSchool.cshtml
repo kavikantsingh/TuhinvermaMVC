@@ -1,643 +1,643 @@
 ﻿<div ng-controller="AboutController" class="clear textBoxAlign" ng-show="hasShow == 'true'">
-    <div id="error_validation" class="address-box posFixed" style="display: none; color: red;"></div>
-    <div>
-        <div id="error_aboutschool" class="address-box posFixed" style="display: none; color: red;"></div>
-        <div class="sectionDiv">
-            <span>About the School </span>
-        </div>
-        <div id="upLicenseInfo">
-            <fieldset class="flsNewApplReqForm flsNewApplReqForm3" style="text-align: justify;">
-                <table class="tblApplReqForm5">
-                    <tr>
-                        <td style="width: 100%; line-height: 20px; padding-top: 0px ! important;">
-                            <b>11. Number of Graduates</b>
-                            <p style="padding-left: 20px; width: 95%;">
-                                Please list the TOTAL number of graduates from ALL massage programs for which the school
-                                seeks approval. Do not include continuing education classes or other programs.
-                                Put “0” if the program is new or had no graduates.
-                            </p>
-                        </td>
-                        <td style="width: 545px; padding-left: 0px; line-height: 18px; text-align: justify;"></td>
-                    </tr>
-                </table>
-                <table>
-                    <tr style="height: 15px; width: 100%; float: left;"></tr>
-                </table>
-                <table style="margin-left: 50px;">
-                    <tr>
-                        <td class="txtalgnrgt">
-                            <label class="input-label required">
-                                Estimated Graduates for 2016 Calendar Year :
+    <section>
+        <div id="error_validation" class="errorinfo address-box posFixed" style="color: red; display: block;"></div>
+    </section>
+    <div class="sectionDiv">
+        <span>About the School </span>
+    </div>
+    <div id="upLicenseInfo">
+        <fieldset class="flsNewApplReqForm flsNewApplReqForm3" style="text-align: justify;">
+            <table class="tblApplReqForm5">
+                <tr>
+                    <td style="width: 100%; line-height: 20px; padding-top: 0px ! important;">
+                        <b>11. Number of Graduates</b>
+                        <p style="padding-left: 20px; width: 95%;">
+                            Please list the TOTAL number of graduates from ALL massage programs for which the school
+                            seeks approval. Do not include continuing education classes or other programs.
+                            Put “0” if the program is new or had no graduates.
+                        </p>
+                    </td>
+                    <td style="width: 545px; padding-left: 0px; line-height: 18px; text-align: justify;"></td>
+                </tr>
+            </table>
+            <table>
+                <tr style="height: 15px; width: 100%; float: left;"></tr>
+            </table>
+            <table style="margin-left: 50px;">
+                <tr>
+                    <td class="txtalgnrgt">
+                        <label class="input-label required">
+                            Estimated Graduates for 2016 Calendar Year :
+                        </label>
+                    </td>
+                    <td>
+                        <input name="txtGradYear" ng-model="txtGradYear2016" type="text" value="12" maxlength="150" id="txtGradYear" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+
+                    </td>
+                </tr>
+                <tr style="height: 10px; width: 100px;"></tr>
+                <tr>
+                    <td class="txtalgnrgt">
+                        <label class="input-label required">
+                            Graduates from 2015 Calendar Year :
+                        </label>
+                    </td>
+                    <td>
+                        <input ng-model="txtGradYear2015" type="text" value="15" maxlength="150" id="txtGradYear1" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+
+                    </td>
+                </tr>
+                <tr style="height: 10px; width: 100px;"></tr>
+                <tr>
+                    <td class="txtalgnrgt">
+                        <label class="input-label required">
+                            Graduates from 2014 Calendar Year :
+                        </label>
+                    </td>
+                    <td>
+                        <input name="txtGradYear2" ng-model="txtGradYear2014" type="text" value="0" maxlength="150" id="txtGradYear2" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+
+                    </td>
+                </tr>
+                <tr style="height: 10px; width: 100px;"></tr>
+                <tr>
+                    <td class="txtalgnrgt">
+                        <label class="input-label required">
+                            Graduates from 2013 Calendar Year :
+                        </label>
+                    </td>
+                    <td>
+                        <input name="txtGradYear3" ng-model="txtGradYear2013" type="text" value="9" maxlength="150" id="txtGradYear3" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+
+                    </td>
+                </tr>
+                <tr style="height: 10px; width: 100px;"></tr>
+                <tr>
+                    <td class="txtalgnrgt">
+                        <label class="input-label required">
+                            Graduates from 2012 Calendar Year :
+                        </label>
+                    </td>
+                    <td>
+                        <input name="txtGradYear4" ng-model="txtGradYear2012" type="text" value="18" maxlength="150" id="txtGradYear4" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+
+                    </td>
+                </tr>
+                <tr style="height: 10px; width: 100px;"></tr>
+                <tr>
+                    <td class="txtalgnrgt">
+                        <label class="input-label required">
+                            Graduates from 2011 Calendar Year :
+                        </label>
+                    </td>
+                    <td>
+                        <input name="txtGradYear5" ng-model="txtGradYear2011" type="text" value="79" maxlength="150" id="txtGradYear5" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+
+                    </td>
+                </tr>
+                <tr style="height: 10px; width: 100px;"></tr>
+                <tr>
+                    <td class="txtalgnrgt">
+                        <label class="input-label required">
+                            Graduates from 2010 Calendar Year :
+                        </label>
+                    </td>
+                    <td>
+                        <input name="txtGradYear6" ng-model="txtGradYear2010" type="text" value="0" maxlength="150" id="txtGradYear6" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+
+                    </td>
+                </tr>
+                <tr style="height: 10px; width: 100px;"></tr>
+                <tr>
+                    <td class="txtalgnrgt">
+                        <label class="input-label required">
+                            Graduates from 2009 Calendar Year :
+                        </label>
+                    </td>
+                    <td>
+                        <input name="txtGradYear7" ng-model="txtGradYear2009" type="text" value="56" maxlength="150" id="txtGradYear7" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr style="height: 15px; width: 100%; float: left;"></tr>
+            </table>
+            <div data-ag-grid="GraduatesGrid" class="ag-blue" style="width: 450px;margin-left:90px; border: 1px solid #ddd;"></div>
+
+            <table>
+                <tr style="height: 15px; width: 100%; float: left;"></tr>
+            </table>
+            <table>
+                <tr>
+                    <td><b>12. Type of Business Organization</b></td>
+                </tr>
+            </table>
+
+            <table style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">
+                <tr>
+                    <td>
+                        <div class="listbox_auto">
+                            <label ng-repeat="role in roles">
+                                <input type="checkbox" checklist-model="user" checklist-value="role.LookupId"> {{role.LookupDesc }}<br />
                             </label>
-                        </td>
-                        <td>
-                            <input name="txtGradYear" ng-model="txtGradYear2016" type="text" value="12" maxlength="150" id="txtGradYear" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
 
-                        </td>
-                    </tr>
-                    <tr style="height: 10px; width: 100px;"></tr>
-                    <tr>
-                        <td class="txtalgnrgt">
-                            <label class="input-label required">
-                                Graduates from 2015 Calendar Year :
-                            </label>
-                        </td>
-                        <td>
-                            <input ng-model="txtGradYear2015" type="text" value="15" maxlength="150" id="txtGradYear_1" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+                            @*<div data-ng-repeat="Lookup in LookupList">
 
-                        </td>
-                    </tr>
-                    <tr style="height: 10px; width: 100px;"></tr>
-                    <tr>
-                        <td class="txtalgnrgt">
-                            <label class="input-label required">
-                                Graduates from 2014 Calendar Year :
-                            </label>
-                        </td>
-                        <td>
-                            <input name="txtGradYear_2" ng-model="txtGradYear2014" type="text" value="0" maxlength="150" id="txtGradYear_2" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+                                    <input type="checkbox" checkbox-group data-ng-model="Lookup.LookupId" ng-click="onchagecheck(Lookup)" ng-checked="Lookup.IsChecked" /> <label>{{Lookup.LookupDesc }}</label>
+                                </div>*@
 
-                        </td>
-                    </tr>
-                    <tr style="height: 10px; width: 100px;"></tr>
-                    <tr>
-                        <td class="txtalgnrgt">
-                            <label class="input-label required">
-                                Graduates from 2013 Calendar Year :
-                            </label>
-                        </td>
-                        <td>
-                            <input name="txtGradYear_3" ng-model="txtGradYear2013" type="text" value="9" maxlength="150" id="txtGradYear_3" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+                        </div>
+                    </td>
+                </tr>
+            </table>
 
-                        </td>
-                    </tr>
-                    <tr style="height: 10px; width: 100px;"></tr>
-                    <tr>
-                        <td class="txtalgnrgt">
-                            <label class="input-label required">
-                                Graduates from 2012 Calendar Year :
-                            </label>
-                        </td>
-                        <td>
-                            <input name="txtGradYear_4" ng-model="txtGradYear2012" type="text" value="18" maxlength="150" id="txtGradYear_4" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
+            <table>
+                <tr>
+                    <td>
+                        <b>13. Proof of Ownership</b>
+                        <p style="padding-left: 20px; width: 95%;">
+                            Please provide all documents, as directed by the Policies and Procedures for
+                            Approval of Schools, that support Proof of Ownership.
+                        </p>
+                    </td>
+                </tr>
+            </table>
 
-                        </td>
-                    </tr>
-                    <tr style="height: 10px; width: 100px;"></tr>
-                    <tr>
-                        <td class="txtalgnrgt">
-                            <label class="input-label required">
-                                Graduates from 2011 Calendar Year :
-                            </label>
-                        </td>
-                        <td>
-                            <input name="txtGradYear_5" ng-model="txtGradYear2011" type="text" value="79" maxlength="150" id="txtGradYear_5" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
-
-                        </td>
-                    </tr>
-                    <tr style="height: 10px; width: 100px;"></tr>
-                    <tr>
-                        <td class="txtalgnrgt">
-                            <label class="input-label required">
-                                Graduates from 2010 Calendar Year :
-                            </label>
-                        </td>
-                        <td>
-                            <input name="txtGradYear_6" ng-model="txtGradYear2010" type="text" value="0" maxlength="150" id="txtGradYear_6" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
-
-                        </td>
-                    </tr>
-                    <tr style="height: 10px; width: 100px;"></tr>
-                    <tr>
-                        <td class="txtalgnrgt">
-                            <label class="input-label required">
-                                Graduates from 2009 Calendar Year :
-                            </label>
-                        </td>
-                        <td>
-                            <input name="txtGradYear_7" ng-model="txtGradYear2009" type="text" value="56" maxlength="150" id="txtGradYear_7" class="inputTextbox NewAppPersonalTxtbx" onkeypress="return numeric(event)" style="width:100px;" autocomplete="off">
-
-                        </td>
-                    </tr>
-                </table>
-                <table>
-                    <tr style="height: 15px; width: 100%; float: left;"></tr>
-                </table>
-                <div data-ag-grid="GraduatesGrid" class="ag-blue" style="width: 450px;margin-left:90px; border: 1px solid #ddd;"></div>
-
-                <table>
-                    <tr style="height: 15px; width: 100%; float: left;"></tr>
-                </table>
-                <table>
-                    <tr>
-                        <td><b>12. Type of Business Organization</b></td>
-                    </tr>
-                </table>
-
-                <table style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">
-                    <tr>
-                        <td>
-                            <div class="listbox_auto">
-                                <label ng-repeat="role in roles">
-                                    <input type="checkbox" checklist-model="user" checklist-value="role.LookupId"> {{role.LookupDesc }}<br />
-                                </label>
-
-                                @*<div data-ng-repeat="Lookup in LookupList">
-
-                                        <input type="checkbox" checkbox-group data-ng-model="Lookup.LookupId" ng-click="onchagecheck(Lookup)" ng-checked="Lookup.IsChecked" /> <label>{{Lookup.LookupDesc }}</label>
-                                    </div>*@
-
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-
-                <table>
-                    <tr>
-                        <td>
-                            <b>13. Proof of Ownership</b>
-                            <p style="padding-left: 20px; width: 95%;">
+            <div id="fuAdvertisingATS1" class="documentContainer" data-docid="3" data-doc-code="D1003" data-simple="false">
+            </div>
+            @*<div>
+                Document File Upload Partial View -> Type :: Complex*@
+            @*docId = "3";
+                        docCode = "D1003";
+                        isSimple = false;
+                </div>*@
+            <table style="margin-top: 15px; float: left; width: 100%;">
+                <tr>
+                    <td><b>14. Proof of Business Operations</b></td>
+                </tr>
+            </table>
+            <div style="margin-bottom: 30px;">
+                <table class="wthtop20" style="width: 97%; margin-left: 13px;">
+                    <tr style="line-height: 20px;">
+                        <td colspan="4">
+                            <p>
                                 Please provide all documents, as directed by the Policies and Procedures for
-                                Approval of Schools, that support Proof of Ownership.
+                                Approval of Schools, that support Proof of Business Operations.
                             </p>
                         </td>
                     </tr>
                 </table>
-
-                <div id="fuAdvertisingATS1" class="documentContainer" data-docid="3" data-doc-code="D1003" data-simple="false">
+                <div id="fuApprovalATS" class="documentContainer" data-docid="4" data-doc-code="D1004" data-simple="false">
                 </div>
-                @*<div>
+                @* <div id="fuAboutSchool2_upDoc">
                     Document File Upload Partial View -> Type :: Complex*@
-                @*docId = "3";
-                            docCode = "D1003";
+                @*docId = "4";
+                            docCode = "D1004";
                             isSimple = false;
                     </div>*@
-                <table style="margin-top: 15px; float: left; width: 100%;">
-                    <tr>
-                        <td><b>14. Proof of Business Operations</b></td>
-                    </tr>
-                </table>
-                <div style="margin-bottom: 30px;">
-                    <table class="wthtop20" style="width: 97%; margin-left: 13px;">
-                        <tr style="line-height: 20px;">
-                            <td colspan="4">
-                                <p>
-                                    Please provide all documents, as directed by the Policies and Procedures for
-                                    Approval of Schools, that support Proof of Business Operations.
-                                </p>
-                            </td>
-                        </tr>
-                    </table>
-                    <div id="fuApprovalATS" class="documentContainer" data-docid="4" data-doc-code="D1004" data-simple="false">
-                    </div>
-                    @* <div id="fuAboutSchool2_upDoc">
-                        Document File Upload Partial View -> Type :: Complex*@
-                    @*docId = "4";
-                                docCode = "D1004";
-                                isSimple = false;
-                        </div>*@
 
-                    <div id="fuAdvertisingATS" class="documentContainer" data-docid="5" data-doc-code="D1005" data-simple="true">
-                    </div>
-                    @*<div id="fuAboutSchool3_upDoc">
-                        Document File Upload Partial View -> Type :: Simple*@
-                    @*docId = "5";
-                                docCode = "D1005";
-                                isSimple = true;
-                        </div>
-
-                        <br>*@
-                    <div id="fuAboutSchool4_upDoc" class="documentContainer" data-docid="6" data-doc-code="D1006" data-simple="true">
-                    </div>
-                    @*<div id="fuAboutSchool4_upDoc">
-                        Document File Upload Partial View -> Type :: Simple*@
-                    @*docId = "6";
-                                docCode = "D1006";
-                                isSimple = true;
-                        </div>
-
-                                        <br>*@
-
-                    <div id="fuAboutSchool5_upDoc" class="documentContainer" data-docid="9" data-doc-code="D1009" data-simple="true">
-                    </div>
-                    @*<div id="fuAboutSchool5_upDoc">
-                        Document File Upload Partial View -> Type :: Simple*@
-                    @*docId = "9";
-                                docCode = "D1009";
-                                isSimple = true;
-                        </div>
-
-                                        <br>*@
-
-                    <div id="fuAboutSchool6_upDoc" class="documentContainer" data-docid="10" data-doc-code="D1010" data-simple="true">
-                    </div>
-                    @*<div id="fuAboutSchool6_upDoc">
-                        Document File Upload Partial View -> Type :: Simple*@
-                    @*docId = "10";
-                                docCode = "D1010";
-                                isSimple = true;
-                        </div>
-
-                        <br>*@
-
-                    <div id="fuAboutSchool7_upDoc" class="documentContainer" data-docid="11" data-doc-code="D1011" data-simple="true">
-                    </div>
-                    @*<div id="fuAboutSchool7_upDoc">
-                        Document File Upload Partial View -> Type :: Complex*@
-                    @*docId = "11";
-                                docCode = "D1011";
-                                isSimple = false;
-                        </div>
-
-                        <br>*@
+                <div id="fuAdvertisingATS" class="documentContainer" data-docid="5" data-doc-code="D1005" data-simple="true">
                 </div>
-                <table>
-                    <tr>
-                        <td style="width: 100%; line-height: 20px;">
-                            <b>15. Related Schools</b>
-                            <p style="padding-left: 20px; width: 95%; padding-top: 5px;">
-                                If this school or campus shares its name, address, and/or ownership with another school(s),
-                                please list (NOTE: each campus seeking CAMTC school approval must submit a separate
-                                application).
-                            </p>
-                        </td>
-                    </tr>
-                </table>
-
-
-                <div class="divLicenseInfon divaddnew AfterApproved" id="divAddbtnSatelliteLocation">
-                    <span style="float: right; margin-right: 32px; margin-top: 15px;">
-                        <input type="button" value="Add" data-ng-click="ShowPopup(1)" class="buttonGreen small" />
-                    </span>
-
-                </div>
-                <br />
-
-                <div id="divAddRelatedschool" style="width: 95%; margin-top: 10px; margin-left: 50px;">
-                    <table class="tblApplReqForm5" style="width: 95%; margin-top: 10px; margin-left: 50px;">
-                        <tbody>
-                            <tr>
-                                <td class="6">
-
-                                    <table class="tblApplReqForm5">
-                                        <tbody>
-                                            <tr>
-
-                                                <td class="txtalgnrgt" style="width: 110px;">
-                                                    <label class="input-label required">
-                                                        School Name :
-                                                    </label>
-                                                </td>
-                                                <td colspan="5">
-                                                    <input data-ng-model="RelatedSchool.ProviderName" type="text" class="inputTextbox NewAppPersonalTxtbx " style="width:518px;" autocomplete="off">
-                                                </td>
-
-
-                                            </tr>
-
-                                            <tr>
-                                                <td colspan="6">
-                                                    <table class="tblApplReqForm5">
-                                                        <tbody>
-                                                            <tr style="margin-left: -134px; margin-top: -12px; float: left;">
-                                                                <td class="txtalgnrgt" style="width: 245px;">
-                                                                    <label class="input-label required">
-                                                                        Primary Contact First Name :
-                                                                    </label>
-                                                                </td>
-                                                                <td style="padding-top: 20px ! important;">
-                                                                    <input name="txt" data-ng-model="RelatedSchool.FirstName" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox65" class="inputTextbox NewAppPersonalTxtbx" style="width: 170px;" autocomplete="off">
-                                                                </td>
-                                                                <td class="txtalgnrgt" style="width: 195px;">
-                                                                    <label class="input-label required">
-                                                                        Primary Contact Last Name :
-                                                                    </label>
-                                                                </td>
-                                                                <td style="padding-top: 20px ! important;">
-                                                                    <input name="box66" data-ng-model="RelatedSchool.LastName" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox66" class="inputTextbox NewAppPersonalTxtbx" style="width:140px;" autocomplete="off">
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td style="width: 111px;" class="txtalgnrgt">
-                                                    <label class="input-label required">
-                                                        Street :
-                                                    </label>
-                                                </td>
-                                                <td colspan="5" style="padding-top: 20px !important;">
-                                                    <input name="Box6" data-ng-model="RelatedSchool.StreetLine1" type="text" maxlength="500" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox6" class="calWidth us_street" style="width:518px;" autocomplete="off">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td colspan="5" style="padding-top: 20px ! important;">
-                                                    <input data-ng-model="RelatedSchool.StreetLine2" type="text" maxlength="500" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox7" class="calWidth us_street" style="width:518px;" autocomplete="off">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="txtalgnrgt">
-                                                    <label class="input-label required">
-                                                        City :
-                                                    </label>
-                                                </td>
-                                                <td style="width: 151px; padding-top: 20px ! important;">
-                                                    <input data-ng-model="RelatedSchool.City" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox8" type="text" maxlength="500" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox8" class="tooltip OnlyAlphabet calWidth" title="Only A-Z characters are allowed." style="width:133px;" autocomplete="off">
-                                                </td>
-                                                <td class="txtalgnrgt" style="width: 52px; padding-top: 20px ! important;">
-                                                    <label class="input-label required">
-                                                        State :
-                                                    </label>
-                                                </td>
-                                                <td style="width: 140px; padding-top: 20px ! important;">
-                                                    <select data-ng-model="RelatedSchool.StateCode" class="inputTextbox" title="Select your state" style="width:135px;" autocomplete="off" data-ng-options="item.StateCode as item.Name for item in StateList">
-                                                        <option value="-1">Select</option>
-                                                    </select>
-                                                </td>
-                                                <td class="txtalgnrgt" style="width: 47px;">
-                                                    <label class="input-label required">
-                                                        Zip :
-                                                    </label>
-                                                </td>
-                                                <td>
-
-                                                    <input data-ng-model="RelatedSchool.ZIP" type="text" maxlength="10" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox9" class="tooltip zip_us calWidth" placeholder="xxxxx-xxxx or xxxxx" title="Enter valid Zip eg: XXXXX-XXXX or XXXXX" style="width:127px;" autocomplete="off">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="6">
-                                                    <table class="tblApplReqForm5" style="margin-top: -7px;">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="txtalgnrgt" style="width: 110px;">
-                                                                    <label class="input-label required">
-                                                                        Phone :
-                                                                    </label>
-                                                                </td>
-                                                                <td>
-
-                                                                    <input data-ng-model="RelatedSchool.Phone" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox10" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox10" class="inputTextbox NewAppPersonalTxtbx phone_us" style="width:135px;" autocomplete="off" maxlength="14">
-                                                                    <span style="margin-left: 5px;"><input data-ng-model="RelatedSchool.IsMobile" id="ContentPlaceHolder1_ucCertificationApplication1_CheckBox58" type="checkbox" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$CheckBox58"><label for="ContentPlaceHolder1_ucCertificationApplication1_CheckBox58">Mobile</label></span>
-                                                                </td>
-                                                                <td class="txtalgnrgt" style="width: 143px;">
-                                                                    <label class="input-label">
-                                                                        Website :
-                                                                    </label>
-                                                                </td>
-                                                                <td>
-                                                                    <input data-ng-model="RelatedSchool.Website" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox11" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox11" class="inputTextbox NewAppPersonalTxtbx" autocomplete="off">
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="txtalgnrgt">
-                                                                    <label class="input-label required">
-                                                                        Email :
-                                                                    </label>
-                                                                </td>
-                                                                <td>
-                                                                    <input data-ng-model="RelatedSchool.Email" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox12" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox12" class="inputTextbox NewAppPersonalTxtbx" autocomplete="off">
-                                                                </td>
-                                                                <td class="txtalgnrgt"></td>
-                                                                <td>
-                                                                    <div id="ContentPlaceHolder1_ucCertificationApplication1_div26" style="width: 100%; float: right;">
-                                                                        <span class="fltrt">
-                                                                            <input type="button" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$Button20" value="Verify Address" class="btn-success btn-xs">
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table style="margin-left: -68px;">
-                        <tbody>
-                            <tr>
-                                <td class="txtalgnrgt">
-                                    <label class="input-label required">
-                                        Approximate Date Associated :
-                                    </label>
-                                </td>
-                                <td style="width: 151px; padding-top: 20px ! important;">
-                                    <input type="text" data-ng-model="RelatedSchool.DateAssociated" class="inputTextbox calenderdateassociate" placeholder="MM/DD/YYYY" />
-                                </td>
-                                <td class="txtalgnrgt" style="width: 52px; padding-top: 20px ! important;"></td>
-                                <td style="width: 140px; padding-top: 20px ! important;"></td>
-                                <td class="txtalgnrgt" style="width: 47px;"></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
-                        <span class="fltrt">
-                            <input type="button" value="Save" data-ng-click="SaveRelatedAddress()" class="buttonGreen medium">
-
-                            <input type="button" value="Cancel" data-ng-click="clearRelatedAddress()" class="secondary medium bottom buttonalignment">
-
-                        </span>
-                    </div>
-                </div>
-                <div data-ag-grid="ProviderRelatedProgramGrid" class="ag-blue" style="width: 650px;margin-left:50px;  border: 1px solid #ddd;"></div>
-                <table style="margin-bottom: 15px; margin-top: 15px;">
-                    <tr>
-                        <td style="width: 100%; line-height: 20px;">
-                            <b>16. Other Program(s)</b>
-                            <p style="padding-left: 21px; padding-top: 5px;">If this school offers educational program(s) other than massage, please list.</p>
-                        </td>
-                    </tr>
-                </table>
-                <table style="width: 95%; margin-top: 10px; margin-left: 50px; margin-bottom: 5px;">
-                    <tr>
-                        <td class="6">
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td class="txtalgnrgt tdwidth1" style="width: 180px !important; padding-bottom: 10px;">
-                                            <span class="input-label">
-                                                Other Program Name :
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <input name="txtOtherProgramNameEdit" type="text" maxlength="150" id="txtOtherProgramNameEdit" ng-model="ProgramOtherName" class="tooltip OnlyAlphabet inputTextbox NewAppPersonalTxtbx" title="Only A-Z characters are allowed." style="width: 290px;" autocomplete="off">
-                                            <span class="AfterApproved">
-                                                <input type="button" name="btnSaveOtProgName" value="Add" id="btnSaveOtProgName" class="buttonGreen small" ng-click="SaveProviderOtherProgram()">
-                                            </span>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-                <div data-ag-grid="ProviderOtherProgramGrid" class="ag-blue" style="width: 410px; margin-left: 140px; border: 1px solid #ddd;"></div>
-
-                <table style="margin-top: 15px; float: left; width: 100%;">
-                    <tr>
-                        <td><b>17. Facility</b></td>
-                    </tr>
-                </table>
-
-                <div>
-                    <div id="fuAboutSchool8_upDoc" class="documentContainer" data-docid="12" data-doc-code="D1012" data-simple="true">
-                    </div>
-                    @*<div id="fuAboutSchool8_upDoc">
-                        Document File Upload Partial View -> Type :: Simple*@
-                    @*docId = "12";
-                                docCode = "D1012";
-                                isSimple = true;
-                        </div>
-
-                        <br>*@
-
-                    <div id="fuAboutSchool9_upDoc" class="documentContainer" data-docid="13" data-doc-code="D1013" data-simple="false">
-                    </div>
-                    @* <div id="fuAboutSchool9_upDoc">
-                        Document File Upload Partial View -> Type :: Complex*@
-                    @*docId = "13";
-                                docCode = "D1013";
-                                isSimple = false;
-                        </div>
-
-                        <br>*@
-                    <div id="fuAboutSchool10_upDoc" class="documentContainer" data-docid="14" data-doc-code="D1014" data-simple="true">
-                    </div>
-                    @*<div id="fuAboutSchool10_upDoc">
-                        Document File Upload Partial View -> Type :: Simple*@
-                    @*docId = "14";
-                                docCode = "D1014";
-                                isSimple = true;
-                        </div>
-
-                        <br>*@
-
-                    <div id="fuAboutSchool11_upDoc" class="documentContainer" data-docid="15" data-doc-code="D1015" data-simple="true">
-                    </div>
-                    @*<div id="fuAboutSchool11_upDoc">
-                        Document File Upload Partial View -> Type :: Simple*@
-                    @*docId = "15";
-                                docCode = "D1015";
-                                isSimple = true;
-                        </div>
-
-                        <br>*@
-
-                    <div id="fuAboutSchool12_upDoc" class="documentContainer" data-docid="16" data-doc-code="D1016" data-simple="true">
-                    </div>
-                    @*<div id="fuAboutSchool12_upDoc">
-                        Document File Upload Partial View -> Type :: Simple*@
-                    @*docId = "16";
-                                docCode = "D1016";
-                                isSimple = true;
-                        </div>
-
-                        <br>*@
-
-                    <div id="fuAboutSchool13_upDoc" class="documentContainer" data-docid="17" data-doc-code="D1017" data-simple="true">
-                    </div>
-                    @*<div id="fuAboutSchool13_upDoc">
-                        Document File Upload Partial View -> Type :: Simple*@
-                    @*docId = "17";
-                        docCode = "D1017";
-                        isSimple = true;
-                        </div>
-
-                        <br>*@
-
-                    <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px 4px 4px 30px; width: 91%;">
-                        <span class="fltrt">
-                            <input type="submit" name="btnSaveAboutFacility" value="Save" id="btnSaveAboutFacility" class="buttonGreen medium">
-                            <a id="lblCancelAboutFacility" class="secondary medium bottom buttonalignment">Cancel</a>
-                        </span>
-                    </div>
-                </div>
-                <table style="margin-left:20px; margin-top: 15px; float: left; width: 100%;">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <b>18. Advertising</b>
-                                <p style="margin-left:20px;">Please provide copies of <u>all</u> advertising.</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div id="fuAboutSchool14_upDoc" class="documentContainer" data-docid="18" data-doc-code="D1018" data-simple="false">
-                </div>
-                @*<div id="fuAboutSchool14_upDoc">
-                    Document File Upload Partial View -> Type :: Complex*@
-                @*docId = "18";
-                    docCode = "D1018";
-                    isSimple = false;
+                @*<div id="fuAboutSchool3_upDoc">
+                    Document File Upload Partial View -> Type :: Simple*@
+                @*docId = "5";
+                            docCode = "D1005";
+                            isSimple = true;
                     </div>
 
                     <br>*@
-            </fieldset>
-            @*<table style="width: 99%; margin-left:5px">
+                <div id="fuAboutSchool4_upDoc" class="documentContainer" data-docid="6" data-doc-code="D1006" data-simple="true">
+                </div>
+                @*<div id="fuAboutSchool4_upDoc">
+                    Document File Upload Partial View -> Type :: Simple*@
+                @*docId = "6";
+                            docCode = "D1006";
+                            isSimple = true;
+                    </div>
 
+                                    <br>*@
+
+                <div id="fuAboutSchool5_upDoc" class="documentContainer" data-docid="9" data-doc-code="D1009" data-simple="true">
+                </div>
+                @*<div id="fuAboutSchool5_upDoc">
+                    Document File Upload Partial View -> Type :: Simple*@
+                @*docId = "9";
+                            docCode = "D1009";
+                            isSimple = true;
+                    </div>
+
+                                    <br>*@
+
+                <div id="fuAboutSchool6_upDoc" class="documentContainer" data-docid="10" data-doc-code="D1010" data-simple="true">
+                </div>
+                @*<div id="fuAboutSchool6_upDoc">
+                    Document File Upload Partial View -> Type :: Simple*@
+                @*docId = "10";
+                            docCode = "D1010";
+                            isSimple = true;
+                    </div>
+
+                    <br>*@
+
+                <div id="fuAboutSchool7_upDoc" class="documentContainer" data-docid="11" data-doc-code="D1011" data-simple="true">
+                </div>
+                @*<div id="fuAboutSchool7_upDoc">
+                    Document File Upload Partial View -> Type :: Complex*@
+                @*docId = "11";
+                            docCode = "D1011";
+                            isSimple = false;
+                    </div>
+
+                    <br>*@
+            </div>
+            <table>
+                <tr>
+                    <td style="width: 100%; line-height: 20px;">
+                        <b>15. Related Schools</b>
+                        <p style="padding-left: 20px; width: 95%; padding-top: 5px;">
+                            If this school or campus shares its name, address, and/or ownership with another school(s),
+                            please list (NOTE: each campus seeking CAMTC school approval must submit a separate
+                            application).
+                        </p>
+                    </td>
+                </tr>
+            </table>
+
+
+            <div class="divLicenseInfon divaddnew AfterApproved" id="divAddbtnSatelliteLocation">
+                <span style="float: right; margin-right: 32px; margin-top: 15px;">
+                    <input type="button" value="Add" data-ng-click="ShowPopup(1)" class="buttonGreen small" />
+                </span>
+
+            </div>
+            <br />
+
+            <div id="divAddRelatedschool" style="width: 95%; margin-top: 10px; margin-left: 50px;">
+                <table class="tblApplReqForm5" style="width: 95%; margin-top: 10px; margin-left: 50px;">
+                    <tbody>
+                        <tr>
+                            <td class="6">
+
+                                <table class="tblApplReqForm5">
+                                    <tbody>
+                                        <tr>
+
+                                            <td class="txtalgnrgt" style="width: 110px;">
+                                                <label class="input-label required">
+                                                    School Name :
+                                                </label>
+                                            </td>
+                                            <td colspan="5">
+                                                <input id="schoolname" data-ng-model="RelatedSchool.ProviderName" type="text" class="inputTextbox NewAppPersonalTxtbx " style="width:518px;" autocomplete="off">
+                                            </td>
+
+
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="6">
+                                                <table class="tblApplReqForm5">
+                                                    <tbody>
+                                                        <tr style="margin-left: -134px; margin-top: -12px; float: left;">
+                                                            <td class="txtalgnrgt" style="width: 245px;">
+                                                                <label class="input-label required">
+                                                                    Primary Contact First Name :
+                                                                </label>
+                                                            </td>
+                                                            <td style="padding-top: 20px ! important;">
+                                                                <input id="first" name="txt" data-ng-model="RelatedSchool.FirstName" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox65" class="inputTextbox NewAppPersonalTxtbx" style="width: 170px;" autocomplete="off">
+                                                            </td>
+                                                            <td class="txtalgnrgt" style="width: 195px;">
+                                                                <label class="input-label required">
+                                                                    Primary Contact Last Name :
+                                                                </label>
+                                                            </td>
+                                                            <td style="padding-top: 20px ! important;">
+                                                                <input id="last" name="box66" data-ng-model="RelatedSchool.LastName" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox66" class="inputTextbox NewAppPersonalTxtbx" style="width:140px;" autocomplete="off">
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td style="width: 111px;" class="txtalgnrgt">
+                                                <label class="input-label required">
+                                                    Street :
+                                                </label>
+                                            </td>
+                                            <td colspan="5" style="padding-top: 20px !important;">
+                                                <input name="Box6" id="address1" data-ng-model="RelatedSchool.StreetLine1" type="text" maxlength="500" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox6" class="calWidth us_street" style="width:518px;" autocomplete="off">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td colspan="5" style="padding-top: 20px ! important;">
+                                                <input data-ng-model="RelatedSchool.StreetLine2" type="text" maxlength="500" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox7" class="calWidth us_street" style="width:518px;" autocomplete="off">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="txtalgnrgt">
+                                                <label class="input-label required">
+                                                    City :
+                                                </label>
+                                            </td>
+                                            <td style="width: 151px; padding-top: 20px ! important;">
+                                                <input id="city" data-ng-model="RelatedSchool.City" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox8" type="text" maxlength="500" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox8" class="tooltip OnlyAlphabet calWidth" title="Only A-Z characters are allowed." style="width:133px;" autocomplete="off">
+                                            </td>
+                                            <td class="txtalgnrgt" style="width: 52px; padding-top: 20px ! important;">
+                                                <label class="input-label required">
+                                                    State :
+                                                </label>
+                                            </td>
+                                            <td style="width: 140px; padding-top: 20px ! important;">
+                                                <select id="state" data-ng-model="RelatedSchool.StateCode" class="inputTextbox" title="Select your state" style="width:135px;" autocomplete="off" data-ng-options="item.StateCode as item.Name for item in StateList">
+                                                    <option value="-1">Select</option>
+                                                </select>
+                                            </td>
+                                            <td class="txtalgnrgt" style="width: 47px;">
+                                                <label class="input-label required">
+                                                    Zip :
+                                                </label>
+                                            </td>
+                                            <td>
+
+                                                <input id="zip" data-ng-model="RelatedSchool.ZIP" type="text" maxlength="10" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox9" class="tooltip zip_us calWidth" placeholder="xxxxx-xxxx or xxxxx" title="Enter valid Zip eg: XXXXX-XXXX or XXXXX" style="width:127px;" autocomplete="off">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="6">
+                                                <table class="tblApplReqForm5" style="margin-top: -7px;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="txtalgnrgt" style="width: 110px;">
+                                                                <label class="input-label required">
+                                                                    Phone :
+                                                                </label>
+                                                            </td>
+                                                            <td>
+
+                                                                <input id="phone" data-ng-model="RelatedSchool.Phone" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox10" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox10" class="inputTextbox NewAppPersonalTxtbx phone_us" style="width:135px;" autocomplete="off" maxlength="14">
+                                                                <span style="margin-left: 5px;"><input data-ng-model="RelatedSchool.IsMobile" id="ContentPlaceHolder1_ucCertificationApplication1_CheckBox58" type="checkbox" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$CheckBox58"><label for="ContentPlaceHolder1_ucCertificationApplication1_CheckBox58">Mobile</label></span>
+                                                            </td>
+                                                            <td class="txtalgnrgt" style="width: 143px;">
+                                                                <label class="input-label">
+                                                                    Website :
+                                                                </label>
+                                                            </td>
+                                                            <td>
+                                                                <input id="rwebsite" data-ng-model="RelatedSchool.Website" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox11" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox11" class="inputTextbox NewAppPersonalTxtbx" autocomplete="off">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="txtalgnrgt">
+                                                                <label class="input-label required">
+                                                                    Email :
+                                                                </label>
+                                                            </td>
+                                                            <td>
+                                                                <input id="remail" data-ng-model="RelatedSchool.Email" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox12" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox12" class="inputTextbox NewAppPersonalTxtbx" autocomplete="off">
+                                                            </td>
+                                                            <td class="txtalgnrgt"></td>
+                                                            <td>
+                                                                <div id="ContentPlaceHolder1_ucCertificationApplication1_div26" style="width: 100%; float: right;">
+                                                                    <span class="fltrt">
+                                                                        <input type="button" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$Button20" value="Verify Address" class="btn-success btn-xs">
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table style="margin-left: -68px;">
                     <tbody>
                         <tr>
                             <td class="txtalgnrgt">
                                 <label class="input-label required">
-                                    Document Name :
+                                    Approximate Date Associated :
                                 </label>
                             </td>
-                            <td>
-                                <input name="txtDocNameAboutAdvertising" type="text" id="txtDocNameAboutAdvertising" autocomplete="off">
+                            <td style="width: 151px; padding-top: 20px ! important;">
+                                <input id="rdate" type="text" data-ng-model="RelatedSchool.DateAssociated" class="inputTextbox calenderdateassociate" placeholder="MM/DD/YYYY" />
                             </td>
-                            <td class="txtalgnrgt">
-                                <label class="input-label required">
-                                    Document Type :
-                                </label>
-                            </td>
-                            <td>
-                                <select name="ddlOwnAboutAdvertising" id="ddlOwnAboutAdvertising" class="inputTextbox" autocomplete="off">
-                                    <option selected="selected" value="-1">Select</option>
-                                    <option value="1">Online Advertisement/Marketing</option>
-                                    <option value="2"> Print Advertisement/Marketing</option>
-
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="txtalgnrgt">
-                                <label class="input-label required">
-                                    Document :
-                                </label>
-                            </td>
-                            <td>
-                                <input type="file" name="DocFUAboutAdvertising" id="DocFUAboutAdvertising">
-                            </td>
-                            <td colspan="3">
-                                <input type="submit" name="btnUploadAboutAdvertising" value="Upload" id="btnUploadAboutAdvertising" class="buttonGreen small" style="margin-left: 10px;">
-                            </td>
+                            <td class="txtalgnrgt" style="width: 52px; padding-top: 20px ! important;"></td>
+                            <td style="width: 140px; padding-top: 20px ! important;"></td>
+                            <td class="txtalgnrgt" style="width: 47px;"></td>
                             <td></td>
                         </tr>
                     </tbody>
-                </table>*@
-            <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px; display: none;">
-                <span class="fltrt">
-                    <input type="submit" name="btnSaveAboutAdvertising" value="Save" id="btnSaveAboutAdvertising" class="buttonGreen medium">
-                    <a id="lblCancelAboutAdvertising" class="secondary medium bottom buttonalignment">Cancel</a>
-                </span>
-            </div>
-        </div>
+                </table>
+                <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
+                    <span class="fltrt">
+                        <input type="button" value="Save" data-ng-click="SaveRelatedAddress()" class="buttonGreen medium">
 
-        <div class="toolBar" style="padding: 4px; margin: 4px;">
+                        <input type="button" value="Cancel" data-ng-click="clearRelatedAddress()" class="secondary medium bottom buttonalignment">
+
+                    </span>
+                </div>
+            </div>
+            <div data-ag-grid="ProviderRelatedProgramGrid" class="ag-blue" style="width: 650px;margin-left:50px;  border: 1px solid #ddd;"></div>
+            <table style="margin-bottom: 15px; margin-top: 15px;">
+                <tr>
+                    <td style="width: 100%; line-height: 20px;">
+                        <b>16. Other Program(s)</b>
+                        <p style="padding-left: 21px; padding-top: 5px;">If this school offers educational program(s) other than massage, please list.</p>
+                    </td>
+                </tr>
+            </table>
+            <table style="width: 95%; margin-top: 10px; margin-left: 50px; margin-bottom: 5px;">
+                <tr>
+                    <td class="6">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="txtalgnrgt tdwidth1" style="width: 180px !important; padding-bottom: 10px;">
+                                        <span class="input-label">
+                                            Other Program Name :
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <input name="txtOtherProgramNameEdit" type="text" maxlength="150" id="txtOtherProgramNameEdit" ng-model="ProgramOtherName" class="tooltip OnlyAlphabet inputTextbox NewAppPersonalTxtbx" title="Only A-Z characters are allowed." style="width: 290px;" autocomplete="off">
+                                        <span class="AfterApproved">
+                                            <input type="button" name="btnSaveOtProgName" value="Add" id="btnSaveOtProgName" class="buttonGreen small" ng-click="SaveProviderOtherProgram()">
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <div data-ag-grid="ProviderOtherProgramGrid" class="ag-blue" style="width: 410px; margin-left: 140px; border: 1px solid #ddd;"></div>
+
+            <table style="margin-top: 15px; float: left; width: 100%;">
+                <tr>
+                    <td><b>17. Facility</b></td>
+                </tr>
+            </table>
+
+            <div>
+                <div id="fuAboutSchool8_upDoc" class="documentContainer" data-docid="12" data-doc-code="D1012" data-simple="true">
+                </div>
+                @*<div id="fuAboutSchool8_upDoc">
+                    Document File Upload Partial View -> Type :: Simple*@
+                @*docId = "12";
+                            docCode = "D1012";
+                            isSimple = true;
+                    </div>
+
+                    <br>*@
+
+                <div id="fuAboutSchool9_upDoc" class="documentContainer" data-docid="13" data-doc-code="D1013" data-simple="false">
+                </div>
+                @* <div id="fuAboutSchool9_upDoc">
+                    Document File Upload Partial View -> Type :: Complex*@
+                @*docId = "13";
+                            docCode = "D1013";
+                            isSimple = false;
+                    </div>
+
+                    <br>*@
+                <div id="fuAboutSchool10_upDoc" class="documentContainer" data-docid="14" data-doc-code="D1014" data-simple="true">
+                </div>
+                @*<div id="fuAboutSchool10_upDoc">
+                    Document File Upload Partial View -> Type :: Simple*@
+                @*docId = "14";
+                            docCode = "D1014";
+                            isSimple = true;
+                    </div>
+
+                    <br>*@
+
+                <div id="fuAboutSchool11_upDoc" class="documentContainer" data-docid="15" data-doc-code="D1015" data-simple="true">
+                </div>
+                @*<div id="fuAboutSchool11_upDoc">
+                    Document File Upload Partial View -> Type :: Simple*@
+                @*docId = "15";
+                            docCode = "D1015";
+                            isSimple = true;
+                    </div>
+
+                    <br>*@
+
+                <div id="fuAboutSchool12_upDoc" class="documentContainer" data-docid="16" data-doc-code="D1016" data-simple="true">
+                </div>
+                @*<div id="fuAboutSchool12_upDoc">
+                    Document File Upload Partial View -> Type :: Simple*@
+                @*docId = "16";
+                            docCode = "D1016";
+                            isSimple = true;
+                    </div>
+
+                    <br>*@
+
+                <div id="fuAboutSchool13_upDoc" class="documentContainer" data-docid="17" data-doc-code="D1017" data-simple="true">
+                </div>
+                @*<div id="fuAboutSchool13_upDoc">
+                    Document File Upload Partial View -> Type :: Simple*@
+                @*docId = "17";
+                    docCode = "D1017";
+                    isSimple = true;
+                    </div>
+
+                    <br>*@
+
+                <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px 4px 4px 30px; width: 91%;">
+                    <span class="fltrt">
+                        <input type="submit" name="btnSaveAboutFacility" value="Save" id="btnSaveAboutFacility" class="buttonGreen medium">
+                        <a id="lblCancelAboutFacility" class="secondary medium bottom buttonalignment">Cancel</a>
+                    </span>
+                </div>
+            </div>
+            <table style="margin-left:20px; margin-top: 15px; float: left; width: 100%;">
+                <tbody>
+                    <tr>
+                        <td>
+                            <b>18. Advertising</b>
+                            <p style="margin-left:20px;">Please provide copies of <u>all</u> advertising.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="fuAboutSchool14_upDoc" class="documentContainer" data-docid="18" data-doc-code="D1018" data-simple="false">
+            </div>
+            @*<div id="fuAboutSchool14_upDoc">
+                Document File Upload Partial View -> Type :: Complex*@
+            @*docId = "18";
+                docCode = "D1018";
+                isSimple = false;
+                </div>
+
+                <br>*@
+        </fieldset>
+        @*<table style="width: 99%; margin-left:5px">
+
+                <tbody>
+                    <tr>
+                        <td class="txtalgnrgt">
+                            <label class="input-label required">
+                                Document Name :
+                            </label>
+                        </td>
+                        <td>
+                            <input name="txtDocNameAboutAdvertising" type="text" id="txtDocNameAboutAdvertising" autocomplete="off">
+                        </td>
+                        <td class="txtalgnrgt">
+                            <label class="input-label required">
+                                Document Type :
+                            </label>
+                        </td>
+                        <td>
+                            <select name="ddlOwnAboutAdvertising" id="ddlOwnAboutAdvertising" class="inputTextbox" autocomplete="off">
+                                <option selected="selected" value="-1">Select</option>
+                                <option value="1">Online Advertisement/Marketing</option>
+                                <option value="2"> Print Advertisement/Marketing</option>
+
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="txtalgnrgt">
+                            <label class="input-label required">
+                                Document :
+                            </label>
+                        </td>
+                        <td>
+                            <input type="file" name="DocFUAboutAdvertising" id="DocFUAboutAdvertising">
+                        </td>
+                        <td colspan="3">
+                            <input type="submit" name="btnUploadAboutAdvertising" value="Upload" id="btnUploadAboutAdvertising" class="buttonGreen small" style="margin-left: 10px;">
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>*@
+        <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px; display: none;">
             <span class="fltrt">
-                <input type="button" ng-click="Save_Final()" name="btnLicInfoNext" value="Save &amp; Next" id="btnLicInfoNext" class="buttonGreen medium">
-                <a id="lnkCancelLiceInfo" class="secondary medium bottom buttonalignment">Cancel</a>
+                <input type="submit" name="btnSaveAboutAdvertising" value="Save" id="btnSaveAboutAdvertising" class="buttonGreen medium">
+                <a id="lblCancelAboutAdvertising" class="secondary medium bottom buttonalignment">Cancel</a>
             </span>
         </div>
     </div>
+
+    <div class="toolBar" style="padding: 4px; margin: 4px;">
+        <span class="fltrt">
+            <input type="button" ng-click="Save_Final()" name="btnLicInfoNext" value="Save &amp; Next" id="btnLicInfoNext" class="buttonGreen medium">
+            <a id="lnkCancelLiceInfo" class="secondary medium bottom buttonalignment">Cancel</a>
+        </span>
+    </div>
+</div>
 </div>
 
 <style>

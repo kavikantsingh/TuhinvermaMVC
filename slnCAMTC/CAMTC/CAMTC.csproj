@@ -236,6 +236,7 @@
     <Content Include="Content\AngularJS\CustomPaging\dirPagination.js" />
     <Content Include="Content\AngularJS\CustomPaging\dirPagination.spec.js" />
     <Content Include="Content\AngularJS\CustomPaging\dirPagination.tpl.html" />
+    <Content Include="Content\AngularJS\Sanitize.js" />
     <Content Include="Content\Individual\CertApplication.css" />
     <Content Include="Content\Individual\CertApplication.min.css" />
     <Content Include="Content\Login\css\BeatPicker.min.css" />

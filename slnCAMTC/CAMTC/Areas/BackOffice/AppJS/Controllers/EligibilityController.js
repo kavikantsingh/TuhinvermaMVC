@@ -97,18 +97,39 @@
 
     //Adding Mblex
     $scope.Save_MassgeProgram = function () {
-        $scope.Massage.IsActive = 1;
-        $scope.Massage.IsDeleted = 0;
-        $scope.Massage.ProviderProgramId = $scope.ProviderProgramId;
-        $scope.Massage.ProviderId = $scope.ProviderId;
-        EligiblitiyFactory.Save_MassgeProgram(key, $scope.Massage).success(function (data) {
-            $scope.clearMassageProgram();
-            $scope.MassageProgramGrid.api.setRowData(data.ProviderProgramResponseList);
-        }).error(function (error) {
-            $scope.Error = error;
-        });
+        if (MassageprogramAddNewSave()) {
+            $scope.Massage.IsActive = 1;
+            $scope.Massage.IsDeleted = 0;
+            $scope.Massage.ProviderProgramId = $scope.ProviderProgramId;
+            $scope.Massage.ProviderId = $scope.ProviderId;
+            EligiblitiyFactory.Save_MassgeProgram(key, $scope.Massage).success(function (data) {
+                $scope.clearMassageProgram();
+                $scope.MassageProgramGrid.api.setRowData(data.ProviderProgramResponseList);
+            }).error(function (error) {
+                $scope.Error = error;
+            });
+        }
     }
     //Adding Mblex
+
+
+
+    function MassageprogramAddNewSave() {
+        $('#error_validation').text('');
+        var error = '';
+        var txtAddmessageProgName = ValidateTextbox('<span class="notok"></span>  Please enter message program name.<br/>', '#AddMassageProgName', $('#AddMassageProgName').val());
+        var txtAddProgrameHours = ValidateTextbox('<span class="notok"></span>  Please enter total number of program hours.<br/>', '#AddProgrameHours', $('#AddProgrameHours').val());
+        error = txtAddmessageProgName + txtAddProgrameHours;
+        if (error != '') {
+            $('#error_validation').show();
+            $(document).scrollTop(0);
+            return false;
+        }
+        else {
+            return true;
+        }
+        $('#error_validation').html(error);
+    }
 
     //Populate Edit Satelite Address
     $scope.showUpdatevalueMassgeProgram = function (ProviderProgramId, MassageProgName, ProgrameHours) {
@@ -123,10 +144,10 @@
         columnDefs: [
         { headerName: "", hide: true, width: 250, field: "ProviderProgramId", },
         { headerName: "", hide: true, width: 250, field: "ProviderProgramGuid", },
-        { headerName: "Massage Program Name", width: 180, field: "ProgramName", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-            { headerName: "Total Number of Program Hours", width: 125, field: "TotalNoofPgmHours", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
+        { headerName: "Massage Program <br /> Name", width: 120, field: "ProgramName", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
+            { headerName: "Total Number <br />of Program Hours", width: 100, field: "TotalNoofPgmHours", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
             {
-                headerName: "CAMTC Approved", width: 125, field: "IsProgramApproved", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, cellRenderer: function (params) {
+                headerName: "CAMTC  Approved", width: 100, field: "IsProgramApproved", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, cellRenderer: function (params) {
                     if (params.data.IsProgramApproved)
                         return "<img src='\\Content/Theme1/images/StatusYes.png' />";
                     else
@@ -134,8 +155,8 @@
 
                 }
             },
-            { headerName: "Approved	Program Approved Start", width: 125, field: "ProgramApprovalStartDate", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
-            { headerName: "Program Approved End", width: 125, field: "ProgramApprovalEndDate", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
+            { headerName: "Approved	Program <br />  Approved Start", width: 125, field: "ProgramApprovalStartDate", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
+            { headerName: "Program Approved <br />  End", width: 125, field: "ProgramApprovalEndDate", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
             {
                 headerName: "Action", width: 80, cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, field: "IsActive", cellRenderer: function (params) {
                     return "<a data-ng-click=\"showUpdatevalueMassgeProgram('" + params.data.ProviderProgramId + "','" + params.data.ProgramName + "','" + params.data.TotalNoofPgmHours + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a><span ng-show=\"!IsReadOnly\"> |</span><a data-ng-click=\"DeleteProviderProgram('" + params.data.ProviderProgramId + "')\" href=\"javascript:;\"> <img src='\\Content/Public/images/delete.png' /></a>";
@@ -145,7 +166,7 @@
         angularCompileRows: true,
         rowData: [],
         rowHeight: 25,
-        headerHeight: 30,
+        headerHeight: 50,
         // enableColResize: true,
         suppressRowClickSelection: true,
         suppressHorizontalScroll: true,
@@ -177,35 +198,81 @@
 
     //Adding ApprovalAgency 
     $scope.Save_ApprovalAgency1 = function () {
-        $scope.ApprovalAgency1.IsActive = 1;
-        $scope.ApprovalAgency1.IsDeleted = 0;
-        $scope.ApprovalAgency1.IsAdditional = true;
-        $scope.ApprovalAgency1.ProviderApprovalAgencyId = $scope.ProviderApprovalAgencyId1;
-        $scope.ApprovalAgency1.ProviderId = $scope.ProviderId;
-        EligiblitiyFactory.Save_ApprovalAgency(key, $scope.ApprovalAgency1).success(function (data) {
-            $scope.clearApprovalAgency1();
-            $scope.ApprovalGrid.api.setRowData(data.ProviderApprovalAgencyResponseList);
-        }).error(function (error) {
-            $scope.Error = error;
-        });
+        if (ApprovalAgencyAddNewSave1()) {
+            $scope.ApprovalAgency1.IsActive = 1;
+            $scope.ApprovalAgency1.IsDeleted = 0;
+            $scope.ApprovalAgency1.IsAdditional = true;
+            $scope.ApprovalAgency1.ProviderApprovalAgencyId = $scope.ProviderApprovalAgencyId1;
+            $scope.ApprovalAgency1.ProviderId = $scope.ProviderId;
+            EligiblitiyFactory.Save_ApprovalAgency(key, $scope.ApprovalAgency1).success(function (data) {
+                $scope.clearApprovalAgency1();
+                $scope.ApprovalGrid.api.setRowData(data.ProviderApprovalAgencyResponseList);
+            }).error(function (error) {
+                $scope.Error = error;
+            });
+        }
     }
     //Adding Mblex
+
+
 
 
     //Adding ApprovalAgency 
     $scope.Save_ApprovalAgency = function () {
-        $scope.ApprovalAgency.IsActive = 1;
-        $scope.ApprovalAgency.IsDeleted = 0;
-        $scope.ApprovalAgency.ProviderApprovalAgencyId = $scope.ProviderApprovalAgencyId;
-        $scope.ApprovalAgency.ProviderId = $scope.ProviderId;
-        EligiblitiyFactory.Save_ApprovalAgency(key, $scope.ApprovalAgency).success(function (data) {
-            $scope.clearApprovalAgency();
-            $scope.ApprovalGrid.api.setRowData(data.ProviderApprovalAgencyResponseList);
-        }).error(function (error) {
-            $scope.Error = error;
-        });
+        if (ApprovalAgencyAddNewSave()) {
+            $scope.ApprovalAgency.IsActive = 1;
+            $scope.ApprovalAgency.IsDeleted = 0;
+            $scope.ApprovalAgency.ProviderApprovalAgencyId = $scope.ProviderApprovalAgencyId;
+            $scope.ApprovalAgency.ProviderId = $scope.ProviderId;
+            EligiblitiyFactory.Save_ApprovalAgency(key, $scope.ApprovalAgency).success(function (data) {
+                $scope.clearApprovalAgency();
+                $scope.ApprovalGrid.api.setRowData(data.ProviderApprovalAgencyResponseList);
+            }).error(function (error) {
+                $scope.Error = error;
+            });
+        }
     }
     //Adding Mblex
+    function btnChildSupp() {
+        $('#error_validation').text('');
+        var error = '';
+        var ddlAddApprovalAgency = ValidateDropdown('-1', '<span class="notok"></span> 	Please select approval/accrediting agency<br/>', '#ddlAddApprovalAgency', $('#ddlAddApprovalAgency').val());
+        var txtappagenDocNAme = ValidateTextbox('<span class="notok"></span> 	Please enter document name<br/>', '#txtappagenDocNAme', $('#txtappagenDocNAme').val());
+        var ddlAppAgencSup = ValidateDropdown('-1', '<span class="notok"></span> 	Please select document type<br/>', '#ddlAppAgencSup', $('#ddlAppAgencSup').val());
+
+        //var txtAddmessageProgName = ValidateTextbox('<span class="notok"></span> 	Please enter message program name.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtAddMassageProgName', $('#ContentPlaceHolder1_ucCertificationApplication1_txtAddMassageProgName').val());
+        //var txtAddProgrameHours = ValidateTextbox('<span class="notok"></span> 	Please enter total number of program hours.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtAddProgrameHours', $('#ContentPlaceHolder1_ucCertificationApplication1_txtAddProgrameHours').val());
+        error = ddlAddApprovalAgency + txtappagenDocNAme + ddlAppAgencSup;//+ txtAddmessageProgName + txtAddProgrameHours;
+        if (error != '') {
+            $('#error_validation').show();
+            return false;
+        }
+        else {
+            return true;
+        }
+        $('#error_validation').html(error);
+    }
+
+    function btnChildSupp() {
+        $('#error_validation').text('');
+        var error = '';
+        var ddlAddApprovalAgency = ValidateDropdown('-1', '<span class="notok"></span> 	Please select approval/accrediting agency<br/>', '#ddlAddApprovalAgency', $('#ddlAddApprovalAgency').val());
+        var txtappagenDocNAme = ValidateTextbox('<span class="notok"></span> 	Please enter document name<br/>', '#txtappagenDocNAme', $('#txtappagenDocNAme').val());
+        var ddlAppAgencSup = ValidateDropdown('-1', '<span class="notok"></span> 	Please select document type<br/>', '#ddlAppAgencSup', $('#ddlAppAgencSup').val());
+
+        //var txtAddmessageProgName = ValidateTextbox('<span class="notok"></span> 	Please enter message program name.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtAddMassageProgName', $('#ContentPlaceHolder1_ucCertificationApplication1_txtAddMassageProgName').val());
+        //var txtAddProgrameHours = ValidateTextbox('<span class="notok"></span> 	Please enter total number of program hours.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtAddProgrameHours', $('#ContentPlaceHolder1_ucCertificationApplication1_txtAddProgrameHours').val());
+        error = ddlAddApprovalAgency + txtappagenDocNAme + ddlAppAgencSup;//+ txtAddmessageProgName + txtAddProgrameHours;
+        if (error != '') {
+            $('#error_validation').show();
+            return false;
+        }
+        else {
+            return true;
+        }
+        $('#error_validation').html(error);
+    }
+
 
     $scope.DeleteProviderProgram = function (ProviderProgramId) {
         ShowLoader();
@@ -347,6 +414,10 @@
         EligiblitiyFactory.SaveProviderEntityInformation(key, $scope.Provider).success(function (data) {
             HideLoader();
             $scope.GetEligibilityInfoByProviderId();
+            if (mySharedService.ApplicationName == 'BackOffice') {
+                mySharedService.prepForBroadcastTabClick('About');
+            }
+
         }).error(function (error) {
             $scope.Error = error;
         });
@@ -394,5 +465,102 @@
         }
         //$scope.GetProviderdataonchange();
     });
+
+
+    function ApprovalAgencyAddNewSave() {
+        $('#error_validation').text('');
+        var error = '';
+        var ddlAddApprovalAgency = ValidateDropdown('-1', '<span class="notok"></span> Please select approval/accrediting agency<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_ddlAddApprovalAgency', $('#ContentPlaceHolder1_ucCertificationApplication1_ddlAddApprovalAgency').val());
+        var txtappagenDocNAme = ValidateTextbox('<span class="notok"></span> Please enter document name<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtappagenDocNAme', $('#ContentPlaceHolder1_ucCertificationApplication1_txtappagenDocNAme').val());
+        var txtAddExpirationDate = CheckDateFormat('<span class="notok"></span> Please enter date in correct format (mm/dd/yyyy)<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtAddExpirationDate', $('#ContentPlaceHolder1_ucCertificationApplication1_txtAddExpirationDate').val());
+        var ddlAppAgencSup = ValidateDropdown('-1', '<span class="notok"></span> Please select document type<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_ddlAppAgencSup', $('#ContentPlaceHolder1_ucCertificationApplication1_ddlAppAgencSup').val());
+        error = ddlAddApprovalAgency + txtAddExpirationDate + txtappagenDocNAme + ddlAppAgencSup;
+        if (error != '') {
+            $('#error_validation').show();
+            $('#ContentPlaceHolder1_ucCertificationApplication1_btnApprovalAgencyAddNewSave').attr('type', 'button');
+            $(document).scrollTop(0);
+        }
+        else {
+            $('#error_validation').hide();
+            $('#ContentPlaceHolder1_ucCertificationApplication1_btnApprovalAgencyAddNewSave').attr('type', 'submit');
+        }
+        $('#error_validation').html(error);
+    }
+
+    function AdditionalApprovalAgency_Button85() {
+        $('#error_validation').text('');
+        var error = '';
+        var TextBox68 = CheckDateFormat('<span class="notok"></span> Please enter date in correct format (mm/dd/yyyy)<br/>', '#TextBox68', $('#').val());
+        error = TextBox68;
+        if (error != '') {
+            $('#error_validation').show();
+            $('#ContentPlaceHolder1_ucCertificationApplication1_Button85').attr('type', 'button');
+            $(document).scrollTop(0);
+        }
+        else {
+            $('#error_validation').hide();
+            $('#ContentPlaceHolder1_ucCertificationApplication1_Button85').attr('type', 'submit');
+        }
+        $('#error_validation').html(error);
+    }
+
+
+    function ApprovalAgencyAddNewSave() {
+        $('#error_validation').text('');
+        var error = '';
+        var ddlAddApprovalAgency = ValidateDropdown('-1', '<span class="notok"></span> Please select approval/accrediting agency<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_ddlAddApprovalAgency', $('#ContentPlaceHolder1_ucCertificationApplication1_ddlAddApprovalAgency').val());
+        var txtappagenDocNAme = ValidateTextbox('<span class="notok"></span> Please enter document name<br/>', '#fuEligibility1_upDoc_docName', $('#fuEligibility1_upDoc_docName').val());
+        var txtAddExpirationDate = CheckDateFormat('<span class="notok"></span> Please enter date in correct format (mm/dd/yyyy)<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtAddExpirationDate', $('#ContentPlaceHolder1_ucCertificationApplication1_txtAddExpirationDate').val());
+        var ddlAppAgencSup = ValidateDropdown('-1', '<span class="notok"></span> Please select document type<br/>', '#fuEligibility1_upDoc_docType', $('#fuEligibility1_upDoc_docType').val());
+        error = ddlAddApprovalAgency + txtAddExpirationDate + txtappagenDocNAme + ddlAppAgencSup;
+        if (error != '') {
+            return false;
+            $(document).scrollTop(0);
+        }
+        else {
+            return true;
+        }
+        $('#error_validation').html(error);
+    }
+
+    function ApprovalAgencyAddNewSave1() {
+        $('#error_validation').text('');
+        var error = '';
+        var txtApprovalAgency = ValidateDropdown('-1', '<span class="notok"></span> Please select approval/accrediting agency<br/>', '#txtApprovalAgency', $('#txtApprovalAgency').val());
+        var txtappagenDocNAme = ValidateTextbox('<span class="notok"></span> Please enter document name<br/>', '#fuEligibility2_upDoc_docName', $('#fuEligibility2_upDoc_docName').val());
+        var txtAddExpirationDate = CheckDateFormat('<span class="notok"></span> Please enter date in correct format (mm/dd/yyyy)<br/>', '#txtAddExpirationDate', $('#txtAddExpirationDate').val());
+        var ddlAppAgencSup = ValidateDropdown('-1', '<span class="notok"></span> Please select document type<br/>', '#fuEligibility2_upDoc_docType', $('#fuEligibility2_upDoc_docType').val());
+        error = ddlAddApprovalAgency + txtAddExpirationDate + txtappagenDocNAme + ddlAppAgencSup;
+
+        if (error != '') {
+            return false;
+            $(document).scrollTop(0);
+        }
+        else {
+            return true;
+        }
+
+        $('#error_validation').html(error);
+    }
+
+    function AdditionalApprovalAgency_Button85() {
+        $('#error_validation').text('');
+        var error = '';
+        var TextBox68 = CheckDateFormat('<span class="notok"></span> Please enter date in correct format (mm/dd/yyyy)<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_TextBox68', $('#ContentPlaceHolder1_ucCertificationApplication1_TextBox68').val());
+        error = TextBox68;
+        if (error != '') {
+            $('#error_validation').show();
+            $('#ContentPlaceHolder1_ucCertificationApplication1_Button85').attr('type', 'button');
+            $(document).scrollTop(0);
+        }
+        else {
+            $('#error_validation').hide();
+            $('#ContentPlaceHolder1_ucCertificationApplication1_Button85').attr('type', 'submit');
+        }
+        $('#error_validation').html(error);
+    }
+
+
+
 
 }]);

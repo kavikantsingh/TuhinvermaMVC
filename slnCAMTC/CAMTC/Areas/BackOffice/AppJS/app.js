@@ -1,10 +1,9 @@
 ﻿agGrid.initialiseAgGridWithAngular1(angular);
-var LAPP = angular.module('LAPP', ['agGrid','checklist-model']);
+var LAPP = angular.module('LAPP', ['agGrid','checklist-model','ngSanitize']);
 
 //Configuration
 var BaseURL = 'http://localhost:1530';
 //var BaseURL = 'http://ws.camtc.inlumon.com';
-
 
 LAPP.factory('mySharedService', function ($rootScope) {
     var sharedService = {};

@@ -27,6 +27,7 @@
 /// <reference path="angular-underscore.js" />
 /// <reference path="custompaging/dirpagination.js" />
 /// <reference path="custompaging/dirpagination.spec.js" />
+/// <reference path="sanitize.js" />
 /// <reference path="../Login/js/BeatPicker.min.js" />
 /// <reference path="../Login/js/jquery-1.11.0.min.js" />
 /// <reference path="../Public/jquery-ui/js/jquery.json-2.4.min.js" />

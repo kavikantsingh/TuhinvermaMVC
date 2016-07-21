@@ -22,6 +22,7 @@
     $scope.staff = {};
 
     $scope.getallthestaffinfo = function () {
+        ShowLoader();
         StaffFactory.GetAllProviderStaffDetails(key, $scope.applicationid, $scope.ProviderId).success(function (data) {
             HideLoader();
             $scope.StaffGrid.api.setRowData(data.ListOfProviderStaffDetails);
@@ -30,7 +31,6 @@
             $scope.Error = error;
         });
     }
-
 
 
     $('#divAddRelatedschool').hide();
@@ -170,7 +170,7 @@
     $scope.Chk = 'No';
     //Adding staffinfo
     $scope.SaveStaffInfo = function () {
-        //  ShowLoader();
+        ShowLoader();
         $scope.staff.IsActive = 1;
         $scope.staff.IsDeleted = 0;
         $scope.staff.ProviderId = $scope.ProviderId;
@@ -223,8 +223,10 @@
 
         StaffFactory.SaveProviderStaff(key, $scope.staff).success(function (data) {
             //$scope.StaffGrid.api.setRowData(data.ProviderRelatedSchoolsList);
+
             $scope.clearRelatedAddress();
             $scope.getallthestaffinfo();
+            
         }).error(function (error) {
             $scope.Error = error;
         });
@@ -243,7 +245,7 @@
             { headerName: "First Name", width: 110, field: "ProviderStaffFirstName", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
             { headerName: "Title/ Position", width: 125, field: "titles", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
             {
-                headerName: "Background Check Required", width: 125, field: "IsBackgroundCheckReq", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, cellRenderer: function (params) {
+                headerName: "Background Check <br /> Required", width: 125, field: "IsBackgroundCheckReq", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, cellRenderer: function (params) {
                     if (params.data.IsBackgroundCheckReq)
                         return "Yes";
                     else
@@ -272,7 +274,7 @@
         angularCompileRows: true,
         rowData: [],
         rowHeight: 25,
-        headerHeight: 30,
+        headerHeight: 50,
         //enableColResize: true,
         suppressRowClickSelection: true,
         suppressHorizontalScroll: true,
