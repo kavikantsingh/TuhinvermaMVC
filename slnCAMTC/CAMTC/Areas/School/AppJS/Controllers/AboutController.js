@@ -2,7 +2,7 @@
     $scope.ProviderOtherProgramId = 0;
     $scope.ProgramOtherName = '';
     $scope.hasShow = 'false';
-    $('#error_validation').hide();
+
     $scope.ProviderGraduatesNumberId1 = 0;
     $scope.ProviderGraduatesNumberId2 = 0;
     $scope.ProviderGraduatesNumberId3 = 0;
@@ -38,185 +38,188 @@
 
     $scope.Save_Final = function () {
         ShowLoader();
-        var schooldata = {};
-        schooldata.ProviderId = $scope.ProviderId;
-        schooldata.ApplicationId = $scope.applicationid;
-        schooldata.IsActive = 1;
-        schooldata.IsDeleted = 0;
-        schooldata.CalendarYear = '2016';
-        schooldata.ProviderGraduatesNumberId = $scope.ProviderGraduatesNumberId1;
-        schooldata.CalendarYearEstGradCount = $scope.txtGradYear2016;
+        if (btnLicInfoNext()) {
+            var schooldata = {};
+            schooldata.ProviderId = $scope.ProviderId;
+            schooldata.ApplicationId = $scope.applicationid;
+            schooldata.IsActive = 1;
+            schooldata.IsDeleted = 0;
+            schooldata.CalendarYear = '2016';
+            schooldata.ProviderGraduatesNumberId = $scope.ProviderGraduatesNumberId1;
+            schooldata.CalendarYearEstGradCount = $scope.txtGradYear2016;
 
 
-        AboutFactory.SaveProviderGraduatesNumber(key, schooldata).success(function (data) {
+            AboutFactory.SaveProviderGraduatesNumber(key, schooldata).success(function (data) {
 
-        }).error(function (error) {
-            $scope.Error = error;
-        });
+            }).error(function (error) {
+                $scope.Error = error;
+            });
 
-        var schooldata1 = {};
-        schooldata1.ProviderId = $scope.ProviderId;
-        schooldata1.ApplicationId = $scope.applicationid;
-        schooldata1.IsActive = 1;
-        schooldata1.IsDeleted = 0;
-        schooldata1.CalendarYear = '2015';
-        schooldata1.ProviderGraduatesNumberId = $scope.ProviderGraduatesNumberId2;
-        schooldata1.CalendarYearEstGradCount = $scope.txtGradYear2015;
-
-
-        AboutFactory.SaveProviderGraduatesNumber(key, schooldata1).success(function (data) {
-
-        }).error(function (error) {
-            $scope.Error = error;
-        });
-
-        var schooldata2 = {};
-        schooldata2.ProviderId = $scope.ProviderId;
-        schooldata2.ApplicationId = $scope.applicationid;
-        schooldata2.IsActive = 1;
-        schooldata2.IsDeleted = 0;
-        schooldata2.CalendarYear = '2015';
-        schooldata2.CalendarYear = '2014';
-        schooldata2.ProviderGraduatesNumberId = $scope.ProviderGraduatesNumberId3;
-        schooldata2.CalendarYearEstGradCount = $scope.txtGradYear2014;
+            var schooldata1 = {};
+            schooldata1.ProviderId = $scope.ProviderId;
+            schooldata1.ApplicationId = $scope.applicationid;
+            schooldata1.IsActive = 1;
+            schooldata1.IsDeleted = 0;
+            schooldata1.CalendarYear = '2015';
+            schooldata1.ProviderGraduatesNumberId = $scope.ProviderGraduatesNumberId2;
+            schooldata1.CalendarYearEstGradCount = $scope.txtGradYear2015;
 
 
-        AboutFactory.SaveProviderGraduatesNumber(key, schooldata2).success(function (data) {
+            AboutFactory.SaveProviderGraduatesNumber(key, schooldata1).success(function (data) {
 
-        }).error(function (error) {
-            $scope.Error = error;
-        });
+            }).error(function (error) {
+                $scope.Error = error;
+            });
 
-        var schooldata3 = {};
-        schooldata3.ProviderId = $scope.ProviderId;
-        schooldata3.ApplicationId = $scope.applicationid;
-        schooldata3.IsActive = 1;
-        schooldata3.IsDeleted = 0;
-        schooldata3.CalendarYear = '2015';
-        schooldata3.CalendarYear = '2013';
-        schooldata3.ProviderGraduatesNumberId = $scope.ProviderGraduatesNumberId4;
-        schooldata3.CalendarYearEstGradCount = $scope.txtGradYear2013;
+            var schooldata2 = {};
+            schooldata2.ProviderId = $scope.ProviderId;
+            schooldata2.ApplicationId = $scope.applicationid;
+            schooldata2.IsActive = 1;
+            schooldata2.IsDeleted = 0;
+            schooldata2.CalendarYear = '2015';
+            schooldata2.CalendarYear = '2014';
+            schooldata2.ProviderGraduatesNumberId = $scope.ProviderGraduatesNumberId3;
+            schooldata2.CalendarYearEstGradCount = $scope.txtGradYear2014;
 
 
+            AboutFactory.SaveProviderGraduatesNumber(key, schooldata2).success(function (data) {
 
-        AboutFactory.SaveProviderGraduatesNumber(key, schooldata3).success(function (data) {
+            }).error(function (error) {
+                $scope.Error = error;
+            });
 
-        }).error(function (error) {
-            $scope.Error = error;
-        });
-
-        var schooldata4 = {};
-        schooldata4.ProviderId = $scope.ProviderId;
-        schooldata4.ApplicationId = $scope.applicationid;
-        schooldata4.IsActive = 1;
-        schooldata4.IsDeleted = 0;
-        schooldata4.CalendarYear = '2015';
-        schooldata4.CalendarYear = '2012';
-        schooldata4.ProviderGraduatesNumberId = $scope.ProviderGraduatesNumberId5;
-        schooldata4.CalendarYearEstGradCount = $scope.txtGradYear2012;
+            var schooldata3 = {};
+            schooldata3.ProviderId = $scope.ProviderId;
+            schooldata3.ApplicationId = $scope.applicationid;
+            schooldata3.IsActive = 1;
+            schooldata3.IsDeleted = 0;
+            schooldata3.CalendarYear = '2015';
+            schooldata3.CalendarYear = '2013';
+            schooldata3.ProviderGraduatesNumberId = $scope.ProviderGraduatesNumberId4;
+            schooldata3.CalendarYearEstGradCount = $scope.txtGradYear2013;
 
 
 
-        AboutFactory.SaveProviderGraduatesNumber(key, schooldata4).success(function (data) {
+            AboutFactory.SaveProviderGraduatesNumber(key, schooldata3).success(function (data) {
 
-        }).error(function (error) {
-            $scope.Error = error;
-        });
+            }).error(function (error) {
+                $scope.Error = error;
+            });
 
-        var schooldata5 = {};
-        schooldata5.ProviderId = $scope.ProviderId;
-        schooldata5.ApplicationId = $scope.applicationid;
-        schooldata5.IsActive = 1;
-        schooldata5.IsDeleted = 0;
-        schooldata5.CalendarYear = '2015';
-        schooldata5.CalendarYear = '2011';
-        schooldata5.ProviderGraduatesNumberId = $scope.ProviderGraduatesNumberId6;
-        schooldata5.CalendarYearEstGradCount = $scope.txtGradYear2011;
-
-
-        AboutFactory.SaveProviderGraduatesNumber(key, schooldata5).success(function (data) {
-
-        }).error(function (error) {
-            $scope.Error = error;
-        });
-
-        var schooldata6 = {};
-        schooldata6.ProviderId = $scope.ProviderId;
-        schooldata6.ApplicationId = $scope.applicationid;
-        schooldata6.IsActive = 1;
-        schooldata6.IsDeleted = 0;
-        schooldata6.CalendarYear = '2015';
-        schooldata6.CalendarYear = '2010';
-        schooldata6.ProviderGraduatesNumberId = $scope.ProviderGraduatesNumberId7;
-        schooldata6.CalendarYearEstGradCount = $scope.txtGradYear2010;
+            var schooldata4 = {};
+            schooldata4.ProviderId = $scope.ProviderId;
+            schooldata4.ApplicationId = $scope.applicationid;
+            schooldata4.IsActive = 1;
+            schooldata4.IsDeleted = 0;
+            schooldata4.CalendarYear = '2015';
+            schooldata4.CalendarYear = '2012';
+            schooldata4.ProviderGraduatesNumberId = $scope.ProviderGraduatesNumberId5;
+            schooldata4.CalendarYearEstGradCount = $scope.txtGradYear2012;
 
 
-        AboutFactory.SaveProviderGraduatesNumber(key, schooldata6).success(function (data) {
 
-        }).error(function (error) {
-            $scope.Error = error;
-        });
+            AboutFactory.SaveProviderGraduatesNumber(key, schooldata4).success(function (data) {
 
-        var schooldata7 = {};
-        schooldata7.ProviderId = $scope.ProviderId;
-        schooldata7.ApplicationId = $scope.applicationid;
-        schooldata7.IsActive = 1;
-        schooldata7.IsDeleted = 0;
-        schooldata7.CalendarYear = '2015';
-        schooldata7.CalendarYear = '2009';
-        schooldata7.ProviderGraduatesNumberId = $scope.ProviderGraduatesNumberId8;
-        schooldata7.CalendarYearEstGradCount = $scope.txtGradYear2009;
+            }).error(function (error) {
+                $scope.Error = error;
+            });
+
+            var schooldata5 = {};
+            schooldata5.ProviderId = $scope.ProviderId;
+            schooldata5.ApplicationId = $scope.applicationid;
+            schooldata5.IsActive = 1;
+            schooldata5.IsDeleted = 0;
+            schooldata5.CalendarYear = '2015';
+            schooldata5.CalendarYear = '2011';
+            schooldata5.ProviderGraduatesNumberId = $scope.ProviderGraduatesNumberId6;
+            schooldata5.CalendarYearEstGradCount = $scope.txtGradYear2011;
 
 
-        AboutFactory.SaveProviderGraduatesNumber(key, schooldata7).success(function (data) {
-            
-        }).error(function (error) {
-            $scope.Error = error;
-        });
+            AboutFactory.SaveProviderGraduatesNumber(key, schooldata5).success(function (data) {
 
-        var selectedBusTypes = [];
+            }).error(function (error) {
+                $scope.Error = error;
+            });
 
-        //for (var i = 0; i < data.roles.length; i++) {
+            var schooldata6 = {};
+            schooldata6.ProviderId = $scope.ProviderId;
+            schooldata6.ApplicationId = $scope.applicationid;
+            schooldata6.IsActive = 1;
+            schooldata6.IsDeleted = 0;
+            schooldata6.CalendarYear = '2015';
+            schooldata6.CalendarYear = '2010';
+            schooldata6.ProviderGraduatesNumberId = $scope.ProviderGraduatesNumberId7;
+            schooldata6.CalendarYearEstGradCount = $scope.txtGradYear2010;
 
-        for (var j = 0; j < $scope.roles.length; j++) {
-            var result = _.contains($scope.user, $scope.roles[j].LookupId);
-            if (result) {
-                var obj = {
-                    'ProviderBusinessTypeId': $scope.roles[j].ProviderBusinessTypeId,
-                    'ProviderId': $scope.ProviderId,
-                    'ApplicationId': $scope.applicationid,
-                    'BusinessOrgTypeId': $scope.roles[j].LookupId,
-                    'IsActive': 1,
-                    'IsDeleted': 0
+
+            AboutFactory.SaveProviderGraduatesNumber(key, schooldata6).success(function (data) {
+
+            }).error(function (error) {
+                $scope.Error = error;
+            });
+
+            var schooldata7 = {};
+            schooldata7.ProviderId = $scope.ProviderId;
+            schooldata7.ApplicationId = $scope.applicationid;
+            schooldata7.IsActive = 1;
+            schooldata7.IsDeleted = 0;
+            schooldata7.CalendarYear = '2015';
+            schooldata7.CalendarYear = '2009';
+            schooldata7.ProviderGraduatesNumberId = $scope.ProviderGraduatesNumberId8;
+            schooldata7.CalendarYearEstGradCount = $scope.txtGradYear2009;
+
+
+            AboutFactory.SaveProviderGraduatesNumber(key, schooldata7).success(function (data) {
+
+            }).error(function (error) {
+                $scope.Error = error;
+            });
+
+            var selectedBusTypes = [];
+
+            //for (var i = 0; i < data.roles.length; i++) {
+
+            for (var j = 0; j < $scope.roles.length; j++) {
+                var result = _.contains($scope.user, $scope.roles[j].LookupId);
+                if (result) {
+                    var obj = {
+                        'ProviderBusinessTypeId': $scope.roles[j].ProviderBusinessTypeId,
+                        'ProviderId': $scope.ProviderId,
+                        'ApplicationId': $scope.applicationid,
+                        'BusinessOrgTypeId': $scope.roles[j].LookupId,
+                        'IsActive': 1,
+                        'IsDeleted': 0
+                    }
+                    selectedBusTypes.push(obj)
                 }
-                selectedBusTypes.push(obj)
-            }
-            else {
-                var obj = {
-                    'ProviderBusinessTypeId': $scope.roles[j].ProviderBusinessTypeId,
-                    'ProviderId': $scope.ProviderId,
-                    'ApplicationId': $scope.applicationid,
-                    'BusinessOrgTypeId': $scope.roles[j].LookupId,
-                    'IsActive': 0,
-                    'IsDeleted': 0
+                else {
+                    var obj = {
+                        'ProviderBusinessTypeId': $scope.roles[j].ProviderBusinessTypeId,
+                        'ProviderId': $scope.ProviderId,
+                        'ApplicationId': $scope.applicationid,
+                        'BusinessOrgTypeId': $scope.roles[j].LookupId,
+                        'IsActive': 0,
+                        'IsDeleted': 0
+                    }
+                    selectedBusTypes.push(obj)
                 }
-                selectedBusTypes.push(obj)
+
+
             }
 
 
+            AboutFactory.SaveProviderBusinessType(key, selectedBusTypes).success(function (data) {
+
+                HideLoader();
+                mySharedService.prepForBroadcastTabClick('Transcript');
+
+
+            }).error(function (error) {
+                $scope.Error = error;
+            });
         }
-
-
-        AboutFactory.SaveProviderBusinessType(key, selectedBusTypes).success(function (data) {
-            
+        else
             HideLoader();
-            mySharedService.prepForBroadcastTabClick('Transcript');
-            
-            
-        }).error(function (error) {
-            $scope.Error = error;
-        });
-
         //$scope.Mblex.ProviderMBLExId = $scope.ProviderMBLExId;
         //$scope.Mblex.$scope.ProviderId = $scope.$scope.ProviderId;
         //SchoolInfoFactory.Save_providermblex(key, $scope.Mblex).success(function (data) {
@@ -232,6 +235,7 @@
         $scope.ProviderId = mySharedService.message;
         $scope.applicationid = mySharedService.Applicationid;
         if (mySharedService.CurrentPage == 'About') {
+            $('#error_validation').hide();
             $scope.hasShow = 'true';
             $scope.GetAllProviderOtherProgram();
         }
@@ -305,7 +309,7 @@
 
         $scope.ProviderOtherProgramList.ProviderOtherProgramId = $scope.ProviderOtherProgramId;
         $scope.ProviderOtherProgramList.ProgramOtherName = $scope.ProgramOtherName;
-        if ($scope.ProgramOtherName.trim() != '') {
+        if ($scope.ProgramOtherName != '') {
             AboutFactory.SaveProviderOtherProgram(key, $scope.ProviderOtherProgramList).success(function (data) {
                 HideLoader();
                 $scope.ProgramOtherName = '';
@@ -672,7 +676,7 @@
         var txtGradYear_5 = ValidateTextbox('<span class="notok"></span>   Please enter graduates for 2011 calendar year<br/>', '#txtGradYear5', $('#txtGradYear5').val());
         var txtGradYear_6 = ValidateTextbox('<span class="notok"></span>  Please enter graduates for 2010 calendar year<br/>', '#txtGradYear6', $('#txtGradYear6').val());
         var txtGradYear_7 = ValidateTextbox('<span class="notok"></span>   Please enter graduates for 2009 calendar year<br/>', '#txtGradYear7', $('#txtGradYear7').val());
-        var txtDocNameAboutOwnership = ValidateTextbox('<span class="notok"></span>  Please enter proof of ownership document name<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameAboutOwnership', $('#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameAboutOwnership').val());
+        //var txtDocNameAboutOwnership = ValidateTextbox('<span class="notok"></span>  Please enter proof of ownership document name<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameAboutOwnership', $('#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameAboutOwnership').val());
         //var TextBox141 = ValidateTextbox('<span class="notok"></span>  Please enter proof of business operations document name<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_TextBox141', $('#ContentPlaceHolder1_ucCertificationApplication1_TextBox141').val());
         //var txtDocNameClin = ValidateTextbox('<span class="notok"></span>   Please enter facility document name<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameClin', $('#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameClin').val());
         //var txtDocNameAboutAdvertising = ValidateTextbox('<span class="notok"></span>   Please enter advertising document name<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameAboutAdvertising', $('#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameAboutAdvertising').val());
@@ -682,7 +686,7 @@
         //var ddlOwnAboutBusinessDoc = ValidateDropdown('-1', '<span class="notok"></span>   Please select proof of business operations document type<br/> ', '#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutBusinessDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutBusinessDoc').val());
         //var DropDownList6 = ValidateDropdown('-1', '<span class="notok"></span>   Please select proof of business operations document type<br/> ', '#ContentPlaceHolder1_ucCertificationApplication1_DropDownList6', $('#ContentPlaceHolder1_ucCertificationApplication1_DropDownList6').val());
         //var ddlOwnAboutOwnership = ValidateDropdown('-1', '<span class="notok"></span>   Please select proof of ownership document type<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutOwnership', $('#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutOwnership').val());
-        rr
+
         //var fluLocalBusiness = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Local Business License.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool4_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool4_hfStatus').val());
         //var fluOrgChart = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Local Business License.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool6_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool6_hfStatus').val());
         //var fluFloorPlan = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Floor Plan (including approximate square footage).<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool8_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool8_hfStatus').val());
@@ -693,10 +697,12 @@
         error = txtGradYear + txtGradYear_1 + txtGradYear_2 + txtGradYear_3 + txtGradYear_4 + txtGradYear_5 + txtGradYear_6 + txtGradYear_7;
         //error = txtGradYear + txtGradYear_1 + txtGradYear_2 + txtGradYear_3 + txtGradYear_4 + txtGradYear_5 + txtGradYear_6 + txtGradYear_7 + txtDocNameAboutOwnership + ddlOwnAboutOwnership + TextBox141 + DropDownList6 + fluLocalBusiness + fluOrgChart + fluFloorPlan + fluExteriorSign + fluBuildExterior + fluMassageClassRoom + fluMassageClinic + txtDocNameClin + ddlOtherClin + ddlOwnAboutBusinessDoc + txtDocNameAboutAdvertising + ddlOwnAboutAdvertising;
         //error = txtGradYear + txtGradYear_1 + txtGradYear_2 + txtGradYear_3 + txtGradYear_4 + txtGradYear_5 + txtGradYear_6 + txtGradYear_7 + fluLocalBusiness + fluOrgChart + fluFloorPlan + fluExteriorSign + fluBuildExterior + fluMassageClassRoom + fluMassageClinic;
+        
+        $('.errorinfo').html(error);
+
         if (error != '') {
             $('#error_validation').show();
             $(document).scrollTop(0);
-            $('#error_validation').html(error);
             return false;
         }
         else {
@@ -803,7 +809,7 @@
             $('#error_validation').hide();
             return true;
         }
-        
+
     }
 
 

@@ -87,7 +87,7 @@
         $scope.PrevAdd.IsActive = 1;
         $scope.PrevAdd.IsDeleted = 0;
         $scope.PrevAdd.AddressId = $scope.PreviousAddressId;
-        if ($scope.PrevAdd.StreetLine1 != '' && $scope.PrevAdd.City != '' && $scope.PrevAdd.StateCode != '' && $scope.PrevAdd.StateCode != '0' && $scope.PrevAdd.Zip != '') {
+        if ($scope.PrevAdd.StreetLine1 != '' && $scope.PrevAdd.City != '' && $scope.PrevAdd.StateCode != '' && $scope.PrevAdd.StateCode != '0' && $scope.PrevAdd.Zip != '' && $scope.PrevAdd.StreetLine1 != null && $scope.PrevAdd.City != null && $scope.PrevAdd.StateCode != null && $scope.PrevAdd.StateCode != null && $scope.PrevAdd.Zip != null) {
             SchoolInfoFactory.AddPreviousAddress($scope.PrevAdd, key).success(function (data) {
                 $scope.clearPreviousAddress();
                 $scope.PrevAddrIfanyGrid.api.setRowData(data.ListOfPreviousAddress);
@@ -125,7 +125,7 @@
         $scope.SateliteAdd.IsActive = 1;
         $scope.SateliteAdd.IsDeleted = 0;
         $scope.SateliteAdd.AddressId = $scope.SateliteAddressId;
-        if ($scope.SateliteAdd.StreetLine1 != '' && $scope.SateliteAdd.City != '' && $scope.SateliteAdd.StateCode != '' && $scope.SateliteAdd.StateCode != '0' && $scope.SateliteAdd.Zip != '') {
+        if ($scope.SateliteAdd.StreetLine1 != '' && $scope.SateliteAdd.City != '' && $scope.SateliteAdd.StateCode != '' && $scope.SateliteAdd.StateCode != '0' && $scope.SateliteAdd.Zip != '' && $scope.SateliteAdd.StreetLine1 != null && $scope.SateliteAdd.City != null && $scope.SateliteAdd.StateCode != null && $scope.SateliteAdd.StateCode != null && $scope.SateliteAdd.Zip != null) {
             SchoolInfoFactory.AddPreviousAddress($scope.SateliteAdd, key).success(function (data) {
                 $scope.clearsateliteAddress();
                 $scope.SateliteAddrIfanyGrid.api.setRowData(data.ListOfPreviousAddress);
@@ -459,9 +459,8 @@
     $scope.AddPreviousSchoolInSchoolInformation = function () {
         ShowLoader();
 
-        if ($scope.PrevSchoolname.trim() != '') {
-            var prevschooldata = {
-            };
+        if ($scope.PrevSchoolname != '' && $scope.PrevSchoolname != null) {
+            var prevschooldata = {};
             prevschooldata.ProviderId = $scope.ProviderId;
             prevschooldata.ProviderNameId = $scope.ProviderNameId;
             prevschooldata.ProviderName = $scope.PrevSchoolname;
@@ -707,19 +706,19 @@
         var SchoolName = ValidateTextbox('<span class="notok"></span> Please enter the school name.<br/>', '#first', $('#first').val());
         var SchoolTelephone = ValidateTextbox('<span class="notok"></span> Please enter school telephone<br/>', '#tel', $('#tel').val());
         var SchoolWebsite = ValidateWebsite('<span class="notok"></span> Please enter website in correct format (www.websitename.com) <br/>', '<span class="notok"></span> Please enter school website<br/>', '#website', $('#website').val());
-        var _DateofNameChange = CheckDate('<span class="notok"></span> Future dates are not accepted. <br/>', '<span class="notok"></span> Please enter date in correct format (mm/dd/yyyy)<br/>', '#txtnamechange', $('#txtnamechange').val());
+        //var _DateofNameChange = CheckDate('<span class="notok"></span> Future dates are not accepted. <br/>', '<span class="notok"></span> Please enter date in correct format (mm/dd/yyyy)<br/>', '#txtnamechange', $('#txtnamechange').val());
         var SchoolAddress = ValidateTextbox('<span class="notok"></span> Please enter school address<br/>', '#SchoolStreet', $('#SchoolStreet').val());
         var SchoolCity = ValidateTextbox('<span class="notok"></span> Please enter school city<br/>', '#city', $('#city').val());
         var SchoolState = ValidateDropdown('<span class="notok"></span> Please enter school state<br/>', '#State', $('#State').val());
         var SchoolZip = ValidateTextbox('<span class="notok"></span> Please enter school zip<br/>', '#zip', $('#zip').val());
         var DirectorFirstName = ValidateTextbox('<span class="notok"></span> Please enter director first name<br/>', '#DirFirstName', $('#DirFirstName').val());
         //var DirectorLastName = ValidateTextbox('<span class="notok"></span> Please enter director last name<br/>', '#DirLastName', $('#DirLastName').val());
-        var AdministratorEmail = ValidateEmail('<span class="notok"></span> Please enter administrator email<br/>', '#DirectorEmail', $('#DirectorEmail').val());
+        var AdministratorEmail = ValidateEmail('<span class="notok"></span> Please enter administrator email<br/>', '<span class="notok"></span> Please enter administrator email<br/>', '#DirectorEmail', $('#DirectorEmail').val());
         var JobTitle = ValidateTextbox('<span class="notok"></span> Please enter administrator job title<br/>', '#SclInfoJobTitle', $('#SclInfoJobTitle').val());
         var PrimaryNumber = ValidateTextbox('<span class="notok"></span> Please enter administrator primary number<br/>', '#SclInfoPriNumber', $('#SclInfoPriNumber').val());
-        //var _ContactEmail = CheckEmail('<span class="notok"></span> Please enter email in correct format (joe@email.com)<br/>', '#ApplicationEmail', $('#ApplicationEmail').val());
-
-        error = SchoolName + SchoolTelephone + SchoolWebsite + _DateofNameChange + SchoolAddress + SchoolCity + SchoolState + SchoolZip + DirectorFirstName + AdministratorEmail + JobTitle + PrimaryNumber;//DirectorLastName + _ContactEmail
+//        var _ContactEmail = ValidateEmail('<span class="notok"></span> Please enter email in correct format (joe@email.com)<br/>', '<span class="notok"></span> Please enter email in correct format (joe@email.com)<br/>', '#ApplicationEmail', $('#ApplicationEmail').val());
+        error = SchoolName + SchoolTelephone + SchoolWebsite + SchoolAddress + SchoolCity + SchoolState + SchoolZip + DirectorFirstName + AdministratorEmail + JobTitle + PrimaryNumber;//DirectorLastName //_DateofNameChange ++ _ContactEmail 
+        //error = SchoolName + SchoolTelephone + SchoolWebsite + _DateofNameChange + SchoolAddress + SchoolCity + SchoolState + SchoolZip + DirectorFirstName + AdministratorEmail + JobTitle + PrimaryNumber;//DirectorLastName + _ContactEmail
 
         $('.errorinfo').html(error);
 

@@ -294,7 +294,7 @@
         //var fuCurriculum8 = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Document Name.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuCurriculum8_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuCurriculum8_hfStatus').val());
 
         //error = fuCurriculum1 + fuCurriculum2 + fuCurriculum3 + fuCurriculum4 + fuCurriculum5 + fuCurriculum6 + fuCurriculum7 + fuCurriculum8;
-        error = fuCurriculum1;
+        error = txtcarculam;
         $('#error_validation').html(error);
         if (error != '') {
             $('#error_validation').show();
