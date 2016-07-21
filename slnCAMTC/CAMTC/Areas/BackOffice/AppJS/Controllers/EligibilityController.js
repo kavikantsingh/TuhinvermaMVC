@@ -120,6 +120,7 @@
         var txtAddmessageProgName = ValidateTextbox('<span class="notok"></span>  Please enter message program name.<br/>', '#AddMassageProgName', $('#AddMassageProgName').val());
         var txtAddProgrameHours = ValidateTextbox('<span class="notok"></span>  Please enter total number of program hours.<br/>', '#AddProgrameHours', $('#AddProgrameHours').val());
         error = txtAddmessageProgName + txtAddProgrameHours;
+        $('#error_validation').html(error);
         if (error != '') {
             $('#error_validation').show();
             $(document).scrollTop(0);
@@ -128,7 +129,7 @@
         else {
             return true;
         }
-        $('#error_validation').html(error);
+        
     }
 
     //Populate Edit Satelite Address
@@ -243,6 +244,7 @@
         //var txtAddmessageProgName = ValidateTextbox('<span class="notok"></span> 	Please enter message program name.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtAddMassageProgName', $('#ContentPlaceHolder1_ucCertificationApplication1_txtAddMassageProgName').val());
         //var txtAddProgrameHours = ValidateTextbox('<span class="notok"></span> 	Please enter total number of program hours.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtAddProgrameHours', $('#ContentPlaceHolder1_ucCertificationApplication1_txtAddProgrameHours').val());
         error = ddlAddApprovalAgency + txtappagenDocNAme + ddlAppAgencSup;//+ txtAddmessageProgName + txtAddProgrameHours;
+        $('#error_validation').html(error);
         if (error != '') {
             $('#error_validation').show();
             return false;
@@ -250,7 +252,7 @@
         else {
             return true;
         }
-        $('#error_validation').html(error);
+        
     }
 
     function btnChildSupp() {
@@ -263,6 +265,7 @@
         //var txtAddmessageProgName = ValidateTextbox('<span class="notok"></span> 	Please enter message program name.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtAddMassageProgName', $('#ContentPlaceHolder1_ucCertificationApplication1_txtAddMassageProgName').val());
         //var txtAddProgrameHours = ValidateTextbox('<span class="notok"></span> 	Please enter total number of program hours.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtAddProgrameHours', $('#ContentPlaceHolder1_ucCertificationApplication1_txtAddProgrameHours').val());
         error = ddlAddApprovalAgency + txtappagenDocNAme + ddlAppAgencSup;//+ txtAddmessageProgName + txtAddProgrameHours;
+        $('#error_validation').html(error);
         if (error != '') {
             $('#error_validation').show();
             return false;
@@ -270,7 +273,7 @@
         else {
             return true;
         }
-        $('#error_validation').html(error);
+     
     }
 
 
@@ -414,7 +417,7 @@
         EligiblitiyFactory.SaveProviderEntityInformation(key, $scope.Provider).success(function (data) {
             HideLoader();
             $scope.GetEligibilityInfoByProviderId();
-            if (mySharedService.ApplicationName == 'BackOffice') {
+            if (mySharedService.ApplicationName == 'SchoolApp') {
                 mySharedService.prepForBroadcastTabClick('About');
             }
 
@@ -475,6 +478,7 @@
         var txtAddExpirationDate = CheckDateFormat('<span class="notok"></span> Please enter date in correct format (mm/dd/yyyy)<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtAddExpirationDate', $('#ContentPlaceHolder1_ucCertificationApplication1_txtAddExpirationDate').val());
         var ddlAppAgencSup = ValidateDropdown('-1', '<span class="notok"></span> Please select document type<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_ddlAppAgencSup', $('#ContentPlaceHolder1_ucCertificationApplication1_ddlAppAgencSup').val());
         error = ddlAddApprovalAgency + txtAddExpirationDate + txtappagenDocNAme + ddlAppAgencSup;
+        $('#error_validation').html(error);
         if (error != '') {
             $('#error_validation').show();
             $('#ContentPlaceHolder1_ucCertificationApplication1_btnApprovalAgencyAddNewSave').attr('type', 'button');
@@ -484,7 +488,7 @@
             $('#error_validation').hide();
             $('#ContentPlaceHolder1_ucCertificationApplication1_btnApprovalAgencyAddNewSave').attr('type', 'submit');
         }
-        $('#error_validation').html(error);
+        
     }
 
     function AdditionalApprovalAgency_Button85() {
@@ -513,6 +517,7 @@
         var txtAddExpirationDate = CheckDateFormat('<span class="notok"></span> Please enter date in correct format (mm/dd/yyyy)<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtAddExpirationDate', $('#ContentPlaceHolder1_ucCertificationApplication1_txtAddExpirationDate').val());
         var ddlAppAgencSup = ValidateDropdown('-1', '<span class="notok"></span> Please select document type<br/>', '#fuEligibility1_upDoc_docType', $('#fuEligibility1_upDoc_docType').val());
         error = ddlAddApprovalAgency + txtAddExpirationDate + txtappagenDocNAme + ddlAppAgencSup;
+        $('#error_validation').html(error);
         if (error != '') {
             return false;
             $(document).scrollTop(0);
@@ -520,7 +525,7 @@
         else {
             return true;
         }
-        $('#error_validation').html(error);
+        
     }
 
     function ApprovalAgencyAddNewSave1() {
@@ -531,7 +536,7 @@
         var txtAddExpirationDate = CheckDateFormat('<span class="notok"></span> Please enter date in correct format (mm/dd/yyyy)<br/>', '#txtAddExpirationDate', $('#txtAddExpirationDate').val());
         var ddlAppAgencSup = ValidateDropdown('-1', '<span class="notok"></span> Please select document type<br/>', '#fuEligibility2_upDoc_docType', $('#fuEligibility2_upDoc_docType').val());
         error = ddlAddApprovalAgency + txtAddExpirationDate + txtappagenDocNAme + ddlAppAgencSup;
-
+        $('#error_validation').html(error);
         if (error != '') {
             return false;
             $(document).scrollTop(0);
@@ -540,7 +545,7 @@
             return true;
         }
 
-        $('#error_validation').html(error);
+        
     }
 
     function AdditionalApprovalAgency_Button85() {

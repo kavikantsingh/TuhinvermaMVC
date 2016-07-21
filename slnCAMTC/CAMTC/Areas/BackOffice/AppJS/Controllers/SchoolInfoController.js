@@ -617,7 +617,7 @@
             SchoolInfoFactory.SaveSchoolInformation($scope.ProviderInformationDetails, key).success(function (data) {
                 $scope.GetSchoolInfoByProviderId();
 
-                if (mySharedService.ApplicationName == 'BackOffice') {
+                if (mySharedService.ApplicationName == 'SchoolApp') {
                     mySharedService.prepForBroadcastTabClick('Eligibility');
                 }
 

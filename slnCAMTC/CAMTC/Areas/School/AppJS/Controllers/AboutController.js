@@ -793,6 +793,7 @@
         var TextBox12 = ValidateEmail('<span class="notok"></span> Please enter email in correct format (joe@email.com) <br/>', '<span class="notok"></span>Please enter related school email<br/>', '#remail', $('#remail').val());
         var txtApproxDateAssociate = ValidateDate('<span class="notok"></span> Future dates are not accepted. <br/>', '<span class="notok"></span> Please enter date in correct format (mm/dd/yyyy) <br/>', '<span class="notok"></span> Please enter related school approximate date associated<br/>', '#rdate', $('#rdate').val());
         error = TextBox2 + TextBox65 + TextBox66 + TextBox6 + txtSchoolCity + DropDownList1 + TextBox9 + TextBox10 + TextBox11 + TextBox12 + txtApproxDateAssociate;
+        $('#error_validation').html(error);
         if (error != '') {
             $('#error_validation').show();
             $(document).scrollTop(0);
@@ -802,7 +803,7 @@
             $('#error_validation').hide();
             return true;
         }
-        $('#error_validation').html(error);
+        
     }
 
 

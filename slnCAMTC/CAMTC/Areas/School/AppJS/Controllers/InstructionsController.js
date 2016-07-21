@@ -2,6 +2,8 @@
     $scope.hasShow = 'true';
 
     $scope.$on('handleBroadcastForTab', function () {
+        $('#error_validation').hide();
+        $('#error_validation').html('');
         $scope.ProviderId = mySharedService.message;
         $scope.ProviderName = mySharedService.message1;
         if (mySharedService.CurrentPage == 'Instructions') {
@@ -12,7 +14,7 @@
             $scope.hasShow = 'false';
     });
 
-    
+
 
     $scope.Save_final = function () {
         mySharedService.prepForBroadcastTabClick('SchoolInfo');

@@ -1,5 +1,8 @@
 ﻿<div ng-controller="AboutController" class="clear textBoxAlign" ng-show="hasShow == 'true'">
-    <div id="error_validation" class="address-box posFixed" style="display: none; color: red;"></div>
+    <section>
+        <div id="error_validation" class="errorinfo address-box posFixed" style="color: red; display: block;"></div>
+    </section>
+
     <div>
         <div id="error_aboutschool" class="address-box posFixed" style="display: none; color: red;"></div>
         <div class="sectionDiv">
@@ -20,7 +23,7 @@
                         <td></td>
                     </tr>
                 </table>
-                
+
                 <table class="estimate_css">
                     <tr>
                         <td class="txtalgnrgt">
@@ -133,7 +136,7 @@
                         </td>
                     </tr>
                 </table>
-                
+
                 <table class="chekbox_about width100p">
                     <tr>
                         <td>
@@ -144,8 +147,8 @@
 
                                 @*<div data-ng-repeat="Lookup in LookupList">
 
-                            <input type="checkbox" checkbox-group data-ng-model="Lookup.LookupId" ng-click="onchagecheck(Lookup)" ng-checked="Lookup.IsChecked" /> <label>{{Lookup.LookupDesc }}</label>
-                        </div>*@
+                                        <input type="checkbox" checkbox-group data-ng-model="Lookup.LookupId" ng-click="onchagecheck(Lookup)" ng-checked="Lookup.IsChecked" /> <label>{{Lookup.LookupDesc }}</label>
+                                    </div>*@
 
                             </div>
                         </td>
@@ -184,7 +187,7 @@
                     </tr>
                 </table>
                 <div>
-                    
+
                     <div id="fuApprovalATS" class="documentContainer" data-docid="4" data-doc-code="D1004" data-simple="false">
                     </div>
                     @* <div id="fuAboutSchool2_upDoc">
@@ -268,7 +271,7 @@
                     </span>
 
                 </div>
-                
+
 
                 <div id="divAddRelatedschool" style="width: 95%; margin-top: 10px; margin-left: 50px;">
                     <table class="tblApplReqForm5" style="width: 95%; margin-top: 10px; margin-left: 50px;">
@@ -620,7 +623,7 @@
                         </tr>
                     </tbody>
                 </table>*@
-            <div class="toolBar AfterApproved toolbar_instruct" style=" display: none;">
+            <div class="toolBar AfterApproved toolbar_instruct" style=" display none;">
                 <span class="fltrt">
                     <input type="submit" name="btnSaveAboutAdvertising" value="Save" id="btnSaveAboutAdvertising" class="buttonGreen medium">
                     <a id="lblCancelAboutAdvertising" class="secondary medium bottom buttonalignment">Cancel</a>

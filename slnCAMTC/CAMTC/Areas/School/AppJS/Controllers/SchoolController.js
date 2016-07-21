@@ -1,15 +1,14 @@
 ﻿LAPP.controller('MainController', ['$scope', '$rootScope', 'mySharedService', 'SchoolInfoFactory', '$window', '$timeout', function ($scope, $rootScope, mySharedService, SchoolInfoFactory, $window, $timeout) {
     mySharedService.ApplicationName = 'SchoolApp';
-
     $scope.Pagename = 'Instructions';
 
-    
+
 
     $scope.TabChangeClick = function (Pagename) {
         $scope.Pagename = Pagename;
         mySharedService.Pagename = Pagename;
         mySharedService.prepForBroadcastTabClick(Pagename);
-        
+
     };
 
     $scope.$on('prepForBroadcastTabClick', function (Pagename) {
