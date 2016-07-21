@@ -7,8 +7,9 @@
 <div ng-controller="EligiblityController" ng-show="hasShow == 'true'" class="clear textBoxAlign">
 
     <section>
-        <div id="error_validation" class="errorinfo address-box posFixed" style="display: none; color: red;"></div>
+        <div id="error_validation" class="errorinfo address-box posFixed" style="display: block; color: red;"></div>
     </section>
+
     <div>
         <div class="sectionDiv">
             <span>School Eligibility</span>
@@ -56,7 +57,7 @@
                                 </span>
                             </td>
                             <td>
-                                <input type="text" data-ng-model="ApprovalAgency.ExpirationDate" class="inputTextbox calenderSiteVisit" placeholder="MM/DD/YYYY" />
+                                <input type="text" id="ContentPlaceHolder1_ucCertificationApplication1_txtAddExpirationDate" data-ng-model="ApprovalAgency.ExpirationDate" class="inputTextbox calenderSiteVisit" placeholder="MM/DD/YYYY" />
                             </td>
                             <td></td>
                             <td></td>
@@ -146,7 +147,7 @@
                                 </span>
                             </td>
                             <td>
-                                <input type="text" data-ng-model="ApprovalAgency1.ApprovalAccreditingAgencyName" id="TextBox1" width="167px" />
+                                <input type="text" id="manualid" data-ng-model="ApprovalAgency1.ApprovalAccreditingAgencyName" id="TextBox1" width="167px" />
                             </td>
                             <td class="txtalgnrgt tdwidth2">
                                 <span class="input-label required">
