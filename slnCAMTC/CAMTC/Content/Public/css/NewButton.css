@@ -19,7 +19,7 @@ input[type=button], button, select, textarea
 {
     font-family: Verdana,sans-serif !important;
     font-size: inherit;
-    line-height: inherit;
+    
 }
 button, html input[type=button], input[type=reset], input[type=submit]
 {

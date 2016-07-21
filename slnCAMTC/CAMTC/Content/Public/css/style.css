@@ -22,31 +22,80 @@ zoom:1;
 /*SchoolInfo css*/
 .error_top_Sinfo{ color: red; margin-top: 0px; border-radius: 5px;}
 .panle_list_SInfo{border: 1px solid rgb(222, 222, 222); margin-top: 10px;}
+.left{ float:left;}
 .width100p{width:100%;}
+.width99p{ width:99%;}
+.width98p{ width:98%;}
 .width50p{ width:50%;}
+.width146p{width:146px;}
+.width70p{ width:70px !important;}
+.width160p{ width:160px;}
 .width115P{ width:115px;}
-.SclNameTxtboxmain{width: 515px !important;}
+.widht285p{ width:285px !important;}
+.width320p{ width:320px !important;}
+.SclNameTxtboxmain{width: 544px !important;}
 .width180P{ width:180px;}
 .width130P{ width:130px;}
 .width518p{ width:518px !important;}
+.width544p{width:544px !important;}
+.width548p{width:548px !important;}
 .width110p{ width:110px;}
 .padding_t{ padding-top:10px;}
 .marginRig{ margin-right:24px;}
 .margin_10{ margin-left:10px !important;}
-.prev_scltext{width: 180px !important; padding-bottom: 10px;}
-.Prevsclgrid{width: 415px !important;}
-.Prev_Grid_design{width: 68%; margin-left: 195px; border: 1px solid #ddd;}
-.street_desgn{vertical-align: middle; width: 130px;}
-.city_width{ width:148px;}
+.prev_scltext{width: 196px !important; padding-bottom: 10px;}
+.Prevsclgrid{width: 442px !important;}
+.Prev_Grid_design{width: 72%; margin-left: 195px; border: 1px solid #ddd;}
+.street_desgn{vertical-align: middle; width: 146px;}
+.street_inside_add{vertical-align: middle; width: 130px;}
+.city_inside_add{width: 166px;}
+.city_width{ width:164px;}
 .width145p{width:145px !important;}
 .verify_add_user{font-size: 14px; font-weight: bold; padding-left: 58px;}
 .verify_add_user_txt{font-size: 14px; font-weight: bold; padding-left: 55px;}
-.AddButton_grid{float: right; margin-right: 28px; margin-top: 15px;}
-.grdi_design_style{ width: 674px;float: right;margin-right: 27px;margin-top: 10px;}
-.AddGrid{width: 96%;margin-bottom: 10px;margin-top: 20px;border: 1px solid #dedede; float:left;}
+.AddButton_grid{float: right; margin-top: 15px;}
+.grdi_design_style{ width: 700px;float: right;margin-top: 10px;}
+.AddGrid{width: 100%;margin-bottom: 10px;margin-top: 20px;border: 1px solid #dedede; float:left;}
 .chkdesign{float: left; margin-top: 10px; text-align:justify;}
 .buttomboldtexteligble{font-weight: 800; float: left; margin-top: 10px;}
-/**/
+.dvmail{min-height: 30px; width: 87%; margin: 15px auto;}
+.sectionDiv { height: 30px; background-color: #D6D3D3; line-height: 30px; padding-left: 10px; font-size: 14px; font-weight: bold;    }
+    .flsApplReqForm { border: 1px solid #EAEAEA; width: 95%; margin: 10px auto 0px;   }
+    fieldset { border: 0px none !important; }
+    .flsParentNewApplReqForm { border: 1px solid #EAEAEA; width: 95%; margin: 10px auto 0px;line-height: 22px; }
+    .verify_inside_add{width: 100%; float: right; padding: 10px;}
+/*end*/
+
+/*staff*/
+.staff_col1{width: 16px;}
+.staff_col2{width: 85%;padding-left: 4px;padding-top: 10px;line-height: 22px;text-align: justify;}
+.staff_col3{text-align: center; vertical-align: middle;}
+.staff_Totalyes{float: right;margin-top: 10px;margin-bottom: 15px;}
+.stafftextpading{padding-left: 20px;width: 97%;}
+.padding_b{ padding-bottom:10px;}
+.listbox {
+        width: 215px;
+        height: 170px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+/*end*/
+
+
+/*about the school*/
+
+.about_text{width: 100%; line-height: 22px; padding-top: 0px ! important; text-align:justify;}
+.about_te_pading{width: 100%; line-height: 22px; padding-top: 15px ! important; text-align:justify;}
+.about_text_pading{padding-left: 20px; width: 95%;}
+.estimate_css{margin-left: 50px; margin-top:15px;}
+.chekbox_about{margin-left: 20px; margin-bottom: 5px;}
+.single_upload{text-align: right;
+margin-right: 10px;}
+.othergrid{width: 607px;float: right;}
+.otherPName{width: 93%; float: right; margin-top: 10px; margin-bottom: 5px;}
+/*end*/
 
 .input-label {padding-right: 10px;
 margin-right: 2px;}
