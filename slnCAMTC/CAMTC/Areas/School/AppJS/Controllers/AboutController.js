@@ -178,58 +178,61 @@
             var selectedBusTypes = [];
 
             //for (var i = 0; i < data.roles.length; i++) {
-
-            for (var j = 0; j < $scope.roles.length; j++) {
-                var result = _.contains($scope.user, $scope.roles[j].LookupId);
-                if (result) {
-                    var obj = {
-                        'ProviderBusinessTypeId': $scope.roles[j].ProviderBusinessTypeId,
-                        'ProviderId': $scope.ProviderId,
-                        'ApplicationId': $scope.applicationid,
-                        'BusinessOrgTypeId': $scope.roles[j].LookupId,
-                        'IsActive': 1,
-                        'IsDeleted': 0
+            if ($scope.roles != null) {
+                for (var j = 0; j < $scope.roles.length; j++) {
+                    var result = _.contains($scope.user, $scope.roles[j].LookupId);
+                    if (result) {
+                        var obj = {
+                            'ProviderBusinessTypeId': $scope.roles[j].ProviderBusinessTypeId,
+                            'ProviderId': $scope.ProviderId,
+                            'ApplicationId': $scope.applicationid,
+                            'BusinessOrgTypeId': $scope.roles[j].LookupId,
+                            'IsActive': 1,
+                            'IsDeleted': 0
+                        }
+                        selectedBusTypes.push(obj)
                     }
-                    selectedBusTypes.push(obj)
-                }
-                else {
-                    var obj = {
-                        'ProviderBusinessTypeId': $scope.roles[j].ProviderBusinessTypeId,
-                        'ProviderId': $scope.ProviderId,
-                        'ApplicationId': $scope.applicationid,
-                        'BusinessOrgTypeId': $scope.roles[j].LookupId,
-                        'IsActive': 0,
-                        'IsDeleted': 0
+                    else {
+                        var obj = {
+                            'ProviderBusinessTypeId': $scope.roles[j].ProviderBusinessTypeId,
+                            'ProviderId': $scope.ProviderId,
+                            'ApplicationId': $scope.applicationid,
+                            'BusinessOrgTypeId': $scope.roles[j].LookupId,
+                            'IsActive': 0,
+                            'IsDeleted': 0
+                        }
+                        selectedBusTypes.push(obj)
                     }
-                    selectedBusTypes.push(obj)
+
                 }
 
 
+                AboutFactory.SaveProviderBusinessType(key, selectedBusTypes).success(function (data) {
+
+                    HideLoader();
+                    mySharedService.prepForBroadcastTabClick('Transcript');
+
+
+                }).error(function (error) {
+                    $scope.Error = error;
+                });
             }
-
-
-            AboutFactory.SaveProviderBusinessType(key, selectedBusTypes).success(function (data) {
-
+            else
                 HideLoader();
-                mySharedService.prepForBroadcastTabClick('Transcript');
+            //$scope.Mblex.ProviderMBLExId = $scope.ProviderMBLExId;
+            //$scope.Mblex.$scope.ProviderId = $scope.$scope.ProviderId;
+            //SchoolInfoFactory.Save_providermblex(key, $scope.Mblex).success(function (data) {
+            //    $scope.clearMblex();
+            //    $scope.MBLExGrid.api.setRowData(data.ProvidermblexResponseList);
 
-
-            }).error(function (error) {
-                $scope.Error = error;
-            });
+            //}).error(function (error) {
+            //    $scope.Error = error;
+            //});
         }
         else
             HideLoader();
-        //$scope.Mblex.ProviderMBLExId = $scope.ProviderMBLExId;
-        //$scope.Mblex.$scope.ProviderId = $scope.$scope.ProviderId;
-        //SchoolInfoFactory.Save_providermblex(key, $scope.Mblex).success(function (data) {
-        //    $scope.clearMblex();
-        //    $scope.MBLExGrid.api.setRowData(data.ProvidermblexResponseList);
-
-        //}).error(function (error) {
-        //    $scope.Error = error;
-        //});
     }
+
 
     $scope.$on('handleBroadcastForTab', function () {
         $scope.ProviderId = mySharedService.message;
@@ -697,7 +700,7 @@
         error = txtGradYear + txtGradYear_1 + txtGradYear_2 + txtGradYear_3 + txtGradYear_4 + txtGradYear_5 + txtGradYear_6 + txtGradYear_7;
         //error = txtGradYear + txtGradYear_1 + txtGradYear_2 + txtGradYear_3 + txtGradYear_4 + txtGradYear_5 + txtGradYear_6 + txtGradYear_7 + txtDocNameAboutOwnership + ddlOwnAboutOwnership + TextBox141 + DropDownList6 + fluLocalBusiness + fluOrgChart + fluFloorPlan + fluExteriorSign + fluBuildExterior + fluMassageClassRoom + fluMassageClinic + txtDocNameClin + ddlOtherClin + ddlOwnAboutBusinessDoc + txtDocNameAboutAdvertising + ddlOwnAboutAdvertising;
         //error = txtGradYear + txtGradYear_1 + txtGradYear_2 + txtGradYear_3 + txtGradYear_4 + txtGradYear_5 + txtGradYear_6 + txtGradYear_7 + fluLocalBusiness + fluOrgChart + fluFloorPlan + fluExteriorSign + fluBuildExterior + fluMassageClassRoom + fluMassageClinic;
-        
+
         $('.errorinfo').html(error);
 
         if (error != '') {
