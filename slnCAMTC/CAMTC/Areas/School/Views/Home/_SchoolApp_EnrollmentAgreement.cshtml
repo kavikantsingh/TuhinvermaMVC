@@ -1,5 +1,7 @@
-﻿<div ng-controller="EnrollmentController"  ng-show="hasShow == 'true'">
-    <div id="error_validation" class="address-box posFixed" style="display: none; color: red;"></div>
+﻿<div ng-controller="EnrollmentController" ng-show="hasShow == 'true'">
+    <section>
+        <div id="error_validation" class="errorinfo address-box posFixed" style="color: red; display: block;"></div>
+    </section>
 
     <div>
         <div class="sectionDiv">
@@ -7,9 +9,7 @@
         </div>
     </div>
     <fieldset class="flsNewApplReqForm flsCharacterReferences" style="text-align: left;">
-
         <table>
-
             <tbody>
                 <tr>
                     <td>
@@ -18,8 +18,6 @@
                             A blank enrollment agreement must be provided. Per CAMTC’s Policies and Procedures for Approval of Schools,
                             enrollment agreements should include at minimum :
                         </p>
-
-
 
                         <ul class="lipadding" style="margin-left: 35px;">
                             <li>
@@ -71,72 +69,47 @@
                                 </p>
                             </li>
                         </ul>
-
                         <br>
-
                         <p style="padding-left: 22px;">Note: Enrollment agreements from public colleges or universities of the California state higher education system, as defined in section 100850 of the Education Code, and public schools accredited by an agency recognized by the United States Department of Education shall meet or exceed standards as determined by governing laws and regulations.</p>
                         <div class="dvuploadgrid" style="margin-left: 22px; margin-top:20px;">
-
                             <div class="dvuploadclass">
                                 <div id="ContentPlaceHolder1_ucCertificationApplication1_fuEnrollAgree1_upDoc">
 
-
-
                                     <input type="hidden" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$fuEnrollAgree1$hfStatus" id="ContentPlaceHolder1_ucCertificationApplication1_fuEnrollAgree1_hfStatus" value="0">
 
-
-
                                     <div id="fuEnrollAgree1_upDoc" class="documentContainer" data-docid="26" data-doc-code="D1026" data-simple="true">
-
                                     </div>
 
-
                                 </div>
-
-
 
                             </div>
                         </div><br />
                     </td>
-
                 </tr>
                 <tr>
-
                     <td>
                         <b>26. Massage program addendum, if any.</b>
                         <div class="dvuploadgrid" style="margin-left: 22px; margin-top:20px;">
-
                             <div class="dvuploadclass">
                                 <div id="fuEnrollAgree2_upDoc" class="documentContainer" data-docid="27" data-doc-code="D1027" data-simple="true">
-
                                 </div>
-
-
 
                             </div>
                         </div>
-
 
                     </td>
                 </tr>
 
 
-
-
-
             </tbody>
         </table>
-
     </fieldset>
-
     <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
         <div style="float: left;">
         </div>
         <span class="fltrt">
-            <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$btnNextEnrollChkList" value="Save &amp; Next" id="ContentPlaceHolder1_ucCertificationApplication1_btnNextEnrollChkList" class="buttonGreen medium">
-
+            <input type="button" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$btnNextEnrollChkList" value="Save &amp; Next" id="ContentPlaceHolder1_ucCertificationApplication1_btnNextEnrollChkList" class="buttonGreen medium" ng-click="Save_final()">
             <a id="ContentPlaceHolder1_ucCertificationApplication1_LinkButton5" class="secondary medium bottom buttonalignment" href='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$ContentPlaceHolder1$ucCertificationApplication1$LinkButton5", "", true, "", "", false, true))'>Cancel</a>
         </span>
     </div>
-
 </div>

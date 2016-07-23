@@ -10,4 +10,12 @@
             $scope.hasShow = 'false';
     });
 
+
+
+
+
+    $scope.Save_final = function () {
+        mySharedService.prepForBroadcastTabClick('Enrollment');
+    }
+
 }]);

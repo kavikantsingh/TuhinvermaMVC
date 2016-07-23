@@ -1,7 +1,7 @@
 ﻿<div ng-controller="CurriculumController" ng-show="hasShow == 'true'">
-    <div id="error_validation" class="address-box posFixed" style="display: none; color: red;"></div>
-
-    <div>
+    <section>
+        <div id="error_validation" class="errorinfo address-box posFixed" style="color: red; display: block;"></div>
+    </section>    <div>
         <div class="sectionDiv">
             <span>Curriculum</span>
         </div>
@@ -76,7 +76,7 @@
                                 </b> (cannot exceed 75 hours)?
                             </span>
                         </label>
-                        <input data-ng-model="viewProvClinicHours" type="text" value="76" class="OnlyNumeric" style="width: 75px;" autocomplete="off">
+                        <input data-ng-model="viewProvClinicHours" id="txtcarculam" type="text" value="76" class="OnlyNumeric" style="width: 75px;" autocomplete="off">
                     </td>
                 </tr>
                 <tr id="ContentPlaceHolder1_ucCertificationApplication1_trClinicHour">
@@ -222,7 +222,7 @@
         <div style="float: left;">
         </div>
         <span class="fltrt">
-            <input type="button" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$btnNextProHo" value="Save &amp; Next" ng-click="Savefinal()" id="ContentPlaceHolder1_ucCertificationApplication1_btnNextProHo" class="buttonGreen medium">
+            <input type="button" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$btnNextProHo" value="Save &amp; Next" ng-click="Savefinal()" class="buttonGreen medium">
             <a id="ContentPlaceHolder1_ucCertificationApplication1_LinkButton7" class="secondary medium bottom buttonalignment" href='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$ContentPlaceHolder1$ucCertificationApplication1$LinkButton7", "", true, "", "", false, true))'>Cancel</a>
         </span>
     </div>

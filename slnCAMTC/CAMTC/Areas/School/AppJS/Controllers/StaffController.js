@@ -22,6 +22,7 @@
     $scope.staff = {};
 
     $scope.getallthestaffinfo = function () {
+        ShowLoader();
         StaffFactory.GetAllProviderStaffDetails(key, $scope.applicationid, $scope.ProviderId).success(function (data) {
             HideLoader();
             $scope.StaffGrid.api.setRowData(data.ListOfProviderStaffDetails);
@@ -30,7 +31,6 @@
             $scope.Error = error;
         });
     }
-
 
 
     $('#divAddRelatedschool').hide();
@@ -170,64 +170,71 @@
     $scope.Chk = 'No';
     //Adding staffinfo
     $scope.SaveStaffInfo = function () {
-        //  ShowLoader();
-        $scope.staff.IsActive = 1;
-        $scope.staff.IsDeleted = 0;
-        $scope.staff.ProviderId = $scope.ProviderId;
-        $scope.staff.ApplicationId = $scope.applicationid;
+        ShowLoader();
+        if (BackgroundCheckAddNewSave()) {
+            $scope.staff.IsActive = 1;
 
-        $scope.staff.ProviderIndvNameInfoId = $scope.ProviderIndvNameInfoId;
-        $scope.staff.ProviderStaffId = $scope.ProviderStaffId;
-        $scope.staff.InduvidualNameId = $scope.InduvidualNameId,
-        $scope.staff.ContactId = $scope.ContactId;
-        $scope.staff.ProvIndvNameTitlePositionId = '';
-        $scope.staff.ProvIndvNameTitlePosition = '';
-        $scope.staff.posids = '';
-        $scope.staff.trueset = '';
+            $scope.staff.IsDeleted = 0;
+            $scope.staff.ProviderId = $scope.ProviderId;
+            $scope.staff.ApplicationId = $scope.applicationid;
 
-        var len = $scope.roles.length;
+            $scope.staff.ProviderIndvNameInfoId = $scope.ProviderIndvNameInfoId;
+            $scope.staff.ProviderStaffId = $scope.ProviderStaffId;
+            $scope.staff.InduvidualNameId = $scope.InduvidualNameId,
+            $scope.staff.ContactId = $scope.ContactId;
+            $scope.staff.ProvIndvNameTitlePositionId = '';
+            $scope.staff.ProvIndvNameTitlePosition = '';
+            $scope.staff.posids = '';
+            $scope.staff.trueset = '';
 
-        if (len > 0) {
-            debugger;
-            for (var i = 0; i < len; i++) {
-                $scope.staff.posids += $scope.roles[i].posid;
-                $scope.staff.ProvIndvNameTitlePositionId += $scope.idlist[i];
-                $scope.staff.ProvIndvNameTitlePosition += $scope.roles[i].Name;
-                var test = angular.copy($scope.idlist);
-                var result = _.contains(test, $scope.roles[i].Id);
-                if (result) {
-                    $scope.staff.trueset += 'Y';
-                }
-                else {
-                    $scope.staff.trueset += 'N';
-                }
-                if ((len - 1) != i) {
-                    $scope.staff.posids += ',';
-                    $scope.staff.ProvIndvNameTitlePositionId += ',';
-                    $scope.staff.ProvIndvNameTitlePosition += ',';
-                    $scope.staff.trueset += ',';
+            var len = $scope.roles.length;
+
+            if (len > 0) {
+                debugger;
+                for (var i = 0; i < len; i++) {
+                    $scope.staff.posids += $scope.roles[i].posid;
+                    $scope.staff.ProvIndvNameTitlePositionId += $scope.idlist[i];
+                    $scope.staff.ProvIndvNameTitlePosition += $scope.roles[i].Name;
+                    var test = angular.copy($scope.idlist);
+                    var result = _.contains(test, $scope.roles[i].Id);
+                    if (result) {
+                        $scope.staff.trueset += 'Y';
+                    }
+                    else {
+                        $scope.staff.trueset += 'N';
+                    }
+                    if ((len - 1) != i) {
+                        $scope.staff.posids += ',';
+                        $scope.staff.ProvIndvNameTitlePositionId += ',';
+                        $scope.staff.ProvIndvNameTitlePosition += ',';
+                        $scope.staff.trueset += ',';
+                    }
                 }
             }
+
+
+            if ($scope.Chk == 'Yes')
+                $scope.staff.IsBackgroundCheckReq = true;
+            else
+                $scope.staff.IsBackgroundCheckReq = false;
+            //$scope.staff.WebsiteId = $scope.WebsiteId;
+            //$scope.staff.PhoneId = $scope.PhoneId;
+            //$scope.staff.AddressId = $scope.AddressId;
+            //$scope.staff.ProviderNameId = $scope.ProviderNameId;
+            //$scope.staff.AddressId = $scope.AddressId;
+
+            StaffFactory.SaveProviderStaff(key, $scope.staff).success(function (data) {
+                //$scope.StaffGrid.api.setRowData(data.ProviderRelatedSchoolsList);
+
+                $scope.clearRelatedAddress();
+                $scope.getallthestaffinfo();
+
+            }).error(function (error) {
+                $scope.Error = error;
+            });
         }
-
-
-        if ($scope.Chk == 'Yes')
-            $scope.staff.IsBackgroundCheckReq = true;
         else
-            $scope.staff.IsBackgroundCheckReq = false;
-        //$scope.staff.WebsiteId = $scope.WebsiteId;
-        //$scope.staff.PhoneId = $scope.PhoneId;
-        //$scope.staff.AddressId = $scope.AddressId;
-        //$scope.staff.ProviderNameId = $scope.ProviderNameId;
-        //$scope.staff.AddressId = $scope.AddressId;
-
-        StaffFactory.SaveProviderStaff(key, $scope.staff).success(function (data) {
-            //$scope.StaffGrid.api.setRowData(data.ProviderRelatedSchoolsList);
-            $scope.clearRelatedAddress();
-            $scope.getallthestaffinfo();
-        }).error(function (error) {
-            $scope.Error = error;
-        });
+            HideLoader();
     }
 
     $scope.StaffGrid = {
@@ -243,7 +250,7 @@
             { headerName: "First Name", width: 110, field: "ProviderStaffFirstName", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
             { headerName: "Title/ Position", width: 125, field: "titles", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' } },
             {
-                headerName: "Background Check Required", width: 125, field: "IsBackgroundCheckReq", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, cellRenderer: function (params) {
+                headerName: "Background Check <br /> Required", width: 125, field: "IsBackgroundCheckReq", cellStyle: { 'text-align': 'center', 'display': 'flex', 'align-items': 'center' }, cellRenderer: function (params) {
                     if (params.data.IsBackgroundCheckReq)
                         return "Yes";
                     else
@@ -272,7 +279,7 @@
         angularCompileRows: true,
         rowData: [],
         rowHeight: 25,
-        headerHeight: 30,
+        headerHeight: 50,
         //enableColResize: true,
         suppressRowClickSelection: true,
         suppressHorizontalScroll: true,
@@ -281,4 +288,104 @@
             //$scope.idlistGrid.api.sizeColumnsToFit();
         }
     };
+
+
+    function BackgroundCheckAddNewSave() {
+        $('#error_validation').text('');
+        var error = '';
+        var txtBackCheckLastName = ValidateTextbox('<span class="notok"></span> Please enter last name.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtBackCheckLastName', $('#ContentPlaceHolder1_ucCertificationApplication1_txtBackCheckLastName').val());
+        var txtBackCheckFirstName = ValidateTextbox('<span class="notok"></span> Please enter first name.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtBackCheckFirstName', $('#ContentPlaceHolder1_ucCertificationApplication1_txtBackCheckFirstName').val());
+        var txtaddstaffEmail = ValidateEmail('<span class="notok"></span> Please enter email in correct format (joe@email.com) <br/>', '<span class="notok"></span> Please enter email.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtaddstaffEmail', $('#ContentPlaceHolder1_ucCertificationApplication1_txtaddstaffEmail').val());
+        var CheckBoxList3 = ValidateCheckboxList('<span class="notok"></span> Please check any one from title/ position.<br/>', 'ContentPlaceHolder1_ucCertificationApplication1_CheckBoxList3', $('#ContentPlaceHolder1_ucCertificationApplication1_CheckBoxList3').val());
+        //var rblBackgroundChekReq = ValidateRadioList('<span class="notok"></span> Please check yes or no of background check.<br/>', 'ContentPlaceHolder1_ucCertificationApplication1_rblBackgroundChekReq', $('#ContentPlaceHolder1_ucCertificationApplication1_rblBackgroundChekReq').val());
+        var NoRegion = '';
+        //var RDO = document.getElementById('ContentPlaceHolder1_ucCertificationApplication1_rblBackgroundChekReq');
+        //var radio = RDO.getElementsByTagName("input");
+        //var RDO2 = document.getElementById('ContentPlaceHolder1_ucCertificationApplication1_RadioButtonList2');
+        //var radio2 = RDO2.getElementsByTagName("input");
+        //RadioButtonList2
+        //if (radio[1].checked) {
+        //    radio2[0].checked = true;
+        //    if ($('#ContentPlaceHolder1_ucCertificationApplication1_txtchkCAMTC').val() == '') {
+        //        NoRegion = ValidateTextbox('<span class="notok"></span> Please enter reason (camtc#).<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtchkCAMTC', $('#ContentPlaceHolder1_ucCertificationApplication1_txtchkCAMTC').val());
+        //    }
+        //}
+        //else {
+        //    $('#ContentPlaceHolder1_ucCertificationApplication1_txtchkCAMTC').removeClass("error");
+        //    radio2[0].checked = false;
+        //}
+
+        //var fluStaffHiring = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Hiring, Training, Evaluating and Discipling Policies.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuStaff1_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuStaff1_hfStatus').val());
+        //var fluStaffFacility = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Facility Meeting Minutes/Agenda/Memos.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuStaff2_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuStaff2_hfStatus').val());
+        //var fluStaffStTeRatio = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Student-Teacher Ratio.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuStaff3_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuStaff3_hfStatus').val());
+
+        error = txtBackCheckLastName + txtBackCheckFirstName + txtaddstaffEmail;//+ fluStaffHiring + fluStaffFacility + fluStaffStTeRatio + CheckBoxList3 + rblBackgroundChekReq + NoRegion;
+        $('.errorinfo').html(error);
+
+        if (error != '') {
+            $('#error_validation').show();
+            $(document).scrollTop(0);
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+    function saveSclContct() {
+        $('#error_validation').text('');
+        var error = '';
+        var TextBox72 = ValidateTextbox('<span class="notok"></span> Please enter signature.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_TextBox72', $('#ContentPlaceHolder1_ucCertificationApplication1_TextBox72').val());
+        var TextBox74 = ValidateDate('<span class="notok"></span> Future dates are not accepted. <br/>', '<span class="notok"></span> Please enter date in correct format (mm/dd/yyyy) <br/>', '<span class="notok"></span> Please enter date.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_TextBox74', $('#ContentPlaceHolder1_ucCertificationApplication1_TextBox74').val());
+        var TextBox94 = ValidateTextbox('<span class="notok"></span> Please enter title.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_TextBox94', $('#ContentPlaceHolder1_ucCertificationApplication1_TextBox94').val());
+        error = TextBox72 + TextBox74 + TextBox94;
+        if (error != '') {
+            $('#error_validation').show();
+            $('#ContentPlaceHolder1_ucCertificationApplication1_btnsaveSclContct').attr('type', 'button');
+            $(document).scrollTop(0);
+        }
+        else {
+            $('#error_validation').hide();
+            $('#ContentPlaceHolder1_ucCertificationApplication1_btnsaveSclContct').attr('type', 'submit');
+        }
+        $('#error_validation').html(error);
+    }
+    //ContentPlaceHolder1_ucCertificationApplication1_btnNextBackList
+    function btnNextBackList() {
+        $('#error_validation').text('');
+        var error = '';
+        var TextBox72 = ValidateTextbox('<span class="notok"></span> Please enter signature.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_TextBox72', $('#ContentPlaceHolder1_ucCertificationApplication1_TextBox72').val());
+        var TextBox74 = ValidateDate('<span class="notok"></span> Future dates are not accepted. <br/>', '<span class="notok"></span> Please enter date in correct format (mm/dd/yyyy) <br/>', '<span class="notok"></span> Please enter date.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_TextBox74', $('#ContentPlaceHolder1_ucCertificationApplication1_TextBox74').val());
+        var TextBox94 = ValidateTextbox('<span class="notok"></span> Please enter title.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_TextBox94', $('#ContentPlaceHolder1_ucCertificationApplication1_TextBox94').val());
+        error = TextBox72 + TextBox74 + TextBox94;
+        if (error != '') {
+            $('#error_validation').show();
+            $('#ContentPlaceHolder1_ucCertificationApplication1_btnNextBackList').attr('type', 'button');
+            $(document).scrollTop(0);
+        }
+        else {
+            $('#error_validation').hide();
+            $('#ContentPlaceHolder1_ucCertificationApplication1_btnNextBackList').attr('type', 'submit');
+        }
+        $('#error_validation').html(error);
+    }
+
+    function PaySubmit() {
+        $('#error_validation').text('');
+        var error = '';
+        var ddlStaffPaymentMethod = ValidateDropdown('-1', '<span class="notok"></span> Please select payment method.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_ddlStaffPaymentMethod', $('#ContentPlaceHolder1_ucCertificationApplication1_ddlStaffPaymentMethod').val());
+        error = ddlStaffPaymentMethod;
+        if (error != '') {
+            $('#error_validation').show();
+            $('#ContentPlaceHolder1_ucCertificationApplication1_btnPaySubmit').attr('type', 'button');
+            $(document).scrollTop(0);
+        }
+        else {
+            $('#error_validation').hide();
+            $('#ContentPlaceHolder1_ucCertificationApplication1_btnPaySubmit').attr('type', 'submit');
+        }
+        $('#error_validation').html(error);
+    }
+
+
 });
