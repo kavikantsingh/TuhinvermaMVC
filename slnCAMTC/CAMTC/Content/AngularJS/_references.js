@@ -9,6 +9,7 @@
 /// <reference path="../../areas/backoffice/appjs/services/contentmanagement.service.js" />
 /// <reference path="../../Areas/BackOffice/AppJS/Services/EligibiltiyService.js" />
 /// <reference path="../../Areas/BackOffice/AppJS/Services/SchoolInfoServices.js" />
+/// <reference path="../../areas/individual/appjs/individualapp.js" />
 /// <reference path="../../areas/school/appjs/controllers/aboutcontroller.js" />
 /// <reference path="../../areas/school/appjs/controllers/coursecatalogcontroller.js" />
 /// <reference path="../../areas/school/appjs/controllers/curriculumcontroller.js" />

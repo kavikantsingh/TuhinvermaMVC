@@ -1,4 +1,5 @@
 ﻿LAPP.controller('EligiblityController', ['$scope', '$rootScope', 'mySharedService', 'EligiblitiyFactory', function ($scope, $rootScope, mySharedService, EligiblitiyFactory) {
+
     $scope.hasShow = 'false';
     $scope.SchoolEligibility1 = '';
     $scope.SchoolEligibility2 = '';

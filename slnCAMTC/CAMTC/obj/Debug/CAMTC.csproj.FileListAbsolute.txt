@@ -237,3 +237,5 @@ C:\Users\LENOVO\Source\Repos\cappcamtc\slnCAMTC\CAMTC\bin\Newtonsoft.Json.xml
 C:\Users\LENOVO\Source\Repos\cappcamtc\slnCAMTC\CAMTC\obj\Debug\CAMTC.csprojResolveAssemblyReference.cache
 C:\Users\LENOVO\Source\Repos\cappcamtc\slnCAMTC\CAMTC\obj\Debug\CAMTC.dll
 C:\Users\LENOVO\Source\Repos\cappcamtc\slnCAMTC\CAMTC\obj\Debug\CAMTC.pdb
+C:\Users\Deva\Source\Repos\cappcamtc\slnCAMTC\CAMTC\bin\NJsonSchema.dll
+C:\Users\Deva\Source\Repos\cappcamtc\slnCAMTC\CAMTC\bin\NJsonSchema.xml

@@ -18,5 +18,9 @@
   {
     "outputFile": "Scripts/CertApplication/SectionManager.js",
     "inputFile": "Scripts/CertApplication/SectionManager.coffee"
+  },
+  {
+    "outputFile": "Areas/Individual/AppJs/IndividualApp.js",
+    "inputFile": "Areas/Individual/AppJs/IndividualApp.coffee"
   }
 ]

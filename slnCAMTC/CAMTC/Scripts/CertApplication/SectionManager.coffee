@@ -41,14 +41,11 @@ class @['SectionManager']
         loadingSectionId = $(item).data("section")
         if !@sectionState[loadingSectionId]
             @loadSection(loadingSectionId, @)
-            
         else
             @updateSection(@, @sectionState[loadingSectionId].element)
         @unSelectOther(@)
         $(item).addClass(@listItemActiveClass)
         #@updateSection(@, item)
-        
-        
         return
         
     vm.validateSelection = (item)->
