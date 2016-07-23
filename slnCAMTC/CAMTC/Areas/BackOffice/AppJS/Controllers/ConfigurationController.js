@@ -1,6 +1,6 @@
 ﻿var contentApp = angular.module("contentApp", ['angularUtils.directives.dirPagination'])
-//var BaseURL = 'http://localhost/LAPP.WS/api';
-var BaseURL = 'http://ws.camtc.inlumon.com/api';
+var BaseURL = 'http://localhost/LAPP.WS/api';
+//var BaseURL = 'http://ws.camtc.inlumon.com/api';
 
 contentApp.controller('DeficiencyTemplate', ['$scope', '$rootScope', 'ConfigurationFactory', function ($scope, $rootScope, ConfigurationFactory) {
     $scope.ddlMasterTransaction = [];
@@ -279,4 +279,72 @@ contentApp.controller('DeficiencyReason', ['$scope', '$rootScope', 'Configuratio
         }
     };
 
+}]);
+
+contentApp.controller('ApplicationConfiguration', ['$scope', '$rootScope', 'ConfigurationFactory', function ($scope, $rootScope, ConfigurationFactory) {
+    $scope.ACSearch = {};
+    $scope.ApplicationConfigurationInfo = {};
+
+
+    $scope.GetApplicationConfiguration = function (isSearch) {
+        ShowLoader();
+        var applicationConfigurationSearch = {};
+        if (isSearch)
+            applicationConfigurationSearch.Setting = $scope.ACSearch.SettingName;
+        else
+            applicationConfigurationSearch.Setting = "";
+        
+        ConfigurationFactory.ConfigurationSearch(sessionStorage.BackOffice_Key, applicationConfigurationSearch).success(function (data) {
+            $scope.ApplicationConfigurationList = data.Configuration;
+            HideLoader();
+        }).error(function (error) {
+            $scope.Error = error;
+            HideLoader();
+        });
+    }
+
+    
+    $scope.GetApplicationConfiguration();
+
+    $scope.SaveApplicationConfigurationAPI = function (ConfigurationId, Value) {
+
+        ShowLoader();
+
+        var objContent = {};
+        objContent.ConfigurationId = ConfigurationId;
+        objContent.Value = Value;
+       
+        ConfigurationFactory.SaveApplicationConfiguration(sessionStorage.BackOffice_Key, objContent)
+                        .success(function (response) {
+
+
+                            //alert(response.Message);
+                            HideLoader();
+                            $scope.GetApplicationConfiguration();
+                            //$scope.GetDeficiencyTemplate();
+                            //$scope.DeficiencyTemplateList = response.DeficiencyTemplateResponseList;
+
+                        })
+                        .error(function (data) {
+                            alert('Oops! Some Error Occurred.');
+                            HideLoader();
+                        });
+
+    }
+
+    $scope.ACEditStuff = function (id) {
+        document.getElementById('AC_' + id.m.ConfigurationId).style.display = 'table-row';
+    }
+
+    $scope.AChideStuff = function (id) {
+        //var val = $(id).attr('name');
+        document.getElementById('AC_' + id.m.ConfigurationId).style.display = 'none';
+    }
+
+    $scope.ACdoStuff = function (id) {
+
+        $scope.SaveApplicationConfigurationAPI(id.m.ConfigurationId, $('#ACtxtValue_' + id.m.ConfigurationId).val());
+        document.getElementById('AC_' + id.m.ConfigurationId).style.display = 'none';
+    };
+    
 }]);
