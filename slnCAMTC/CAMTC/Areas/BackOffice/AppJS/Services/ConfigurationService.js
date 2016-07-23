@@ -23,6 +23,12 @@
         SaveDeficiencyReason: function (key, objContent) {
             return $http.post(configurationurl + '/SaveDeficiencyReason/' + key, objContent);
         },
+        ConfigurationSearch: function (key, applicationConfigurationSearch) {
+            return $http.post(configurationurl + '/ConfigurationSearch/' + key, applicationConfigurationSearch);
+        },
+        SaveApplicationConfiguration: function (key, objContent) {
+            return $http.post(configurationurl + '/ConfigurationSave/' + key, objContent);
+        },
     };
     return ConfigurationFactory;
 });
