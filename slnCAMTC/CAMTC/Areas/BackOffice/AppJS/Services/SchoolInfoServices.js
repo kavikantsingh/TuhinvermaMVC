@@ -46,7 +46,9 @@ LAPP.factory('SchoolInfoFactory', function ($http, $q) {
             return $http.get(providerurl + '/Get_All_Providersitevisittype/' + key);
         },
         //schoolInfo
-
+        verifyaddress: function (data) {
+            return $http.get('https://api.lob.com/v1/verify', data, auth=('info@inlumon.com', '12345678'))
+        },
 
 
     };

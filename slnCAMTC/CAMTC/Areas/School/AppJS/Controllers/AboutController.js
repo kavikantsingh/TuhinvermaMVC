@@ -238,7 +238,7 @@
         $scope.ProviderId = mySharedService.message;
         $scope.applicationid = mySharedService.Applicationid;
         if (mySharedService.CurrentPage == 'About') {
-            $('#error_validation').hide();
+            $('.errorinfo').hide();
             $scope.hasShow = 'true';
             $scope.GetAllProviderOtherProgram();
         }
@@ -669,7 +669,7 @@
 
 
     function btnLicInfoNext() {
-        $('#error_validation').text('');
+        $('.errorinfo').text('');
         var error = '';
         var txtGradYear = ValidateTextbox('<span class="notok"></span>   Please enter estimated graduates for 2016 calendar year<br/>', '#txtGradYear', $('#txtGradYear').val());
         var txtGradYear_1 = ValidateTextbox('<span class="notok"></span>  Please enter graduates for 2015 calendar year<br/>', '#txtGradYear1', $('#txtGradYear1').val());
@@ -704,7 +704,7 @@
         $('.errorinfo').html(error);
 
         if (error != '') {
-            $('#error_validation').show();
+            $('.errorinfo').show();
             $(document).scrollTop(0);
             return false;
         }
@@ -715,80 +715,80 @@
     }
 
     function SaveAboutOwnership() {
-        $('#error_validation').text('');
+        $('.errorinfo').text('');
         var error = '';
         var txtDocNameAboutOwnership = ValidateTextbox('<span class="notok"></span> Please enter proof of ownership document name<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameAboutOwnership', $('#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameAboutOwnership').val());
         var ddlOwnAboutOwnership = ValidateDropdown('-1', '<span class="notok"></span> Please select proof of ownership document type<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutOwnership', $('#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutOwnership').val());
         error = txtDocNameAboutOwnership + ddlOwnAboutOwnership;
         if (error != '') {
-            $('#error_validation').show();
+            $('.errorinfo').show();
             $('#ContentPlaceHolder1_ucCertificationApplication1_btnSaveAboutOwnership').attr('type', 'button');
             $(document).scrollTop(0);
         }
         else {
-            $('#error_validation').hide();
+            $('.errorinfo').hide();
             $('#ContentPlaceHolder1_ucCertificationApplication1_btnSaveAboutOwnership').attr('type', 'submit');
         }
-        $('#error_validation').html(error);
+        $('.errorinfo').html(error);
     }
 
     function SaveAboutBusinessDoc() {
-        $('#error_validation').text('');
+        $('.errorinfo').text('');
         var error = '';
         var TextBox141 = ValidateTextbox('<span class="notok"></span>Please enter proof of business operations document name<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_TextBox141', $('#ContentPlaceHolder1_ucCertificationApplication1_TextBox141').val());
         var DropDownList6 = ValidateDropdown('-1', '<span class="notok"></span> Please select proof of business operations document type<br/> ', '#ContentPlaceHolder1_ucCertificationApplication1_DropDownList6', $('#ContentPlaceHolder1_ucCertificationApplication1_DropDownList6').val());
         var ddlOwnAboutBusinessDoc = ValidateDropdown('-1', '<span class="notok"></span> Please select proof of business operations document type<br/> ', '#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutBusinessDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutBusinessDoc').val());
         error = ddlOwnAboutBusinessDoc + TextBox141 + DropDownList6;
         if (error != '') {
-            $('#error_validation').show();
+            $('.errorinfo').show();
             $('#ContentPlaceHolder1_ucCertificationApplication1_btnSaveAboutBusinessDoc').attr('type', 'button');
             $(document).scrollTop(0);
         }
         else {
-            $('#error_validation').hide();
+            $('.errorinfo').hide();
             $('#ContentPlaceHolder1_ucCertificationApplication1_btnSaveAboutBusinessDoc').attr('type', 'submit');
         }
-        $('#error_validation').html(error);
+        $('.errorinfo').html(error);
     }
 
     function SaveAboutFacility() {
-        $('#error_validation').text('');
+        $('.errorinfo').text('');
         var error = '';
         var txtDocNameClin = ValidateTextbox('<span class="notok"></span> Please enter facility document name<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameClin', $('#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameClin').val());
         var ddlOtherClin = ValidateDropdown('-1', '<span class="notok"></span> Please select facility document type<br/> ', '#ContentPlaceHolder1_ucCertificationApplication1_ddlOtherClin', $('#ContentPlaceHolder1_ucCertificationApplication1_ddlOtherClin').val());
         error = txtDocNameClin + ddlOtherClin;
         if (error != '') {
-            $('#error_validation').show();
+            $('.errorinfo').show();
             $('#ContentPlaceHolder1_ucCertificationApplication1_btnSaveAboutFacility').attr('type', 'button');
             $(document).scrollTop(0);
         }
         else {
-            $('#error_validation').hide();
+            $('.errorinfo').hide();
             $('#ContentPlaceHolder1_ucCertificationApplication1_btnSaveAboutFacility').attr('type', 'submit');
         }
-        $('#error_validation').html(error);
+        $('.errorinfo').html(error);
     }
 
     function SaveAboutAdvertising() {
-        $('#error_validation').text('');
+        $('.errorinfo').text('');
         var error = '';
         var txtDocNameAboutAdvertising = ValidateTextbox('<span class="notok"></span> Please enter advertising document name<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameAboutAdvertising', $('#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameAboutAdvertising').val());
         var ddlOwnAboutAdvertising = ValidateDropdown('-1', '<span class="notok"></span>Please select advertising document type<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutAdvertising', $('#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutAdvertising').val());
         error = txtDocNameAboutAdvertising + ddlOwnAboutAdvertising;
         if (error != '') {
-            $('#error_validation').show();
+            $('.errorinfo').show();
             $('#ContentPlaceHolder1_ucCertificationApplication1_btnSaveAboutAdvertising').attr('type', 'button');
             $(document).scrollTop(0);
         }
         else {
-            $('#error_validation').hide();
+            $('.errorinfo').hide();
             $('#ContentPlaceHolder1_ucCertificationApplication1_btnSaveAboutAdvertising').attr('type', 'submit');
         }
-        $('#error_validation').html(error);
+        $('.errorinfo').html(error);
     }
 
     function SaveRelatedSchool() {
-        $('#error_validation').text('');
+        $('.errorinfo').text('');
         var error = '';
         var TextBox2 = ValidateTextbox('<span class="notok"></span> Please enter related school name <br/>', '#schoolname', $('#schoolname').val());
         var TextBox65 = ValidateTextbox('<span class="notok"></span> Please enter related school primary contact first name<br/>', '#first', $('#first').val());
@@ -802,14 +802,14 @@
         var TextBox12 = ValidateEmail('<span class="notok"></span> Please enter email in correct format (joe@email.com) <br/>', '<span class="notok"></span>Please enter related school email<br/>', '#remail', $('#remail').val());
         var txtApproxDateAssociate = ValidateDate('<span class="notok"></span> Future dates are not accepted. <br/>', '<span class="notok"></span> Please enter date in correct format (mm/dd/yyyy) <br/>', '<span class="notok"></span> Please enter related school approximate date associated<br/>', '#rdate', $('#rdate').val());
         error = TextBox2 + TextBox65 + TextBox66 + TextBox6 + txtSchoolCity + DropDownList1 + TextBox9 + TextBox10 + TextBox11 + TextBox12 + txtApproxDateAssociate;
-        $('#error_validation').html(error);
+        $('.errorinfo').html(error);
         if (error != '') {
-            $('#error_validation').show();
+            $('.errorinfo').show();
             $(document).scrollTop(0);
             return false;
         }
         else {
-            $('#error_validation').hide();
+            $('.errorinfo').hide();
             return true;
         }
 

@@ -24,14 +24,11 @@
             </table>
 
 
-
-
             <table class="tblApplReqForm5">
                 <tbody>
                     <tr>
                         <td class="about_text padding_b">
                             <p>A non-refundable $41 fee for each background check must be included with the school’s application fee.</p>
-
                         </td>
                     </tr>
                 </tbody>
@@ -58,152 +55,130 @@
                     </tr>
                 </tbody>
             </table>
-
             <div id="divAddbtnBackgroundCheck" class="divLicenseInfon divaddnew AfterApproved">
                 <span class="AddButton_grid">
-                    <input type="submit" name="btnBackgroundCheckAddNew" value="Add" id="btnBackgroundCheckAddNew" class="buttonGreen medium">
+                    <input type="button" value="Add" data-ng-click="ShowPopup(1)" class="buttonGreen medium" />
                 </span>
             </div>
-            <div>
 
 
-
-                <div id="ContentPlaceHolder1_ucCertificationApplication1_divAddBackgroundCheck" class="AddGrid" >
-                    <p class="addNewDiv">
-                        <span>Add Staff</span>
-                    </p>
-                    <table class="tblApplReqForm5 wthtop20 width98p">
-
-                        <tbody>
-                            <tr>
-
-                                <td colspan="4">
-                                    <div>
-                                        <p class="stafftextpading">By pressing the SAVE button, the individual just entered will receive an email with instructions for completing the Personal Information, Qualification and Declaration Form.</p>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="txtalgnrgt tdwidth1">
-                                    <label class="input-label required">
-                                        Last Name :
+            <div id="divAddRelatedschool1" class="AddGrid">
+                <p class="addNewDiv">
+                    <span>Add Staff</span>
+                </p>
+                <table class="tblApplReqForm5 wthtop20 width98p">
+                    <tbody>
+                        <tr>
+                            <td colspan="4">
+                                <div>
+                                    <p class="stafftextpading">By pressing the SAVE button, the individual just entered will receive an email with instructions for completing the Personal Information, Qualification and Declaration Form.</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="txtalgnrgt tdwidth1">
+                                <label class="input-label required">
+                                    Last Name :
+                                </label>
+                            </td>
+                            <td>
+                                <input data-ng-model="staff.ProviderStaffLastName" type="text" maxlength="15" id="ContentPlaceHolder1_ucCertificationApplication1_txtBackCheckLastName" class="inputTextbox" autocomplete="off">
+                            </td>
+                            <td class="txtalgnrgt tdwidth2">
+                                <label class="input-label required">
+                                    First Name :
+                                </label>
+                            </td>
+                            <td>
+                                <input data-ng-model="staff.ProviderStaffFirstName" type="text" maxlength="15" id="ContentPlaceHolder1_ucCertificationApplication1_txtBackCheckFirstName" class="inputTextbox" autocomplete="off">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="txtalgnrgt tdwidth2">
+                                <label class="input-label required">
+                                    Title/ Position &nbsp; &nbsp; &nbsp;
+                                    <br>
+                                    (check all that apply)  :
+                                </label>
+                            </td>
+                            <td>
+                                <div class="listbox_auto">
+                                    <label ng-repeat="role in roles">
+                                        <input id="ContentPlaceHolder1_ucCertificationApplication1_CheckBoxList3" type="checkbox" checklist-model="idlist" checklist-change="true" checklist-value="role.Id"> {{role.Name }}<br />
                                     </label>
-                                </td>
-                                <td>
-                                    <input data-ng-model="staff.ProviderStaffLastName" type="text" maxlength="15" id="ContentPlaceHolder1_ucCertificationApplication1_txtBackCheckLastName" class="inputTextbox" autocomplete="off">
+                                </div>
+                            </td>
+                            <td class="txtalgnrgt tdwidth2">
+                                <label class="input-label required">
+                                    Email :
+                                </label>
+                            </td>
+                            <td>
+                                <input data-ng-model="staff.ProviderStaffEmail" type="text" maxlength="15" id="ContentPlaceHolder1_ucCertificationApplication1_txtaddstaffEmail" class="inputTextbox" autocomplete="off">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="txtalgnrgt width320p">
+                                <label class="input-label required">
+                                    Background Check Required :
+                                </label>
+                            </td>
+                            <td>
+                                <table id="ContentPlaceHolder1_ucCertificationApplication1_rblBackgroundChekReq">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <input id="redRadio" type="radio" ng-model="Chk" value="Yes" />
+                                            </td>
+                                            <td>
+                                                <input id="greenRadio" type="radio" ng-model="Chk" value="No" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="txtalgnrgt">
+                                <label class="input-label required">
+                                    If No, Reason Why? :
+                                </label>
+                            </td>
+                            <td style="line-height: 38px;">
+                                <table id="ContentPlaceHolder1_ucCertificationApplication1_RadioButtonList2">
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="radio" value="CAMTC#"><label for="ContentPlaceHolder1_ucCertificationApplication1_RadioButtonList2_0">CAMTC#</label></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td colspan="2">
+                                <input data-ng-model="staff.CAMTCNumber" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_txtchkCAMTC" class="inputTextbox widht285p" autocomplete="off">
+                            </td>
 
-                                </td>
-
-                                <td class="txtalgnrgt tdwidth2">
-                                    <label class="input-label required">
-                                        First Name :
-                                    </label>
-                                </td>
-                                <td>
-                                    <input data-ng-model="staff.ProviderStaffFirstName" type="text" maxlength="15" id="ContentPlaceHolder1_ucCertificationApplication1_txtBackCheckFirstName" class="inputTextbox" autocomplete="off">
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td class="txtalgnrgt tdwidth2">
-                                    <label class="input-label required">
-                                        Title/ Position &nbsp; &nbsp; &nbsp;
-                                        <br>
-                                        (check all that apply)  :
-                                    </label>
-                                </td>
-                                <td>
-                                    <div class="listbox_auto">
-
-                                        <label ng-repeat="role in roles">
-                                            <input id="ContentPlaceHolder1_ucCertificationApplication1_CheckBoxList3" type="checkbox" checklist-model="idlist" checklist-change="true" checklist-value="role.Id"> {{role.Name }}<br />
-                                        </label>
-                                    </div>
-                                </td>
-
-                                <td class="txtalgnrgt tdwidth2">
-                                    <label class="input-label required">
-                                        Email :
-                                    </label>
-                                </td>
-                                <td>
-                                    <input data-ng-model="staff.ProviderStaffEmail" type="text" maxlength="15" id="ContentPlaceHolder1_ucCertificationApplication1_txtaddstaffEmail" class="inputTextbox" autocomplete="off">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="txtalgnrgt width320p">
-                                    <label class="input-label required">
-                                        Background Check Required :
-                                    </label>
-                                </td>
-                                <td>
-                                    <table id="ContentPlaceHolder1_ucCertificationApplication1_rblBackgroundChekReq">
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <input id="redRadio" type="radio" ng-model="Chk" value="Yes" />
-                                                </td>
-                                                <td>
-                                                    <input id="greenRadio" type="radio" ng-model="Chk" value="No" />
-                                                </td>
-
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                </td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td class="txtalgnrgt">
-                                    <label class="input-label required">
-                                        If No, Reason Why? :
-                                    </label>
-                                </td>
-                                <td style="line-height: 38px;">
-                                    <table id="ContentPlaceHolder1_ucCertificationApplication1_RadioButtonList2">
-                                        <tbody>
-                                            <tr>
-                                                <td><input type="radio" value="CAMTC#"><label for="ContentPlaceHolder1_ucCertificationApplication1_RadioButtonList2_0">CAMTC#</label></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                </td>
-                                <td colspan="2">
-                                    <input data-ng-model="staff.CAMTCNumber" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_txtchkCAMTC" class="inputTextbox widht285p" autocomplete="off">
-
-                                </td>
-                                
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table style="width: 96%; margin-left: 6px;">
-                        <tbody>
-                            <tr>
-
-
-                                
-                            </tr>
-
-                            <tr>
-                                <td style="height: 15px;"></td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-
-                    <div class="toolBar AfterApproved toolbar_instruct">
-                        <span class="fltrt">
-                            <input type="button" data-ng-click="SaveStaffInfo()" value="Save" class="buttonGreen medium">
-                            <input type="button" data-ng-click="clearRelatedAddress()" value="Cancel" class="secondary medium bottom buttonalignment">
-
-                        </span>
-                    </div>
+                        </tr>
+                    </tbody>
+                </table>
+                <table style="width: 96%; margin-left: 6px;">
+                    <tbody>
+                        <tr></tr>
+                        <tr>
+                            <td style="height: 15px;"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="toolBar AfterApproved toolbar_instruct">
+                    <span class="fltrt">
+                        <input type="button" data-ng-click="SaveStaffInfo()" value="Save" class="buttonGreen medium">
+                        <input type="button" data-ng-click="clearRelatedAddress()" value="Cancel" class="secondary medium bottom buttonalignment">
+                    </span>
                 </div>
-                <div data-ag-grid="StaffGrid" class="ag-blue grdi_design_style"></div>
             </div>
+            <div data-ag-grid="StaffGrid" class="ag-blue grdi_design_style"></div>
+
             <table class="width100p">
                 <tbody>
                     <tr id="btnstaffpay_visible">
@@ -221,7 +196,6 @@
                     </tr>
                 </tbody>
             </table>
-
             <table class="tblApplReqForm5 wdtmarauto">
                 <tbody>
                     <tr>
@@ -244,15 +218,13 @@
                     </tr>
                 </tbody>
             </table>
-
         </fieldset>
     </div>
     <fieldset class="flsNewApplReqForm flsCharacterReferences">
-
         <div id="ContentPlaceHolder1_ucCertificationApplication1_dvAboutStaffUpSection">
-            
-                <b>33. Staffing Policies and Procedures :</b>
-           
+
+            <b>33. Staffing Policies and Procedures :</b>
+
             <div id="fuStaff1_upDoc" class="documentContainer" data-docid="38" data-doc-code="D1038" data-simple="true">
             </div>
             <div id="fuStaff2_upDoc" class="documentContainer" data-docid="39" data-doc-code="D1039" data-simple="true">
@@ -262,148 +234,142 @@
             @*fileupload partialview*@
             @*Document File Upload Partial View -> Type :: Simple*@
             @*docId = "5";
-            docCode = "D1005";
-            isSimple = true;*@
-
+                docCode = "D1005";
+                isSimple = true;*@
             <br>
             @*fileupload partialview*@
             @*Document File Upload Partial View -> Type :: Simple*@
             @*docId = "6";
-            docCode = "D1006";
-            isSimple = true;*@
-
+                docCode = "D1006";
+                isSimple = true;*@
             <br>
             @*fileupload partialview*@
             @*Document File Upload Partial View -> Type :: Simple*@
             @*docId = "5";
-            docCode = "D1005";
-            isSimple = true;*@
-
+                docCode = "D1005";
+                isSimple = true;*@
             <br>
         </div>
-        </fieldset>
-        
+    </fieldset>
 
-        <fieldset class="flsNewApplReqForm flsCharacterReferences">
-            <table>
-                <tbody>
-                    <tr>
-                        <td colspan="3">
-                            <b>34. Attestations.</b>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="staff_col1"></td>
-                        <td class="staff_col2">I understand that it is my responsibility to submit an application to CAMTC and receive written approval from CAMTC for any CHANGE of APPROVAL or ACCREDITATION, any CHANGE of OWNERSHIP, any CHANGE of SCHOOL LOCATION or CHANGE or ADDITION of ADDITIONAL LOCATIONS, and any CHANGE of SCHOOL NAME PRIOR  to any such change or addition, and that failure to apply for and receive CAMTC approval for such changes or additions may result in disciplinary action by CAMTC against the school, including but not limited to revocation of school approval.</td>
-                        <td class="staff_col3">
-                            <input id="chkAttestations1" type="checkbox"><label for="chkAttestations1">Yes</label>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="staff_col1"></td>
-                        <td class="staff_col2">I understand that if my school’s application is not complete, it will be purged one (1) year after the last date of activity and after a reminder to my stated email and address have been sent by CAMTC. Once it is purged, I understand that I will need to start the entire process over, including paying the application fee and meeting all of the requirements for school approval that exist at the time. I understand that once my application is considered to be complete, it may not be withdrawn.</td>
-                        <td class="staff_col3">
-                            <input id="chkAttestations2" type="checkbox"><label for="chkAttestations2">Yes</label>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="staff_col1"></td>
-                        <td class="staff_col2">I understand that my Application Fee is non-refundable regardless of the ultimate disposition of my application. I understand that if I am granted CAMTC school approval, it is only for a period of two (2) years, and it is my responsibility to submit a fully completed application for re-approval and ensure that it is received by CAMTC at least six ( 6 ) months before the expiration date listed on my school approval . I understand that a reminder notification may be sent to me as a courtesy, but failure to receive the reminder notification does not waive my responsibility to submit a fully completed application for re-approval and ensure that it is received at least six ( 6 ) months before my current school approval expires. I understand that if a fully completed application for re-approval is not received by CAMTC at least six ( 6 ) months prior to my school approval expiring, I will be required to apply for school approval as a new applicant and I will have to meet all of the requirements for school approval that exist at the time. I understand that CAMTC per law can only accept education from CAMTC approved schools and that any education received by students during times when this school is not approved cannot be accepted by CAMTC for certification purposes. I UNDERSTAND THAT UNDER NO CIRCUMSTANCES CAN THIS POLICY BE WAIVED. </td>
-                        <td class="staff_col3">
-                            <input id="chkAttestations3" type="checkbox"><label for="chkAttestations3">Yes</label>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="staff_col1"></td>
-                        <td class="staff_col2">I understand that it is my duty and responsibility to fully disclose all requested information and to supplement and/or update my Application for school approval after it has been submitted and to update my information and notify CAMTC should I receive school approval, if and when any change in circumstances or conditions occurs which might affect CAMTC's decision concerning my school approval. Failure to supplement and/or update my Application or update my information with CAMTC as an approved school may result in disciplinary action by CAMTC against the school, including but not limited to denial of my application or revocation of my school approval.</td>
-                        <td class="staff_col3">
-                            <input id="chkAttestations4" type="checkbox"><label for="chkAttestations4">Yes</label>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="staff_col1"></td>
-                        <td class="staff_col2">I HAVE CAREFULLY READ THE QUESTIONS IN THE FOREGOING APPLICATION AND HAVE ANSWERED THEM COMPLETELY, WITHOUT RESERVATION OF ANY KIND, AND I DECLARE, UNDER PENALTY OF PERJURY UNDER THE LAWS OF THE STATE OF CALIFORNIA, THAT MY ANSWERS AND ALL STATEMENTS MADE BY ME HERE IN AND IN SUPPORT OF THIS APPLICATION ARE COMPLETE, TRUE, ACCURATE, AND CORRECT. Should I furnish any false information on or in support of this Application and/or Worksheet, or fail to fully provide all requested information, I understand that such action shall constitute cause for denial, suspension, revocation, or action against my CAMTC School Approval.</td>
-                        <td class="staff_col3">
-                            <input id="chkAttestations5" type="checkbox"><label for="chkAttestations5">Yes</label>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="staff_col1"></td>
-                        <td class="staff_col2">I HAVE READ, UNDERSTAND, AND AGREE  TO COMPLY WITH THE STATUTES AND RULES APPLICABLE TO CAMTC’S APPROVAL OF SCHOOLS IN CALIFORNIA.</td>
-                        <td class="staff_col3">
-                            <input id="chkAttestations6" type="checkbox"><label for="chkAttestations6">Yes</label>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="tblApplReqForm5 wdtmarauto">
-                <tbody>
-                    <tr>
-                        <td align="right">
-                            <label class="input-label required">
-                                Signature :
-                            </label>
-                        </td>
-                        <td>
-                            <input type="text" id="TextBox72" autocomplete="off">
-                        </td>
-                        <td align="right">
-                            <label class="input-label required">
-                                Date :
-                            </label>
-                        </td>
-                        <td>
-                            <input type="text" id="TextBox74" class="calender inputTextbox hasDatepicker" placeholder="MM/DD/YYYY" autocomplete="off" maxlength="10">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td align="right">
-                            <label class="input-label required">
-                                Title :
-                            </label>
-                        </td>
-                        <td>
-                            <input type="text" id="TextBox94" autocomplete="off">
-                        </td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-        </fieldset>
-        <div class="toolBar AfterApproved toolbar_instruct">
-            <div class="left">
-            </div>
-            <span class="fltrt">
-                <input type="submit" value="Enter Payment" id="btnPayNow" class="buttonGreen medium">
-
-                <input type="submit" value="Save" id="btnsaveSclContct" class="buttonGreen medium">
-                <a id="lnkContactStaffCancel" class="secondary medium bottom buttonalignment">Cancel</a>
-            </span>
+    <fieldset class="flsNewApplReqForm flsCharacterReferences">
+        <table>
+            <tbody>
+                <tr>
+                    <td colspan="3">
+                        <b>34. Attestations.</b>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <tbody>
+                <tr>
+                    <td class="staff_col1"></td>
+                    <td class="staff_col2">I understand that it is my responsibility to submit an application to CAMTC and receive written approval from CAMTC for any CHANGE of APPROVAL or ACCREDITATION, any CHANGE of OWNERSHIP, any CHANGE of SCHOOL LOCATION or CHANGE or ADDITION of ADDITIONAL LOCATIONS, and any CHANGE of SCHOOL NAME PRIOR  to any such change or addition, and that failure to apply for and receive CAMTC approval for such changes or additions may result in disciplinary action by CAMTC against the school, including but not limited to revocation of school approval.</td>
+                    <td class="staff_col3">
+                        <input id="chkAttestations1" type="checkbox"><label for="chkAttestations1">Yes</label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <tbody>
+                <tr>
+                    <td class="staff_col1"></td>
+                    <td class="staff_col2">I understand that if my school’s application is not complete, it will be purged one (1) year after the last date of activity and after a reminder to my stated email and address have been sent by CAMTC. Once it is purged, I understand that I will need to start the entire process over, including paying the application fee and meeting all of the requirements for school approval that exist at the time. I understand that once my application is considered to be complete, it may not be withdrawn.</td>
+                    <td class="staff_col3">
+                        <input id="chkAttestations2" type="checkbox"><label for="chkAttestations2">Yes</label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <tbody>
+                <tr>
+                    <td class="staff_col1"></td>
+                    <td class="staff_col2">I understand that my Application Fee is non-refundable regardless of the ultimate disposition of my application. I understand that if I am granted CAMTC school approval, it is only for a period of two (2) years, and it is my responsibility to submit a fully completed application for re-approval and ensure that it is received by CAMTC at least six ( 6 ) months before the expiration date listed on my school approval . I understand that a reminder notification may be sent to me as a courtesy, but failure to receive the reminder notification does not waive my responsibility to submit a fully completed application for re-approval and ensure that it is received at least six ( 6 ) months before my current school approval expires. I understand that if a fully completed application for re-approval is not received by CAMTC at least six ( 6 ) months prior to my school approval expiring, I will be required to apply for school approval as a new applicant and I will have to meet all of the requirements for school approval that exist at the time. I understand that CAMTC per law can only accept education from CAMTC approved schools and that any education received by students during times when this school is not approved cannot be accepted by CAMTC for certification purposes. I UNDERSTAND THAT UNDER NO CIRCUMSTANCES CAN THIS POLICY BE WAIVED. </td>
+                    <td class="staff_col3">
+                        <input id="chkAttestations3" type="checkbox"><label for="chkAttestations3">Yes</label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <tbody>
+                <tr>
+                    <td class="staff_col1"></td>
+                    <td class="staff_col2">I understand that it is my duty and responsibility to fully disclose all requested information and to supplement and/or update my Application for school approval after it has been submitted and to update my information and notify CAMTC should I receive school approval, if and when any change in circumstances or conditions occurs which might affect CAMTC's decision concerning my school approval. Failure to supplement and/or update my Application or update my information with CAMTC as an approved school may result in disciplinary action by CAMTC against the school, including but not limited to denial of my application or revocation of my school approval.</td>
+                    <td class="staff_col3">
+                        <input id="chkAttestations4" type="checkbox"><label for="chkAttestations4">Yes</label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <tbody>
+                <tr>
+                    <td class="staff_col1"></td>
+                    <td class="staff_col2">I HAVE CAREFULLY READ THE QUESTIONS IN THE FOREGOING APPLICATION AND HAVE ANSWERED THEM COMPLETELY, WITHOUT RESERVATION OF ANY KIND, AND I DECLARE, UNDER PENALTY OF PERJURY UNDER THE LAWS OF THE STATE OF CALIFORNIA, THAT MY ANSWERS AND ALL STATEMENTS MADE BY ME HERE IN AND IN SUPPORT OF THIS APPLICATION ARE COMPLETE, TRUE, ACCURATE, AND CORRECT. Should I furnish any false information on or in support of this Application and/or Worksheet, or fail to fully provide all requested information, I understand that such action shall constitute cause for denial, suspension, revocation, or action against my CAMTC School Approval.</td>
+                    <td class="staff_col3">
+                        <input id="chkAttestations5" type="checkbox"><label for="chkAttestations5">Yes</label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <tbody>
+                <tr>
+                    <td class="staff_col1"></td>
+                    <td class="staff_col2">I HAVE READ, UNDERSTAND, AND AGREE  TO COMPLY WITH THE STATUTES AND RULES APPLICABLE TO CAMTC’S APPROVAL OF SCHOOLS IN CALIFORNIA.</td>
+                    <td class="staff_col3">
+                        <input id="chkAttestations6" type="checkbox"><label for="chkAttestations6">Yes</label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="tblApplReqForm5 wdtmarauto">
+            <tbody>
+                <tr>
+                    <td align="right">
+                        <label class="input-label required">
+                            Signature :
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" id="TextBox72" autocomplete="off">
+                    </td>
+                    <td align="right">
+                        <label class="input-label required">
+                            Date :
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" id="TextBox74" class="calender inputTextbox hasDatepicker" placeholder="MM/DD/YYYY" autocomplete="off" maxlength="10">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label class="input-label required">
+                            Title :
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" id="TextBox94" autocomplete="off">
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+    <div class="toolBar AfterApproved toolbar_instruct">
+        <div class="left">
         </div>
+        <span class="fltrt">
+            <input type="submit" value="Enter Payment" id="btnPayNow" class="buttonGreen medium">
+            <input type="submit" value="Save" id="btnsaveSclContct" class="buttonGreen medium">
+            <a id="lnkContactStaffCancel" class="secondary medium bottom buttonalignment">Cancel</a>
+        </span>
+    </div>
 </div>

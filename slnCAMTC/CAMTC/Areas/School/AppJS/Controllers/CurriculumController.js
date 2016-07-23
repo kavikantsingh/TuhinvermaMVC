@@ -3,7 +3,7 @@
 
     $('#divAddCourseReq').hide();
     $('#upProgHrWrkSheet').hide();
-    $('#error_validation').hide();
+    $('.errorinfo').hide();
     $scope.ShowPopup = function (id) {
         if (id == 1) {
             $scope.clearRelatedAddress();
@@ -15,7 +15,8 @@
 
         $scope.ProviderId = mySharedService.message;
         $scope.applicationid = mySharedService.Applicationid;
-
+        $('.errorinfo').hide();
+        $('.errorinfo').text('');
         if (mySharedService.CurrentPage == 'Curriculum') {
             $scope.hasShow = 'true';
             $scope.dotheappicall();
@@ -155,7 +156,7 @@
         $scope.ListOfProviderStaffDetails.CourseHours = val;
         CurriculumFactory.ProvReqCourseTitleDelete(key, $scope.ListOfProviderStaffDetails).success(function (data) {
             $scope.ProgramOtherName = '';
-
+            $scope.showUpdateRelatedProgram($scope.ProvReqCourseofStudyId, $scope.ProvValue)
         }).error(function (error) {
             $scope.Error = error;
         });
@@ -178,7 +179,6 @@
                 alert('Exceed maximum hours');
             }
             else {
-
                 $scope.ListOfProviderStaffDetails = {};
                 $scope.ListOfProviderStaffDetails.IsActive = 1;
                 $scope.ListOfProviderStaffDetails.IsDeleted = 0;
@@ -193,7 +193,7 @@
                 CurriculumFactory.ProvReqCourseTitle(key, $scope.ListOfProviderStaffDetails).success(function (data) {
                     $scope.clearRelatedAddress();
                     $scope.showUpdateRelatedProgram($scope.ProvReqCourseofStudyId, $scope.ProvValue)
-                    HideLoader();
+                    ///HideLoader();
                 }).error(function (error) {
                     $scope.Error = error;
                 });
@@ -232,7 +232,7 @@
     //----Enrollment Tab Validation----//
 
     function SaveEnrollAgree() {
-        $('#error_validation').text('');
+        $('.errorinfo').text('');
         var error = '';
         var fuEnrollAgree1 = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Bank Enrollment Agreement.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuEnrollAgree1_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuEnrollAgree1_hfStatus').val());
         var fuEnrollAgree2 = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Massage Program Addendum.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuEnrollAgree2_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuEnrollAgree2_hfStatus').val());
@@ -240,25 +240,25 @@
         error = fuEnrollAgree1 + fuEnrollAgree2;
 
         if (error != '') {
-            $('#error_validation').show();
+            $('.errorinfo').show();
             $('#ContentPlaceHolder1_ucCertificationApplication1_btnNextEnrollChkList').attr('type', 'button');
             $(document).scrollTop(0);
             return false;
         }
         else {
-            $('#error_validation').hide();
+            $('.errorinfo').hide();
             $('#ContentPlaceHolder1_ucCertificationApplication1_btnNextEnrollChkList').attr('type', 'submit');
             return true;
 
         }
-        $('#error_validation').html(error);
+        $('.errorinfo').html(error);
 
 
     }
 
     //----Course Catalog Tab Validation---// basu
     function SaveCourseCatalog() {
-        $('#error_validation').text('');
+        $('.errorinfo').text('');
         var error = '';
         var fuCourseCatalog1 = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Current Course Catalog.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog1_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog1_hfStatus').val());
         var fuCourseCatalog2 = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Massage Program Addendum.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog2_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuCourseCatalog2_hfStatus').val());
@@ -266,20 +266,20 @@
         error = fuCourseCatalog1 + fuCourseCatalog2;
 
         if (error != '') {
-            $('#error_validation').show();
+            $('.errorinfo').show();
             $('#ContentPlaceHolder1_ucCertificationApplication1_btnNextCourseChkList').attr('type', 'button');
             $(document).scrollTop(0);
         }
         else {
-            $('#error_validation').hide();
+            $('.errorinfo').hide();
             $('#ContentPlaceHolder1_ucCertificationApplication1_btnNextCourseChkList').attr('type', 'submit');
         }
-        $('#error_validation').html(error);
+        $('.errorinfo').html(error);
     }
 
     //----Curriculum tab validation----//basu
     function btnNextProHo() {
-        $('#error_validation').text('');
+        $('.errorinfo').text('');
         var error = '';
 
         var txtcarculam = ValidateTextbox('<span class="notok"></span> Please enter maximum number of clinic hours performed.<br/>', '#txtcarculam', $('#txtcarculam').val());
@@ -295,14 +295,14 @@
 
         //error = fuCurriculum1 + fuCurriculum2 + fuCurriculum3 + fuCurriculum4 + fuCurriculum5 + fuCurriculum6 + fuCurriculum7 + fuCurriculum8;
         error = txtcarculam;
-        $('#error_validation').html(error);
+        $('.errorinfo').html(error);
         if (error != '') {
-            $('#error_validation').show();
+            $('.errorinfo').show();
             $(document).scrollTop(0);
             return false;
         }
         else {
-            $('#error_validation').hide();
+            $('.errorinfo').hide();
             return true;
         }
 

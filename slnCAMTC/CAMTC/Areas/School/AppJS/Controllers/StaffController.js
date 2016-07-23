@@ -33,19 +33,20 @@
     }
 
 
-    $('#divAddRelatedschool').hide();
+    $('#divAddRelatedschool1').hide();
 
     $scope.ShowPopup = function (id) {
         if (id == 1) {
             $scope.clearRelatedAddress();
-            $('#divAddRelatedschool').show();
+            $('#divAddRelatedschool1').show();
         }
+
     }
 
 
     $scope.showUpdateRelatedProgram = function (ProviderIndvNameInfoId, ProviderStaffId, contactid, InduvidualNameId, posids, ids, titles, ProviderStaffFirstName, ProviderStaffLastName, ProviderStaffEmail, IsBackgroundCheckReq, CAMTCNumber, ActionList) {
         $scope.clearRelatedAddress();
-        $('#divAddRelatedschool').show();
+        $('#divAddRelatedschool1').show();
         $scope.idlist = [];
         $scope.staff.IsUpdate = true;
         $scope.staff.ProviderStaffFirstName = ProviderStaffFirstName;
@@ -161,7 +162,7 @@
 
         $scope.Chk = 'No';
         $scope.posids = '';
-        $('#divAddRelatedschool').hide();
+        $('#divAddRelatedschool1').hide();
     }
 
     $scope.ProviderStaffId = 0;
@@ -291,7 +292,7 @@
 
 
     function BackgroundCheckAddNewSave() {
-        $('#error_validation').text('');
+        $('.errorinfo').text('');
         var error = '';
         var txtBackCheckLastName = ValidateTextbox('<span class="notok"></span> Please enter last name.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtBackCheckLastName', $('#ContentPlaceHolder1_ucCertificationApplication1_txtBackCheckLastName').val());
         var txtBackCheckFirstName = ValidateTextbox('<span class="notok"></span> Please enter first name.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtBackCheckFirstName', $('#ContentPlaceHolder1_ucCertificationApplication1_txtBackCheckFirstName').val());
@@ -323,7 +324,7 @@
         $('.errorinfo').html(error);
 
         if (error != '') {
-            $('#error_validation').show();
+            $('.errorinfo').show();
             $(document).scrollTop(0);
             return false;
         }
@@ -333,58 +334,58 @@
     }
 
     function saveSclContct() {
-        $('#error_validation').text('');
+        $('.errorinfo').text('');
         var error = '';
         var TextBox72 = ValidateTextbox('<span class="notok"></span> Please enter signature.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_TextBox72', $('#ContentPlaceHolder1_ucCertificationApplication1_TextBox72').val());
         var TextBox74 = ValidateDate('<span class="notok"></span> Future dates are not accepted. <br/>', '<span class="notok"></span> Please enter date in correct format (mm/dd/yyyy) <br/>', '<span class="notok"></span> Please enter date.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_TextBox74', $('#ContentPlaceHolder1_ucCertificationApplication1_TextBox74').val());
         var TextBox94 = ValidateTextbox('<span class="notok"></span> Please enter title.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_TextBox94', $('#ContentPlaceHolder1_ucCertificationApplication1_TextBox94').val());
         error = TextBox72 + TextBox74 + TextBox94;
         if (error != '') {
-            $('#error_validation').show();
+            $('.errorinfo').show();
             $('#ContentPlaceHolder1_ucCertificationApplication1_btnsaveSclContct').attr('type', 'button');
             $(document).scrollTop(0);
         }
         else {
-            $('#error_validation').hide();
+            $('.errorinfo').hide();
             $('#ContentPlaceHolder1_ucCertificationApplication1_btnsaveSclContct').attr('type', 'submit');
         }
-        $('#error_validation').html(error);
+        $('.errorinfo').html(error);
     }
     //ContentPlaceHolder1_ucCertificationApplication1_btnNextBackList
     function btnNextBackList() {
-        $('#error_validation').text('');
+        $('.errorinfo').text('');
         var error = '';
         var TextBox72 = ValidateTextbox('<span class="notok"></span> Please enter signature.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_TextBox72', $('#ContentPlaceHolder1_ucCertificationApplication1_TextBox72').val());
         var TextBox74 = ValidateDate('<span class="notok"></span> Future dates are not accepted. <br/>', '<span class="notok"></span> Please enter date in correct format (mm/dd/yyyy) <br/>', '<span class="notok"></span> Please enter date.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_TextBox74', $('#ContentPlaceHolder1_ucCertificationApplication1_TextBox74').val());
         var TextBox94 = ValidateTextbox('<span class="notok"></span> Please enter title.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_TextBox94', $('#ContentPlaceHolder1_ucCertificationApplication1_TextBox94').val());
         error = TextBox72 + TextBox74 + TextBox94;
         if (error != '') {
-            $('#error_validation').show();
+            $('.errorinfo').show();
             $('#ContentPlaceHolder1_ucCertificationApplication1_btnNextBackList').attr('type', 'button');
             $(document).scrollTop(0);
         }
         else {
-            $('#error_validation').hide();
+            $('.errorinfo').hide();
             $('#ContentPlaceHolder1_ucCertificationApplication1_btnNextBackList').attr('type', 'submit');
         }
-        $('#error_validation').html(error);
+        $('.errorinfo').html(error);
     }
 
     function PaySubmit() {
-        $('#error_validation').text('');
+        $('.errorinfo').text('');
         var error = '';
         var ddlStaffPaymentMethod = ValidateDropdown('-1', '<span class="notok"></span> Please select payment method.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_ddlStaffPaymentMethod', $('#ContentPlaceHolder1_ucCertificationApplication1_ddlStaffPaymentMethod').val());
         error = ddlStaffPaymentMethod;
         if (error != '') {
-            $('#error_validation').show();
+            $('.errorinfo').show();
             $('#ContentPlaceHolder1_ucCertificationApplication1_btnPaySubmit').attr('type', 'button');
             $(document).scrollTop(0);
         }
         else {
-            $('#error_validation').hide();
+            $('.errorinfo').hide();
             $('#ContentPlaceHolder1_ucCertificationApplication1_btnPaySubmit').attr('type', 'submit');
         }
-        $('#error_validation').html(error);
+        $('.errorinfo').html(error);
     }
 
 
