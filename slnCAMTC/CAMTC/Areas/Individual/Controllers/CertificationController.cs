@@ -14,8 +14,9 @@ namespace CAMTC.Areas.Individual.Controllers
             return View();
         }
 
-        public ActionResult Application()
+        public ActionResult Application(string id, string ind_id, string key)
         {
+
             return View();
         }
 

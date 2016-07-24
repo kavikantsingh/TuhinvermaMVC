@@ -1,4 +1,4 @@
-﻿<div id="pnlSection1">
+﻿<div id="pnlSection1" data-ng-controller="applicantCtrl as applicant">
 
     <div id="upPanelSection1MT">
 
@@ -10,7 +10,7 @@
                 </div>
                 <fieldset class="flsParentNewApplReqForm flsParentNewApplReqForm1">
                     <p>
-                        <b>3.&nbsp;&nbsp;Full Name :</b>
+                        <b>3. Full Name :</b>
                     </p>
 
                     <div id="MsgDivUploadAll">
@@ -26,7 +26,7 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <input name="txtFirstNameEdit" type="text" value="Nancy" maxlength="150" id="txtFirstNameEdit" class="tooltip capitalize-text OnlyAlphabet inputTextbox NewAppPersonalTxtbx" title="Only A-Z characters are allowed." autocomplete="off">
+                                            <input required ng-model="applicant.fullName.firstName" name="txtFirstNameEdit" type="text" value="Nancy" maxlength="150" id="txtFirstNameEdit" class="tooltip capitalize-text OnlyAlphabet inputTextbox NewAppPersonalTxtbx" title="Only A-Z characters are allowed." autocomplete="off">
                                         </td>
                                         <td class="txtalgnrgt">
                                             <label class="input-label required">
@@ -34,7 +34,7 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <input name="txtLastNameEdit" type="text" value="Blachly" maxlength="150" id="txtLastNameEdit" class="tooltip capitalize-text OnlyAlphabet inputTextbox NewAppPersonalTxtbx" title="Only A-Z characters are allowed." autocomplete="off">
+                                            <input required ng-model="applicant.fullName.lastName" name="txtLastNameEdit" type="text" value="Blachly" maxlength="150" id="txtLastNameEdit" class="tooltip capitalize-text OnlyAlphabet inputTextbox NewAppPersonalTxtbx" title="Only A-Z characters are allowed." autocomplete="off">
                                         </td>
                                     </tr>
                                     <tr>
@@ -44,7 +44,7 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <input name="txtMiddleNameEdit" type="text" value="E" maxlength="150" id="txtMiddleNameEdit" class="tooltip OnlyAlphabet inputTextbox NewAppPersonalTxtbx" title="Only A-Z characters are allowed." autocomplete="off">
+                                            <input ng-model="applicant.fullName.middleName" name="txtMiddleNameEdit" type="text" value="E" maxlength="150" id="txtMiddleNameEdit" class="tooltip OnlyAlphabet inputTextbox NewAppPersonalTxtbx" title="Only A-Z characters are allowed." autocomplete="off">
                                         </td>
                                     </tr>
                                     <tr>
@@ -52,48 +52,57 @@
                                     </tr>
                                     <tr>
                                         <td colspan="4" style="border: 1px solid rgb(222, 222, 222); padding-top: 0px ! important;">
-                                            <table class=" tblApplReqForm5 wdtmarauto">
+                                            <div>
+                                                Add Other Names
+                                                <input data-ng-if="!applicant.states.addOtherName" data-ng-click="applicant.states.addOtherName = true" type="submit" name="btnhterdetailsAdd" value="Add" id="btnhterdetailsAdd" class="buttonGreen small" style="margin-left: 133px;">
+                                                
+                                            </div>
+                                            <table data-ng-if="applicant.states.addOtherName" class="tblApplReqForm5 wdtmarauto">
                                                 <tbody>
                                                     <tr>
-                                                        <td class="txtalgnrgt tdwidth1" style=" padding-bottom 10px;">
+                                                        <td class="txtalgnrgt tdwidth1" style="padding-bottom :10px;">
                                                             <label class="input-label">
                                                                 Other First Name :
                                                             </label>
                                                         </td>
                                                         <td>
-                                                            <input name="txtotherFName" type="text" maxlength="150" id="txtotherFName" class="tooltip OnlyAlphabet inputTextbox NewAppPersonalTxtbx" title="Only A-Z characters are allowed." autocomplete="off">
+                                                            <input data-ng-model="applicant.newOtherName.firstName" name="txtotherFName" type="text" maxlength="150" id="txtotherFName" class="tooltip OnlyAlphabet inputTextbox NewAppPersonalTxtbx" title="Only A-Z characters are allowed." autocomplete="off">
 
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="txtalgnrgt tdwidth1" style=" padding-bottom 10px;">
+                                                        <td class="txtalgnrgt tdwidth1" style="padding-bottom:10px;">
                                                             <label class="input-label">
                                                                 Other Middle Name :
                                                             </label>
                                                         </td>
                                                         <td>
-                                                            <input name="txtotherMiddleName" type="text" maxlength="150" id="txtotherMiddleName" class="tooltip OnlyAlphabet inputTextbox NewAppPersonalTxtbx" title="Only A-Z characters are allowed." autocomplete="off">
+                                                            <input data-ng-model="applicant.newOtherName.middleName" name="txtotherMiddleName" type="text" maxlength="150" id="txtotherMiddleName" class="tooltip OnlyAlphabet inputTextbox NewAppPersonalTxtbx" title="Only A-Z characters are allowed." autocomplete="off">
 
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="txtalgnrgt tdwidth1" style=" padding-bottom 10px;">
+                                                        <td class="txtalgnrgt tdwidth1" style="padding-bottom:10px;">
                                                             <label class="input-label">
                                                                 Other Last Name :
                                                             </label>
                                                         </td>
                                                         <td>
-                                                            <input name="txtotherLastName" type="text" maxlength="150" id="txtotherLastName" class="tooltip OnlyAlphabet inputTextbox NewAppPersonalTxtbx" title="Only A-Z characters are allowed." autocomplete="off">
+                                                            <input data-ng-model="applicant.newOtherName.lastName" name="txtotherLastName" type="text" maxlength="150" id="txtotherLastName" class="tooltip OnlyAlphabet inputTextbox NewAppPersonalTxtbx" title="Only A-Z characters are allowed." autocomplete="off">
 
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td></td>
-                                                        <td><input type="submit" name="btnhterdetailsAdd" value="Add" id="btnhterdetailsAdd" class="buttonGreen small" style="margin-left: 133px;"></td>
+                                                        <td>
+                                                            <input data-ng-click="applicant.saveOtherName()" type="submit" name="btnhterdetailsAdd" value="Save" id="btnhterdetailsAdd" class="buttonGreen small" style="margin-left: 133px;">
+                                                            <button ng-click="applicant.states.addOtherName = false" class="secondary small">Cancel</button>
+                                                        </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                            <table class="index brdr grid" border="1" cellspacing="0" cellpadding="5" id="tableotherName" style="width: 58%; margin-left: 35px; margin-bottom: 10px; margin-top: 10px;">
+
+                                            <table data-ng-if="applicant.otherNames.length > 0" class="index brdr grid" border="1" cellspacing="0" cellpadding="5" id="tableotherName" style="width: 58%; margin-left: 35px; margin-bottom: 10px; margin-top: 10px;">
                                                 <tbody>
                                                     <tr>
                                                         <th style="border-right: 1px solid #ddd; padding-left: 5px !important; padding-top: 0px !important;">
@@ -110,13 +119,15 @@
                                                         </th>
 
                                                     </tr>
-                                                    <tr>
+                                                    <tr data-ng-repeat="name in applicant.otherNames">
                                                         <td class="vlignbtm" style="border-right: 1px solid #ddd; padding-left: 5px !important; padding-top: 0px !important;">
-                                                            Michael
+                                                            {{name.firstName}}
                                                         </td>
-                                                        <td class="vlignbtm" style="border-right: 1px solid #ddd; padding-left: 5px !important; padding-top: 0px !important;"></td>
                                                         <td class="vlignbtm" style="border-right: 1px solid #ddd; padding-left: 5px !important; padding-top: 0px !important;">
-                                                            Clarcke
+                                                            {{name.middleName}}
+                                                        </td>
+                                                        <td class="vlignbtm" style="border-right: 1px solid #ddd; padding-left: 5px !important; padding-top: 0px !important;">
+                                                            {{name.lastName}}
                                                         </td>
                                                         <td class="vlignbtm" style="border-right: 1px solid #ddd; padding-left: 5px !important; padding-top: 0px !important;">
                                                             <span class="fltrt AfterApproved">
@@ -137,7 +148,7 @@
                 </fieldset>
                 <fieldset class="flsApplReqForm flsApplReqForm5">
 
-                    <table class=" tblApplReqForm5">
+                    <table class="tblApplReqForm5">
                         <tbody>
                             <tr>
                                 <td colspan="6">
@@ -151,7 +162,7 @@
                             </tr>
                             <tr>
                                 <td colspan="5">
-                                    <b>4.&nbsp;&nbsp;Home Address :</b>
+                                    <b>4.Home Address :</b>
                                 </td>
                             </tr>
                             <tr>
@@ -161,13 +172,13 @@
                                     </label>
                                 </td>
                                 <td colspan="5">
-                                    <input name="txtStreetResEdit" type="text" maxlength="500" id="txtStreetResEdit" class="calWidth us_street" style="width:482px;" autocomplete="off">
+                                    <input data-ng-model="applicant.homeAddress.street1" name="txtStreetResEdit" type="text" maxlength="500" id="txtStreetResEdit" class="calWidth us_street" style="width:482px;" autocomplete="off">
                                 </td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td colspan="5">
-                                    <input name="txtStreet2ResEdit" type="text" maxlength="500" id="txtStreet2ResEdit" class="calWidth us_street" style="width:482px;" autocomplete="off">
+                                    <input data-ng-model="applicant.homeAddress.street2" name="txtStreet2ResEdit" type="text" maxlength="500" id="txtStreet2ResEdit" class="calWidth us_street" style="width:482px;" autocomplete="off">
                                 </td>
                             </tr>
                             <tr>
@@ -177,7 +188,7 @@
                                     </label>
                                 </td>
                                 <td style="width: 151px;">
-                                    <input name="txtCityResEdit" type="text" maxlength="500" id="txtCityResEdit" class="tooltip OnlyAlphabet calWidth" title="Only A-Z characters are allowed." style="width:124px;" autocomplete="off">
+                                    <input data-ng-model="applicant.homeAddress.city" name="txtCityResEdit" type="text" maxlength="500" id="txtCityResEdit" class="tooltip OnlyAlphabet calWidth" title="Only A-Z characters are allowed." style="width:124px;" autocomplete="off">
                                 </td>
                                 <td class="txtalgnrgt" style="width: 52px;">
                                     <label class="input-label required">
@@ -185,7 +196,7 @@
                                     </label>
                                 </td>
                                 <td style="width: 106px;">
-                                    <select name="ddlStateResEdit" id="ddlStateResEdit" class="inputTextbox" title="Select your state" style="width:98px;" autocomplete="off">
+                                    <select data-ng-model="applicant.homeAddress.state" name="ddlStateResEdit" id="ddlStateResEdit" class="inputTextbox" title="Select your state" style="width:98px;" autocomplete="off">
                                         <option value="-1">Select</option>
                                         <option value="-1">------ STATES OF USA --------</option>
                                         <option value="AK">ALASKA</option>
@@ -263,7 +274,7 @@
                                     </label>
                                 </td>
                                 <td>
-                                    <input name="txtZipResEdit" type="text" maxlength="10" id="txtZipResEdit" class="tooltip zip_us calWidth" placeholder="xxxxx-xxxx or xxxxx" title="Enter valid Zip eg: XXXXX-XXXX or XXXXX" style="width:127px;" autocomplete="off">
+                                    <input data-ng-model="applicant.homeAddress.zip" name="txtZipResEdit" type="text" maxlength="10" id="txtZipResEdit" class="tooltip zip_us calWidth" placeholder="xxxxx-xxxx or xxxxx" title="Enter valid Zip eg: XXXXX-XXXX or XXXXX" style="width:127px;" autocomplete="off">
                                 </td>
                             </tr>
                         </tbody>
@@ -278,175 +289,180 @@
 
                     <div class="clear">
                     </div>
-                    <table class=" tblApplReqForm5">
+                    <table class="tblLiveScanApp tblLiveScanApp1" width="100%">
                         <tbody>
                             <tr>
-                                <td colspan="6">
-                                    <table class="tblLiveScanApp tblLiveScanApp1" width="100%">
+                                <td style="width: 480px; padding-left: 0px;">
+                                    <label class="input-label required">
+                                        <b>
+                                            5.&nbsp;&nbsp;Is your Mailing Address the same as the above Home Address where you
+                                            live?
+                                        </b>
+                                    </label>
+
+                                </td>
+                                <td align="left" class="cursorpointer">
+                                    <table id="RadioButtonList1">
                                         <tbody>
                                             <tr>
-                                                <td style="width: 480px; padding-left: 0px;">
-                                                    <label class="input-label required">
-                                                        <b>
-                                                            5.&nbsp;&nbsp;Is your Mailing Address the same as the above Home Address where you
-                                                            live?
-                                                        </b>
-                                                    </label>
-
-                                                </td>
-                                                <td align="left" class="cursorpointer">
-                                                    <table id="RadioButtonList1">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td><input id="RadioButtonList1_0" type="radio" name="RadioButtonList1" value="1"><label for="RadioButtonList1_0">Yes</label></td>
-                                                                <td><input id="RadioButtonList1_1" type="radio" name="RadioButtonList1" value="0"><label for="RadioButtonList1_1">No</label></td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
+                                                <td><input id="RadioButtonList1_0" type="radio" name="RadioButtonList1" data-ng-model="applicant.mailingAddressSameAsHome" value="true"><label for="RadioButtonList1_0">Yes</label></td>
+                                                <td><input id="RadioButtonList1_1" type="radio" name="RadioButtonList1" data-ng-model="applicant.mailingAddressSameAsHome" value="false"><label for="RadioButtonList1_1">No</label></td>
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <div>
-                                        <p style="border: 1px solid #ddd; padding: 6px; line-height: 20px;">
-                                            If you answered "No" to question above, then please provide your Mailing Address
-                                            below otherwise, you may leave Mailing Address blank and proceed to the next step. Please
-                                            note that your Application may be delayed or you may be required to pay additional
-                                            processing fees if you provide CAMTC with an incorrect Mailing Address.
-                                        </p>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="5">
-                                    <b>6.&nbsp;&nbsp;Mailing Address :</b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="vertical-align: middle; width: 145px;" class="txtalgnrgt">
-                                    <label class="input-label">
-                                        Street :
-                                    </label>
-                                </td>
-                                <td colspan="5">
-                                    <input name="txtStreetMailEdit" type="text" maxlength="500" id="txtStreetMailEdit" class="calWidth us_street" style="width:482px;" autocomplete="off">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td colspan="5">
-                                    <input name="txtStreet2MailEdit" type="text" maxlength="500" id="txtStreet2MailEdit" class="calWidth us_street" style="width:482px;" autocomplete="off">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="txtalgnrgt">
-                                    <label class="input-label">
-                                        City :
-                                    </label>
-                                </td>
-                                <td style="width: 151px;">
-                                    <input name="txtCityMailEdit" type="text" maxlength="500" id="txtCityMailEdit" class="tooltip OnlyAlphabet calWidth" title="Only A-Z characters are allowed." style="width:133px;" autocomplete="off">
-                                </td>
-                                <td class="txtalgnrgt" style="width: 52px;">
-                                    <label class="input-label">
-                                        State :
-                                    </label>
-                                </td>
-                                <td style="width: 106px;">
-                                    <select name="ddlStateMailEdit" id="ddlStateMailEdit" class="inputTextbox" title="Select your state" style="width:98px;" autocomplete="off">
-                                        <option value="-1">Select</option>
-                                        <option value="-1">------ STATES OF USA --------</option>
-                                        <option value="AK">ALASKA</option>
-                                        <option value="AL">ALABAMA</option>
-                                        <option value="AR">ARKANSAS</option>
-                                        <option value="AZ">ARIZONA</option>
-                                        <option selected="selected" value="CA">CALIFORNIA</option>
-                                        <option value="CO">COLORADO</option>
-                                        <option value="CT">CONNECTICUT</option>
-                                        <option value="DC">DISTRICT OF COLUMBIA</option>
-                                        <option value="DE">DELAWARE</option>
-                                        <option value="FL">FLORIDA</option>
-                                        <option value="GA">GEORGIA</option>
-                                        <option value="HI">HAWAII</option>
-                                        <option value="IA">IOWA</option>
-                                        <option value="ID">IDAHO</option>
-                                        <option value="IL">ILLINOIS</option>
-                                        <option value="IN">INDIANA</option>
-                                        <option value="KS">KANSAS</option>
-                                        <option value="KY">KENTUCKY</option>
-                                        <option value="LA">LOUISIANA</option>
-                                        <option value="MA">MASSACHUSETTS</option>
-                                        <option value="MD">MARYLAND</option>
-                                        <option value="ME">MAINE</option>
-                                        <option value="MI">MICHIGAN</option>
-                                        <option value="MN">MINNESOTA</option>
-                                        <option value="MO">MISSOURI</option>
-                                        <option value="MS">MISSISSIPPI</option>
-                                        <option value="MT">MONTANA</option>
-                                        <option value="NE">NEBRASKA</option>
-                                        <option value="NC">NORTH CAROLINA</option>
-                                        <option value="ND">NORTH DAKOTA</option>
-                                        <option value="NH">NEW HAMPSHIRE</option>
-                                        <option value="NJ">NEW JERSEY</option>
-                                        <option value="NM">NEW MEXICO</option>
-                                        <option value="NY">NEW YORK</option>
-                                        <option value="NV">NEVADA</option>
-                                        <option value="OH">OHIO</option>
-                                        <option value="OK">OKLAHOMA</option>
-                                        <option value="OR">OREGON</option>
-                                        <option value="PA">PENNSYLVANIA</option>
-                                        <option value="RI">RHODE ISLAND</option>
-                                        <option value="SC">SOUTH CAROLINA</option>
-                                        <option value="SD">SOUTH DAKOTA</option>
-                                        <option value="TN">TENNESSEE</option>
-                                        <option value="TX">TEXAS</option>
-                                        <option value="UT">UTAH</option>
-                                        <option value="VA">VIRGINIA</option>
-                                        <option value="VT">VERMONT</option>
-                                        <option value="WA">WASHINGTON</option>
-                                        <option value="WI">WISCONSIN</option>
-                                        <option value="WV">WEST VIRGINIA</option>
-                                        <option value="WY">WYOMING</option>
-                                        <option value="-1">------ STATES OF CANADA -------</option>
-                                        <option value="AB">Alberta</option>
-                                        <option value="BC">British Columbia </option>
-                                        <option value="MB">Manitoba </option>
-                                        <option value="NB">New Brunswick </option>
-                                        <option value="NL">Newfoundland and Labrador </option>
-                                        <option value="NT">Northwest Territories </option>
-                                        <option value="NS">Nova Scotia </option>
-                                        <option value="NU">Nunavut </option>
-                                        <option value="ON">Ontario </option>
-                                        <option value="PE">Prince Edward Island </option>
-                                        <option value="QC">Quebec </option>
-                                        <option value="SK">Saskatchewan </option>
-                                        <option value="YT">Yukon </option>
-                                        <option value="00">------- Other States -------</option>
-
-                                    </select>
-                                </td>
-                                <td class="txtalgnrgt" style="width: 47px;">
-                                    <label class="input-label">
-                                        Zip :
-                                    </label>
-                                </td>
-                                <td>
-                                    <input name="txtZipMailEdit" type="text" maxlength="10" id="txtZipMailEdit" class="tooltip zip_us calWidth" placeholder="xxxxx-xxxx or xxxxx" title="Enter valid Zip eg: XXXXX-XXXX or XXXXX" style="width:127px;" autocomplete="off">
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    <div class="clear">
+                    <div>
+                        <p style="border: 1px solid #ddd; padding: 6px; line-height: 20px;">
+                            If you answered "No" to question above, then please provide your Mailing Address
+                            below otherwise, you may leave Mailing Address blank and proceed to the next step. Please
+                            note that your Application may be delayed or you may be required to pay additional
+                            processing fees if you provide CAMTC with an incorrect Mailing Address.
+                        </p>
                     </div>
-                    <div id="divVerifyMailingAddressBtn" style="padding: 10px;">
-                        <span class="fltrt" style="margin-right: 50px;">
-                            <input type="submit" name="btnVerifyMailingAddress" value="Verify Address" id="btnVerifyMailingAddress" class="btn-success btn-xs">
-                        </span>
+                    <div data-ng-show="applicant.mailingAddressSameAsHome == 'false'">
+                        <table  class="tblApplReqForm5">
+                            <tbody>
+                                <tr>
+                                    <td colspan="6"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5">
+                                        <b>6. Mailing Address :  </b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align: middle; width: 145px;" class="txtalgnrgt">
+                                        <label class="input-label">
+                                            Street :
+                                        </label>
+                                    </td>
+                                    <td colspan="5">
+                                        <input name="txtStreetMailEdit" type="text" maxlength="500" id="txtStreetMailEdit" class="calWidth us_street" style="width:482px;" autocomplete="off">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td colspan="5">
+                                        <input name="txtStreet2MailEdit" type="text" maxlength="500" id="txtStreet2MailEdit" class="calWidth us_street" style="width:482px;" autocomplete="off">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="txtalgnrgt">
+                                        <label class="input-label">
+                                            City :
+                                        </label>
+                                    </td>
+                                    <td style="width: 151px;">
+                                        <input name="txtCityMailEdit" type="text" maxlength="500" id="txtCityMailEdit" class="tooltip OnlyAlphabet calWidth" title="Only A-Z characters are allowed." style="width:133px;" autocomplete="off">
+                                    </td>
+                                    <td class="txtalgnrgt" style="width: 52px;">
+                                        <label class="input-label">
+                                            State :
+                                        </label>
+                                    </td>
+                                    <td style="width: 106px;">
+                                        @*<select name="testCountries">
+                                            <option ng-repeat="option in main.globals.countries" ng-click="main.globals.getAllStatesByCountry(option)" value="{{option.Code}}">{{option.Name}}</option>
+                                        </select>*@
+
+                                        <select  name="ddlStateMailEdit" id="ddlStateMailEdit" class="inputTextbox" title="Select your state" style="width:98px;" autocomplete="off">
+                                            <option value="-1">Select</option>
+                                            <option value="-1">------ STATES OF USA --------</option>
+                                            <option value="AK">ALASKA</option>
+                                            <option value="AL">ALABAMA</option>
+                                            <option value="AR">ARKANSAS</option>
+                                            <option value="AZ">ARIZONA</option>
+                                            <option value="CA">CALIFORNIA</option>
+                                            <option value="CO">COLORADO</option>
+                                            <option value="CT">CONNECTICUT</option>
+                                            <option value="DC">DISTRICT OF COLUMBIA</option>
+                                            <option value="DE">DELAWARE</option>
+                                            <option value="FL">FLORIDA</option>
+                                            <option value="GA">GEORGIA</option>
+                                            <option value="HI">HAWAII</option>
+                                            <option value="IA">IOWA</option>
+                                            <option value="ID">IDAHO</option>
+                                            <option value="IL">ILLINOIS</option>
+                                            <option value="IN">INDIANA</option>
+                                            <option value="KS">KANSAS</option>
+                                            <option value="KY">KENTUCKY</option>
+                                            <option value="LA">LOUISIANA</option>
+                                            <option value="MA">MASSACHUSETTS</option>
+                                            <option value="MD">MARYLAND</option>
+                                            <option value="ME">MAINE</option>
+                                            <option value="MI">MICHIGAN</option>
+                                            <option value="MN">MINNESOTA</option>
+                                            <option value="MO">MISSOURI</option>
+                                            <option value="MS">MISSISSIPPI</option>
+                                            <option value="MT">MONTANA</option>
+                                            <option value="NE">NEBRASKA</option>
+                                            <option value="NC">NORTH CAROLINA</option>
+                                            <option value="ND">NORTH DAKOTA</option>
+                                            <option value="NH">NEW HAMPSHIRE</option>
+                                            <option value="NJ">NEW JERSEY</option>
+                                            <option value="NM">NEW MEXICO</option>
+                                            <option value="NY">NEW YORK</option>
+                                            <option value="NV">NEVADA</option>
+                                            <option value="OH">OHIO</option>
+                                            <option value="OK">OKLAHOMA</option>
+                                            <option value="OR">OREGON</option>
+                                            <option value="PA">PENNSYLVANIA</option>
+                                            <option value="RI">RHODE ISLAND</option>
+                                            <option value="SC">SOUTH CAROLINA</option>
+                                            <option value="SD">SOUTH DAKOTA</option>
+                                            <option value="TN">TENNESSEE</option>
+                                            <option value="TX">TEXAS</option>
+                                            <option value="UT">UTAH</option>
+                                            <option value="VA">VIRGINIA</option>
+                                            <option value="VT">VERMONT</option>
+                                            <option value="WA">WASHINGTON</option>
+                                            <option value="WI">WISCONSIN</option>
+                                            <option value="WV">WEST VIRGINIA</option>
+                                            <option value="WY">WYOMING</option>
+                                            <option value="-1">------ STATES OF CANADA -------</option>
+                                            <option value="AB">Alberta</option>
+                                            <option value="BC">British Columbia </option>
+                                            <option value="MB">Manitoba </option>
+                                            <option value="NB">New Brunswick </option>
+                                            <option value="NL">Newfoundland and Labrador </option>
+                                            <option value="NT">Northwest Territories </option>
+                                            <option value="NS">Nova Scotia </option>
+                                            <option value="NU">Nunavut </option>
+                                            <option value="ON">Ontario </option>
+                                            <option value="PE">Prince Edward Island </option>
+                                            <option value="QC">Quebec </option>
+                                            <option value="SK">Saskatchewan </option>
+                                            <option value="YT">Yukon </option>
+                                            <option value="00">------- Other States -------</option>
+
+                                        </select>
+                                    </td>
+                                    <td class="txtalgnrgt" style="width: 47px;">
+                                        <label class="input-label">
+                                            Zip :
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <input name="txtZipMailEdit" type="text" maxlength="10" id="txtZipMailEdit" class="tooltip zip_us calWidth" placeholder="xxxxx-xxxx or xxxxx" title="Enter valid Zip eg: XXXXX-XXXX or XXXXX" style="width:127px;" autocomplete="off">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="clear">
+                        </div>
+                        <div id="divVerifyMailingAddressBtn" style="padding: 10px;">
+                            <span class="fltrt" style="margin-right: 50px;">
+                                <input type="submit" name="btnVerifyMailingAddress" value="Verify Address" id="btnVerifyMailingAddress" class="btn-success btn-xs">
+                            </span>
+                        </div>
                     </div>
 
                     <div class="clear">
                     </div>
-                    <table class=" tblApplReqForm5">
+                    <table class="tblApplReqForm5">
                         <tbody>
                             <tr>
                                 <td colspan="6">
@@ -462,10 +478,10 @@
                                                     <label class="input-label required">Primary Phone :</label>
                                                 </td>
                                                 <td style="width: 165px;">
-                                                    <input name="TextBox3" type="text" id="TextBox3" class="phone_us" autocomplete="off" maxlength="14">
+                                                    <input data-ng-model="applicant.primaryPhone.number" name="TextBox3" type="text" id="TextBox3" class="phone_us" autocomplete="off" maxlength="14">
                                                 </td>
                                                 <td class="cursorpointer">
-                                                    <input id="CheckBox10" type="checkbox" name="CheckBox10"><label for="CheckBox10">Mobile</label>
+                                                    <input  data-ng-model="applicant.primaryPhone.isMobile" id="CheckBox10" type="checkbox" name="CheckBox10"><label for="CheckBox10">Mobile</label>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -473,10 +489,10 @@
                                                     <label class="input-label">Secondary Phone :</label>
                                                 </td>
                                                 <td>
-                                                    <input name="TextBox4" type="text" id="TextBox4" class="phone_us" autocomplete="off" maxlength="14">
+                                                    <input data-ng-model="applicant.secondaryPhone.number" name="TextBox4" type="text" id="TextBox4" class="phone_us" autocomplete="off" maxlength="14">
                                                 </td>
                                                 <td class="cursorpointer">
-                                                    <input id="CheckBox11" type="checkbox" name="CheckBox11"><label for="CheckBox11">Mobile</label>
+                                                    <input data-ng-model="applicant.secondaryPhone.isMobile" id="CheckBox11" type="checkbox" name="CheckBox11"><label for="CheckBox11">Mobile</label>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -505,7 +521,7 @@
                                                     </label>
                                                 </td>
                                                 <td colspan="3">
-                                                    <input name="txtPrimaryEmail" type="text" maxlength="150" id="txtPrimaryEmail" class="inputTextbox NewAppPersonalTxtbx" style="width: 484px !important;" autocomplete="off">
+                                                    <input data-ng-model="applicant.primaryEmail" name="txtPrimaryEmail" type="text" maxlength="150" id="txtPrimaryEmail" class="inputTextbox NewAppPersonalTxtbx" style="width: 484px !important;" autocomplete="off">
                                                 </td>
                                             </tr>
                                             <tr>
@@ -515,7 +531,7 @@
                                                     </label>
                                                 </td>
                                                 <td colspan="3">
-                                                    <input name="txtSecondaryEmail" type="text" maxlength="150" id="txtSecondaryEmail" class="inputTextbox NewAppPersonalTxtbx" style="width: 484px !important;" autocomplete="off">
+                                                    <input data-ng-model="applicant.secondaryEmail" name="txtSecondaryEmail" type="text" maxlength="150" id="txtSecondaryEmail" class="inputTextbox NewAppPersonalTxtbx" style="width: 484px !important;" autocomplete="off">
                                                     <br>
                                                     <span>Email address must be provided by law, if you have one. </span>
                                                 </td>
@@ -541,8 +557,8 @@
                                                     <table id="rblHaveaWebsite">
                                                         <tbody>
                                                             <tr>
-                                                                <td><input id="rblHaveaWebsite_0" type="radio" name="rblHaveaWebsite" value="1"><label for="rblHaveaWebsite_0">Yes</label></td>
-                                                                <td><input id="rblHaveaWebsite_1" type="radio" name="rblHaveaWebsite" value="0"><label for="rblHaveaWebsite_1">No</label></td>
+                                                                <td><input data-ng-model="applicant.haveWebsite" id="rblHaveaWebsite_0" type="radio" name="rblHaveaWebsite" value="1"><label for="rblHaveaWebsite_0">Yes</label></td>
+                                                                <td><input data-ng-model="applicant.haveWebsite" id="rblHaveaWebsite_1" type="radio" name="rblHaveaWebsite" value="0"><label for="rblHaveaWebsite_1">No</label></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -550,7 +566,7 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <table>
+                                    <table ng-if="applicant.haveWebsite > 0">
                                         <tbody>
                                             <tr>
                                                 <td></td>
@@ -560,7 +576,7 @@
                                                     </label>
                                                 </td>
                                                 <td class="cursorpointer">
-                                                    <input name="txtWebsite" type="text" maxlength="150" id="txtWebsite" class="inputTextbox NewAppPersonalTxtbx" autocomplete="off">
+                                                    <input data-ng-model="applicant.website" name="txtWebsite" type="text" maxlength="150" id="txtWebsite" class="inputTextbox NewAppPersonalTxtbx" autocomplete="off">
                                                     <br>
                                                     <span>eg: http://www.example.com</span>
                                                 </td>
@@ -575,7 +591,7 @@
 
                 <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
                     <span class="fltrt">
-                        <input type="submit" name="btnSavePersonalInfo" value="Save &amp; Next" id="btnSavePersonalInfo" class="buttonGreen medium">
+                        <input type="submit" data-ng-click="applicant.saveApplicant()" name="btnSavePersonalInfo" value="Save &amp; Next" id="btnSavePersonalInfo" class="buttonGreen medium">
                         <a id="lnkCancelPersonalInfo" class="secondary medium bottom buttonalignment" href="javascript:__doPostBack('lnkCancelPersonalInfo','')">Cancel</a>
                     </span>
                 </div>

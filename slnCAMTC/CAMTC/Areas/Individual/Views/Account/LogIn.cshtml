@@ -113,7 +113,8 @@
                             }
                             else {
                                 if (data.ApplicationStatus === "Submitted")
-                                    window.location.replace('@Url.Action("SchoolApplication", "Home")');
+                                    //window.location.replace('@Url.Action("SchoolApplication", "Home")');
+                                    window.location.replace("Certification/Application/" + sessionStorage.ApplicationId + "-" + sessionStorage.IndividualId + "/" + sessionStorage.Key)
                                 else
                                     window.location.replace('@Url.Action("Index", "Home")');
                             }

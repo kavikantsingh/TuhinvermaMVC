@@ -49,6 +49,14 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NJsonSchema, Version=2.59.6040.32732, Culture=neutral, PublicKeyToken=c2f9c3bdfae56102, processorArchitecture=MSIL">
+      <HintPath>..\packages\NJsonSchema.2.59.6040.32732\lib\portable45-net45+win8+wp8+wpa81\NJsonSchema.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -112,11 +120,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -135,6 +138,7 @@
     <Compile Include="Areas\Individual\Controllers\CertificationController.cs" />
     <Compile Include="Areas\Individual\Controllers\HomeController.cs" />
     <Compile Include="Areas\Individual\IndividualAreaRegistration.cs" />
+    <Compile Include="Areas\Individual\Models\ApplicantNames.cs" />
     <Compile Include="Areas\School\Controllers\AccountController.cs" />
     <Compile Include="Areas\School\Controllers\CertificationController.cs" />
     <Compile Include="Areas\School\Controllers\HomeController.cs" />
@@ -142,9 +146,14 @@
     <Compile Include="Constants\ErrorMessages.cs" />
     <Compile Include="Controllers\AppContentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SchemaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Application\Address.cs" />
+    <Compile Include="Models\Application\BaseApplication.cs" />
+    <Compile Include="Models\Application\FullName.cs" />
+    <Compile Include="Models\Application\PhoneNumber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\Common.cs" />
     <Compile Include="Utility\CustomAction.cs" />
@@ -164,7 +173,48 @@
     <Content Include="Areas\BackOffice\AppJS\Services\ContentManagement.Service.js" />
     <Content Include="Areas\BackOffice\AppJS\Services\EligibiltiyService.js" />
     <Content Include="Areas\BackOffice\AppJS\Services\SchoolInfoServices.js" />
-    <Content Include="Areas\BackOffice\AppJS\Services\TemplateMessage.Service.js" />
+    <Content Include="Areas\Individual\AppJs\Controller\ApplicantController_Individual.js">
+      <DependentUpon>ApplicantController_Individual.coffee</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Controller\ApplicantController_Individual.min.js">
+      <DependentUpon>ApplicantController_Individual.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Controller\InstructionController.js">
+      <DependentUpon>InstructionController.coffee</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Controller\InstructionController.min.js">
+      <DependentUpon>InstructionController.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Controller\MainController_Individual.js">
+      <DependentUpon>MainController_Individual.coffee</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Controller\MainController_Individual.min.js">
+      <DependentUpon>MainController_Individual.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Factory\GlobalObjectsFactory.js">
+      <DependentUpon>GlobalObjectsFactory.coffee</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Factory\GlobalObjectsFactory.min.js">
+      <DependentUpon>GlobalObjectsFactory.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\IndividualApp.js">
+      <DependentUpon>IndividualApp.coffee</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\IndividualApp.min.js">
+      <DependentUpon>IndividualApp.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\RunIndividualApp.js">
+      <DependentUpon>RunIndividualApp.coffee</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\RunIndividualApp.min.js">
+      <DependentUpon>RunIndividualApp.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Service\GlobalObjectsService.js">
+      <DependentUpon>GlobalObjectsService.coffee</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Service\GlobalObjectsService.min.js">
+      <DependentUpon>GlobalObjectsService.js</DependentUpon>
+    </Content>
     <Content Include="Areas\School\AppJS\Controllers\CourseCatalogController.js" />
     <Content Include="Areas\School\AppJS\Controllers\TranscriptController.js" />
     <Content Include="Areas\School\AppJS\Controllers\StaffController.js" />
@@ -207,13 +257,14 @@
     <Content Include="Areas\BackOffice\Views\Home\PartialView\DeficiencyTemplate.cshtml" />
     <Content Include="Areas\BackOffice\Views\Home\Configuration.cshtml" />
     <Content Include="Areas\BackOffice\Views\Administration\ContentManagement.cshtml" />
-    <Content Include="Areas\BackOffice\Views\Home\PartialView\DeficiencyReason.cshtml" />
-    <Content Include="Areas\BackOffice\Views\Administration\DcoumentType.cshtml" />
-    <Content Include="Areas\BackOffice\Views\Administration\Index.cshtml" />
-    <Content Include="Areas\BackOffice\Views\Shared\_DocumentView.cshtml" />
     <Content Include="Areas\Individual\Views\Shared\_LayoutBasic.cshtml" />
-    <Content Include="Areas\BackOffice\Views\Home\PartialView\ApplicationConfiguration.cshtml" />
-    <Content Include="Areas\BackOffice\Views\Administration\TemplateMessage.cshtml" />
+    <Content Include="Areas\Individual\AppJs\IndividualApp.coffee" />
+    <Content Include="Areas\Individual\AppJs\Controller\InstructionController.coffee" />
+    <Content Include="Areas\Individual\AppJs\Controller\MainController_Individual.coffee" />
+    <Content Include="Areas\Individual\AppJs\Controller\ApplicantController_Individual.coffee" />
+    <Content Include="Areas\Individual\AppJs\Factory\GlobalObjectsFactory.coffee" />
+    <Content Include="Areas\Individual\AppJs\Service\GlobalObjectsService.coffee" />
+    <Content Include="Areas\Individual\AppJs\RunIndividualApp.coffee" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -1182,8 +1233,9 @@
     <Folder Include="Content\Agency\" />
     <Folder Include="Content\BackOffice\" />
     <Folder Include="Content\DatatableJS\" />
+    <Folder Include="Content\Individual\" />
     <Folder Include="Content\School\" />
-    <Folder Include="Models\" />
+    <Folder Include="Views\Schema\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

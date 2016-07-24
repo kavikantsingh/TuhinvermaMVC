@@ -21,12 +21,14 @@ namespace CAMTC.Areas.BackOffice.Controllers
         {
             return View();
         }
+
         [HttpGet]
         public ActionResult DcoumentType()
         {
             ViewBag.Key = Convert.ToString(ConfigurationManager.AppSettings["Key"]);
             return View();
         }
+
         public ApplicationTypeGetResponse GetApplicationTypes()
         {
             string WebAPIUrl = "http://ws.camtc.inlumon.com/Api/TypeValues/ApplicationTypeGetAll/" + Convert.ToString(ConfigurationManager.AppSettings["Key"]);
@@ -40,6 +42,7 @@ namespace CAMTC.Areas.BackOffice.Controllers
 
             return PartialView("_DocumentView", aa.DocumentViewModel);
         }
+
         [HttpPost]
         public ActionResult SearchGetDocumentResultSet(DocumentMaster objDocumentMaster)
         {
