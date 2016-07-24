@@ -121,7 +121,7 @@
                         </td>
                     </tr>
                 </table>
-                <div data-ag-grid="GraduatesGrid" class="ag-blue grdi_design_style"></div>
+                <div data-ag-grid="GraduatesGrid" class="ag-blue grdi_design_style" style="margin-left:100px;width:440px;"></div>
                 <table>
                     <tr class="tblApplReqForm5">
                         <td></td>
@@ -273,7 +273,7 @@
                 </div>
 
 
-                <div id="divAddRelatedschool" style="width: 95%; margin-top: 10px; margin-left: 50px;">
+                <div id="divAddRelatedschool" style="width: 94%; margin-top: 10px; margin-left: 10px;">
                     <table class="tblApplReqForm5" style="width: 95%; margin-top: 10px; margin-left: 50px;">
                         <tbody>
                             <tr>
@@ -282,16 +282,14 @@
                                     <table class="tblApplReqForm5">
                                         <tbody>
                                             <tr>
-
                                                 <td class="txtalgnrgt" style="width: 110px;">
                                                     <label class="input-label required">
                                                         School Name :
                                                     </label>
                                                 </td>
                                                 <td colspan="5">
-                                                    <input data-ng-model="RelatedSchool.ProviderName" type="text" class="inputTextbox NewAppPersonalTxtbx " style="width:518px;" autocomplete="off">
+                                                    <input id="schoolname" data-ng-model="RelatedSchool.ProviderName" type="text" class="inputTextbox NewAppPersonalTxtbx " style="width:518px;" autocomplete="off">
                                                 </td>
-
 
                                             </tr>
 
@@ -306,7 +304,7 @@
                                                                     </label>
                                                                 </td>
                                                                 <td style="padding-top: 20px ! important;">
-                                                                    <input name="txt" data-ng-model="RelatedSchool.FirstName" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox65" class="inputTextbox NewAppPersonalTxtbx" style="width: 170px;" autocomplete="off">
+                                                                    <input id="first" name="txt" data-ng-model="RelatedSchool.FirstName" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox65" class="inputTextbox NewAppPersonalTxtbx" style="width: 170px;" autocomplete="off">
                                                                 </td>
                                                                 <td class="txtalgnrgt" style="width: 195px;">
                                                                     <label class="input-label required">
@@ -314,7 +312,7 @@
                                                                     </label>
                                                                 </td>
                                                                 <td style="padding-top: 20px ! important;">
-                                                                    <input name="box66" data-ng-model="RelatedSchool.LastName" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox66" class="inputTextbox NewAppPersonalTxtbx" style="width:140px;" autocomplete="off">
+                                                                    <input id="last" name="box66" data-ng-model="RelatedSchool.LastName" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox66" class="inputTextbox NewAppPersonalTxtbx" style="width:140px;" autocomplete="off">
                                                                 </td>
                                                             </tr>
                                                         </tbody>
@@ -329,7 +327,7 @@
                                                     </label>
                                                 </td>
                                                 <td colspan="5" style="padding-top: 20px !important;">
-                                                    <input name="Box6" data-ng-model="RelatedSchool.StreetLine1" type="text" maxlength="500" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox6" class="calWidth us_street" style="width:518px;" autocomplete="off">
+                                                    <input name="Box6" id="address1" data-ng-model="RelatedSchool.StreetLine1" type="text" maxlength="500" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox6" class="calWidth us_street" style="width:518px;" autocomplete="off">
                                                 </td>
                                             </tr>
                                             <tr>
@@ -345,7 +343,7 @@
                                                     </label>
                                                 </td>
                                                 <td style="width: 151px; padding-top: 20px ! important;">
-                                                    <input data-ng-model="RelatedSchool.City" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox8" type="text" maxlength="500" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox8" class="tooltip OnlyAlphabet calWidth" title="Only A-Z characters are allowed." style="width:133px;" autocomplete="off">
+                                                    <input id="city" data-ng-model="RelatedSchool.City" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox8" type="text" maxlength="500" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox8" class="tooltip OnlyAlphabet calWidth" title="Only A-Z characters are allowed." style="width:133px;" autocomplete="off">
                                                 </td>
                                                 <td class="txtalgnrgt" style="width: 52px; padding-top: 20px ! important;">
                                                     <label class="input-label required">
@@ -353,7 +351,7 @@
                                                     </label>
                                                 </td>
                                                 <td style="width: 140px; padding-top: 20px ! important;">
-                                                    <select data-ng-model="RelatedSchool.StateCode" class="inputTextbox" title="Select your state" style="width:135px;" autocomplete="off" data-ng-options="item.StateCode as item.Name for item in StateList">
+                                                    <select id="state" data-ng-model="RelatedSchool.StateCode" class="inputTextbox" title="Select your state" style="width:135px;" autocomplete="off" data-ng-options="item.StateCode as item.Name for item in StateList">
                                                         <option value="-1">Select</option>
                                                     </select>
                                                 </td>
@@ -364,7 +362,7 @@
                                                 </td>
                                                 <td>
 
-                                                    <input data-ng-model="RelatedSchool.ZIP" type="text" maxlength="10" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox9" class="tooltip zip_us calWidth" placeholder="xxxxx-xxxx or xxxxx" title="Enter valid Zip eg: XXXXX-XXXX or XXXXX" style="width:127px;" autocomplete="off">
+                                                    <input id="zip" data-ng-model="RelatedSchool.ZIP" type="text" maxlength="10" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox9" class="tooltip zip_us calWidth" placeholder="xxxxx-xxxx or xxxxx" title="Enter valid Zip eg: XXXXX-XXXX or XXXXX" style="width:127px;" autocomplete="off">
                                                 </td>
                                             </tr>
                                             <tr>
@@ -379,7 +377,7 @@
                                                                 </td>
                                                                 <td>
 
-                                                                    <input data-ng-model="RelatedSchool.Phone" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox10" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox10" class="inputTextbox NewAppPersonalTxtbx phone_us" style="width:135px;" autocomplete="off" maxlength="14">
+                                                                    <input id="phone" data-ng-model="RelatedSchool.Phone" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox10" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox10" class="inputTextbox NewAppPersonalTxtbx phone_us" style="width:135px;" autocomplete="off" maxlength="14">
                                                                     <span style="margin-left: 5px;"><input data-ng-model="RelatedSchool.IsMobile" id="ContentPlaceHolder1_ucCertificationApplication1_CheckBox58" type="checkbox" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$CheckBox58"><label for="ContentPlaceHolder1_ucCertificationApplication1_CheckBox58">Mobile</label></span>
                                                                 </td>
                                                                 <td class="txtalgnrgt" style="width: 143px;">
@@ -388,7 +386,7 @@
                                                                     </label>
                                                                 </td>
                                                                 <td>
-                                                                    <input data-ng-model="RelatedSchool.Website" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox11" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox11" class="inputTextbox NewAppPersonalTxtbx" autocomplete="off">
+                                                                    <input id="rwebsite" data-ng-model="RelatedSchool.Website" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox11" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox11" class="inputTextbox NewAppPersonalTxtbx" autocomplete="off">
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -398,7 +396,7 @@
                                                                     </label>
                                                                 </td>
                                                                 <td>
-                                                                    <input data-ng-model="RelatedSchool.Email" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox12" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox12" class="inputTextbox NewAppPersonalTxtbx" autocomplete="off">
+                                                                    <input id="remail" data-ng-model="RelatedSchool.Email" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$TextBox12" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_TextBox12" class="inputTextbox NewAppPersonalTxtbx" autocomplete="off">
                                                                 </td>
                                                                 <td class="txtalgnrgt"></td>
                                                                 <td>
@@ -429,7 +427,7 @@
                                     </label>
                                 </td>
                                 <td style="width: 151px; padding-top: 20px ! important;">
-                                    <input type="text" data-ng-model="RelatedSchool.DateAssociated" class="inputTextbox calenderdateassociate" placeholder="MM/DD/YYYY" />
+                                    <input type="text" id="rdate" data-ng-model="RelatedSchool.DateAssociated" class="inputTextbox calenderdateassociate" placeholder="MM/DD/YYYY" />
                                 </td>
                                 <td class="txtalgnrgt" style="width: 52px; padding-top: 20px ! important;"></td>
                                 <td style="width: 140px; padding-top: 20px ! important;"></td>
@@ -447,7 +445,7 @@
                         </span>
                     </div>
                 </div>
-                <div data-ag-grid="ProviderRelatedProgramGrid" class="ag-blue grdi_design_style"></div>
+                <div data-ag-grid="ProviderRelatedProgramGrid" class="ag-blue grdi_design_style" style="width:680px;"></div>
                 <table class="tblApplReqForm5">
                     <tr>
                         <td class="about_te_pading">
@@ -479,87 +477,92 @@
                         </td>
                     </tr>
                 </table>
-                <div data-ag-grid="ProviderOtherProgramGrid" class="ag-blue othergrid"></div>
+                <div data-ag-grid="ProviderOtherProgramGrid" class="ag-blue othergrid" style="width:410px;"></div>
+
+                <br />
 
                 <table class="tblApplReqForm5">
                     <tr>
-                        <td class="about_te_pading"><b>17. Facility</b></td>
+                        <td class="about_te_pading">
+                            <b>17. Facility</b>
+
+                        </td>
                     </tr>
                 </table>
 
-                <div>
-                    <div id="fuAboutSchool8_upDoc" class="documentContainer" data-docid="12" data-doc-code="D1012" data-simple="true">
-                    </div>
-                    @*<div id="fuAboutSchool8_upDoc">
-                        Document File Upload Partial View -> Type :: Simple*@
-                    @*docId = "12";
-                                docCode = "D1012";
-                                isSimple = true;
-                        </div>
 
-                        <br>*@
-
-                    <div id="fuAboutSchool9_upDoc" class="documentContainer" data-docid="13" data-doc-code="D1013" data-simple="false">
-                    </div>
-                    @* <div id="fuAboutSchool9_upDoc">
-                        Document File Upload Partial View -> Type :: Complex*@
-                    @*docId = "13";
-                                docCode = "D1013";
-                                isSimple = false;
-                        </div>
-
-                        <br>*@
-                    <div id="fuAboutSchool10_upDoc" class="documentContainer" data-docid="14" data-doc-code="D1014" data-simple="true">
-                    </div>
-                    @*<div id="fuAboutSchool10_upDoc">
-                        Document File Upload Partial View -> Type :: Simple*@
-                    @*docId = "14";
-                                docCode = "D1014";
-                                isSimple = true;
-                        </div>
-
-                        <br>*@
-
-                    <div id="fuAboutSchool11_upDoc" class="documentContainer" data-docid="15" data-doc-code="D1015" data-simple="true">
-                    </div>
-                    @*<div id="fuAboutSchool11_upDoc">
-                        Document File Upload Partial View -> Type :: Simple*@
-                    @*docId = "15";
-                                docCode = "D1015";
-                                isSimple = true;
-                        </div>
-
-                        <br>*@
-
-                    <div id="fuAboutSchool12_upDoc" class="documentContainer" data-docid="16" data-doc-code="D1016" data-simple="true">
-                    </div>
-                    @*<div id="fuAboutSchool12_upDoc">
-                        Document File Upload Partial View -> Type :: Simple*@
-                    @*docId = "16";
-                                docCode = "D1016";
-                                isSimple = true;
-                        </div>
-
-                        <br>*@
-
-                    <div id="fuAboutSchool13_upDoc" class="documentContainer" data-docid="17" data-doc-code="D1017" data-simple="true">
-                    </div>
-                    @*<div id="fuAboutSchool13_upDoc">
-                        Document File Upload Partial View -> Type :: Simple*@
-                    @*docId = "17";
-                        docCode = "D1017";
-                        isSimple = true;
-                        </div>
-
-                        <br>*@
-
-                    <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px 4px 4px 30px; width: 91%;">
-                        <span class="fltrt">
-                            <input type="submit" name="btnSaveAboutFacility" value="Save" id="btnSaveAboutFacility" class="buttonGreen medium">
-                            <a id="lblCancelAboutFacility" class="secondary medium bottom buttonalignment">Cancel</a>
-                        </span>
-                    </div>
+                <div id="fuAboutSchool8_upDoc" class="documentContainer" data-docid="12" data-doc-code="D1012" data-simple="true">
                 </div>
+                @*<div id="fuAboutSchool8_upDoc">
+                    Document File Upload Partial View -> Type :: Simple*@
+                @*docId = "12";
+                            docCode = "D1012";
+                            isSimple = true;
+                    </div>
+
+                    <br>*@
+
+                <div id="fuAboutSchool9_upDoc" class="documentContainer" data-docid="13" data-doc-code="D1013" data-simple="false">
+                </div>
+                @* <div id="fuAboutSchool9_upDoc">
+                    Document File Upload Partial View -> Type :: Complex*@
+                @*docId = "13";
+                            docCode = "D1013";
+                            isSimple = false;
+                    </div>
+
+                    <br>*@
+                <div id="fuAboutSchool10_upDoc" class="documentContainer" data-docid="14" data-doc-code="D1014" data-simple="true">
+                </div>
+                @*<div id="fuAboutSchool10_upDoc">
+                    Document File Upload Partial View -> Type :: Simple*@
+                @*docId = "14";
+                            docCode = "D1014";
+                            isSimple = true;
+                    </div>
+
+                    <br>*@
+
+                <div id="fuAboutSchool11_upDoc" class="documentContainer" data-docid="15" data-doc-code="D1015" data-simple="true">
+                </div>
+                @*<div id="fuAboutSchool11_upDoc">
+                    Document File Upload Partial View -> Type :: Simple*@
+                @*docId = "15";
+                            docCode = "D1015";
+                            isSimple = true;
+                    </div>
+
+                    <br>*@
+
+                <div id="fuAboutSchool12_upDoc" class="documentContainer" data-docid="16" data-doc-code="D1016" data-simple="true">
+                </div>
+                @*<div id="fuAboutSchool12_upDoc">
+                    Document File Upload Partial View -> Type :: Simple*@
+                @*docId = "16";
+                            docCode = "D1016";
+                            isSimple = true;
+                    </div>
+
+                    <br>*@
+
+                <div id="fuAboutSchool13_upDoc" class="documentContainer" data-docid="17" data-doc-code="D1017" data-simple="true">
+                </div>
+                @*<div id="fuAboutSchool13_upDoc">
+                    Document File Upload Partial View -> Type :: Simple*@
+                @*docId = "17";
+                    docCode = "D1017";
+                    isSimple = true;
+                    </div>
+
+                    <br>*@
+
+                <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px 4px 4px 30px; width: 91%;">
+                    <span class="fltrt">
+                        <input type="submit" name="btnSaveAboutFacility" value="Save" id="btnSaveAboutFacility" class="buttonGreen medium">
+                        <a id="lblCancelAboutFacility" class="secondary medium bottom buttonalignment">Cancel</a>
+                    </span>
+                </div>
+
                 <table class="tblApplReqForm5">
                     <tbody>
                         <tr>
@@ -651,8 +654,8 @@
     $('.calenderdateassociate').datepicker({
         inline: true,
         changeMonth: true,
-        changeYear: true, maxDate: "-18Y",
-        yearRange: "1900:+nn"
+        changeYear: true,
+        yearRange: "1900:2030"
 
     });
 

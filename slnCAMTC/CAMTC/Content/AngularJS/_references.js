@@ -154,7 +154,10 @@
 /// <reference path="../../Scripts/jquery.validate.js" />
 /// <reference path="../../Scripts/jquery.validate.unobtrusive.js" />
 /// <reference path="../../Scripts/jquery-1.10.2.js" />
+/// <reference path="../../scripts/jquery1.12.min.js" />
+/// <reference path="../../scripts/jquery-ui 1.10.js" />
 /// <reference path="../../Scripts/modernizr-2.6.2.js" />
+/// <reference path="../../scripts/moment.js" />
 /// <reference path="../../Scripts/respond.js" />
 /// <reference path="../../Scripts/Validation/FormValidation.js" />
 /// <reference path="../../Scripts/Validation/TextboxFormating.js" />

@@ -8,6 +8,8 @@
         $scope.ProviderId = mySharedService.message;
         $scope.ProviderName = mySharedService.message1;
         if (mySharedService.CurrentPage == 'CourseCatalog') {
+$('.errorinfo').hide();
+            $('.errorinfo').text('');
             $scope.hasShow = 'true';
         }
         else
