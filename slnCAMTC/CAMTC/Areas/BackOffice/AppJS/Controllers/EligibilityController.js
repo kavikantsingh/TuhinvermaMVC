@@ -447,8 +447,8 @@
         $scope.ProviderId = mySharedService.message;
         $scope.ProviderName = mySharedService.message1;
         if (mySharedService.CurrentPage == 'Eligibility') {
-            $('.errorinfo').text('');
             $('.errorinfo').hide();
+            $('.errorinfo').text('');
             docommoncall();
         }
     });
@@ -477,9 +477,11 @@
     $scope.$on('handleBroadcastForTab', function () {
         if (mySharedService.CurrentPage == 'Eligibility') {
             if (mySharedService.message != '-1') {
+                $('.errorinfo').hide();
+                $('.errorinfo').text('');
                 $scope.ProviderId = mySharedService.message;
                 docommoncall();
-                $('.errorinfo').hide();
+
             }
         }
         else {

@@ -239,6 +239,8 @@
         $scope.applicationid = mySharedService.Applicationid;
         if (mySharedService.CurrentPage == 'About') {
             $('.errorinfo').hide();
+            $('.errorinfo').text('');
+
             $scope.hasShow = 'true';
             $scope.GetAllProviderOtherProgram();
         }
@@ -330,9 +332,9 @@
     $scope.user = [];
 
     $scope.GetAllProviderOtherProgram = function () {
-        //  ShowLoader();
+        ShowLoader();
         AboutFactory.GetAllProviderOtherProgram(key, $scope.applicationid, $scope.ProviderId).success(function (data) {
-            HideLoader();
+
             $scope.ProviderOtherProgramGrid.api.setRowData(data.ProviderOtherProgramList);
 
         }).error(function (error) {
@@ -390,7 +392,7 @@
         });
 
         AboutFactory.GetAllProviderGraduatesNumber(key, $scope.applicationid, $scope.ProviderId).success(function (data) {
-
+            HideLoader();
             $scope.GraduatesGrid.api.setRowData(data.ProviderGraduatesNumberList);
 
             if (data.ProviderGraduatesNumberList.length > 0) {
@@ -626,6 +628,7 @@
         $scope.AddressId = 0;
         $scope.ProviderNameId = 0;
         $scope.AddressId = 0;
+        $scope.RelatedSchool.StateCode = 'CA';
 
         $('#divAddRelatedschool').hide();
     }
@@ -679,24 +682,43 @@
         var txtGradYear_5 = ValidateTextbox('<span class="notok"></span>   Please enter graduates for 2011 calendar year<br/>', '#txtGradYear5', $('#txtGradYear5').val());
         var txtGradYear_6 = ValidateTextbox('<span class="notok"></span>  Please enter graduates for 2010 calendar year<br/>', '#txtGradYear6', $('#txtGradYear6').val());
         var txtGradYear_7 = ValidateTextbox('<span class="notok"></span>   Please enter graduates for 2009 calendar year<br/>', '#txtGradYear7', $('#txtGradYear7').val());
-        //var txtDocNameAboutOwnership = ValidateTextbox('<span class="notok"></span>  Please enter proof of ownership document name<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameAboutOwnership', $('#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameAboutOwnership').val());
-        //var TextBox141 = ValidateTextbox('<span class="notok"></span>  Please enter proof of business operations document name<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_TextBox141', $('#ContentPlaceHolder1_ucCertificationApplication1_TextBox141').val());
-        //var txtDocNameClin = ValidateTextbox('<span class="notok"></span>   Please enter facility document name<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameClin', $('#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameClin').val());
-        //var txtDocNameAboutAdvertising = ValidateTextbox('<span class="notok"></span>   Please enter advertising document name<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameAboutAdvertising', $('#ContentPlaceHolder1_ucCertificationApplication1_txtDocNameAboutAdvertising').val());
 
-        //var ddlOwnAboutAdvertising = ValidateDropdown('-1', '<span class="notok"></span>  Please select advertising document type<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutAdvertising', $('#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutAdvertising').val());
-        //var ddlOtherClin = ValidateDropdown('-1', '<span class="notok"></span>   Please select facility document type<br/> ', '#ContentPlaceHolder1_ucCertificationApplication1_ddlOtherClin', $('#ContentPlaceHolder1_ucCertificationApplication1_ddlOtherClin').val());
-        //var ddlOwnAboutBusinessDoc = ValidateDropdown('-1', '<span class="notok"></span>   Please select proof of business operations document type<br/> ', '#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutBusinessDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutBusinessDoc').val());
-        //var DropDownList6 = ValidateDropdown('-1', '<span class="notok"></span>   Please select proof of business operations document type<br/> ', '#ContentPlaceHolder1_ucCertificationApplication1_DropDownList6', $('#ContentPlaceHolder1_ucCertificationApplication1_DropDownList6').val());
-        //var ddlOwnAboutOwnership = ValidateDropdown('-1', '<span class="notok"></span>   Please select proof of ownership document type<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutOwnership', $('#ContentPlaceHolder1_ucCertificationApplication1_ddlOwnAboutOwnership').val());
+        //Proof of Ownership
+        var txtDocNameAboutOwnership = ValidateTextbox('<span class="notok"></span>  Please enter proof of ownership document name<br/>', '#fuAdvertisingATS1_docName', $('#fuAdvertisingATS1_docName').val());
+        var ddlOwnAboutBusinessDoc = ValidateDropdown('-1', '<span class="notok"></span>   Please select proof of business operations document type<br/> ', '#fuApprovalATS_docType', $('#fuApprovalATS_docType').val());
 
-        //var fluLocalBusiness = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Local Business License.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool4_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool4_hfStatus').val());
+        // Proof of Business Operations
+        var TextBox141 = ValidateTextbox('<span class="notok"></span>  Please enter proof of business operations document name<br/>', '#fuApprovalATS_docName', $('#fuApprovalATS_docName').val());
+        var ddlOwnAboutBusinessDoc = ValidateDropdown('-1', '<span class="notok"></span>   Please select proof of business operations document type<br/> ', '#fuApprovalATS_docType', $('#fuApprovalATS_docType').val());
+
+        //Faculty
+        var txtDocNameClin = ValidateTextbox('<span class="notok"></span>   Please enter facility document name<br/>', '#fuAboutSchool9_upDoc_docName', $('#fuAboutSchool9_upDoc_docName').val());
+        var ddlOtherClin = ValidateDropdown('-1', '<span class="notok"></span>   Please select facility document type<br/> ', '#fuAboutSchool9_upDoc_docType', $('#fuAboutSchool9_upDoc_docType').val());
+
+
+        //Advertising
+        var txtDocNameAboutAdvertising = ValidateTextbox('<span class="notok"></span>   Please enter advertising document name<br/>', '#fuAboutSchool14_upDoc_docName', $('#fuAboutSchool14_upDoc_docName').val());
+        var ddlOwnAboutAdvertising = ValidateDropdown('0', '<span class="notok"></span>  Please select advertising document type<br/>', '#fuAboutSchool14_upDoc_docType', $('#fuAboutSchool14_upDoc_docType').val());
+
+        //fuAboutSchool14_upDoc_input
+        //fuAboutSchool9_upDoc_input
+        //fuApprovalATS_input
+        //fuAdvertisingATS1_input
+
+
+
+        //fuEligibility3_upDoc_docName
+        //fuEligibility2_upDoc_docType
+
+
+        //var fluLocalBusiness = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Local Business License.<br/>', '#fuAboutSchool4_upDoc_input', $('#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool4_hfStatus').val());
         //var fluOrgChart = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Local Business License.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool6_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool6_hfStatus').val());
         //var fluFloorPlan = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Floor Plan (including approximate square footage).<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool8_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool8_hfStatus').val());
         //var fluExteriorSign = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Photograph(s) of Exterior Signage.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool10_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool10_hfStatus').val());
         //var fluBuildExterior = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Photograph(s) of Buiding exterior.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool11_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool11_hfStatus').val());
         //var fluMassageClassRoom = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Photograph(s) of Massage Classroom(s).<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool12_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool12_hfStatus').val());
         //var fluMassageClinic = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Photograph(s) of Massage Clinic(s).<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool13_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuAboutSchool13_hfStatus').val());
+
         error = txtGradYear + txtGradYear_1 + txtGradYear_2 + txtGradYear_3 + txtGradYear_4 + txtGradYear_5 + txtGradYear_6 + txtGradYear_7;
         //error = txtGradYear + txtGradYear_1 + txtGradYear_2 + txtGradYear_3 + txtGradYear_4 + txtGradYear_5 + txtGradYear_6 + txtGradYear_7 + txtDocNameAboutOwnership + ddlOwnAboutOwnership + TextBox141 + DropDownList6 + fluLocalBusiness + fluOrgChart + fluFloorPlan + fluExteriorSign + fluBuildExterior + fluMassageClassRoom + fluMassageClinic + txtDocNameClin + ddlOtherClin + ddlOwnAboutBusinessDoc + txtDocNameAboutAdvertising + ddlOwnAboutAdvertising;
         //error = txtGradYear + txtGradYear_1 + txtGradYear_2 + txtGradYear_3 + txtGradYear_4 + txtGradYear_5 + txtGradYear_6 + txtGradYear_7 + fluLocalBusiness + fluOrgChart + fluFloorPlan + fluExteriorSign + fluBuildExterior + fluMassageClassRoom + fluMassageClinic;

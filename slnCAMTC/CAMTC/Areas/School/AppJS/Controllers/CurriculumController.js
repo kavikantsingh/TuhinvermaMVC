@@ -15,9 +15,10 @@
 
         $scope.ProviderId = mySharedService.message;
         $scope.applicationid = mySharedService.Applicationid;
-        $('.errorinfo').hide();
-        $('.errorinfo').text('');
+
         if (mySharedService.CurrentPage == 'Curriculum') {
+            $('.errorinfo').hide();
+            $('.errorinfo').text('');
             $scope.hasShow = 'true';
             $scope.dotheappicall();
         }

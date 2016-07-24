@@ -8,6 +8,8 @@
         $scope.applicationid = mySharedService.Applicationid;
 
         if (mySharedService.CurrentPage == 'Staff') {
+            $('.errorinfo').hide();
+            $('.errorinfo').text('');
             $scope.hasShow = 'true';
             $scope.dotheappicall();
         }
