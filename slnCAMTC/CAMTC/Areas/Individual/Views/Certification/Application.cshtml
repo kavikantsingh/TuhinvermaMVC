@@ -9,6 +9,12 @@
     <link href="~/Content/Public/css/OnlineApplication.css" rel="stylesheet" />
     <link href="~/Content/Public/css/FirmCSS.css" rel="stylesheet" />
     <link href="~/Content/Individual/CertApplication.min.css" rel="stylesheet" />
+
+
+
+   
+
+
 }
 <div style="position: relative; min-height: 500px; height: 100%">
     <div class="header">
@@ -28,7 +34,7 @@
     <div class="gvDivUpr">
         <div id="ContentPlaceHolder1_ucCertificationApplication1_divVerifiy">
 
-            <div class="divmain" data-ng-app="IndividualApp">
+            <div class="divmain" data-ng-app="IndividualApp" ng-controller="mainCtrl as main">
 
                 @{Html.RenderPartial("_LeftPanelPartial"); }
                 @{Html.RenderPartial("_RightPanelPartial"); }
@@ -53,15 +59,28 @@
 
 
 @section scripts{
+    <script src="~/Content/Public/js/ebsoft-loader.js"></script>
     <script src="~/Content/AngularJS/angular.js"></script>
+    <script src="~/Content/AngularJS/angular-route.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
     <script src="~/Scripts/respond.js"></script>
+    <script src="~/Content/Public/js/jquery.mask.min.js"></script>
+    <script src="~/Scripts/Validation/TextboxFormating.js"></script>
     <script src="~/Scripts/DocumentManager/Uploader.js"></script>
     <script src="~/Scripts/DocumentManager/DocumentUploader.js"></script>
     <script src="~/Scripts/DocumentManager/DocumentManager.js"></script>
     <script src="~/Scripts/CertApplication/SectionManager.js"></script>
+    
     <script src="~/Areas/Individual/AppJs/IndividualApp.js"></script>
-    <script src="~/Content/Public/js/ebsoft-loader.js"></script>
+    <script src="~/Areas/Individual/AppJs/RunIndividualApp.js"></script>
+    <script src="~/Areas/Individual/AppJs/Service/GlobalObjectsService.js"></script>
+    <script src="~/Areas/Individual/AppJs/Factory/GlobalObjectsFactory.js"></script>
+    
+
+    <script src="~/Areas/Individual/AppJs/Controller/MainController_Individual.js"></script>
+    <script src="~/Areas/Individual/AppJs/Controller/ApplicantController_Individual.js"></script>
+    <script src="~/Areas/Individual/AppJs/Controller/InstructionController.js"></script>
+    
 
     <script>
 

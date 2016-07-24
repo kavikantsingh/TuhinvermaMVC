@@ -22,10 +22,13 @@ class @['SectionManager']
     vm.initSections = (obj)->
         #console.log @,  @iam
         $(@ulElement + " li") .each ->
-            if $(this).hasClass("initial")
-                obj.changeSelection(this)
+            if window.location.hash == "#" + $(this).data('hash')
+                obj.changeSelection(@)
+            #if $(this).hasClass("initial")
+                #obj.changeSelection(this)
             $(this).click(()->
                 #console.log @
+                window.location.hash = "#" + $(this).data('hash')
                 obj.changeSelection(@)
                 return
                 )
@@ -36,13 +39,15 @@ class @['SectionManager']
         
     vm.changeSelection = (item)->
         #console.log item   
-        @showLoading() 
+        #@showLoading() 
         
-        loadingSectionId = $(item).data("section")
-        if !@sectionState[loadingSectionId]
-            @loadSection(loadingSectionId, @)
-        else
-            @updateSection(@, @sectionState[loadingSectionId].element)
+        
+#        loadingSectionId = $(item).data("section")
+#        if !@sectionState[loadingSectionId]
+#            @loadSection(loadingSectionId, @)
+#        else
+#            @updateSection(@, @sectionState[loadingSectionId].element)
+        InitiateMasking()
         @unSelectOther(@)
         $(item).addClass(@listItemActiveClass)
         #@updateSection(@, item)
