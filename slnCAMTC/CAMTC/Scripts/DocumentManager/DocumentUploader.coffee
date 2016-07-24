@@ -178,10 +178,12 @@
         
     @p.createDocumentsList = (docid, docs)->
         #console.log docid, 'DocId', docs, 'Documents'
-        @listWrapper = $(@Wrapper).find(@Identifier + "_docList").first()
+        @listWrapper = $(@Wrapper).find("#" + @Identifier + "_docList").first()
         #console.log $(@Wrapper).find(@Identifier + "_docList").length is 0
-        if $(@Wrapper).find(@Identifier + "_docList").length is 0
+        if $(@Wrapper).find("#" + @Identifier + "_docList").length is 0
             @listWrapper = @createDocumentTableTemplate()
+            console.log @listWrapper
+            #@listWrapper.id = @Identifier + "_docList"
             $(@Wrapper).append(@listWrapper)
         for doc, i in docs
             @addDocumentToList(doc, i);
@@ -189,7 +191,7 @@
         ##console.log @Manager.ApplicationDocuments[@WrapperId]
         
     @p.createDocumentTableTemplate = ()->
-        obj = $.el('table', {'class' :  'index vlign grid gridtable', 'width' : '100%' })
+        obj = $.el('table', {'class' :  'index vlign grid gridtable', 'width' : '100%', 'id' : @Identifier + "_docList" })
                     .append(
                         $.el('tr', {})
                             .append(
