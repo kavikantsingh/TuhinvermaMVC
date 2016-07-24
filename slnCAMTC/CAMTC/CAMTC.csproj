@@ -159,10 +159,12 @@
     <Content Include="Areas\BackOffice\AppJS\Controllers\EligibilityController.js" />
     <Content Include="Areas\BackOffice\AppJS\Controllers\MainController.js" />
     <Content Include="Areas\BackOffice\AppJS\Controllers\SchoolInfoController.js" />
+    <Content Include="Areas\BackOffice\AppJS\Controllers\TemplateMessage.Controller.js" />
     <Content Include="Areas\BackOffice\AppJS\Services\ConfigurationService.js" />
     <Content Include="Areas\BackOffice\AppJS\Services\ContentManagement.Service.js" />
     <Content Include="Areas\BackOffice\AppJS\Services\EligibiltiyService.js" />
     <Content Include="Areas\BackOffice\AppJS\Services\SchoolInfoServices.js" />
+    <Content Include="Areas\BackOffice\AppJS\Services\TemplateMessage.Service.js" />
     <Content Include="Areas\School\AppJS\Controllers\CourseCatalogController.js" />
     <Content Include="Areas\School\AppJS\Controllers\TranscriptController.js" />
     <Content Include="Areas\School\AppJS\Controllers\StaffController.js" />
@@ -211,6 +213,7 @@
     <Content Include="Areas\BackOffice\Views\Shared\_DocumentView.cshtml" />
     <Content Include="Areas\Individual\Views\Shared\_LayoutBasic.cshtml" />
     <Content Include="Areas\BackOffice\Views\Home\PartialView\ApplicationConfiguration.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Administration\TemplateMessage.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>

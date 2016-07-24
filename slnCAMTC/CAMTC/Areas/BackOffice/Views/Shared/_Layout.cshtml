@@ -340,10 +340,15 @@
                             <li><a href="../Administration/CouncilInfo.aspx" class="">Council Info</a></li>
                             <li><a href="javascript:void();" class="">Command</a><ul><li><a href="../Commands/Automated.aspx">Automated</a></li><li><a href="../Commands/Manual.aspx">Manual</a></li><li><a href="../Commands/LicensePrintQueue.aspx">Print Queue</a></li></ul></li>
                             <li><a href="javascript:void();" class="">User Management</a><ul><li><a href="../Administration/Role.aspx">Roles</a></li><li><a href="../Administration/UserAccount.aspx">User Accounts</a></li></ul></li>
-                            <li><a href="javascript:void();" class="">Message &amp; Template</a><ul><li><a href="../Administration/Bulletin.aspx">Bulletin</a></li><li><a href="../Administration/TemplateMessage.aspx">Template Message</a></li></ul></li>
+                            <li><a href="javascript:void();" class="">Message &amp; Template</a>
+                                <ul>
+                                <li><a href="../Administration/Bulletin.aspx">Bulletin</a></li>
+                                <li><a href="@Url.Action("TemplateMessage","Administration")" >Template Message</a></li>
+                                </ul>
+                            </li>
                             <li><a href="javascript:void();" class="">Workflow</a><ul><li><a href="../Workflow/PrintUserCredential.aspx">Print User Credential</a></li></ul></li>
                             <li><a href="@Url.Action("Configuration","Home")" class="">Configuration</a></li>
-                            <li><a href="@Url.Action("ContentManagement","Administration")" class="">Content Management</a></li>
+                            <li><a href="@Url.Action("ContentManagement", "Administration")" class="">Content Management</a></li>
                             <li><a href="../Administration/Determination.aspx" class="">Determination</a></li>
                             <li><a href="../Administration/Appeal.aspx" class="">Appeal</a></li>
                             <li><a href="../Administration/AuditLog.aspx" class="">Audit Log</a></li>
