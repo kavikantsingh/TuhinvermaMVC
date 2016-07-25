@@ -109,7 +109,7 @@
             return e.data.parent.showMessage(true, "docType", systemErrorMessages.DocumentUploadType, "error");
           }
         }))), $.el('tr', {}).append($.el('td', {
-          'class': 'txtalgnrgt'
+          'class': 'txtalgnrgt tdwidth1'
         }).append($.el('label', {
           'class': 'input-label required'
         }).text("Document : ")), $.el('td', {}).append(this.UploadInput), $.el('td', {

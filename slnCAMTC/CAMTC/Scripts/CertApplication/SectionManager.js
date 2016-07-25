@@ -37,10 +37,11 @@
 
     vm.initSections = function(obj) {
       $(this.ulElement + " li").each(function() {
-        if ($(this).hasClass("initial")) {
+        if (window.location.hash === "#" + $(this).data('hash')) {
           obj.changeSelection(this);
         }
         $(this).click(function() {
+          window.location.hash = "#" + $(this).data('hash');
           obj.changeSelection(this);
         });
       });
@@ -49,14 +50,7 @@
     vm.bindEvent = function(evt, func) {};
 
     vm.changeSelection = function(item) {
-      var loadingSectionId;
-      this.showLoading();
-      loadingSectionId = $(item).data("section");
-      if (!this.sectionState[loadingSectionId]) {
-        this.loadSection(loadingSectionId, this);
-      } else {
-        this.updateSection(this, this.sectionState[loadingSectionId].element);
-      }
+      InitiateMasking();
       this.unSelectOther(this);
       $(item).addClass(this.listItemActiveClass);
     };
