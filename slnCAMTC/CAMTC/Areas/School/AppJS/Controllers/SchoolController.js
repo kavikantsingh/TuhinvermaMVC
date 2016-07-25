@@ -65,6 +65,18 @@
     $scope.GetProviderById();
 
 
+    $scope.GetTabStatus = function () {
+
+        SchoolInfoFactory.GetTabStatus(key, $window.sessionStorage.getItem('School_ApplicationId'), $window.sessionStorage.getItem('School_ProviderId')).success(function (data) {
+            debugger;
+            console.log(data);
+
+        }).error(function (error) {
+            $scope.Error = error;
+        });
+    }
+
+    $scope.GetTabStatus();
 
 
 }]);
