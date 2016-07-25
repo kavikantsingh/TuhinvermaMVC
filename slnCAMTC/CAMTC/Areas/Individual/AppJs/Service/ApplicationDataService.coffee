@@ -1,7 +1,7 @@
 ﻿ApplicationDataService = ($http,$q, $rootScope)->
     vm = @
-    #vm.baseUrl = "http://ws.camtc.inlumon.com/api"
-    vm.baseUrl = "http://localhost:1530/api"
+    vm.baseUrl = "http://ws.camtc.inlumon.com/api"
+    #vm.baseUrl = "http://localhost:1530/api"
     vm.key = if sessionStorage.Key? then sessionStorage.Key else ""
     vm.factory = {}
     vm.service = {

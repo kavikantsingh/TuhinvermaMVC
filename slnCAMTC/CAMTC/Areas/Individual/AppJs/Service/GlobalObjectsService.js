@@ -5,7 +5,7 @@
   GlobalObjectsService = function($http) {
     var vm;
     vm = this;
-    vm.baseUrl = "http://localhost:1530/api";
+    vm.baseUrl = "http://ws.camtc.inlumon.com/api";
     vm.key = sessionStorage.Key != null ? sessionStorage.Key : "";
     return vm.objects = {
       getAllCountries: function() {
