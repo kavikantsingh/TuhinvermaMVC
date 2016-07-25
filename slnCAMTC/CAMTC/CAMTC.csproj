@@ -137,6 +137,7 @@
     <Compile Include="Areas\Individual\Controllers\AccountController.cs" />
     <Compile Include="Areas\Individual\Controllers\CertificationController.cs" />
     <Compile Include="Areas\Individual\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Individual\Controllers\ReCertificationController.cs" />
     <Compile Include="Areas\Individual\IndividualAreaRegistration.cs" />
     <Compile Include="Areas\Individual\Models\ApplicantNames.cs" />
     <Compile Include="Areas\School\Controllers\AccountController.cs" />
@@ -179,18 +180,10 @@
     <Content Include="Areas\Individual\AppJs\Controller\ApplicantController_Individual.min.js">
       <DependentUpon>ApplicantController_Individual.js</DependentUpon>
     </Content>
-    <Content Include="Areas\Individual\AppJs\Controller\EducationController_Individual.js">
-      <DependentUpon>EducationController_Individual.coffee</DependentUpon>
-    </Content>
-    <Content Include="Areas\Individual\AppJs\Controller\EducationController_Individual.min.js">
-      <DependentUpon>EducationController_Individual.js</DependentUpon>
-    </Content>
-    <Content Include="Areas\Individual\AppJs\Controller\HistoryController_Individual.js">
-      <DependentUpon>HistoryController_Individual.coffee</DependentUpon>
-    </Content>
-    <Content Include="Areas\Individual\AppJs\Controller\HistoryController_Individual.min.js">
-      <DependentUpon>HistoryController_Individual.js</DependentUpon>
-    </Content>
+    <Content Include="Areas\Individual\AppJs\Controller\EducationController_Individual.js" />
+    <Content Include="Areas\Individual\AppJs\Controller\EducationController_Individual.min.js" />
+    <Content Include="Areas\Individual\AppJs\Controller\HistoryController_Individual.js" />
+    <Content Include="Areas\Individual\AppJs\Controller\HistoryController_Individual.min.js" />
     <Content Include="Areas\Individual\AppJs\Controller\IdentificationController_Individual.js">
       <DependentUpon>IdentificationController_Individual.coffee</DependentUpon>
     </Content>
@@ -215,12 +208,9 @@
     <Content Include="Areas\Individual\AppJs\Controller\MainController_Individual.min.js">
       <DependentUpon>MainController_Individual.js</DependentUpon>
     </Content>
-    <Content Include="Areas\Individual\AppJs\Controller\WorkInformationController_Individual.js">
-      <DependentUpon>WorkInformationController_Individual.coffee</DependentUpon>
-    </Content>
-    <Content Include="Areas\Individual\AppJs\Controller\WorkInformationController_Individual.min.js">
-      <DependentUpon>WorkInformationController_Individual.js</DependentUpon>
-    </Content>
+    <Content Include="Areas\Individual\AppJs\Controller\ReCertificationController.js" />
+    <Content Include="Areas\Individual\AppJs\Controller\WorkInformationController_Individual.js" />
+    <Content Include="Areas\Individual\AppJs\Controller\WorkInformationController_Individual.min.js" />
     <Content Include="Areas\Individual\AppJs\Factory\ApplicationDataFactory.js">
       <DependentUpon>ApplicationDataFactory.coffee</DependentUpon>
     </Content>
@@ -257,6 +247,7 @@
     <Content Include="Areas\Individual\AppJs\Service\GlobalObjectsService.min.js">
       <DependentUpon>GlobalObjectsService.js</DependentUpon>
     </Content>
+    <Content Include="Areas\Individual\AppJs\Service\ReCertificationService.js" />
     <Content Include="Areas\School\AppJS\Controllers\CourseCatalogController.js" />
     <Content Include="Areas\School\AppJS\Controllers\TranscriptController.js" />
     <Content Include="Areas\School\AppJS\Controllers\StaffController.js" />
@@ -312,8 +303,21 @@
     <Content Include="Areas\Individual\AppJs\Controller\IdentificationController_Individual.coffee" />
     <Content Include="Areas\Individual\AppJs\Controller\LicensureController_Individual.coffee" />
     <Content Include="Areas\Individual\AppJs\Controller\EducationController_Individual.coffee" />
-    <Content Include="Areas\Individual\AppJs\Controller\WorkInformationController_Individual.coffee" />
+    <Content Include="Areas\BackOffice\Views\Administration\DcoumentType.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Administration\Index.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Administration\TemplateMessage.cshtml" />
     <Content Include="Areas\Individual\AppJs\Controller\HistoryController_Individual.coffee" />
+    <Content Include="Areas\Individual\AppJs\Controller\WorkInformationController_Individual.coffee" />
+    <Content Include="Areas\Individual\Views\ReCertification\Index.cshtml" />
+    <Content Include="Areas\Individual\Views\ReCertification\_AffidavitPanel.cshtml" />
+    <Content Include="Areas\Individual\Views\ReCertification\_CertificateHolderPanel.cshtml" />
+    <Content Include="Areas\Individual\Views\ReCertification\_ChecklistPanel.cshtml" />
+    <Content Include="Areas\Individual\Views\ReCertification\_HistoryPanel.cshtml" />
+    <Content Include="Areas\Individual\Views\ReCertification\_InstructionPanel.cshtml" />
+    <Content Include="Areas\Individual\Views\ReCertification\_LeftPanelPartial.cshtml" />
+    <Content Include="Areas\Individual\Views\ReCertification\_PaymentPanel.cshtml" />
+    <Content Include="Areas\Individual\Views\ReCertification\_RightPanelPartial.cshtml" />
+    <Content Include="Areas\Individual\Views\ReCertification\_WorkInformationPanel.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -1260,7 +1264,9 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\Validation\FormValidation.js" />
     <Content Include="Scripts\Validation\TextboxFormating.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
