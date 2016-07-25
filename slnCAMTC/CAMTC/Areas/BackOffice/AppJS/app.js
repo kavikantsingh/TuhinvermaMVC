@@ -4,8 +4,8 @@ var LAPP = angular.module('LAPP', ['agGrid', 'checklist-model', 'ngSanitize']).c
 });
 
 //Configuration
-//var BaseURL = 'http://localhost:1530';
-var BaseURL = 'http://ws.camtc.inlumon.com';
+var BaseURL = 'http://localhost:1530';
+//var BaseURL = 'http://ws.camtc.inlumon.com';
 
 LAPP.factory('mySharedService', function ($rootScope) {
     var sharedService = {};

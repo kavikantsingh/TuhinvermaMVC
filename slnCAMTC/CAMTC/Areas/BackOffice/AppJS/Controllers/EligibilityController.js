@@ -588,7 +588,12 @@
         $('.errorinfo').html(error);
     }
 
-
+    $("#aboutSchool .documentContainer").each(function () {
+        var isValid;
+        if ($(this).data('isrequired')) {
+            isValid = $(this).find("#" + this.id + "_docList tr").length > 1
+        }
+    });
 
 
 }]);

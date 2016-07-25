@@ -5,6 +5,10 @@ LAPP.factory('SchoolInfoFactory', function ($http, $q) {
     var Stateurl = BaseURL + '/api/State';
 
     var ProviderFactory = {
+        GetTabStatus: function (key, ApplicationId, ProviderId) {
+            return $http.get(providerurl + '/GetAllProviderTabStatus/' + key + '?ApplicationId=' + ApplicationId + '&ProviderId=' + ProviderId);
+        },
+
         //schoolInfo
         GetAllProvider: function (key) {
             return $http.get(providerurl + '/GetAllProvider/' + key);
@@ -47,7 +51,7 @@ LAPP.factory('SchoolInfoFactory', function ($http, $q) {
         },
         //schoolInfo
         verifyaddress: function (data) {
-            return $http.get('https://api.lob.com/v1/verify', data, auth=('info@inlumon.com', '12345678'))
+            return $http.get('https://api.lob.com/v1/verify', data, auth = ('info@inlumon.com', '12345678'))
         },
 
 
