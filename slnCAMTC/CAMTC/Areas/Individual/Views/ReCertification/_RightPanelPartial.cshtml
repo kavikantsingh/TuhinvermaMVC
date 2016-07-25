@@ -1,0 +1,26 @@
+﻿<div id="pnlRight" class="mainrightpanel">
+    <p class="HeaddingMain">
+        <span class="HeaddingMainSpn">California Massage Therapy Council </span>
+    </p>
+
+    <div ng-show="tab === 1" class="">
+        @Html.Partial("~/Areas/Individual/Views/ReCertification/_CertificateHolderPanel.cshtml");
+    </div>
+    <div ng-show="tab === 2" class="">
+        @Html.Partial("~/Areas/Individual/Views/ReCertification/_WorkInformationPanel.cshtml");
+    </div>
+    <div ng-show="tab === 3" class="">
+        @Html.Partial("~/Areas/Individual/Views/ReCertification/_HistoryPanel.cshtml");
+    </div>
+    <div ng-show="tab === 4" class="">
+        @Html.Partial("~/Areas/Individual/Views/ReCertification/_AffidavitPanel.cshtml");
+    </div>
+    <div ng-show="tab === 5" class="">
+        @Html.Partial("~/Areas/Individual/Views/ReCertification/_PaymentPanel.cshtml");
+    </div>
+    <div ng-show="tab === 6" class="">
+        @Html.Partial("~/Areas/Individual/Views/ReCertification/_ChecklistPanel.cshtml");
+    </div>
+
+
+</div>
