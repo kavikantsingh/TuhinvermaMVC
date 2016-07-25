@@ -24,13 +24,14 @@
                                 </td>
                                 <td style="line-height: 20px;">
                                     <b>&nbsp;Please add all education you have received from CAMTC Approved Massage Therapy Schools.</b>
+                                    <button data-ng-show="!edu.states.AddingApprovedSchool" data-ng-click="edu.states.AddingApprovedSchool = true" class="buttonGreen small">Add</button>
                                 </td>
                             </tr>
 
                         </tbody>
                     </table>
-                    <div id="divAddPanelEducation2">
-                        <table class=" tblApplReqForm5 wthtop20" style="margin: 0 auto;">
+                    <div id="divAddPanelEducation2" data-ng-show="edu.states.AddingApprovedSchool">
+                        <table class="tblApplReqForm5 wthtop20" style="margin: 0 auto;">
                             <tbody>
                                 <tr>
                                     <td class="txtalgnrgt">
@@ -100,17 +101,17 @@
                         <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
                             <span class="fltrt">
                                 <input type="submit" name="btnEducation2Save" value="Save" id="btnEducation2Save" class="buttonGreen medium">
-                                <a id="lnkEducation2Cancel" class="secondary medium bottom buttonalignment" href="javascript:__doPostBack('lnkEducation2Cancel','')">Cancel</a>
+                                <a data-ng-click="edu.states.AddingApprovedSchool = false" id="lnkEducation2Cancel" class="secondary medium bottom buttonalignment">Cancel</a>
                             </span>
                         </div>
                     </div>
-                    <div id="divEducationt2" class="divLicenseInfon divaddnew">
-                        <span style="float: right; margin-right: 10px;" class="AfterApproved">
-                            <input type="submit" name="btnEducation2AddNew" value="Add" id="btnEducation2AddNew" class="buttonGreen small">
-                        </span>
-                    </div>
+                    @*<div id="divEducationt2" class="divLicenseInfon divaddnew">
+                <span style="float: right; margin-right: 10px;" class="AfterApproved">
+                    <input type="submit" name="btnEducation2AddNew" value="Add" id="btnEducation2AddNew" class="buttonGreen small">
+                </span>
+            </div>*@
 
-                    <div class="divLicenseInfo">
+                    <div data-ng-show="edu.appData.Education.ApprovedSchools.length > 0" class="divLicenseInfo">
                         <div>
                             <table class="index  grid" cellspacing="0" cellpadding="5" id="gvEducation2" style="color:#333333;width:100%;border-collapse:collapse;">
                                 <tbody>
@@ -258,6 +259,7 @@
                             </table>
                         </div>
                     </div>
+
                     <div id="Upapprovedschools1">
 
                         <div>
@@ -269,15 +271,17 @@
                                         </td>
                                         <td style="line-height: 20px;">
                                             <b>&nbsp;If your school is not on the list of CAMTC approved schools above, it may have an application pending with CAMTC.  Please add all education you have received from each of the schools listed here on the pending application list.</b>
+                                            <button data-ng-show="!edu.states.AddingNonApprovedSchool" data-ng-click="edu.states.AddingNonApprovedSchool = true" class="buttonGreen small">Add</button>
+
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
 
-                        <div id="divAddPanelapprovedschools1">
+                        <div data-ng-show="edu.states.AddingNonApprovedSchool" id="divAddPanelapprovedschools1">
 
-                            <table class=" tblApplReqForm5 wthtop20" style="margin: 0 auto;">
+                            <table class="tblApplReqForm5 wthtop20" style="margin: 0 auto;">
                                 <tbody>
                                     <tr>
                                         <td class="txtalgnrgt">
@@ -353,7 +357,7 @@
                             <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
                                 <span class="fltrt">
                                     <input type="submit" name="btnapprovedschools1Save" value="Save" id="btnapprovedschools1Save" class="buttonGreen medium">
-                                    <a id="lnkapprovedschools1Cancel" class="secondary medium bottom buttonalignment" href="javascript:__doPostBack('lnkapprovedschools1Cancel','')">Cancel</a>
+                                    <a id="lnkapprovedschools1Cancel" class="secondary medium bottom buttonalignment" data-ng-click="edu.states.AddingNonApprovedSchool = false">Cancel</a>
                                 </span>
                             </div>
                         </div>
@@ -371,13 +375,15 @@
                                         </td>
                                         <td style="line-height: 20px;">
                                             <b>&nbsp;If you received education from schools not listed in Questions 16 or 17 above (for example, a school outside California), please add those schools here.</b>
+                                            <button data-ng-show="!edu.states.AddingSchoolOutsideCA" data-ng-click="edu.states.AddingSchoolOutsideCA = true" class="buttonGreen small">Add</button>
+
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
 
-                        <div id="divAddPanelEducation1">
+                        <div data-ng-show="edu.states.AddingSchoolOutsideCA" id="divAddPanelEducation1">
 
                             <table class="tblApplReqForm5">
                                 <tbody>
@@ -561,13 +567,14 @@
                             <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
                                 <span class="fltrt">
                                     <input type="submit" name="btnEducation1Save" value="Save" id="btnEducation1Save" class="buttonGreen medium">
-                                    <a id="lnkEducation1Cancel" class="secondary medium bottom buttonalignment" href="javascript:__doPostBack('lnkEducation1Cancel','')">Cancel</a>
+                                    <a data-ng-click="edu.states.AddingSchoolOutsideCA = false" id="lnkEducation1Cancel" class="secondary medium bottom buttonalignment" >Cancel</a>
                                 </span>
                             </div>
                         </div>
 
                     </div>
-                    <div class="divLicenseInfo">
+
+                    <div data-ng-show="edu.appData.Education.SchoolsOutsideCA.length > 0" class="divLicenseInfo">
                         <div>
                             <table class="index  grid" cellspacing="0" cellpadding="5" id="gvEducation1" style="color:#333333;width:100%;border-collapse:collapse;">
                                 <tbody>
@@ -629,6 +636,7 @@
                             </table>
                         </div>
                     </div>
+
                     <div>
                         <div>
                             <table style="width: 100%;" class="tblApplReqForm5">
@@ -639,6 +647,8 @@
                                         </td>
                                         <td style="line-height: 20px;">
                                             <b>&nbsp;Please indicate if you have passed any of the following CAMTC approved exams. If so, you are required to have the examining board send proof directly to CAMTC. You must have passed a CAMTC approved exam in order to be certified.</b>
+                                            <button data-ng-show="!edu.states.AddingExam" data-ng-click="edu.states.AddingExam = true" class="buttonGreen small">Add</button>
+
                                         </td>
                                     </tr>
                                     <tr>
@@ -647,7 +657,7 @@
                                 </tbody>
                             </table>
 
-                            <table id="tbpAddNewQ22" style="width: 100%; margin-top: 10px;">
+                            <table data-ng-show="edu.states.AddingExam" id="tbpAddNewQ22" style="width: 100%; margin-top: 10px;">
                                 <tbody>
                                     <tr>
                                         <td class="txtalgnrgt">
@@ -676,7 +686,7 @@
                                             <div class="toolBar">
                                                 <span class="fltrt">
                                                     <input type="submit" name="btnSave" value="Save" id="btnSave" class="buttonGreen medium">
-                                                    <input type="submit" name="Button16" value="Cancel" id="Button16" class="secondary medium">
+                                                    <input data-ng-click="edu.states.AddingExam = false" type="submit" name="Button16" value="Cancel" id="Button16" class="secondary medium">
 
 
                                                 </span>
@@ -688,7 +698,7 @@
 
 
 
-                            <div class="divLicenseInfo" style="margin-top: 10px">
+                            <div class="divLicenseInfo" data-ng-show="edu.appData.Education.Exams.length > 0" style="margin-top: 10px">
                                 <div>
                                     <table class="index  grid" cellspacing="0" cellpadding="5" id="gvExams" style="color:#333333;width:100%;border-collapse:collapse;">
                                         <tbody>
@@ -717,8 +727,8 @@
                 </fieldset>
                 <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
                     <span class="fltrt">
-                        <input type="submit" name="btnNextMassageTraning" value="Save &amp; Next" id="btnNextMassageTraning" class="buttonGreen medium">
-                        <a id="lnkCancelNextMassageTraning" class="secondary medium bottom buttonalignment" href="javascript:__doPostBack('lnkCancelNextMassageTraning','')">Cancel</a>
+                        <input data-ng-click="edu.save()" type="submit" name="btnNextMassageTraning" value="Save &amp; Next" id="btnNextMassageTraning" class="buttonGreen medium">
+                        <a id="lnkCancelNextMassageTraning" class="secondary medium bottom buttonalignment" >Cancel</a>
                     </span>
                 </div>
             </div>

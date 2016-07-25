@@ -43,7 +43,29 @@
         HaveLicense: 0,
         Licenses: []
       },
-      Education: {}
+      Education: {
+        ApprovedSchools: [],
+        UnApprovedSchools: [],
+        SchoolsOutsideCA: [],
+        Exams: []
+      },
+      Work: {
+        WorkingInField: 1,
+        EverWorkedInField: 1,
+        CurrentPalcesOfWork: [],
+        ProspectiveEmployers: [],
+        PreviousWorkLocations: [],
+        PreviousResidentialLocations: []
+      },
+      History: {
+        EverReceivedCitation: 0,
+        EverRevokedOrSuspended: 0,
+        HaveComplaints: 0,
+        AwareOfAnyComplaints: 0,
+        Convicted: 0,
+        RegisteredAsSexOffender: 0,
+        OtherInformation: ""
+      }
     };
   };
 

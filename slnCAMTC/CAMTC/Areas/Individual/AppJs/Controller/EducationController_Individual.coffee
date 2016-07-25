@@ -3,14 +3,15 @@
     vm.appData = ApplicationDataFactory
     
     vm.states = {
-        AddingApprovedSchool = no
-        AddingNonApprovedSchool = no
-        AddingSchoolOutsideCA = no
-        AddingExams = no
+        AddingApprovedSchool : no
+        AddingNonApprovedSchool : no
+        AddingSchoolOutsideCA : no
+        AddingExam : no
     }
+    
     vm.save = ()->
         window.location.hash = "#" + "/workinformation"
-        IndividualSectionManager.changeSelection($("#liSection4"))
+        IndividualSectionManager.changeSelection($("#liSection5"))
     return
     
 angular

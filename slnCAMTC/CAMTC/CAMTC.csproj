@@ -179,6 +179,18 @@
     <Content Include="Areas\Individual\AppJs\Controller\ApplicantController_Individual.min.js">
       <DependentUpon>ApplicantController_Individual.js</DependentUpon>
     </Content>
+    <Content Include="Areas\Individual\AppJs\Controller\EducationController_Individual.js">
+      <DependentUpon>EducationController_Individual.coffee</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Controller\EducationController_Individual.min.js">
+      <DependentUpon>EducationController_Individual.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Controller\HistoryController_Individual.js">
+      <DependentUpon>HistoryController_Individual.coffee</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Controller\HistoryController_Individual.min.js">
+      <DependentUpon>HistoryController_Individual.js</DependentUpon>
+    </Content>
     <Content Include="Areas\Individual\AppJs\Controller\IdentificationController_Individual.js">
       <DependentUpon>IdentificationController_Individual.coffee</DependentUpon>
     </Content>
@@ -202,6 +214,12 @@
     </Content>
     <Content Include="Areas\Individual\AppJs\Controller\MainController_Individual.min.js">
       <DependentUpon>MainController_Individual.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Controller\WorkInformationController_Individual.js">
+      <DependentUpon>WorkInformationController_Individual.coffee</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Controller\WorkInformationController_Individual.min.js">
+      <DependentUpon>WorkInformationController_Individual.js</DependentUpon>
     </Content>
     <Content Include="Areas\Individual\AppJs\Factory\ApplicationDataFactory.js">
       <DependentUpon>ApplicationDataFactory.coffee</DependentUpon>
@@ -294,6 +312,8 @@
     <Content Include="Areas\Individual\AppJs\Controller\IdentificationController_Individual.coffee" />
     <Content Include="Areas\Individual\AppJs\Controller\LicensureController_Individual.coffee" />
     <Content Include="Areas\Individual\AppJs\Controller\EducationController_Individual.coffee" />
+    <Content Include="Areas\Individual\AppJs\Controller\WorkInformationController_Individual.coffee" />
+    <Content Include="Areas\Individual\AppJs\Controller\HistoryController_Individual.coffee" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>

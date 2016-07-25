@@ -62,5 +62,17 @@
   {
     "outputFile": "Areas/Individual/AppJs/Controller/LicensureController_Individual.js",
     "inputFile": "Areas/Individual/AppJs/Controller/LicensureController_Individual.coffee"
+  },
+  {
+    "outputFile": "Areas/Individual/AppJs/Controller/EducationController_Individual.js",
+    "inputFile": "Areas/Individual/AppJs/Controller/EducationController_Individual.coffee"
+  },
+  {
+    "outputFile": "Areas/Individual/AppJs/Controller/WorkInformationController_Individual.js",
+    "inputFile": "Areas/Individual/AppJs/Controller/WorkInformationController_Individual.coffee"
+  },
+  {
+    "outputFile": "Areas/Individual/AppJs/Controller/HistoryController_Individual.js",
+    "inputFile": "Areas/Individual/AppJs/Controller/HistoryController_Individual.coffee"
   }
 ]
