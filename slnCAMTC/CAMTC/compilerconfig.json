@@ -18,5 +18,61 @@
   {
     "outputFile": "Scripts/CertApplication/SectionManager.js",
     "inputFile": "Scripts/CertApplication/SectionManager.coffee"
+  },
+  {
+    "outputFile": "Areas/Individual/AppJs/IndividualApp.js",
+    "inputFile": "Areas/Individual/AppJs/IndividualApp.coffee"
+  },
+  {
+    "outputFile": "Areas/Individual/AppJs/Controller/InstructionController.js",
+    "inputFile": "Areas/Individual/AppJs/Controller/InstructionController.coffee"
+  },
+  {
+    "outputFile": "Areas/Individual/AppJs/Controller/MainController_Individual.js",
+    "inputFile": "Areas/Individual/AppJs/Controller/MainController_Individual.coffee"
+  },
+  {
+    "outputFile": "Areas/Individual/AppJs/Controller/ApplicantController_Individual.js",
+    "inputFile": "Areas/Individual/AppJs/Controller/ApplicantController_Individual.coffee"
+  },
+  {
+    "outputFile": "Areas/Individual/AppJs/Factory/GlobalObjectsFactory.js",
+    "inputFile": "Areas/Individual/AppJs/Factory/GlobalObjectsFactory.coffee"
+  },
+  {
+    "outputFile": "Areas/Individual/AppJs/Service/GlobalObjectsService.js",
+    "inputFile": "Areas/Individual/AppJs/Service/GlobalObjectsService.coffee"
+  },
+  {
+    "outputFile": "Areas/Individual/AppJs/RunIndividualApp.js",
+    "inputFile": "Areas/Individual/AppJs/RunIndividualApp.coffee"
+  },
+  {
+    "outputFile": "Areas/Individual/AppJs/Service/ApplicationDataService.js",
+    "inputFile": "Areas/Individual/AppJs/Service/ApplicationDataService.coffee"
+  },
+  {
+    "outputFile": "Areas/Individual/AppJs/Factory/ApplicationDataFactory.js",
+    "inputFile": "Areas/Individual/AppJs/Factory/ApplicationDataFactory.coffee"
+  },
+  {
+    "outputFile": "Areas/Individual/AppJs/Controller/IdentificationController_Individual.js",
+    "inputFile": "Areas/Individual/AppJs/Controller/IdentificationController_Individual.coffee"
+  },
+  {
+    "outputFile": "Areas/Individual/AppJs/Controller/LicensureController_Individual.js",
+    "inputFile": "Areas/Individual/AppJs/Controller/LicensureController_Individual.coffee"
+  },
+  {
+    "outputFile": "Areas/Individual/AppJs/Controller/EducationController_Individual.js",
+    "inputFile": "Areas/Individual/AppJs/Controller/EducationController_Individual.coffee"
+  },
+  {
+    "outputFile": "Areas/Individual/AppJs/Controller/WorkInformationController_Individual.js",
+    "inputFile": "Areas/Individual/AppJs/Controller/WorkInformationController_Individual.coffee"
+  },
+  {
+    "outputFile": "Areas/Individual/AppJs/Controller/HistoryController_Individual.js",
+    "inputFile": "Areas/Individual/AppJs/Controller/HistoryController_Individual.coffee"
   }
 ]

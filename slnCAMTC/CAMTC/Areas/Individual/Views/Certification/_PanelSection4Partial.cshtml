@@ -1,8 +1,8 @@
-﻿<div id="ContentPlaceHolder1_ucCertificationApplication1_pnlSection4">
+﻿<div id="pnlSection4" data-ng-controller="educationCtrl as edu">
 
-    <div id="ContentPlaceHolder1_ucCertificationApplication1_upSection4">
+    <div id="upSection4">
 
-        <div id="ContentPlaceHolder1_ucCertificationApplication1_pnlApprovedSection4">
+        <div id="pnlApprovedSection4">
 
             <div>
                 <div class="sectionDiv">
@@ -24,13 +24,14 @@
                                 </td>
                                 <td style="line-height: 20px;">
                                     <b>&nbsp;Please add all education you have received from CAMTC Approved Massage Therapy Schools.</b>
+                                    <button data-ng-show="!edu.states.AddingApprovedSchool" data-ng-click="edu.states.AddingApprovedSchool = true" class="buttonGreen small">Add</button>
                                 </td>
                             </tr>
 
                         </tbody>
                     </table>
-                    <div id="ContentPlaceHolder1_ucCertificationApplication1_divAddPanelEducation2">
-                        <table class=" tblApplReqForm5 wthtop20" style="margin: 0 auto;">
+                    <div id="divAddPanelEducation2" data-ng-show="edu.states.AddingApprovedSchool">
+                        <table class="tblApplReqForm5 wthtop20" style="margin: 0 auto;">
                             <tbody>
                                 <tr>
                                     <td class="txtalgnrgt">
@@ -39,7 +40,7 @@
                                         </label>
                                     </td>
                                     <td>
-                                        <select name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$ddlSchool" id="ContentPlaceHolder1_ucCertificationApplication1_ddlSchool" style="width: 182px;" autocomplete="off">
+                                        <select name="ddlSchool" id="ddlSchool" style="width: 182px;" autocomplete="off">
                                             <option selected="selected" value="-1">Select</option>
                                             <option value="Approved School">Approved School</option>
 
@@ -53,7 +54,7 @@
                                         </label>
                                     </td>
                                     <td>
-                                        <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtEducationStartDate" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_txtEducationStartDate" class="inputTextbox" autocomplete="off">
+                                        <input name="txtEducationStartDate" type="text" id="txtEducationStartDate" class="inputTextbox" autocomplete="off">
                                     </td>
                                 </tr>
                                 <tr>
@@ -63,7 +64,7 @@
                                         </label>
                                     </td>
                                     <td>
-                                        <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtEducationEndDate" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_txtEducationEndDate" class="inputTextbox" autocomplete="off">
+                                        <input name="txtEducationEndDate" type="text" id="txtEducationEndDate" class="inputTextbox" autocomplete="off">
                                     </td>
                                 </tr>
                                 <tr>
@@ -73,7 +74,7 @@
                                         </label>
                                     </td>
                                     <td>
-                                        <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtEducationHRS" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_txtEducationHRS" class="inputTextbox" autocomplete="off">
+                                        <input name="txtEducationHRS" type="text" id="txtEducationHRS" class="inputTextbox" autocomplete="off">
                                     </td>
                                 </tr>
                                 <tr>
@@ -92,25 +93,25 @@
                                 </tr>
                                 <tr>
                                     <td colspan="2">
-                                        <textarea name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtExplainNoneGraduate" rows="2" cols="20" id="ContentPlaceHolder1_ucCertificationApplication1_txtExplainNoneGraduate" class="inputTextbox" style="width:600px;line-height: 20px;" autocomplete="off"></textarea>
+                                        <textarea name="txtExplainNoneGraduate" rows="2" cols="20" id="txtExplainNoneGraduate" class="inputTextbox" style="width:600px;line-height: 20px;" autocomplete="off"></textarea>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                         <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
                             <span class="fltrt">
-                                <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$btnEducation2Save" value="Save" id="ContentPlaceHolder1_ucCertificationApplication1_btnEducation2Save" class="buttonGreen medium">
-                                <a id="ContentPlaceHolder1_ucCertificationApplication1_lnkEducation2Cancel" class="secondary medium bottom buttonalignment" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$ucCertificationApplication1$lnkEducation2Cancel','')">Cancel</a>
+                                <input type="submit" name="btnEducation2Save" value="Save" id="btnEducation2Save" class="buttonGreen medium">
+                                <a data-ng-click="edu.states.AddingApprovedSchool = false" id="lnkEducation2Cancel" class="secondary medium bottom buttonalignment">Cancel</a>
                             </span>
                         </div>
                     </div>
-                    <div id="ContentPlaceHolder1_ucCertificationApplication1_divEducationt2" class="divLicenseInfon divaddnew">
-                        <span style="float: right; margin-right: 10px;" class="AfterApproved">
-                            <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$btnEducation2AddNew" value="Add" id="ContentPlaceHolder1_ucCertificationApplication1_btnEducation2AddNew" class="buttonGreen small">
-                        </span>
-                    </div>
+                    @*<div id="divEducationt2" class="divLicenseInfon divaddnew">
+                <span style="float: right; margin-right: 10px;" class="AfterApproved">
+                    <input type="submit" name="btnEducation2AddNew" value="Add" id="btnEducation2AddNew" class="buttonGreen small">
+                </span>
+            </div>*@
 
-                    <div class="divLicenseInfo">
+                    <div data-ng-show="edu.appData.Education.ApprovedSchools.length > 0" class="divLicenseInfo">
                         <div>
                             <table class="index  grid" cellspacing="0" cellpadding="5" id="gvEducation2" style="color:#333333;width:100%;border-collapse:collapse;">
                                 <tbody>
@@ -161,7 +162,7 @@
                                                                     </label>
                                                                 </td>
                                                                 <td>
-                                                                    <select name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation2$ctl02$ddlSchoolEdit" id="ddlSchoolEdit" style="width: 182px;" autocomplete="off">
+                                                                    <select name="ddlSchoolEdit" id="ddlSchoolEdit" style="width: 182px;" autocomplete="off">
                                                                         <option value="-1">Select</option>
                                                                         <option selected="selected" value="1">SCHOOL OF ACUPUNTURE</option>
 
@@ -175,7 +176,7 @@
                                                                     </label>
                                                                 </td>
                                                                 <td>
-                                                                    <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation2$ctl02$txtEducationStartDateEdit" type="text" value="01/02/2012" id="txtEducationStartDateEdit" class="inputTextbox calender hasDatepicker" placeholder="MM/DD/YYYY" autocomplete="off" maxlength="10">
+                                                                    <input name="txtEducationStartDateEdit" type="text" value="01/02/2012" id="txtEducationStartDateEdit" class="inputTextbox calender hasDatepicker" placeholder="MM/DD/YYYY" autocomplete="off" maxlength="10">
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -185,7 +186,7 @@
                                                                     </label>
                                                                 </td>
                                                                 <td>
-                                                                    <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation2$ctl02$txtEducationEndDateEdit" type="text" value="02/04/2014" id="txtEducationEndDateEdit" class="inputTextbox calender hasDatepicker" placeholder="MM/DD/YYYY" autocomplete="off" maxlength="10">
+                                                                    <input name="txtEducationEndDateEdit" type="text" value="02/04/2014" id="txtEducationEndDateEdit" class="inputTextbox calender hasDatepicker" placeholder="MM/DD/YYYY" autocomplete="off" maxlength="10">
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -195,7 +196,7 @@
                                                                     </label>
                                                                 </td>
                                                                 <td>
-                                                                    <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation2$ctl02$txtEducationHRSEdit" type="text" value="201" id="txtEducationHRSEdit" class="inputTextbox" autocomplete="off">
+                                                                    <input name="txtEducationHRSEdit" type="text" value="201" id="txtEducationHRSEdit" class="inputTextbox" autocomplete="off">
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -214,7 +215,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td colspan="2">
-                                                                    <textarea name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation2$ctl02$txtExplainNoneGraduateEdit" rows="2" cols="20" id="txtExplainNoneGraduateEdit" class="inputTextbox" style="width:580px;line-height: 20px;" autocomplete="off">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
+                                                                    <textarea name="txtExplainNoneGraduateEdit" rows="2" cols="20" id="txtExplainNoneGraduateEdit" class="inputTextbox" style="width:580px;line-height: 20px;" autocomplete="off">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
                                                                 </td>
                                                             </tr>
                                                         </tbody>
@@ -223,8 +224,8 @@
                                                     </div>
                                                     <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
                                                         <span class="fltrt">
-                                                            <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation2$ctl02$btnEducation2Update" value="Update" id="btnEducation2Update" class="buttonGreen medium">
-                                                            <a id="lnkEducation2CancelUpdate" class="secondary medium bottom buttonalignment" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation2$ctl02$lnkEducation2CancelUpdate','')">Cancel</a>
+                                                            <input type="submit" name="btnEducation2Update" value="Update" id="btnEducation2Update" class="buttonGreen medium">
+                                                            <a id="lnkEducation2CancelUpdate" class="secondary medium bottom buttonalignment" href="javascript:__doPostBack('lnkEducation2CancelUpdate','')">Cancel</a>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -244,13 +245,13 @@
                                         </td>
                                         <td>
                                             <span>
-                                                <input type="image" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation2$ctl03$imgbtnNotepad" id="imgbtnNotepad" disabled="disabled" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." class="aspNetDisabled" src="~/Content/Public/images/notepad.png" style="width:20px;">
+                                                <input type="image" name="imgbtnNotepad" id="imgbtnNotepad" disabled="disabled" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." class="aspNetDisabled" src="~/Content/Public/images/notepad.png" style="width:20px;">
                                             </span>
                                         </td>
                                         <td align="center" valign="middle" style="width:60px;">
                                             <span class="fltrt AfterApproved">
-                                                <input type="image" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation2$ctl03$imgbtnEducation2Edit" id="imgbtnEducation2Edit" title="Edit" class="imgDelete" rowindex="1" src="~/Content/Public/images/edit.png">
-                                                <input type="image" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation2$ctl03$imgBtnEducation2Delete" id="imgBtnEducation2Delete" title="Delete" class="imgDelete" src="~/Content/Public/images/delete.png" onclick="javascript:return confirm('Are you sure you want to delete?');">
+                                                <input type="image" name="imgbtnEducation2Edit" id="imgbtnEducation2Edit" title="Edit" class="imgDelete" rowindex="1" src="~/Content/Public/images/edit.png">
+                                                <input type="image" name="imgBtnEducation2Delete" id="imgBtnEducation2Delete" title="Delete" class="imgDelete" src="~/Content/Public/images/delete.png" onclick="javascript:return confirm('Are you sure you want to delete?');">
                                             </span>
                                         </td>
                                     </tr>
@@ -258,7 +259,8 @@
                             </table>
                         </div>
                     </div>
-                    <div id="ContentPlaceHolder1_ucCertificationApplication1_Upapprovedschools1">
+
+                    <div id="Upapprovedschools1">
 
                         <div>
                             <table style="width: 100%;" class="tblApplReqForm5">
@@ -269,15 +271,17 @@
                                         </td>
                                         <td style="line-height: 20px;">
                                             <b>&nbsp;If your school is not on the list of CAMTC approved schools above, it may have an application pending with CAMTC.  Please add all education you have received from each of the schools listed here on the pending application list.</b>
+                                            <button data-ng-show="!edu.states.AddingNonApprovedSchool" data-ng-click="edu.states.AddingNonApprovedSchool = true" class="buttonGreen small">Add</button>
+
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
 
-                        <div id="ContentPlaceHolder1_ucCertificationApplication1_divAddPanelapprovedschools1">
+                        <div data-ng-show="edu.states.AddingNonApprovedSchool" id="divAddPanelapprovedschools1">
 
-                            <table class=" tblApplReqForm5 wthtop20" style="margin: 0 auto;">
+                            <table class="tblApplReqForm5 wthtop20" style="margin: 0 auto;">
                                 <tbody>
                                     <tr>
                                         <td class="txtalgnrgt">
@@ -286,7 +290,7 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <select name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$ddlSchool17" id="ContentPlaceHolder1_ucCertificationApplication1_ddlSchool17" style="width: 182px;" autocomplete="off">
+                                            <select name="ddlSchool17" id="ddlSchool17" style="width: 182px;" autocomplete="off">
                                                 <option selected="selected" value="-1">Select</option>
                                                 <option value="ABC Massage School">ABC Massage School</option>
                                                 <option value="Test Massage School">Test Massage School</option>
@@ -301,7 +305,7 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtDateStartedProgram" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_txtDateStartedProgram" class="inputTextbox calender hasDatepicker" placeholder="MM/DD/YYYY" autocomplete="off" maxlength="10">
+                                            <input name="txtDateStartedProgram" type="text" id="txtDateStartedProgram" class="inputTextbox calender hasDatepicker" placeholder="MM/DD/YYYY" autocomplete="off" maxlength="10">
                                         </td>
                                     </tr>
                                     <tr>
@@ -311,7 +315,7 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtDateCompletedProgram" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_txtDateCompletedProgram" class="inputTextbox calender hasDatepicker" placeholder="MM/DD/YYYY" autocomplete="off" maxlength="10">
+                                            <input name="txtDateCompletedProgram" type="text" id="txtDateCompletedProgram" class="inputTextbox calender hasDatepicker" placeholder="MM/DD/YYYY" autocomplete="off" maxlength="10">
                                         </td>
                                     </tr>
                                     <tr>
@@ -321,7 +325,7 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtTotalhours" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_txtTotalhours" class="inputTextbox" autocomplete="off">
+                                            <input name="txtTotalhours" type="text" id="txtTotalhours" class="inputTextbox" autocomplete="off">
                                         </td>
                                     </tr>
                                     <tr>
@@ -340,7 +344,7 @@
                                     </tr>
                                     <tr>
                                         <td colspan="2">
-                                            <textarea name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtMyOwnExplanation" rows="2" cols="20" id="ContentPlaceHolder1_ucCertificationApplication1_txtMyOwnExplanation" class="inputTextbox" style="width:600px;line-height: 20px;" autocomplete="off"></textarea>
+                                            <textarea name="txtMyOwnExplanation" rows="2" cols="20" id="txtMyOwnExplanation" class="inputTextbox" style="width:600px;line-height: 20px;" autocomplete="off"></textarea>
                                         </td>
                                     </tr>
                                     <tr>
@@ -352,15 +356,15 @@
                             </table>
                             <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
                                 <span class="fltrt">
-                                    <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$btnapprovedschools1Save" value="Save" id="ContentPlaceHolder1_ucCertificationApplication1_btnapprovedschools1Save" class="buttonGreen medium">
-                                    <a id="ContentPlaceHolder1_ucCertificationApplication1_lnkapprovedschools1Cancel" class="secondary medium bottom buttonalignment" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$ucCertificationApplication1$lnkapprovedschools1Cancel','')">Cancel</a>
+                                    <input type="submit" name="btnapprovedschools1Save" value="Save" id="btnapprovedschools1Save" class="buttonGreen medium">
+                                    <a id="lnkapprovedschools1Cancel" class="secondary medium bottom buttonalignment" data-ng-click="edu.states.AddingNonApprovedSchool = false">Cancel</a>
                                 </span>
                             </div>
                         </div>
 
                     </div>
 
-                    <div id="ContentPlaceHolder1_ucCertificationApplication1_MassageTrainingandEducationUp">
+                    <div id="MassageTrainingandEducationUp">
 
                         <div>
                             <table style="width: 100%;" class="tblApplReqForm5">
@@ -371,13 +375,15 @@
                                         </td>
                                         <td style="line-height: 20px;">
                                             <b>&nbsp;If you received education from schools not listed in Questions 16 or 17 above (for example, a school outside California), please add those schools here.</b>
+                                            <button data-ng-show="!edu.states.AddingSchoolOutsideCA" data-ng-click="edu.states.AddingSchoolOutsideCA = true" class="buttonGreen small">Add</button>
+
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
 
-                        <div id="ContentPlaceHolder1_ucCertificationApplication1_divAddPanelEducation1">
+                        <div data-ng-show="edu.states.AddingSchoolOutsideCA" id="divAddPanelEducation1">
 
                             <table class="tblApplReqForm5">
                                 <tbody>
@@ -392,7 +398,7 @@
                                     <tr>
                                         <td style="padding: 0px !important;"></td>
                                         <td colspan="3" style="padding: 0px !important;">
-                                            <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtEdu1SchoolName" type="text" maxlength="150" id="ContentPlaceHolder1_ucCertificationApplication1_txtEdu1SchoolName" class="tooltip OnlyAlphabet inputTextbox calWidth" title="Only A-Z characters are allowed." style="width:482px;" autocomplete="off">
+                                            <input name="txtEdu1SchoolName" type="text" maxlength="150" id="txtEdu1SchoolName" class="tooltip OnlyAlphabet inputTextbox calWidth" title="Only A-Z characters are allowed." style="width:482px;" autocomplete="off">
                                         </td>
                                     </tr>
                                     <tr>
@@ -402,7 +408,7 @@
                                             </label>
                                         </td>
                                         <td colspan="3">
-                                            <select name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$ddlEduCountryName" id="ContentPlaceHolder1_ucCertificationApplication1_ddlEduCountryName" class="inputTextbox" autocomplete="off">
+                                            <select name="ddlEduCountryName" id="ddlEduCountryName" class="inputTextbox" autocomplete="off">
                                                 <option selected="selected" value="US">USA</option>
 
                                             </select>
@@ -419,13 +425,13 @@
                                                             </label>
                                                         </td>
                                                         <td colspan="5">
-                                                            <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtEdu1Street" type="text" maxlength="500" id="ContentPlaceHolder1_ucCertificationApplication1_txtEdu1Street" class="calWidth us_street" style="width:482px;" autocomplete="off">
+                                                            <input name="txtEdu1Street" type="text" maxlength="500" id="txtEdu1Street" class="calWidth us_street" style="width:482px;" autocomplete="off">
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td></td>
                                                         <td colspan="5">
-                                                            <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtEdu1Street2" type="text" maxlength="500" id="ContentPlaceHolder1_ucCertificationApplication1_txtEdu1Street2" class="calWidth us_street" style="width:482px;" autocomplete="off">
+                                                            <input name="txtEdu1Street2" type="text" maxlength="500" id="txtEdu1Street2" class="calWidth us_street" style="width:482px;" autocomplete="off">
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -435,7 +441,7 @@
                                                             </label>
                                                         </td>
                                                         <td style="width: 151px;">
-                                                            <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtEdu1City" type="text" maxlength="500" id="ContentPlaceHolder1_ucCertificationApplication1_txtEdu1City" class="tooltip calWidth" style="width:124px;" autocomplete="off">
+                                                            <input name="txtEdu1City" type="text" maxlength="500" id="txtEdu1City" class="tooltip calWidth" style="width:124px;" autocomplete="off">
                                                         </td>
                                                         <td class="txtalgnrgt" style="width: 52px;">
                                                             <label class="input-label required">
@@ -443,7 +449,7 @@
                                                             </label>
                                                         </td>
                                                         <td style="width: 106px;">
-                                                            <select name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$ddlEdu1State" id="ContentPlaceHolder1_ucCertificationApplication1_ddlEdu1State" class="inputTextbox" style="width:98px;" autocomplete="off">
+                                                            <select name="ddlEdu1State" id="ddlEdu1State" class="inputTextbox" style="width:98px;" autocomplete="off">
                                                                 <option value="-1">Select</option>
                                                                 <option value="-1">------ STATES OF USA --------</option>
                                                                 <option value="AK">ALASKA</option>
@@ -521,7 +527,7 @@
                                                             </label>
                                                         </td>
                                                         <td>
-                                                            <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtEdu1Zip" type="text" maxlength="10" id="ContentPlaceHolder1_ucCertificationApplication1_txtEdu1Zip" class="zip_us" placeholder="xxxxx-xxxx or xxxxx" style="width:127px;" autocomplete="off">
+                                                            <input name="txtEdu1Zip" type="text" maxlength="10" id="txtEdu1Zip" class="zip_us" placeholder="xxxxx-xxxx or xxxxx" style="width:127px;" autocomplete="off">
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -535,7 +541,7 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtEdu1SchoolPhone" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_txtEdu1SchoolPhone" class="inputTextbox calWidth Phone_us" autocomplete="off">
+                                            <input name="txtEdu1SchoolPhone" type="text" id="txtEdu1SchoolPhone" class="inputTextbox calWidth Phone_us" autocomplete="off">
                                         </td>
                                         <td class="txtalgnrgt" style="width: 132px;">
                                             <label class="input-label">
@@ -543,7 +549,7 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtEdu1SchoolEmail" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_txtEdu1SchoolEmail" class="inputTextbox calWidth" autocomplete="off">
+                                            <input name="txtEdu1SchoolEmail" type="text" id="txtEdu1SchoolEmail" class="inputTextbox calWidth" autocomplete="off">
                                         </td>
                                     </tr>
                                     <tr>
@@ -553,21 +559,22 @@
                                             </label>
                                         </td>
                                         <td colspan="3">
-                                            <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtEdu1SchoolWebsite" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_txtEdu1SchoolWebsite" class="inputTextbox calWidth" autocomplete="off">
+                                            <input name="txtEdu1SchoolWebsite" type="text" id="txtEdu1SchoolWebsite" class="inputTextbox calWidth" autocomplete="off">
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                             <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
                                 <span class="fltrt">
-                                    <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$btnEducation1Save" value="Save" id="ContentPlaceHolder1_ucCertificationApplication1_btnEducation1Save" class="buttonGreen medium">
-                                    <a id="ContentPlaceHolder1_ucCertificationApplication1_lnkEducation1Cancel" class="secondary medium bottom buttonalignment" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$ucCertificationApplication1$lnkEducation1Cancel','')">Cancel</a>
+                                    <input type="submit" name="btnEducation1Save" value="Save" id="btnEducation1Save" class="buttonGreen medium">
+                                    <a data-ng-click="edu.states.AddingSchoolOutsideCA = false" id="lnkEducation1Cancel" class="secondary medium bottom buttonalignment" >Cancel</a>
                                 </span>
                             </div>
                         </div>
 
                     </div>
-                    <div class="divLicenseInfo">
+
+                    <div data-ng-show="edu.appData.Education.SchoolsOutsideCA.length > 0" class="divLicenseInfo">
                         <div>
                             <table class="index  grid" cellspacing="0" cellpadding="5" id="gvEducation1" style="color:#333333;width:100%;border-collapse:collapse;">
                                 <tbody>
@@ -597,8 +604,8 @@
                                         </td>
                                         <td align="center" valign="middle" style="width:60px;">
                                             <span class="fltrt AfterApproved">
-                                                <input type="image" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation1$ctl02$imgbtnEducation1Edit" id="imgbtnEducation1Edit" title="Edit" class="imgDelete" rowindex="0" src="~/Content/Public/images/edit.png">
-                                                <input type="image" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation1$ctl02$imgBtnEducation1Delete" id="imgBtnEducation1Delete" title="Delete" class="imgDelete" src="~/Content/Public/images/delete.png" onclick="javascript:return confirm('Are you sure you want to delete?');">
+                                                <input type="image" name="imgbtnEducation1Edit" id="imgbtnEducation1Edit" title="Edit" class="imgDelete" rowindex="0" src="~/Content/Public/images/edit.png">
+                                                <input type="image" name="imgBtnEducation1Delete" id="imgBtnEducation1Delete" title="Delete" class="imgDelete" src="~/Content/Public/images/delete.png" onclick="javascript:return confirm('Are you sure you want to delete?');">
                                             </span>
                                         </td>
                                     </tr>
@@ -620,8 +627,8 @@
                                         </td>
                                         <td align="center" valign="middle" style="width:60px;">
                                             <span class="fltrt AfterApproved">
-                                                <input type="image" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation1$ctl03$imgbtnEducation1Edit" id="imgbtnEducation1Edit" title="Edit" class="imgDelete" rowindex="1" src="~/Content/Public/images/edit.png">
-                                                <input type="image" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvEducation1$ctl03$imgBtnEducation1Delete" id="imgBtnEducation1Delete" title="Delete" class="imgDelete" src="~/Content/Public/images/delete.png" onclick="javascript:return confirm('Are you sure you want to delete?');">
+                                                <input type="image" name="gvEducation1$ctl03$imgbtnEducation1Edit" id="imgbtnEducation1Edit" title="Edit" class="imgDelete" rowindex="1" src="~/Content/Public/images/edit.png">
+                                                <input type="image" name="gvEducation1$ctl03$imgBtnEducation1Delete" id="imgBtnEducation1Delete" title="Delete" class="imgDelete" src="~/Content/Public/images/delete.png" onclick="javascript:return confirm('Are you sure you want to delete?');">
                                             </span>
                                         </td>
                                     </tr>
@@ -629,6 +636,7 @@
                             </table>
                         </div>
                     </div>
+
                     <div>
                         <div>
                             <table style="width: 100%;" class="tblApplReqForm5">
@@ -639,6 +647,8 @@
                                         </td>
                                         <td style="line-height: 20px;">
                                             <b>&nbsp;Please indicate if you have passed any of the following CAMTC approved exams. If so, you are required to have the examining board send proof directly to CAMTC. You must have passed a CAMTC approved exam in order to be certified.</b>
+                                            <button data-ng-show="!edu.states.AddingExam" data-ng-click="edu.states.AddingExam = true" class="buttonGreen small">Add</button>
+
                                         </td>
                                     </tr>
                                     <tr>
@@ -647,14 +657,14 @@
                                 </tbody>
                             </table>
 
-                            <table id="ContentPlaceHolder1_ucCertificationApplication1_tbpAddNewQ22" style="width: 100%; margin-top: 10px;">
+                            <table data-ng-show="edu.states.AddingExam" id="tbpAddNewQ22" style="width: 100%; margin-top: 10px;">
                                 <tbody>
                                     <tr>
                                         <td class="txtalgnrgt">
                                             <label class="input-label require">Exam Name : </label>
                                         </td>
                                         <td>
-                                            <select name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$ddlExamList" id="ContentPlaceHolder1_ucCertificationApplication1_ddlExamList" class="inputTextbox " autocomplete="off">
+                                            <select name="ddlExamList" id="ddlExamList" class="inputTextbox " autocomplete="off">
                                                 <option selected="selected" value="Select">Select</option>
                                                 <option value="MBLEX">MBLEX</option>
                                                 <option value="BCTMB">BCTMB</option>
@@ -668,15 +678,15 @@
                                             <label class="input-label require">Pass Date : </label>
                                         </td>
                                         <td>
-                                            <input name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$txtPassedDate" type="text" id="ContentPlaceHolder1_ucCertificationApplication1_txtPassedDate" class="inputTextbox  calender hasDatepicker" autocomplete="off" maxlength="10">
+                                            <input name="txtPassedDate" type="text" id="txtPassedDate" class="inputTextbox  calender hasDatepicker" autocomplete="off" maxlength="10">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td colspan="4">
                                             <div class="toolBar">
                                                 <span class="fltrt">
-                                                    <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$btnSave" value="Save" id="ContentPlaceHolder1_ucCertificationApplication1_btnSave" class="buttonGreen medium">
-                                                    <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$Button16" value="Cancel" id="ContentPlaceHolder1_ucCertificationApplication1_Button16" class="secondary medium">
+                                                    <input type="submit" name="btnSave" value="Save" id="btnSave" class="buttonGreen medium">
+                                                    <input data-ng-click="edu.states.AddingExam = false" type="submit" name="Button16" value="Cancel" id="Button16" class="secondary medium">
 
 
                                                 </span>
@@ -688,7 +698,7 @@
 
 
 
-                            <div class="divLicenseInfo" style="margin-top: 10px">
+                            <div class="divLicenseInfo" data-ng-show="edu.appData.Education.Exams.length > 0" style="margin-top: 10px">
                                 <div>
                                     <table class="index  grid" cellspacing="0" cellpadding="5" id="gvExams" style="color:#333333;width:100%;border-collapse:collapse;">
                                         <tbody>
@@ -702,8 +712,8 @@
                                                 <td>09/16/2014</td>
                                                 <td align="center" valign="middle" style="width:60px;">
                                                     <span class="fltrt AfterApproved">
-                                                        <input type="image" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvExams$ctl02$imgbtnEducation1Edit" id="imgbtnEducation1Edit" title="Edit" class="imgDelete" rowindex="0" src="~/Content/Public/images/edit.png">
-                                                        <input type="image" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$gvExams$ctl02$imgBtnEducation1Delete" id="imgBtnEducation1Delete" title="Delete" class="imgDelete" src="~/Content/Public/images/delete.png" onclick="javascript:return confirm('Are you sure you want to delete?');">
+                                                        <input type="image" name="gvExams$ctl02$imgbtnEducation1Edit" id="imgbtnEducation1Edit" title="Edit" class="imgDelete" rowindex="0" src="~/Content/Public/images/edit.png">
+                                                        <input type="image" name="gvExams$ctl02$imgBtnEducation1Delete" id="imgBtnEducation1Delete" title="Delete" class="imgDelete" src="~/Content/Public/images/delete.png" onclick="javascript:return confirm('Are you sure you want to delete?');">
                                                     </span>
                                                 </td>
                                             </tr>
@@ -717,8 +727,8 @@
                 </fieldset>
                 <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
                     <span class="fltrt">
-                        <input type="submit" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$btnNextMassageTraning" value="Save &amp; Next" id="ContentPlaceHolder1_ucCertificationApplication1_btnNextMassageTraning" class="buttonGreen medium">
-                        <a id="ContentPlaceHolder1_ucCertificationApplication1_lnkCancelNextMassageTraning" class="secondary medium bottom buttonalignment" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$ucCertificationApplication1$lnkCancelNextMassageTraning','')">Cancel</a>
+                        <input data-ng-click="edu.save()" type="submit" name="btnNextMassageTraning" value="Save &amp; Next" id="btnNextMassageTraning" class="buttonGreen medium">
+                        <a id="lnkCancelNextMassageTraning" class="secondary medium bottom buttonalignment" >Cancel</a>
                     </span>
                 </div>
             </div>

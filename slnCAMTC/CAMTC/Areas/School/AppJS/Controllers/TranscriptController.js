@@ -4,6 +4,8 @@
         $scope.ProviderId = mySharedService.message;
         $scope.ProviderName = mySharedService.message1;
         if (mySharedService.CurrentPage == 'Transcript') {
+$('.errorinfo').hide();
+            $('.errorinfo').text('');
             $scope.hasShow = 'true';
         }
         else

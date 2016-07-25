@@ -1,4 +1,4 @@
-﻿LAPP.controller('SchoolController', function ($scope, $rootScope, mySharedService, SchoolInfoFactory) {
+﻿LAPP.controller('SchoolController', function ($scope, $rootScope, mySharedService, SchoolInfoFactory, _, $http) {
 
     if (mySharedService.ApplicationName == 'BackOffice') {
         $scope.IsSchoolApplication = false;
@@ -8,6 +8,7 @@
         $scope.IsSchoolApplication = true;
     }
 
+    $('#dvPRevInfo').hide();
     $('#error_validation').hide();
     $scope.hasShow = 'false';
     var Provider = { ProviderId: '-1' };
@@ -39,6 +40,10 @@
         else if (id == 3) {
             $('#divMblex').show();
         }
+        else if (id == 4) {
+            $('#dvPRevInfo').show();
+        }
+
     }
 
     $scope.clearPreviousAddress = function () {
@@ -79,7 +84,132 @@
     }
 
     $scope.GetAllStatebyCountry();
+
     //get all state by country
+
+
+    $scope.verifyAddress = function (val) {
+        ShowLoader();
+        if (val == 1) {
+            if ($scope.PrevAdd.StreetLine1 != '' && $scope.PrevAdd.City != '' && $scope.PrevAdd.StateCode != '' && $scope.PrevAdd.StateCode != '0' && $scope.PrevAdd.Zip != '' && $scope.PrevAdd.StreetLine1 != null && $scope.PrevAdd.City != null && $scope.PrevAdd.StateCode != null && $scope.PrevAdd.StateCode != null && $scope.PrevAdd.Zip != null) {
+                var data = {
+                    name:
+                        '',
+                    address_line1:
+                        $scope.PrevAdd.StreetLine1,
+                    address_line2:
+                        $scope.PrevAdd.StreetLine2,
+                    address_city:
+                        $scope.PrevAdd.City,
+                    address_state:
+                        $scope.PrevAdd.StateCode,
+                    address_zip:
+                        $scope.PrevAdd.Zip,
+                    address_country:
+                        ''
+                }
+
+                SchoolInfoFactory.verifyaddress(data).success(function (data) {
+                    console.log(data);
+                    HideLoader();
+                }).error(function (error) {
+                    $scope.Error = error;
+                });
+
+
+            }
+            else
+                HideLoader();
+        }
+        else if (val == 2) {
+
+            if ($scope.SateliteAdd.StreetLine1 != '' && $scope.SateliteAdd.City != '' && $scope.SateliteAdd.StateCode != '' && $scope.SateliteAdd.StateCode != '0' && $scope.SateliteAdd.Zip != '' && $scope.SateliteAdd.StreetLine1 != null && $scope.SateliteAdd.City != null && $scope.SateliteAdd.StateCode != null && $scope.SateliteAdd.StateCode != null && $scope.SateliteAdd.Zip != null) {
+                var data = {
+                    name:
+                        '',
+                    address_line1:
+                        $scope.SateliteAdd.StreetLine1,
+                    address_line2:
+                        $scope.SateliteAdd.StreetLine2,
+                    address_city:
+                        $scope.SateliteAdd.City,
+                    address_state:
+                        $scope.SateliteAdd.StateCode,
+                    address_zip:
+                        $scope.SateliteAdd.Zip,
+                    address_country:
+                        ''
+                }
+
+                SchoolInfoFactory.verifyaddress(data).success(function (data) {
+                    console.log(data);
+                    HideLoader();
+                }).error(function (error) {
+                    $scope.Error = error;
+                });
+
+            }
+            else {
+                HideLoader();
+            }
+        }
+        else if (val == 3) {
+
+            if ($scope.ProviderInformationDetails.SchoolAddressStree1 != '' && $scope.ProviderInformationDetails.SchoolAddressCity != '' && $scope.ProviderInformationDetails.SchoolAddressState != '' && $scope.ProviderInformationDetails.SchoolAddressState != '0' && $scope.ProviderInformationDetails.SchoolAddressZip != '' && $scope.ProviderInformationDetails.SchoolAddressStreet1 != null && $scope.ProviderInformationDetails.SchoolAddressCity != null && $scope.ProviderInformationDetails.SchoolAddressStateCode != null && $scope.ProviderInformationDetails.SchoolAddressState != null && $scope.ProviderInformationDetails.SchoolAddressZip != null) {
+                var data = {
+                    name:
+                        '',
+                    address_line1:
+                        $scope.ProviderInformationDetails.SchoolAddressStreet1,
+                    address_line2:
+                        $scope.ProviderInformationDetails.SchoolAddressStreet2,
+                    address_city:
+                        $scope.ProviderInformationDetails.SchoolAddressCity,
+                    address_state:
+                        $scope.ProviderInformationDetails.SchoolAddressState,
+                    address_zip:
+                        $scope.ProviderInformationDetails.SchoolAddressZip,
+                    address_country:
+                        ''
+                }
+
+                SchoolInfoFactory.verifyaddress(data).success(function (data) {
+                    console.log(data);
+                    HideLoader();
+                }).error(function (error) {
+                    $scope.Error = error;
+                });
+            }
+        }
+        else if (val == 4) {
+
+            if ($scope.ProviderInformationDetails.MailingAddressStreet1 != '' && $scope.ProviderInformationDetails.MailingAddressCity != '' && $scope.ProviderInformationDetails.MailingAddressState != '' && $scope.ProviderInformationDetails.MailingAddressState != '0' && $scope.ProviderInformationDetails.MailingAddressZip != '' && $scope.ProviderInformationDetails.MailingAddressStreetLine1 != null && $scope.ProviderInformationDetails.MailingAddressCity != null && $scope.ProviderInformationDetails.MailingAddressState != null && $scope.ProviderInformationDetails.MailingAddressState != null && $scope.ProviderInformationDetails.MailingAddressZip != null) {
+                var data = {
+                    name:
+                        '',
+                    address_line1:
+                        $scope.ProviderInformationDetails.MailingAddressStreet1,
+                    address_line2:
+                        $scope.ProviderInformationDetails.MailingAddressStreet2,
+                    address_city:
+                        $scope.ProviderInformationDetails.MailingAddressCity,
+                    address_state:
+                        $scope.ProviderInformationDetails.MailingAddressState,
+                    address_zip:
+                        $scope.ProviderInformationDetails.MailingAddressZip,
+                    address_country:
+                        ''
+                }
+
+                SchoolInfoFactory.verifyaddress(data).success(function (data) {
+                    console.log(data);
+                    HideLoader();
+                }).error(function (error) {
+                    $scope.Error = error;
+                });
+            }
+        }
+    }
 
     //Adding PRevious school Information with address 4
     $scope.AddPreviousAddress = function () {
@@ -99,6 +229,8 @@
         else
             HideLoader();
     }
+
+
 
     //Adding PRevious school Information with address 4
 
@@ -167,7 +299,14 @@
             $scope.ProviderInformation = data;
             $scope.ProviderInformationDetails = data.ProviderInformationDetails;
 
+            //var result = _.each($scope.ProviderInformation.ListOfPreviousSchool, function (key, val)
+            //{ });
+            //if (result) {
+            //}
 
+            _.each($scope.ProviderInformation.ListOfPreviousSchool, function (value, key) {
+                value.DateofNameChange = moment(value.DateofNameChange).format("MM/DD/YYYY");
+            });
 
             $scope.PrevAddrGrid.api.setRowData($scope.ProviderInformation.ListOfPreviousSchool);
 
@@ -175,7 +314,7 @@
 
             $scope.SateliteAddrIfanyGrid.api.setRowData($scope.ProviderInformation.ListOfSatliteSchool);
 
-            if (data.SchoolAddress.length > 0) {
+            if (data.SchoolAddress != null && data.SchoolAddress.length > 0) {
                 $scope.ProviderInformationDetails.SchoolAddressId = data.SchoolAddress[0].AddressId;
                 $scope.ProviderInformationDetails.SchoolAddressStreet1 = data.SchoolAddress[0].StreetLine1;
                 $scope.ProviderInformationDetails.SchoolAddressStreet2 = data.SchoolAddress[0].StreetLine2;
@@ -185,8 +324,10 @@
                 //SchoolInfo.SchoolAddressIsVerifiedClicked = $scope.ProviderInformationDetails.SchoolAddressIsVerifiedClicked;
                 //SchoolInfo.SchoolAddressIsNotVerifiedClicked = $scope.ProviderInformationDetails.SchoolAddressIsNotVerifiedClicked;
             }
-
-            if (data.MailingAddress.length > 0) {
+            else {
+                $scope.ProviderInformationDetails.SchoolAddressState = 'CA';
+            }
+            if (data.MailingAddress != null && data.MailingAddress.length > 0) {
                 $scope.ProviderInformationDetails.MailingAddressId = data.MailingAddress[0].AddressId;
                 $scope.ProviderInformationDetails.MailingAddressStreet1 = data.MailingAddress[0].StreetLine1;
                 $scope.ProviderInformationDetails.MailingAddressStreet2 = data.MailingAddress[0].StreetLine2;
@@ -194,18 +335,24 @@
                 $scope.ProviderInformationDetails.MailingAddressState = data.MailingAddress[0].StateCode;
                 $scope.ProviderInformationDetails.MailingAddressZip = data.MailingAddress[0].Zip;
             }
+            else {
+                $scope.ProviderInformationDetails.MailingAddressState = 'CA';
+            }
 
-
-            if (data.ListOfContactJobTitle.length > 0) {
+            if (data.ListOfContactJobTitle != null && data.ListOfContactJobTitle.length > 0) {
                 $scope.ProviderInformationDetails.ContactNameFirstName = data.ListOfContactJobTitle[0].FirstName;
                 $scope.ProviderInformationDetails.ContactNameJobTitle = data.ListOfContactJobTitle[0].ProvIndvJobTitle;
             }
+            else {
 
-            if (data.ListOfDirectorJobTitle.length > 0) {
+            }
+            if (data.ListOfDirectorJobTitle != null && data.ListOfDirectorJobTitle.length > 0) {
                 $scope.ProviderInformationDetails.DirectorFirstName = data.ListOfDirectorJobTitle[0].FirstName;
                 $scope.ProviderInformationDetails.DirectorJobTitle = data.ListOfDirectorJobTitle[0].ProvIndvJobTitle;
             }
+            else {
 
+            }
             //$scope.ProviderInformationDetails.ContactNameAdministratorEmail;
             //$scope.ProviderInformationDetails.ContactNamePrimaryNumber
             //$scope.ProviderInformationDetails.ContactNamePrimaryNumberIsMobile
@@ -236,16 +383,21 @@
             headerName: "", hide: true, width: 250, field: "ProviderNameId",
         },
         {
-            headerName: "Previous School Name", width: 250, field: "ProviderName", cellStyle: {
+            headerName: "Previous School Name", width: 220, field: "ProviderName", cellStyle: {
+                'text-align': 'center', 'display': 'flex', 'align-items': 'center'
+            }
+        },
+        {
+            headerName: "Date of Name Change", width: 120, field: "DateofNameChange", cellStyle: {
                 'text-align': 'center', 'display': 'flex', 'align-items': 'center'
             }
         },
 
         {
-            headerName: "Action", width: 130, cellStyle: {
+            headerName: "Action", width: 100, cellStyle: {
                 'text-align': 'center', 'display': 'flex', 'align-items': 'center'
             }, field: "IsActive", cellRenderer: function (params) {
-                return "<a data-ng-click=\"showUpdatevalue('" + params.data.ProviderNameId + "','" + params.data.ProviderName + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a><span ng-show=\"!IsReadOnly\"> |</span><a data-ng-click=\"DeletePreviousSchoolInSchoolInformation('" + params.data.ProviderNameId + "')\" href=\"javascript:;\"> <img src='\\Content/Public/images/delete.png' /></a>";
+                return "<a data-ng-click=\"showUpdatevalue('" + params.data.ProviderNameId + "','" + params.data.ProviderName + "','" + params.data.DateofNameChange + "')\" href=\"javascript:;\"><img src='\\Content/Public/images/edit.png' /></a><span ng-show=\"!IsReadOnly\"> |</span><a data-ng-click=\"DeletePreviousSchoolInSchoolInformation('" + params.data.ProviderNameId + "')\" href=\"javascript:;\"> <img src='\\Content/Public/images/delete.png' /></a>";
             }
         },
         ],
@@ -455,28 +607,41 @@
         }
     };
 
+    $scope.clearPRevInfo = function () {
+        $('#dvPRevInfo').hide();
+        $scope.PrevSchoolname = null;
+        $scope.DateofNameChange = null;
+        $scope.ProviderNameId = 0;
+    }
+
     // add/update previous address
     $scope.AddPreviousSchoolInSchoolInformation = function () {
         ShowLoader();
+        if (btnSchoolInfoPreviousAddNewSave()) {
+            if ($scope.PrevSchoolname != '' && $scope.PrevSchoolname != null) {
+                var prevschooldata = {};
+                prevschooldata.ProviderId = $scope.ProviderId;
+                prevschooldata.ProviderNameId = $scope.ProviderNameId;
+                prevschooldata.ProviderName = $scope.PrevSchoolname;
+                prevschooldata.DateofNameChange = $scope.DateofNameChange;
 
-        if ($scope.PrevSchoolname != '' && $scope.PrevSchoolname != null) {
-            var prevschooldata = {};
-            prevschooldata.ProviderId = $scope.ProviderId;
-            prevschooldata.ProviderNameId = $scope.ProviderNameId;
-            prevschooldata.ProviderName = $scope.PrevSchoolname;
+                SchoolInfoFactory.AddPreviousSchoolInSchoolInformation(prevschooldata, key).success(function (data) {
 
-            SchoolInfoFactory.AddPreviousSchoolInSchoolInformation(prevschooldata, key).success(function (data) {
-                $scope.PrevSchoolname = null;
-                $scope.ProviderNameId = 0;
-                $scope.PrevAddrGrid.api.setRowData(data.ListOfPreviousSchool);
+                    _.each(data.ListOfPreviousAddress, function (value, key) {
+                        value.DateofNameChange = moment(value.DateofNameChange).format("MM/DD/YYYY");
+                    });
+                    $scope.PrevAddrGrid.api.setRowData(data.ListOfPreviousSchool);
+                    HideLoader();
+                }).error(function (error) {
+                    $scope.Error = error;
+                });
+            }
+            else {
                 HideLoader();
-            }).error(function (error) {
-                $scope.Error = error;
-            });
+            }
         }
-        else {
+        else
             HideLoader();
-        }
     }
     // add/update previous address
 
@@ -490,7 +655,12 @@
 
         SchoolInfoFactory.DeletePreviousSchoolInSchoolInformation(prevschooldata, key).success(function (data) {
             $scope.PrevSchoolname = null;
+            $scope.DateofNameChange = null;
             $scope.ProviderNameId = 0;
+
+            _.each(data.ListOfPreviousAddress, function (value, key) {
+                value.DateofNameChange = moment(value.DateofNameChange).format("MM/DD/YYYY");
+            });
             $scope.PrevAddrGrid.api.setRowData(data.ListOfPreviousSchool);
             HideLoader();
         }).error(function (error) {
@@ -500,10 +670,13 @@
     // add/update previous address
 
     //Populate Edit Previous school name
-    $scope.showUpdatevalue = function (ProviderNameId, ProviderName) {
+    $scope.showUpdatevalue = function (ProviderNameId, ProviderName, DateofNameChange) {
         ShowLoader();
+        $('#dvPRevInfo').show();
         $scope.PrevSchoolname = ProviderName;
         $scope.ProviderNameId = ProviderNameId;
+        $scope.DateofNameChange = DateofNameChange;
+
         HideLoader();
     }
     //Populate Edit Previous school name
@@ -671,7 +844,6 @@
     }
     // on selecting provider
 
-
     $scope.$on('handleBroadcast', function () {
         $('#error_validation').hide();
         if (mySharedService.CurrentPage == '') {
@@ -680,6 +852,8 @@
         $scope.ProviderId = mySharedService.message;
         $scope.ProviderName = mySharedService.message1;
         if (mySharedService.CurrentPage == 'SchoolInfo') {
+            $('.errorinfo').text('');
+            $('.errorinfo').hide();
             $scope.GetProviderdataonchange();
         }
     });
@@ -688,6 +862,8 @@
     $scope.$on('handleBroadcastForTab', function () {
         $('#error_validation').hide();
         if (mySharedService.CurrentPage == 'SchoolInfo') {
+            $('.errorinfo').text('');
+            $('.errorinfo').hide();
             $scope.GetProviderdataonchange();
             $scope.hasShow = 'true';
         }
@@ -716,7 +892,7 @@
         var AdministratorEmail = ValidateEmail('<span class="notok"></span> Please enter administrator email<br/>', '<span class="notok"></span> Please enter administrator email<br/>', '#DirectorEmail', $('#DirectorEmail').val());
         var JobTitle = ValidateTextbox('<span class="notok"></span> Please enter administrator job title<br/>', '#SclInfoJobTitle', $('#SclInfoJobTitle').val());
         var PrimaryNumber = ValidateTextbox('<span class="notok"></span> Please enter administrator primary number<br/>', '#SclInfoPriNumber', $('#SclInfoPriNumber').val());
-//        var _ContactEmail = ValidateEmail('<span class="notok"></span> Please enter email in correct format (joe@email.com)<br/>', '<span class="notok"></span> Please enter email in correct format (joe@email.com)<br/>', '#ApplicationEmail', $('#ApplicationEmail').val());
+        //        var _ContactEmail = ValidateEmail('<span class="notok"></span> Please enter email in correct format (joe@email.com)<br/>', '<span class="notok"></span> Please enter email in correct format (joe@email.com)<br/>', '#ApplicationEmail', $('#ApplicationEmail').val());
         error = SchoolName + SchoolTelephone + SchoolWebsite + SchoolAddress + SchoolCity + SchoolState + SchoolZip + DirectorFirstName + AdministratorEmail + JobTitle + PrimaryNumber;//DirectorLastName //_DateofNameChange ++ _ContactEmail 
         //error = SchoolName + SchoolTelephone + SchoolWebsite + _DateofNameChange + SchoolAddress + SchoolCity + SchoolState + SchoolZip + DirectorFirstName + AdministratorEmail + JobTitle + PrimaryNumber;//DirectorLastName + _ContactEmail
 
@@ -734,19 +910,20 @@
     }
 
     function btnSchoolInfoPreviousAddNewSave() {
-        $('#error_validation').text('');
+        $('.errorinfo').text('');
         var error = '';
+        var SchoolName = ValidateTextbox('<span class="notok"></span> Please enter the school name.<br/>', '#prevname', $('#prevname').val());
         var txtDateOfAddChange = CheckDate('<span class="notok"></span> Future dates are not accepted. <br/>', '<span class="notok"></span>  Please enter date in correct format (mm/dd/yyyy).<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtDateOfAddChange', $('#ContentPlaceHolder1_ucCertificationApplication1_txtDateOfAddChange').val());
-        error = txtDateOfAddChange;
-        $('#error_validation').html(error);
+        error = SchoolName + txtDateOfAddChange;
+        $('.errorinfo').html(error);
         if (error != '') {
-            $('#error_validation').show();
-            $('#ContentPlaceHolder1_ucCertificationApplication1_btnSchoolInfoPreviousAddNewSave').attr('type', 'button');
+            $('.errorinfo').show();
             $(document).scrollTop(0);
+            return false;
         }
         else {
-            $('#error_validation').hide();
-            $('#ContentPlaceHolder1_ucCertificationApplication1_btnSchoolInfoPreviousAddNewSave').attr('type', 'submit');
+            $('.errorinfo').hide();
+            return true;
         }
 
     }

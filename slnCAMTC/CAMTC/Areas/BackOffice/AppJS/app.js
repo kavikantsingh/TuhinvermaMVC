@@ -1,5 +1,7 @@
 ﻿agGrid.initialiseAgGridWithAngular1(angular);
-var LAPP = angular.module('LAPP', ['agGrid','checklist-model','ngSanitize']);
+var LAPP = angular.module('LAPP', ['agGrid', 'checklist-model', 'ngSanitize']).config(function ($httpProvider) {
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+});
 
 //Configuration
 var BaseURL = 'http://localhost:1530';

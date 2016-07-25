@@ -7,7 +7,7 @@
 <div ng-controller="EligiblityController" ng-show="hasShow == 'true'" class="clear textBoxAlign">
 
     <section>
-        <div id="error_validation" class="errorinfo address-box posFixed" style="display: block; color: red;"></div>
+        <div id="error_validation" class="errorinfo address-box posFixed" style="color: red;"></div>
     </section>
 
     <div>
@@ -32,9 +32,9 @@
                     <table class="tblApplReqForm5 wthtop20 " style="width: 100%;">
                         <tr>
                             <td class="txtalgnrgt tdwidth1">
-                                <span class="input-label required">
+                                <label class="input-label required">
                                     Approval/Accrediting Agency :
-                                </span>
+                                </label>
                             </td>
                             <td>
                                 <select id="ContentPlaceHolder1_ucCertificationApplication1_ddlAddApprovalAgency" ng-model="selectedItem" ng-change="update()" name="ApprovalAccreditingAgencyName" class="form-control width145p" data-ng-options="item as item.LookupDesc for item in Lookup">
@@ -42,9 +42,9 @@
                                 </select>
                             </td>
                             <td class="txtalgnrgt tdwidth2">
-                                <span class="input-label required">
+                                <label class="input-label required">
                                     Agency School Code # :
-                                </span>
+                                </label>
                             </td>
                             <td>
                                 <input type="text" data-ng-model="ApprovalAgency.AgencySchoolCode" id="TextBox1" width="167px" />
@@ -52,12 +52,12 @@
                         </tr>
                         <tr>
                             <td class="txtalgnrgt">
-                                <span class="input-label required">
+                                <label class="input-label required">
                                     Expiration Date :
-                                </span>
+                                </label>
                             </td>
                             <td>
-                                <input type="text" id="ContentPlaceHolder1_ucCertificationApplication1_txtAddExpirationDate" data-ng-model="ApprovalAgency.ExpirationDate" class="inputTextbox calenderSiteVisit" placeholder="MM/DD/YYYY" />
+                                <input type="text" id="AddExpirationDate" data-ng-model="ApprovalAgency.ExpirationDate" class="inputTextbox calenderSiteVisit" placeholder="MM/DD/YYYY" />
                             </td>
                             <td></td>
                             <td></td>
@@ -74,7 +74,7 @@
                     @*<table class="tblApplReqForm5 wthtop20" style="width: 100%;">
                             <tr>
                                 <td class="txtalgnrgt tdwidth1">
-                                    <span class="input-label required">
+                                    <label class="input-label required">
                                         Document Name :
                                     </span>
                                 </td>
@@ -82,7 +82,7 @@
                                     <input type="text" id="TextBox13" />
                                 </td>
                                 <td class="txtalgnrgt tdwidth2">
-                                    <span class="input-label required">
+                                    <label class="input-label required">
                                         Document Type :
                                     </span>
                                 </td>
@@ -111,7 +111,7 @@
                             </tr>
                             <tr>
                                 <td class="txtalgnrgt">
-                                    <span class="input-label required">
+                                    <label class="input-label required">
                                         Document :
                                     </span>
                                 </td>
@@ -142,17 +142,17 @@
                     <table class="tblApplReqForm5 wthtop20" style="width: 100%;">
                         <tr>
                             <td class="txtalgnrgt tdwidth1">
-                                <span class="input-label required">
+                                <label class="input-label required">
                                     Approval/Accrediting Agency :
-                                </span>
+                                </label>
                             </td>
                             <td>
                                 <input type="text" id="txtApprovalAgency" data-ng-model="ApprovalAgency1.ApprovalAccreditingAgencyName" id="TextBox1" width="167px" />
                             </td>
                             <td class="txtalgnrgt tdwidth2">
-                                <span class="input-label required">
+                                <label class="input-label required">
                                     Agency School Code # :
-                                </span>
+                                </label>
                             </td>
                             <td>
                                 <input type="text" data-ng-model="ApprovalAgency1.AgencySchoolCode" id="TextBox1" width="167px" />
@@ -160,12 +160,12 @@
                         </tr>
                         <tr>
                             <td class="txtalgnrgt">
-                                <span class="input-label required">
+                                <label class="input-label required">
                                     Expiration Date :
-                                </span>
+                                </label>
                             </td>
                             <td>
-                                <input type="text" id="txtAddExpirationDate" data-ng-model="ApprovalAgency1.ExpirationDate" class="inputTextbox calenderSiteVisit" placeholder="MM/DD/YYYY" />
+                                <input type="text" id="AddExpirationDate1" data-ng-model="ApprovalAgency1.ExpirationDate" class="inputTextbox calenderSiteVisit" placeholder="MM/DD/YYYY" />
                             </td>
                             <td></td>
                             <td></td>
@@ -183,7 +183,7 @@
                     @*<table class="tblApplReqForm5 wthtop20" style="width: 100%;">
                             <tr>
                                 <td class="txtalgnrgt tdwidth1">
-                                    <span class="input-label required">
+                                    <label class="input-label required">
                                         Document Name :
                                     </span>
                                 </td>
@@ -191,7 +191,7 @@
                                     <input type="text" id="TextBox13" />
                                 </td>
                                 <td class="txtalgnrgt tdwidth2">
-                                    <span class="input-label required">
+                                    <label class="input-label required">
                                         Document Type :
                                     </span>
                                 </td>
@@ -220,7 +220,7 @@
                             </tr>
                             <tr>
                                 <td class="txtalgnrgt">
-                                    <span class="input-label required">
+                                    <label class="input-label required">
                                         Document :
                                     </span>
                                 </td>
@@ -276,22 +276,22 @@
                         <tbody>
                             <tr>
                                 <td class="txtalgnrgt tdwidth1">
-                                    <span class="input-label required">
+                                    <label class="input-label required">
                                         Massage Program Name :
-                                    </span>
+                                    </label>
                                 </td>
                                 <td>
-                                    <input name="MassageProgName" data-ng-model="Massage.ProgramName" type="text" maxlength="15" class="inputTextbox" autocomplete="off">
+                                    <input id="AddMassageProgName" name="MassageProgName" data-ng-model="Massage.ProgramName" type="text" maxlength="15" class="inputTextbox" autocomplete="off">
                                 </td>
                             </tr>
                             <tr>
                                 <td class="txtalgnrgt tdwidth2 widht285p">
-                                    <span class="input-label required">
+                                    <label class="input-label required">
                                         Total Number of Program Hours :
-                                    </span>
+                                    </label>
                                 </td>
                                 <td>
-                                    <input name="ProgrameHours" data-ng-model="Massage.TotalNoofPgmHours" type="text" maxlength="8" class="inputTextbox" autocomplete="off">
+                                    <input id="AddProgrameHours" name="ProgrameHours" data-ng-model="Massage.TotalNoofPgmHours" type="text" maxlength="8" class="inputTextbox" autocomplete="off">
                                 </td>
                             </tr>
                         </tbody>
@@ -325,8 +325,8 @@
     $('.calenderSiteVisit').datepicker({
         inline: true,
         changeMonth: true,
-        changeYear: true, maxDate: "-18Y",
-        yearRange: "1900:+nn"
+        changeYear: true,
+        yearRange: "1900:2030"
 
     });
 

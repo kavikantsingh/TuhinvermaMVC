@@ -1,4 +1,4 @@
-﻿<div id="pnlSection6">
+﻿<div id="pnlSection6" data-ng-controller="historyCtrl as history">
 
     <div id="uppnlSection6">
 
@@ -34,8 +34,8 @@
                                     <table id="rblHistoryQ1">
                                         <tbody>
                                             <tr>
-                                                <td><input id="rblHistoryQ1_0" type="radio" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$rblHistoryQ1" value="1" checked="checked"><label for="rblHistoryQ1_0">Yes</label></td>
-                                                <td><input id="rblHistoryQ1_1" type="radio" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$rblHistoryQ1" value="0" onclick="javascript:setTimeout('__doPostBack(\'ctl00$ContentPlaceHolder1$ucCertificationApplication1$rblHistoryQ1$1\',\'\')', 0)"><label for="rblHistoryQ1_1">No</label></td>
+                                                <td><input data-ng-model="history.appData.History.EverReceivedCitation" id="rblHistoryQ1_0" type="radio" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$rblHistoryQ1" value="1" checked="checked"><label for="rblHistoryQ1_0">Yes</label></td>
+                                                <td><input data-ng-model="history.appData.History.EverReceivedCitation" id="rblHistoryQ1_1" type="radio" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$rblHistoryQ1" value="0" onclick="javascript:setTimeout('__doPostBack(\'ctl00$ContentPlaceHolder1$ucCertificationApplication1$rblHistoryQ1$1\',\'\')', 0)"><label for="rblHistoryQ1_1">No</label></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -46,7 +46,7 @@
                                     <div id="divhist1">
                                         <div class="histdiv" style="padding: 10px ! important;">
                                             <b style="float: left;">Note :</b><p style="float: left; padding-left: 5px;">You will <u>not</u> be able to enter information until you <a href="http://www.camtc.org" target="_blank" onclick="javascript:EnableTb('.txtQestion1');" class="hyperlink">read the instructions.</a></p>
-                                            <table style="width: 100%;">
+                                            <table data-ng-show="history.appData.History.EverReceivedCitation == 1" style="width: 100%;">
                                                 <tbody>
                                                     <tr>
                                                         <td colspan="4">

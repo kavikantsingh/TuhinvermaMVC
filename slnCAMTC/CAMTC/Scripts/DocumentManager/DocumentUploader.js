@@ -68,7 +68,7 @@
           'width': '99%',
           'margin-left': '5px'
         }).append($.el('tr', {}).append($.el('td', {
-          'class': 'txtalgnrgt'
+          'class': 'txtalgnrgt tdwidth1'
         }).append($.el('label', {
           'class': 'input-label required'
         }).text("Document Name : ")), $.el('td', {}).append($.el('input', {
@@ -109,7 +109,7 @@
             return e.data.parent.showMessage(true, "docType", systemErrorMessages.DocumentUploadType, "error");
           }
         }))), $.el('tr', {}).append($.el('td', {
-          'class': 'txtalgnrgt'
+          'class': 'txtalgnrgt tdwidth1'
         }).append($.el('label', {
           'class': 'input-label required'
         }).text("Document : ")), $.el('td', {}).append(this.UploadInput), $.el('td', {
@@ -170,9 +170,10 @@
 
     _Class.p.createDocumentsList = function(docid, docs) {
       var doc, i, _i, _len;
-      this.listWrapper = $(this.Wrapper).find(this.Identifier + "_docList").first();
-      if ($(this.Wrapper).find(this.Identifier + "_docList").length === 0) {
+      this.listWrapper = $(this.Wrapper).find("#" + this.Identifier + "_docList").first();
+      if ($(this.Wrapper).find("#" + this.Identifier + "_docList").length === 0) {
         this.listWrapper = this.createDocumentTableTemplate();
+        console.log(this.listWrapper);
         $(this.Wrapper).append(this.listWrapper);
       }
       for (i = _i = 0, _len = docs.length; _i < _len; i = ++_i) {
@@ -185,7 +186,8 @@
       var obj;
       obj = $.el('table', {
         'class': 'index vlign grid gridtable',
-        'width': '100%'
+        'width': '100%',
+        'id': this.Identifier + "_docList"
       }).append($.el('tr', {}).append($.el('th', {
         'class': 'txtalgnrgt'
       }).text("Document Type"), $.el('th', {
