@@ -2,10 +2,11 @@
 (function() {
   var InstructionController;
 
-  InstructionController = function($scope) {
+  InstructionController = function($scope, GlobalObjectsFactory, ApplicationDataFactory) {
     var vm;
     vm = this;
     vm.scope = $scope;
+    vm.appData = ApplicationDataFactory;
     $(".testDiv").each(function(i, e) {
       return e.modelValue = "Div " + i;
     });
@@ -21,6 +22,6 @@
 
   angular.module('IndividualApp').controller('instructionCtrl', InstructionController);
 
-  InstructionController.$inject = ['$scope'];
+  InstructionController.$inject = ['$scope', 'GlobalObjectsFactory', 'ApplicationDataFactory'];
 
 }).call(this);

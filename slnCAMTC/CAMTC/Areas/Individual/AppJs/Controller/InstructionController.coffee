@@ -1,6 +1,9 @@
-﻿InstructionController = ($scope)->
+﻿InstructionController = ($scope, GlobalObjectsFactory, ApplicationDataFactory)->
     vm = @
     vm.scope = $scope
+    
+    vm.appData = ApplicationDataFactory
+    
     $(".testDiv").each (i, e)->
             e.modelValue = "Div " + i
     vm.myValue = "Test Value 1"
@@ -20,5 +23,5 @@ angular
     .module('IndividualApp')
     .controller('instructionCtrl', InstructionController)
     
-    InstructionController.$inject = ['$scope']
+    InstructionController.$inject = ['$scope', 'GlobalObjectsFactory', 'ApplicationDataFactory']
     

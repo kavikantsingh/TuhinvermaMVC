@@ -1,13 +1,16 @@
-﻿ApplicantController_Individual = ($scope, $http, GlobalObjectsFactory)->
+﻿ApplicantController_Individual = ($scope, $http, GlobalObjectsFactory, ApplicationDataFactory)->
     vm = @
     vm.globals = GlobalObjectsFactory
+    vm.appData = ApplicationDataFactory
+    
     vm.states = {
         addOtherName : no
         mailingAddressSameAsHome : no
     }
-    console.log vm.globals
     
-    vm.fullName = vm.globals.applicant.fullName
+    #console.log vm.globals
+    #console.log ApplicationDataFactory
+    vm.fullName = {}
     
     vm.newOtherName = {
         firstName : ""
@@ -83,4 +86,4 @@ angular
     .module('IndividualApp')
     .controller('applicantCtrl', ApplicantController_Individual)
     
-    ApplicantController_Individual.$inject = ['$scope', '$http', 'GlobalObjectsFactory']
+    ApplicantController_Individual.$inject = ['$scope', '$http', 'GlobalObjectsFactory', 'ApplicationDataFactory']

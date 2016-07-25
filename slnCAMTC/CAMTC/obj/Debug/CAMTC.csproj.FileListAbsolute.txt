@@ -236,3 +236,5 @@ D:\Work\Tuhin Verma\CAPPCAMTC\slnCAMTC\CAMTC\bin\Antlr3.Runtime.pdb
 D:\Work\Tuhin Verma\CAPPCAMTC\slnCAMTC\CAMTC\bin\Newtonsoft.Json.xml
 D:\Work\Tuhin Verma\CAPPCAMTC\slnCAMTC\CAMTC\obj\Debug\CAMTC.dll
 D:\Work\Tuhin Verma\CAPPCAMTC\slnCAMTC\CAMTC\obj\Debug\CAMTC.pdb
+C:\Users\Deva\Source\Repos\cappcamtc\slnCAMTC\CAMTC\bin\NJsonSchema.dll
+C:\Users\Deva\Source\Repos\cappcamtc\slnCAMTC\CAMTC\bin\NJsonSchema.xml

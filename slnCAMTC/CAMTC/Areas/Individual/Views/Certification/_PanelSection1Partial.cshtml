@@ -26,7 +26,7 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <input required ng-model="applicant.fullName.firstName" name="txtFirstNameEdit" type="text" value="Nancy" maxlength="150" id="txtFirstNameEdit" class="tooltip capitalize-text OnlyAlphabet inputTextbox NewAppPersonalTxtbx" title="Only A-Z characters are allowed." autocomplete="off">
+                                            <input required ng-model="applicant.appData.IndividualName.FirstName" name="txtFirstNameEdit" type="text" value="Nancy" maxlength="150" id="txtFirstNameEdit" class="tooltip capitalize-text OnlyAlphabet inputTextbox NewAppPersonalTxtbx" title="Only A-Z characters are allowed." autocomplete="off">
                                         </td>
                                         <td class="txtalgnrgt">
                                             <label class="input-label required">
@@ -34,7 +34,7 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <input required ng-model="applicant.fullName.lastName" name="txtLastNameEdit" type="text" value="Blachly" maxlength="150" id="txtLastNameEdit" class="tooltip capitalize-text OnlyAlphabet inputTextbox NewAppPersonalTxtbx" title="Only A-Z characters are allowed." autocomplete="off">
+                                            <input required ng-model="applicant.appData.IndividualName.LastName" name="txtLastNameEdit" type="text" value="Blachly" maxlength="150" id="txtLastNameEdit" class="tooltip capitalize-text OnlyAlphabet inputTextbox NewAppPersonalTxtbx" title="Only A-Z characters are allowed." autocomplete="off">
                                         </td>
                                     </tr>
                                     <tr>
@@ -44,7 +44,7 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <input ng-model="applicant.fullName.middleName" name="txtMiddleNameEdit" type="text" value="E" maxlength="150" id="txtMiddleNameEdit" class="tooltip OnlyAlphabet inputTextbox NewAppPersonalTxtbx" title="Only A-Z characters are allowed." autocomplete="off">
+                                            <input ng-model="applicant.appData.IndividualName.MiddleName" name="txtMiddleNameEdit" type="text" value="E" maxlength="150" id="txtMiddleNameEdit" class="tooltip OnlyAlphabet inputTextbox NewAppPersonalTxtbx" title="Only A-Z characters are allowed." autocomplete="off">
                                         </td>
                                     </tr>
                                     <tr>
@@ -368,7 +368,7 @@
                                             <option ng-repeat="option in main.globals.countries" ng-click="main.globals.getAllStatesByCountry(option)" value="{{option.Code}}">{{option.Name}}</option>
                                         </select>*@
 
-                                        <select  name="ddlStateMailEdit" id="ddlStateMailEdit" class="inputTextbox" title="Select your state" style="width:98px;" autocomplete="off">
+                                        <select name="ddlStateMailEdit" id="ddlStateMailEdit" class="inputTextbox" title="Select your state" style="width:98px;" autocomplete="off">
                                             <option value="-1">Select</option>
                                             <option value="-1">------ STATES OF USA --------</option>
                                             <option value="AK">ALASKA</option>
@@ -422,6 +422,7 @@
                                             <option value="WI">WISCONSIN</option>
                                             <option value="WV">WEST VIRGINIA</option>
                                             <option value="WY">WYOMING</option>
+
                                             <option value="-1">------ STATES OF CANADA -------</option>
                                             <option value="AB">Alberta</option>
                                             <option value="BC">British Columbia </option>
@@ -436,6 +437,7 @@
                                             <option value="QC">Quebec </option>
                                             <option value="SK">Saskatchewan </option>
                                             <option value="YT">Yukon </option>
+
                                             <option value="00">------- Other States -------</option>
 
                                         </select>

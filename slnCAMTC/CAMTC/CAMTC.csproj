@@ -179,17 +179,35 @@
     <Content Include="Areas\Individual\AppJs\Controller\ApplicantController_Individual.min.js">
       <DependentUpon>ApplicantController_Individual.js</DependentUpon>
     </Content>
+    <Content Include="Areas\Individual\AppJs\Controller\IdentificationController_Individual.js">
+      <DependentUpon>IdentificationController_Individual.coffee</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Controller\IdentificationController_Individual.min.js">
+      <DependentUpon>IdentificationController_Individual.js</DependentUpon>
+    </Content>
     <Content Include="Areas\Individual\AppJs\Controller\InstructionController.js">
       <DependentUpon>InstructionController.coffee</DependentUpon>
     </Content>
     <Content Include="Areas\Individual\AppJs\Controller\InstructionController.min.js">
       <DependentUpon>InstructionController.js</DependentUpon>
     </Content>
+    <Content Include="Areas\Individual\AppJs\Controller\LicensureController_Individual.js">
+      <DependentUpon>LicensureController_Individual.coffee</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Controller\LicensureController_Individual.min.js">
+      <DependentUpon>LicensureController_Individual.js</DependentUpon>
+    </Content>
     <Content Include="Areas\Individual\AppJs\Controller\MainController_Individual.js">
       <DependentUpon>MainController_Individual.coffee</DependentUpon>
     </Content>
     <Content Include="Areas\Individual\AppJs\Controller\MainController_Individual.min.js">
       <DependentUpon>MainController_Individual.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Factory\ApplicationDataFactory.js">
+      <DependentUpon>ApplicationDataFactory.coffee</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Factory\ApplicationDataFactory.min.js">
+      <DependentUpon>ApplicationDataFactory.js</DependentUpon>
     </Content>
     <Content Include="Areas\Individual\AppJs\Factory\GlobalObjectsFactory.js">
       <DependentUpon>GlobalObjectsFactory.coffee</DependentUpon>
@@ -208,6 +226,12 @@
     </Content>
     <Content Include="Areas\Individual\AppJs\RunIndividualApp.min.js">
       <DependentUpon>RunIndividualApp.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Service\ApplicationDataService.js">
+      <DependentUpon>ApplicationDataService.coffee</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Service\ApplicationDataService.min.js">
+      <DependentUpon>ApplicationDataService.js</DependentUpon>
     </Content>
     <Content Include="Areas\Individual\AppJs\Service\GlobalObjectsService.js">
       <DependentUpon>GlobalObjectsService.coffee</DependentUpon>
@@ -265,6 +289,11 @@
     <Content Include="Areas\Individual\AppJs\Factory\GlobalObjectsFactory.coffee" />
     <Content Include="Areas\Individual\AppJs\Service\GlobalObjectsService.coffee" />
     <Content Include="Areas\Individual\AppJs\RunIndividualApp.coffee" />
+    <Content Include="Areas\Individual\AppJs\Factory\ApplicationDataFactory.coffee" />
+    <Content Include="Areas\Individual\AppJs\Service\ApplicationDataService.coffee" />
+    <Content Include="Areas\Individual\AppJs\Controller\IdentificationController_Individual.coffee" />
+    <Content Include="Areas\Individual\AppJs\Controller\LicensureController_Individual.coffee" />
+    <Content Include="Areas\Individual\AppJs\Controller\EducationController_Individual.coffee" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -1228,12 +1257,10 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Agency\Models\" />
-    <Folder Include="Areas\Individual\Models\" />
     <Folder Include="Areas\School\Models\" />
     <Folder Include="Content\Agency\" />
     <Folder Include="Content\BackOffice\" />
     <Folder Include="Content\DatatableJS\" />
-    <Folder Include="Content\Individual\" />
     <Folder Include="Content\School\" />
     <Folder Include="Views\Schema\" />
   </ItemGroup>

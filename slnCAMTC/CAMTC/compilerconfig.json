@@ -46,5 +46,21 @@
   {
     "outputFile": "Areas/Individual/AppJs/RunIndividualApp.js",
     "inputFile": "Areas/Individual/AppJs/RunIndividualApp.coffee"
+  },
+  {
+    "outputFile": "Areas/Individual/AppJs/Service/ApplicationDataService.js",
+    "inputFile": "Areas/Individual/AppJs/Service/ApplicationDataService.coffee"
+  },
+  {
+    "outputFile": "Areas/Individual/AppJs/Factory/ApplicationDataFactory.js",
+    "inputFile": "Areas/Individual/AppJs/Factory/ApplicationDataFactory.coffee"
+  },
+  {
+    "outputFile": "Areas/Individual/AppJs/Controller/IdentificationController_Individual.js",
+    "inputFile": "Areas/Individual/AppJs/Controller/IdentificationController_Individual.coffee"
+  },
+  {
+    "outputFile": "Areas/Individual/AppJs/Controller/LicensureController_Individual.js",
+    "inputFile": "Areas/Individual/AppJs/Controller/LicensureController_Individual.coffee"
   }
 ]

@@ -2,16 +2,16 @@
 (function() {
   var ApplicantController_Individual;
 
-  ApplicantController_Individual = function($scope, $http, GlobalObjectsFactory) {
+  ApplicantController_Individual = function($scope, $http, GlobalObjectsFactory, ApplicationDataFactory) {
     var vm;
     vm = this;
     vm.globals = GlobalObjectsFactory;
+    vm.appData = ApplicationDataFactory;
     vm.states = {
       addOtherName: false,
       mailingAddressSameAsHome: false
     };
-    console.log(vm.globals);
-    vm.fullName = vm.globals.applicant.fullName;
+    vm.fullName = {};
     vm.newOtherName = {
       firstName: "",
       middleName: "",
@@ -64,6 +64,6 @@
 
   angular.module('IndividualApp').controller('applicantCtrl', ApplicantController_Individual);
 
-  ApplicantController_Individual.$inject = ['$scope', '$http', 'GlobalObjectsFactory'];
+  ApplicantController_Individual.$inject = ['$scope', '$http', 'GlobalObjectsFactory', 'ApplicationDataFactory'];
 
 }).call(this);

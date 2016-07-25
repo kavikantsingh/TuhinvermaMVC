@@ -2,17 +2,19 @@
 (function() {
   var MainController_Individual;
 
-  MainController_Individual = function($scope, $http, GlobalObjectsFactory) {
+  MainController_Individual = function($scope, $http, GlobalObjectsFactory, ApplicationDataFactory) {
     var vm;
     vm = this;
     vm.testValue = "My Main Test Value";
     vm.globals = GlobalObjectsFactory;
+    vm.applicationData = ApplicationDataFactory;
+    console.log(vm.applicationData);
     console.log(vm.globals.countries);
     vm.ApplicationModel = {};
   };
 
   angular.module('IndividualApp').controller('mainCtrl', MainController_Individual);
 
-  MainController_Individual.$inject = ['$scope', '$http', 'GlobalObjectsFactory'];
+  MainController_Individual.$inject = ['$scope', '$http', 'GlobalObjectsFactory', 'ApplicationDataFactory'];
 
 }).call(this);

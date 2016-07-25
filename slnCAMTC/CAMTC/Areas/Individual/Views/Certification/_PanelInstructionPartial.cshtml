@@ -28,7 +28,12 @@
                                         <table id="rblQuestionEdit1" class="aspNetDisabled">
                                             <tbody>
                                                 <tr>
-                                                    <td><span class="aspNetDisabled"><input id="rblQuestionEdit1_0" type="radio" name="rblQuestionEdit1" value="1" disabled="disabled" onclick="javascript:setTimeout('__doPostBack(\'rblQuestionEdit1$0\',\'\')', 0)"><label for="rblQuestionEdit1_0">Yes</label></span></td>
+                                                    <td>
+                                                        <span class="aspNetDisabled">
+                                                            <input data-ng-model="instruction.appData.ReadInstruction" id="rblQuestionEdit1_0" type="radio" name="rblQuestionEdit1" value="1" disabled="disabled">
+                                                            <label for="rblQuestionEdit1_0">Yes</label>
+                                                        </span>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -51,15 +56,22 @@
                                     <b>Do you understand the qualiﬁcations for Massage Therapist Certification?</b>
                                 </td>
                                 <td class="cursorpointer">
-                                    <b>
+                                    
                                         <table id="rblQuestionEdit2" class="aspNetDisabled">
                                             <tbody>
                                                 <tr>
-                                                    <td><span class="aspNetDisabled"><input id="rblQuestionEdit2_0" type="radio" name="rblQuestionEdit2" value="1" disabled="disabled" onclick="javascript:setTimeout('__doPostBack(\'rblQuestionEdit2$0\',\'\')', 0)"><label for="rblQuestionEdit2_0">Yes</label></span></td>
+                                                    <td>
+                                                        <span class="aspNetDisabled">
+                                                            <b>
+                                                                <input data-ng-model="instruction.appData.UnderstandQualification" id="rblQuestionEdit2_0" type="radio" name="rblQuestionEdit2" value="1" disabled="disabled">
+                                                                <label for="rblQuestionEdit2_0">Yes</label>
+                                                            </b>
+                                                        </span>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
-                                    </b>
+                                    
                                 </td>
                             </tr>
                         </tbody>
