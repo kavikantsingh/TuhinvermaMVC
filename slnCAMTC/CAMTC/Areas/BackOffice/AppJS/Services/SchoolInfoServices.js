@@ -56,6 +56,19 @@ LAPP.factory('SchoolInfoFactory', function ($http, $q) {
             return $http.get(providerurl + '/Get_All_Providersitevisittype/' + key);
         },
         //schoolInfo
+        SaveProviderTabStatus: function (key, objAprovidermblex) {
+            return $http.post(providerurl + '/SaveProviderTabStatus/' + key, objAprovidermblex);
+        },
+        SaveProviderTabStatus: function (key, objAprovidermblex) {
+            return $http.post(providerurl + '/SaveProviderTabStatus/' + key, objAprovidermblex);
+        },
+        SaveButtonOfInstructions: function (key, objAprovidermblex) {
+            return $http.post(providerurl + '/SaveButtonOfInstructions/' + key, objAprovidermblex);
+        },
+        CheckInitialTabStatus: function (key, objAprovidermblex) {
+            return $http.post(providerurl + '/CheckInitialTabActive/' + key, objAprovidermblex);
+        },
+
         verifyaddress: function (data) {
             return $http.get('https://api.lob.com/v1/verify', data, auth = ('info@inlumon.com', '12345678'))
         },
