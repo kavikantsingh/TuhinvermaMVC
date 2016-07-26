@@ -10,16 +10,27 @@
         <fieldset class="flsNewApplReqForm flsCharacterReferences">
             <table style="width: 100%;">
                 <tbody>
+                    <tr ng-repeat="m in ContentItems">
+                        <td style="width: 600px; padding-left: 8px; line-height: 20px; text-align: justify;" id="affidavitorName">
+                           
+                            {{m.ContentItemLkDesc}}
+                        </td>
+                        <td align="right" style="width: 50px; vertical-align: middle;" class="cursorpointer">
+                            <input id="AffQ1" type="checkbox" name="AffQ1" checked="checked" ng-model="m.ContentItemResponse" data-ContentItenLKId="{{m.ContentItemLkId}}" data-ItemNo="{{m.ContentItemNo}}"><label for="AffQ1">Yes</label>
+                        </td>
+                    </tr>
+                    </tbody>
+@*<tbody>
+
                     <tr>
                         <td style="width: 600px; padding-left: 8px; line-height: 20px; text-align: justify;" id="affidavitorName">
-                            @*<p style="padding-bottom: 10px;">
+                            <p style="padding-bottom: 10px;">
                                 <label class="input-label required">
                                     I,
                                 </label>
                                 <input name="txtAffidavitApplicantName" type="text" value="{{fname}} {{lname}}" id="txtAffidavitApplicantName" autocomplete="off">
                                 ("the Certiﬁcate Holder") hereby declare and reaffirm that, except for the new information contained herein or attached hereto, the information contained in my initial CAMTC application is still true and correct and I did not omit any relevant information in my initial CAMTC application or this application.
-                            </p>*@
-                            {{AffidavitContent1.ContentItemLkDesc}}
+                            </p>                            
                         </td>
                         <td align="right" style="width: 50px; vertical-align: middle;" class="cursorpointer">
                             <input id="AffQ1" type="checkbox" name="AffQ1" checked="checked" data-ContentItenLKId="21" data-ItemNo="1"><label for="AffQ1">Yes</label>
@@ -117,7 +128,7 @@
                             <input id="AffQ9" type="checkbox" name="AffQ9" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'AffQ9\',\'\')', 0)"><label for="AffQ9">Yes</label>
                         </td>
                     </tr>
-                </tbody>
+                </tbody>*@
             </table>
 
             <div class="clear">
@@ -130,13 +141,13 @@
                                 <label class="input-label required">Signature :</label>
                             </td>
                             <td>
-                                <input name="AffSign" type="text" id="AffSign" autocomplete="off">
+                                <input name="AffSign" type="text" id="AffSign" ng-model="name" autocomplete="off">
                             </td>
                             <td align="right">
                                 <label class="input-label required">Date :</label>
                             </td>
                             <td>
-                                <input name="AffDate" type="text" id="AffDate" class="calender inputTextbox hasDatepicker" placeholder="MM/DD/YYYY" autocomplete="off" maxlength="10">
+                                <input name="AffDate" type="text" id="AffDate" ng-model="signaturename" class="calender inputTextbox hasDatepicker" placeholder="MM/DD/YYYY" autocomplete="off" maxlength="10">
                             </td>
                         </tr>
                     </tbody>

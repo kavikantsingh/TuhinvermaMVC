@@ -1,5 +1,5 @@
 ﻿var reCertificationApp = angular.module("reCertificationApp", [])
-var BaseURL = 'http://ws.camtc.inlumon.com/';
+var BaseURL = 'http://localhost:1530/';
 
 reCertificationApp.controller("reCertificationController", ['$scope', 'CertificationFactory', function ($scope, CertificationFactory) {
 
@@ -102,11 +102,48 @@ reCertificationApp.controller("reCertificationController", ['$scope', 'Certifica
 
         CertificationFactory.Get_CertificateHolderDetail(sessionStorage.Key, 271, 938)
                       .success(function (response) {
+                          $scope.IndividualId = 271;
+                          $scope.ApplicationId = 938;
+                          $scope.IndividualLicenseId = response.IndividualLicenseId;
                           $scope.idnumber = response.CAMTCIdNumber;
                           $scope.licensenumber = response.CAMTCCertificateNumber;
                           $scope.fname = response.FirstName;
                           $scope.lname = response.LastName;
                           $scope.mname = response.MiddleName;
+                          $scope.homeaddressid = response.HomeAddressId;
+                          $scope.homestreet1 = response.HomeStreetLine1;
+                          $scope.homestreet2 = response.HomeStreetLine2;
+                          $scope.homecity = response.HomeCity;
+                          $scope.homestatecode = response.HomeStateCode;
+                          $scope.homeUseUserAddress = response.HomeUseUserAddress;
+                          $scope.homeUseVerifiedAddress = response.HomeUseVerifiedAddress;
+                          $scope.homezip = response.HomeZip;
+                          $scope.mailingaddressid = response.MailingAddressId;
+                          $scope.ismailingaddresssame = response.IsMailingSameAsPhysical;
+                          $scope.mailingstreet1 = response.MailingStreetLine1;
+                          $scope.mailingstreet2 = response.MailingStreetLine2;
+                          $scope.mailingcity = response.MailingCity;
+                          $scope.mailingstatecode = response.MailingStateCode;
+                          $scope.mailingUseUserAddress = response.MailingUseUserAddress;
+                          $scope.mailingUseVerifiedAddress = response.MailingUseVerifiedAddress;
+                          $scope.mailingzip = response.MailingZip;
+                          $scope.primaryphonecontactid = response.PrimaryPhoneContactId;
+                          $scope.primaryphonecontacttypeid = response.PrimaryPhoneContactTypeId;
+                          $scope.primaryphone = response.PrimaryPhone;
+                          $scope.primaryphoneismobile = response.PrimaryPhoneIsMobile;
+                          $scope.secondaryphonecontactid = response.SecondaryPhoneContactId;
+                          $scope.secondaryphonecontacttypeid = response.SecondaryPhoneContactTypeId;
+                          $scope.secondaryphone = response.SecondaryPhone;
+                          $scope.secondaryphoneismobile = response.SecondaryPhoneIsMobile;
+                          $scope.websitecontactid = response.WebsiteContactId;
+                          $scope.websitecontacttypeid = response.WebsiteContactTypeId;
+                          $scope.website = response.Website;
+                          $scope.primaryemailcontactid = response.PrimaryEmailContactId;
+                          $scope.primaryemailcontacttypeid = response.PrimaryEmailContactTypeId;
+                          $scope.primaryemail = response.PrimaryEmail;
+                          $scope.secondaryemailcontactid = response.SecondaryEmailContactId;
+                          $scope.secondaryemailcontacttypeid = response.SecondaryEmailContactTypeId;
+                          $scope.secondaryemail = response.SecondaryEmail;
 
                       })
                       .error(function (data) {
@@ -118,8 +155,74 @@ reCertificationApp.controller("reCertificationController", ['$scope', 'Certifica
             $scope.tab = selectedTab;
         }
 
+        $scope.CopyHomeAddress = function (isSame) {
+            if (isSame == 1) {
+                $scope.mailingstreet1 = $scope.homestreet1;
+                $scope.mailingstreet2 = $scope.homestreet2;
+                $scope.mailingcity = $scope.homecity;
+                $scope.mailingstatecode = $scope.homestatecode;
+                $scope.mailingzip = $scope.homezip;
+            }
+            else {
+                $scope.mailingstreet1 = '';
+                $scope.mailingstreet2 = '';
+                $scope.mailingcity = '';
+                $scope.mailingstatecode = '';
+                $scope.mailingzip = '';
+            }
 
+        }
+        $scope.VerifyAddress = function (addressType) {
+            alert(addressType);
+            var address = {};
+            if (addressType == "H") {
+                address.StreetLine1 = $scope.homestreet1;
+                address.StreetLine2 = $scope.homestreet2;
+                address.City = $scope.homecity;
+                address.StateCode = $scope.homestatecode;
+                address.Zip = $scope.homezip;
+                address.Country = "US";
+            }
 
+            if (addressType == "M") {
+                address.StreetLine1 = $scope.mailingstreet1;
+                address.StreetLine2 = $scope.mailingstreet2;
+                address.City = $scope.mailingcity;
+                address.StateCode = $scope.mailingstatecode;
+                address.Zip = $scope.mailingzip;
+                address.Country = "US";
+            }
+
+            CertificationFactory.Get_VerifiedAddress(sessionStorage.Key, address)
+                      .success(function (response) {
+                          if (response.Status) {
+                              $scope.verifiedStreet1 = response.StreetLine1;
+                              $scope.verifiedStreet2 = response.StreetLine2;
+                              $scope.verifiedCity = response.City;
+                              $scope.verifiedState = response.StateCode;
+                              $scope.verifiedZip = response.Zip;
+                          }
+                          else {
+                              if (addressType == "M") {
+                                  $('#divNotVerifiedMailingAdd').html('<p style="color: Red; text-align: center;">' +
+                                              '<label class="input-label">This is not a verified email Address</label></p>');
+                              }
+                              else {
+                                  $('#divNotVerifiedHomeAdd').html('<p style="color: Red; text-align: center;">' +
+                                              '<label class="input-label">This is not a verified home Address</label></p>');
+                              }
+                          }
+                          if (addressType == "H")
+                              $scope.isClicked = 1;
+                          else
+                              $scope.isMailingClicked = 1;
+
+                      })
+                      .error(function (data) {
+                          alert('Oops! Some Error Occurred.');
+                          HideLoader();
+                      });
+        }
 
         $scope.SavePersonalInfo = function () {
 
@@ -129,7 +232,6 @@ reCertificationApp.controller("reCertificationController", ['$scope', 'Certifica
             error += ValidateTextbox('<span class="notok"></span> Please enter CAMTC Certiﬁcate Number<br/>', '#txtCAMCTCertificateNo', $('#txtCAMCTCertificateNo').val());
             error += ValidateTextbox('<span class="notok"></span> Please enter first name<br/>', '#txtFirstNameEdit', $('#txtFirstNameEdit').val());
             error += ValidateTextbox('<span class="notok"></span> Please enter last  name<br/>', '#txtLastNameEdit', $('#txtLastNameEdit').val());
-            error += ValidateTextbox('<span class="notok"></span> Please enter Street<br/>', '#txtStreetResEdit', $('#txtStreetResEdit').val());
             error += ValidateTextbox('<span class="notok"></span> Please enter City<br/>', '#txtCityResEdit', $('#txtCityResEdit').val());
             error += ValidateDropdown('-1', '<span class=notok></span> Select Deficiency Template to Use<br/>', '#ddlStateResEdit', $('#ddlStateResEdit').val());
 
@@ -146,14 +248,102 @@ reCertificationApp.controller("reCertificationController", ['$scope', 'Certifica
 
             if (error != '') {
                 $('#DRerror_validation').show();
-
                 $(document).scrollTop(0);
-
                 $('#DRerror_validation').html(error);
                 return false;
             }
             else {
                 $('#DRerror_validation').hide();
+                ShowLoader();
+                var individual = {};
+                individual.IndividualId = $scope.IndividualId;
+                individual.ApplicationId = $scope.ApplicationId;
+                individual.IndividualLicenseId = 1104;//$scope.IndividualLicenseId;
+                individual.FirstName = $scope.fname;
+                individual.LastName = $scope.lname;
+                individual.MiddleName = $scope.mname;
+                individual.CAMTCIdNumber = $scope.idnumber;
+                individual.CAMTCCertificateNumber = $scope.licensenumber;
+
+                var individualAddress = [];
+                var address = {};
+
+                address.AddressId = $scope.homeaddressid;
+                address.AddressTypeId = 2;
+                address.StreetLine1 = $scope.homestreet1;
+                address.StreetLine2 = $scope.homestreet2;
+                address.City = $scope.homecity;
+                address.StateCode = $scope.homestatecode;
+                address.Zip = $scope.homezip;
+                address.UseUserAddress = $scope.homeUseUserAddress;
+                address.UseVerifiedAddress = $scope.homeUseVerifiedAddress;
+                address.IsMailingSameAsPhysical = $scope.ismailingaddresssame;
+                individualAddress.push(address);
+
+                address = {};
+                address.AddressId = $scope.mailingaddressid;
+                address.AddressTypeId = 1;
+                address.StreetLine1 = $scope.mailingstreet1;
+                address.StreetLine2 = $scope.mailingstreet2;
+                address.City = $scope.mailingcity;
+                address.StateCode = $scope.mailingstatecode;
+                address.Zip = $scope.mailingzip;
+                address.UseUserAddress = $scope.mailingUseUserAddress;
+                address.UseVerifiedAddress = $scope.mailingUseVerifiedAddress;
+                address.IsMailingSameAsPhysical = $scope.ismailingaddresssame;
+                individualAddress.push(address);
+
+                var individualContacts = [];
+                var contact = {};
+
+                contact.ContactId = $scope.primaryphonecontactid;
+                contact.ContactTypeId = $scope.primaryphonecontacttypeid;
+                contact.IsMobile = $scope.primaryphoneismobile;
+                contact.ContactInfo = $scope.primaryphone;
+                individualContacts.push(contact);
+
+                contact = {};
+
+                contact.ContactId = $scope.secondaryphonecontactid;
+                contact.ContactTypeId = $scope.secondaryphonecontacttypeid
+                contact.IsMobile = $scope.secondaryphoneismobile;
+                contact.ContactInfo = $scope.secondaryphone;
+                individualContacts.push(contact);
+
+                contact = {};
+
+                contact.ContactId = $scope.primaryemailcontactid;
+                contact.ContactTypeId = $scope.primaryemailcontacttypeid;
+                contact.ContactInfo = $scope.primaryemail;
+                individualContacts.push(contact);
+
+                contact = {};
+
+                contact.ContactId = $scope.secondaryemailcontactid;
+                contact.ContactTypeId = $scope.secondaryemailcontacttypeid;
+                contact.ContactInfo = $scope.secondaryemail;
+                individualContacts.push(contact);
+
+                contact = {};
+
+                contact.ContactId = $scope.websitecontactid;
+                contact.ContactTypeId = $scope.websitecontacttypeid;
+                contact.ContactInfo = $scope.website
+                individualContacts.push(contact);
+
+                individual.IndividualAddress = individualAddress;
+                individual.individualContacts = individualContacts;
+
+                var data = JSON.stringify(individual)
+                CertificationFactory.Save_CertificateHolderInfo(sessionStorage.Key, data)
+                      .success(function (response) {
+                          alert("save loaded");
+                          HideLoader();
+                      })
+                      .error(function (data) {
+                          alert('Oops! Some Error Occurred.');
+                          HideLoader();
+                      });
                 return true;
             }
         };
@@ -715,26 +905,53 @@ reCertificationApp.controller("reCertificationController", ['$scope', 'Certifica
 
             if (error != '') {
                 $('#applicationAffidavit').show();
-
                 $(document).scrollTop(0);
-
                 $('#applicationAffidavit').html(error);
                 return false;
             }
             else {
                 $('#applicationAffidavit').hide();
+                var obj = {};
+                obj.IndividualAffidavitResponseList = $scope.ContentItems
+                obj.Individualaffidavitsignature = { SignatureName: $scope.signaturename, Name: $scope.name };
+
+                CertificationFactory.Save_AffidavitInfo(sessionStorage.Key, JSON.stringify(obj)).success(function (response) {
+                    if (response.IsValid) {
+
+                    }
+                }).
+                error(function (response) {
+                    alert(response);
+                });
+                //angular.forEach($scope.ContentItems, function (value,key) {
+                //    alert(value.ContentItemResponse);
+                //})
+
+
                 return true;
             }
         }
         $scope.InitializeAffidavitView = function () {
-            CertificationFactory.Get_ContentItem_By_ContentItemLkId_AND_Code(sessionStorage.Key, 21, 'SchoolEligibility').success(function (response) {
+
+            CertificationFactory.Get_ContentGetAffidavitContent(sessionStorage.Key).success(function (response) {
                 if (response.Status) {
-                    $scope.AffidavitContent1 = response.ContentItemLk[0];
+                    $scope.ContentItems = response.ContentItems;
+                }
+                else {
+                    $scope.ContentItems = [];
                 }
             }).error(function (data) {
                 //alert('error');
             });
+            //CertificationFactory.Get_ContentItem_By_ContentItemLkId_AND_Code(sessionStorage.Key, 21, 'SchoolEligibility').success(function (response) {
+            //    if (response.Status) {
+            //        $scope.AffidavitContent1 = response.ContentItemLk[0];
+            //    }
+            //}).error(function (data) {
+            //    //alert('error');
+            //});
         };
+
         $scope.InitializeAffidavitView();
     }
     $scope.ValidateRecertification();
