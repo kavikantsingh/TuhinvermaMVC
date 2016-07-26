@@ -273,7 +273,7 @@
                                         </td>
                                     </tr>
 
-                                    @*<tr id='DT_{{m.TemplateId}}' style="display: none;">
+                                    <tr id='TM_{{m.TemplateId}}' style="display: none;">
                                             <td colspan='6'>
                                                 <div class="pdng5" style="padding: 15px 0px 15px 0px; width: 100%;">
 
@@ -281,15 +281,15 @@
                                                         <tr>
                                                             <td align="right">
                                                                 <label class="input-label required">
-                                                                    Transaction Type :
+                                                                    Application Type :
                                                                 </label>
                                                             </td>
                                                             <td align="left">
-                                                                <select id="ddlMasterTransaction_{{m.Deficiency_Template_ID}}" ng-model="m.Master_Transaction_Id">
+                                                                <select id="ddlApplicationType_{{m.TemplateId}}" ng-model="m.ApplicationTypeId">
 
                                                                     <option value="-1" selected="selected">Select</option>
 
-                                                                    <option ng-repeat="option in ddlMasterTransaction" value="{{option.MasterTransactionId}}">{{option.MasterTransactionName}}</option>
+                                                                    <option ng-repeat="option in ddlApplicationType" value="{{option.ApplicationTypeId}}">{{option.Name}}</option>
 
                                                                 </select>
                                                             </td>
@@ -297,41 +297,31 @@
                                                         <tr>
                                                             <td align="right">
                                                                 <label class="input-label required">
-                                                                    Deficiency Template Name :
+                                                                    Template Name :
                                                                 </label>
                                                             </td>
                                                             <td align="left">
-                                                                <input type="text" id="txtName_{{m.Deficiency_Template_ID}}" class="inputTextbox" ng-value="m.Deficiency_Template_Name" />
+                                                                <input type="text" ID="txtTempName_{{m.TemplateId}}" class="inputTextbox" ng-value="m.TemplateName" />
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td align="right">
                                                                 <label class="input-label">
-                                                                    Deficiency Template Subject :
+                                                                    Subject :
                                                                 </label>
                                                             </td>
                                                             <td align="left">
-                                                                <input type="text" id="txtsub_{{m.Deficiency_Template_ID}}" Style="width: 542px; height: 60px;" ng-value="m.Deficiency_Template_Subject" TextMode="MultiLine" />
+                                                                <input type="text" id="txtsubject_{{m.TemplateId}}" Style="width: 542px; height: 60px;" ng-value="m.TemplateSubject" TextMode="MultiLine" />
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td align="right">
                                                                 <label class="input-label">
-                                                                    Deficiency Template Message :
+                                                                    Message Text :
                                                                 </label>
                                                             </td>
                                                             <td align="left">
-                                                                <input type="text" id="txtmsg_{{m.Deficiency_Template_ID}}" Style="width: 542px; height: 60px;" ng-value="m.Deficiency_Template_Message" TextMode="MultiLine" />
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td align="right">
-                                                                <label class="input-label">
-                                                                    Is Active? :
-                                                                </label>
-                                                            </td>
-                                                            <td align="left">
-                                                                <input type="checkbox" id="txtIsActive_{{m.Deficiency_Template_ID}}" ng-checked="m.Is_Active" />
+                                                                <input type="text" id="txtmsg_{{m.TemplateId}}" Style="width: 542px; height: 60px;" ng-value="m.TemplateMessage" TextMode="MultiLine" />
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -339,12 +329,12 @@
                                                 </div>
                                                 <div class="toolbar clear" style="">
                                                     <span class="fltrt">
-                                                        <input type="button" id="btnUpdate_{{m.Deficiency_Template_ID}}" ng-click="doStuff(this);" title='{{m.Deficiency_Template_ID}}' value="Update" class="buttongreen medium" />
-                                                        <input id="btnCancel" type="button" name='{{m.Deficiency_Template_ID}}' value="Cancel" class="secondary medium" ng-click="hideStuff(this)" />
+                                                        <input type="button" id="btnUpdate_{{m.TemplateId}}" ng-click="TMdoStuff(this);" title='{{m.TemplateId}}' value="Update" class="buttongreen medium" />
+                                                        <input id="btnCancel" type="button" name='{{m.TemplateId}}' value="Cancel" class="secondary medium" ng-click="TMhideStuff(this)" />
                                                     </span>
                                                 </div>
                                             </td>
-                                        </tr>*@
+                                        </tr>
 
                                 </tbody>
                             </table>
