@@ -1,0 +1,168 @@
+﻿<div id="pnlSection7">
+
+    <div id="upAppScQues">
+
+        <div class="sectionDiv">
+            <span>APPLICANT AFFIDAVIT RECORD RELEASE</span>
+        </div>
+        <div id="applicationAffidavit" class="address-box posFixed" style="display: none; color: red;"></div>
+
+        <fieldset class="flsNewApplReqForm flsCharacterReferences">
+            <table style="width: 100%;">
+                <tbody>
+                    <tr ng-repeat="m in ContentItems">
+                        <td style="width: 600px; padding-left: 8px; line-height: 20px; text-align: justify;" id="affidavitorName">
+                           
+                            {{m.ContentItemLkDesc}}
+                        </td>
+                        <td align="right" style="width: 50px; vertical-align: middle;" class="cursorpointer">
+                            <input id="AffQ1" type="checkbox" name="AffQ1" checked="checked" ng-model="m.ContentItemResponse" data-ContentItenLKId="{{m.ContentItemLkId}}" data-ItemNo="{{m.ContentItemNo}}"><label for="AffQ1">Yes</label>
+                        </td>
+                    </tr>
+                    </tbody>
+@*<tbody>
+
+                    <tr>
+                        <td style="width: 600px; padding-left: 8px; line-height: 20px; text-align: justify;" id="affidavitorName">
+                            <p style="padding-bottom: 10px;">
+                                <label class="input-label required">
+                                    I,
+                                </label>
+                                <input name="txtAffidavitApplicantName" type="text" value="{{fname}} {{lname}}" id="txtAffidavitApplicantName" autocomplete="off">
+                                ("the Certiﬁcate Holder") hereby declare and reaffirm that, except for the new information contained herein or attached hereto, the information contained in my initial CAMTC application is still true and correct and I did not omit any relevant information in my initial CAMTC application or this application.
+                            </p>                            
+                        </td>
+                        <td align="right" style="width: 50px; vertical-align: middle;" class="cursorpointer">
+                            <input id="AffQ1" type="checkbox" name="AffQ1" checked="checked" data-ContentItenLKId="21" data-ItemNo="1"><label for="AffQ1">Yes</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 8px; line-height: 20px; text-align: justify;">
+                            <p style="padding-bottom: 10px;">
+                                I understand that it is my duty and responsibility as a CAMTC Certiﬁcate Holder and applicant for recertification to supplement and/or update my information with CAMTC when any change in circumstances or conditions occur which might affect CAMTC’s decision concerning my eligibility for certification or recertification. I understand that if I am charged with Penal Code section 647(b) - Prostitution or any act punishable as a sexually related crime, or required to register as a sex offender in California or another state, I am required to immediately notify CAMTC of the fact that these charges have been filed against me and if/when l have been convicted of these or any other offenses. Failure to supplement and/or update my information may result in disciplinary action by CAMTC including but not limited to denial, suspension, or revocation of my Certificate.
+                            </p>
+                        </td>
+                        <td align="right" style="vertical-align: middle;" class="cursorpointer">
+                            <input id="AffQ3" type="checkbox" name="AffQ3" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'AffQ3\',\'\')', 0)"><label for="AffQ3">Yes</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 8px; line-height: 20px; text-align: justify;">
+                            <p style="padding-bottom: 10px;">
+                                I understand that it is my responsibility by law to provide CAMTC with any change of home address, change of business address(es), change of primary email address, and addition of business address(es) within 30 days of any such change or additions, and that failure to report such changes or additions in a timely manner to CAMTC may result in disciplinary action by CAMTC including but not limited to denial, suspension, or revocation of my certificate.
+                            </p>
+                        </td>
+                        <td align="right" style="vertical-align: middle;" class="cursorpointer">
+                            <input id="AffQ4" type="checkbox" name="AffQ4" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'AffQ4\',\'\')', 0)"><label for="AffQ4">Yes</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 8px; line-height: 20px; text-align: justify;">
+                            <p style="padding-bottom: 10px;">
+                                I understand and agree that my application for recertification may be denied based on unprofessional conduct if I practice massage at a massage establishment, or own a massage establishment, that advertises in any adult and/or sexually oriented section of any form of media, whether print or digital.
+                            </p>
+                        </td>
+                        <td align="right" style="vertical-align: middle;" class="cursorpointer">
+                            <input id="AffQ5" type="checkbox" name="AffQ5" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'AffQ5\',\'\')', 0)"><label for="AffQ5">Yes</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 8px; line-height: 20px; text-align: justify;">
+                            <p style="padding-bottom: 10px;">
+                                I hereby authorize Law Enforcement Agencies (LEA), government agencies, and other
+                                massage related entities to release my records to CAMTC upon request, and l hereby
+                                authorize CAMTC to share all information about me, whether provided by me or others,
+                                including personal information, with LEA, government agencies, and other massage
+                                related entities upon request. (Note: we will not sell or release personal information
+                                for marketing purposes.)
+                            </p>
+                        </td>
+                        <td align="right" style="vertical-align: middle;" class="cursorpointer">
+                            <input id="AffQ6" type="checkbox" name="AffQ6" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'AffQ6\',\'\')', 0)"><label for="AffQ6">Yes</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 8px; line-height: 20px; text-align: justify;">
+                            <p style="padding-bottom: 10px;">
+                                I understand that if I am granted CAMTC certification, it is only for a period of two years, and it is my responsibility to submit a fully completed application for recertification and ensure that it is received by CAMTC before the expiration date listed on my certificate. I further understand that a reminder notiﬁcation may be sent to me as a courtesy, but failure to receive the reminder notiﬁcation does not waive my responsibility to submit a fully completed application for recertification and ensure that it is received before my current certiﬁcate expires. I further understand that failure to submit a fully completed application for recertification that is received by CAMTC before my certificate expires will result in a late fee of up to $90 if the application for recertiﬁcation is received by CAMTC within six (6) months of my certificate expiring. I further understand that if a fully completed application for recertification is not received by CAMTC within six (6) months of my certiﬁcate expiring, I will be required to apply for certification as a new applicant and I will have to meet all of the requirements for certification that exist at the time I request recertification. <b>I UNDERSTAND THAT UNDER NO CIRCUMSTANCES CAN THIS LATE FEE OR POLICY BE WAIVED.</b>
+                            </p>
+                        </td>
+                        <td align="right" style="vertical-align: middle;" class="cursorpointer">
+                            <input id="AffQ8" type="checkbox" name="AffQ8" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'AffQ8\',\'\')', 0)"><label for="AffQ8">Yes</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 8px; line-height: 20px; text-align: justify;">
+                            <p style="padding-bottom: 10px;">
+                                I HAVE READ, UNDERSTAND, AND AGREE TO COMPLY WITH THE STATUTES AND RULES APPLICABLE TO THE PRACTICE OF MY PROFESSION IN CALIFORNIA.
+                            </p>
+                        </td>
+                        <td align="right" style="vertical-align: middle;" class="cursorpointer">
+                            <input id="AffQ10" type="checkbox" name="AffQ10" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'AffQ9\',\'\')', 0)"><label for="AffQ9">Yes</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 8px; line-height: 20px; text-align: justify;">
+                            <p style="padding-bottom: 10px;">
+                                I understand that my recertification application fee is non-refundable regardless of the ultimate disposition of my application for recertification.
+                            </p>
+                        </td>
+                        <td align="right" style="vertical-align: middle;" class="cursorpointer">
+                            <input id="AffQ11" type="checkbox" name="AffQ11" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'AffQ9\',\'\')', 0)"><label for="AffQ9">Yes</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 8px; line-height: 20px; text-align: justify;">
+                            <p style="padding-bottom: 10px;">
+                                I HAVE CAREFULLY READ THE QUESTIONS IN THE FOREGOING APPLICATION AND HAVE ANSWERED
+                                THEM COMPLETELY, WITHOUT RESERVATION OF ANY KIND, AND I DECLARE, UNDER PENALTY OF
+                                PERJURY UNDER THE LAWS OF THE STATE OF CALIFORNIA, THAT MY ANSWERS AND ALL STATEMENTS
+                                MADE BY ME HERE IN AND IN SUPPORT OF THIS APPLICATION <b>ARE COMPLETE, TRUE AND CORRECT.</b>
+                                Should I furnish any false information on or in support of this Application, or
+                                fail to fully provide all requested information, I understand that such action shall
+                                constitute cause for denial, suspension, revocation, or action against my CAMTC
+                                Certiﬁcation.
+                            </p>
+                        </td>
+                        <td align="right" style="vertical-align: middle;" class="cursorpointer">
+                            <input id="AffQ9" type="checkbox" name="AffQ9" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'AffQ9\',\'\')', 0)"><label for="AffQ9">Yes</label>
+                        </td>
+                    </tr>
+                </tbody>*@
+            </table>
+
+            <div class="clear">
+            </div>
+            <div>
+                <table width="100%">
+                    <tbody>
+                        <tr>
+                            <td align="right">
+                                <label class="input-label required">Signature :</label>
+                            </td>
+                            <td>
+                                <input name="AffSign" type="text" id="AffSign" ng-model="name" autocomplete="off">
+                            </td>
+                            <td align="right">
+                                <label class="input-label required">Date :</label>
+                            </td>
+                            <td>
+                                <input name="AffDate" type="text" id="AffDate" ng-model="signaturename" class="calender inputTextbox hasDatepicker" placeholder="MM/DD/YYYY" autocomplete="off" maxlength="10">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <p class="cursorpointer">
+                    <input id="AffQ13" type="checkbox" name="AffQ13" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'AffQ13\',\'\')', 0)"><label for="AffQ13">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</label>
+                </p>
+            </div>
+        </fieldset>
+        <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
+            <span class="fltrt">
+                <input type="submit" ng-click="ApplicationAffidavit()" name="btnNextSection7" value="Save &amp; Next" id="btnNextSection7" class="buttonGreen medium">
+                <a id="lnkCalcelSection7" class="secondary medium bottom buttonalignment" href="javascript:__doPostBack('lnkCalcelSection7','')">Cancel</a>
+            </span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,192 @@
+.divindv
+{
+    float: left;
+    width: 527px;
+    border-right: 1px solid #ddd;
+    min-height: 100px;
+    overflow: hidden;
+}
+.brandytest
+{
+    float: left;
+    width: 335px;
+    min-height: 100px;
+    overflow: hidden;
+    border-right: 1px solid #ddd;
+}
+.incompletetaskDiv
+{
+    width: 190px;
+    min-height: 172px;
+    overflow: hidden; /* border-left: 1px solid #ddd;*/
+}
+
+.UnpaidInvoice
+{
+    float: right;
+    width: 210px;
+    min-height: 100px;
+    overflow: hidden;
+}
+.demo
+{
+    border: 1px solid #ddd;
+    border-top: 0px;
+    font-family: Arial,Helvetica,sans-serif;
+    min-height: 51px;
+    overflow: hidden;
+}
+.demo .expand
+{
+    color: #000 !important;
+    padding: 0px;
+    margin: 0px;
+}
+.UnpaidInwdth1
+{
+    width: 100px;
+}
+.IndividualTbl
+{
+    width: 97%;
+    margin: auto;
+}
+.Individualwidth1
+{
+    width: 100px;
+}
+.IndividuaDetail
+{
+    min-height: 80px;
+    overflow: hidden;
+    width: 738px;
+}
+.UnpaidInwdth2
+{
+    width: 30px;
+}
+.indfnt
+{
+    font-size: 12px;
+}
+
+.pindirgt
+{
+    height: 14px;
+}
+.pinditest
+{
+    height: 14px;
+}
+
+.demo
+{
+    margin: 0;
+    margin-top: 3px;
+    position: relative;
+    overflow: hidden;
+}
+.demo .collapse p
+{
+    padding: 0 10px 1em;
+}
+.demo .top
+{
+    font-size: .9em;
+    text-align: right;
+}
+.demo #switch, .demo .switch
+{
+    margin-bottom: 5px;
+    text-align: right;
+}
+.demo .secondary
+{
+    border: 1px solid #A3A6A8 !important;
+    font: bold 14px Arial,Helvetica,sans-serif !important;
+}
+
+.demo .holder
+{
+    background: none !important;
+    border: none !important;
+    position: relative !important;
+}
+
+.demo .peel-shadows::before
+{
+    background: none;
+}
+.demo .peel-shadows::After
+{
+    background: none !important;
+}
+/* --- Headings  --- */.demo h1
+{
+    margin-bottom: .75em;
+    font-family: georgia, 'times new roman' ,times,serif;
+    font-size: 2.5em;
+    font-weight: normal;
+    color: #000;
+}
+.demo h2
+{
+    font-size: 1em;
+}
+.demo .expand
+{
+    color: #000 !important;
+}
+/* --- Links  --- */.demo a:link, .demo a:visited
+{
+    border: 1px dotted #ccc;
+    border-width: 0 0 1px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: normal;
+}
+.demo a:hover, .demo a:active, .demo a:focus
+{
+    border-style: solid;
+    background-color: #f0f0f0;
+    outline: 0 none;
+    text-decoration: none !important;
+}
+.demo a:active, .demo a:focus
+{
+    color: #000;
+}
+.demo .expand a
+{
+    display: block;
+    text-decoration: none !important;
+    padding: 14px 10px;
+    color: #000 !important;
+}
+.demo .rounded-container
+{
+    border: 0px !important;
+}
+.demo .expand a:link, .demo .expand a:visited
+{
+    border-width: 1px;
+    background-image: url(../../../App_Themes/Theme1/Expandables/plus.png);
+    background-repeat: no-repeat;
+    color: #000 !important;
+    background-position: 98% 50%;
+    text-decoration: none !important;
+}
+.demo .expand a:hover, .demo .expand a:active, .demo .expand a:focus
+{
+    text-decoration: underline;
+}
+.demo .expand a.open:link, .demo .expand a.open:visited
+{
+    border-style: solid;
+    background: #eee url(../../../App_Themes/Theme1/Expandables/minus.png) no-repeat 98% 50%;
+}
+
+.demo h2
+{
+    font-family: Arial,Helvetica,sans-serif;
+}

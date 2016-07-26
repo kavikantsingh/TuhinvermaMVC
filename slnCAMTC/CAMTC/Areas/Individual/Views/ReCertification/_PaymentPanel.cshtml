@@ -1,0 +1,194 @@
+﻿<div id="pnlPayment">
+
+    <div id="WaiverUpdate">
+
+        <div id="pnlApprovedCivilApp">
+
+
+            <div>
+                <div class="sectionDiv">
+                    <span>Payment</span>
+                </div>
+            </div>
+            <fieldset class="flsNewApplReqForm flsNCBTMBEI">
+                <div id="approvedCivilApp" class="address-box posFixed" style="display: none; color: red;"></div>
+
+                <div>
+                    <div>
+                        <p>
+                            <b>
+                                I understand that the $150 fee only provides me with ONE original certificate, should
+                                I be certified. I am therefore requesting the following number of additional original
+                                certificates ($15 for each original certificate), so that I may display an original
+                                certificate at each location where I provide massage services for compensation.
+                            </b>
+                        </p>
+                    </div>
+                    <div>
+                        <table class="tblApplReqForm5">
+                            <tbody>
+                                <tr>
+                                    <td align="right">
+                                        <label class="input-label required">Payment Method :</label>
+                                    </td>
+                                    <td>
+                                        &nbsp;&nbsp;<select name="ddlPaymentMethod" onchange="javascript:setTimeout('__doPostBack(\'ddlPaymentMethod\',\'\')', 0)" id="ddlPaymentMethod" style="width: 158px; margin-left: 6px; height: 27px;" autocomplete="off">
+                                            <option selected="selected" value="-1">Select</option>
+                                            <option value="1">Check</option>
+                                            <option value="2">Money Order</option>
+                                            <option value="3">Credit / Debit Card</option>
+
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label class="input-label required">Application Fees :</label>
+                                    </td>
+                                    <td style="padding: 4px; text-align: center;">
+                                        $&nbsp;<input name="txtApplicationFees" type="text" value="150" id="txtApplicationFees" disabled="disabled" class="aspNetDisabled" style="width: 145px;" autocomplete="off">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label class="input-label required">Please enter the number of additional certiﬁcates :</label>
+                                    </td>
+                                    <td>
+                                        &nbsp;&nbsp;
+                                        <select name="txtNumberOfAdditinolCerti" onchange="javascript:setTimeout('__doPostBack(\'txtNumberOfAdditinolCerti\',\'\')', 0)" id="txtNumberOfAdditinolCerti" style="width:162px;" autocomplete="off">
+                                            <option selected="selected" value="Select">Select</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label class="input-label required">Additional Certificate Amount :</label>
+                                    </td>
+                                    <td style="padding: 4px; text-align: center;">
+                                        $&nbsp;<input name="txtAdditionalCertificateAmt" type="text" value="0" id="txtAdditionalCertificateAmt" disabled="disabled" class="aspNetDisabled OnlyNumeric" style="width: 145px;" autocomplete="off">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label class="input-label required">Total Fees :</label>
+                                    </td>
+                                    <td style="padding: 4px; text-align: center;">
+                                        $&nbsp;<input name="txtTotalFees" type="text" value="150" id="txtTotalFees" style="width: 145px;" autocomplete="off">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="cursorpointer" style="margin-top: 30px;">
+                            <span id="Label1">I understand that my Application Fee is non-refundable regardless of the ultimate disposition of my Application.</span>
+                        </p>
+                    </div>
+                </div>
+                <table class="tblApplReqForm5" style="width: 100%; display: none;">
+                    <tbody>
+                        <tr>
+                            <td colspan="5">
+                                <h5>Please Select Your Payment Method :</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="inout-label"><b>Personal Check :</b></label>
+                            </td>
+                            <td>
+                                <input id="chkChashiercheck" type="radio" name="chkChashiercheck" value="chkChashiercheck"><label for="chkChashiercheck">Cashier's Check</label>
+                            </td>
+                            <td>
+                                <input id="chkMoneyOrder" type="radio" name="chkMoneyOrder" value="chkMoneyOrder"><label for="chkMoneyOrder">Money Order</label>
+                            </td>
+                            <td>
+                                <input id="chkCreditCardOnline" type="radio" name="chkCreditCardOnline" value="chkCreditCardOnline"><label for="chkCreditCardOnline">Credit Card Online</label>
+                            </td>
+                            <td>
+                                <input id="chkCreditCard" type="radio" name="chkCreditCard" value="chkCreditCard"><label for="chkCreditCard">Credit Card (Below):</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="inout-label"><b>Card Type :</b></label>
+                            </td>
+                            <td>
+                                <input id="chkVisa" type="radio" name="chkVisa" value="chkVisa"><label for="chkVisa">Visa</label>
+                            </td>
+                            <td>
+                                <input id="chkMasterCard" type="radio" name="chkMasterCard" value="chkMasterCard"><label for="chkMasterCard">Master Card</label>
+                            </td>
+                            <td>
+                                <input id="rblAmericanExpress" type="radio" name="rblAmericanExpress" value="rblAmericanExpress"><label for="rblAmericanExpress">American Express</label>
+                            </td>
+                            <td>
+                                <input id="rblDiscover" type="radio" name="rblDiscover" value="rblDiscover"><label for="rblDiscover">Discover</label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="tblApplReqForm5" style="width: 100%; display: none;">
+                    <tbody>
+                        <tr>
+                            <td align="right">
+                                <label class="input-label">Name on Card :</label>
+                            </td>
+                            <td>
+                                <input name="txtNameOnCard" type="text" id="txtNameOnCard" class="inputTextbox" autocomplete="off">
+                            </td>
+                            <td align="right">
+                                <label class="input-label">Credit Card # :</label>
+                            </td>
+                            <td>
+                                <input name="txtCreditCardNo" type="text" id="txtCreditCardNo" class="inputTextbox" autocomplete="off">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <label class="input-label">Exp. Date :</label>
+                            </td>
+                            <td>
+                                <input name="txtEXPDate" type="text" id="txtEXPDate" class="inputTextbox" autocomplete="off">
+                            </td>
+                            <td align="right">
+                                <label class="input-label">Code :</label>
+                            </td>
+                            <td>
+                                <input name="txtCode" type="text" id="txtCode" class="inputTextbox" autocomplete="off">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <label class="input-label">Your Credit Card Billing Zip Code :</label>
+                            </td>
+                            <td>
+                                <input name="txtbilingZipCode" type="text" id="txtbilingZipCode" class="inputTextbox" autocomplete="off">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="padding-top: 20px;">
+
+
+                </div>
+            </fieldset>
+            <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
+                <div style="float: left;">
+                </div>
+                <span class="fltrt">
+                    <input type="submit" ng-click="PaymentVarification()" name="btnNextSaveChecklist" value="Save &amp; Next" id="btnNextSaveChecklist" class="buttonGreen medium">
+
+                    <a id="btnSaveNextPaymentCancel" class="secondary medium bottom buttonalignment" href="javascript:__doPostBack('btnSaveNextPaymentCancel','')">Cancel</a>
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

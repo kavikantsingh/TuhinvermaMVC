@@ -1,6 +1,6 @@
 ﻿var contentApp = angular.module("contentApp", ['angularUtils.directives.dirPagination'])
-var BaseURL = 'http://localhost/LAPP.WS/api';
-//var BaseURL = 'http://ws.camtc.inlumon.com/api';
+//var BaseURL = 'http://localhost/LAPP.WS/api';
+var BaseURL = 'http://ws.camtc.inlumon.com/api';
 
 contentApp.controller('DeficiencyTemplate', ['$scope', '$rootScope', 'ConfigurationFactory', function ($scope, $rootScope, ConfigurationFactory) {
     $scope.ddlMasterTransaction = [];

@@ -48,7 +48,7 @@ function ValidateCheckbox(message, element, value) {
 }
 
 function ValidateRadio(message, element, value) {
-    if (value !== "" && value !== "undefined") {
+ if(value !== "" && value !== "undefined" && value == true) {
         $(element).removeClass('error'); return "";
     }
     else {
