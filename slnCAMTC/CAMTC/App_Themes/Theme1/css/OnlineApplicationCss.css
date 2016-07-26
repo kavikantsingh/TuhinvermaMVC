@@ -1,0 +1,520 @@
+﻿
+.flsParentParentApplicationScreeningQuestions
+{
+    border: 1px solid rgb(234, 234, 234);
+    width: 95%;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+
+.flsParentAffidavit
+{
+    border: 1px solid rgb(234, 234, 234);
+    width: 95%;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+.LinkbuttonSign
+{
+    background-color: rgb(224, 223, 223);
+    text-decoration: none;
+    color: black;
+    padding: 4px 19px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.tblAffidavit
+{
+    width: 90%;
+    line-height: 26px;
+    margin: 0px auto;
+}
+.tblNOTICE
+{
+    width: 97%;
+    line-height: 26px;
+    margin: 0px auto;
+}
+
+.tblParentParentApplicationScreeningQuestions
+{
+    width: 90%;
+    line-height: 26px;
+    margin: 0px auto;
+}
+.tblParentParAppScrQuHed
+{
+    width: 100%;
+    margin: 6px auto;
+    border: 1px solid rgb(248, 248, 248);
+}
+.tdwidth2clm1
+{
+    width: 280px;
+}
+
+
+.tblNCBTMBEI
+{
+    width: 70%;
+    line-height: 26px;
+    margin: 0px auto;
+}
+
+.tblCharacterReferences
+{
+    width: 70%;
+    line-height: 26px;
+    margin: 0px auto;
+}
+
+.chkmrgnlft
+{
+    margin-left: 20px;
+}
+.tblChildSuppDecl2
+{
+    width: 96%;
+    margin: 30px auto;
+    line-height: 32px;
+}
+.btnupdatehgt
+{
+    width: 75px;
+    margin-right: 5px;
+}
+.divaddnew
+{
+    height: 33px;
+}
+.divGridEdit
+{
+    width: 86%;
+    margin: 15px auto;
+    border: 1px solid rgb(200, 194, 194);
+}
+.divLicenseInfo
+{
+    margin: 3px auto;
+    width: 98%;
+    border: 1px solid rgb(238, 238, 238);
+}
+.wthtop20
+{
+    margin-top: 20px;
+}
+.divNewLiveApp
+{
+    width: 950px;
+    margin: 30px auto;
+    border: 1px solid rgb(234, 234, 234);
+}
+.tblNewLiveScanApp
+{
+    width: 98%;
+    line-height: 26px;
+}
+
+.flsParentNewApplReqForm
+{
+    border: 1px solid rgb(234, 234, 234);
+    width: 95%;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+
+.tblParentNewApplReqForm
+{
+    width: 98%;
+    line-height: 26px;
+}
+
+.flsNewApplReqForm
+{
+    border: 1px solid rgb(234, 234, 234);
+    width: 95%;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+
+
+.tblLiveScanApp
+{
+    width: 98%;
+    line-height: 26px;
+}
+
+.flsLiveScanApp
+{
+    border: 1px solid rgb(234, 234, 234);
+    width: 95%;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+
+.divLIVESCANAPPLICATION
+{
+    width: 950px;
+    margin: 30px auto;
+    border: 1px solid rgb(234, 234, 234);
+}
+
+
+.tdwidth1
+{
+    width: 180px;
+}
+.tdwidth2
+{
+    width: 150px;
+}
+
+.txtalgnrgt
+{
+    text-align: right;
+}
+
+
+.flsApplReqForm3
+{
+    border: 1px solid rgb(234, 234, 234);
+    width: 99%;
+    margin: 0px auto;
+}
+
+.flsApplReqForm5
+{
+    width: 98%;
+    line-height: 26px;
+}
+.tblApplReqForm
+{
+    width: 98%;
+    line-height: 26px;
+}
+
+.flsApplReqForm
+{
+    border: 1px solid rgb(234, 234, 234);
+    width: 95%;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+
+.applicationform
+{
+    width: 950px;
+    margin: 0px auto;
+    border: 1px solid rgb(234, 234, 234);
+}
+/***********************************************************Live Application Form Css Start************************************************/
+
+fieldset
+{
+    border: 0px !important;
+}
+
+.HeaddingMain
+{
+    text-align: center;
+    background-color: rgb(243, 246, 252);
+    height: 30px;
+    line-height: 30px;
+}
+.HeaddingMain span
+{
+    font-weight: bold;
+    font-size: 15px;
+}
+.mainleftpanel
+{
+    float: left;
+    border: 1px solid rgb(232, 232, 232);
+    width: 25%;
+    min-height: 200px;
+}
+
+.mainrightpanel
+{
+    float: right;
+    border: 1px solid rgb(232, 232, 232);
+    width: 74%;
+    min-height: 200px;
+}
+.divmain
+{
+    margin-top: 10px;
+}
+
+
+.wdtmarauto
+{
+    width: 96%;
+    margin: 0px auto;
+}
+.fuTempAcc
+{
+    font-size: 10px;
+    width: 144px;
+}
+
+.valign
+{
+    vertical-align: bottom;
+}
+.wdt150
+{
+    width: 150px;
+}
+.wdt1502
+{
+    width: 150px;
+}
+.mrgnRt
+{
+    text-align: right;
+}
+.wdtsec7
+{
+    width: 608px;
+}
+.tdnum
+{
+    width: 18px;
+    font-weight: bold;
+}
+.flsParentParentApplicationScreeningQuestions
+{
+    border: 1px solid rgb(234, 234, 234);
+    width: 95%;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+.addNewDiv
+{
+    text-align: center;
+    height: 28px;
+    line-height: 25px;
+    background-color: rgb(249, 249, 249);
+    font-weight: bold;
+}
+.sectionDiv
+{
+    height: 30px;
+    background-color: rgb(214, 211, 211);
+    line-height: 30px;
+    padding-left: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+.flsParentAffidavit
+{
+    border: 1px solid rgb(234, 234, 234);
+    width: 95%;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+.LinkbuttonSign
+{
+    background-color: rgb(224, 223, 223);
+    text-decoration: none;
+    color: black;
+    padding: 4px 19px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+
+.chkmrgnlft
+{
+    margin-left: 20px;
+}
+
+.btnupdatehgt
+{
+    width: 75px;
+    margin-right: 5px;
+}
+.divaddnew
+{
+    height: 33px;
+}
+.divGridEdit
+{
+    width: 99%;
+    margin: 15px auto;
+    border: 1px solid rgb(200, 194, 194);
+}
+.index tbody td
+{
+    padding: 4px 3px;
+}
+.gridTable
+{
+    width: 99%;
+    margin: 0px auto;
+    line-height: 27px !important;
+}
+.divLicenseInfo
+{
+    margin: 3px auto;
+    width: 98%;
+    border: 1px solid rgb(238, 238, 238);
+}
+.wthtop20
+{
+    margin-top: 20px;
+}
+.divNewLiveApp
+{
+    width: 950px;
+    margin: 30px auto;
+    border: 1px solid rgb(234, 234, 234);
+    padding-bottom: 20px;
+}
+.flsParentNewApplReqForm
+{
+    border: 1px solid rgb(234, 234, 234);
+    width: 95%;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+
+.flsNewApplReqForm
+{
+    border: 1px solid rgb(234, 234, 234);
+    width: 95%;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+
+.flsLiveScanApp
+{
+    border: 1px solid rgb(234, 234, 234);
+    width: 95%;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+
+.divLIVESCANAPPLICATION
+{
+    width: 950px;
+    margin: 30px auto;
+    border: 1px solid rgb(234, 234, 234);
+}
+
+
+.tdwidth1
+{
+    width: 180px;
+}
+.tdwidth2
+{
+    width: 150px;
+}
+
+.txtalgnrgt
+{
+    text-align: right;
+}
+
+
+.flsApplReqForm3
+{
+    border: 1px solid rgb(234, 234, 234);
+    width: 99%;
+    margin: 0px auto;
+}
+
+.flsApplReqForm5
+{
+    width: 98%;
+    line-height: 26px;
+}
+
+.flsApplReqForm
+{
+    border: 1px solid rgb(234, 234, 234);
+    width: 95%;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+
+.applicationform
+{
+    width: 950px;
+    margin: 0px auto;
+    border: 1px solid rgb(234, 234, 234);
+}
+/************************************************************************Using Style******************************************************************************/
+
+.DropdownList
+{
+    width: 182px !important;
+}
+.inputTextbox
+{
+    width: 170px;
+}
+
+fieldset
+{
+    padding: 0em !important;
+}
+
+table.tblApplReqForm5
+{
+    line-height: 33px;
+}
+.mrgntop8
+{
+    margin-top: 8px;
+}
+.orangeBtn
+{
+    background: #febf01 !important;
+    background: -moz-linear-gradient(top, #febf01 0%, #febf01 51%, #febf01 99%) !important;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#febf01), color-stop(51%,#febf01), color-stop(99%,#febf01)) !important;
+    background: -webkit-linear-gradient(top, #febf01 0%,#febf01 51%,#febf01 99%) !important;
+    background: -o-linear-gradient(top, #febf01 0%,#febf01 51%,#febf01 99%) !important;
+    background: -ms-linear-gradient(top, #febf01 0%,#febf01 51%,#febf01 99%) !important;
+    background: linear-gradient(to bottom, #febf01 0%,#febf01 51%,#febf01 99%) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#febf01', endColorstr='#febf01',GradientType=0 ) !important;
+}
+
+.withoutfldstP
+{
+    padding: 10px;
+}
+
+.rdobtn
+{
+    width: 155px;
+}
+input[type="radio"]
+{
+    margin: 7px;
+}
+.content1
+{
+    position: absolute;
+    right: 0px;
+    top: 10px;
+}
+.content1-table
+{
+    margin-right: 10px;
+    font-size: 14px;
+}
+.header-span
+{
+    font-weight: bold;
+    font-size: 18px;
+    display: block;
+    padding-right: 193px;
+}
+.fullwidthtable table
+{
+    width: 90%;
+}

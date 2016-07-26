@@ -238,3 +238,6 @@ D:\Work\Tuhin Verma\CAPPCAMTC\slnCAMTC\CAMTC\obj\Debug\CAMTC.dll
 D:\Work\Tuhin Verma\CAPPCAMTC\slnCAMTC\CAMTC\obj\Debug\CAMTC.pdb
 C:\Users\Deva\Source\Repos\cappcamtc\slnCAMTC\CAMTC\bin\NJsonSchema.dll
 C:\Users\Deva\Source\Repos\cappcamtc\slnCAMTC\CAMTC\bin\NJsonSchema.xml
+D:\Work\Tuhin Verma\CAPPCAMTC\slnCAMTC\CAMTC\bin\NJsonSchema.dll
+D:\Work\Tuhin Verma\CAPPCAMTC\slnCAMTC\CAMTC\bin\NJsonSchema.xml
+D:\Work\Tuhin Verma\CAPPCAMTC\slnCAMTC\CAMTC\obj\Debug\CAMTC.csprojResolveAssemblyReference.cache

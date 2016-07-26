@@ -1,0 +1,256 @@
+.span
+{
+    margin-left: 5px;
+    font-family: sans-serif;
+    font-size: 15px;
+}
+.span2
+{
+    margin-left: 2px;
+    font-family: sans-serif;
+    font-size: 12px;
+}
+.container
+{
+    text-align: left;
+    width: 1000px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+}
+.relative
+{
+    position: relative;
+}
+
+.divButton
+{
+    float: right;
+}
+.divLeftMain
+{
+    height: 645;
+    width: 70%;
+    float: left;
+}
+.divRightMain
+{
+    height: 280px;
+    width: 29%;
+    float: right;
+}
+.divRightMain2
+{
+    margin-top: 10px;
+    height: 75px;
+    width: 29%;
+    float: right;
+}
+.heding1
+{
+    height: 220px;
+    width: 50%;
+    float: left;
+}
+.heding2
+{
+    height: 220px;
+    width: 49%;
+    float: right;
+    border: 1px solid black;
+}
+.center
+{
+    text-align: center;
+}
+.hgtwdt100
+{
+    height: 100%;
+    width: 100%;
+}
+.divMain
+{
+    width: 995px;
+    margin: 0 auto;
+    margin-top: 21px;
+}
+.cant1
+{
+    width: 100%;
+    height: 190px;
+}
+.clear
+{
+    clear: both;
+}
+.fperiod
+{
+    width: 49%;
+    float: left;
+    margin-top: 5px;
+    height: 50px;
+}
+.duedate
+{
+    width: 49%;
+    margin-left: 5px;
+    margin-top: 5px;
+    float: right;
+    height: 50px;
+}
+.divMakechk
+{
+    height: 70px;
+    width: 100%;
+    margin-top: 10px;
+}
+.divamtdue
+{
+    width: 33%;
+    height: 77%;
+    float: right;
+    border: 1px solid black;
+    margin-top: 2px;
+    margin-right: 10px;
+}
+.cant2
+{
+    height: 223px;
+    width: 100%;
+    margin-top: 10px;
+}
+.cant4
+{
+    height: 150px;
+    margin-top: 10px;
+    width: 100%;
+}
+.cant10
+{
+    height: 150px;
+    margin-top: 10px;
+    width: 100%;
+}
+.pnoofBranch
+{
+    text-align: center;
+    margin-top: 8px;
+}
+.pnbTextbox
+{
+    text-align: center;
+    margin-top: 10px;
+}
+.cant4div1
+{
+    width: 49%;
+    float: left;
+}
+.cant4div2
+{
+    width: 50%;
+    float: right;
+}
+.cant5
+{
+    height: 153px;
+    width: 100%;
+    margin-top: 10px;
+}
+.cant6
+{
+    margin-top: 10px;
+    height: 153px;
+    width: 100%;
+}
+.cant11
+{
+    margin-top: 10px;
+    height: 153px;
+    width: 100%;
+}
+.cant7
+{
+    height: 90px;
+    width: 100%;
+    margin-top: 10px;
+}
+.cant8
+{
+    height: 210px;
+    width: 70%;
+    float: left;
+    margin-top: 10px;
+}
+.cant9
+{
+    height: 200px;
+    width: 29%;
+    border: 1px solid black;
+    float: right;
+    margin-top: 10px;
+}
+.cant3
+{
+    height: 140px;
+    width: 100%;
+    margin-top: 5px;
+}
+.txtstyl
+{
+    font-size: 15px;
+    text-decoration: underline;
+    font-family: sans-serif;
+    font-weight: bold;
+    line-height: 10px;
+}
+.line_heifht30px
+{
+    line-height: 30px;
+}
+.txtsmp
+{
+    font-size: 15px;
+    font-family: cursive;
+}
+.txt
+{
+    font-size: 16px;
+    font-family: sans-serif;
+    text-decoration: underline;
+}
+.tbwidth
+{
+    width: 200px;
+}
+.mrgnlft40
+{
+    margin-left: 40px;
+}
+.width
+{
+    width: 100px;
+}
+.width100px
+{
+    width: 100px;
+    height: 35px;
+}
+.width50
+{
+    width: 50%;
+    height: 25px;
+}
+.tdwidth50
+{
+    width: 50%;
+}
+/*-------------------------------------------*/
+.bordr
+{
+    border: 1px solid rgb(207, 188, 188) !important;
+}
+.rads
+{
+    border-radius: 8px !important;
+}

@@ -1,0 +1,704 @@
+﻿
+
+
+.backofficepaymentcontrole .Page
+{
+    /* border: #828282 1px solid; */
+    padding: 5px;
+    width: 690px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Open Sans' , sans-serif;
+    background: #FCFCFC;
+    min-height: 500px;
+}
+.backofficepaymentcontrole .PageOuter
+{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.backofficepaymentcontrole .SectionHeading
+{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.backofficepaymentcontrole TD, .backofficepaymentcontrole DIV, .backofficepaymentcontrole SPAN, .backofficepaymentcontrole BODY, .backofficepaymentcontrole P
+{
+    font-size: 14px;
+}
+
+.backofficepaymentcontrole IMG
+{
+    border-width: 0;
+}
+
+.backofficepaymentcontrole .BorderBottom
+{
+    border-bottom: #828282 1px solid;
+}
+.backofficepaymentcontrole .BorderTop
+{
+    border-top: #828282 1px solid;
+}
+.backofficepaymentcontrole .BorderAll
+{
+    border: #828282 1px solid;
+}
+
+.backofficepaymentcontrole .SectionHeadingBorder
+{
+    margin-bottom: 5px;
+    border-bottom: #828282 1px solid;
+    width: 100%; /* font-size: 14px !important; */
+}
+
+.backofficepaymentcontrole .SectionBar
+{
+    background-color: #a0a0a0;
+    color: #ffffff;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    padding-left: 3px;
+    margin-bottom: 4px;
+}
+
+.backofficepaymentcontrole .HorizontalLine
+{
+    background-color: #666666;
+    height: 1px;
+}
+
+.backofficepaymentcontrole HR
+{
+    border: 0px;
+    border-top: 1px solid #828282;
+    height: 1px;
+}
+.backofficepaymentcontrole HR.HrTop
+{
+    border-top-color: #929292;
+}
+.backofficepaymentcontrole HR.HrLineItem
+{
+    border-top-color: #c0c0c0;
+}
+
+.backofficepaymentcontrole .SpacerRow1
+{
+    line-height: 8px;
+    height: 8px;
+}
+.backofficepaymentcontrole .SpacerRow2
+{
+    line-height: 5px;
+    height: 5px;
+}
+
+.backofficepaymentcontrole .LabelColOrderTop, .backofficepaymentcontrole .LabelColOrderBottom, .backofficepaymentcontrole .LabelColTotal, .backofficepaymentcontrole .LabelColOrderTopWLI, .backofficepaymentcontrole .LabelColPayBy, .backofficepaymentcontrole .LabelColCC, .backofficepaymentcontrole .LabelColBank, .backofficepaymentcontrole .LabelColBill, .backofficepaymentcontrole .LabelColShip
+{
+    text-align: right;
+}
+
+.backofficepaymentcontrole .LabelColOrderTop, .backofficepaymentcontrole .LabelColShip, .backofficepaymentcontrole .LabelColCaptcha
+{
+    width: 140px;
+}
+
+.backofficepaymentcontrole .LabelColOrderDescr
+{
+    font-weight: bold;
+    vertical-align: top;
+}
+.backofficepaymentcontrole .DataColOrderDescr
+{
+    vertical-align: top;
+}
+
+.backofficepaymentcontrole .DataColOrderBottom, .backofficepaymentcontrole .DataColTotal, .backofficepaymentcontrole .DescrColOrderBottom
+{
+    text-align: right;
+}
+
+.backofficepaymentcontrole .LabelColTotal, .backofficepaymentcontrole .DataColTotal
+{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.backofficepaymentcontrole .LabelColCC, .backofficepaymentcontrole .LabelColBill, .backofficepaymentcontrole .LabelColShip
+{
+    width: 140px;
+}
+
+.backofficepaymentcontrole #tdBillingInformation
+{
+    width: 260px;
+    vertical-align: top;
+}
+.backofficepaymentcontrole #tdShippingInformation
+{
+    vertical-align: top;
+}
+.backofficepaymentcontrole #tableBillingShipping .Label
+{
+    margin-bottom: 3px;
+}
+
+.backofficepaymentcontrole #tdPaymentDetails2Rcpt1
+{
+    width: 260px;
+    vertical-align: top;
+}
+.backofficepaymentcontrole #tdPaymentDetails2Rcpt2
+{
+    vertical-align: top;
+}
+
+.backofficepaymentcontrole .LabelColInfo1R
+{
+    width: 90px;
+    vertical-align: top;
+}
+.backofficepaymentcontrole .DataColInfo1R
+{
+    vertical-align: top;
+}
+.backofficepaymentcontrole .LabelColInfo2R
+{
+    width: 130px;
+    vertical-align: top;
+}
+.backofficepaymentcontrole .DataColInfo2R
+{
+    vertical-align: top;
+}
+.backofficepaymentcontrole .LabelColInfo3R
+{
+    width: 120px;
+    vertical-align: top;
+    text-align: right;
+}
+.backofficepaymentcontrole .DataColInfo3R
+{
+    vertical-align: top;
+    text-align: right;
+}
+
+.backofficepaymentcontrole .LItemColQtyHdr
+{
+    text-align: right;
+}
+.backofficepaymentcontrole .LItemColQty
+{
+    text-align: right;
+}
+.backofficepaymentcontrole .LItemColTaxabHdr
+{
+    text-align: center;
+}
+.backofficepaymentcontrole .LItemColTaxab
+{
+    text-align: center;
+}
+.backofficepaymentcontrole .LItemColUPriceHdr
+{
+    text-align: right;
+}
+.backofficepaymentcontrole .LItemColUPrice
+{
+    text-align: right;
+}
+.backofficepaymentcontrole .LItemColTotalHdr
+{
+    text-align: right;
+}
+.backofficepaymentcontrole .LItemColTotal
+{
+    text-align: right;
+}
+
+.backofficepaymentcontrole .PaymentSectionTable
+{
+    width: 100%;
+}
+.backofficepaymentcontrole .PaymentSection1
+{
+    vertical-align: bottom;
+}
+.backofficepaymentcontrole .PaymentSection2
+{
+    vertical-align: bottom;
+}
+.backofficepaymentcontrole .PaymentSection2 TABLE
+{
+    float: right;
+}
+.backofficepaymentcontrole .PaymentSectionSpacer
+{
+    clear: both;
+    line-height: 2px;
+    height: 2px;
+}
+
+.backofficepaymentcontrole .HeaderFooter1
+{
+    font-size: 13px;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.backofficepaymentcontrole .Label
+{
+    font-weight: 600;
+}
+
+.backofficepaymentcontrole .Comment
+{
+    font-size: 10px;
+}
+
+.backofficepaymentcontrole .Attention1
+{
+    font-size: 22px;
+    font-weight: 600;
+    color: Red;
+    background-color: White;
+    text-align: center;
+}
+
+.backofficepaymentcontrole input_text
+{
+    height: 21px;
+    line-height: 15px;
+}
+
+.backofficepaymentcontrole #tablePaymentDetails1Rcpt
+{
+    width: 100%;
+}
+.backofficepaymentcontrole #tablePaymentDetails2Rcpt
+{
+    width: 100%;
+}
+.backofficepaymentcontrole #tableBillingShipping
+{
+    width: 100%;
+}
+.backofficepaymentcontrole #divThankYou
+{
+    font-size: 16px;
+    font-weight: bold;
+}
+.backofficepaymentcontrole #divReceiptMsg
+{
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.backofficepaymentcontrole #divClickAway
+{
+    text-align: center;
+    padding-bottom: 15px;
+}
+.backofficepaymentcontrole #divPreviewMode, #divPreviewModeRcpt, #divPreviewMode2
+{
+    text-align: center;
+    color: Red;
+    background-color: White;
+}
+.backofficepaymentcontrole #divPreviewMode, #divPreviewModeRcpt
+{
+    font-size: 16px;
+}
+
+.backofficepaymentcontrole #tdRequiredFields
+{
+    text-align: right;
+}
+.backofficepaymentcontrole #tableButtons
+{
+    width: 100%;
+}
+.backofficepaymentcontrole #tableButtonsInner
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+.backofficepaymentcontrole #tdVerifiedMerchant
+{
+    width: 100px;
+}
+.backofficepaymentcontrole #tdButtons
+{
+    width: 360px;
+    text-align: center;
+}
+.backofficepaymentcontrole #tableButtonsInner TD
+{
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.backofficepaymentcontrole #divOrderDetailsTop
+{
+}
+.backofficepaymentcontrole #tableOrderDetailsTop
+{
+    float: right;
+}
+.backofficepaymentcontrole #divOrderDescr
+{
+    clear: both;
+}
+.backofficepaymentcontrole #tableOrderDetailsTopPAuth
+{
+    float: right;
+}
+.backofficepaymentcontrole #divOrderDetailsBottom
+{
+    clear: both;
+    height: 105px;
+    position: relative;
+}
+.backofficepaymentcontrole #tableOrderDetailsBottom
+{
+    float: right;
+}
+.backofficepaymentcontrole #divOrderDetailsBottomSpacer
+{
+    clear: both;
+}
+.backofficepaymentcontrole #divOrderDetailsBottomSpacerR
+{
+    clear: both;
+    height: 10px;
+}
+.backofficepaymentcontrole #divOrderDetailsPAuthSpacer
+{
+    clear: both;
+}
+.backofficepaymentcontrole #tableLineItems
+{
+    width: 100%;
+}
+
+.backofficepaymentcontrole .GrayBoxOuter
+{
+    background-color: #eeeeee;
+    color: #000000;
+    padding: 7px;
+}
+.backofficepaymentcontrole #divErrorMsgsOuter
+{
+    margin-bottom: 15px;
+}
+.backofficepaymentcontrole .GrayBox
+{
+    border: #828282 1px solid;
+    padding: 10px;
+}
+.backofficepaymentcontrole .GrayBoxHdr
+{
+    font-weight: bold;
+    font-size: 16px;
+}
+.backofficepaymentcontrole #divPartialAuthHdr1
+{
+    margin: 0;
+}
+.backofficepaymentcontrole #divErrorMsgs ul
+{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.backofficepaymentcontrole .GrayBox .BoxSectionHeader
+{
+    background-color: #828282;
+    color: #eeeeee;
+    padding-left: 3px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+.backofficepaymentcontrole #tablePartialAuth
+{
+    width: 60%;
+    color: #000000;
+}
+.backofficepaymentcontrole #tablePartialAuth .DataCol
+{
+    text-align: right;
+}
+.backofficepaymentcontrole #tablePartialAuth .TRPAAvailBal .DataCol
+{
+    text-align: left;
+}
+.backofficepaymentcontrole #divCancelOrderMain
+{
+    margin-top: 60px;
+    margin-bottom: 140px;
+}
+.backofficepaymentcontrole #divOrderCanceledContinue
+{
+    text-align: center;
+    margin-top: 10px;
+}
+.backofficepaymentcontrole #divNotesTransID
+{
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.backofficepaymentcontrole #x_invoice_num
+{
+    width: 146px;
+}
+.backofficepaymentcontrole #x_description
+{
+    width: 326px;
+}
+.backofficepaymentcontrole #x_amount
+{
+    width: 86px;
+}
+.backofficepaymentcontrole #x_cust_id
+{
+    width: 128px;
+}
+.backofficepaymentcontrole #x_auth_code
+{
+    width: 80px;
+}
+.backofficepaymentcontrole #x_card_num
+{
+    width: 134px;
+}
+.backofficepaymentcontrole #x_exp_date
+{
+    width: 134px;
+}
+.backofficepaymentcontrole #x_bank_acct_type
+{
+    width: 158px;
+}
+.backofficepaymentcontrole #x_bank_acct_num
+{
+    width: 158px;
+}
+.backofficepaymentcontrole #x_bank_aba_code
+{
+    width: 158px;
+}
+.backofficepaymentcontrole #x_bank_name
+{
+    width: 158px;
+}
+.backofficepaymentcontrole #x_first_name
+{
+    width: 110px;
+}
+.backofficepaymentcontrole #x_last_name
+{
+    width: 110px;
+    float: right;
+}
+.backofficepaymentcontrole #x_company
+{
+    width: 326px;
+}
+.backofficepaymentcontrole #x_address
+{
+    width: 326px;
+}
+.backofficepaymentcontrole #x_city
+{
+    width: 88px;
+}
+.backofficepaymentcontrole #x_state
+{
+    width: 87px;
+    float: right;
+    margin-right: 3px;
+}
+.backofficepaymentcontrole #x_zip
+{
+    width: 86px;
+}
+.backofficepaymentcontrole INPUT#x_country
+{
+    width: 326px;
+}
+.backofficepaymentcontrole INPUT#x_phone
+{
+    width: 146px;
+}
+.backofficepaymentcontrole #x_fax
+{
+    width: 146px;
+}
+.backofficepaymentcontrole #x_email
+{
+    width: 326px;
+}
+.backofficepaymentcontrole #x_tax
+{
+    width: 86px;
+}
+.backofficepaymentcontrole #x_duty
+{
+    width: 86px;
+}
+.backofficepaymentcontrole #x_freight
+{
+    width: 86px;
+}
+.backofficepaymentcontrole #x_po_num
+{
+    width: 176px;
+}
+.backofficepaymentcontrole #x_currency_code
+{
+    width: 44px;
+}
+.backofficepaymentcontrole #x_customer_tax_id
+{
+    width: 86px;
+}
+.backofficepaymentcontrole #x_drivers_license_num
+{
+    width: 98px;
+}
+.backofficepaymentcontrole #x_drivers_license_state
+{
+    width: 38px;
+}
+.backofficepaymentcontrole #x_drivers_license_dob
+{
+    width: 98px;
+}
+.backofficepaymentcontrole #x_card_code
+{
+    width: 50px;
+}
+.backofficepaymentcontrole #x_ship_to_first_name
+{
+    width: 122px;
+}
+.backofficepaymentcontrole #x_ship_to_last_name
+{
+    width: 125px;
+}
+.backofficepaymentcontrole #x_ship_to_company
+{
+    width: 326px;
+}
+.backofficepaymentcontrole #x_ship_to_address
+{
+    width: 326px;
+}
+.backofficepaymentcontrole #x_ship_to_city
+{
+    width: 326px;
+}
+.backofficepaymentcontrole #x_ship_to_state
+{
+    width: 44px;
+}
+.backofficepaymentcontrole #x_ship_to_zip
+{
+    width: 86px;
+}
+.backofficepaymentcontrole #x_ship_to_country
+{
+    width: 326px;
+}
+.backofficepaymentcontrole #x_bank_acct_name
+{
+    width: 158px;
+}
+.backofficepaymentcontrole #x_captcha
+{
+    width: 56px;
+}
+.backofficepaymentcontrole .cancleLinkButton
+{
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 0;
+    font: normal normal bold 14px/14px Arial, sans-serif;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    text-decoration: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.1), 0px 1px 0px rgba(255, 255, 255, .7);
+    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.1), 0px 1px 0px rgba(255, 255, 255, .7);
+    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.1), 0px 1px 0px rgba(255, 255, 255, .7);
+    cursor: pointer;
+    color: #565E67;
+    border: 1px solid #A3A6A8;
+    background-color: #D4D8DB;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#E7EBEE), to(#D4D8DB));
+    background-image: -webkit-linear-gradient(top, #E7EBEE, #D4D8DB);
+    background-image: -moz-linear-gradient(top, #E7EBEE, #D4D8DB);
+    background-image: -ms-linear-gradient(top, #E7EBEE, #D4D8DB);
+    background-image: -o-linear-gradient(top, #E7EBEE, #D4D8DB);
+    background-image: linear-gradient(top, #E7EBEE, #D4D8DB);
+    text-shadow: 0px 1px 0px white;
+}
+
+.backofficepaymentcontrole #ddlCountry
+{
+    width: 95px;
+    float: right;
+    margin-right: 4px;
+}
+.backofficepaymentcontrole #divBillingInformation
+{
+    border-left: 1px double #999;
+}
+.backofficepaymentcontrole td
+{
+    padding: 2px;
+}
+
+.backofficepaymentcontrole input[type="text"]
+{
+    width: 200px !important;
+}
+.backofficepaymentcontrole select
+{
+    width: 77px !important;
+}
+.backofficepaymentcontrole label
+{
+    padding-right: 8px;
+}
+
+.backofficepaymentcontrole label.input-label.required
+{
+    background: url(../images/requiredsymbol.png) no-repeat;
+    background-position: right -2px;
+}
+.backofficepaymentcontrole label.input-label
+{
+    padding-right: 10px;
+    margin-right: 2px;
+}
+
+.backofficepaymentcontrole input[type="file"]
+{
+    width: 172px;
+}

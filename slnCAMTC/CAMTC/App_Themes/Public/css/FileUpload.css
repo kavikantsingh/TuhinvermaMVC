@@ -1,0 +1,73 @@
+
+input[type="file"]
+{
+    max-width: 200px;
+    padding-right: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.buttonGreen
+{
+    -webkit-text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+    -moz-text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -o-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-image: url('../images/sprites.v1351539994.png');
+    color: #fff !important;
+    text-decoration: none !important;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 0;
+    margin: 0 2px;
+    outline: 0;
+    background-position: left 194px !important;
+    -webkit-box-shadow: 0 2px 1px -1px #b3d72d inset;
+    -moz-box-shadow: 0 2px 1px -1px #b3d72d inset;
+    box-shadow: 0 2px 1px -1px #b3d72d inset;
+    -webkit-box-shadow: 0 2px 1px -1px #DCEBA6 inset;
+    -moz-box-shadow: 0 2px 1px -1px #b3d72d inset;
+    box-shadow: 0 2px 1px -1px #DCEBA6 inset;
+    border: 1px solid #558a0f !important;
+    padding: 0px 10px !important;
+}
+.buttonGreen.small
+{
+    height: 22px;
+    line-height: 22px;
+    margin: 0 2px;
+    font: bold 12px Arial,Helvetica,sans-serif;
+}
+.buttonGreen.medium
+{
+    margin: 0 3px;
+    height: 30px;
+    line-height: 30px;
+    font: bold 14px Arial,Helvetica,sans-serif;
+    margin-top: -3px;
+}
+.buttonGreen:hover
+{
+    background-image: none;
+    background-color: #7fc41d;
+    webkit-box-shadow: 0 2px 1px -1px #b3d72d inset;
+    -moz-box-shadow: 0 2px 1px -1px #b3d72d inset;
+    box-shadow: 0 2px 1px -1px #7A9417 inset;
+    border: 1px solid #558a0f;
+}
+a.buttonGreen.small
+{
+    height: 22px !important;
+    line-height: 22px !important;
+    margin: 0 2px !important;
+    font: bold 12px Arial,Helvetica,sans-serif;
+    display: inline-block !important;
+}

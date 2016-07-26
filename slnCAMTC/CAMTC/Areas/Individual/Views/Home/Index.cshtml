@@ -1,7 +1,12 @@
 ﻿
 @{
+    Layout = "~/Areas/Individual/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+@Html.Partial("_DashboardHeader")
+@Html.Partial("_ApplicantDashboard")
+
+
+
 

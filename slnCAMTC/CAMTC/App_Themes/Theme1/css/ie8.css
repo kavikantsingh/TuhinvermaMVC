@@ -1,0 +1,28 @@
+
+.alignCenter
+{
+    text-align: center;
+}
+.alignLeft
+{
+    text-align: left;
+}
+.personalinfo input[type="file"]
+{
+    width: 168px;
+}
+
+#ucLogin1_VCEFpassword_popupTable
+{
+    left: 10px !important;
+}
+.index tr
+{
+    border-bottom: 0px !important;
+}
+
+.index .bordrbtm
+{
+    border-bottom: 1px solid rgb(229, 222, 222) !important;
+}
+

@@ -1,0 +1,71 @@
+.textBoxAlign p  input[type="textbox"], .textBoxAlign p select, .textBoxAlign p textarea
+{
+    width: 160px;
+}
+.textBoxAlign div.fltrt p  input[type="textbox"], .textBoxAlign div.fltrt p select, .textBoxAlign div.fltrt p textarea
+{
+    float: left;
+}
+.textBoxAlign div.fltlft p  input[type="textbox"], .textBoxAlign div.fltlft p select, .textBoxAlign div.fltlft p textarea
+{
+    float: left;
+}
+.textBoxAlign p select
+{
+    width: 166px;
+}
+.pdng2
+{
+    padding: 2px;
+}
+.span-13 .rounded-container
+{
+    min-height: 460px !important;
+}
+@-moz-document url-prefix()    
+{
+}
+
+ @media screen and (-webkit-min-device-pixel-ratio:0) {
+
+     .textBoxAlign p select
+{
+    width: 157px;
+}
+
+}
+
+.BoldName {
+display: block;
+line-height: 27px;
+font-weight: bold;
+}
+.divPrint
+{
+    z-index: 9999;
+display: block;
+
+    top: 38px;
+
+    right: 0px;
+
+    border-top-left-radius: 0px;
+
+    border-top-right-radius: 0px;
+border-bottom-right-radius: 5px;
+border-bottom-left-radius: 5px;
+border-color: rgb(98, 143, 199);
+position: absolute;
+
+    min-height: 45px;
+border: 1px solid rgb(98, 143, 199);
+
+    background: #E7F5FF;
+    padding: 10px;
+}
+.divPrint .buttonGreen.small {
+height: 22px;
+line-height: 22px;
+margin: 4px 2px;
+font: bold 12px Arial,Helvetica,sans-serif;
+}
