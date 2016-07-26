@@ -85,7 +85,7 @@
                 ShowLoader();
 
                 $.ajax({
-                    url: "http://ws.camtc.inlumon.com/api/Provider/ProviderLogin/Key",
+                    url: "http://localhost:1530/api/Provider/ProviderLogin/Key",
                     type: "POST",
                     data: JSON.stringify({
                         Email: $("#txtEmail").val(),
@@ -96,7 +96,7 @@
 
                     success: function (data) {
                         if (data.Status === true) {
-
+                            debugger;
                             $('#error_validation').hide();
 
                             sessionStorage.ApplicationId = data.ApplicationId;
