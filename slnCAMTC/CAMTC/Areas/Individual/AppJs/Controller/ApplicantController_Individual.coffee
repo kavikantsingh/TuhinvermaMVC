@@ -78,8 +78,11 @@
         home = vm.appData.Applicant.HomeAddress
         home.BeginDate = new Date()
         home.EndDate = new Date()
-        home.IndividualId = sessionStorage.IndividualId
-        ApplicationDataService.address.save.individualAddress(sessionStorage.IndividualId, vm.appData.Applicant.HomeAddress)
+        home.IndividualId = parseInt(sessionStorage.IndividualId)
+        home.AddressTypeId = 2
+        home.AddressStatusId = 9
+        #if home.AddressId not 0
+        ApplicationDataService.address.save.individualAddress(home)
             .then (response)->
                 console.log response , "Saved Home Address"
         

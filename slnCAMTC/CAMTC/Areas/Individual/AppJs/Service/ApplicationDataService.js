@@ -19,9 +19,20 @@
           return factory.IndividualName = response.data.IndividualNameResponse[0];
         });
         return vm.service.getIndividualAddress(sessionStorage.IndividualId).then(function(response) {
+          var address, _i, _len, _ref, _results;
           console.log("Address", response.data);
           if (response.data.IndividualAddressResponse.length > 0) {
-            return console.log(response.data.IndividualAddressResponse);
+            _ref = response.data.IndividualAddressResponse;
+            _results = [];
+            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+              address = _ref[_i];
+              if (address.AddressTypeId === 2) {
+                _results.push(factory.Applicant.HomeAddress = address);
+              } else {
+                _results.push(void 0);
+              }
+            }
+            return _results;
           } else {
             factory.Applicant.HomeAddress = angular.copy(ObjectTemplateFactory.address.newAddress);
             return factory.Applicant.HomeAddress.AddressTypeId = 2;
@@ -47,8 +58,8 @@
           }
         },
         save: {
-          individualAddress: function(ind_id, newAddress) {
-            return $http.post(vm.baseUrl + "/Individual/IndividualAddressSave/" + vm.key + "?IndividualId=" + ind_id, newAddress);
+          individualAddress: function(newAddress) {
+            return $http.post(vm.baseUrl + "/Individual/IndividualAddressSave/" + vm.key, newAddress);
           }
         }
       }

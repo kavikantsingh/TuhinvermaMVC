@@ -19,7 +19,9 @@
                 .then (response)->
                     console.log "Address", response.data
                     if response.data.IndividualAddressResponse.length > 0
-                        console.log response.data.IndividualAddressResponse
+                        for address in response.data.IndividualAddressResponse
+                            if address.AddressTypeId is 2
+                                factory.Applicant.HomeAddress = address
                     else 
                         factory.Applicant.HomeAddress = angular.copy(ObjectTemplateFactory.address.newAddress)
                         factory.Applicant.HomeAddress.AddressTypeId = 2
@@ -44,8 +46,8 @@
             }
             
             save : {
-                individualAddress : (ind_id, newAddress)->
-                    $http.post(vm.baseUrl + "/Individual/IndividualAddressSave/" + vm.key + "?IndividualId=" + ind_id, newAddress)
+                individualAddress : (newAddress)->
+                    $http.post(vm.baseUrl + "/Individual/IndividualAddressSave/" + vm.key , newAddress)
             }
         }    
     }

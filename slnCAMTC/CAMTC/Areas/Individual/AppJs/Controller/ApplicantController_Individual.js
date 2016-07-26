@@ -58,8 +58,10 @@
       home = vm.appData.Applicant.HomeAddress;
       home.BeginDate = new Date();
       home.EndDate = new Date();
-      home.IndividualId = sessionStorage.IndividualId;
-      ApplicationDataService.address.save.individualAddress(sessionStorage.IndividualId, vm.appData.Applicant.HomeAddress).then(function(response) {
+      home.IndividualId = parseInt(sessionStorage.IndividualId);
+      home.AddressTypeId = 2;
+      home.AddressStatusId = 9;
+      ApplicationDataService.address.save.individualAddress(home).then(function(response) {
         return console.log(response, "Saved Home Address");
       });
       window.location.hash = "#" + "/identification";
