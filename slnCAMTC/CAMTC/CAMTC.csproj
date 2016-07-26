@@ -1026,6 +1026,7 @@
     <Content Include="Areas\BackOffice\AppJS\Services\ContentManagement.Service.js" />
     <Content Include="Areas\BackOffice\AppJS\Services\EligibiltiyService.js" />
     <Content Include="Areas\BackOffice\AppJS\Services\SchoolInfoServices.js" />
+    <Content Include="Areas\BackOffice\AppJS\Services\TemplateMessage.Service.js" />
     <Content Include="Areas\Individual\AppJs\Controller\ApplicantController_Individual.js">
       <DependentUpon>ApplicantController_Individual.coffee</DependentUpon>
     </Content>
@@ -1193,6 +1194,8 @@
     <Content Include="Areas\Individual\Views\Shared\_DenielProcess.cshtml" />
     <Content Include="Areas\Individual\Views\Shared\_PaymentDetails.cshtml" />
     <Content Include="Areas\Individual\Views\Shared\_StatusList.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Home\PartialView\ApplicationConfiguration.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Home\PartialView\DeficiencyReason.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
