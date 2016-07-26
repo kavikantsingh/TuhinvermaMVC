@@ -1,0 +1,13 @@
+.textBoxAlign p label {
+
+width: 135px  !important;
+
+}
+.clear.brdr.radius.pdng2.mrgnTp4
+{
+   padding-right: 70px;
+}
+.textBoxAlign div.fltlft p input[type="textbox"], .textBoxAlign div.fltlft p select, .textBoxAlign div.fltlft p textarea {
+float: left;
+}
+

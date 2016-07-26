@@ -1,0 +1,153 @@
+.width90
+{
+width:90px !important;
+margin:0px 2px !important;	
+}
+ input[type="text"], input[type="password"],  textarea,  select{
+background-color: #fafafa;
+border-width: 1px;
+border-style: solid;
+border-color: #bbb #ddd #ddd #bbb;
+-webkit-box-shadow: 0 1px #e5e5e5 inset;
+-moz-box-shadow: 0 1px #e5e5e5 inset;
+box-shadow: 0 1px #e5e5e5 inset;
+-o-border-radius: 3px;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+padding: 4px 3px;
+margin-top: 4px !important;
+}
+.identity
+{
+line-height: 36px !important;	
+color: rgb(16, 16, 17);
+}
+.number
+{
+font-weight:bold; margin-right:3px;
+font-size:16px;
+color:rgb(110, 125, 185);
+	
+}
+.inlineBlock{
+	display:inline-block !important;
+}
+.hr
+{
+	border-bottom: 2px solid rgb(148, 196, 196);
+overflow: hidden;
+padding: 18px 0px 18px 8px;
+
+}
+.inlineBlock.float_left label
+{
+font-weight:bold;
+margin:0px 2px;	
+}
+.clear b i
+{
+font-size:12px;	
+}
+.submit-container {
+padding-top: 36px;
+text-align: center;
+}
+.button.large.single {
+float: none;
+margin: 0 auto;
+width: 228px;
+}
+.button.large.green {
+background-position: left -298px;
+}
+.button.green {
+-webkit-box-shadow: 0 2px 1px -1px #b3d72d inset;
+-moz-box-shadow: 0 2px 1px -1px #b3d72d inset;
+box-shadow: 0 2px 1px -1px #b3d72d inset;
+border: 1px solid #558a0f;
+}
+.button.large {
+background-position: left -104px;
+font: bold 18px Arial,Helvetica,sans-serif;
+margin: 0 0 17px 5px;
+height: 43px;
+line-height: 43px;
+}
+.button.green {
+background-color: #78b81c;
+}
+.button {
+-webkit-box-shadow: 0 2px 1px -1px #d2d2d2 inset;
+-moz-box-shadow: 0 2px 1px -1px #d2d2d2 inset;
+box-shadow: 0 2px 1px -1px #d2d2d2 inset;
+border: 1px solid #595959;
+}
+.button, .button.medium:link, .button.medium:active, .button.medium:visited, .button.medium {
+background-position: left -44px;
+}
+.button {
+-webkit-text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+-moz-text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+-moz-user-select: none;
+-webkit-user-select: none;
+-ms-user-select: none;
+user-select: none;
+-o-border-radius: 3px;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+background-color: #8c8c8c;
+background-image: url('../images/sprites.v1351539994.png');
+font: bold 14px Arial,Helvetica,sans-serif;
+color: #fff!important;
+text-decoration: none!important;
+text-align: center;
+display: block;
+height: 30px;
+line-height: 30px;
+float: left;
+cursor: pointer;
+white-space: nowrap;
+padding: 0;
+margin: 0;
+outline: 0;
+}
+.button.large input {
+font: bold 18px Arial,Helvetica,sans-serif;
+-webkit-text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+-moz-text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+color: #fff;
+background: 0;
+padding: 0 20px;
+border: 0;
+outline: 0;
+cursor: pointer;
+width: 228px;
+height: 43px;
+}
+.form-horizontal input, .form-horizontal textarea, .form-horizontal select {
+display: inline-block;
+margin-bottom: 0;
+}
+.button input {
+-webkit-text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+-moz-text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+font: bold 14px Arial,Helvetica,sans-serif;
+color: #fff;
+min-width: 55px;
+background: 0;
+padding: 0 9px;
+border: 0;
+outline: 0;
+cursor: pointer;
+}
+.green {
+color: #628e0e;
+}
+.identity .get-started-content {
+padding: 15px 6px 18px 5px;
+}

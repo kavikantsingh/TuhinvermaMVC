@@ -1,0 +1,176 @@
+﻿
+@{
+    ViewBag.Title = "ApplicantDashboard";
+    Layout = "~/Areas/Individual/Views/Shared/_Layout.cshtml";
+}
+<link href="~/App_Themes/Public/css/dashboard.css?" rel="stylesheet" type="text/css" />
+<script src="~/App_Themes/Public/js/jquery.mask.min.js" type="text/javascript"></script>
+<style type="text/css">
+    .QAgrid tr td:first-child {
+        text-align: right;
+        padding-right: 3px;
+    }
+
+    .QAgrid tr:last-child td:first-child {
+        text-align: right;
+        padding-right: 3px;
+        padding-top: 10px;
+    }
+
+    .index tbody td, .index tfoot td {
+        border: 0px;
+    }
+
+    .index tbody th {
+        padding-left: 8px;
+    }
+
+    .index tbody tr td {
+        padding-left: 8px;
+    }
+</style>
+<script>
+        function RemoveElement(e) {
+            $(e).remove();
+        }
+        $('.zip_us').mask("99999-9999");
+        $('.phone_us').mask('(000) 000-0000');
+
+        $('.OnlyAlphabet').keydown(function (e) {
+            if (e.keyCode != 9) {
+
+                var key = e.keyCode;
+                if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+                    e.preventDefault();
+                }
+            }
+        });
+        $('.inputTextbox').attr('autocomplete', 'off');
+        $('.calWidth').attr('autocomplete', 'off');
+        $('input[type="text"]').attr('autocomplete', 'off');
+        $('select').attr('autocomplete', 'off');
+        $('textarea').attr('autocomplete', 'off');
+</script>
+
+@Html.Partial("_ApplicantDashboard")
+@*<script type="text/javascript">
+        //Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
+        //Sys.WebForms.PageRequestManager.getInstance().add_beginRequest(BeginRequestHandler);
+    $(document).ajaxStart(function () {
+        try {
+            alert('load');
+            ShowLoader();
+            alert('update');
+            onUpdate();
+            
+        }
+        catch (e) {
+            alert(e.message);
+        }
+       
+    });
+    $(document).ajaxStop(function () {
+        try {
+            HideLoader();
+            onUpdate();
+        }
+        catch (e) {
+        }
+    });
+        //function BeginRequestHandler(sender, args) {
+        //    try {
+         
+        //        ShowLoader();
+         
+        //        onUpdate();
+
+        //    }
+        //    catch (e) {
+        //    }
+        //}
+
+        //function EndRequestHandler(sender, args) {
+        //    try {
+        //        HideLoader();
+        //        onUpdate();
+        //    }
+        //    catch (e) {
+        //    }
+        //}
+        function onUpdate() {
+            $('.zip_us').mask("99999-9999");
+            $('.phone_us').mask('(000) 000-0000');
+            $('.inputTextbox').attr('autocomplete', 'off');
+            $('.calWidth').attr('autocomplete', 'off');
+            $('input[type="text"]').attr('autocomplete', 'off');
+            $('select').attr('autocomplete', 'off');
+            $('textarea').attr('autocomplete', 'off');
+            function InitiateOnlyAlphabet() {
+                $('.OnlyAlphabet').keydown(function (e) {
+                    if (e.keyCode != 9) {
+
+                        var key = e.keyCode;
+                        if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+                            e.preventDefault();
+                        }
+                    }
+                });
+            }
+            $("input.us_street").blur(function () {
+                OnStreetChange(this);
+            });
+            InitiateOnlyAlphabet();
+            try {
+                $('.calender').datepicker({
+                    inline: true,
+                    altFormat: 'DD,MM, yy',
+                    changeMonth: true,
+                    changeYear: true //, minDate: "0"
+
+
+                });
+            } catch (e) {
+            }
+            try {
+                $('.calenderDOB').datepicker({
+                    inline: true,
+                    changeMonth: true,
+                    changeYear: true, maxDate: "-18Y",
+                    yearRange: "1900:+nn"
+
+                });
+            } catch (e) {
+            }
+            try { StartSearch(); } catch (e) {
+            }
+            try {
+                StartSearchBranchResp(); StartSearchBranchPrincipal(); StartSearchCompanyPrincipal(); StartSearch();
+            }
+            catch (e) {
+
+            }
+
+            try { $('.phone_us').mask('(000) 000-0000'); } catch (e) {
+            }
+        }
+        function ShowLoader() {
+            $('.loader2').css('display', 'block');
+
+        }
+        function HideLoader() {
+            $('.loader2').css('display', 'none');
+            $('.loader2').slideUp('fast');
+        }
+        jQuery.fn.center = function () {
+
+            this.css("position", "absolute");
+            this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) +
+                                                $(window).scrollTop()) + "px");
+            this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) +
+                                                $(window).scrollLeft()) + "px");
+            return this;
+        }
+</script>*@
+
+
+

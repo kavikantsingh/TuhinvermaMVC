@@ -1,0 +1,44 @@
+
+input[type="file"]
+{
+    width: 150px;
+}
+
+.personalinfo input[type="file"]
+{
+    width: 168px;
+}
+
+.index tr
+{
+    border-bottom: 0px !important;
+}
+.index .bordrbtm
+{
+    border-bottom: 1px solid rgb(229, 222, 222) !important;
+}
+
+.advancedcssforIe
+{
+    width: 105px !important;
+}
+.applicationform
+{
+    width: 1000px;
+}
+.IEwidth
+{
+    width: 230px;
+}
+tr.ajax__validatorcallout_popup_table_row .ajax__validatorcallout_icon_cell
+{
+    border-left: 1px solid black !important;
+}
+.IEChraterReference
+{
+    width: 130px !important;
+}
+.eibottom
+{
+    bottom: 45px !important;
+}

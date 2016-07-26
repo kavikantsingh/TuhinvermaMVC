@@ -1,0 +1,341 @@
+/***********************************************************************
+  jQuery Coda-Slider v3.0 - kevinbatdorf.github.com/codaslider
+  Copyright (c) 2012 Kevin Batdorf
+  This plugin available for use in all personal or commercial projects under both MIT and GPL licenses.
+************************************************************************/
+/********************************************
+SASS stylesheet.
+
+No idea what CSS preprocessing is all about? No problem... just use the style.css file instead.
+If you want to learn more, check out this article by Chris Coyier
+
+css-tricks.com/musings-on-preprocessing/
+
+********************************************/
+
+.coda-slider-wrapper {
+  /*******************************************************
+  *
+  * Most common stuff you'll need to change 
+  * will be below this line.
+  *
+  ********************************************************/
+  /******************************************************
+  * 
+  * Main wrapper padding 
+  *
+  *******************************************************/
+  padding: 20px 0; 
+}
+  
+  .coda-slider-wrapper .coda-slider {
+    /******************************************************
+    * 
+    * Inner wrapper styles 
+    *
+    *******************************************************/
+    /******************************************************
+    * 
+    * Width of the container. Typically you will want to 
+    * match this with the width of the panel as well. 
+    *
+    *******************************************************/
+    width: 230px; 
+  }
+    
+   
+      
+      .coda-slider-wrapper .coda-slider .panel .panel-wrapper {
+        /******************************************************
+        * 
+        * Panel wrapper styles 
+        *
+        *******************************************************/ 
+      }
+  
+  .coda-slider-wrapper .coda-nav {
+    /******************************************************
+    * 
+    * Tab styles 
+    *
+    *******************************************************/ 
+  }
+    
+    .coda-slider-wrapper .coda-nav .current {
+      /******************************************************
+      * 
+      * Current tab styles 
+      *
+      ******************************************************* background: #0090FF; /
+     
+    }
+    
+    .coda-slider-wrapper .coda-nav a {
+      /******************************************************
+      * 
+      * Tab styles 
+      *
+      *******************************************************/
+      background: #000;
+      color: #fff;
+      margin-right: 1px;
+      padding: 3px 6px; 
+    }
+    
+    .coda-slider-wrapper .coda-nav a:hover {
+      /******************************************************
+      * 
+      * Tab styles 
+      *
+      *******************************************************/
+      background: #000;
+      color: #fff;
+      text-shadow: none; 
+    }
+  
+ .coda-nav-left,  .coda-nav-right {
+background: 0 -493px no-repeat;
+cursor: pointer;
+background-image: none;
+font-size: 18px;
+height: 34px;
+left: -18px;
+position: absolute;
+top: 50px;
+width: 17px;
+}
+    
+    .coda-nav-left a,  .coda-nav-right a {
+display: block;
+height: 100%;
+width: 100%;
+}
+  
+  .coda-slider-wrapper .coda-nav-left-arrow {
+  
+    width: 25px;
+    height: 25px;
+    background: url(../img/arrow.png) no-repeat top left; 
+    margin-top:50px;
+  }
+
+.coda-slider-wrapper .coda-nav-left-arrow a {
+  
+    width: 0;
+    height: 0;
+    border:none;
+  }
+
+  .coda-slider-wrapper .coda-nav-left-arrow:hover {
+    /************************************************
+    * 
+    * Graphical arrows hover left
+    *
+    *************************************************/
+    background: url(../img/arrow.png) no-repeat bottom left; 
+  }
+  
+  .coda-slider-wrapper .coda-nav-right-arrow {
+  
+    width: 25px;
+    height: 25px;
+    background: url(../img/arrow.png) no-repeat top right; 
+    margin-top:50px;
+  }
+.coda-slider-wrapper .coda-nav-right-arrow a {
+  
+    width: 0;
+    height: 0;
+    background: none; 
+    margin-top:0;
+    border:none;
+  }
+
+  .coda-slider-wrapper .coda-nav-right-arrow:hover {
+  
+    background: url(../img/arrow.png) no-repeat bottom right; 
+  }
+
+  .coda-slider-wrapper .coda-nav-left-arrow:active, .coda-slider-wrapper .coda-nav-right-arrow:active {
+   
+    margin-top: 55px; 
+  }
+  
+  .coda-slider-wrapper .loading {
+  
+    height: 100%;
+    padding: 20px;
+    text-align: center; 
+  }
+
+  
+
+
+.arrows .coda-slider {
+ 
+  margin: 0 10px; 
+}
+
+
+
+.coda-slider-wrapper {
+ 
+  clear: both;
+  overflow: auto; 
+}
+  
+  .coda-slider-wrapper .coda-slider {
+  
+    float: left;
+    overflow: hidden;
+    position: relative; 
+  }
+    
+    .coda-slider-wrapper .coda-slider .panel-container {
+   
+      position: relative; 
+    }
+      
+    
+  
+  .coda-slider-wrapper .coda-nav {
+  
+  }
+    
+    .coda-slider-wrapper .coda-nav ul {
+ 
+      clear: both;
+      display: block;
+      margin: auto;
+      overflow: hidden; 
+    }
+      
+      .coda-slider-wrapper .coda-nav ul li {
+    
+        display: inline; 
+      }
+        
+        .coda-slider-wrapper .coda-nav ul li a {
+    
+          display: block;
+          float: left;
+          text-decoration: none; 
+        }
+  
+  .coda-slider-wrapper .coda-nav-left-arrow, .coda-slider-wrapper .coda-nav-right-arrow {
+  
+    cursor: pointer;
+    float: left;
+  }
+    
+    .coda-slider-wrapper .coda-nav-left-arrow a, .coda-slider-wrapper .coda-nav-right-arrow a {
+      display: block; 
+    }
+  
+   .coda-nav-right {
+background: 0 -561px no-repeat;
+left: auto;
+right: -18px;
+}
+
+    
+     .coda-nav-left a,  .coda-nav-right a,  .coda-nav a {
+color: #ccc;
+text-decoration: none;
+font-size: 16px;
+line-height: 1;
+}
+
+  
+  .coda-slider-wrapper .coda-nav-left, .coda-slider-wrapper .coda-nav-left-arrow {
+   background: 0 -493px no-repeat;
+cursor: pointer;
+background-image: none;
+font-size: 18px;
+height: 34px;
+
+   left: -12px;
+position: absolute;
+top: 50px;
+width: 17px;
+    clear: both; 
+  }
+   .coda-nav-left a,  .coda-nav-right a,  .coda-nav a {
+color: #ccc;
+text-decoration: none;
+font-size: 16px;
+line-height: 1;
+}
+ .coda-nav-left a,  .coda-nav-right a {
+display: block;
+height: 100%;
+width: 100%;
+}
+a:link, a:visited, a:active {
+color: #00f;
+text-decoration: none;
+}
+a:link, a:visited, a:active {
+color: #00f;
+text-decoration: none;
+}
+ .panel-wrapper {
+width: 230px;
+}
+.coda-nav-right {
+background: 0 -561px no-repeat;
+left: auto;
+right: -18px;
+}
+.coda-slider-wrapper .coda-slider .panel-container .panel {
+display: block;
+float: left;
+background: #fff;
+}
+.coda-slider-wrapper .coda-slider .panel {
+width: 210px;
+}
+.coda-nav-right a,  .coda-nav a {
+color: #ccc;
+text-decoration: none;
+font-size: 16px;
+line-height: 1;
+}
+ .coda-nav-left a,  .coda-nav-right a {
+display: block;
+height: 100%;
+width: 100%;
+}
+ .coda-nav-left a:hover   {
+background: #CCC;
+color: rgb(48, 19, 19);
+height: 19px;
+padding: 2px 4px;
+border-radius: 6px 0px 0px 6px;
+z-index: 1;
+width: 8px;
+left: -4px;
+position: absolute;
+} .coda-nav-right a:hover
+{
+	background: #CCC;
+color: rgb(48, 19, 19);
+height: 19px;
+padding: 2px 4px 2px 0px;
+border-radius: 0px 6px 6px 0px;
+z-index: 1;
+width: 8px;
+
+position: absolute;
+}
+ .coda-nav-left a,  .coda-nav-right a,  .coda-nav a {
+color: #eee;
+text-decoration: none;
+font-size: 16px;
+line-height: 1;
+}
+ .coda-nav-left a,  .coda-nav-right a {
+display: block;
+height: 100%;
+width: 100%;
+}
