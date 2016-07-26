@@ -1,0 +1,549 @@
+
+fieldset
+{
+    border: 0px !important;
+}
+
+.HeaddingMain
+{
+    text-align: center;
+    background-color: rgb(243, 246, 252);
+    height: 30px;
+    line-height: 30px;
+}
+.HeaddingMain span
+{
+    font-weight: bold;
+    font-size: 15px;
+}
+.mainleftpanel
+{
+    float: left;
+    border: 1px solid rgb(232, 232, 232);
+    width: 25%;
+    min-height: 200px;
+}
+
+.mainrightpanel
+{
+    float: right;
+    border: 1px solid rgb(232, 232, 232);
+    width: 74%;
+    min-height: 200px;
+}
+.divmain
+{
+    margin-top: 10px;
+}
+
+
+.wdtmarauto
+{
+    width: 96%;
+    margin: 0px auto;
+}
+.fuTempAcc
+{
+    font-size: 10px;
+    width: 144px;
+}
+
+.valign
+{
+    vertical-align: bottom;
+}
+.wdt150
+{
+    width: 150px;
+}
+.wdt1502
+{
+    width: 150px;
+}
+.mrgnRt
+{
+    text-align: right;
+}
+.wdtsec7
+{
+    width: 608px;
+}
+.tdnum
+{
+    width: 18px;
+    font-weight: bold;
+}
+.flsParentParentApplicationScreeningQuestions
+{
+    border: 1px solid rgb(234, 234, 234);
+    width: 95%;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+.addNewDiv
+{
+    text-align: center;
+    height: 28px;
+    line-height: 25px;
+    background-color: rgb(249, 249, 249);
+    font-weight: bold;
+}
+.sectionDiv
+{
+    height: 30px;
+    background-color: rgb(214, 211, 211);
+    line-height: 30px;
+    padding-left: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.flsParentAffidavit
+{
+    border: 1px solid rgb(234, 234, 234);
+    width: 95%;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+.LinkbuttonSign
+{
+    background-color: rgb(224, 223, 223);
+    text-decoration: none;
+    color: black;
+    padding: 4px 19px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+
+.chkmrgnlft
+{
+    margin-left: 20px;
+}
+
+.btnupdatehgt
+{
+    width: 75px;
+    margin-right: 5px;
+}
+.divaddnew
+{
+    height: 33px;
+}
+.divGridEdit
+{
+    width: 100%;
+    margin: 15px auto;
+    border: 1px solid rgb(200, 194, 194);
+}
+
+td.padinglftnone
+{
+    padding-left: 0px !important;
+}
+.index tbody td
+{
+    padding: 4px 3px;
+}
+.gridTable
+{
+    width: 99%;
+    margin: 0px auto;
+    line-height: 27px !important;
+}
+.divLicenseInfo
+{
+    margin: 3px auto;
+    width: 100%;
+    border: 1px solid rgb(238, 238, 238);
+}
+.wthtop20
+{
+    margin-top: 20px;
+}
+.divNewLiveApp
+{
+    width: 950px;
+    margin: 30px auto;
+    border: 1px solid rgb(234, 234, 234);
+    padding-bottom: 20px;
+}
+.flsParentNewApplReqForm
+{
+    border: 1px solid rgb(234, 234, 234);
+    width: 95%;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+
+.flsNewApplReqForm
+{
+    border: 1px solid rgb(234, 234, 234);
+    width: 95%;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+
+.flsLiveScanApp
+{
+    border: 1px solid rgb(234, 234, 234);
+    width: 95%;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+
+.divLIVESCANAPPLICATION
+{
+    width: 950px;
+    margin: 30px auto;
+    border: 1px solid rgb(234, 234, 234);
+}
+
+
+.tdwidth1
+{
+    width: 180px;
+}
+.tdwidth2
+{
+    width: 150px;
+}
+
+.txtalgnrgt
+{
+    text-align: right;
+}
+
+
+.flsApplReqForm3
+{
+    border: 1px solid rgb(234, 234, 234);
+    width: 99%;
+    margin: 0px auto;
+}
+
+.flsApplReqForm5
+{
+    width: 98%;
+    line-height: 26px;
+}
+
+.flsApplReqForm
+{
+    border: 1px solid rgb(234, 234, 234);
+    width: 95%;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+
+.applicationform
+{
+    width: 950px;
+    margin: 0px auto;
+}
+/************************************************************************Using Style******************************************************************************/
+
+.DropdownList
+{
+    width: 143px !important;
+}
+.inputTextbox
+{
+    width: 144px;
+}
+
+fieldset
+{
+    padding: 0em !important;
+}
+
+table.tblApplReqForm5
+{
+    line-height: 33px;
+}
+.mrgntop8
+{
+    margin-top: 8px;
+}
+.orangeBtn
+{
+    background: #febf01 !important;
+    background: -moz-linear-gradient(top, #febf01 0%, #febf01 51%, #febf01 99%) !important;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#febf01), color-stop(51%,#febf01), color-stop(99%,#febf01)) !important;
+    background: -webkit-linear-gradient(top, #febf01 0%,#febf01 51%,#febf01 99%) !important;
+    background: -o-linear-gradient(top, #febf01 0%,#febf01 51%,#febf01 99%) !important;
+    background: -ms-linear-gradient(top, #febf01 0%,#febf01 51%,#febf01 99%) !important;
+    background: linear-gradient(to bottom, #febf01 0%,#febf01 51%,#febf01 99%) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#febf01', endColorstr='#febf01',GradientType=0 ) !important;
+}
+
+.withoutfldstP
+{
+    padding: 10px;
+}
+
+.rdobtn
+{
+    width: 155px;
+}
+input[type="radio"]
+{
+    margin: 7px;
+}
+.content1
+{
+    position: absolute;
+    right: 0px;
+    top: 10px;
+}
+.content1-table
+{
+    margin-right: 10px;
+    font-size: 14px;
+}
+.header-span
+{
+   /*  font-weight: bold;*/
+    font-size: 18px;
+    display: block;
+ /*   padding-right: 193px;*/
+}
+.fullwidthtable table
+{
+    width: 90%;
+}
+td.txtalgnrgt
+{
+    text-align: right;
+}
+.grid .RowInEditMode fieldset
+{
+    width: 95%;
+    margin: 0 auto;
+    border: 5px solid #EBECEC;
+    padding: 6px;
+}
+.divmain
+{
+    margin-top: 10px;
+    min-height: 200px;
+    overflow: hidden;
+}
+.headerhr
+{
+    width: 1069px;
+    margin-left: -9px;
+}
+
+/*****************************************New Application Special Css Start*************************************************/
+
+.NewAppCharrefetexbox
+{
+    width: 183px !important;
+}
+
+.NewAppPersonalTxtbx
+{
+    width: 170px !important;
+}
+
+/*****************************************New Application Special Css End*************************************************/
+
+/*****************************************Upload Section Special Css Start*************************************************/
+
+.upldman
+{
+    margin: 10px 10px 10px 10px;
+}
+.head
+{
+    background-color: Gray;
+    height: 50px;
+}
+.tblUploadSection
+{
+    margin: 20px auto;
+    width: 95%;
+    line-height: 30px;
+}
+.hed
+{
+    font-weight: bold;
+}
+.DropdownList
+{
+    width: 260px !important;
+    margin-left: 5px;
+}
+.index tbody th
+{
+    padding-left: 8px;
+}
+.index tbody tr td
+{
+    padding-left: 8px;
+}
+.lnkDoc
+{
+    color: blue !important;
+}
+
+/*****************************************Upload Section Special Css End*************************************************/
+
+
+
+
+/*****************************************Renewals Grid Special Css Start*************************************************/
+
+.RenewalGridForm
+{
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-top: -4px;
+    padding-top: 11px;
+    border-top: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+/*****************************************Renewals Grid Special Css End*************************************************/
+
+
+/*****************************************************FireFox Css Start for TextBoxes************************************/
+/********************Default SiZE*************/
+
+    .EdittdStreetFire
+    {width:212px !important;
+        }
+        
+     .EdittxtStreetFire
+     {width:474px !important;
+         }
+     
+     .EdittxtZipFire
+     {width:116px !important;
+         }    
+         
+    .SavetdStreetFire
+    {width:210px !important;
+        }
+        
+     .SavettxtStreetFire
+     {width:478px !important;
+         }
+     
+     .SavetxtZipFire
+     {width:120px !important;
+         }
+           
+     /**************************************************For Renewal Form****************************************/
+     .RenewEdittdStreetFire
+    {width:207px !important;
+        }
+        
+     .RenewEdittxtStreetFire
+     {width:477px !important;
+         }
+     
+     .RenewEdittxtZipFire
+     {width:119px !important;
+         }    
+         
+    .RenewSavetdStreetFire
+    {width:206px !important;
+        }
+        
+     .RenewSavettxtStreetFire
+     {width:481px !important;
+         }
+     
+     .RenewSavetxtZipFire
+     {width:123px !important;
+         } 
+         
+/********************FireFox SiZE*************/
+
+@-moz-document url-prefix() {
+    h1 {
+       
+    }
+    
+    .EdittdStreetFire
+    {width:207px !important;
+        }
+        
+     .EdittxtStreetFire
+     {width:477px !important;
+         }
+     
+     .EdittxtZipFire
+     {width:119px !important;
+         }    
+         
+    .SavetdStreetFire
+    {width:209px !important;
+        }
+        
+     .SavettxtStreetFire
+     {width:479px !important;
+         }
+     
+     .SavetxtZipFire
+     {width:120px !important;
+         }    
+  }
+         
+/**********************************************Only for Renewal Form****************************************/        
+
+ 
+   @-moz-document url-prefix() {
+    h1 {
+       
+    }
+    
+    .RenewEdittdStreetFire
+    {width:204px !important;
+        }
+        
+     .RenewEdittxtStreetFire
+     {width:480px !important;
+         }
+     
+     .RenewEdittxtZipFire
+     {width:122px !important;
+         }    
+         
+    .RenewSavetdStreetFire
+    {width:204px !important;
+        }
+        
+     .RenewSavettxtStreetFire
+     {width:484px !important;
+         }
+     
+     .RenewSavetxtZipFire
+     {width:127px !important;
+         } 
+         
+}
+/*****************************************************FireFox Css Start for TextBoxes************************************/
+
+
+/**********************Green Leaf Css Start****************************/
+    .greenleaf
+    {
+       background-image:url('../images/Go_Green.png');
+        height: 28px;
+        background-position: 254px 30px;
+        margin: auto;
+        width: 34px;
+        float: left;
+    }
+    
+    .paperlessblock {
+height: 28px;
+margin: auto;
+width: 280px;
+padding: 8px 0px 8px 0px;
+}
+#gvApplicationRequest tbody tr td:last-child {
+vertical-align: bottom;
+}

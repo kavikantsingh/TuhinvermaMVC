@@ -1,0 +1,315 @@
+﻿
+@{
+    Layout = "~/Areas/Individual/Views/Shared/_LayoutBasic.cshtml";
+    ViewBag.Title = "Recertification";
+}
+
+@section scripts{
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/respond.js"></script>
+    <script src="~/Scripts/CertApplication/SectionManager.js"></script>
+    <script src="~/Content/Public/js/ebsoft-loader.js"></script>
+    <script src="~/Content/AngularJS/angular.js" type="text/javascript"></script>
+    <script src="~/Scripts/Validation/FormValidation.js"></script>
+    <script src="~/Areas/Individual/AppJs/Controller/ReCertificationController.js" type="text/javascript"></script>
+    <script src="~/Areas/Individual/AppJs/Service/ReCertificationService.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function EnableTb(el) {
+            $(el).removeAttr('disabled');
+            $(el).removeClass('aspNetDisabled');
+        }
+    </script>
+}
+@section styles{
+    <link href="~/Content/Public/css/button.css" rel="stylesheet" />
+    <link href="~/Content/Public/css/NewButton.css" rel="stylesheet" />
+    <link href="~/Content/Public/css/OnlineApplication.css" rel="stylesheet" />
+    <link href="~/Content/Public/css/FirmCSS.css" rel="stylesheet" />
+    <link href="~/Content/Individual/CertApplication.min.css" rel="stylesheet" />
+}
+<style>
+    .histdiv_space {
+        line-height: 20px;
+        margin-top: 15px;
+        margin-bottom: 8px;
+        float: left;
+    }
+
+    .listbox {
+        width: 215px;
+        height: 170px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    .histdiv {
+        border: 1px solid rgb(221, 221, 221);
+        padding: 10px 0px !important;
+        margin-top: 10px;
+    }
+
+    .history .tblApplReqForm5 .grid td {
+        padding: 0px 0px 0px 4px !important;
+    }
+
+    .history .tblApplReqForm5 td {
+        padding: 2px 0px 0px 0px !important;
+    }
+
+        .history .tblApplReqForm5 td :last-child {
+            vertical-align: middle !important;
+        }
+
+    .mrgnto16 {
+        margin-top: -14px;
+    }
+
+    .address-box {
+        position: relative;
+        margin-top: -115px;
+        min-height: 100px;
+        box-shadow: 0px 2px 6px 3px #CECECE;
+        background-color: rgb(239, 255, 247);
+        z-index: 100;
+        padding: 0px 0px 13px 0px;
+        width: 98%;
+        border-radius: 4px;
+    }
+
+        .address-box table tr td {
+            padding: 0px !important;
+        }
+
+    .workinfo {
+        width: 135px;
+    }
+
+    .mrgnnon {
+        margin-left: 0px !important;
+    }
+
+    .index tbody th a {
+        color: #F9F9F9 !important;
+    }
+
+    select.inputTextbox {
+        width: 180px;
+    }
+
+    .btnBCGPass {
+        width: 80px;
+    }
+
+    .grid-heading {
+        width: 100%;
+        background-color: #ddd;
+        font-weight: bold;
+    }
+
+    .btnBCGFail:hover {
+        background-image: none;
+        border: 1px solid #9D0707 !important;
+        background-position: left 194px !important;
+        -webkit-box-shadow: 0 2px 1px -1px #E57D49 inset;
+        -moz-box-shadow: 0 2px 1px -1px #b3d72d inset;
+        box-shadow: 0 2px 1px -1px #ED6640 inset;
+        -webkit-box-shadow: 0 2px 1px -1px #F8D19E inset;
+        -moz-box-shadow: 0 2px 1px -1px #b3d72d inset;
+        background: rgb(237, 37, 37);
+    }
+
+    .btnBCGFail {
+        -webkit-text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+        -moz-text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+        text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -o-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        background-image: url('../images/sprites.v1351539994.png');
+        color: #fff !important;
+        text-decoration: none !important;
+        text-align: center;
+        cursor: pointer;
+        white-space: nowrap;
+        padding: 0;
+        margin: 0 2px;
+        outline: 0;
+        border: 1px solid #B50000 !important;
+        background-position: left 194px !important;
+        -webkit-box-shadow: 0 2px 1px -1px #E57D49 inset;
+        -moz-box-shadow: 0 2px 1px -1px #b3d72d inset;
+        box-shadow: 0 2px 1px -1px #ED6640 inset;
+        -webkit-box-shadow: 0 2px 1px -1px #F8D19E inset;
+        -moz-box-shadow: 0 2px 1px -1px #b3d72d inset;
+        box-shadow: 0 2px 1px -1px #FAC59B inset;
+        padding: 0px 10px !important;
+        width: 80px;
+        background: rgb(237, 55, 55);
+        height: 30px;
+        font: bold 14px Arial,Helvetica,sans-serif;
+    }
+
+    .actived {
+        background: linear-gradient(rgb(182, 224, 38) 0%, rgb(171, 220, 40) 100%) rgb(221, 239, 180) !important;
+    }
+
+    .tblApplReqForm5 td {
+        padding: 10px 0px 0px !important;
+    }
+
+    .clear.edit-mode-div {
+        border-bottom: 1px solid #ddd;
+    }
+
+    .add-mode-div tr {
+        border: 0px !important;
+    }
+
+    .add-mode-div td {
+        border: 0px !important;
+    }
+</style>
+<style>
+    .tdwidth1 {
+        width: 220px !important;
+    }
+
+    .tdwidth2 {
+        width: 199px !important;
+    }
+
+    .pragraph {
+        padding-bottom: 10px;
+    }
+</style>
+<style>
+    .gvDivUpr {
+        color: rgb(0, 0, 0);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: normal;
+        letter-spacing: normal;
+        orphans: auto;
+        text-align: left;
+        text-indent: 0px;
+        text-transform: none;
+        white-space: normal;
+        widows: auto;
+        word-spacing: 0px;
+        -webkit-text-stroke-width: 0px;
+        background-color: rgb(255, 255, 255);
+    }
+</style>
+<style>
+    .hed {
+        font-weight: bold;
+    }
+
+    .divquestion {
+        margin: 3px auto;
+        width: 100%;
+        border: 1px solid rgb(238, 238, 238);
+    }
+
+    .index tr {
+        border-top: 0px !important;
+    }
+
+    table#gvOtherNameEdit tbody tr td {
+        border: 1px solid #ddd;
+        padding: 0px !important;
+        margin: 0px !important;
+    }
+
+    table#gvOtherNameEdit tbody .RowInEditMode td {
+        border: 0px !important;
+        padding: 0px !important;
+        margin: 0px !important;
+    }
+
+    .close-btn {
+        background-image: url('~/App_Themes/Theme1/images/close-icon.png');
+    }
+
+    table#gvOtherNameEdit tbody tr td:First-Child {
+        padding-left: 5px !important;
+    }
+
+    .tdwidth1 {
+        width: 227px !important;
+    }
+
+    .vlignbtm {
+        vertical-align: bottom;
+    }
+
+    #rblQuestionEdit1 tr td {
+        padding: 0px !important;
+    }
+
+    #rblQuestionEdit2 tr td {
+        padding: 0px !important;
+    }
+
+    #rblQuestionEdit3 tr td {
+        padding: 0px !important;
+    }
+
+    .pdgtpnone tr td {
+        padding-top: 0px !important;
+    }
+
+    .pdgnone td {
+        padding: 0px 0px 0px !important;
+    }
+</style>
+<div style="position: relative; min-height: 500px; height: 100%">
+    <div class="header">
+        <span>
+            <h4 style="text-align: left; margin: 0px !important;">
+                <span>
+                    <a ID="lnkBacktoDashboard" href="/">← Back to Home</a>
+                </span>
+            </h4>
+        </span>
+        <p style="text-align: center; vertical-align: middle; text-indent: 119px; margin-top: 10px; padding-bottom: 10px;">
+            <span class="header-span">California Massage Therapy Council</span>
+            <span style="display: block; font-size: 16px;">Application for Certification</span> <span style="display: block; font-size: 15px;"><i>Ver. 2015</i></span>
+        </p>
+    </div>
+
+    <div class="gvDivUpr" ng-app="reCertificationApp" ng-controller="reCertificationController">
+        <div id="ContentPlaceHolder1_ucCertificationApplication1_divVerifiy">
+
+            <div class="divmain">
+                @{Html.RenderPartial("_LeftPanelPartial"); }
+                @{Html.RenderPartial("_RightPanelPartial"); }
+
+            </div>
+
+        </div>
+    </div>
+    @*<div class="container">
+
+            <div class="row">
+
+                <div class="col-xs-3" style="background-color:blue;"></div>
+
+
+                <div class="col-xs-9" style="background-color:blue;"></div>
+            </div>
+        </div>*@
+</div>
+
+
+
+

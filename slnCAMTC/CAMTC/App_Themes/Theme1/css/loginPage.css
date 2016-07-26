@@ -1,0 +1,435 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    font-family: Helvetica Neue, Arial, sans-serif;
+}
+
+html#users_html
+{
+    min-width: 1290px;
+}
+
+body
+{
+    font-size: 12px; /* old browsers #1100b3*/
+    background-color: #006261;
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    background-repeat: repeat;
+}
+#login
+{
+    background: #3e618c url(../images/bg-login.png)) 0 0 repeat-x;
+}
+
+.container
+{
+    width: 970px;
+    position: relative;
+    margin: 0 auto;
+    clear: both;
+}
+
+/* clearing --------------*/
+.x:after
+{
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+* html .x
+{
+    height: 1%;
+}
+
+*:first-child + html .x
+{
+    min-height: 1px;
+}
+
+ol, ul
+{
+    list-style: none;
+    list-style-image: none;
+}
+
+/* common */
+
+
+
+
+
+/* Login & Reset Password */
+.forms fieldset.inline
+{
+    text-align: center;
+    border: 0px;
+}
+
+.forms fieldset.inline ul, .forms fieldset.inline li, .forms fieldset.inline .submit
+{
+    display: inline;
+}
+
+.forms fieldset.inline li
+{
+    position: relative;
+}
+
+input.text
+{
+    background: #FBFAF4;
+    border: 2px solid;
+    border-color: #3D4E61 #9CB0C2 #9CB0C2 #3D4E61;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    width: 170px;
+    height: 34px;
+    padding: 0 10px;
+    margin: 0 7px 0 0;
+    line-height: 34px;
+    font-size: 21px;
+    color: #333;
+    outline: 0;
+    vertical-align: middle;
+}
+
+input.text:focus, input.text:active
+{
+    border-color: #638213 #ABCD4E #ABCD4E #638213;
+}
+
+.forms fieldset.inline .options
+{
+    margin-top: 62px;
+    color: #99BFF2;
+}
+
+.forms fieldset.inline .options a
+{
+    color: rgb(26, 76, 145);
+    text-shadow: 0 -1px 0 rgb(207, 212, 218);
+    font-size: 15px;
+}
+
+.forms fieldset.inline label
+{
+    position: absolute;
+    top: -4px;
+    left: 10px;
+    font-size: 21px;
+    color: #ccc;
+}
+
+.forms .messages li.error
+{
+    color: #930;
+}
+
+#log-in, #reset-password, #authentication
+{
+    padding: 108px 0 51px 0;
+}
+
+#log-in, #authentication
+{
+    display: none;
+}
+
+#log-in fieldset.inline .submit, #reset-password fieldset.inline .submit
+{
+    background: url(../images/login-home-sprite.png) -1px -387px no-repeat;
+    width: 132px;
+    height: 37px;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    text-align: left !important;
+    outline: 0px;
+    outline: none;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+#log-in fieldset.inline .submit:hover
+{
+    background-position: -1px -424px;
+}
+
+#reset-password fieldset.inline .submit
+{
+    background: url(../images/login-home-sprite.png) 0 -461px no-repeat;
+}
+
+#reset-password fieldset.inline .submit:hover
+{
+    background-position: 0 -498px;
+}
+
+/* Authentication */
+#authentication
+{
+    font-size: 13px;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 -1px 0 #5d80a9;
+}
+
+#authentication .loading_gif
+{
+    padding: 50px 0 0 0;
+}
+
+#authentication .loading
+{
+    padding: 50px 0 15px 0;
+}
+
+/* chrome web store */
+#chrome-web-store
+{
+    padding: 60px 0 62px 150px;
+}
+
+#chrome-web-store p
+{
+    padding: 5px 0 0 0;
+}
+
+#chrome-web-store a
+{
+    color: #99BFF2;
+}
+
+p.logo
+{
+    text-indent: 100px;
+}
+
+#chrome-buttons
+{
+    width: 660px;
+    padding: 50px 0 0 0;
+    color: white;
+    text-align: center;
+}
+
+#chrome-signup
+{
+    width: 340px;
+    float: left;
+}
+
+#chrome-login
+{
+    float: right;
+}
+#login
+{
+    background: #3e618c url(../images/bg-login.png) 0 0 repeat-x;
+}
+
+.container
+{
+    width: 970px;
+    position: relative;
+    margin: 0 auto;
+    clear: both;
+}
+
+/* Logo Default */
+.site-name, .site-name span
+{
+    display: block;
+    overflow: hidden;
+    text-align: left;
+    position: relative;
+}
+
+.site-name span
+{
+    background: url(../images/login-home-sprite.png) no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.site-name:hover span
+{
+    background-position: 0 -31px;
+}
+
+a.site-name span
+{
+    cursor: pointer;
+}
+
+/* Logo Large */
+.site-name.large, .site-name.large span
+{
+    width: 293px;
+    height: 225px;
+}
+.site-name.large span {
+background: url(../images/login-home-sprite.png) 15px -143px no-repeat;
+}
+
+
+/* Logo Medium */
+.site-name.medium, .site-name.medium span
+{
+    width: 232px;
+    height: 45px;
+}
+
+.site-name.medium span
+{
+    background: url(../images/login-home-sprite.png) 0 -93px no-repeat;
+}
+
+
+/* Header */
+#header .site-name
+{
+    position: absolute;
+    top: 13px;
+    left: 23px;
+}
+
+/* Forms */
+.forms
+{
+    width: 550px;
+    margin: 0 auto;
+}
+
+.forms .site-name
+{
+    margin: 0 auto 0px auto;
+}
+
+.forms form
+{
+    padding-top: 31px;
+}
+
+.forms legend
+{
+    display: none;
+}
+
+.forms .messages
+{
+    padding-bottom: 15px;
+}
+
+.forms .messages li
+{
+    background: #8AA5C6;
+    height: 38px;
+    margin-bottom: 3px;
+    line-height: 38px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    border: 1px solid #89a3c2;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.forms .messages li.error
+{
+    color: #930;
+}
+.button.primary, .button.primary.medium:link, .button.primary.medium:active, .button.primary.medium:visited, .button.primary.medium
+{
+    background-position: left 228px;
+    padding: 0px 20px !important;
+}
+.button.secondary, .button.secondary.medium:link, .button.secondary.medium:active, .button.secondary.medium:visited, .button.secondary.medium
+{
+    background-position: left -44px;
+    padding: 0px 20px !important;
+}
+.button.primary:hover
+{
+    background-position: left -241px;
+    padding: 0px 20px !important;
+}
+.button.secondary:hover
+{
+    background-position: left -73px;
+    padding: 0px 20px !important;
+}
+.button.inline
+{
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+.button span, .button.medium span
+{
+    display: block;
+    min-width: 55px;
+    padding: 0 9px;
+}
+.button span
+{
+    color: #fff !important;
+    text-decoration: none !important;
+}
+.button
+{
+    -webkit-box-shadow: 0 2px 1px -1px #d2d2d2 inset;
+    -moz-box-shadow: 0 2px 1px -1px #d2d2d2 inset;
+    box-shadow: 0 2px 1px -1px #d2d2d2 inset;
+    border: 1px solid #595959;
+}
+
+.button
+{
+    -webkit-text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+    -moz-text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -o-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #8c8c8c;
+    background-image: url('../images/sprites.v1351539994.png');
+    font: bold 14px Arial,Helvetica,sans-serif;
+    color: #fff !important;
+    text-decoration: none !important;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 0;
+    outline: 0;
+}
+.fltrt
+{
+    float: right;
+}
+.fltlft
+{
+    float: left;
+}

@@ -3,3 +3,379 @@
     ViewBag.Title = "TemplateMessage";
     Layout = "~/Areas/BackOffice/Views/Shared/_Layout.cshtml";
 }
+
+
+<style type="text/css">
+    .text-center {
+        text-align: center;
+    }
+
+    .pagination {
+        border-radius: 4px;
+        display: inline-block;
+        margin: 20px 0;
+        padding-left: 0;
+    }
+
+        .pagination > li {
+            display: inline;
+        }
+
+    *::after, *::before {
+        box-sizing: border-box;
+    }
+
+    *::after, *::before {
+        box-sizing: border-box;
+    }
+
+    .pagination > li:first-child > a, .pagination > li:first-child > span {
+        border-bottom-left-radius: 4px;
+        border-top-left-radius: 4px;
+        margin-left: 0;
+    }
+
+    .pagination > .disabled > a, .pagination > .disabled > a:focus, .pagination > .disabled > a:hover, .pagination > .disabled > span, .pagination > .disabled > span:focus, .pagination > .disabled > span:hover {
+        background-color: #fff;
+        border-color: #ddd;
+        color: #777;
+        cursor: not-allowed;
+    }
+
+    .pagination > li:first-child > a, .pagination > li:first-child > span {
+        border-bottom-left-radius: 4px;
+        border-top-left-radius: 4px;
+        margin-left: 0;
+    }
+
+    .pagination > .disabled > a, .pagination > .disabled > a:focus, .pagination > .disabled > a:hover, .pagination > .disabled > span, .pagination > .disabled > span:focus, .pagination > .disabled > span:hover {
+        background-color: #fff;
+        border-color: #ddd;
+        color: #777;
+        cursor: not-allowed;
+    }
+
+    .pagination > li > a, .pagination > li > span {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        color: #337ab7;
+        float: left;
+        line-height: 1.42857;
+        margin-left: -1px;
+        padding: 6px 12px;
+        position: relative;
+        text-decoration: none;
+    }
+
+    a {
+        color: #337ab7;
+        text-decoration: none;
+    }
+
+    a {
+        background-color: transparent;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+
+    .pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+        background-color: #337ab7;
+        border-color: #337ab7;
+        color: #fff;
+        cursor: default;
+        z-index: 3;
+    }
+
+    .pagination > li > a, .pagination > li > span {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        color: #337ab7;
+        float: left;
+        line-height: 1.42857;
+        margin-left: -1px;
+        padding: 6px 12px;
+        position: relative;
+        text-decoration: none;
+    }
+</style>
+<script src="http://cdn.tinymce.com/4/tinymce.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+
+<script data-require="angular.js@1.3.0" data-semver="1.3.0" src="https://code.angularjs.org/1.3.0/angular.js"></script>
+
+<script src="~/Content/AngularJS/CustomPaging/dirPagination.js"></script>
+
+<script src="~/Areas/BackOffice/AppJS/Controllers/TemplateMessage.Controller.js"></script>
+<script src="~/Areas/BackOffice/AppJS/Services/TemplateMessage.Service.js"></script>
+
+<div data-ng-app="contentApp" class="main" style="position: relative">
+    <div class="container primary-content ">
+        <div class="clear">
+        </div>
+        <div ng-controller="TemplateMessage as myctrl" ng-cloak>
+            <div style="padding: 10px 0px 25px;" class="divDocumentType divaddnew" id="divAddNewbutton">
+                <span style="float: right; margin-right: 0px;">
+                    <input type="button" ID="btnAddNew" CssClass="buttonGreen small" value="Add New" onclick="javascript:$('#divAddAppReqPanel').show();" />
+                </span>
+            </div>
+            <br />
+            <div class="userHide searchBoxhidden">
+                <div class="clear">
+                    <div class="close" onclick="javascript:hideDivSlide('.userHide'); showDivSlide('.searchBbutton');">
+                    </div>
+                </div>
+                <fieldset class="PermitSearch" style="position: relative">
+                    <table class="SearchTable" align="center" style="margin: 0 auto;">
+                        <tbody>
+                            <tr>
+                                <td>
+
+                                    <label>
+                                        Application Type :
+                                    </label>
+
+                                </td>
+                                <td>
+                                    <select name="ddlApplicationType" id="ddlApplicationTypeSearch" ng-model="TMSearch.ApplicationTypeId">
+
+                                        <option value="-1" selected="selected">Select</option>
+
+                                        <option ng-repeat="option in ddlApplicationType" value="{{option.ApplicationTypeId}}">{{option.Name}}</option>
+
+                                    </select>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>
+                                        Template Name :
+                                    </label>
+                                </td>
+                                <td>
+                                    <input type="text" CssClass="inputTextbox" Style="width: 200px;" ID="txttempnameSearch" ng-model="TMSearch.TemplateName" />
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="clear">
+                    </div>
+                    <span class="fltrt">
+                        <input type="button" ID="btnSearch" CssClass="buttonGreen small" value="Search" ng-click="GetTemplateMessage(true)" />
+
+                        <input type="button" ID="btnSearchCancel" CssClass="secondary small" value="Cancel" ng-click="GetTemplateMessage()" onclick="javascript: hideDivSlide('.userHide'); showDivSlide('.searchBbutton');" />
+                    </span>
+                </fieldset>
+                <div class="clearb">
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="gridUpperDiv">
+                <a class="down_arrow"></a><span class="fltlt">
+                    <input type="button" ID="LinkButton1" CssClass="" value="Show All" />
+                </span>
+                <div class="fltrt rightIcon">
+                    <a title="find" href="javascript:void()" onclick="javascript:showDivSlide('.userHide');hideDivSlide('.searchBbutton');">
+                        <img src="~/Content/Theme1/images/search_icon.png" />
+                    </a>
+                </div>
+            </div>
+            <div id="TMerror_validation" class="address-box posFixed" style="display: none; color: red;"></div>
+            <div class="brdr radius" id="divAddAppReqPanel" style="display:none">
+                <div style="padding: 25px 0px 12px 0px;">
+                    <table style="width: 100%; margin: 0px auto;">
+                        <tr>
+                            <td align="right">
+                                <label class="input-label required">
+                                    Application Type :
+                                </label>
+                            </td>
+                            <td>
+                                <select name="ddlApplicationType" id="ddlApplicationType" ng-model="TemplateMessageInfo.ApplicationTypeId">
+
+                                    <option value="-1" selected="selected">Select</option>
+
+                                    <option ng-repeat="option in ddlApplicationType" value="{{option.ApplicationTypeId}}">{{option.Name}}</option>
+
+                                </select>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <label class="input-label required">
+                                    Template Name :
+                                </label>
+                            </td>
+                            <td>
+                                <input type="text" CssClass="inputTextbox" Style="width: 200px;" ID="txtTempName" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <label class="input-label ">
+                                    Subject :
+                                </label>
+                            </td>
+                            <td colspan="3">
+                                <input type="text" CssClass="inputTextbox" Style="width: 542px; height: 60px;" ID="txtsubject"
+                                       TextMode="MultiLine" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <label class="input-label ">
+                                    Message Text :
+                                </label>
+                            </td>
+                            <td>
+                                <input type="text" CssClass="inputTextbox" Style="width: 542px; height: 60px;" ID="txtmsg"
+                                       TextMode="MultiLine" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="toolBar" style="padding: 4px; margin: 6px;">
+                    <span class="fltrt">
+                        <input type="button" ID="btnSaveDocument" CssClass="buttonGreen medium" value="Save" ng-click="SaveTemplateMessage()" />
+                        <input type="button" ID="btnCancelSave" CssClass="secondary medium" value="Cancel" onclick="javascript: $('#divAddAppReqPanel').hide();" />
+                    </span>
+                </div>
+            </div>
+            <div id="divGridView" visible="true" class="">
+                <div style="margin-top: 3px;">
+                    <div id="Datatable" class="brdr">
+                        <div class="brdr radius pdng5">
+
+                            <table id="example" class="display dataTable no-footer" style="width: 100%; margin: 0px auto;">
+                                <thead>
+                                    <tr style="color: White; background-color: #0D83DD; border-style: None; font-weight: bold;">
+                                        <th>Template Name</th>
+                                        <th>Subject</th>
+                                        <th>Is Active</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody dir-paginate="m in TemplateMessageList | itemsPerPage: 10">
+
+                                    <tr>
+                                        <td style="border-top: 1px solid #ddd;">{{m.TemplateName}}</td>
+                                        <td style="border-top: 1px solid #ddd;">{{m.TemplateSubject}}</td>
+                                        <td style="border-top: 1px solid #ddd;"><input type="checkbox" ng-checked="m.IsActive" /></td>
+                                        <td style="border-top: 1px solid #ddd;">
+                                            <input type="image" id="imgEdit" ng-click="TMEditStuff(this)" title='{{m.TemplateId}}' src="~/Content/Theme1/images/edit.png" alt="Submit">
+                                            <input type="image" id="imgDelete_{{m.TemplateId}}" ng-click="TMDeleteStuff(this)" title='{{m.TemplateId}}' src="~/Content/Theme1/images/delete.png" alt="Submit">
+                                        </td>
+                                    </tr>
+
+                                    <tr id='TM_{{m.TemplateId}}' style="display: none;">
+                                            <td colspan='6'>
+                                                <div class="pdng5" style="padding: 15px 0px 15px 0px; width: 100%;">
+
+                                                    <table style="margin: 0 auto; width: 100%;">
+                                                        <tr>
+                                                            <td align="right">
+                                                                <label class="input-label required">
+                                                                    Application Type :
+                                                                </label>
+                                                            </td>
+                                                            <td align="left">
+                                                                <select id="ddlApplicationType_{{m.TemplateId}}" ng-model="m.ApplicationTypeId">
+
+                                                                    <option value="-1" selected="selected">Select</option>
+
+                                                                    <option ng-repeat="option in ddlApplicationType" value="{{option.ApplicationTypeId}}">{{option.Name}}</option>
+
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="right">
+                                                                <label class="input-label required">
+                                                                    Template Name :
+                                                                </label>
+                                                            </td>
+                                                            <td align="left">
+                                                                <input type="text" ID="txtTempName_{{m.TemplateId}}" class="inputTextbox" ng-value="m.TemplateName" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="right">
+                                                                <label class="input-label">
+                                                                    Subject :
+                                                                </label>
+                                                            </td>
+                                                            <td align="left">
+                                                                <input type="text" id="txtsubject_{{m.TemplateId}}" Style="width: 542px; height: 60px;" ng-value="m.TemplateSubject" TextMode="MultiLine" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="right">
+                                                                <label class="input-label">
+                                                                    Message Text :
+                                                                </label>
+                                                            </td>
+                                                            <td align="left">
+                                                                <input type="text" id="txtmsg_{{m.TemplateId}}" Style="width: 542px; height: 60px;" ng-value="m.TemplateMessage" TextMode="MultiLine" />
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+
+                                                </div>
+                                                <div class="toolbar clear" style="">
+                                                    <span class="fltrt">
+                                                        <input type="button" id="btnUpdate_{{m.TemplateId}}" ng-click="TMdoStuff(this);" title='{{m.TemplateId}}' value="Update" class="buttongreen medium" />
+                                                        <input id="btnCancel" type="button" name='{{m.TemplateId}}' value="Cancel" class="secondary medium" ng-click="TMhideStuff(this)" />
+                                                    </span>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                </tbody>
+                            </table>
+
+                            <div class="text-center">
+                                <dir-pagination-controls boundary-links="true" template-url="~/Content/AngularJS/CustomPaging/dirPagination.tpl.html"></dir-pagination-controls>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    @*function checkDTform() {
+        $('#DTerror_validation').text('');
+        var error = '';
+
+        error += ValidateDropdown('-1', '<span class=notok></span> @ErrorModel.ErrorMessage.TransactionType<br/>', '#ddlMasterTransaction', $('#ddlMasterTransaction').val());
+        error += ValidateTextbox('<span class="notok"></span> @ErrorModel.ErrorMessage.DeficiencyTemplateName<br/>', '#txtName', $('#txtName').val());
+
+        if (error != '') {
+            $('#DTerror_validation').show();
+
+            $(document).scrollTop(0);
+
+            $('#DTerror_validation').html(error);
+            return false;
+        }
+        else {
+            $('#DTerror_validation').hide();
+            return true;
+        }
+    }*@
+
+
+
+</script>
+

@@ -1,0 +1,1125 @@
+﻿.multi
+{
+    width: 100% !important;
+}
+
+
+.heding
+{
+    font-weight: bold;
+    font-size: 18px;
+}
+.txtdecul
+{
+    text-decoration: underline;
+}
+.leftpanel
+{
+    width: 20%;
+    float: left;
+    border: 1px solid rgb(245, 245, 245);
+    margin: 6px 4px;
+    min-height: 111px;
+}
+.rightpanel
+{
+    width: 71%;
+    float: right;
+    margin: 6px 0px 4px 0px;
+    min-height: 200px;
+    border: 1px solid rgb(245, 245, 245);
+}
+
+.actived
+{
+    box-shadow: inset 0px 0px 5px #939393;
+    background: #b6e026; /* Old browsers */
+    background: -moz-linear-gradient(top,  #b6e026 0%, #abdc28 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b6e026), color-stop(100%,#abdc28)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #b6e026 0%,#abdc28 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #b6e026 0%,#abdc28 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #b6e026 0%,#abdc28 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #b6e026 0%,#abdc28 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b6e026', endColorstr='#abdc28',GradientType=0 ); /* IE6-9 */
+}
+.tblpersinolinfo
+{
+    margin-top: 20px;
+    margin-left: 340px;
+}
+.tblpersdetail
+{
+    width: 99%;
+    line-height: 35px;
+    margin: 21px auto;
+}
+.divphoto
+{
+    width: 25%;
+    float: right; /* border: 1px solid rgb(238, 238, 238); */ /* min-height: 182px; */
+    margin: 5px 4px 0px 0px;
+}
+.divperdetail
+{
+    width: 72%;
+    border: 1px solid rgb(238, 238, 238);
+    margin: 5px 0px 0px 4px;
+}
+.mrgntp20
+{
+    margin-top: 15px;
+    width: 100%; /*border: 1px solid rgb(238, 238, 238);*/
+}
+.tblexm
+{
+    font-size: 11px;
+    line-height: 35px;
+    width: 99%;
+    margin: 0px auto;
+}
+.hed
+{
+    margin-right: 4px;
+}
+.tblexm td
+{
+    text-align: right;
+}
+.txtalgnlft
+{
+    text-align: left;
+}
+
+.txtalgnrgt
+{
+    text-align: right;
+}
+.fs1
+{
+    width: 94%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+.fs
+{
+    width: 94%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+.tblfs1
+{
+    line-height: 35px;
+    width: 99%;
+    margin: 0px auto;
+}
+.fs2
+{
+    width: 94%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+.tblfs2
+{
+    line-height: 35px;
+    width: 99%;
+    margin: 0px auto;
+}
+.fs3
+{
+    width: 94%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+.tblfs3
+{
+    line-height: 35px;
+    width: 99%;
+    margin: 0px auto;
+}
+.fs4
+{
+    width: 94%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+.tblTPSfs4
+{
+    line-height: 23px;
+    width: 99%;
+    margin: 0px auto;
+}
+.fs5
+{
+    width: 94%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+.tblfs5
+{
+    line-height: 35px;
+    width: 99%;
+    margin: 0px auto;
+}
+.fs6
+{
+    width: 94%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+.tblfs6
+{
+    line-height: 35px;
+    width: 99%;
+    margin: 0px auto;
+}
+.BGSfs7
+{
+    width: 94%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+.tblBGSfs7
+{
+    line-height: 35px;
+    width: 99%;
+    margin: 0px auto;
+}
+
+.fs7
+{
+    width: 94%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+.tblfs7
+{
+    line-height: 35px;
+    width: 99%;
+    margin: 0px auto;
+}
+.fs8
+{
+    width: 94%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+.tblfs8
+{
+    line-height: 46px;
+    width: 99%;
+    margin: 0px auto;
+}
+.wdt160
+{
+    width: 200px;
+}
+.wdt97
+{
+    width: 160px;
+}
+.content5
+{
+    width: 97%;
+    margin: 8px auto;
+}
+.content4
+{
+    margin-top: 15px;
+    width: 100%;
+    border: 1px solid rgb(238, 238, 238);
+}
+.content6
+{
+    width: 97%;
+    margin: 8px auto;
+}
+.tblCitizenship1
+{
+    line-height: 26px;
+    width: 89%;
+    margin: 0px auto;
+}
+.tblCitizenship2
+{
+    line-height: 26px;
+    width: 89%;
+    margin: 0px auto;
+}
+.tblCitizenship3
+{
+    line-height: 30px;
+    width: 89%;
+    margin: 0px auto;
+}
+.fscitizen1
+{
+    width: 94%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+.fscitizen2
+{
+    width: 94%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+.fscitizen3
+{
+    width: 94%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+.wdt170
+{
+    width: 170px;
+}
+.wdt90
+{
+    width: 90px;
+}
+.hedinglicensereq
+{
+    font-weight: bold;
+    font-size: 19px;
+}
+.wdt146
+{
+    width: 146px;
+}
+.divlicenserequested
+{
+    width: 97%;
+    margin: 8px auto;
+}
+.tblLicReqhed
+{
+    width: 96%;
+    margin: 9px auto;
+}
+
+.LRqsfs1
+{
+    width: 96%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+.LRqstblfs1
+{
+    line-height: 32px;
+    width: 99%;
+    margin: 0px auto;
+}
+#ContentPlaceHolder1_ucRegistrationForm1_rblLicReqNCEES td
+{
+    width: 70px;
+}
+.LRqsfs2
+{
+    width: 96%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+.LRqstblfs2
+{
+    line-height: 32px;
+    width: 99%;
+    margin: 0px auto;
+}
+.LRqsfs3
+{
+    width: 96%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+.LRqstblfs3
+{
+    line-height: 32px;
+    width: 99%;
+    margin: 0px auto;
+}
+.LRqsfs4
+{
+    width: 96%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+.LRqstblfs4
+{
+    line-height: 32px;
+    width: 99%;
+    margin: 0px auto;
+}
+.tblfs4
+{
+    line-height: 32px;
+}
+.LRqsfs5
+{
+    width: 96%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+.LRqstblfs5
+{
+    line-height: 32px;
+    width: 99%;
+    margin: 0px auto;
+}
+
+.LRqsfs6
+{
+    width: 96%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+.LRqstblfs6
+{
+    line-height: 32px;
+    width: 99%;
+    margin: 0px auto;
+}
+#ContentPlaceHolder1_ucRegistrationForm1_rblLicReqNCEES5 td
+{
+    width: 70px;
+}
+
+#ContentPlaceHolder1_ucRegistrationForm1_rblLicReqNCEES4 td
+{
+    width: 70px;
+}
+
+#ContentPlaceHolder1_ucRegistrationForm1_rblLicReqNCEES3 td
+{
+    width: 70px;
+}
+.clear
+{
+    clear: both;
+}
+.hedtaglin
+{
+    font-size: 11px;
+    font-weight: bold;
+}
+.divReferences
+{
+    width: 100%;
+    margin: 8px auto;
+}
+.tblReferences
+{
+    width: 96%;
+    margin: 9px auto;
+    line-height: 32px;
+}
+.divEducation
+{
+    width: 97%;
+    margin: 8px auto;
+}
+.tblEducation
+{
+    width: 96%;
+    margin: 9px auto;
+    line-height: 32px;
+}
+.tblEducation2
+{
+    width: 96%;
+    margin: 9px auto;
+    line-height: 32px;
+}
+.tblEducation3
+{
+    width: 96%;
+    margin: 9px auto;
+    line-height: 32px;
+}
+.tblReferences2
+{
+    width: 96%;
+    margin: 0px auto;
+    line-height: 32px;
+}
+.flsReferences1
+{
+    width: 96%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+#ContentPlaceHolder1_ucRegistrationForm1_fuImage
+{
+    margin-top: 148px;
+}
+#ContentPlaceHolder1_ucRegistrationForm1_rblDYHApplPend_1
+{
+    margin-left: 10px;
+}
+#ContentPlaceHolder1_ucRegistrationForm1_rblHYPreAppliLicNev_1
+{
+    margin-left: 10px;
+}
+#ContentPlaceHolder1_ucRegistrationForm1_rblHYPreAppliLicNev_1
+{
+    margin-left: 10px;
+}
+#ContentPlaceHolder1_ucRegistrationForm1_rblHYEDiscbBord_1
+{
+    margin-left: 10px;
+}
+
+#ContentPlaceHolder1_cpcontent_ucReferences1_rblDYHApplPend_1
+{
+    margin-left: 10px;
+}
+
+
+
+#ContentPlaceHolder1_cpcontent_ucReferences1_rblHYPreAppliLicNev_1
+{
+    margin-left: 10px;
+}
+
+#ContentPlaceHolder1_cpcontent_ucReferences1_rblHYEDiscbBord_1
+{
+    margin-left: 10px;
+}
+
+
+#ContentPlaceHolder1_cpcontent_ucReferences1_rblHYEPROFVOCLicSusp_1
+{
+    margin-left: 10px;
+}
+
+
+#ContentPlaceHolder1_cpcontent_ucReferences1_rblHYEAppFoContorAcc_1
+{
+    margin-left: 10px;
+}
+
+
+#ContentPlaceHolder1_cpcontent_ucReferences1_rblHYEDenProforVecLice_1
+{
+    margin-left: 10px;
+}
+#ContentPlaceHolder1_cpcontent_ucReferences1_rblHYEBConvictedMFel_1
+{
+    margin-left: 10px;
+}
+#ContentPlaceHolder1_cpcontent_ucReferences1_rblHYEKOtheNameOrSS_1
+{
+    margin-left: 10px;
+}
+
+
+.tblReferences3
+{
+    width: 96%;
+    margin: 0px auto;
+    line-height: 32px;
+}
+.flsReferences2
+{
+    width: 96%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+.tblReferences4
+{
+    width: 96%;
+    margin: 0px auto;
+    line-height: 32px;
+}
+.flsReferences3
+{
+    width: 96%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+.tblReferences5
+{
+    width: 96%;
+    margin: 0px auto;
+    line-height: 32px;
+}
+.flsReferences4
+{
+    width: 96%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+.tblReferences6
+{
+    width: 96%;
+    margin: 0px auto;
+    line-height: 32px;
+}
+.flsReferences5
+{
+    width: 96%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+
+.tblReferences7
+{
+    width: 96%;
+    margin: 0px auto;
+    line-height: 32px;
+}
+.flsReferences6
+{
+    width: 96%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+.tblReferences8
+{
+    width: 96%;
+    margin: 0px auto;
+    line-height: 32px;
+}
+.flsReferences7
+{
+    width: 96%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+
+.tblReferences9
+{
+    width: 96%;
+    margin: 0px auto;
+    line-height: 32px;
+}
+.flsReferences8
+{
+    width: 96%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+
+#ContentPlaceHolder1_ucRegistrationForm1_rblHYEPROFVOCLicSusp_1
+{
+    margin-left: 10px;
+}
+#ContentPlaceHolder1_ucRegistrationForm1_RadioButtonList1_1
+{
+    margin-left: 10px;
+}
+#ContentPlaceHolder1_ucRegistrationForm1_rblHYEDenProforVecLice_1
+{
+    margin-left: 10px;
+}
+#ContentPlaceHolder1_ucRegistrationForm1_rblHYEBConvictedMFel_1
+{
+    margin-left: 10px;
+}
+#ContentPlaceHolder1_ucRegistrationForm1_rblHYEAppFoContorAcc_1
+{
+    margin-left: 10px;
+}
+#ContentPlaceHolder1_ucRegistrationForm1_rblHYEKOtheNameOrSS_1
+{
+    margin-left: 10px;
+}
+#ContentPlaceHolder1_ucRegistrationForm1_rblLicReqNCEES1_1
+{
+    margin-left: 10px;
+}
+#ContentPlaceHolder1_ucRegistrationForm1_rblLicReqNCEES2_1
+{
+    margin-left: 10px;
+}
+/* .tblReferences tr
+{
+  height: 33px;
+}
+.tblEducation tr
+{
+    /*height: 33px;
+}*/
+
+.divAffidavit
+{
+    width: 100%;
+    margin: 8px auto;
+}
+.tblAffidavit
+{
+    width: 96%;
+    margin: 9px auto;
+    line-height: 32px;
+}
+.divEngBackSummary
+{
+    width: 97%;
+    margin: 8px auto;
+}
+.tblEngBackSummary
+{
+    width: 96%;
+    margin: 9px auto;
+    line-height: 32px;
+}
+.tblChildSuppDecl
+{
+    line-height: 32px;
+    border: 1px solid rgb(238, 238, 238);
+}
+.tblChildSuppDecl2
+{
+    width: 96%;
+    margin: 9px auto;
+    line-height: 32px;
+}
+.tblChildSuppDecl3
+{
+    width: 96%;
+    margin: 9px auto;
+    line-height: 32px;
+}
+.fullwitdh {
+width: 455px !important;
+}
+#ContentPlaceHolder1_ucRegistrationForm1_chkINSTCO
+{
+    margin-left: 10px;
+}
+#ContentPlaceHolder1_ucRegistrationForm1_chkISupCOrd
+{
+    margin-left: 10px;
+}
+#ContentPlaceHolder1_ucRegistrationForm1_chkISupCOrd2
+{
+    margin-left: 10px;
+}
+
+#ContentPlaceHolder1_cpcontent_ucChildSupportDeclaration1_chkINSTCO
+{
+    margin-left: 10px;
+}
+
+#ContentPlaceHolder1_cpcontent_ucChildSupportDeclaration1_chkISupCOrd
+{
+    margin-left: 10px;
+}
+
+#ContentPlaceHolder1_cpcontent_ucChildSupportDeclaration1_chkISupCOrd2
+{
+    margin-left: 10px;
+}
+
+
+
+
+
+.divWaiverOfNotice
+{
+    width: 97%;
+    margin: 8px auto;
+}
+.tblWaiverOfNotice
+{
+    width: 96%;
+    margin: 9px auto;
+    line-height: 32px;
+}
+.tblWaiverOfNotice2
+{
+    width: 96%;
+    margin: 9px auto;
+    line-height: 32px;
+}
+.tblflsWivNot
+{
+    width: 96%;
+    margin: 9px auto;
+    line-height: 32px;
+}
+.tblflsWivNot2
+{
+    width: 96%;
+    margin: 9px auto;
+    line-height: 32px;
+}
+
+.flsWivNot2
+{
+    width: 94%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+.flsWivNot
+{
+    width: 94%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+
+.divPEAppRefForm
+{
+    width: 97%;
+    margin: 8px auto;
+}
+
+.tblflsPEAppRefForm
+{
+    width: 96%;
+    margin: 9px auto;
+    line-height: 32px;
+}
+
+.flsPEAppRefForm
+{
+    width: 94%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+.calWidth
+{
+    width: 144px !important;
+}
+.tblNavigation
+{
+    width: 96%;
+    margin: 9px auto;
+    line-height: 32px;
+}
+
+.flsResAddress
+{
+    width: 95%;
+    margin: 10px auto;
+    border: 1px solid rgb(238, 238, 238);
+}
+.flsEmpNameAddress
+{
+    width: 95%;
+    margin: 10px auto;
+    border: 1px solid rgb(238, 238, 238);
+}
+.flsPerDetl
+{
+    width: 94%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+.contentMainPD
+{
+    width: 100%;
+}
+#ContentPlaceHolder1_cpcontent_ucPersonalDetail1_fuImage
+{
+    margin-top: 149px;
+    font-size: 11px;
+}
+.flsCitizenship
+{
+    width: 95%;
+    margin: 10px auto;
+    border: 1px solid rgb(238, 238, 238);
+}
+.tblCompSearch
+{
+    width: 68% !important;
+    margin: 10px auto;
+    border: 1px solid rgb(238, 238, 238);
+}
+.calWidth2
+{
+    width: 156px !important;
+    height: 27px;
+}
+.tblempAdd
+{
+    margin-top: 10px;
+}
+
+.widget_nav_menu li a
+{
+    display: block;
+    margin: 0;
+    padding: 5px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    background: url(../images/widget_list_arrows.png) no-repeat scroll -48px 9px transparent;
+    line-height: 20px;
+}
+
+.widget_nav_menu
+{
+    font-size: 16px;
+    width: 220px;
+}
+.left_sidebar #sidebar_content
+{
+    overflow: hidden;
+    padding-top: 50px;
+    padding-right: 25px;
+    min-height: 101px;
+    background: url("../images/left_sidebar_sprites.png") no-repeat scroll right -50px transparent;
+}
+.left_sidebar #sidebar
+{
+    float: left;
+    margin: 0 30px .5em 0;
+    width: 219px;
+}
+.statusimgalgn
+{
+    float: right;
+}
+.widt150
+{
+    width: 150px !important;
+}
+.widt110
+{
+    width: 170px !important;
+}
+.divwrp
+{
+    word-wrap: break-word;
+}
+
+.contentMainEducation
+{
+    /*border: 1px solid rgb(241, 238, 238);*/
+    width: 100%;
+}
+.flsEducation
+{
+    margin: 10px auto;
+    width: 96%;
+    border: 1px solid #EEE;
+}
+.divEducationGrid
+{
+    margin: 15px auto; /*width: 98%;*/
+    border: 1px solid rgb(238, 238, 238);
+}
+
+
+.contentMainExperience
+{
+    /* border: 1px solid rgb(241, 238, 238);*/
+    width: 100%;
+}
+.flsExperience
+{
+    margin: 10px auto;
+    width: 96%;
+    border: 1px solid #EEE;
+}
+.flsExperience2
+{
+    margin: 10px auto;
+    width: 93%;
+    border: 1px solid #EEE;
+}
+.flsExperience3
+{
+    margin: 10px auto;
+    width: 93%;
+    border: 1px solid #EEE;
+}
+.divgvExperinceGrid
+{
+    margin: 15px auto;
+    width: 100%;
+    border: 1px solid rgb(238, 238, 238);
+}
+.tblExperience
+{
+    width: 90%;
+    margin: 0px auto;
+}
+.tblExperience2
+{
+    width: 90%;
+    margin: 0px auto;
+    line-height: 33px;
+}
+.tblExperience3
+{
+    width: 90%;
+    margin: 0px auto;
+    line-height: 33px;
+}
+.wdt100
+{
+    width: 100px !important;
+}
+.lengtht
+{
+    width: 88px !important;
+}
+.tblBackground
+{
+    line-height: 30px;
+    width: 90%;
+    margin: 0px auto;
+}
+
+.contentMainBackground
+{
+    border: 1px solid rgb(241, 238, 238);
+    width: 100%;
+}
+.flsBackground
+{
+    margin: 10px auto;
+    width: 93%;
+    border: 1px solid #EEE;
+}
+.chktd
+{
+    padding-left: 80px;
+}
+.divReferencesGrid
+{
+    margin: 15px auto;
+    width: 100%;
+    border: 1px solid rgb(238, 238, 238);
+}
+#Cashflow
+{
+    background-color: rgb(252, 255, 255);
+}
+
+.flsLR
+{
+    margin: 10px auto;
+    width: 96%;
+    border: 1px solid #EEE;
+}
+
+.contentLR
+{
+    /*border: 1px solid rgb(241, 238, 238);*/
+    width: 100%;
+}
+.divLRGrid
+{
+    margin: 15px auto;
+    width: 100%;
+    border: 1px solid rgb(238, 238, 238);
+}
+.tblLr
+{
+    line-height: 30px;
+    width: 90%;
+    margin: 0px auto;
+}
+
+.flsLSIS
+{
+    width: 94%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+
+.tblLSIS
+{
+    line-height: 32px;
+    width: 99%;
+    margin: 0px auto;
+}
+.wdt20
+{
+    width: 20px;
+}
+.tblVerification
+{
+    line-height: 34px;
+    width: 94%;
+    margin: 0px auto;
+}
+.tblVerificationLH
+{
+    line-height: 45px !important;
+}
+.flsVerification
+{
+    width: 94%;
+    border: 1px solid rgb(238, 227, 227);
+    margin: 6px auto;
+}
+
+.mrgntp20NB
+{
+    margin-top: 20px;
+}
+.flsVerificationtext
+{
+    line-height: 33px;
+}
+.divphotoVerifict
+{
+    width: 30%;
+    float: right;
+    border: 1px solid rgb(238, 238, 238);
+    min-height: 182px;
+    margin: 5px 4px 0px 0px;
+}
+
+.divperVerifict
+{
+    width: 68%;
+    margin: 5px 0px 0px 4px;
+}
+
+#ContentPlaceHolder1_ucPersonalDetail1_fuImage
+{
+    margin-top: 149px;
+    font-size: 11px;
+}
+.cerficateddl
+   {
+width: 178px !important;
+}
+.certificatetexbx {
+width: 166px !important;
+}
+td.lftQues {
+width: 535px;
+}
+td.QuesLinht {
+line-height: 25px;
+}
+.titlebaar {
+border: 1px solid rgb(189, 216, 236);
+padding: 4px 0px 2px 5px;
+background: #D2EFFD;
+}
+.extrapdng {
+padding-bottom: 14px;
+}
+
+p.titlefont {
+font-size: 15px;
+}
+.maintitlebar {
+text-align: center;
+}
+.maintitlemrgn
+{
+ padding: 0px;
+margin: 7px;
+}   
+
+@-moz-document url-prefix() {
+ .expinputfirefox
+    {
+        width: 144px;
+    } 
+ .expinputfirefox
+    {
+        width: 144px;
+    }
+    
+.fullwitdh {
+width: 457px !important;
+}
+   
+}

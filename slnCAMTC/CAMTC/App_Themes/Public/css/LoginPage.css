@@ -1,0 +1,243 @@
+
+.MainLogInPage
+{
+    min-height: 450px;
+    width: 100%;
+    margin: 0px auto;
+    font-family: helvatica, sans-serif !important;
+    clear: both;
+    overflow: hidden;
+}
+.loginPageSamll
+{
+    min-height: 452px;
+    width: 95%;
+    background-color: rgb(243, 243, 243);
+    margin: 20px auto;
+    position: absolute;
+    left: 25px;
+    box-shadow: 0px 0px 6px rgb(34, 34, 34);
+    border-radius: 3px;
+}
+
+.logicontainer
+{
+    width: 36%;
+    min-height: 354px;
+    float: left;
+}
+.InformationContainer
+{
+    float: right;
+    width: 64%;
+    background-color: white;
+    min-height: 452px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+.SubLoginContainer
+{
+    margin: 0 auto;
+    width: 83%;
+    min-height: 180px;
+}
+.LogIn
+{
+    width: 261px;
+    height: 30px;
+    font-size: 18px;
+}
+
+.logoLogin
+{
+    margin: 0 auto;
+    width: 100%;
+    height: 119px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.buttonTd
+{
+    padding-top: 12px;
+}
+
+.loginTable .buttonTd .padding
+{
+    font-size: 18px;
+    width: 133px;
+    padding: 6px !important;
+}
+.errorBox
+{
+    margin: 0 auto;
+    width: 274px;
+    overflow: hidden;
+    min-height: 9px;
+    padding-top: 14px;
+}
+
+.CheckRememberTd
+{
+    padding-top: 11px;
+}
+.loginTable .CheckRememberTd input[type="checkbox"]
+{
+    width: initial !important;
+    float: none !important;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.forgotpass
+{
+    color: rgb(69, 151, 214) !important;
+    font-size: 13px;
+}
+.InformationHeader
+{
+    height: 70px;
+    width: 100%;
+    background-color: #35ADDB;
+}
+table.loginTable
+{
+    margin: auto;
+}
+.loginTable .CheckRememberTd label
+{
+    width: initial !important;
+    float: none !important;
+    cursor: pointer;
+}
+
+.contentboxsimple
+{
+    width: 100%;
+    margin: auto;
+}
+.contentboxShadow
+{
+    width: 95%;
+    height: 166px;
+    margin: auto;
+    background-color: white;
+    box-shadow: 3px 4px 8px rgb(197, 197, 197);
+    border-radius: 5px;
+    border: 1px solid rgb(241, 241, 241);
+}
+.InformationContent
+{
+    min-height: 75px;
+    width: 100%;
+}
+.LoginBoxHeading
+{
+    color: white;
+    text-align: center;
+    font-size: 22px;
+    line-height: 22px;
+    font-weight: bold;
+    font-family: helvatica, sans-serif;
+    padding-top: 14px;
+}
+
+.loginTable td input[type=text], input[type=password]
+{
+    font-family: helvatica, sans-serif !important;
+}
+
+.NewUserClick
+{
+    text-align: center;
+    min-height: 40px;
+    padding-top: 68px;
+}
+/*
+.newuser
+{
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(69, 151, 214) !important;
+}
+*/
+.description
+{
+    width: 96%;
+    margin: 0 auto;
+    font-size: 14px;
+    text-align: justify;
+    margin-top: 15px;
+}
+.Password
+{
+    padding-top: 10px;
+}
+.SignUpStep1
+{
+    width: 96%;
+    margin: 0 auto;
+    min-height: 200px;
+    overflow: hidden;
+}
+.SignUpStep1 table
+{
+    line-height: 35px;
+    width: 100%;
+}
+
+.renew
+{
+    font-size: 18px;
+    color: rgb(255, 255, 255) !important;
+    border-style: solid;
+    border-width: 1px 3px 3px 1px;
+    border-color: #69f #5784E5 #5784E5 #69f;
+    margin-left: 20px;
+    padding: 6px 15px;
+    background: #4479BA;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: solid 1px #20538D;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.boxbrder
+{
+    padding: 10px;
+    border: 1px solid #dddddd;
+    margin-top: 20px;
+    min-height: 70px;
+    overflow: hidden;
+}
+.fntbld
+{
+    font-size: 14px;
+}
+
+.pdngtbmtop
+{
+    padding-bottom: 22px;
+}
+.SubApplyContainer
+{
+    margin: 0 auto;
+    width: 92%;
+    min-height: 180px;
+}
+.loginCAncel
+{
+    width: 132px;
+    padding: 6px !important;
+    font-size: 18px !important;
+}

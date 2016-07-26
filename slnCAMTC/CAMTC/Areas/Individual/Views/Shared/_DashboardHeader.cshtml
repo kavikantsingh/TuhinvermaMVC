@@ -1,0 +1,71 @@
+﻿<style>
+    span.bold {
+        font-weight: bold;
+    }
+
+    .user-dashboard {
+        min-height: 450px;
+        clear: both;
+        overflow: hidden;
+    }
+
+    .dashboard-header {
+        padding: 5px 5px 8px 5px;
+        text-align: right;
+        border-bottom: 2px solid #35ADDB;
+        margin-bottom: 15px;
+        height: 70px;
+    }
+
+    .dashboard-block-left {
+        float: left;
+        width: 600px;
+        min-height: 350px;
+        border-radius: 4px;
+    }
+
+    .dashboard-block-right {
+        float: right;
+        width: 380px;
+        min-height: 350px;
+    }
+
+    .dashboard-border {
+        border: 1px solid #89CAE4;
+    }
+
+    .dashboard-block-right-top {
+        height: 208px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+    }
+
+        .dashboard-block-right-top.dashboard-border {
+        }
+
+    .dashboard-block-header {
+        background: #35ADDB;
+        padding: 5px;
+        color: #fff;
+        font-weight: bold;
+        line-height: 20px;
+    }
+</style>
+<div class="dashboardheader">
+    <div class="float_left">
+        <h4 style="text-align: left; margin: 0px !important;">
+            <label id="ltrDashboard" >Dashboard</label>
+        </h4>
+        <p style="font-size: 15px;">
+            Welcome <span class="bold"> Nancy Blachly</span> | 
+                @Html.ActionLink("ResetPassword", "ResetPassword", "Account", new { @class = "hyperlink" })
+             | @Html.ActionLink("SignOut","LogOff","Account", new { @class = "hyperlink" }) 
+            
+        </p>
+        <p style="text-align: left;">
+            Not <b>Nancy Blachly?</b> @Html.ActionLink("Click here to log out", "LogOff", "Account", new { @class = "hyperlink" })
+        </p>
+    </div>
+    <div class="login-header">
+    </div>
+</div>

@@ -1,0 +1,16 @@
+section
+{
+    display: initial !importent;
+}
+input[type="file"]
+{
+    max-width: 150px !important;
+    padding-right: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.personalinfo input[type="file"]
+{
+    width: 150px !important;
+}

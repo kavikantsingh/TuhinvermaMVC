@@ -1,0 +1,73 @@
+﻿<div class="dashboard-block dashboard-border">
+    <div class="dashboard-block-header" style="padding: 6px 10px 10px 5px;">
+        Contact Detail
+    </div>
+    <div>
+        <div id="divGridContact" class="divquestion divCharacterReferences">
+            <div>
+                <table class="AppDetailsHeader">
+                    <tbody>
+                        <tr>
+                            <td style="width: 267px; padding-left: 8px;">
+                                <b>Contact Type</b>
+                            </td>
+                            <td>
+                                <b>Contact Number</b>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="index brdr radius pdng2 grid" id="Table1" style="color: #333333; width: 100%; border-collapse: collapse;"
+                       cellpadding="0" cellspacing="0">
+                    <tbody>
+                        <tr id="trEditContactAddress"  style="display:none;">
+                            <td colspan="2">
+                                <div>
+                                    <table class="tblApplReqForm5">
+                                        <tr>
+                                            <td align="right" style="width: 145px;">
+                                                <label class="input-label">Primary Phone :</label>
+                                            </td>
+                                            <td style="width: 165px;">
+                                                @Html.TextBox("TextBox6", "(415) 321-3212", new { @class = "phone_us", @width = "490px" })
+                                            </td>
+                                            <td class="cursorpointer">
+                                                @Html.CheckBox("CheckBox10",false)<span>Mobile</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right">
+                                                <label class="input-label">Secondary Phone :</label>
+                                            </td>
+                                            <td>
+                                                @Html.TextBox("TextBox7",null, new { @class = "phone_us" })
+                                            </td>
+                                            <td class="cursorpointer">
+                                                <asp:CheckBox ID="CheckBox11" Text="Mobile" />
+                                                @Html.CheckBox("CheckBox11",false)<span>Mobile</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="toolBar" style="padding: 8px 4px 5px 0px; margin: 4px;">
+                                    <span class="fltrt">
+                                        <input type="button" id="btnSaveContact" name="btnSaveContact" value="Save" />
+                                        <input type="button" id="btnSaveCancelContact" name="btnSaveCancelContact" value="Cancel" />
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id="trGridContactAddress">
+                            <td>
+                                Work Phone
+                            </td>
+                            <td>
+                                (415) 321-3212
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

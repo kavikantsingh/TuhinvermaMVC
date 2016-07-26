@@ -7,21 +7,31 @@
     vm = this;
     vm.baseUrl = "http://ws.camtc.inlumon.com/api";
     vm.key = sessionStorage.Key != null ? sessionStorage.Key : "";
+    vm.lookupUrl = "/lookup/";
+    vm.typeValuesUrl = "/typevalues/";
     return vm.objects = {
+      lookup: {
+        getAllLookupTypes: function() {
+          return $http.get(vm.baseUrl + vm.lookupUrl + "LookupTypeGetAll/" + vm.key);
+        },
+        getLookupByTypeId: function(typeId, name) {
+          return $http.get(vm.baseUrl + vm.lookupUrl + "LookupGetBYLookupTypeID/" + vm.key + "?LookupTypeID=" + typeId);
+        }
+      },
+      typevalues: {
+        get: {
+          addresTypes: function() {
+            return $http.get(vm.baseUrl + vm.typeValuesUrl + "AddressTypeGetAll/" + vm.key);
+          }
+        }
+      },
       getAllCountries: function() {
         return $http.get(vm.baseUrl + "/Country/CountryGetAll/" + vm.key);
-      },
-      applicant: {
-        fullName: {
-          firstName: "NancyGlobal",
-          middleName: "E",
-          lastName: "Blachly"
-        }
       }
     };
   };
 
-  angular.module('IndividualApp').factory("GlobalObjectsService", GlobalObjectsService);
+  angular.module('IndividualApp').service("GlobalObjectsService", GlobalObjectsService);
 
   GlobalObjectsService.$inject = ['$http'];
 

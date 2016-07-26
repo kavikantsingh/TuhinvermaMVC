@@ -1,0 +1,330 @@
+﻿@*<script type="text/javascript">
+        function divAddDoc() {
+            var dive = document.getElementById("AddDocm");
+            dive.style.display = (dive.style.display == "none") ? "block" : "none";
+        }
+
+        function divAddDocment() {
+            var dive = document.getElementById("AddDocm");
+            dive.style.display = (dive.style.display == "block") ? "none" : "block";
+        }
+    </script>*@
+<style>
+    .docmtbtn:hover {
+        color: white !important;
+    }
+
+    .blockheader {
+        height: 30px;
+        background-color: #E5EDF2;
+        width: 99.1%;
+        border: 1px solid #DDE3EC;
+        border-radius: 2px;
+        color: #595959;
+        font-size: 15px;
+        font-weight: bold;
+        padding-left: 5px;
+        margin: 10px auto;
+    }
+
+    .inputTextBox {
+        width: 198px !important;
+    }
+
+    .pop_ctr {
+        list-style: outside none none;
+        background-color: #FFF;
+        width: 135px;
+    }
+
+        .pop_ctr li {
+            background-color: #FFF;
+            border-bottom: 1px solid rgb(222, 222, 222);
+            padding: 2px 8px;
+            border-left: 1px solid #dedede;
+            border-right: 1px solid #dedede;
+            cursor: pointer;
+        }
+
+    #Pop {
+        position: absolute;
+        z-index: 9;
+        top: 73px;
+        display: none;
+    }
+
+    #Pop1 {
+        position: absolute;
+        z-index: 9;
+        top: 73px;
+        display: none;
+    }
+
+    #Pop2 {
+        position: absolute;
+        z-index: 9;
+        top: 73px;
+        display: none;
+    }
+
+    .pop-up {
+        position: absolute;
+        z-index: 9;
+        top: 73px;
+    }
+
+    .close_btn_pop {
+        color: #FFF;
+        float: right;
+        margin-top: -15px;
+        background-color: black;
+        border-radius: 50%;
+        width: 21px;
+        text-align: center;
+        font-size: 13px;
+        cursor: pointer;
+    }
+
+        .close_btn_pop:hover {
+            background-color: white;
+            color: red;
+        }
+
+    .pop_ctr li:hover {
+        background-color: #0D83DD;
+        color: white;
+    }
+
+    .pop_ctr1 {
+        list-style: outside none none;
+        background-color: #FFF;
+        width: 135px;
+    }
+
+        .pop_ctr1 li {
+            background-color: #FFF;
+            border-bottom: 1px solid rgb(222, 222, 222);
+            padding: 2px 8px;
+            border-left: 1px solid #dedede;
+            border-right: 1px solid #dedede;
+            cursor: pointer;
+        }
+
+    .pop-up1 {
+        position: absolute;
+        z-index: 9;
+        top: 73px;
+    }
+
+    .pop_ctr1 li:hover {
+        background-color: #0D83DD;
+        color: white;
+    }
+
+    .pop_ctr3 {
+        list-style: outside none none;
+        background-color: #FFF;
+        width: 135px;
+    }
+
+        .pop_ctr3 li {
+            background-color: #FFF;
+            border-bottom: 1px solid rgb(222, 222, 222);
+            padding: 2px 8px;
+            border-left: 1px solid #dedede;
+            border-right: 1px solid #dedede;
+            cursor: pointer;
+        }
+
+    .pop-up3 {
+        position: absolute;
+        z-index: 9;
+        top: 73px;
+    }
+
+    .pop_ctr3 li:hover {
+        background-color: #0D83DD;
+        color: white;
+    }
+
+    .form-table tr td {
+        padding: 4px 0px 4px 0px;
+    }
+
+    .form-table tr .xtrapdgnone {
+        padding: 0px 0px 0px 0px;
+    }
+
+    .inputDropDown {
+        width: 206px;
+    }
+
+    .status-heading {
+        padding: 4px 0px 4px 16px;
+        font-size: 14px;
+        background: rgb(176, 234, 232) none repeat scroll 0% 0%;
+    }
+
+    .mrgntp4 {
+        padding-bottom: 4px;
+        margin-top: 4px;
+    }
+
+    .pdgtp4 {
+        padding-bottom: 4px;
+        margin-top: 8px;
+    }
+
+    .pdgbtm4 {
+        padding-bottom: 4px;
+    }
+</style>
+<div class="user-dashboard">
+    <div class="dashbaord-container">
+        <div class="dashboard-block-left">
+            <!-- Left side frame-->
+            @{
+                Html.RenderPartial("_DenielProcess");
+                Html.RenderPartial("_AddressDetail");
+                Html.RenderPartial("_ContactDetail");
+                Html.RenderPartial("_StatusList");
+                <div class="" style="height: 80px;">
+                    <div style="padding: 12px; font-size: 13px;">
+                        Still have questions? Email us at<a style="color: Blue;" href="javascript:void(0)">
+                            <label id="ltrEmailUs">info@camtc.org</label>
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="dashboard-block-right">
+            <!--Right Side Frame-->
+            @{
+                Html.RenderPartial("_ApplicationDetail");
+                Html.RenderPartial("_DeficiencyDetail");
+                Html.RenderPartial("_PaymentDetails");
+                Html.RenderPartial("_AdditionalOnlineServices");
+            }
+        </div>
+        <div id="AddDocm" style="border: 1px solid rgb(212, 216, 219); margin: -20px 10px auto auto; float: right; z-index: 9; background-color: white; width: 60%;display:none;">
+            <span class="close_btn_pop" onclick="divAddDoc();;">x</span>
+            <div class="blockheader" style="margin: 0px 0px -3px auto;">
+                <p style="padding-top: 3px;">
+                    <span>Add Document   </span>
+                </p>
+            </div>
+            <table class="tblUploadSection" style="width: 94% !important; margin: 10px auto; line-height: 30px;">
+                <tr>
+                    <td style="width: 140px;" align="right">
+                        <label class="input-label">
+                            Document Name :
+                        </label>
+                    </td>
+                    <td>
+                        @Html.TextBox("txtDocumentName", null, new { @class = "inputTextbox" })
+                    </td>
+
+                </tr>
+                <tr><td style="height:5px;"></td></tr>
+                <tr>
+                    <td align="right">
+                        <label class="input-label">
+                            Document Type :
+                        </label>
+                    </td>
+                    <td>
+                        @Html.DropDownList("ddlDocumentType", new List<SelectListItem>()
+                           {
+                                new SelectListItem() { Text="Certificate of Individual" , Value="1" },
+                                new SelectListItem() { Text="Certification", Value="2" },
+                                new SelectListItem() { Text="Recertification", Value="3" }
+                           }, "Select", new { @class = "DropdownList", @style = "margin-left:0px; width:180px !important;" }
+                        )
+                    </td>
+
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label class="input-label">Document :</label>
+                    </td>
+                    <td>
+                        @*<asp:FileUpload ID="FileUpload1" />*@
+                        <input type="file" id="FileUpload1" name="FileUpload1" />
+                        <input type="button" id="btnUploadLicensee" class="buttonGreen small" value="Upload" />
+                    </td>
+                </tr>
+
+
+            </table>
+            <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
+                <span class="fltrt">
+                    <input type="button" id="Button1" class="buttonGreen medium" value="Save" />
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .error {
+        background-color: pink;
+    }
+
+    #error-container {
+        width: 90%;
+        margin: 0 auto;
+        text-align: left;
+    }
+
+    #progressbar li.active:before, #progressbar li.active:after {
+        background: #27AE60;
+        color: white;
+    }
+
+    #error-container ul {
+        max-width: 514px;
+        margin: 0px auto 20px auto;
+        border: 1px solid #F6AEAE;
+        padding: 10px 30px;
+        border-radius: 5px;
+        background: #FFF2F2;
+    }
+
+        #error-container ul li {
+            color: red;
+        }
+
+    .error {
+        background: rgb(255, 241, 241) !important;
+        border: 1px solid red !important;
+    }
+
+    .status-list li {
+        float: left;
+        margin-left: 35px;
+        list-style-type: none;
+    }
+
+    .status {
+        width: 100px;
+        height: 100px;
+        border: 1px solid #ddd;
+        text-align: center;
+        border-radius: 73px;
+        line-height: 100px;
+        cursor: pointer;
+        font-size: 15px;
+    }
+
+    .orange-bg {
+        background-color: #FBC35E;
+    }
+
+    .green-bg {
+        background-color: #8BFE8B;
+    }
+
+    .additionl-links a {
+        color: Blue !important;
+        text-decoration: underline;
+    }
+</style>

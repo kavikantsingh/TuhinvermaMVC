@@ -1,4 +1,4 @@
-﻿<div id="pnlSection3">
+﻿<div id="pnlSection3" data-ng-controller="licensureCtrl as licensure">
 
     <div id="upSection2">
 
@@ -32,8 +32,8 @@
                                         <table id="rblLicenInfo">
                                             <tbody>
                                                 <tr>
-                                                    <td><input id="rblLicenInfo_0" type="radio" name="rblLicenInfo" value="1"><label for="rblLicenInfo_0">Yes</label></td>
-                                                    <td><input id="rblLicenInfo_1" type="radio" name="rblLicenInfo" value="0"><label for="rblLicenInfo_1">No</label></td>
+                                                    <td><input data-ng-model="licensure.appData.Licensure.HaveLicense" id="rblLicenInfo_0" type="radio" name="rblLicenInfo" value="1"><label for="rblLicenInfo_0">Yes</label></td>
+                                                    <td><input data-ng-model="licensure.appData.Licensure.HaveLicense" id="rblLicenInfo_1" type="radio" name="rblLicenInfo" value="0"><label for="rblLicenInfo_1">No</label></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -41,224 +41,231 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <p>
-                            If you answered "Yes" to 15 above, please list all of your massage therapy, massage therapy business,
-                            and other professional registrations, permits, certificates,
-                            licenses, or other authorizations, including your <u>
-                                Registration, Permit, Cetificate,
-                                or License number (if any), first date of issuance,
-                            </u>date of expiration, <u>
-                                City, State or Province,
-                                Country of issuance and license status.
-                            </u>If your registration, permit, certificate, or license is currently
-                            inactive, please provide the <b><u>Reason for Inactivity :</u></b>
-                        </p>
 
 
-                        <div id="divAddPanelLicensureInformation" class="divLicenseInfo">
-                            <p class="addNewDiv">
-                                <span>Add Licensure Information</span>
+
+                        <div ng-show="licensure.appData.Licensure.HaveLicense == 1" id="divAddPanelLicensureInformation" class="divLicenseInfo">
+
+                            <p>
+                                If you answered "Yes" to 15 above, please list all of your massage therapy, massage therapy business,
+                                and other professional registrations, permits, certificates,
+                                licenses, or other authorizations, including your <u>
+                                    Registration, Permit, Cetificate,
+                                    or License number (if any), first date of issuance,
+                                </u>date of expiration, <u>
+                                    City, State or Province,
+                                    Country of issuance and license status.
+                                </u>If your registration, permit, certificate, or license is currently
+                                inactive, please provide the <b><u>Reason for Inactivity :</u></b>
                             </p>
-                            <table class="tblApplReqForm5 wthtop20" style="width: 96%;">
-                                <tbody>
-                                    <tr>
-                                        <td class="txtalgnrgt tdwidth1">
-                                            <label class="input-label required">
-                                                License # :
-                                            </label>
-                                        </td>
-                                        <td>
-                                            <input name="txtLicenseInfoLicenseNo" type="text" maxlength="150" id="txtLicenseInfoLicenseNo" class="inputTextbox" autocomplete="off">
-                                        </td>
-                                        <td class="txtalgnrgt tdwidth2">
-                                            <label class="input-label required">
-                                                Type :
-                                            </label>
-                                        </td>
-                                        <td>
-                                            <input name="txtLicensInfoType" type="text" maxlength="150" id="txtLicensInfoType" class="inputTextbox" autocomplete="off">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="txtalgnrgt">
-                                            <label class="input-label required">
-                                                Date of Issuance :
-                                            </label>
-                                        </td>
-                                        <td>
-                                            <input name="txtLicensInfoDateOfIssuance" type="text" id="txtLicensInfoDateOfIssuance" class="inputTextbox calender hasDatepicker" autocomplete="off" maxlength="10">
-                                        </td>
-                                        <td class="txtalgnrgt">
-                                            <label class="input-label required">
-                                                City :
-                                            </label>
-                                        </td>
-                                        <td>
-                                            <input name="txtLicensInfoCity" type="text" id="txtLicensInfoCity" class="inputTextbox" autocomplete="off">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="txtalgnrgt">
-                                            <label class="input-label required">
-                                                Province or State :
-                                            </label>
-                                        </td>
-                                        <td>
-                                            <select name="ddlLicensInfoState" id="ddlLicensInfoState" class="inputTextbox" autocomplete="off">
-                                                <option value="-1">Select</option>
-                                                <option value="-1">------ STATES OF USA --------</option>
-                                                <option value="AK">ALASKA</option>
-                                                <option value="AL">ALABAMA</option>
-                                                <option value="AR">ARKANSAS</option>
-                                                <option value="AZ">ARIZONA</option>
-                                                <option selected="selected" value="CA">CALIFORNIA</option>
-                                                <option value="CO">COLORADO</option>
-                                                <option value="CT">CONNECTICUT</option>
-                                                <option value="DC">DISTRICT OF COLUMBIA</option>
-                                                <option value="DE">DELAWARE</option>
-                                                <option value="FL">FLORIDA</option>
-                                                <option value="GA">GEORGIA</option>
-                                                <option value="HI">HAWAII</option>
-                                                <option value="IA">IOWA</option>
-                                                <option value="ID">IDAHO</option>
-                                                <option value="IL">ILLINOIS</option>
-                                                <option value="IN">INDIANA</option>
-                                                <option value="KS">KANSAS</option>
-                                                <option value="KY">KENTUCKY</option>
-                                                <option value="LA">LOUISIANA</option>
-                                                <option value="MA">MASSACHUSETTS</option>
-                                                <option value="MD">MARYLAND</option>
-                                                <option value="ME">MAINE</option>
-                                                <option value="MI">MICHIGAN</option>
-                                                <option value="MN">MINNESOTA</option>
-                                                <option value="MO">MISSOURI</option>
-                                                <option value="MS">MISSISSIPPI</option>
-                                                <option value="MT">MONTANA</option>
-                                                <option value="NE">NEBRASKA</option>
-                                                <option value="NC">NORTH CAROLINA</option>
-                                                <option value="ND">NORTH DAKOTA</option>
-                                                <option value="NH">NEW HAMPSHIRE</option>
-                                                <option value="NJ">NEW JERSEY</option>
-                                                <option value="NM">NEW MEXICO</option>
-                                                <option value="NY">NEW YORK</option>
-                                                <option value="NV">NEVADA</option>
-                                                <option value="OH">OHIO</option>
-                                                <option value="OK">OKLAHOMA</option>
-                                                <option value="OR">OREGON</option>
-                                                <option value="PA">PENNSYLVANIA</option>
-                                                <option value="RI">RHODE ISLAND</option>
-                                                <option value="SC">SOUTH CAROLINA</option>
-                                                <option value="SD">SOUTH DAKOTA</option>
-                                                <option value="TN">TENNESSEE</option>
-                                                <option value="TX">TEXAS</option>
-                                                <option value="UT">UTAH</option>
-                                                <option value="VA">VIRGINIA</option>
-                                                <option value="VT">VERMONT</option>
-                                                <option value="WA">WASHINGTON</option>
-                                                <option value="WI">WISCONSIN</option>
-                                                <option value="WV">WEST VIRGINIA</option>
-                                                <option value="WY">WYOMING</option>
-                                                <option value="-1">------ STATES OF CANADA -------</option>
-                                                <option value="AB">Alberta</option>
-                                                <option value="BC">British Columbia </option>
-                                                <option value="MB">Manitoba </option>
-                                                <option value="NB">New Brunswick </option>
-                                                <option value="NL">Newfoundland and Labrador </option>
-                                                <option value="NT">Northwest Territories </option>
-                                                <option value="NS">Nova Scotia </option>
-                                                <option value="NU">Nunavut </option>
-                                                <option value="ON">Ontario </option>
-                                                <option value="PE">Prince Edward Island </option>
-                                                <option value="QC">Quebec </option>
-                                                <option value="SK">Saskatchewan </option>
-                                                <option value="YT">Yukon </option>
-                                                <option value="00">------- Other States -------</option>
+                            
+                                <p class="addNewDiv">
+                                    <span>Add Licensure Information</span>
+                                    <button class="buttonGreen small" data-ng-show="!licensure.states.addingNewLicense" data-ng-click="licensure.states.addingNewLicense = true">Add</button>
+                                </p>
+                            <div data-ng-show="licensure.states.addingNewLicense">
+                                <table class="tblApplReqForm5 wthtop20" style="width: 96%;">
+                                    <tbody>
+                                        <tr>
+                                            <td class="txtalgnrgt tdwidth1">
+                                                <label class="input-label required">
+                                                    License # :
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <input name="txtLicenseInfoLicenseNo" type="text" maxlength="150" id="txtLicenseInfoLicenseNo" class="inputTextbox" autocomplete="off">
+                                            </td>
+                                            <td class="txtalgnrgt tdwidth2">
+                                                <label class="input-label required">
+                                                    Type :
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <input name="txtLicensInfoType" type="text" maxlength="150" id="txtLicensInfoType" class="inputTextbox" autocomplete="off">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="txtalgnrgt">
+                                                <label class="input-label required">
+                                                    Date of Issuance :
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <input name="txtLicensInfoDateOfIssuance" type="text" id="txtLicensInfoDateOfIssuance" class="inputTextbox calender hasDatepicker" autocomplete="off" maxlength="10">
+                                            </td>
+                                            <td class="txtalgnrgt">
+                                                <label class="input-label required">
+                                                    City :
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <input name="txtLicensInfoCity" type="text" id="txtLicensInfoCity" class="inputTextbox" autocomplete="off">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="txtalgnrgt">
+                                                <label class="input-label required">
+                                                    Province or State :
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <select name="ddlLicensInfoState" id="ddlLicensInfoState" class="inputTextbox" autocomplete="off">
+                                                    <option value="-1">Select</option>
+                                                    <option value="-1">------ STATES OF USA --------</option>
+                                                    <option value="AK">ALASKA</option>
+                                                    <option value="AL">ALABAMA</option>
+                                                    <option value="AR">ARKANSAS</option>
+                                                    <option value="AZ">ARIZONA</option>
+                                                    <option selected="selected" value="CA">CALIFORNIA</option>
+                                                    <option value="CO">COLORADO</option>
+                                                    <option value="CT">CONNECTICUT</option>
+                                                    <option value="DC">DISTRICT OF COLUMBIA</option>
+                                                    <option value="DE">DELAWARE</option>
+                                                    <option value="FL">FLORIDA</option>
+                                                    <option value="GA">GEORGIA</option>
+                                                    <option value="HI">HAWAII</option>
+                                                    <option value="IA">IOWA</option>
+                                                    <option value="ID">IDAHO</option>
+                                                    <option value="IL">ILLINOIS</option>
+                                                    <option value="IN">INDIANA</option>
+                                                    <option value="KS">KANSAS</option>
+                                                    <option value="KY">KENTUCKY</option>
+                                                    <option value="LA">LOUISIANA</option>
+                                                    <option value="MA">MASSACHUSETTS</option>
+                                                    <option value="MD">MARYLAND</option>
+                                                    <option value="ME">MAINE</option>
+                                                    <option value="MI">MICHIGAN</option>
+                                                    <option value="MN">MINNESOTA</option>
+                                                    <option value="MO">MISSOURI</option>
+                                                    <option value="MS">MISSISSIPPI</option>
+                                                    <option value="MT">MONTANA</option>
+                                                    <option value="NE">NEBRASKA</option>
+                                                    <option value="NC">NORTH CAROLINA</option>
+                                                    <option value="ND">NORTH DAKOTA</option>
+                                                    <option value="NH">NEW HAMPSHIRE</option>
+                                                    <option value="NJ">NEW JERSEY</option>
+                                                    <option value="NM">NEW MEXICO</option>
+                                                    <option value="NY">NEW YORK</option>
+                                                    <option value="NV">NEVADA</option>
+                                                    <option value="OH">OHIO</option>
+                                                    <option value="OK">OKLAHOMA</option>
+                                                    <option value="OR">OREGON</option>
+                                                    <option value="PA">PENNSYLVANIA</option>
+                                                    <option value="RI">RHODE ISLAND</option>
+                                                    <option value="SC">SOUTH CAROLINA</option>
+                                                    <option value="SD">SOUTH DAKOTA</option>
+                                                    <option value="TN">TENNESSEE</option>
+                                                    <option value="TX">TEXAS</option>
+                                                    <option value="UT">UTAH</option>
+                                                    <option value="VA">VIRGINIA</option>
+                                                    <option value="VT">VERMONT</option>
+                                                    <option value="WA">WASHINGTON</option>
+                                                    <option value="WI">WISCONSIN</option>
+                                                    <option value="WV">WEST VIRGINIA</option>
+                                                    <option value="WY">WYOMING</option>
+                                                    <option value="-1">------ STATES OF CANADA -------</option>
+                                                    <option value="AB">Alberta</option>
+                                                    <option value="BC">British Columbia </option>
+                                                    <option value="MB">Manitoba </option>
+                                                    <option value="NB">New Brunswick </option>
+                                                    <option value="NL">Newfoundland and Labrador </option>
+                                                    <option value="NT">Northwest Territories </option>
+                                                    <option value="NS">Nova Scotia </option>
+                                                    <option value="NU">Nunavut </option>
+                                                    <option value="ON">Ontario </option>
+                                                    <option value="PE">Prince Edward Island </option>
+                                                    <option value="QC">Quebec </option>
+                                                    <option value="SK">Saskatchewan </option>
+                                                    <option value="YT">Yukon </option>
+                                                    <option value="00">------- Other States -------</option>
 
-                                            </select>
-                                        </td>
-                                        <td class="txtalgnrgt">
-                                            <label class="input-label required">
-                                                Country :
-                                            </label>
-                                        </td>
-                                        <td>
-                                            <select name="ddlLicenseInfoCountry" id="ddlLicenseInfoCountry" class="inputTextbox" autocomplete="off">
-                                                <option selected="selected" value="USA">USA</option>
+                                                </select>
+                                            </td>
+                                            <td class="txtalgnrgt">
+                                                <label class="input-label required">
+                                                    Country :
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <select name="ddlLicenseInfoCountry" id="ddlLicenseInfoCountry" class="inputTextbox" autocomplete="off">
+                                                    <option selected="selected" value="USA">USA</option>
 
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="txtalgnrgt">
-                                            <label class="input-label required">
-                                                Status :
-                                            </label>
-                                        </td>
-                                        <td>
-                                            <select name="ddlLicenseInfoStatus" onchange="javascript:setTimeout('__doPostBack(\'ddlLicenseInfoStatus\',\'\')', 0)" id="ddlLicenseInfoStatus" class="inputTextbox" autocomplete="off">
-                                                <option selected="selected" value="-1">Select</option>
-                                                <option value="1">Active</option>
-                                                <option value="2">Inactive</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="txtalgnrgt">
+                                                <label class="input-label required">
+                                                    Status :
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <select name="ddlLicenseInfoStatus" onchange="javascript:setTimeout('__doPostBack(\'ddlLicenseInfoStatus\',\'\')', 0)" id="ddlLicenseInfoStatus" class="inputTextbox" autocomplete="off">
+                                                    <option selected="selected" value="-1">Select</option>
+                                                    <option value="1">Active</option>
+                                                    <option value="2">Inactive</option>
 
-                                            </select>
-                                        </td>
-                                        <td class="txtalgnrgt"></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="6" style="padding: 0px 10px !important;">
-                                            <hr>
-                                        </td>
+                                                </select>
+                                            </td>
+                                            <td class="txtalgnrgt"></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="6" style="padding: 0px 10px !important;">
+                                                <hr>
+                                            </td>
 
-                                    </tr>
+                                        </tr>
 
-                                    <tr>
-                                        <td class="txtalgnrgt">
-                                            <label class="input-label required">
-                                                Document Name :
-                                            </label>
-                                        </td>
-                                        <td>
-                                            <input name="TextBox25" type="text" id="TextBox25" autocomplete="off">
-                                        </td>
-                                        <td class="txtalgnrgt">
-                                            <label class="input-label required">
-                                                Document Type :
-                                            </label>
-                                        </td>
-                                        <td>
-                                            <select name="DropDownList2" id="DropDownList2" class="inputTextbox" autocomplete="off">
-                                                <option selected="selected" value="-1">Select</option>
-                                                <option value="1">Driver License</option>
-                                                <option value="2">Passport</option>
+                                        <tr>
+                                            <td class="txtalgnrgt">
+                                                <label class="input-label required">
+                                                    Document Name :
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <input name="TextBox25" type="text" id="TextBox25" autocomplete="off">
+                                            </td>
+                                            <td class="txtalgnrgt">
+                                                <label class="input-label required">
+                                                    Document Type :
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <select name="DropDownList2" id="DropDownList2" class="inputTextbox" autocomplete="off">
+                                                    <option selected="selected" value="-1">Select</option>
+                                                    <option value="1">Driver License</option>
+                                                    <option value="2">Passport</option>
 
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="txtalgnrgt">
-                                            <label class="input-label required">
-                                                Document :
-                                            </label>
-                                        </td>
-                                        <td>
-                                            <input type="file" name="FileUpload9" id="FileUpload9">
-                                        </td>
-                                        <td>
-                                            <input type="submit" name="Button9" value="Upload" id="Button9" class="buttonGreen small" style="margin-left: 10px;">
-                                        </td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
-                                <span class="fltrt">
-                                    <input type="submit" name="btnLicensureInformationSave" value="Save" id="btnLicensureInformationSave" class="buttonGreen medium">
-                                    <a id="lnkLicensureInformationCancel" class="secondary medium bottom buttonalignment" href="javascript:__doPostBack('lnkLicensureInformationCancel','')">Cancel</a>
-                                </span>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="txtalgnrgt">
+                                                <label class="input-label required">
+                                                    Document :
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <input type="file" name="FileUpload9" id="FileUpload9">
+                                            </td>
+                                            <td>
+                                                <input type="submit" name="Button9" value="Upload" id="Button9" class="buttonGreen small" style="margin-left: 10px;">
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
+                                    <span class="fltrt">
+                                        <input type="submit" name="btnLicensureInformationSave" value="Save" id="btnLicensureInformationSave" class="buttonGreen medium">
+                                        <a data-ng-click="licensure.states.addingNewLicense = false" id="lnkLicensureInformationCancel" class="secondary medium bottom buttonalignment">Cancel</a>
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                        <div class="divLicenseInfo">
+
+                        <div ng-show="licensure.appData.Licensure.Licenses.length > 0" class="divLicenseInfo">
                             <div>
                                 <table class="index  grid" cellspacing="0" cellpadding="5" id="gvLicenseInfo" style="color:#333333;width:100%;border-collapse:collapse;">
                                     <tbody>
@@ -520,7 +527,7 @@
                     </fieldset>
                     <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
                         <span class="fltrt">
-                            <input type="submit" name="btnLicInfoNext" value="Save &amp; Next" id="btnLicInfoNext" class="buttonGreen medium">
+                            <input data-ng-click="licensure.save()" type="submit" name="btnLicInfoNext" value="Save &amp; Next" id="btnLicInfoNext" class="buttonGreen medium">
                             <a id="lnkCancelLiceInfo" class="secondary medium bottom buttonalignment" href="javascript:__doPostBack('lnkCancelLiceInfo','')">Cancel</a>
                         </span>
                     </div>

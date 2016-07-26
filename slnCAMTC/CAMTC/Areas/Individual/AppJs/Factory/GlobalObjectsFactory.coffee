@@ -16,6 +16,7 @@
                 return
         getAllStatesByCountry : (country)->
             console.log country
+        
             
         applicant : {
             fullName : {

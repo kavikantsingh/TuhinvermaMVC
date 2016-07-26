@@ -2,16 +2,16 @@
 (function() {
   var ApplicantController_Individual;
 
-  ApplicantController_Individual = function($scope, $http, GlobalObjectsFactory) {
+  ApplicantController_Individual = function($scope, $http, GlobalObjectsFactory, ApplicationDataFactory, ApplicationDataService) {
     var vm;
     vm = this;
     vm.globals = GlobalObjectsFactory;
+    vm.appData = ApplicationDataFactory;
     vm.states = {
       addOtherName: false,
       mailingAddressSameAsHome: false
     };
-    console.log(vm.globals);
-    vm.fullName = vm.globals.applicant.fullName;
+    vm.fullName = {};
     vm.newOtherName = {
       firstName: "",
       middleName: "",
@@ -54,6 +54,16 @@
       return vm.newOtherName = angular.copy(vm.fullNameTemplate);
     };
     vm.saveApplicant = function() {
+      var home;
+      home = vm.appData.Applicant.HomeAddress;
+      home.BeginDate = new Date();
+      home.EndDate = new Date();
+      home.IndividualId = parseInt(sessionStorage.IndividualId);
+      home.AddressTypeId = 2;
+      home.AddressStatusId = 9;
+      ApplicationDataService.address.save.individualAddress(home).then(function(response) {
+        return console.log(response, "Saved Home Address");
+      });
       window.location.hash = "#" + "/identification";
       return IndividualSectionManager.changeSelection($("#liSection2"));
     };
@@ -64,6 +74,6 @@
 
   angular.module('IndividualApp').controller('applicantCtrl', ApplicantController_Individual);
 
-  ApplicantController_Individual.$inject = ['$scope', '$http', 'GlobalObjectsFactory'];
+  ApplicantController_Individual.$inject = ['$scope', '$http', 'GlobalObjectsFactory', 'ApplicationDataFactory', 'ApplicationDataService'];
 
 }).call(this);
