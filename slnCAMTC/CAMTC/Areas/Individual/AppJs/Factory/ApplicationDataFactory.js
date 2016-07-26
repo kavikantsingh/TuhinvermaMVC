@@ -11,6 +11,9 @@
       UnderstandQualification: 0,
       Individual: {},
       IndividualName: {},
+      Applicant: {
+        HomeAddress: {}
+      },
       Identification: {
         LicenseStateNotCA: false,
         LicenseState: "CA",

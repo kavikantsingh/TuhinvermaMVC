@@ -1,4 +1,4 @@
-﻿ApplicantController_Individual = ($scope, $http, GlobalObjectsFactory, ApplicationDataFactory)->
+﻿ApplicantController_Individual = ($scope, $http, GlobalObjectsFactory, ApplicationDataFactory, ApplicationDataService)->
     vm = @
     vm.globals = GlobalObjectsFactory
     vm.appData = ApplicationDataFactory
@@ -75,6 +75,14 @@
     vm.saveApplicant = ()->
         #Validate Applicant Tab
         #If Success
+        home = vm.appData.Applicant.HomeAddress
+        home.BeginDate = new Date()
+        home.EndDate = new Date()
+        home.IndividualId = sessionStorage.IndividualId
+        ApplicationDataService.address.save.individualAddress(sessionStorage.IndividualId, vm.appData.Applicant.HomeAddress)
+            .then (response)->
+                console.log response , "Saved Home Address"
+        
         window.location.hash = "#" + "/identification"
         IndividualSectionManager.changeSelection($("#liSection2"))
     
@@ -86,4 +94,4 @@ angular
     .module('IndividualApp')
     .controller('applicantCtrl', ApplicantController_Individual)
     
-    ApplicantController_Individual.$inject = ['$scope', '$http', 'GlobalObjectsFactory', 'ApplicationDataFactory']
+    ApplicantController_Individual.$inject = ['$scope', '$http', 'GlobalObjectsFactory', 'ApplicationDataFactory', 'ApplicationDataService']

@@ -7,6 +7,9 @@
         
         Individual : {}
         IndividualName : {}
+        Applicant : {
+            HomeAddress : {}
+        }
         
         Identification : {
             LicenseStateNotCA : no

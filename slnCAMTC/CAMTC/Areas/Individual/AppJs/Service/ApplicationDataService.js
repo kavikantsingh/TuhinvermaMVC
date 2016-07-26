@@ -2,7 +2,7 @@
 (function() {
   var ApplicationDataService;
 
-  ApplicationDataService = function($http, $q, $rootScope) {
+  ApplicationDataService = function($http, $q, $rootScope, ObjectTemplateFactory) {
     var vm;
     vm = this;
     vm.baseUrl = "http://ws.camtc.inlumon.com/api";
@@ -20,7 +20,12 @@
         });
         return vm.service.getIndividualAddress(sessionStorage.IndividualId).then(function(response) {
           console.log("Address", response.data);
-          return factory.IndividualAddress = response.data.IndividualAddressResponse[0];
+          if (response.data.IndividualAddressResponse.length > 0) {
+            return console.log(response.data.IndividualAddressResponse);
+          } else {
+            factory.Applicant.HomeAddress = angular.copy(ObjectTemplateFactory.address.newAddress);
+            return factory.Applicant.HomeAddress.AddressTypeId = 2;
+          }
         });
       },
       getIndividualName: function(ind_id) {
@@ -31,12 +36,27 @@
       },
       getIndividual: function(ind_id) {
         return $http.get(vm.baseUrl + "/Individual/IndividualBYIndividualId/" + vm.key + "?IndividualId=" + ind_id);
+      },
+      address: {
+        get: {
+          allByIndividualId: function(ind_id) {
+            return $http.get(vm.baseUrl + "/Individual/IndividualAddressBYIndividualId/" + vm.key + "?IndividualId=" + ind_id);
+          },
+          byId: function(addressId) {
+            return console.log(addressId);
+          }
+        },
+        save: {
+          individualAddress: function(ind_id, newAddress) {
+            return $http.post(vm.baseUrl + "/Individual/IndividualAddressSave/" + vm.key + "?IndividualId=" + ind_id, newAddress);
+          }
+        }
       }
     };
   };
 
   angular.module('IndividualApp').service("ApplicationDataService", ApplicationDataService);
 
-  ApplicationDataService.$inject = ['$http', '$q', '$rootScope'];
+  ApplicationDataService.$inject = ['$http', '$q', '$rootScope', 'ObjectTemplateFactory'];
 
 }).call(this);

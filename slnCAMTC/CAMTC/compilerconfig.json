@@ -74,5 +74,9 @@
   {
     "outputFile": "Areas/Individual/AppJs/Controller/HistoryController_Individual.js",
     "inputFile": "Areas/Individual/AppJs/Controller/HistoryController_Individual.coffee"
+  },
+  {
+    "outputFile": "Areas/Individual/AppJs/Factory/ObjectTemplateFactory.js",
+    "inputFile": "Areas/Individual/AppJs/Factory/ObjectTemplateFactory.coffee"
   }
 ]

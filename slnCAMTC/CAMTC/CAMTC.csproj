@@ -233,6 +233,12 @@
     <Content Include="Areas\Individual\AppJs\Factory\GlobalObjectsFactory.min.js">
       <DependentUpon>GlobalObjectsFactory.js</DependentUpon>
     </Content>
+    <Content Include="Areas\Individual\AppJs\Factory\ObjectTemplateFactory.js">
+      <DependentUpon>ObjectTemplateFactory.coffee</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Factory\ObjectTemplateFactory.min.js">
+      <DependentUpon>ObjectTemplateFactory.js</DependentUpon>
+    </Content>
     <Content Include="Areas\Individual\AppJs\IndividualApp.js">
       <DependentUpon>IndividualApp.coffee</DependentUpon>
     </Content>
@@ -314,6 +320,7 @@
     <Content Include="Areas\Individual\AppJs\Controller\EducationController_Individual.coffee" />
     <Content Include="Areas\Individual\AppJs\Controller\WorkInformationController_Individual.coffee" />
     <Content Include="Areas\Individual\AppJs\Controller\HistoryController_Individual.coffee" />
+    <Content Include="Areas\Individual\AppJs\Factory\ObjectTemplateFactory.coffee" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
