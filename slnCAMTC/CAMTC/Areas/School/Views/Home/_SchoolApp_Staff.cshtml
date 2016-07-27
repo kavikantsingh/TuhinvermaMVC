@@ -1,4 +1,4 @@
-﻿<div ng-controller="StaffController" ng-show="hasShow == 'true'">
+﻿<div id="staff" ng-controller="StaffController" ng-show="hasShow == 'true'">
     <section>
         <div id="error_validation" class="errorinfo address-box posFixed" style="color: red; display: block;"></div>
     </section>
@@ -225,11 +225,11 @@
 
             <b>33. Staffing Policies and Procedures :</b>
 
-            <div id="fuStaff1_upDoc" class="documentContainer" data-docid="38" data-doc-code="D1038" data-simple="true">
+            <div id="fuStaff1_upDoc" data-isrequired="false" class="documentContainer" data-docid="38" data-doc-code="D1038" data-simple="true">
             </div>
-            <div id="fuStaff2_upDoc" class="documentContainer" data-docid="39" data-doc-code="D1039" data-simple="true">
+            <div id="fuStaff2_upDoc" data-isrequired="false" class="documentContainer" data-docid="39" data-doc-code="D1039" data-simple="true">
             </div>
-            <div id="fuStaff3_upDoc" class="documentContainer" data-docid="40" data-doc-code="D1040" data-simple="true">
+            <div id="fuStaff3_upDoc" data-isrequired="false" class="documentContainer" data-docid="40" data-doc-code="D1040" data-simple="true">
             </div>
             @*fileupload partialview*@
             @*Document File Upload Partial View -> Type :: Simple*@
@@ -367,8 +367,8 @@
         <div class="left">
         </div>
         <span class="fltrt">
-            <input type="submit" value="Enter Payment" id="btnPayNow" class="buttonGreen medium">
-            <input type="submit" value="Save" id="btnsaveSclContct" class="buttonGreen medium">
+            <input type="button" value="Enter Payment" id="btnPayNow" class="buttonGreen medium">
+            <input type="submit" value="Save" id="btnsaveSclContct" ng-click="Save_page()" class="buttonGreen medium">
             <a id="lnkContactStaffCancel" class="secondary medium bottom buttonalignment">Cancel</a>
         </span>
     </div>

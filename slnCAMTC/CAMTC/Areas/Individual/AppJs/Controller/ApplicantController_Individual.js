@@ -2,7 +2,7 @@
 (function() {
   var ApplicantController_Individual;
 
-  ApplicantController_Individual = function($scope, $http, GlobalObjectsFactory, ApplicationDataFactory) {
+  ApplicantController_Individual = function($scope, $http, GlobalObjectsFactory, ApplicationDataFactory, ApplicationDataService) {
     var vm;
     vm = this;
     vm.globals = GlobalObjectsFactory;
@@ -23,19 +23,6 @@
       middleName: "",
       lastName: ""
     };
-    vm.addressTemplate = {
-      street1: "",
-      street2: "",
-      city: "",
-      state: "",
-      zip: ""
-    };
-    vm.homeAddress = angular.copy(vm.addressTemplate);
-    vm.homeAddress.street1 = "E-503, Gopalanand";
-    vm.homeAddress.street2 = "Chandkheda";
-    vm.homeAddress.city = "Ahmedabad";
-    vm.homeAddress.state = "NJ";
-    vm.homeAddress.zip = "38254";
     vm.mailingAddressSameAsHome = "false";
     vm.phoneNumberTemplate = {
       number: "",
@@ -43,6 +30,7 @@
     };
     vm.primaryPhone = angular.copy(vm.phoneNumberTemplate);
     vm.secondaryPhone = angular.copy(vm.phoneNumberTemplate);
+    vm.primaryPhone.isMobile = true;
     vm.primaryEmail = "";
     vm.secondaryEmail = "";
     vm.haveEmail = true;
@@ -54,6 +42,39 @@
       return vm.newOtherName = angular.copy(vm.fullNameTemplate);
     };
     vm.saveApplicant = function() {
+      var home;
+      home = vm.appData.Applicant.HomeAddress;
+      home.BeginDate = new Date();
+      home.EndDate = new Date();
+      home.IndividualId = parseInt(sessionStorage.IndividualId);
+      home.AddressTypeId = 2;
+      home.AddressStatusId = 9;
+      ApplicationDataService.address.save.individualAddress(home).then(function(response) {
+        return console.log(response, "Saved Home Address");
+      });
+      ApplicationDataService.contact.save(vm.appData.Applicant.PrimaryPhone).then(function(response) {
+        return console.log(response, "Saved Primary Phone");
+      });
+      if (vm.appData.Applicant.SecondaryPhone.ContactInfo !== "") {
+        ApplicationDataService.contact.save(vm.appData.Applicant.SecondaryPhone).then(function(response) {
+          return console.log(response, "Saved Secondary Phone");
+        });
+      }
+      if (vm.appData.Applicant.PrimaryEmail.ContactInfo !== "") {
+        ApplicationDataService.contact.save(vm.appData.Applicant.PrimaryEmail).then(function(response) {
+          return console.log(response, "Saved Primary Email");
+        });
+      }
+      if (vm.appData.Applicant.SecondaryEmail.ContactInfo !== "") {
+        ApplicationDataService.contact.save(vm.appData.Applicant.SecondaryEmail).then(function(response) {
+          return console.log(response, "Saved Secondary Email");
+        });
+      }
+      if (vm.appData.Applicant.Website.ContactInfo !== "") {
+        ApplicationDataService.contact.save(vm.appData.Applicant.Website).then(function(response) {
+          return console.log(response, "Saved Website");
+        });
+      }
       window.location.hash = "#" + "/identification";
       return IndividualSectionManager.changeSelection($("#liSection2"));
     };
@@ -64,6 +85,6 @@
 
   angular.module('IndividualApp').controller('applicantCtrl', ApplicantController_Individual);
 
-  ApplicantController_Individual.$inject = ['$scope', '$http', 'GlobalObjectsFactory', 'ApplicationDataFactory'];
+  ApplicantController_Individual.$inject = ['$scope', '$http', 'GlobalObjectsFactory', 'ApplicationDataFactory', 'ApplicationDataService'];
 
 }).call(this);

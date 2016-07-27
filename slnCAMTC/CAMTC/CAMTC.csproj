@@ -134,6 +134,8 @@
     <Compile Include="Areas\BackOffice\Models\Administration\Configuration\BaseEntityServiceResponse.cs" />
     <Compile Include="Areas\BackOffice\Models\Administration\Configuration\DocumentViewModel.cs" />
     <Compile Include="Areas\BackOffice\Models\Administration\Configuration\PageSectionNameViewModel.cs" />
+    <Compile Include="Areas\ESD\Controllers\SchoolController.cs" />
+    <Compile Include="Areas\ESD\ESDAreaRegistration.cs" />
     <Compile Include="Areas\Individual\Controllers\AccountController.cs" />
     <Compile Include="Areas\Individual\Controllers\ApplicantDashboardController.cs" />
     <Compile Include="Areas\Individual\Controllers\CertificationController.cs" />
@@ -1064,6 +1066,12 @@
     <Content Include="Areas\Individual\AppJs\Controller\ReCertificationController.js" />
     <Content Include="Areas\Individual\AppJs\Controller\WorkInformationController_Individual.js" />
     <Content Include="Areas\Individual\AppJs\Controller\WorkInformationController_Individual.min.js" />
+    <Content Include="Areas\Individual\AppJs\Directive\AppDirectives.js">
+      <DependentUpon>AppDirectives.coffee</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Directive\AppDirectives.min.js">
+      <DependentUpon>AppDirectives.js</DependentUpon>
+    </Content>
     <Content Include="Areas\Individual\AppJs\Factory\ApplicationDataFactory.js">
       <DependentUpon>ApplicationDataFactory.coffee</DependentUpon>
     </Content>
@@ -1075,6 +1083,18 @@
     </Content>
     <Content Include="Areas\Individual\AppJs\Factory\GlobalObjectsFactory.min.js">
       <DependentUpon>GlobalObjectsFactory.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Factory\ObjectTemplateFactory.js">
+      <DependentUpon>ObjectTemplateFactory.coffee</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Factory\ObjectTemplateFactory.min.js">
+      <DependentUpon>ObjectTemplateFactory.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Filter\ArrayFilters.js">
+      <DependentUpon>ArrayFilters.coffee</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Filter\ArrayFilters.min.js">
+      <DependentUpon>ArrayFilters.js</DependentUpon>
     </Content>
     <Content Include="Areas\Individual\AppJs\IndividualApp.js">
       <DependentUpon>IndividualApp.coffee</DependentUpon>
@@ -1196,6 +1216,14 @@
     <Content Include="Areas\Individual\Views\Shared\_StatusList.cshtml" />
     <Content Include="Areas\BackOffice\Views\Home\PartialView\ApplicationConfiguration.cshtml" />
     <Content Include="Areas\BackOffice\Views\Home\PartialView\DeficiencyReason.cshtml" />
+    <Content Include="Areas\Individual\AppJs\Controller\HistoryController_Individual.coffee" />
+    <Content Include="Areas\Individual\AppJs\Factory\ObjectTemplateFactory.coffee" />
+    <Content Include="Areas\Individual\AppJs\Filter\ArrayFilters.coffee" />
+    <Content Include="Areas\ESD\Views\School\Complaint.cshtml" />
+    <Content Include="Areas\ESD\Views\School\Index.cshtml" />
+    <Content Include="Areas\ESD\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\ESD\Views\web.config" />
+    <Content Include="Areas\Individual\AppJs\Directive\AppDirectives.coffee" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -2163,6 +2191,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Agency\Models\" />
+    <Folder Include="Areas\ESD\Models\" />
     <Folder Include="Areas\School\Models\" />
     <Folder Include="Content\Agency\" />
     <Folder Include="Content\BackOffice\" />

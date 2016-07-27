@@ -230,7 +230,7 @@
                                     </label>
                                 </td>
                                 <td>
-                                    <input data-ng-model="id.appData.Identification.DateOfBirth" name="txtDOB" type="text" maxlength="10" id="txtDOB" class="inputTextbox NewAppPersonalTxtbx calenderDOB hasDatepicker" placeholder="MM/DD/YYYY" autocomplete="off">
+                                    <input data-ng-model="id.appData.Individual.DateOfBirth" name="txtDOB" type="text" maxlength="10" id="txtDOB" class="inputTextbox NewAppPersonalTxtbx calenderDOB hasDatepicker" placeholder="MM/DD/YYYY" autocomplete="off">
                                 </td>
                                 <td class="txtalgnrgt" style="width: 133px;">
                                     <label class="input-label required">
@@ -241,8 +241,13 @@
                                     <table id="rblGenderEdit">
                                         <tbody>
                                             <tr>
-                                                <td><input data-ng-model="id.appData.Identification.Gender" id="rblGenderEdit_0" type="radio" name="rblGenderEdit" value="M"><label for="rblGenderEdit_0">Male</label></td>
-                                                <td><input data-ng-model="id.appData.Identification.Gender" id="rblGenderEdit_1" type="radio" name="rblGenderEdit" value="F"><label for="rblGenderEdit_1">Female</label></td>
+                                                <td>
+                                                    <select data-ng-model="id.appData.Individual.Gender" name="txtGender">
+                                                        <option data-ng-repeat="option in main.globals.genderTypes" value="{{option.LookupCode}}"> {{option.LookupDesc}}</option>
+                                                    </select>
+                                                </td>
+                                                @*<td><input data-ng-model="id.appData.Identification.Gender" id="rblGenderEdit_0" type="radio" name="rblGenderEdit" value="M"><label for="rblGenderEdit_0">Male</label></td>
+                                                <td><input data-ng-model="id.appData.Identification.Gender" id="rblGenderEdit_1" type="radio" name="rblGenderEdit" value="F"><label for="rblGenderEdit_1">Female</label></td>*@
                                             </tr>
                                         </tbody>
                                     </table>
@@ -255,7 +260,7 @@
                                     </label>
                                 </td>
                                 <td>
-                                    <input data-ng-model="id.appData.Identification.Height" name="txtHeight" type="text" maxlength="150" id="txtHeight" class="inputTextbox NewAppPersonalTxtbx" autocomplete="off">
+                                    <input data-ng-model="id.appData.Individual.Height" name="txtHeight" type="text" maxlength="150" id="txtHeight" class="inputTextbox NewAppPersonalTxtbx" autocomplete="off">
                                 </td>
                                 <td class="txtalgnrgt">
                                     <label class="input-label">
@@ -263,7 +268,7 @@
                                     </label>
                                 </td>
                                 <td>
-                                    <input data-ng-model="id.appData.Identification.Weight" name="txtWeight" type="text" maxlength="150" id="txtWeight" class="inputTextbox NewAppPersonalTxtbx" autocomplete="off">
+                                    <input data-ng-model="id.appData.Individual.Weight" name="txtWeight" type="text" maxlength="150" id="txtWeight" class="inputTextbox NewAppPersonalTxtbx" autocomplete="off">
                                 </td>
                             </tr>
                             <tr>
@@ -273,7 +278,12 @@
                                     </label>
                                 </td>
                                 <td>
-                                    <input data-ng-model="id.appData.Identification.EyeColor" name="txtEyeColor" type="text" maxlength="150" id="txtEyeColor" class="inputTextbox NewAppPersonalTxtbx  " autocomplete="off">
+                                    <select convert-to-number data-ng-model="id.appData.Individual.EyeColorId" name="txtEyeColor">
+                                        <option value="0">Select Eye Color</option>
+                                        <option data-ng-repeat="option in main.globals.eyeColorTypes" value="{{option.LookupId}}"> {{option.LookupDesc}}</option>
+                                    </select>
+
+                                    @*<input data-ng-model="id.appData.Identification.EyeColor" name="txtEyeColor" type="text" maxlength="150" id="txtEyeColor" class="inputTextbox NewAppPersonalTxtbx  " autocomplete="off">*@
                                 </td>
                                 <td class="txtalgnrgt">
                                     <label class="input-label">
@@ -281,7 +291,12 @@
                                     </label>
                                 </td>
                                 <td>
-                                    <input data-ng-model="id.appData.Identification.HairColor" name="txtHaieColor" type="text" maxlength="150" id="txtHaieColor" class="inputTextbox NewAppPersonalTxtbx  " autocomplete="off">
+
+                                    <select convert-to-number data-ng-model="id.appData.Individual.HairColorId" name="txtHairColor">
+                                        <option value="0">Select Hair Color</option>
+                                        <option data-ng-repeat="option in main.globals.hairColorTypes" value="{{option.LookupId}}"> {{option.LookupDesc}}</option>
+                                    </select>
+                                    @*<input data-ng-model="id.appData.Identification.HairColor" name="txtHaieColor" type="text" maxlength="150" id="txtHaieColor" class="inputTextbox NewAppPersonalTxtbx  " autocomplete="off">*@
                                 </td>
                             </tr>
                         </tbody>
@@ -412,7 +427,7 @@
                                     <b>Social Security Number :</b>
                                 </td>
                                 <td class="cursorpointer">
-                                    <input data-ng-model="id.appData.Identification.SSN" name="txtSSNEdit" type="text" maxlength="11" id="txtSSNEdit" class="inputTextbox NewAppPersonalTxtbx ssn" placeholder="XXX-XX-XXXX" autocomplete="off">
+                                    <input data-ng-model="id.appData.Individual.SSN" name="txtSSNEdit" type="text" maxlength="11" id="txtSSNEdit" class="inputTextbox NewAppPersonalTxtbx ssn" placeholder="XXX-XX-XXXX" autocomplete="off">
                                 </td>
                             </tr>
                         </tbody>
@@ -430,8 +445,8 @@
                                     <table id="rblUSCitizen">
                                         <tbody>
                                             <tr>
-                                                <td><input data-ng-model="id.appData.Identification.isUSCitizen" id="rblUSCitizen_0" type="radio" name="rblUSCitizen" value="1"><label for="rblUSCitizen_0">Yes</label></td>
-                                                <td><input data-ng-model="id.appData.Identification.isUSCitizen" id="rblUSCitizen_1" type="radio" name="rblUSCitizen" value="0"><label for="rblUSCitizen_1">No</label></td>
+                                                <td><input data-ng-model="id.appData.Individual.CitizenshipId" id="rblUSCitizen_0" type="radio" name="rblUSCitizen" value="1029"><label for="rblUSCitizen_0">Yes</label></td>
+                                                <td><input data-ng-model="id.appData.Individual.CitizenshipId" id="rblUSCitizen_1" type="radio" name="rblUSCitizen" value="1030"><label for="rblUSCitizen_1">No</label></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -460,8 +475,8 @@
                                     <table id="rblOtherName">
                                         <tbody>
                                             <tr>
-                                                <td><input data-ng-model="id.appData.Identification.everChangedName" id="rblOtherName_0" type="radio" name="rblOtherName" value="1"><label for="rblOtherName_0">Yes</label></td>
-                                                <td><input data-ng-model="id.appData.Identification.everChangedName" id="rblOtherName_1" type="radio" name="rblOtherName" value="0"><label for="rblOtherName_1">No</label></td>
+                                                <td><input data-ng-model="id.appData.Individual.IsNameChanged" id="rblOtherName_0" type="radio" name="rblOtherName" data-ng-value="true"><label for="rblOtherName_0">Yes</label></td>
+                                                <td><input data-ng-model="id.appData.Individual.IsNameChanged" id="rblOtherName_1" type="radio" name="rblOtherName" data-ng-value="false"><label for="rblOtherName_1">No</label></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -469,7 +484,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <fieldset ng-show="id.appData.Identification.everChangedName == 1" class="flsParentNewApplReqForm flsParentNewApplReqForm1" style="border: 1px solid rgb(221, 221, 221) ! important; padding-bottom: 14px ! important;">
+                    <fieldset ng-show="id.appData.Individual.IsNameChanged" class="flsParentNewApplReqForm flsParentNewApplReqForm1" style="border: 1px solid rgb(221, 221, 221) ! important; padding-bottom: 14px ! important;">
                         <p>
                             If you answered "Yes" to (13.), please list all of your other name(s) :
                         </p>
@@ -541,7 +556,7 @@
                                         </label>
                                     </td>
                                     <td>
-                                        <select data-ng-model="id.appData.Identification.PlaceOfBirth.Country" name="ddlPOBCountry"  id="ddlPOBCountry" class="inputTextbox" autocomplete="off">
+                                        <select data-ng-model="id.appData.Individual.PlaceofBirthCountry" name="ddlPOBCountry"  id="ddlPOBCountry" class="inputTextbox" autocomplete="off">
                                             <option selected="selected" value="US">USA</option>
                                             <option value="DZ">Algeria</option>
                                             <option value="AS">American Samoa</option>
@@ -596,7 +611,7 @@
                                     </td>
                                     <td>
 
-                                        <select data-ng-model="id.appData.Identification.PlaceOfBirth.State" name="ddlPOBStateOfUSA" id="ddlPOBStateOfUSA" class="inputTextbox" title="Select your state" autocomplete="off">
+                                        <select data-ng-model="id.appData.Individual.PlaceofBirthState" name="ddlPOBStateOfUSA" id="ddlPOBStateOfUSA" class="inputTextbox" title="Select your state" autocomplete="off">
                                             <option value="-1">Select</option>
                                             <option value="-1">------ STATES OF USA --------</option>
                                             <option value="AK">ALASKA</option>
@@ -662,7 +677,7 @@
                                         </label>
                                     </td>
                                     <td>
-                                        <input data-ng-model="id.appData.Identification.PlaceOfBirth.City" name="txtPOBCity" type="text" id="txtPOBCity" class="inputTextbox" autocomplete="off">
+                                        <input data-ng-model="id.appData.Individual.PlaceofBirthCity" name="txtPOBCity" type="text" id="txtPOBCity" class="inputTextbox" autocomplete="off">
                                     </td>
                                 </tr>
                             </tbody>

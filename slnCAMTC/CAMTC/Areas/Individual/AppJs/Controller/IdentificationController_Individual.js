@@ -2,11 +2,15 @@
 (function() {
   var IdentificationController;
 
-  IdentificationController = function($scope, GlobalDataFactory, ApplicationDataFactory) {
+  IdentificationController = function($scope, GlobalDataFactory, ApplicationDataFactory, ApplicationDataService) {
     var vm;
     vm = this;
     vm.appData = ApplicationDataFactory;
+    vm.appService = ApplicationDataService;
     vm.save = function() {
+      vm.appService.individual.save(vm.appData.Individual).then(function(response) {
+        return console.log(response.data);
+      });
       window.location.hash = "#" + "/licensure";
       return IndividualSectionManager.changeSelection($("#liSection3"));
     };
@@ -14,6 +18,6 @@
 
   angular.module('IndividualApp').controller('identificationCtrl', IdentificationController);
 
-  IdentificationController.$inject = ['$scope', 'GlobalObjectsFactory', 'ApplicationDataFactory'];
+  IdentificationController.$inject = ['$scope', 'GlobalObjectsFactory', 'ApplicationDataFactory', 'ApplicationDataService'];
 
 }).call(this);

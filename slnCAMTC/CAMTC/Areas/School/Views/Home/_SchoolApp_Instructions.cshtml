@@ -1,19 +1,17 @@
-﻿<div ng-controller="InstructionsController"  ng-show="hasShow == 'true'">
-
-    <div style="display: none; color: red;" class="address-box posFixed" id="error_validation"></div>
+﻿<div id="instructions" ng-controller="InstructionsController" ng-show="hasShow == 'true'">
+    <section>
+        <div id="error_validation" class="errorinfo address-box posFixed" style="color: red; display: block;"></div>
+    </section>
 
     <div>
         <div class="sectionDiv">
             <span>Instructions</span>
         </div>
         <fieldset class="flsLiveScanApp flsLiveScanApp1">
-
             <table class="tblLiveScanApp tblLiveScanApp1">
                 <tbody>
                     <tr>
-
                         <td>
-
                             <b>1. Instructions. </b>
                             <p class="space_left">
                                 Have you read ALL of the most current version of the California Massage Therapy  Council’s (“CAMTC’s”)
@@ -22,9 +20,7 @@
                                         Policies and Procedures for Approval of Schools?
                                     </a>
                                 </b>
-
                             </p>
-
 
                         </td>
                         <td></td>
@@ -33,7 +29,7 @@
                             </p><table class="aspNetDisabled" id="ContentPlaceHolder1_ucCertificationApplication1_rblQuestionEdit1">
                                 <tbody>
                                     <tr>
-                                        <td><span class="aspNetDisabled"><input type="radio" disabled="disabled" checked="checked" value="1" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$rblQuestionEdit1" id="ContentPlaceHolder1_ucCertificationApplication1_rblQuestionEdit1_0"><span for="ContentPlaceHolder1_ucCertificationApplication1_rblQuestionEdit1_0">Yes</span></span></td>
+                                        <td><span class="aspNetDisabled"><input type="radio" ng-model="chk" checked="checked" value="1" name="ctl00$ContentPlaceHolder1$ucCertificationApplication1$rblQuestionEdit1" id="ContentPlaceHolder1_ucCertificationApplication1_rblQuestionEdit1_0"><span for="ContentPlaceHolder1_ucCertificationApplication1_rblQuestionEdit1_0">Yes</span></span></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -49,10 +45,8 @@
                             </p>
                         </td>
                     </tr>
-
                     <tr>
                         <td colspan="3">
-
                             <b>
                                 <p class="boldtext_instruct">
                                     (The Yes button is enabled only after you have clicked on the Policies and Procedures for Approval of Schools link above and read them.)
@@ -60,13 +54,10 @@
                             </b>
                         </td>
                         <td></td>
-
                     </tr>
-
 
                 </tbody>
             </table>
-
         </fieldset>
     </div>
     <div style="display: none;" class="readinstrucn">
@@ -79,4 +70,3 @@
         </span>
     </div>
 </div>
-

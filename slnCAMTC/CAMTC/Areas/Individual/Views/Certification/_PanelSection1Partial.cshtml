@@ -172,13 +172,13 @@
                                     </label>
                                 </td>
                                 <td colspan="5">
-                                    <input data-ng-model="applicant.homeAddress.street1" name="txtStreetResEdit" type="text" maxlength="500" id="txtStreetResEdit" class="calWidth us_street" style="width:482px;" autocomplete="off">
+                                    <input data-ng-model="applicant.appData.Applicant.HomeAddress.StreetLine1" name="txtStreetResEdit" type="text" maxlength="500" id="txtStreetResEdit" class="calWidth us_street" style="width:482px;" autocomplete="off">
                                 </td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td colspan="5">
-                                    <input data-ng-model="applicant.homeAddress.street2" name="txtStreet2ResEdit" type="text" maxlength="500" id="txtStreet2ResEdit" class="calWidth us_street" style="width:482px;" autocomplete="off">
+                                    <input data-ng-model="applicant.appData.Applicant.HomeAddress.StreetLine2" name="txtStreet2ResEdit" type="text" maxlength="500" id="txtStreet2ResEdit" class="calWidth us_street" style="width:482px;" autocomplete="off">
                                 </td>
                             </tr>
                             <tr>
@@ -188,7 +188,7 @@
                                     </label>
                                 </td>
                                 <td style="width: 151px;">
-                                    <input data-ng-model="applicant.homeAddress.city" name="txtCityResEdit" type="text" maxlength="500" id="txtCityResEdit" class="tooltip OnlyAlphabet calWidth" title="Only A-Z characters are allowed." style="width:124px;" autocomplete="off">
+                                    <input data-ng-model="applicant.appData.Applicant.HomeAddress.City" name="txtCityResEdit" type="text" maxlength="500" id="txtCityResEdit" class="tooltip OnlyAlphabet calWidth" title="Only A-Z characters are allowed." style="width:124px;" autocomplete="off">
                                 </td>
                                 <td class="txtalgnrgt" style="width: 52px;">
                                     <label class="input-label required">
@@ -196,7 +196,7 @@
                                     </label>
                                 </td>
                                 <td style="width: 106px;">
-                                    <select data-ng-model="applicant.homeAddress.state" name="ddlStateResEdit" id="ddlStateResEdit" class="inputTextbox" title="Select your state" style="width:98px;" autocomplete="off">
+                                    <select data-ng-model="applicant.appData.Applicant.HomeAddress.StateCode" name="ddlStateResEdit" id="ddlStateResEdit" class="inputTextbox" title="Select your state" style="width:98px;" autocomplete="off">
                                         <option value="-1">Select</option>
                                         <option value="-1">------ STATES OF USA --------</option>
                                         <option value="AK">ALASKA</option>
@@ -274,7 +274,7 @@
                                     </label>
                                 </td>
                                 <td>
-                                    <input data-ng-model="applicant.homeAddress.zip" name="txtZipResEdit" type="text" maxlength="10" id="txtZipResEdit" class="tooltip zip_us calWidth" placeholder="xxxxx-xxxx or xxxxx" title="Enter valid Zip eg: XXXXX-XXXX or XXXXX" style="width:127px;" autocomplete="off">
+                                    <input data-ng-model="applicant.appData.Applicant.HomeAddress.Zip" name="txtZipResEdit" type="text" maxlength="10" id="txtZipResEdit" class="tooltip zip_us calWidth" placeholder="xxxxx-xxxx or xxxxx" title="Enter valid Zip eg: XXXXX-XXXX or XXXXX" style="width:127px;" autocomplete="off">
                                 </td>
                             </tr>
                         </tbody>
@@ -480,10 +480,10 @@
                                                     <label class="input-label required">Primary Phone :</label>
                                                 </td>
                                                 <td style="width: 165px;">
-                                                    <input data-ng-model="applicant.primaryPhone.number" name="TextBox3" type="text" id="TextBox3" class="phone_us" autocomplete="off" maxlength="14">
+                                                    <input data-ng-model="applicant.appData.Applicant.PrimaryPhone.ContactInfo" name="TextBox3" type="text" id="TextBox3" class="phone_us" autocomplete="off" maxlength="14">
                                                 </td>
                                                 <td class="cursorpointer">
-                                                    <input  data-ng-model="applicant.primaryPhone.isMobile" id="CheckBox10" type="checkbox" name="CheckBox10"><label for="CheckBox10">Mobile</label>
+                                                    <input  data-ng-model="applicant.appData.Applicant.PrimaryPhone.IsMobile" id="CheckBox10" type="checkbox" name="CheckBox10"><label for="CheckBox10">Mobile</label>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -491,10 +491,10 @@
                                                     <label class="input-label">Secondary Phone :</label>
                                                 </td>
                                                 <td>
-                                                    <input data-ng-model="applicant.secondaryPhone.number" name="TextBox4" type="text" id="TextBox4" class="phone_us" autocomplete="off" maxlength="14">
+                                                    <input data-ng-model="applicant.appData.Applicant.SecondaryPhone.ContactInfo" name="TextBox4" type="text" id="TextBox4" class="phone_us" autocomplete="off" maxlength="14">
                                                 </td>
                                                 <td class="cursorpointer">
-                                                    <input data-ng-model="applicant.secondaryPhone.isMobile" id="CheckBox11" type="checkbox" name="CheckBox11"><label for="CheckBox11">Mobile</label>
+                                                    <input data-ng-model="applicant.appData.Applicant.SecondaryPhone.IsMobile" id="CheckBox11" type="checkbox" name="CheckBox11"><label for="CheckBox11">Mobile</label>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -523,7 +523,7 @@
                                                     </label>
                                                 </td>
                                                 <td colspan="3">
-                                                    <input data-ng-model="applicant.primaryEmail" name="txtPrimaryEmail" type="text" maxlength="150" id="txtPrimaryEmail" class="inputTextbox NewAppPersonalTxtbx" style="width: 484px !important;" autocomplete="off">
+                                                    <input data-ng-model="applicant.appData.Applicant.PrimaryEmail.ContactInfo" name="txtPrimaryEmail" type="text" maxlength="150" id="txtPrimaryEmail" class="inputTextbox NewAppPersonalTxtbx" style="width: 484px !important;" autocomplete="off">
                                                 </td>
                                             </tr>
                                             <tr>
@@ -533,7 +533,7 @@
                                                     </label>
                                                 </td>
                                                 <td colspan="3">
-                                                    <input data-ng-model="applicant.secondaryEmail" name="txtSecondaryEmail" type="text" maxlength="150" id="txtSecondaryEmail" class="inputTextbox NewAppPersonalTxtbx" style="width: 484px !important;" autocomplete="off">
+                                                    <input data-ng-model="applicant.appData.Applicant.SecondaryEmail.ContactInfo" name="txtSecondaryEmail" type="text" maxlength="150" id="txtSecondaryEmail" class="inputTextbox NewAppPersonalTxtbx" style="width: 484px !important;" autocomplete="off">
                                                     <br>
                                                     <span>Email address must be provided by law, if you have one. </span>
                                                 </td>
@@ -568,7 +568,7 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <table ng-if="applicant.haveWebsite > 0">
+                                    <table ng-if="applicant.appData.Applicant.Website.ContactInfo != ''">
                                         <tbody>
                                             <tr>
                                                 <td></td>
@@ -578,7 +578,7 @@
                                                     </label>
                                                 </td>
                                                 <td class="cursorpointer">
-                                                    <input data-ng-model="applicant.website" name="txtWebsite" type="text" maxlength="150" id="txtWebsite" class="inputTextbox NewAppPersonalTxtbx" autocomplete="off">
+                                                    <input data-ng-model="applicant.appData.Applicant.Website.ContactInfo" name="txtWebsite" type="text" maxlength="150" id="txtWebsite" class="inputTextbox NewAppPersonalTxtbx" autocomplete="off">
                                                     <br>
                                                     <span>eg: http://www.example.com</span>
                                                 </td>

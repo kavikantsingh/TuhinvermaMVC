@@ -7,6 +7,10 @@
     console.log vm.globals.countries
     vm.ApplicationModel = {}
     
+    
+        
+
+    
     return
     
 angular

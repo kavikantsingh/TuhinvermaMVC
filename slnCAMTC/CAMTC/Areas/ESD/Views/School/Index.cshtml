@@ -1,0 +1,1723 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/ESD/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1">
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <title>
+        California Massage Therapy Council
+    </title>
+    <link rel="icon" href="../MasterPage/favicon.ico" sizes="16x16" type="image/ico" />
+    <script src="../../App_Themes/Theme1/jquery-ui/js/jquery-1.9.1.js?" type="text/javascript"></script>
+    <script src="../../App_Themes/Theme1/jquery-ui/js/jquery-ui.js?" type="text/javascript"></script>
+    <link rel="stylesheet" href="../../App_Themes/Theme1/jquery-ui/css/start/jquery-ui-1.8.23.custom.css?" />
+    <link rel="stylesheet" href="../../App_Themes/Theme1/css/style.css?" />
+    <link rel="stylesheet" href="../../App_Themes/Theme1/css/navigation.css?" />
+    <link rel="shortcut icon" href="http://massagetherapy.nv.gov/favicon.ico" />
+    <link rel="stylesheet" href="../../App_Themes/Theme1/css/searchPanel.css?" />
+
+    <script type="text/javascript">
+        function OpenCompliancePopup(div) {
+            $(div).addClass('visble')
+            $(div).dialog({ modal: true, height: 550, width: 630 });
+        }
+
+
+        try {
+
+            function disBlockMessage() {
+
+                $('.message').addClass('disBlock');
+                setTimeout(function () {
+                    $('.message').delay(800).fadeOut(1500);
+                    $('.message').removeClass('disBlock');
+                }, 800);
+            }
+        }
+        catch (e) {
+        }
+        try {
+            $(document).ready(function () {
+
+                //                $('.calender').datepicker({
+                //                    constrainInput: true,
+                //                    inline: true,
+                //                    changeMonth: true,
+                //                    changeYear: true, minDate: "-50Y",
+                //                    yearRange: "1950:2023"
+                //                });
+                $('#DivAlertMessage').click(function () {
+                    $(this).fadeOut('slow');
+                });
+
+
+                //Set opacity on each span to 0%
+                $(".rollover").css({ 'opacity': '0' });
+
+                $('.rightIcon a').hover(
+            function () {
+                $(this).find('.rightIcon a img').stop().fadeTo(500, 1);
+            },
+            function () {
+                $(this).find('.rightIcon a img').stop().fadeTo(500, 0);
+            }
+        )
+
+            });
+        }
+        catch (e) {
+        }
+        try {
+            function showDivSlide(div) {
+
+                $(div).slideDown();
+            } function hideDiv(e) {
+                $(e).slideUp();
+
+            }
+            function showDiv(e) {
+                $(e).slideDown();
+
+            }
+
+            function hideDivSlide(div) {
+                $(div).slideUp();
+            }
+
+            function navigateToURL(url) {
+                window.location = url;
+            }
+        }
+        catch (e) {
+        }
+        try {
+            function MessageShow(msg, type) {
+                $('#DivAlertMessage div').removeClass('errorbox');
+                $('#DivAlertMessage div').removeClass('confirmbox');
+                $('#DivAlertMessage div').show();
+                if (type == 1) {
+                    $('#DivAlertMessage div').addClass('confirmbox');
+                    $('#DivAlertMessage div').html('<span class="ok"></span>' + msg);
+                }
+                else {
+                    $('#DivAlertMessage div').addClass('errorbox');
+                    $('#DivAlertMessage div').html('<span class="notok"></span>' + msg);
+                }
+
+                setTimeout(function () {
+                    $('#DivAlertMessage').slideUp('slow');
+                }, 60000);
+                $('#DivAlertMessage').slideDown();
+                $("html, body").animate({ scrollTop: 0 }, 600);
+
+                $('#DivAlertMessage').click(function () {
+                    $(this).slideUp('slow');
+                });
+            }
+        }
+        catch (e) {
+        }
+        try {
+            function MessageShow_Second(msg, type) {
+                try {
+                    $('#DivAlertMessage_Second div').removeClass('errorbox');
+                    $('#DivAlertMessage_Second div').removeClass('confirmbox');
+                    $('#DivAlertMessage_Second div').show();
+                }
+                catch (e) {
+                    alert(e);
+                }
+                if (type == 1) {
+                    $('#DivAlertMessage_Second div').addClass('confirmbox');
+                    $('#DivAlertMessage_Second div').html('<span class="ok"></span>' + msg);
+                }
+                else {
+                    $('#DivAlertMessage_Second div').addClass('errorbox');
+                    $('#DivAlertMessage_Second div').html('<span class="notok"></span>' + msg);
+                }
+                try {
+                    setTimeout(function () {
+                        $('.DivAlertMessage_Second').slideUp('slow');
+                    }, 6000);
+                }
+                catch (e) {
+                    alert(e);
+                }
+                try {
+                    $('.DivAlertMessage_Second').removeAttr('style');
+                    $('.DivAlertMessage_Second').click(function () {
+                        $(this).slideUp('slow');
+                    });
+
+                }
+                catch (e) {
+                    alert(e);
+                }
+            }
+        }
+        catch (e) {
+            alert(e + '--');
+        }
+        try {
+            function MessageShow_Third(msg, type) {
+                $('#DivAlertMessage_Third div').removeClass('errorbox');
+                $('#DivAlertMessage_Third div').removeClass('confirmbox');
+                $('#DivAlertMessage_Third div').show();
+                if (type == 1) {
+                    $('#DivAlertMessage_Third div').addClass('confirmbox');
+                    $('#DivAlertMessage_Third div').html('<span class="ok"></span>' + msg);
+                }
+                else {
+                    $('#DivAlertMessage_Third div').addClass('errorbox');
+                    $('#DivAlertMessage_Third div').html('<span class="notok"></span>' + msg);
+                }
+
+                setTimeout(function () {
+                    $('#DivAlertMessage_Third').slideUp('slow');
+                }, 60000);
+                $('#DivAlertMessage_Third').slideDown();
+                $('#DivAlertMessage_Third').click(function () {
+                    $(this).slideUp('slow');
+                });
+            }
+        }
+        catch (e) {
+        }
+    </script>
+    <script>
+        function RemoveElement(e) {
+            $(e).remove();
+        }
+    </script>
+    <link href="../../App_Themes/Theme1/tabs/tabs.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            min-width: 1050px;
+        }
+
+        doesnotexist:-o-prefocus, input[type="file"] {
+            width: 150px;
+        }
+    </style>
+    <style>
+        .loader2 {
+            position: fixed;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            background: transparent;
+            z-index: 9998;
+            top: 45%;
+            left: 45%;
+            color: rgb(28, 112, 179);
+            border-radius: 8px;
+            overflow: hidden;
+            padding: 10px 10px;
+            background: #fff;
+            text-align: center;
+            font-size: 11px;
+            cursor: wait;
+            border: 1px solid rgb(189, 189, 189);
+        }
+
+        .errorbox ul {
+            width: 93%;
+            line-height: 20px;
+        }
+    </style>
+    <link href="../../App_Themes/Theme1/css/button.css" rel="stylesheet" type="text/css" />
+    <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../App_Themes/Theme1/css/ie9.css" /><link href="../../App_Themes/Theme1/css/ieAll.css" rel="stylesheet" type="text/css" />
+    <style>
+        .ajax__validatorcallout
+        {
+            line-height: normal !important;
+        }
+       </style>
+    <![endif]-->
+    <!--[if lte IE 7]>
+
+
+      <div id="mask1" style="display:block">
+        </div>
+        <div class="noscriptmsg" style="text-align:center">
+            You are using older version of browser which is not supporting!
+
+        </div>
+    <![endif]-->
+    <noscript>
+        <div id="mask1" style="display: block">
+        </div>
+        <div class="noscriptmsg" style="text-align: center">
+            Please enable javascript.
+        </div>
+    </noscript>
+    <style>
+        #mask1 {
+            background: #000;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+            z-index: 999;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+            filter: alpha(opacity=30);
+        }
+
+        .noscriptmsg {
+            border: 2px solid #eee;
+            width: 400px;
+            height: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            position: fixed;
+            top: 50%;
+            left: 34%;
+            background: #fff;
+            color: red;
+            padding: 15px;
+            overflow: hidden;
+            z-index: 9999;
+        }
+    </style>
+    <script>
+        $("input.us_street").blur(function () {
+            OnStreetChange(this);
+        });
+        function OnStreetChange(e) {
+            $.ajax({
+                type: 'POST',
+                url: '../../Ajax_Handler/Address.ashx?AddressStreet=' + $(e).val(),
+                dataType: 'text',
+
+                success: function (result) {
+                    $(e).val(result);
+                }
+            });
+
+        }
+    </script>
+
+
+    <script>
+        $(function () {
+
+            $('.calender').datepicker({
+                constrainInput: true,
+                inline: true,
+                changeMonth: true,
+                changeYear: true, minDate: "-50Y",
+                yearRange: "1950:2023"
+            });
+        });
+
+        function EnableTb(el) {
+
+            $(el).removeAttr('disabled');
+            $(el).removeClass('aspNetDisabled');
+        }
+    </script>
+
+    <link href="../../App_Themes/Theme1/css/NewButton.css" rel="stylesheet" type="text/css" />
+    <script src="../../App_Themes/Theme1/js/jquery.mask.min.js" type="text/javascript"></script>
+    <script src="../../App_Themes/Theme1/Expandables/expand.js" type="text/javascript"></script>
+    <script>
+        window.onload = function () {
+            showDivSlide('.userHide');
+        };
+        function toggleDiv(e) {
+            $(e).toggle();
+            $('span.close').click(function () {
+                $(e).toggle();
+            });
+        }
+
+        $(function () {
+            //Navigation
+            $('.nav-mainlinks li').each(function () {
+                $(this).removeClass('active');
+            });
+            $('#liESD').addClass('active');
+
+            //Masking
+            $('.phone_us').mask('(000) 000-0000');
+            $('.ssn').mask('999-99-9999');
+
+            //For Date of Birth jquery calender
+            $('.calenderDOB').datepicker({
+                inline: true,
+                changeMonth: true,
+                changeYear: true, maxDate: "-18Y",
+                yearRange: "1900:+nn"
+
+            });
+        });
+    </script>
+    <script>
+        function RemoveElement(e) {
+            $(e).remove();
+        }
+
+        function ShowChildMessage(msg, type) {
+            $('#MsgDivUploadAll').html(BuildValidationMessage(msg, type)); HideLoader();
+        } function ShowChildMessageDiv(element, msg, type) {
+            $(element).html(BuildValidationMessage(msg, type)); HideLoader();
+        }
+        function UploadImage(input) {
+            var ext = input.files[0].name.split('.').pop().toLowerCase();
+            if ($.inArray(ext, ['bmp', 'png', 'jpg', 'jpeg', 'gif']) == -1) {
+                alert('Please upload only BMP, JPG, GIF or PNG photos.');
+            }
+            else {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#IndvidualimgProfile').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+
+                sendProfilePic(input.files[0]);
+            }
+        }
+
+
+
+
+
+        function sendProfilePic(file) {
+            ShowLoader();
+            $.ajax({
+                type: 'post',
+                url: '../../Ajax_Handler/IndividualProfileImage.ashx?saveFile=true&name=' + file.name + '&IndividualId=' + $('#hidIndividualId').val() + '&Documenttype=0&DocumentTypeName=Profile',
+                data: file,
+                async: true,
+                success: function () {
+                    $('#IndvidualimgProfile').attr('src', $('#hidPermanentUrl').val() + "&v=2.333" + file.name); HideLoader();
+                },
+                xhrFields: {
+
+                },
+                processData: false,
+                contentType: false// file.type
+            });
+        }
+
+
+    </script>
+    <link href="../../App_Themes/Theme1/css/IndividualDetails.css?" rel="stylesheet" type="text/css" />
+    <!--[if lte IE 7]>
+    <style type="text/css">
+    h2 a, .demo {position:relative; height:1%}
+    </style>
+    <![endif]-->
+    <!--[if lte IE 6]>
+    <script type="text/javascript">
+       try { document.execCommand( "BackgroundImageCache", false, true); } catch(e) {};
+    </script>
+    <![endif]-->
+    <!--[if !lt IE 6]><!-->
+    <script type="text/javascript">
+        function UpdatePanel_Function_Individual() {
+
+            $("h4.expand").toggler({ method: "slideFadeToggle" });
+        }
+        //<!--        --><![CDATA[        //><!--
+        $(function () {
+            // --- Using the default options:
+            //$("h2.expand").toggler();
+            // --- Other options:
+            //$("h2.expand").toggler({method: "toggle", speed: 0});
+            $("h4.expand").toggler({ method: "slideFadeToggle" });
+            // $("h2.expand").toggler({speed: "fast"});
+            //$("h2.expand").toggler({method: "fadeToggle"});
+            //$("h2.expand").toggler({method: "slideFadeToggle"});
+            //$("#content").expandAll({ trigger: "h4.expand", ref: "div.demo", localLinks: "p.top a" });
+        });
+        //--><!]]>
+    </script>
+    <!--<![endif]-->
+    <link href="../../App_Themes/Theme1/css/Individual.css?" rel="stylesheet" type="text/css" />
+    <style>
+        a.medium {
+            padding: 8px 10px 6px 10px;
+        }
+
+        a.small {
+            position: relative;
+            top: 0px;
+        }
+
+        .link-next-prev {
+            cursor: pointer;
+            text-decoration: none;
+            padding: 7px 10px;
+        }
+
+            .link-next-prev:hover {
+                text-decoration: none;
+            }
+
+        .demo .expand a.open:link, .demo .expand a.open:visited {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .demo .expand a, .demo .expand a:active, .demo .expand a:focus {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .tdnum {
+            width: 18px;
+            font-weight: bold;
+            vertical-align: top;
+        }
+
+
+        div.divPrint {
+            position: absolute;
+            z-index: 9999;
+            background: #EEEEEE;
+            top: 40px;
+            padding: 10px;
+            right: 6px;
+            line-height: 8px;
+            border: 1px solid #D5A2A2;
+            border-top: 0px;
+            box-shadow: -1px 4px 8px #000;
+        }
+
+        .fancy-green .ajax__tab_header {
+            cursor: pointer;
+            border: 1px solid #4297D7;
+            color: #EAF5F7;
+            font-weight: bold;
+            background: #FFF none repeat scroll 0% 0% !important;
+            margin: 0px;
+            float: left;
+        }
+
+        .histdiv {
+            border: 1px solid rgb(221, 221, 221);
+            padding: 10px 0px !important;
+            margin-top: 10px;
+        }
+
+        body {
+            font-family: helvatica,sans-serif;
+            line-height: 22px;
+        }
+
+        .sectionDiv {
+            height: 30px;
+            background-color: #D6D3D3;
+            line-height: 30px;
+            padding-left: 10px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .flsApplReqForm {
+            border: 1px solid #EAEAEA;
+            width: 95%;
+            margin: 10px auto 0px;
+        }
+
+        fieldset {
+            border: 0px none !important;
+        }
+
+        .flsParentNewApplReqForm {
+            border: 1px solid #EAEAEA;
+            width: 95%;
+            margin: 10px auto 0px;
+        }
+
+        .wdtmarauto {
+            width: 96%;
+            margin: 0px auto;
+        }
+
+        table.tblApplReqForm5 {
+            line-height: 33px;
+        }
+
+        .address-box {
+            position: relative;
+            margin-top: -110px;
+            min-height: 100px;
+            background-color: #FBF4F4;
+            padding: 12px;
+            border: 1px solid rgba(255, 5, 28, 0.4);
+            top: 2px;
+            z-index: 1;
+        }
+
+        .tblApplReqForm5 td {
+            padding: 10px 0px 0px !important;
+        }
+
+        .divaddnew {
+            height: 33px;
+        }
+
+        .divLicenseInfo {
+            margin: 3px auto;
+            width: 98%;
+            border: 1px solid #EEE;
+        }
+
+        .addNewDiv {
+            text-align: center;
+            height: 28px;
+            line-height: 25px;
+            background-color: #F9F9F9;
+            font-weight: bold;
+        }
+
+        .grid-header-other-name .index tr th {
+            height: 25px !important;
+            padding: 0px 0px 0px 3px !important;
+            line-height: 25px;
+        }
+
+        .readinstrucn {
+            padding-left: 20px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        .flsNewApplReqForm {
+            border: 1px solid #EAEAEA;
+            width: 95%;
+            margin: 10px auto 0px;
+        }
+
+        hr {
+            display: block;
+            height: 1px;
+            border-width: 1px 0px 0px;
+            border-style: solid none none;
+            border-color: #CCC -moz-use-text-color -moz-use-text-color;
+            -moz-border-top-colors: none;
+            -moz-border-right-colors: none;
+            -moz-border-bottom-colors: none;
+            -moz-border-left-colors: none;
+            border-image: none;
+            margin: 1em 0px;
+            padding: 0px;
+        }
+
+        .grid-heading {
+            width: 100%;
+            background-color: #DDD;
+            font-weight: bold;
+        }
+
+        .index tbody td {
+            padding: 4px 3px;
+        }
+
+        .listbox {
+            width: 215px;
+            height: 170px;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            border: 1px solid #DDD;
+            padding: 8px;
+        }
+
+        .gvDivUpr {
+            color: #000;
+            font-family: Arial,Helvetica,sans-serif;
+            font-size: 12px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            letter-spacing: normal;
+            text-align: left;
+            text-indent: 0px;
+            text-transform: none;
+            white-space: normal;
+            word-spacing: 0px;
+        }
+
+        .tableborder_trcschk td {
+            border: 1px solid #DEDEDE;
+            padding: 5px;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0px;
+        }
+
+        .flsLiveScanApp {
+            border: 1px solid #EAEAEA;
+            width: 95%;
+            margin: 10px auto 0px;
+        }
+
+        .history .tblApplReqForm5 td {
+            padding: 2px 0px 0px 0px !important;
+        }
+
+        .history .tblApplReqForm5 .grid td {
+            padding: 0px 0px 0px 4px !important;
+        }
+    </style>
+    <style type="text/css">
+        @-moz-document url-prefix() {
+            .expinputfirefox {
+                color: red;
+            }
+
+            a.medium {
+                padding: 10px 10px 6px 10px;
+            }
+
+            .link-next-prev {
+                padding: 9px 10px 7px 10px !important;
+            }
+        }
+
+        .txtalgnrgt {
+    text-align: right;
+}
+        .colsp td{ vertical-align: baseline; padding-top:5px !important;}
+        .sitevisite{text-align: center; background-color: rgb(236, 234, 234); padding: 0px ! important; border-top: 1px solid rgb(216, 216, 216); border-bottom: 1px solid rgb(216, 216, 216);}
+    </style>
+
+</head>
+<body>
+    <form method="post" action="./SchoolComplaint.aspx" id="form1" enctype="multipart/form-data">
+        <div class="aspNetHidden">
+            <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+            <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+            <input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTEyODI4NjU1OQ9kFgJmD2QWAmYPZBYCAgMPZBYEAgYPZBYCZg8WAh4EVGV4dAWjMTx1bCBjbGFzcz0ibmF2LW1haW5saW5rcyBjdXN0b20tYmFja2dyb3VuZCI+DQogPGxpIGNsYXNzPSJjdXN0b20tYmFja2dyb3VuZC1kYXJrLWhvdmVyIiBpZD0ibGlIb21lIj48YSBjbGFzcz0iIiBocmVmPSIuLi9VSS9EYXNoYm9hcmQuYXNweCIgID5Ib21lPC9hPjwvbGk+IDxsaSBjbGFzcz0iY3VzdG9tLWJhY2tncm91bmQtZGFyay1ob3ZlciIgaWQ9ImxpSW5kaXZpZHVhbCI+PGEgY2xhc3M9IiIgaHJlZj0iamF2YXNjcmlwdDp2b2lkKCk7IiAgPkluZGl2aWR1YWw8L2E+PHVsPjxsaT48YSBjbGFzcz0iIiBocmVmPSIuLi9VSS9pbmRpdmlkdWFsLmFzcHgiID5JbmRpdmlkdWFsIEluZm88L2E+PC9saT48L3VsPjwvbGk+IDxsaSBjbGFzcz0iY3VzdG9tLWJhY2tncm91bmQtZGFyay1ob3ZlciIgaWQ9ImxpQU1HIj48YSBjbGFzcz0iIiBocmVmPSJqYXZhc2NyaXB0OnZvaWQoKTsiICA+QU1HPC9hPjx1bD48bGk+PGEgY2xhc3M9IiIgaHJlZj0iLi4vV29ya2Zsb3cvQ2VydGlmaWNhdGlvbkFwcGxpY2F0aW9uLmFzcHgiID5DZXJ0aWZpY2F0aW9uPC9hPjwvbGk+PGxpPjxhIGNsYXNzPSIiIGhyZWY9Ii4uL1dvcmtmbG93L1JlQ2VydGlmaWNhdGlvbkFwcGxpY2F0aW9uLmFzcHgiID5SZWNlcnRpZmljYXRpb248L2E+PC9saT48bGk+PGEgY2xhc3M9IiIgaHJlZj0iLi4vQU1HL1VwZ3JhZGUuYXNweCIgPlVwZ3JhZGU8L2E+PC9saT48bGk+PGEgY2xhc3M9IiIgaHJlZj0iLi4vQU1HL0VkdWNhdGlvbi5hc3B4IiA+RWR1Y2F0aW9uPC9hPjwvbGk+PGxpPjxhIGNsYXNzPSIiIGhyZWY9Ii4uL0FNRy9BTUdDb21wbGFpbnQuYXNweCIgPkNvbXBsYWludDwvYT48L2xpPjxsaT48YSBjbGFzcz0iIiBocmVmPSIuLi9BTUcvQXVkaXQuYXNweCIgPkF1ZGl0PC9hPjwvbGk+PGxpPjxhIGNsYXNzPSIiIGhyZWY9Ii4uL0FkbWluaXN0cmF0aW9uL0VtYWlsLmFzcHgiID5FbWFpbDwvYT48L2xpPjwvdWw+PC9saT4gPGxpIGNsYXNzPSJjdXN0b20tYmFja2dyb3VuZC1kYXJrLWhvdmVyIiBpZD0ibGlQU0QiPjxhIGNsYXNzPSIiIGhyZWY9ImphdmFzY3JpcHQ6dm9pZCgpOyIgID5QU0Q8L2E+PHVsPjxsaT48YSBjbGFzcz0iIiBocmVmPSIuLi9QU0QvSW5kaXZpZHVhbEluZm8uYXNweCIgPkluZGl2aWR1YWwgSW5mbzwvYT48L2xpPjxsaT48YSBjbGFzcz0iIiBocmVmPSIuLi9Xb3JrZmxvdy9JbkhvdXNlQ2xlYXJhbmNlLmFzcHgiID5JbiBIb3VzZSBDbGVhcmFuY2U8L2E+PC9saT48bGk+PGEgY2xhc3M9IiIgaHJlZj0iLi4vV29ya2Zsb3cvUFNEV2FpdGluZ1Jvb20uYXNweCIgPlBTRCBXYWl0aW5nIFJvb208L2E+PC9saT48bGk+PGEgY2xhc3M9IiIgaHJlZj0iLi4vQWRtaW5pc3RyYXRpb24vQ2FsbExpc3QuYXNweCIgPkNhbGwgU2hlZXQ8L2E+PC9saT48bGk+PGEgY2xhc3M9IiIgaHJlZj0iLi4vV29ya2Zsb3cvQXRQU0QuYXNweCIgPkF0IFBTRDwvYT48L2xpPjxsaT48YSBjbGFzcz0iIiBocmVmPSIuLi9QU0QvUHNkTWludXRlTWVldGluZy5hc3B4IiA+UFNEIE1lZXRpbmcgTm90ZXM8L2E+PC9saT48bGk+PGEgY2xhc3M9IiIgaHJlZj0iLi4vUFNEL01lbW9Ub0NvdW5jaWwuYXNweCIgPk1lbW8gdG8gQ291bnNlbDwvYT48L2xpPjxsaT48YSBjbGFzcz0iIiBocmVmPSIuLi9QU0QvUFNEQ29tcGxhaW50LmFzcHgiID5Db21wbGFpbnQ8L2E+PC9saT48L3VsPjwvbGk+IDxsaSBjbGFzcz0iY3VzdG9tLWJhY2tncm91bmQtZGFyay1ob3ZlciIgaWQ9ImxpTGVnYWwiPjxhIGNsYXNzPSIiIGhyZWY9ImphdmFzY3JpcHQ6dm9pZCgpOyIgID5MZWdhbDwvYT48dWw+PGxpPjxhIGNsYXNzPSIiIGhyZWY9Ii4uL0FSUy9BUlNMZWdhbC5hc3B4IiA+U3BlY2lhbCBDb3Vuc2VsPC9hPjwvbGk+PGxpPjxhIGNsYXNzPSIiIGhyZWY9Ii4uL0xlZ2FsL1N0YWZmQXR0b3JuZXkuYXNweCIgPlN0YWZmIEF0dG9ybmV5czwvYT48L2xpPjxsaT48YSBjbGFzcz0iIiBocmVmPSIuLi9MZWdhbC9QYXJhbGVnYWwuYXNweCIgPlBhcmFsZWdhbHM8L2E+PC9saT48bGk+PGEgY2xhc3M9IiIgaHJlZj0iLi4vTGVnYWwvSGVhcmluZ1dhaXRpbmdSb29tdC5hc3B4IiA+SGVhcmluZyBXYWl0aW5nIFJvb208L2E+PC9saT48bGk+PGEgY2xhc3M9IiIgaHJlZj0iLi4vTGVnYWwvSGVhcmluZ1NjaGVkdWxlLmFzcHgiID5IZWFyaW5nIFNjaGVkdWxlPC9hPjwvbGk+PC91bD48L2xpPiA8bGkgY2xhc3M9ImN1c3RvbS1iYWNrZ3JvdW5kLWRhcmstaG92ZXIiIGlkPSJsaUVTRCI+PGEgY2xhc3M9IiIgaHJlZj0iamF2YXNjcmlwdDp2b2lkKCk7IiAgPkVTRDwvYT48dWw+PGxpPjxhIGNsYXNzPSIiIGhyZWY9Ii4uL1VJL1NjaG9vbC5hc3B4IiA+U2Nob29sIEluZm88L2E+PC9saT48bGk+PGEgY2xhc3M9IiIgaHJlZj0iLi4vRVNEL1NjaG9vbEFwcGxpY2F0aW9uLmFzcHgiID5TY2hvb2wgV29ya2Zsb3c8L2E+PC9saT48bGk+PGEgY2xhc3M9IiIgaHJlZj0iLi4vRVNEL0VTRENhbGxTaGVldC5hc3B4IiA+RVNEIENhbGwgU2hlZXQ8L2E+PC9saT48bGk+PGEgY2xhc3M9IiIgaHJlZj0iLi4vRVNEL1NjaG9vbENvbXBsYWludC5hc3B4IiA+U2Nob29sIENvbXBsYWludDwvYT48L2xpPjwvdWw+PC9saT4gPGxpIGNsYXNzPSJjdXN0b20tYmFja2dyb3VuZC1kYXJrLWhvdmVyIiBpZD0ibGlSZXBvcnRzIj48YSBjbGFzcz0iIiBocmVmPSJqYXZhc2NyaXB0OnZvaWQoKTsiICA+UmVwb3J0czwvYT48dWwgY2xhc3M9Im1heFdpZHRoIj48bGk+PGEgY2xhc3M9IiIgaHJlZj0iamF2YXNjcmlwdDp2b2lkKCk7IiA+UmVwb3J0czwvYT48dWw+PGxpPjxhIGhyZWY9Ii4uL1JlcG9ydHMvQ2VydGlmaWNhdGVSZXBvcnQuYXNweCIgPkNlcnRpZmljYXRlIFJlcG9ydDwvYT48L2xpPjxsaT48YSBocmVmPSJqYXZhc2NyaXB0OnZvaWQoKTsiID5Db25maXJtYXRpb24gYW5kIEFmZmlkYXZpdCBQYWdlPC9hPjwvbGk+PGxpPjxhIGhyZWY9ImphdmFzY3JpcHQ6dm9pZCgpOyIgPkV4cGlyZWQgQ2VydGlmaWNhdGUgTGV0dGVyPC9hPjwvbGk+PGxpPjxhIGhyZWY9ImphdmFzY3JpcHQ6dm9pZCgpOyIgPkRpc3NlbWluYXRpb24gTG9nIFJlcG9ydDwvYT48L2xpPjxsaT48YSBocmVmPSJqYXZhc2NyaXB0OnZvaWQoKTsiID5JbnNwZWN0aW9uIER1ZSBSZXBvcnQ8L2E+PC9saT48bGk+PGEgaHJlZj0iamF2YXNjcmlwdDp2b2lkKCk7IiA+RGVmaWNpZW50IFJlcG9ydDwvYT48L2xpPjxsaT48YSBocmVmPSJqYXZhc2NyaXB0OnZvaWQoKTsiID5Xb3JrZmxvdyBSZXBvcnQ8L2E+PC9saT48bGk+PGEgaHJlZj0iamF2YXNjcmlwdDp2b2lkKCk7IiA+UmUtQ2VydGlmaWNhdGlvbiBGb3JtczwvYT48L2xpPjxsaT48YSBocmVmPSJqYXZhc2NyaXB0OnZvaWQoKTsiID5QcmludCBDZXJ0aWZpY2F0ZTwvYT48L2xpPjxsaT48YSBocmVmPSJqYXZhc2NyaXB0OnZvaWQoKTsiID5SZXN0cmljdGVkIENlcnRpZmljYXRlIENhcmQ8L2E+PC9saT48bGk+PGEgaHJlZj0iamF2YXNjcmlwdDp2b2lkKCk7IiA+VGVtcG9yYXJ5IENlcnRpZmljYXRlPC9hPjwvbGk+PC91bD48L2xpPjxsaT48YSBjbGFzcz0iIiBocmVmPSJqYXZhc2NyaXB0OnZvaWQoKTsiID5RdWVyaWVzPC9hPjx1bD48bGk+PGEgaHJlZj0iamF2YXNjcmlwdDp2b2lkKCk7IiA+QXBwbGljYXRpb24gYnkgU3RhdHVzPC9hPjwvbGk+PGxpPjxhIGhyZWY9ImphdmFzY3JpcHQ6dm9pZCgpOyIgPkRhaWx5IERlcG9zaXQgUmVwb3J0PC9hPjwvbGk+PGxpPjxhIGhyZWY9Ii4uL1JlcG9ydHMvRW1haWxMaXN0UXVlcnkuYXNweCIgPkVtYWlsIExpc3QgUXVlcnk8L2E+PC9saT48bGk+PGEgaHJlZj0iamF2YXNjcmlwdDp2b2lkKCk7IiA+Q2VydGlmaWNhdGUgQ2FyZDwvYT48L2xpPjxsaT48YSBocmVmPSJqYXZhc2NyaXB0OnZvaWQoKTsiID5DZXJ0aWZpY2F0ZSBieSBzdGF0dXM8L2E+PC9saT48bGk+PGEgaHJlZj0iamF2YXNjcmlwdDp2b2lkKCk7IiA+TWFpbGluZyBMaXN0PC9hPjwvbGk+PGxpPjxhIGhyZWY9ImphdmFzY3JpcHQ6dm9pZCgpOyIgPlByb2JhdGlvbiBMaXN0PC9hPjwvbGk+PGxpPjxhIGhyZWY9ImphdmFzY3JpcHQ6dm9pZCgpOyIgPlJlbmV3YWwgU3VtbWFyeSBRdWVyeTwvYT48L2xpPjxsaT48YSBocmVmPSJqYXZhc2NyaXB0OnZvaWQoKTsiID5TQiAyMSBDZXJ0aWZpY2F0ZSBSZXBvcnQ8L2E+PC9saT48L3VsPjwvbGk+PGxpPjxhIGNsYXNzPSIiIGhyZWY9Ii4uL1JlcG9ydHMvR0xTUmVwb3J0cy5hc3B4IiA+UXVlcnkgJiBSZXBvcnRpbmc8L2E+PC9saT48bGk+PGEgY2xhc3M9IiIgaHJlZj0iamF2YXNjcmlwdDp2b2lkKCk7IiA+UFNEIFJlcG9ydDwvYT48dWw+PGxpPjxhIGhyZWY9ImphdmFzY3JpcHQ6dm9pZCgpOyIgPlBTRCBTY3JlZW48L2E+PC9saT48bGk+PGEgaHJlZj0iamF2YXNjcmlwdDp2b2lkKCk7IiA+Q29tcGxhaW50IExvZzwvYT48L2xpPjxsaT48YSBocmVmPSJqYXZhc2NyaXB0OnZvaWQoKTsiID5EaXNjaXBsaW5hcnkgQWN0aW9uPC9hPjwvbGk+PC91bD48L2xpPjxsaT48YSBjbGFzcz0iIiBocmVmPSJqYXZhc2NyaXB0OnZvaWQoKTsiID5CYWQgQWRkcmVzczwvYT48L2xpPjxsaT48YSBjbGFzcz0iIiBocmVmPSJqYXZhc2NyaXB0OnZvaWQoKTsiID5JbmFjdGl2ZTwvYT48L2xpPjwvdWw+PC9saT4gPGxpIGNsYXNzPSJjdXN0b20tYmFja2dyb3VuZC1kYXJrLWhvdmVyIiBpZD0ibGlBZG1pbmlzdHJhdGlvbiI+PGEgY2xhc3M9IiIgaHJlZj0iamF2YXNjcmlwdDp2b2lkKCk7IiAgPkFkbWluaXN0cmF0aW9uPC9hPjx1bCBjbGFzcz0ibWF4V2lkdGgiPjxsaT48YSBjbGFzcz0iIiBocmVmPSIuLi9BZG1pbmlzdHJhdGlvbi9Db3VuY2lsSW5mby5hc3B4IiA+Q291bmNpbCBJbmZvPC9hPjwvbGk+PGxpPjxhIGNsYXNzPSIiIGhyZWY9ImphdmFzY3JpcHQ6dm9pZCgpOyIgPkNvbW1hbmQ8L2E+PHVsPjxsaT48YSBocmVmPSIuLi9Db21tYW5kcy9BdXRvbWF0ZWQuYXNweCIgPkF1dG9tYXRlZDwvYT48L2xpPjxsaT48YSBocmVmPSIuLi9Db21tYW5kcy9NYW51YWwuYXNweCIgPk1hbnVhbDwvYT48L2xpPjxsaT48YSBocmVmPSIuLi9Db21tYW5kcy9MaWNlbnNlUHJpbnRRdWV1ZS5hc3B4IiA+UHJpbnQgUXVldWU8L2E+PC9saT48L3VsPjwvbGk+PGxpPjxhIGNsYXNzPSIiIGhyZWY9ImphdmFzY3JpcHQ6dm9pZCgpOyIgPlVzZXIgTWFuYWdlbWVudDwvYT48dWw+PGxpPjxhIGhyZWY9Ii4uL0FkbWluaXN0cmF0aW9uL1JvbGUuYXNweCIgPlJvbGVzPC9hPjwvbGk+PGxpPjxhIGhyZWY9Ii4uL0FkbWluaXN0cmF0aW9uL1VzZXJBY2NvdW50LmFzcHgiID5Vc2VyIEFjY291bnRzPC9hPjwvbGk+PC91bD48L2xpPjxsaT48YSBjbGFzcz0iIiBocmVmPSJqYXZhc2NyaXB0OnZvaWQoKTsiID5NZXNzYWdlICYgVGVtcGxhdGU8L2E+PHVsPjxsaT48YSBocmVmPSIuLi9BZG1pbmlzdHJhdGlvbi9CdWxsZXRpbi5hc3B4IiA+QnVsbGV0aW48L2E+PC9saT48bGk+PGEgaHJlZj0iLi4vQWRtaW5pc3RyYXRpb24vVGVtcGxhdGVNZXNzYWdlLmFzcHgiID5UZW1wbGF0ZSBNZXNzYWdlPC9hPjwvbGk+PC91bD48L2xpPjxsaT48YSBjbGFzcz0iIiBocmVmPSJqYXZhc2NyaXB0OnZvaWQoKTsiID5Xb3JrZmxvdzwvYT48dWw+PGxpPjxhIGhyZWY9Ii4uL1dvcmtmbG93L1ByaW50VXNlckNyZWRlbnRpYWwuYXNweCIgPlByaW50IFVzZXIgQ3JlZGVudGlhbDwvYT48L2xpPjwvdWw+PC9saT48bGk+PGEgY2xhc3M9IiIgaHJlZj0iLi4vQWRtaW5pc3RyYXRpb24vQ29uZmlndXJhdGlvbi5hc3B4IiA+Q29uZmlndXJhdGlvbjwvYT48L2xpPjxsaT48YSBjbGFzcz0iIiBocmVmPSIuLi9BZG1pbmlzdHJhdGlvbi9Db250ZW50TWFuYWdlbWVudC5hc3B4IiA+Q29udGVudCBNYW5hZ2VtZW50PC9hPjwvbGk+PGxpPjxhIGNsYXNzPSIiIGhyZWY9Ii4uL0FkbWluaXN0cmF0aW9uL0RldGVybWluYXRpb24uYXNweCIgPkRldGVybWluYXRpb248L2E+PC9saT48bGk+PGEgY2xhc3M9IiIgaHJlZj0iLi4vQWRtaW5pc3RyYXRpb24vQXBwZWFsLmFzcHgiID5BcHBlYWw8L2E+PC9saT48bGk+PGEgY2xhc3M9IiIgaHJlZj0iLi4vQWRtaW5pc3RyYXRpb24vQXVkaXRMb2cuYXNweCIgPkF1ZGl0IExvZzwvYT48L2xpPjxsaT48YSBjbGFzcz0iIiBocmVmPSIuLi9BZG1pbmlzdHJhdGlvbi9NYXNzRW1haWwuYXNweCIgPkJ1bGsgRW1haWw8L2E+PC9saT48bGk+PGEgY2xhc3M9IiIgaHJlZj0iLi4vQWRtaW5pc3RyYXRpb24vRG9jdW1lbnRNYW5hZ2VtZW50LmFzcHgiID5Eb2N1bWVudCBNYW5hZ2VtZW50PC9hPjwvbGk+PGxpPjxhIGNsYXNzPSIiIGhyZWY9Ii4uL0FkbWluaXN0cmF0aW9uL1NjaG9vbEhvbGRMaXN0LmFzcHgiID5TY2hvb2wgSG9sZCBMaXN0PC9hPjwvbGk+PC91bD48L2xpPg0KPC91bD5kAgkPZBYCAgIPZBYGAgUPPCsAEQIBEBYAFgAWAAwUKwAAZAJBDzwrABECARAWABYAFgAMFCsAAGQCSQ8QZGQWAGQYAwUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgQFN2N0bDAwJGN0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkTWlkQ29udGVudCRJbWFnZUJ1dHRvbjcFO2N0bDAwJGN0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkTWlkQ29udGVudCRjaGtTY2xJbmZvUHJpTnVtBThjdGwwMCRjdGwwMCRDb250ZW50UGxhY2VIb2xkZXIxJE1pZENvbnRlbnQkY2hrdHh0U2NsSW5mbwU0Y3RsMDAkY3RsMDAkQ29udGVudFBsYWNlSG9sZGVyMSRNaWRDb250ZW50JENoZWNrQm94MgU0Y3RsMDAkY3RsMDAkQ29udGVudFBsYWNlSG9sZGVyMSRNaWRDb250ZW50JEdyaWRWaWV3MQ9nZAU7Y3RsMDAkY3RsMDAkQ29udGVudFBsYWNlSG9sZGVyMSRNaWRDb250ZW50JEdWU2NsSW5mb1ByZXZTY2wPZ2Re4hgeBkRM+BnLlPlgrj+sUeDJy+42ei5ypWc9yTeHkQ==" />
+        </div>
+
+        <script type="text/javascript">
+            //<![CDATA[
+            var theForm = document.forms['form1'];
+            if (!theForm) {
+                theForm = document.form1;
+            }
+            function __doPostBack(eventTarget, eventArgument) {
+                if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+                    theForm.__EVENTTARGET.value = eventTarget;
+                    theForm.__EVENTARGUMENT.value = eventArgument;
+                    theForm.submit();
+                }
+            }
+            //]]>
+        </script>
+
+
+        <script src="/WebResource.axd?d=XWIJCoadXPy-50cC6LOWexIMYzZHrKQ-CADYBkWV7XAeCiZMUjtXeizjIh75ZoC4bZdBRg9hCgAvIJpgsQBSrzIH2IvOyW8uoFgVLj-zLAU1&amp;t=635875221181218729" type="text/javascript"></script>
+
+
+        <script src="/ScriptResource.axd?d=96uYBUxT9RMpgLMq5pEYnghquXiKjAiqqNLRx577HabuOcFihdZZWnZt0MCXdCBm7wAGUGnYE2M75Gy5WnFYNFEPSMMVujKZp6sbXzO5ymu-BS6IT472CCCv_YmLgNMUcfIGpwoZ-xSE23ba6Vw_Hw2&amp;t=7f16157c" type="text/javascript"></script>
+        <script type="text/javascript">
+            //<![CDATA[
+            if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+            //]]>
+        </script>
+
+        <script src="/ScriptResource.axd?d=-xfdPf8fDjYZcdr6xm_FSPoLLEh7NWgtciMqa7Rurb4WRG-zHfbTEGe71Ya1TJKKS4ZSDRDruevoGsYIS8heSiwHFU3e0XmbluiEUYM-ys58uzRv_ahDZs6UWin8RV6ClszVECpyQsl18-esglYMIw2&amp;t=7f16157c" type="text/javascript"></script>
+        <div class="aspNetHidden">
+
+            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="BA6A9EB9" />
+            <input type="hidden" name="__SCROLLPOSITIONX" id="__SCROLLPOSITIONX" value="0" />
+            <input type="hidden" name="__SCROLLPOSITIONY" id="__SCROLLPOSITIONY" value="0" />
+            <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAL8BE6jiXfA8LAp8zPxSsjYaLVuHOLa09nTaGa7qt0ThhboucIGRUaXVm0PqrvxnyvzyLsQRLXfGP5nOA3jwCNGZOWM3Ajf8hraegbMdAJ43vu2Mu6IV/hjPdsT1JpKjrnSlQYJCqg46SMkG32zgNRjoNmaZtdy+gPP6E+oHtC1mU96D36108y9JladDexsUv2W9P2AmCuh1Su9zIrjtboepWSFFMasp02clPCdeik0AG1dBmP8honI744zvrplX2tnYyrmGjQa4mgSKw4K7K1oVcTfngvbsssPdH1TI5GRbpE4ZH8eCl8acCJDdO/tVibDoMdM5GoAwaIX6VN5GL0KOTL1ma2t2bw0ez9JhdJQn7UaTXVkbOpG9c1zdH/5QZRvy3IML5JLxHc7GBKGdUqJJM0ewe5l9RfIpnv/gApUT+ORw4BGPI5i0WX2C3CX8/UmSejSSMgUBrVrnGyM7yj0jq9NRa2C9CorOC3okqTcN9SKeuBArXCxBHHuHc0L4SilAPyzC37mWBlPzVE6HThefX8XrD6rpPTacTy8YqqAFQq1hj9wkzVubLLz94JeMpEXuZJvSmflBBhdPL4a6S/SELm8Ocr6n4Ri3lqedu1MD8MqIOUfItXajtGzIS++869vXo4xhg9w3wDciRccxGnv9mLAAqP8LAL2EmetToF29UV/Ix6/enxqeFtUNCIxieGhnHW9JN5QdtrOe5z0CuHobRJhxnx9vEIL8nyTnxCRik7HmESrCkEpNVp57ksdpUlatmrg1rjXXMBS3BE/FNzwMkL7aEk48swsavpLTl0MbHR9siqq/zaQTJ5LgeHxN091cprQEnXZmTbLHRzJLSylUKVBXbLBbTycO3BEkyDM7n3Oto+qh1uKmQ1pu825g5c97ldf6ZIP7X3hwMAHt818JHWQ1YpblAPDTBSOV83rRPZhSTPaNlOkLh1yGcQbXCfAfPGrfYfzLToXy/caRxEJFwpvGsEzcfxxMDVkUi14QbyuC4Xc224C0OQcx6KKRXxPPyFk7aeBv1smHxB8SXFoZnI/aND5JnNhWBIQCqreoWR2rSjzlW3Fwy+RWCaPStQs/X4pK+4Ciai4JTi/Sg1rH7SF8GpmxUjhq9sKVIRPWmJvCX8/EiRYUilaPQIygfanCwjfiR4gewe4V35XxoEDQMgcvvnWXfDk3P59ufhHJhOux1eQSuBxhcAr5+gLOna2D2wmjxLkLoZjR/OEMtIs2BagQIJ/3AesjTmG2fsN+ax/HrsOyix699AeG6bTS4IHlt4LITEkMCROvUm8AXpsWWOlRdPe6t/J0SCGrosx9sbS6koHj3Xn/vqq1jdTT2k8Q2nFTDDy40b+7dkjCPSgHVMUTnFgGRUKSSaKB/yMO1SFIESVIBNkO3ZBg7Z2q9pcoCSwYlcUW/UuuQBhvvzGo6unfhP/Sph26EqMaE73PhdDrzO7GZt31++re90GzPjG8Y7+11HuG/5vp2GC/PXUx8CXVH5IHVdjq3RIsXHUMfMknXaxzXtPevVTqOCa4rSWMR671E20+scz0MF3hUwp4fL3LDe2FHb1pQHz93hPLH0CT+4h6KwLALv9FM0V9fMR8im7joQjFcpNP/y3xePKtoxkOFfEm7xDdsCCBzXqSFw8XEEcGt+bG7AjdpSLBOmcsnEtJj/VhwaEnlJTyDo+ujyQfARHnp+8gqecPLWcGRtZ2K7d2tCI/6O0c+K224WV+16TrTEgSQ4r1y1SnMpJ3FcrV1yMNaG/hQx8TFjUnoOEO4ghcnGw/SfFjRWB/d1tGD9jjM0EiVFQi2gJrDxOueLH2qexH7ZdE9D8s4g2cEgU1dzM0GBT6GxPNnB8NahbxbQ3XgErjmZn6Drjitnrn5Dcr42rh4Kqg8YxAx2qqOoMQrZ9UM6BKQSdueb+zLBmvHZ6diDXWXmqDBBrE0CDh56K0SS3iR+q+tDOMFHY+dKm231n1PgioFkptgRw5vd3N3GZDVUmIhhfHHw8dvSMB0x+Z1xIxB8nq3Lyl8emzbSphBIBaRpwAOxBr6JScrFkJYim3JX6ffNscuehbH2Lv4a+MNNjBtNjfBh6oU2RSBWxgYCFyKyKj9VXmgrb6c7iLIWKUXtVOsHpcR+lTyt/wzRrcyT++jKQIRSQuz3YdPj4zVkZLpBYzkEmibjZbkfa0NxqRCa9zPOjCf2Xg5zW15uM4q9GXsUFjmbw0rpET4E23KvU+fryQkL+DLbIpGGvfQQl5dEYAwXvI/T4xcYTI0VoTLOCAdZ4zwLNin2C3fU8X3i4oF2OgBCkdmbaI4JnwnTyBU2MNt835wbQTOvImJ0io3gN4dfnqdo8pWo6EWC5B96p73xTXYA1wMmbvO0DcpN93HcrQcFKjNqqRU1bhD4nR8BGsejErs1IE/gCCp1HvckeAl3R/LeK6+Gc9XhRjhyFE6DuPoSJBIEJru/X0t9qVbPlGviyzhdwCAwDs+y5ghAWnK9PH/1Qnfm85UixddKtGo9pEIMWOsUDF2i5yO+gjChLO7QmOazv8B1I5w7ZWn/h6uvVpI8Wlr+uzPmRHOfmv/8foCBDn1cjWM/7R2WMUyZpN0QNwEf+pmRCiMB1lNcHWfS8AiaER7jpM8GvSrNcKinFVFyScUPm54O0JW+cGytSzTNp2VVSLmEDHQs+vXUFVKMDNIIwvQkofBYSh5V3GNOiG9FKRz61ABSZReUauG81XhFr8K/dtJb5uV2YGGl6xzMhfM6yA4rmoK/2Xa6XRYlWlyoW6U+pfsb/cVRXvW13sMprKdaVb/lFYe6CZqkwUDM5jpUBM5B/dHmRnrQx9KGB3bcML+gRhVKviMURWaGlAHtnm+oRlPjP41EhzqJLIBvgJSVWQSyY0cTXl3qDqPmgArj7nWxlIV7WjvCMZ2lPLYl+8ZBTXrZL7k9FDnAyXrU+NaA+MQseUp0801e52W+Pku3KwSRGYbDU621m/NRWtKRs2aKtNq1CtkHoeY8YBkumOo3qL9Mz6iMs24IVB/ne/cjM0lpSfHazpjmHp3lod2MiI+I3UAJ3gffO8lNdoU8OGDYfEGTbLltFhBtffBED9q7t7SimBDGRU1Cg0x7czamRnjMdmA1kJtF3s/aCt2VS1h2c8bOa0yEe4S1f9xjEENV8ISu0aO7NB3HbqR2yAPM8pYhjra3sVX7QbGW/SoQ0RSuNLwvFIucFKgudYYvX//oFNduWh4BMOO/U3m2x/F4OPYJNwqf63buVENuFL7YiLcK2FgUMrqzSOOXIjLY7oYV2yGJ9Cq9VoY1A8ULFmZann1ndEJk+Pk9vjRHvzZlePY9c+MrQ4cZJfll1yfIrGaeeF8jMhKPKkJ7MRWUh5FnDUe2pI/ve1cCJDTsoclGHixuAiwZaoB6RBh9s1QLO5RaEU8+k8HUOSIAJYmYv+zTjkvvGe3CmsOXEqhPY/y1iZxTZ5syWXjscGL59lJ/ORR5jSa4urf5hYmybpV9cpr1ERwWN5g2sSK4ejY74ecruOmE7CoZxO8BH6qOMA8VbobQHLRzcC0iaBEI+Je6bZGajHha/jSi4zSg3WPZRgo1dQJQt4HmT1r+61D2zZF4/a8SSk4g5bM6frIBKzMGrP0dp3U3EbT9Gpw7JazBKp77YBX1Djk0ZagY+4BXcD+jIqkDHEZzOuX099iJrM6oHNtzxERYg8NDhZsrQOcm2pIo3mQJ6cWwwPed9OXhbiIAzNE5rHqzHmUs0yacsZP//v5hIlYpeDbXp6lFOUyrqHoXdp62bJkQUinv3DrsoldSgTB6BDAX+LUtzdUEATkmpQStP2Dmboq5tgICfBzaJyTj0jGqmRQ/2nO/kSv0wJsDUqf48VXfnexx09B89roLeUecrtABXjLiRUrsKAuZXgVUl/RIlAR8t8lOsHxWnoz52ba10tyJTCvnqthTqmJzyChoqInbxuZvyIeZaCxFwk82qi+9x5EqAMdpjSIsnRWqeJ7OO9x3kiXpbZgDMzU8HOvp2/QX5JfeONClA7vILzmrfxaJnIMbOsszVlhMmN8SNIK/NA8f9b9wrmZgNm6LuebJ2zSuPukkeK4DwkKtHC4vQRt0Ju9Mf3vHlQo7REfeJatMuCAC/V010enw==" />
+        </div>
+        <input type="password" style="display: none">
+        <script type="text/javascript">
+            //<![CDATA[
+            Sys.WebForms.PageRequestManager._initialize('ctl00$ctl00$srm', 'form1', [], [], [], 900000, 'ctl00$ctl00');
+            //]]>
+        </script>
+
+        <div class="header">
+            <div class="container">
+                <ul class="nav-toplinks">
+                    <li class="first">
+                        <a id="nav-my-account" class="" href="javascript:void();">My Account</a>
+                        <ul>
+                            <li><a href="../UI/ChangePassword.aspx">Change Password</a></li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a id="nav-settings" class="" href="javascript:void();">Settings</a>
+                    </li>
+                    <li class=""><a id="nav-help" class="" href="javascript:void();">Help</a> </li>
+                    <li class="last">
+                        <a id="lnkLogout" href="javascript:__doPostBack(&#39;ctl00$ctl00$lnkLogout&#39;,&#39;&#39;)">Log out</a>
+
+                    </li>
+                </ul>
+                <div class="logo-container fltlft" style="height: 120px; width: 100px;">
+                    <div class="box-logo">
+                    </div>
+                </div>
+                <h2 class="fltlft" style="font-size: 28px; color: #062858; margin-top: 43px; font-weight: 800;
+                padding-left: 125px;">
+                    California Massage Therapy Council
+                </h2>
+                <div class="clear">
+                </div>
+                <div class="nav-mainlinks-container ">
+                    <ul class="nav-mainlinks custom-background">
+                        <li class="custom-background-dark-hover" id="liHome"><a class="" href="../UI/Dashboard.aspx">Home</a></li>
+                        <li class="custom-background-dark-hover" id="liIndividual"><a class="" href="javascript:void();">Individual</a><ul><li><a class="" href="../UI/individual.aspx">Individual Info</a></li></ul></li>
+                        <li class="custom-background-dark-hover" id="liAMG"><a class="" href="javascript:void();">AMG</a><ul><li><a class="" href="../Workflow/CertificationApplication.aspx">Certification</a></li><li><a class="" href="../Workflow/ReCertificationApplication.aspx">Recertification</a></li><li><a class="" href="../AMG/Upgrade.aspx">Upgrade</a></li><li><a class="" href="../AMG/Education.aspx">Education</a></li><li><a class="" href="../AMG/AMGComplaint.aspx">Complaint</a></li><li><a class="" href="../AMG/Audit.aspx">Audit</a></li><li><a class="" href="../Administration/Email.aspx">Email</a></li></ul></li>
+                        <li class="custom-background-dark-hover" id="liPSD"><a class="" href="javascript:void();">PSD</a><ul><li><a class="" href="../PSD/IndividualInfo.aspx">Individual Info</a></li><li><a class="" href="../Workflow/InHouseClearance.aspx">In House Clearance</a></li><li><a class="" href="../Workflow/PSDWaitingRoom.aspx">PSD Waiting Room</a></li><li><a class="" href="../Administration/CallList.aspx">Call Sheet</a></li><li><a class="" href="../Workflow/AtPSD.aspx">At PSD</a></li><li><a class="" href="../PSD/PsdMinuteMeeting.aspx">PSD Meeting Notes</a></li><li><a class="" href="../PSD/MemoToCouncil.aspx">Memo to Counsel</a></li><li><a class="" href="../PSD/PSDComplaint.aspx">Complaint</a></li></ul></li>
+                        <li class="custom-background-dark-hover" id="liLegal"><a class="" href="javascript:void();">Legal</a><ul><li><a class="" href="../ARS/ARSLegal.aspx">Special Counsel</a></li><li><a class="" href="../Legal/StaffAttorney.aspx">Staff Attorneys</a></li><li><a class="" href="../Legal/Paralegal.aspx">Paralegals</a></li><li><a class="" href="../Legal/HearingWaitingRoomt.aspx">Hearing Waiting Room</a></li><li><a class="" href="../Legal/HearingSchedule.aspx">Hearing Schedule</a></li></ul></li>
+                        <li class="custom-background-dark-hover" id="liESD"><a class="" href="javascript:void();">ESD</a><ul><li><a class="" href="../UI/School.aspx">School Info</a></li><li><a class="" href="../ESD/SchoolApplication.aspx">School Workflow</a></li><li><a class="" href="../ESD/ESDCallSheet.aspx">ESD Call Sheet</a></li><li><a class="" href="../ESD/SchoolComplaint.aspx">School Complaint</a></li></ul></li>
+                        <li class="custom-background-dark-hover" id="liReports"><a class="" href="javascript:void();">Reports</a><ul class="maxWidth"><li><a class="" href="javascript:void();">Reports</a><ul><li><a href="../Reports/CertificateReport.aspx">Certificate Report</a></li><li><a href="javascript:void();">Confirmation and Affidavit Page</a></li><li><a href="javascript:void();">Expired Certificate Letter</a></li><li><a href="javascript:void();">Dissemination Log Report</a></li><li><a href="javascript:void();">Inspection Due Report</a></li><li><a href="javascript:void();">Deficient Report</a></li><li><a href="javascript:void();">Workflow Report</a></li><li><a href="javascript:void();">Re-Certification Forms</a></li><li><a href="javascript:void();">Print Certificate</a></li><li><a href="javascript:void();">Restricted Certificate Card</a></li><li><a href="javascript:void();">Temporary Certificate</a></li></ul></li><li><a class="" href="javascript:void();">Queries</a><ul><li><a href="javascript:void();">Application by Status</a></li><li><a href="javascript:void();">Daily Deposit Report</a></li><li><a href="../Reports/EmailListQuery.aspx">Email List Query</a></li><li><a href="javascript:void();">Certificate Card</a></li><li><a href="javascript:void();">Certificate by status</a></li><li><a href="javascript:void();">Mailing List</a></li><li><a href="javascript:void();">Probation List</a></li><li><a href="javascript:void();">Renewal Summary Query</a></li><li><a href="javascript:void();">SB 21 Certificate Report</a></li></ul></li><li><a class="" href="../Reports/GLSReports.aspx">Query & Reporting</a></li><li><a class="" href="javascript:void();">PSD Report</a><ul><li><a href="javascript:void();">PSD Screen</a></li><li><a href="javascript:void();">Complaint Log</a></li><li><a href="javascript:void();">Disciplinary Action</a></li></ul></li><li><a class="" href="javascript:void();">Bad Address</a></li><li><a class="" href="javascript:void();">Inactive</a></li></ul></li>
+                        <li class="custom-background-dark-hover" id="liAdministration"><a class="" href="javascript:void();">Administration</a><ul class="maxWidth"><li><a class="" href="../Administration/CouncilInfo.aspx">Council Info</a></li><li><a class="" href="javascript:void();">Command</a><ul><li><a href="../Commands/Automated.aspx">Automated</a></li><li><a href="../Commands/Manual.aspx">Manual</a></li><li><a href="../Commands/LicensePrintQueue.aspx">Print Queue</a></li></ul></li><li><a class="" href="javascript:void();">User Management</a><ul><li><a href="../Administration/Role.aspx">Roles</a></li><li><a href="../Administration/UserAccount.aspx">User Accounts</a></li></ul></li><li><a class="" href="javascript:void();">Message & Template</a><ul><li><a href="../Administration/Bulletin.aspx">Bulletin</a></li><li><a href="../Administration/TemplateMessage.aspx">Template Message</a></li></ul></li><li><a class="" href="javascript:void();">Workflow</a><ul><li><a href="../Workflow/PrintUserCredential.aspx">Print User Credential</a></li></ul></li><li><a class="" href="../Administration/Configuration.aspx">Configuration</a></li><li><a class="" href="../Administration/ContentManagement.aspx">Content Management</a></li><li><a class="" href="../Administration/Determination.aspx">Determination</a></li><li><a class="" href="../Administration/Appeal.aspx">Appeal</a></li><li><a class="" href="../Administration/AuditLog.aspx">Audit Log</a></li><li><a class="" href="../Administration/MassEmail.aspx">Bulk Email</a></li><li><a class="" href="../Administration/DocumentManagement.aspx">Document Management</a></li><li><a class="" href="../Administration/SchoolHoldList.aspx">School Hold List</a></li></ul></li>
+                    </ul>
+
+                    <style>
+                        #liPSD li {
+                            width: 172px;
+                        }
+
+                        li#liLegal ul ul {
+                            left: 125px;
+                        }
+
+                        #liLegal li {
+                            width: 240px;
+                        }
+                    </style>
+                </div>
+                <div class="clear">
+                    <div id="DivAlertMessage" style="display: none">
+                        <div style="display: none">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="position: relative">
+
+
+            <div class="main">
+                <div class="clearb">
+                    <br />
+                    <br />
+                </div>
+
+                <script src="../../App_Themes/Theme1/js/ebsoft-loader.js" type="text/javascript">
+
+                </script>
+                <div class="container primary-content ">
+                    <div class="primary-column ">
+                        <div id="dashboard-panels ">
+
+                            <div class="relative-box peel-shadows">
+                                <div class="dynamic-panels ui-sortable" style="">
+                                    <div id="Cashflow" class="dashboard-panel clearfix rounded">
+
+                                        <div id="divPanelList" style="border: 1px solid rgb(222, 222, 222); margin-bottom:10px; margin-top: 10px; width: 80%; margin-left: 15%;">
+                                            <div class="sectionDiv">
+                                                <span>School Complaint</span>
+                                            </div>
+                                            <fieldset class="flsApplReqForm flsApplReqForm5">
+                                                <table>
+                                                    <tr>
+                                                        <td colspan="4">
+                                                            <p>CAMTC takes complaints against massage therapy schools and massage professionals very seriously. CAMTC's inquiry is limited to investigating conduct by CAMTC approved schools, certificate holders and applicants that is substantially related to the qualifications, functions, or duties of an approved school or certificate holder.</p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+
+                                                <table style="float: left; width: 100%;">
+                                                    <tr>
+                                                        <td></td>
+                                                        <td colspan="3">
+                                                            <span class="AfterApproved" style="float: right; margin-right: 70px;">
+                                                                <input type="submit" name="ctl00$ctl00$ContentPlaceHolder1$MidContent$btnSclInfoAdd" value="Add Complaint" id="ContentPlaceHolder1_MidContent_btnSclInfoAdd" class="buttonGreen small" />
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <table class=" tblApplReqForm5 wdtmarauto" style="width:100%;">
+                                                    <tr>
+                                                        <td class="grid-header-other-name" colspan="4">
+                                                            <div>
+
+                                                            </div>
+                                                            <table class="index brdr grid" border="1" cellspacing="0" cellpadding="5" id="TableSclInfoPrevScl"
+                                                                   style="width: 90%; margin-left: 10px; border: 1px solid #ddd;">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th style="border-right: 1px solid #ddd; padding-left: 5px !important; padding-top: 0px !important;">
+                                                                            Complaint Number
+                                                                        </th>
+                                                                        <th style="border-right: 1px solid #ddd; padding-left: 5px !important; padding-top: 0px !important;">Complaint Date</th>
+                                                                        <th style="border-right: 1px solid #ddd; padding-left: 5px !important; padding-top: 0px !important;">Complaint By</th>
+
+                                                                        <th style="padding-left: 0px; text-align: center;">
+                                                                            Action
+                                                                        </th>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="vlignbtm" style="border-right: 1px solid #ddd; padding-left: 5px !important; padding-top: 0px !important;">
+                                                                            C1234
+                                                                        </td>
+                                                                        <td class="vlignbtm" style="border-right: 1px solid #ddd; padding-left: 5px !important; padding-top: 0px !important;">
+                                                                            01/01/2016
+                                                                        </td>
+                                                                        <td class="vlignbtm" style="border-right: 1px solid #ddd; padding-left: 5px !important; padding-top: 0px !important;">
+                                                                            Jane Doe
+                                                                        </td>
+                                                                        <td align="center" valign="middle" style="padding-top: 0px ! important; width: 60px;">
+                                                                            <span>
+                                                                                <input type="image" name="ctl00$ctl00$ContentPlaceHolder1$MidContent$ImageButton7" id="ContentPlaceHolder1_MidContent_ImageButton7" title="Edit" src="../../App_Themes/Theme1/images/edit.png" />
+                                                                                <input type="image" id="imgBtnOProgramNameDelete" title="Delete" class="imgDelete" src="../../App_Themes/Public/images/delete.png">
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <table class="tblApplReqForm5" style="width: 98%; margin-top: 15px;">
+                                                    <tr>
+                                                        <td class="txtalgnrgt" style="width: 160px;">
+                                                            <label class="input-label required">
+                                                                First Name :
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <input name="ctl00$ctl00$ContentPlaceHolder1$MidContent$TextBox1" type="text" maxlength="500" id="ContentPlaceHolder1_MidContent_TextBox1" class="tooltip OnlyAlphabet calWidth" title="Only A-Z characters are allowed." style="width:170px;" />
+                                                        </td>
+                                                        <td class="txtalgnrgt">
+                                                            <label class="input-label required">
+                                                                Last Name :
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <input name="ctl00$ctl00$ContentPlaceHolder1$MidContent$txtDirLastName" type="text" maxlength="500" id="ContentPlaceHolder1_MidContent_txtDirLastName" class="tooltip OnlyAlphabet calWidth" title="Only A-Z characters are allowed." style="width:170px;" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="txtalgnrgt" style="width: 160px;">
+                                                            <label class="input-label required">
+                                                                Middle Name :
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <input name="ctl00$ctl00$ContentPlaceHolder1$MidContent$txtDirFirstName" type="text" maxlength="500" id="ContentPlaceHolder1_MidContent_txtDirFirstName" class="tooltip OnlyAlphabet calWidth" title="Only A-Z characters are allowed." style="width:170px;" />
+                                                        </td>
+
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                </table>
+                                                <table class="tblApplReqForm5" style="width: 100%;">
+                                                    <tr>
+                                                        <td>
+                                                            <label class="input-label required">Are You CAMTC Certified? </label>
+                                                        </td>
+                                                        <td style="padding-top: 0px ! important;" colspan="3">
+                                                            <table id="ContentPlaceHolder1_MidContent_rblQuestionEdit1">
+                                                                <tr>
+                                                                    <td><input id="ContentPlaceHolder1_MidContent_rblQuestionEdit1_0" type="radio" name="ctl00$ctl00$ContentPlaceHolder1$MidContent$rblQuestionEdit1" value="Yes" /><label for="ContentPlaceHolder1_MidContent_rblQuestionEdit1_0">Yes</label></td>
+                                                                    <td><input id="ContentPlaceHolder1_MidContent_rblQuestionEdit1_1" type="radio" name="ctl00$ctl00$ContentPlaceHolder1$MidContent$rblQuestionEdit1" value="No" /><label for="ContentPlaceHolder1_MidContent_rblQuestionEdit1_1">No</label></td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+
+                                                    </tr>
+                                                </table>
+                                                <table class="tblApplReqForm5" style="width: 100%; margin-top: 15px;">
+                                                    <tr>
+                                                        <td class="txtalgnrgt" style="width: 160px;">
+                                                            <label class="input-label required">
+                                                                if Yes, Certificate # :
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <input name="ctl00$ctl00$ContentPlaceHolder1$MidContent$TextBox17" type="text" maxlength="500" id="ContentPlaceHolder1_MidContent_TextBox17" class="tooltip OnlyAlphabet calWidth" title="Only A-Z characters are allowed." style="width:170px;" />
+                                                        </td>
+                                                        <td class="txtalgnrgt"></td>
+
+                                                        <td></td>
+                                                    </tr>
+                                                </table>
+                                                <table class="tblApplReqForm5" style="width: 100%;">
+                                                    <tr>
+                                                        <td colspan="4">
+                                                            <b>Contact information (CAMTC DOES NOT INVESTIGATE ANONYMOUS COMPLAINTS) :</b>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <table class="tblApplReqForm5" style="width: 100%;">
+                                                    <tr>
+                                                        <td style="vertical-align: middle; width: 160px;" class="txtalgnrgt">
+                                                            <label class="input-label required">
+                                                                Street :
+                                                            </label>
+                                                        </td>
+                                                        <td colspan="3">
+                                                            <input name="ctl00$ctl00$ContentPlaceHolder1$MidContent$txtMailingAdd" type="text" maxlength="500" id="ContentPlaceHolder1_MidContent_txtMailingAdd" class="calWidth us_street" style="width:535px;" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td colspan="3">
+                                                            <input name="ctl00$ctl00$ContentPlaceHolder1$MidContent$TextBox140" type="text" maxlength="500" id="ContentPlaceHolder1_MidContent_TextBox140" class="calWidth us_street" style="width:535px;" />
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="txtalgnrgt">
+                                                            <label class="input-label required">
+                                                                City :
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <input name="ctl00$ctl00$ContentPlaceHolder1$MidContent$txtMailingCity" type="text" maxlength="500" id="ContentPlaceHolder1_MidContent_txtMailingCity" class="tooltip OnlyAlphabet calWidth" title="Only A-Z characters are allowed." style="width:124px;" />
+                                                        </td>
+                                                        <td class="txtalgnrgt">
+                                                            <label class="input-label required">
+                                                                State :
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <select name="ctl00$ctl00$ContentPlaceHolder1$MidContent$ddlMailingState" id="ContentPlaceHolder1_MidContent_ddlMailingState" class="inputTextbox" title="Select your state" style="width:98px;">
+                                                                <option value="-1">Select</option>
+                                                                <option value="-1">------ STATES OF USA --------</option>
+                                                                <option value="AK">ALASKA</option>
+                                                                <option value="AL">ALABAMA</option>
+                                                                <option value="AR">ARKANSAS</option>
+                                                                <option value="AZ">ARIZONA</option>
+                                                                <option selected="selected" value="CA">CALIFORNIA</option>
+                                                                <option value="CO">COLORADO</option>
+                                                                <option value="CT">CONNECTICUT</option>
+                                                                <option value="DC">DISTRICT OF COLUMBIA</option>
+                                                                <option value="DE">DELAWARE</option>
+                                                                <option value="FL">FLORIDA</option>
+                                                                <option value="GA">GEORGIA</option>
+                                                                <option value="HI">HAWAII</option>
+                                                                <option value="IA">IOWA</option>
+                                                                <option value="ID">IDAHO</option>
+                                                                <option value="IL">ILLINOIS</option>
+                                                                <option value="IN">INDIANA</option>
+                                                                <option value="KS">KANSAS</option>
+                                                                <option value="KY">KENTUCKY</option>
+                                                                <option value="LA">LOUISIANA</option>
+                                                                <option value="MA">MASSACHUSETTS</option>
+                                                                <option value="MD">MARYLAND</option>
+                                                                <option value="ME">MAINE</option>
+                                                                <option value="MI">MICHIGAN</option>
+                                                                <option value="MN">MINNESOTA</option>
+                                                                <option value="MO">MISSOURI</option>
+                                                                <option value="MS">MISSISSIPPI</option>
+                                                                <option value="MT">MONTANA</option>
+                                                                <option value="NE">NEBRASKA</option>
+                                                                <option value="NC">NORTH CAROLINA</option>
+                                                                <option value="ND">NORTH DAKOTA</option>
+                                                                <option value="NH">NEW HAMPSHIRE</option>
+                                                                <option value="NJ">NEW JERSEY</option>
+                                                                <option value="NM">NEW MEXICO</option>
+                                                                <option value="NY">NEW YORK</option>
+                                                                <option value="NV">NEVADA</option>
+                                                                <option value="OH">OHIO</option>
+                                                                <option value="OK">OKLAHOMA</option>
+                                                                <option value="OR">OREGON</option>
+                                                                <option value="PA">PENNSYLVANIA</option>
+                                                                <option value="RI">RHODE ISLAND</option>
+                                                                <option value="SC">SOUTH CAROLINA</option>
+                                                                <option value="SD">SOUTH DAKOTA</option>
+                                                                <option value="TN">TENNESSEE</option>
+                                                                <option value="TX">TEXAS</option>
+                                                                <option value="UT">UTAH</option>
+                                                                <option value="VA">VIRGINIA</option>
+                                                                <option value="VT">VERMONT</option>
+                                                                <option value="WA">WASHINGTON</option>
+                                                                <option value="WI">WISCONSIN</option>
+                                                                <option value="WV">WEST VIRGINIA</option>
+                                                                <option value="WY">WYOMING</option>
+                                                                <option value="-1">------ STATES OF CANADA -------</option>
+                                                                <option value="AB">Alberta</option>
+                                                                <option value="BC">British Columbia </option>
+                                                                <option value="MB">Manitoba </option>
+                                                                <option value="NB">New Brunswick </option>
+                                                                <option value="NL">Newfoundland and Labrador </option>
+                                                                <option value="NT">Northwest Territories </option>
+                                                                <option value="NS">Nova Scotia </option>
+                                                                <option value="NU">Nunavut </option>
+                                                                <option value="ON">Ontario </option>
+                                                                <option value="PE">Prince Edward Island </option>
+                                                                <option value="QC">Quebec </option>
+                                                                <option value="SK">Saskatchewan </option>
+                                                                <option value="YT">Yukon </option>
+                                                                <option value="00">------- Other States -------</option>
+
+                                                            </select>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="txtalgnrgt" style="width: 160px;">
+                                                            <label class="input-label required">
+                                                                Zip :
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <input name="ctl00$ctl00$ContentPlaceHolder1$MidContent$TextBox16" type="text" maxlength="500" id="ContentPlaceHolder1_MidContent_TextBox16" class="tooltip zip_us calWidth" placeholder="xxxxx-xxxx or xxxxx" title="Enter valid Zip eg:
+
+XXXXX-XXXX or XXXXX" style="width:127px;" />
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="txtalgnrgt" style="width: 160px;">
+                                                            <label class="input-label required">
+                                                                Primary Number :
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <input name="ctl00$ctl00$ContentPlaceHolder1$MidContent$txtSclInfoPriNumber" type="text" maxlength="14" id="ContentPlaceHolder1_MidContent_txtSclInfoPriNumber" class="phone_us" autocomplete="off" style="width:170px;" />
+
+                                                        </td>
+                                                        <td>
+                                                            <input id="ContentPlaceHolder1_MidContent_chkSclInfoPriNum" type="checkbox" name="ctl00$ctl00$ContentPlaceHolder1$MidContent$chkSclInfoPriNum" /><label for="ContentPlaceHolder1_MidContent_chkSclInfoPriNum">Mobile</label>
+                                                        </td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="txtalgnrgt" style="width: 160px;">
+                                                            <label class="input-label">
+                                                                Secondary Number :
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <input name="ctl00$ctl00$ContentPlaceHolder1$MidContent$txtSclInfoSecNumber" type="text" maxlength="14" id="ContentPlaceHolder1_MidContent_txtSclInfoSecNumber" class="phone_us" autocomplete="off" style="width:170px;" />
+
+                                                        </td>
+                                                        <td>
+                                                            <input id="ContentPlaceHolder1_MidContent_chktxtSclInfo" type="checkbox" name="ctl00$ctl00$ContentPlaceHolder1$MidContent$chktxtSclInfo" /><label for="ContentPlaceHolder1_MidContent_chktxtSclInfo">Mobile</label>
+                                                        </td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="txtalgnrgt" style="width: 160px;">
+                                                            <label class="input-label required">
+                                                                Email :
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <input name="ctl00$ctl00$ContentPlaceHolder1$MidContent$txtDirectorEmail" type="text" maxlength="500" id="ContentPlaceHolder1_MidContent_txtDirectorEmail" class="inputTextbox NewAppPersonalTxtbx" title="Only A-Z characters are allowed." style="width: 170px !important;" />
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+
+                                                </table>
+                                                <table class="tblApplReqForm5" style="width:100%;">
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <label class="input-label required">Name of massage therapy school complaint is against :</label>
+                                                        </td>
+                                                        <td>
+                                                            <select name="ctl00$ctl00$ContentPlaceHolder1$MidContent$ddlSCLComAgn" id="ContentPlaceHolder1_MidContent_ddlSCLComAgn" style="width:295px;">
+                                                                <option value="Select">Select</option>
+
+                                                            </select>
+                                                        </td>
+
+                                                    </tr>
+                                                </table>
+                                                <table class="tblApplReqForm5" style="width:100%;">
+                                                    <tr>
+                                                        <td colspan="4">If school is not on the above list please tell us :</td>
+                                                    </tr>
+                                                </table>
+                                                <table class="tblApplReqForm5" style="width: 100%;">
+                                                    <tr>
+                                                        <td style="vertical-align: middle; width: 160px;" class="txtalgnrgt">
+                                                            <label class="input-label required">
+                                                                School Name :
+                                                            </label>
+                                                        </td>
+                                                        <td colspan="3">
+                                                            <input name="ctl00$ctl00$ContentPlaceHolder1$MidContent$TextBox24" type="text" maxlength="500" id="ContentPlaceHolder1_MidContent_TextBox24" class="calWidth us_street" style="width:535px;" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="vertical-align: middle; width: 160px;" class="txtalgnrgt">
+                                                            <label class="input-label required">
+                                                                Street :
+                                                            </label>
+                                                        </td>
+                                                        <td colspan="3">
+                                                            <input name="ctl00$ctl00$ContentPlaceHolder1$MidContent$TextBox2" type="text" maxlength="500" id="ContentPlaceHolder1_MidContent_TextBox2" class="calWidth us_street" style="width:535px;" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td colspan="3">
+                                                            <input name="ctl00$ctl00$ContentPlaceHolder1$MidContent$TextBox18" type="text" maxlength="500" id="ContentPlaceHolder1_MidContent_TextBox18" class="calWidth us_street" style="width:535px;" />
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="txtalgnrgt">
+                                                            <label class="input-label required">
+                                                                City :
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <input name="ctl00$ctl00$ContentPlaceHolder1$MidContent$TextBox19" type="text" maxlength="500" id="ContentPlaceHolder1_MidContent_TextBox19" class="tooltip OnlyAlphabet calWidth" title="Only A-Z characters are allowed." style="width:124px;" />
+                                                        </td>
+                                                        <td class="txtalgnrgt">
+                                                            <label class="input-label required">
+                                                                State :
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <select name="ctl00$ctl00$ContentPlaceHolder1$MidContent$DropDownList3" id="ContentPlaceHolder1_MidContent_DropDownList3" class="inputTextbox" title="Select your state" style="width:98px;">
+                                                                <option value="-1">Select</option>
+                                                                <option value="-1">------ STATES OF USA --------</option>
+                                                                <option value="AK">ALASKA</option>
+                                                                <option value="AL">ALABAMA</option>
+                                                                <option value="AR">ARKANSAS</option>
+                                                                <option value="AZ">ARIZONA</option>
+                                                                <option selected="selected" value="CA">CALIFORNIA</option>
+                                                                <option value="CO">COLORADO</option>
+                                                                <option value="CT">CONNECTICUT</option>
+                                                                <option value="DC">DISTRICT OF COLUMBIA</option>
+                                                                <option value="DE">DELAWARE</option>
+                                                                <option value="FL">FLORIDA</option>
+                                                                <option value="GA">GEORGIA</option>
+                                                                <option value="HI">HAWAII</option>
+                                                                <option value="IA">IOWA</option>
+                                                                <option value="ID">IDAHO</option>
+                                                                <option value="IL">ILLINOIS</option>
+                                                                <option value="IN">INDIANA</option>
+                                                                <option value="KS">KANSAS</option>
+                                                                <option value="KY">KENTUCKY</option>
+                                                                <option value="LA">LOUISIANA</option>
+                                                                <option value="MA">MASSACHUSETTS</option>
+                                                                <option value="MD">MARYLAND</option>
+                                                                <option value="ME">MAINE</option>
+                                                                <option value="MI">MICHIGAN</option>
+                                                                <option value="MN">MINNESOTA</option>
+                                                                <option value="MO">MISSOURI</option>
+                                                                <option value="MS">MISSISSIPPI</option>
+                                                                <option value="MT">MONTANA</option>
+                                                                <option value="NE">NEBRASKA</option>
+                                                                <option value="NC">NORTH CAROLINA</option>
+                                                                <option value="ND">NORTH DAKOTA</option>
+                                                                <option value="NH">NEW HAMPSHIRE</option>
+                                                                <option value="NJ">NEW JERSEY</option>
+                                                                <option value="NM">NEW MEXICO</option>
+                                                                <option value="NY">NEW YORK</option>
+                                                                <option value="NV">NEVADA</option>
+                                                                <option value="OH">OHIO</option>
+                                                                <option value="OK">OKLAHOMA</option>
+                                                                <option value="OR">OREGON</option>
+                                                                <option value="PA">PENNSYLVANIA</option>
+                                                                <option value="RI">RHODE ISLAND</option>
+                                                                <option value="SC">SOUTH CAROLINA</option>
+                                                                <option value="SD">SOUTH DAKOTA</option>
+                                                                <option value="TN">TENNESSEE</option>
+                                                                <option value="TX">TEXAS</option>
+                                                                <option value="UT">UTAH</option>
+                                                                <option value="VA">VIRGINIA</option>
+                                                                <option value="VT">VERMONT</option>
+                                                                <option value="WA">WASHINGTON</option>
+                                                                <option value="WI">WISCONSIN</option>
+                                                                <option value="WV">WEST VIRGINIA</option>
+                                                                <option value="WY">WYOMING</option>
+                                                                <option value="-1">------ STATES OF CANADA -------</option>
+                                                                <option value="AB">Alberta</option>
+                                                                <option value="BC">British Columbia </option>
+                                                                <option value="MB">Manitoba </option>
+                                                                <option value="NB">New Brunswick </option>
+                                                                <option value="NL">Newfoundland and Labrador </option>
+                                                                <option value="NT">Northwest Territories </option>
+                                                                <option value="NS">Nova Scotia </option>
+                                                                <option value="NU">Nunavut </option>
+                                                                <option value="ON">Ontario </option>
+                                                                <option value="PE">Prince Edward Island </option>
+                                                                <option value="QC">Quebec </option>
+                                                                <option value="SK">Saskatchewan </option>
+                                                                <option value="YT">Yukon </option>
+                                                                <option value="00">------- Other States -------</option>
+
+                                                            </select>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="txtalgnrgt" style="width: 160px;">
+                                                            <label class="input-label required">
+                                                                Zip :
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <input name="ctl00$ctl00$ContentPlaceHolder1$MidContent$TextBox20" type="text" maxlength="500" id="ContentPlaceHolder1_MidContent_TextBox20" class="tooltip zip_us calWidth" placeholder="xxxxx-xxxx or xxxxx" title="Enter valid Zip eg:
+
+XXXXX-XXXX or XXXXX" style="width:127px;" />
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="txtalgnrgt" style="width: 160px;">
+                                                            <label class="input-label required">
+                                                                Phone No :
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <input name="ctl00$ctl00$ContentPlaceHolder1$MidContent$TextBox21" type="text" maxlength="14" id="ContentPlaceHolder1_MidContent_TextBox21" class="phone_us" autocomplete="off" style="width:170px;" />
+
+                                                        </td>
+                                                        <td>
+                                                            <input id="ContentPlaceHolder1_MidContent_CheckBox2" type="checkbox" name="ctl00$ctl00$ContentPlaceHolder1$MidContent$CheckBox2" /><label for="ContentPlaceHolder1_MidContent_CheckBox2">Mobile</label>
+                                                        </td>
+                                                        <td></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="txtalgnrgt" style="width: 160px;">
+                                                            <label class="input-label required">
+                                                                Email :
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <input name="ctl00$ctl00$ContentPlaceHolder1$MidContent$TextBox23" type="text" maxlength="500" id="ContentPlaceHolder1_MidContent_TextBox23" class="inputTextbox NewAppPersonalTxtbx" title="Only A-Z characters are allowed." style="width: 170px !important;" />
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="txtalgnrgt" colspan="3">
+                                                            <label class="input-label required">
+                                                                Other information related to the location :
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <input name="ctl00$ctl00$ContentPlaceHolder1$MidContent$TextBox15" type="text" maxlength="500" id="ContentPlaceHolder1_MidContent_TextBox15" class="inputTextbox NewAppPersonalTxtbx" title="Only A-Z characters are allowed." style="width:170px;width: 120px ! important;" />
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                </table>
+                                                <table style="margin-top: 15px;">
+                                                    <tr>
+                                                        <td colspan="4">
+                                                            <label class="input-label required">Name of person(s) from this school that complaint is against : </label>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+
+                                                <table style="float: left; width: 100%;">
+                                                    <tr>
+                                                        <td colspan="3"></td>
+                                                        <td>
+                                                            <span class="AfterApproved" style="float: right; margin-right: 82px;">
+                                                                <input type="submit" name="ctl00$ctl00$ContentPlaceHolder1$MidContent$btnAddName" value="Add Name" id="ContentPlaceHolder1_MidContent_btnAddName" class="buttonGreen small" />
+                                                            </span>
+                                                        </td>
+
+                                                    </tr>
+                                                </table>
+                                                <table class=" tblApplReqForm5 wdtmarauto">
+                                                    <tr>
+                                                        <td class="grid-header-other-name" colspan="4">
+                                                            <div>
+
+                                                            </div>
+                                                            <table class="index brdr grid" border="1" cellspacing="0" cellpadding="5" id="tbalename"
+                                                                   style="width: 90%; margin-left: 10px; border: 1px solid #ddd;">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th style="border-right: 1px solid #ddd; padding-left: 5px !important; padding-top: 0px !important;">
+                                                                            First Name
+                                                                        </th>
+                                                                        <th style="border-right: 1px solid #ddd; padding-left: 5px !important; padding-top: 0px !important;">Last Name</th>
+                                                                        <th style="border-right: 1px solid #ddd; padding-left: 5px !important; padding-top: 0px !important;">Middle Name</th>
+
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="vlignbtm" style="border-right: 1px solid #ddd; padding-left: 5px !important; padding-top: 0px !important;">
+                                                                            John
+                                                                        </td>
+                                                                        <td class="vlignbtm" style="border-right: 1px solid #ddd; padding-left: 5px !important; padding-top: 0px !important;">
+                                                                            Doe
+                                                                        </td>
+                                                                        <td class="vlignbtm" style="border-right: 1px solid #ddd; padding-left: 5px !important; padding-top: 0px !important;">
+                                                                            M
+                                                                        </td>
+
+                                                                    </tr>
+                                                                    <tr style="border-top: 1px solid rgb(222, 222, 222);">
+                                                                        <td class="vlignbtm" style="border-right: 1px solid #ddd; padding-left: 5px !important; padding-top: 0px !important;">
+                                                                            James
+                                                                        </td>
+                                                                        <td class="vlignbtm" style="border-right: 1px solid #ddd; padding-left: 5px !important; padding-top: 0px !important;">
+                                                                            Smith
+                                                                        </td>
+                                                                        <td class="vlignbtm" style="border-right: 1px solid #ddd; padding-left: 5px !important; padding-top: 0px !important;"></td>
+
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <table class="tblApplReqForm5" style="width:100%;">
+                                                    <tr>
+                                                        <td colspan="3" style="width: 145px;">
+                                                            <label class="input-label required" style="padding-left: 30px;">CAMTC Certified? </label>
+                                                        </td>
+                                                        <td style="padding-top: 0px ! important;">
+                                                            <table id="ContentPlaceHolder1_MidContent_RadioButtonList1">
+                                                                <tr>
+                                                                    <td><input id="ContentPlaceHolder1_MidContent_RadioButtonList1_0" type="radio" name="ctl00$ctl00$ContentPlaceHolder1$MidContent$RadioButtonList1" value="Yes" /><label for="ContentPlaceHolder1_MidContent_RadioButtonList1_0">Yes</label></td>
+                                                                    <td><input id="ContentPlaceHolder1_MidContent_RadioButtonList1_1" type="radio" name="ctl00$ctl00$ContentPlaceHolder1$MidContent$RadioButtonList1" value="No" /><label for="ContentPlaceHolder1_MidContent_RadioButtonList1_1">No</label></td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <table class="tblApplReqForm5" style="width: 100%;">
+                                                    <tr>
+                                                        <td class="txtalgnrgt" colspan="3" style="
+    width: 300px;
+">
+                                                            <label class="input-label required" style="float: right; text-align: right;">
+                                                                if Yes, Certificate # :
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <input name="ctl00$ctl00$ContentPlaceHolder1$MidContent$TextBox4" type="text" maxlength="500" id="ContentPlaceHolder1_MidContent_TextBox4" class="tooltip OnlyAlphabet calWidth" title="Only A-Z characters are allowed." style="width:170px;" />
+                                                        </td>
+
+                                                    </tr>
+
+                                                </table>
+                                                <table class="tblApplReqForm5" style="width: 100%;">
+                                                    <tr>
+                                                        <td class="txtalgnrgt" colspan="3" style="width:300px;">
+                                                            <label class="input-label required">
+                                                                Describe the conduct in question (in as much detail as possible) :
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <input name="ctl00$ctl00$ContentPlaceHolder1$MidContent$TextBox5" type="text" maxlength="500" id="ContentPlaceHolder1_MidContent_TextBox5" class="tooltip OnlyAlphabet calWidth" title="Only A-Z characters are allowed." style="width:170px;" />
+                                                        </td>
+
+                                                    </tr>
+
+                                                </table>
+                                                <table class="tblApplReqForm5" style="width:100%;">
+                                                    <tr>
+                                                        <td colspan="3" style="width: 145px;">
+                                                            <label class="input-label required" style="padding-left: 30px;">Have you filed a police report? </label>
+                                                        </td>
+                                                        <td style="padding-top: 0px ! important;">
+                                                            <table id="ContentPlaceHolder1_MidContent_rblPoliceRepot">
+                                                                <tr>
+                                                                    <td><input id="ContentPlaceHolder1_MidContent_rblPoliceRepot_0" type="radio" name="ctl00$ctl00$ContentPlaceHolder1$MidContent$rblPoliceRepot" value="Yes" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ctl00$ContentPlaceHolder1$MidContent$rblPoliceRepot$0\&#39;,\&#39;\&#39;)&#39;, 0)" /><label for="ContentPlaceHolder1_MidContent_rblPoliceRepot_0">Yes</label></td>
+                                                                    <td><input id="ContentPlaceHolder1_MidContent_rblPoliceRepot_1" type="radio" name="ctl00$ctl00$ContentPlaceHolder1$MidContent$rblPoliceRepot" value="No" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ctl00$ContentPlaceHolder1$MidContent$rblPoliceRepot$1\&#39;,\&#39;\&#39;)&#39;, 0)" /><label for="ContentPlaceHolder1_MidContent_rblPoliceRepot_1">No</label></td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+
+                                                    </tr>
+
+                                                </table>
+                                                <table style="width:100%;" class="tblApplReqForm5">
+                                                    <tr>
+                                                        <td class="txtalgnrgt tdwidth1" style="
+    width: 495px;
+">
+                                                            If Yes, please provide the following :
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                </table>
+                                                <table id="ContentPlaceHolder1_MidContent_dvPoliceReport" style="width:100%;" class="tblApplReqForm5">
+                                                    <tr>
+                                                        <td class="txtalgnrgt tdwidth1" colspan="3">
+                                                            <label class="input-label required">
+                                                                Date police report filed :
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <input name="ctl00$ctl00$ContentPlaceHolder1$MidContent$txtnameDate" type="text" id="ContentPlaceHolder1_MidContent_txtnameDate" class="inputTextbox calender" placeholder="MM/DD/YYYY" style="width:72px;" />
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="txtalgnrgt" colspan="3">
+                                                            <label class="input-label required">
+                                                                Law enforcement agency :
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <input name="ctl00$ctl00$ContentPlaceHolder1$MidContent$txtschoolwebsite" type="text" maxlength="150" id="ContentPlaceHolder1_MidContent_txtschoolwebsite" class="inputTextbox
+
+NewAppPersonalTxtbx" autocomplete="off" style="width: 170px ! important;" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="txtalgnrgt" colspan="3">
+                                                            <label class="input-label required">
+                                                                Name of law enforcement member taking the report :
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <input name="ctl00$ctl00$ContentPlaceHolder1$MidContent$TextBox6" type="text" maxlength="150" id="ContentPlaceHolder1_MidContent_TextBox6" class="inputTextbox
+
+NewAppPersonalTxtbx" autocomplete="off" style="width: 170px ! important;" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="txtalgnrgt" colspan="3">
+                                                            <label class="input-label required">
+                                                                Report number :
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <input name="ctl00$ctl00$ContentPlaceHolder1$MidContent$TextBox7" type="text" maxlength="150" id="ContentPlaceHolder1_MidContent_TextBox7" class="inputTextbox
+
+NewAppPersonalTxtbx" autocomplete="off" style="width: 170px ! important;" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="txtalgnrgt" colspan="3">
+                                                            <label class="input-label required">
+                                                                Any additional information about the report :
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <input name="ctl00$ctl00$ContentPlaceHolder1$MidContent$TextBox8" type="text" maxlength="150" id="ContentPlaceHolder1_MidContent_TextBox8" class="inputTextbox
+
+NewAppPersonalTxtbx" autocomplete="off" style="width: 170px ! important;" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+
+                                                <table style="width: 90%; margin-top: 20px; border: 1px solid rgb(222, 222, 222);" class="tblApplReqForm5">
+                                                    <tr>
+                                                        <td class="txtalgnrgt" style="width: 125px;">
+                                                            <label class="input-label">
+                                                                Upload Document :
+                                                            </label>
+                                                        </td>
+                                                        <td style="width:182px;">
+                                                            <input type="file" name="ctl00$ctl00$ContentPlaceHolder1$MidContent$FileUpload79" id="ContentPlaceHolder1_MidContent_FileUpload79" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="submit" name="ctl00$ctl00$ContentPlaceHolder1$MidContent$Button87" value="Upload" id="ContentPlaceHolder1_MidContent_Button87" class="buttonGreen small" style="margin-left: 10px;" />
+                                                        </td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="4">
+                                                            <table class="index vlign  grid" id="gvUploadApplicant" style="color: #333333;margin-left: 6px;
+border: 1px solid rgb(222, 222, 222);
+margin-bottom: 10px; width: 98%; border-collapse: collapse;" cellpadding="5" cellspacing="0">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th scope="col">Document Name</th>
+                                                                        <th scope="col">Date Uploaded</th>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="width: 200px;">
+                                                                            Document Demo
+                                                                        </td>
+                                                                        <td style="width: 148px;">
+                                                                            02/04/2016
+                                                                        </td>
+
+
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <table class="tblApplReqForm5">
+                                                    <tr>
+                                                        <td colspan="4"><label class="input-label required"><b>If CAMTC decides to investigate this complaint against a CAMTC massage school, professional or applicant, are you willing to? :</b></label></td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <label class="input-label required" style="padding-left: 30px;">Provide a signed declaration under penalty of perjury? </label>
+                                                        </td>
+                                                        <td style="padding-top: 0px ! important;">
+                                                            <table id="ContentPlaceHolder1_MidContent_rblProvSign">
+                                                                <tr>
+                                                                    <td><input id="ContentPlaceHolder1_MidContent_rblProvSign_0" type="radio" name="ctl00$ctl00$ContentPlaceHolder1$MidContent$rblProvSign" value="Yes" /><label for="ContentPlaceHolder1_MidContent_rblProvSign_0">Yes</label></td>
+                                                                    <td><input id="ContentPlaceHolder1_MidContent_rblProvSign_1" type="radio" name="ctl00$ctl00$ContentPlaceHolder1$MidContent$rblProvSign" value="No" /><label for="ContentPlaceHolder1_MidContent_rblProvSign_1">No</label></td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <label class="input-label required" style="padding-left: 30px;">Possibly testify to the allegations? </label>
+                                                        </td>
+                                                        <td style="padding-top: 0px ! important;">
+                                                            <table id="ContentPlaceHolder1_MidContent_RadioButtonList4">
+                                                                <tr>
+                                                                    <td><input id="ContentPlaceHolder1_MidContent_RadioButtonList4_0" type="radio" name="ctl00$ctl00$ContentPlaceHolder1$MidContent$RadioButtonList4" value="Yes" /><label for="ContentPlaceHolder1_MidContent_RadioButtonList4_0">Yes</label></td>
+                                                                    <td><input id="ContentPlaceHolder1_MidContent_RadioButtonList4_1" type="radio" name="ctl00$ctl00$ContentPlaceHolder1$MidContent$RadioButtonList4" value="No" /><label for="ContentPlaceHolder1_MidContent_RadioButtonList4_1">No</label></td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <label class="input-label required" style="padding-left: 30px;">Explain your relationship with the massage professional and/or massage school? </label>
+                                                        </td>
+                                                        <td style="padding-top: 0px ! important;">
+                                                            <table id="ContentPlaceHolder1_MidContent_RadioButtonList5">
+                                                                <tr>
+                                                                    <td><input id="ContentPlaceHolder1_MidContent_RadioButtonList5_0" type="radio" name="ctl00$ctl00$ContentPlaceHolder1$MidContent$RadioButtonList5" value="Yes" /><label for="ContentPlaceHolder1_MidContent_RadioButtonList5_0">Yes</label></td>
+                                                                    <td><input id="ContentPlaceHolder1_MidContent_RadioButtonList5_1" type="radio" name="ctl00$ctl00$ContentPlaceHolder1$MidContent$RadioButtonList5" value="No" /><label for="ContentPlaceHolder1_MidContent_RadioButtonList5_1">No</label></td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <label class="input-label required" style="padding-left: 30px;">Provide any other evidence in your possession? </label>
+                                                        </td>
+                                                        <td style="padding-top: 0px ! important;">
+                                                            <table id="ContentPlaceHolder1_MidContent_RadioButtonList6">
+                                                                <tr>
+                                                                    <td><input id="ContentPlaceHolder1_MidContent_RadioButtonList6_0" type="radio" name="ctl00$ctl00$ContentPlaceHolder1$MidContent$RadioButtonList6" value="Yes" /><label for="ContentPlaceHolder1_MidContent_RadioButtonList6_0">Yes</label></td>
+                                                                    <td><input id="ContentPlaceHolder1_MidContent_RadioButtonList6_1" type="radio" name="ctl00$ctl00$ContentPlaceHolder1$MidContent$RadioButtonList6" value="No" /><label for="ContentPlaceHolder1_MidContent_RadioButtonList6_1">No</label></td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <table style="margin-top: 20px; margin-bottom: 20px;">
+                                                    <tr>
+                                                        <td colspan="4">
+                                                            <p>CAMTC IS NOT A LAW ENFORCEMENT AGENCY NOR GOVERNMENT AGENCY. IT IS WITHIN THE SOLE DISCRETION OF CAMTC WHETHER OR NOT TO INVESTIGATE OR PURSUE ANY CASE AGAINST A MASSAGE SCHOOL OR MASSAGE PROFESSIONAL.</p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+
+                                            </fieldset>
+                                            <div class="toolBar AfterApproved" style="padding: 4px; margin: 4px;">
+                                                <span class="fltrt">
+                                                    <input type="submit" name="ctl00$ctl00$ContentPlaceHolder1$MidContent$btnSaveAboutBusinessDoc" value="Submit" id="ContentPlaceHolder1_MidContent_btnSaveAboutBusinessDoc" class="buttonGreen medium" />
+                                                    <a id="ContentPlaceHolder1_MidContent_lblCancelAboutBusinessDoc" class="secondary medium bottom buttonalignment" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$MidContent$lblCancelAboutBusinessDoc&#39;,&#39;&#39;)">Cancel</a>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="clear">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+        <script>
+            var yPos = 0;
+
+
+            //        function ShowLoader() {
+            //            $('.loader2').css('display', 'block');
+
+
+            //        }
+            //        function HideLoader() {
+            //            $('.loader2').css('display', 'none');
+            //            $('.loader2').slideUp('fast');
+
+            //        }
+            jQuery.fn.center = function () {
+
+                this.css("position", "absolute");
+                this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) +
+                                                    $(window).scrollTop()) + "px");
+                this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) +
+                                                    $(window).scrollLeft()) + "px");
+                return this;
+            }
+
+
+            function BeginScroll() {
+
+                yPos = $(window).scrollTop();
+
+            }
+            function EndScroll() {
+
+                $(window).scrollTop(yPos);
+
+            }
+        </script>
+        <script src="../../App_Themes/Theme1/js/ebsoft-loader.js" type="text/javascript">
+
+        </script>
+
+
+        <script type="text/javascript">
+            //<![CDATA[
+
+            theForm.oldSubmit = theForm.submit;
+            theForm.submit = WebForm_SaveScrollPositionSubmit;
+
+            theForm.oldOnSubmit = theForm.onsubmit;
+            theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
+            //]]>
+        </script>
+    </form>
+</body>
+</html>
+

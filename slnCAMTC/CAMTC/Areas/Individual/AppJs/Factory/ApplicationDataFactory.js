@@ -2,15 +2,18 @@
 (function() {
   var ApplicationDataFactory;
 
-  ApplicationDataFactory = function(ApplicationDataService) {
+  ApplicationDataFactory = function(ApplicationDataService, ObjectTemplateFactory) {
     var vm;
     vm = this;
     vm.baseUrl = "";
     return vm.factory = {
       ReadInstruction: 0,
       UnderstandQualification: 0,
-      Individual: {},
+      Individual: angular.copy(ObjectTemplateFactory.individual.newIndividual),
       IndividualName: {},
+      Applicant: {
+        HomeAddress: {}
+      },
       Identification: {
         LicenseStateNotCA: false,
         LicenseState: "CA",
@@ -71,6 +74,6 @@
 
   angular.module('IndividualApp').factory("ApplicationDataFactory", ApplicationDataFactory);
 
-  ApplicationDataFactory.$inject = ['ApplicationDataService'];
+  ApplicationDataFactory.$inject = ['ApplicationDataService', 'ObjectTemplateFactory'];
 
 }).call(this);
