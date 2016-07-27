@@ -1,4 +1,4 @@
-﻿<div ng-controller="TranscriptController"  ng-show="hasShow == 'true'">
+﻿<div id="transcript" ng-controller="TranscriptController" ng-show="hasShow == 'true'">
     <section>
         <div id="error_validation" class="errorinfo address-box posFixed" style="color: red; display: block;"></div>
     </section>
@@ -14,7 +14,6 @@
                 <td>
                     <b>19. Sample transcript.</b>
                     <p style="padding-left: 22px;">A sample transcript with no additional markings must be provided. Per CAMTC’s Policies and Procedures for Approval of Schools, transcripts should include at minimum :</p>
-
                     <ul style="margin-left: 35px;" class="lipadding">
                         <li>
                             <p>
@@ -61,8 +60,7 @@
                     </p>
                     <div class="padding-left-doucment">
                         <div class="">
-                            <div id="fuTranscript1" class="documentContainer" data-docid="19" data-doc-code="D1019" doc-simple="true">
-
+                            <div id="fuTranscript1" data-isrequired="true" class="documentContainer" data-docid="19" data-doc-code="D1019" doc-simple="true">
                             </div>
                         </div>
                     </div>
@@ -73,7 +71,7 @@
                     <b>20. Sample transcript with highlights and descriptions of unique security measures:</b>
                     <div class="padding-left-doucment">
                         <div class="">
-                            <div id="fuTranscript2_upDoc" class="documentContainer" data-docid="20" data-doc-code="D1020" data-simple="true">
+                            <div id="fuTranscript2_upDoc" data-isrequired="false" class="documentContainer" data-docid="20" data-doc-code="D1020" data-simple="true">
                                 @*Document File Upload Partial View -> Type :: Simple*@
                                 @*docId = "20";
                                     docCode = "D1020";
@@ -83,13 +81,12 @@
                     </div>
                 </td>
             </tr>
-
             <tr>
                 <td>
                     <b>21. Massage program addendum, if any.</b>
                     <div class="padding-left-doucment">
                         <div class="">
-                            <div id="fuTranscript3_upDoc" class="documentContainer" data-docid="21" data-doc-code="D1021" data-simple="true">
+                            <div id="fuTranscript3_upDoc" data-isrequired="false" class="documentContainer" data-docid="21" data-doc-code="D1021" data-simple="true">
                                 @*Document File Upload Partial View -> Type :: Simple*@
                                 @*docId = "21";
                                     docCode = "D1021";
@@ -141,32 +138,29 @@
                                         </td>
                                         <td></td>
                                         <td></td>
-
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                         <div class="" style="margin-left: 12px;">
-                            <div id="fuSignatureTranscript_upDoc" class="documentContainer" data-docid="22" data-doc-code="D1022" data-simple="true">
-
+                            <div id="fuSignatureTranscript_upDoc"   data-isrequired="true" class="documentContainer" data-docid="22" data-doc-code="D1022" data-simple="true">
                             </div>
                             @*<table class="withoutbrder">
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <span id="Label26">Document : </span>
-                                        </td>
-                                        <td style="width: 277px;">
-                                            <input type="file" name="fusignature" id="fusignature">
-                                        </td>
-                                        <td>
-                                            <input type="submit" name="btnuploadsign" value="Upload Document" id="btnuploadsign" class="buttonGreen small">
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>*@
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <span id="Label26">Document : </span>
+                                            </td>
+                                            <td style="width: 277px;">
+                                                <input type="file" name="fusignature" id="fusignature">
+                                            </td>
+                                            <td>
+                                                <input type="submit" name="btnuploadsign" value="Upload Document" id="btnuploadsign" class="buttonGreen small">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>*@
                         </div>
-
                     </div>
                 </td>
             </tr>
@@ -175,7 +169,7 @@
                     <b>23. Sample diploma (NOTE: Diplomas are not accepted in lieu of transcripts as proof of education).</b>
                     <div class="padding-left-doucment">
                         <div class="">
-                            <div id="fuTranscript4_upDoc" class="documentContainer" data-docid="23" data-doc-code="D1023" data-simple="true">
+                            <div id="fuTranscript4_upDoc" data-isrequired="false" class="documentContainer" data-docid="23" data-doc-code="D1023" data-simple="true">
                                 @*Document File Upload Partial View -> Type :: Simple*@
                                 @*docId = "23";
                                     docCode = "D1023";
@@ -190,7 +184,7 @@
                     <b>24. Sample envelope (front <u>and</u> back) from the school in which transcripts will be mailed to CAMTC.</b>
                     <div class="padding-left-doucment">
                         <div class="">
-                            <div id="fuTranscript5_upDoc" class="documentContainer" data-docid="24" data-doc-code="D1024" data-simple="true">
+                            <div id="fuTranscript5_upDoc" data-isrequired="false" class="documentContainer" data-docid="24" data-doc-code="D1024" data-simple="true">
                                 @*Document File Upload Partial View -> Type :: Simple*@
                                 @*docId = "24";
                                     docCode = "D1024";
@@ -200,7 +194,7 @@
                     </div>
                     <div class="padding-left-doucment">
                         <div class="">
-                            <div id="fuTranscript6_upDoc" class="documentContainer" data-docid="25" data-doc-code="D1025" data-simple="true">
+                            <div id="fuTranscript6_upDoc" data-isrequired="false" class="documentContainer" data-docid="25" data-doc-code="D1025" data-simple="true">
                                 @*Document File Upload Partial View -> Type :: Simple*@
                                 @*docId = "25";
                                     docCode = "D1025";
@@ -217,9 +211,7 @@
         </div>
         <span class="fltrt">
             <input type="submit" name="btnNextTransChkList" value="Save &amp; Next" id="btnNextTransChkList" class="buttonGreen medium" ng-click="Save_final()">
-
             <a id="LinkButton4" class="secondary medium bottom buttonalignment">Cancel</a>
         </span>
     </div>
-
 </div>

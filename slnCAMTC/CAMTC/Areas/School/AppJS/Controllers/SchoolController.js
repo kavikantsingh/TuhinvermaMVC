@@ -1,7 +1,6 @@
-﻿LAPP.controller('MainController', ['$scope', '$rootScope', 'mySharedService', 'SchoolInfoFactory', '$window', '$timeout', function ($scope, $rootScope, mySharedService, SchoolInfoFactory, $window, $timeout) {
+﻿LAPP.controller('MainController', function ($scope, $rootScope, mySharedService, SchoolInfoFactory, $window, $timeout, _) {
     mySharedService.ApplicationName = 'SchoolApp';
     $scope.Pagename = 'Instructions';
-
 
 
     $scope.TabChangeClick = function (Pagename) {
@@ -64,12 +63,83 @@
     }
     $scope.GetProviderById();
 
+    $rootScope.checked1 = false;
+    $rootScope.checked2 = false;
+    $rootScope.checked3 = false;
+    $rootScope.checked4 = false;
+    $rootScope.checked5 = false;
+    $rootScope.checked6 = false;
+    $rootScope.checked7 = false;
+    $rootScope.checked8 = false;
+    $rootScope.checked9 = false;
+
+
+    //$scope.checked1 = $rootScope.checked1;
+    //$scope.checked2 = $rootScope.checked2;
+    //$scope.checked3 = $rootScope.checked3;
+    //$scope.checked4 = $rootScope.checked4;
+    //$scope.checked5 = $rootScope.checked5;
+    //$scope.checked6 = $rootScope.checked6;
+    //$scope.checked7 = $rootScope.checked7;
+    //$scope.checked8 = $rootScope.checked8;
+    //$scope.checked9 = $rootScope.checked9;
 
     $scope.GetTabStatus = function () {
-
+        ShowLoader();
         SchoolInfoFactory.GetTabStatus(key, $window.sessionStorage.getItem('School_ApplicationId'), $window.sessionStorage.getItem('School_ProviderId')).success(function (data) {
-            debugger;
-            console.log(data);
+            //data.ProviderTabStatusList;
+
+            //"Course Catalog"
+            //ApplicationTabStatus
+            //TabName
+            if (data.ProviderTabStatusList != null && data.ProviderTabStatusList.length > 0) {
+                var result = _.where(data.ProviderTabStatusList, { TabName: 'Instructions' });
+                if (result.length > 0) {
+                    $rootScope.checked1 = true;
+                    $rootScope.Instructions = true;
+                }
+                else {
+                    $rootScope.Instructions = false;
+                }
+
+                var result = _.where(data.ProviderTabStatusList, { TabName: 'School Information' });
+                if (result.length > 0) {
+                    $rootScope.checked2 = true;
+                }
+
+                var result = _.where(data.ProviderTabStatusList, { TabName: 'School Eligibility' });
+                if (result.length > 0) {
+                    $rootScope.checked3 = true;
+                }
+
+                var result = _.where(data.ProviderTabStatusList, { TabName: 'About the School' });
+                if (result.length > 0) {
+                    $rootScope.checked4 = true;
+                }
+                var result = _.where(data.ProviderTabStatusList, { TabName: 'Transcript' });
+                if (result.length > 0) {
+                    $rootScope.checked5 = true;
+                }
+                var result = _.where(data.ProviderTabStatusList, { TabName: 'Enrollment Agreement' });
+                if (result.length > 0) {
+                    $rootScope.checked6 = true;
+                }
+                var result = _.where(data.ProviderTabStatusList, { TabName: 'Course Catalog' });
+                if (result.length > 0) {
+                    $rootScope.checked7 = true;
+                }
+                var result = _.where(data.ProviderTabStatusList, { TabName: 'Curriculum' });
+                if (result.length > 0) {
+                    $rootScope.checked8 = true;
+                }
+                var result = _.where(data.ProviderTabStatusList, { TabName: 'Staff' });
+                if (result.length > 0) {
+                    $rootScope.checked9 = true;
+                }
+
+                $scope.TabChangeClick('Instructions');
+                HideLoader();
+            }
 
         }).error(function (error) {
             $scope.Error = error;
@@ -79,4 +149,4 @@
     $scope.GetTabStatus();
 
 
-}]);
+});

@@ -4,7 +4,6 @@
         $scope.IsSchoolApplication = false;
     }
     else {
-
         $scope.IsSchoolApplication = true;
     }
 
@@ -723,8 +722,7 @@
     $scope.SaveSchoolInformation = function () {
         ShowLoader();
         if (checkfrm()) {
-            var SchoolInfo = {
-            };
+            var SchoolInfo = {};
 
             //SchoolInfo.SchoolTelephone = $scope.ProviderInformationDetails.SchoolTelephone;
             //SchoolInfo.IsSchoolTelephoneMobile = $scope.ProviderInformationDetails.IsSchoolTelephoneMobile;
@@ -790,7 +788,71 @@
                 $scope.GetSchoolInfoByProviderId();
 
                 if (mySharedService.ApplicationName == 'SchoolApp') {
-                    mySharedService.prepForBroadcastTabClick('Eligibility');
+
+                    var obj = {};
+                    obj.ApplicationTabStatusId = 0;
+                    obj.ApplicationId = $scope.applicationid;
+                    obj.PageModuleId = 0;
+                    obj.PageModuleTabSubModuleId = 0;
+                    obj.PageTabSectionId = 0;
+                    obj.IndividualId = 0;
+                    obj.ProviderId = $scope.ProviderId;
+                    obj.TabName = 'School Information'
+                    obj.ApplicationTabStatus = true;
+                    obj.IsActive = true;
+                    SchoolInfoFactory.SaveProviderTabStatus(key, obj).success(function (data) {
+                        if (data.ProviderTabStatusList != null && data.ProviderTabStatusList.length > 0) {
+                            var result = _.where(data.ProviderTabStatusList, { TabName: 'Instructions' });
+                            if (result.length > 0) {
+                                $rootScope.checked1 = true;
+                            }
+
+                            var result = _.where(data.ProviderTabStatusList, { TabName: 'School Information' });
+                            if (result.length > 0) {
+                                $rootScope.checked2 = true;
+                            }
+
+                            var result = _.where(data.ProviderTabStatusList, { TabName: 'School Eligibility' });
+                            if (result.length > 0) {
+                                $rootScope.checked3 = true;
+                            }
+
+                            var result = _.where(data.ProviderTabStatusList, { TabName: 'About the School' });
+                            if (result.length > 0) {
+                                $rootScope.checked4 = true;
+                            }
+                            var result = _.where(data.ProviderTabStatusList, { TabName: 'Transcript' });
+                            if (result.length > 0) {
+                                $rootScope.checked5 = true;
+                            }
+                            var result = _.where(data.ProviderTabStatusList, { TabName: 'Enrollment Agreement' });
+                            if (result.length > 0) {
+                                $rootScope.checked6 = true;
+                            }
+                            var result = _.where(data.ProviderTabStatusList, { TabName: 'Course Catalog' });
+                            if (result.length > 0) {
+                                $rootScope.checked7 = true;
+                            }
+                            var result = _.where(data.ProviderTabStatusList, { TabName: 'Curriculum' });
+                            if (result.length > 0) {
+                                $rootScope.checked8 = true;
+                            }
+                            var result = _.where(data.ProviderTabStatusList, { TabName: 'Staff' });
+                            if (result.length > 0) {
+                                $rootScope.checked9 = true;
+                            }
+
+                            
+                        }
+                        HideLoader();
+                        mySharedService.prepForBroadcastTabClick('Eligibility');
+
+                    }).error(function (error) {
+                        $scope.Error = error;
+                    });
+
+
+
                 }
 
             }).error(function (error) {

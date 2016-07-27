@@ -1,4 +1,4 @@
-﻿LAPP.controller('EligiblityController', ['$scope', '$rootScope', 'mySharedService', 'EligiblitiyFactory', function ($scope, $rootScope, mySharedService, EligiblitiyFactory) {
+﻿LAPP.controller('EligiblityController', function ($scope, $rootScope, mySharedService, EligiblitiyFactory, SchoolInfoFactory) {
     $('.errorinfo').hide();
     $scope.hasShow = 'false';
     $scope.SchoolEligibility1 = '';
@@ -432,9 +432,94 @@
         $scope.Provider.ProviderId = $scope.ProviderId;
         EligiblitiyFactory.SaveProviderEntityInformation(key, $scope.Provider).success(function (data) {
             HideLoader();
-            $scope.GetEligibilityInfoByProviderId();
-            if (mySharedService.ApplicationName == 'SchoolApp') {
-                mySharedService.prepForBroadcastTabClick('About');
+            //$scope.GetEligibilityInfoByProviderId();
+            var isValid = false;
+            var listresult = [];;
+            $("#Eligiblity .documentContainer").each(function () {
+                if ($(this).data('isrequired')) {
+                    isValid = $(this).find("#" + this.id + "_docList tr").length > 1;
+                    listresult.push(isValid);
+                }
+            });
+            var issuccess = false;
+            for (var i = 0; i < listresult.length; i++) {
+                if (listresult[i] == true) {
+                    issuccess = true;
+                }
+                else {
+                    issuccess = false;
+                    break;
+                }
+            }
+            if (issuccess) {
+                if (mySharedService.ApplicationName == 'SchoolApp') {
+                    var obj = {};
+                    obj.ApplicationTabStatusId = 0;
+                    obj.ApplicationId = $scope.applicationid;
+                    obj.PageModuleId = 0;
+                    obj.PageModuleTabSubModuleId = 0;
+                    obj.PageTabSectionId = 0;
+                    obj.IndividualId = 0;
+                    obj.ProviderId = $scope.ProviderId;
+                    obj.TabName = 'School Eligibility'
+                    obj.ApplicationTabStatus = true;
+                    obj.IsActive = true;
+                    SchoolInfoFactory.SaveProviderTabStatus(key, obj).success(function (data) {
+                        HideLoader();
+                        if (data.ProviderTabStatusList != null && data.ProviderTabStatusList.length > 0) {
+                            var result = _.where(data.ProviderTabStatusList, { TabName: 'Instructions' });
+                            if (result.length > 0) {
+                                $rootScope.checked1 = true;
+                            }
+
+                            var result = _.where(data.ProviderTabStatusList, { TabName: 'School Information' });
+                            if (result.length > 0) {
+                                $rootScope.checked2 = true;
+                            }
+
+                            var result = _.where(data.ProviderTabStatusList, { TabName: 'School Eligibility' });
+                            if (result.length > 0) {
+                                $rootScope.checked3 = true;
+                            }
+
+                            var result = _.where(data.ProviderTabStatusList, { TabName: 'About the School' });
+                            if (result.length > 0) {
+                                $rootScope.checked4 = true;
+                            }
+                            var result = _.where(data.ProviderTabStatusList, { TabName: 'Transcript' });
+                            if (result.length > 0) {
+                                $rootScope.checked5 = true;
+                            }
+                            var result = _.where(data.ProviderTabStatusList, { TabName: 'Enrollment Agreement' });
+                            if (result.length > 0) {
+                                $rootScope.checked6 = true;
+                            }
+                            var result = _.where(data.ProviderTabStatusList, { TabName: 'Course Catalog' });
+                            if (result.length > 0) {
+                                $rootScope.checked7 = true;
+                            }
+                            var result = _.where(data.ProviderTabStatusList, { TabName: 'Curriculum' });
+                            if (result.length > 0) {
+                                $rootScope.checked8 = true;
+                            }
+                            var result = _.where(data.ProviderTabStatusList, { TabName: 'Staff' });
+                            if (result.length > 0) {
+                                $rootScope.checked9 = true;
+                            }
+                        }
+
+                        mySharedService.prepForBroadcastTabClick('About');
+                    }).error(function (error) {
+                        $scope.Error = error;
+                    });
+
+                }
+            }
+            else {
+
+                $('.errorinfo').html('Please ensure all mandatory documents are uploaded');
+                $('.errorinfo').show();
+                $(document).scrollTop(0);
             }
 
         }).error(function (error) {
@@ -532,12 +617,21 @@
 
     function ApprovalAgencyAddNewSave() {
         $('.errorinfo').text('');
+        var isValid;
+
+        //$("#Eligiblity .documentContainer").each(function () {
+        //    if ($(this).data('isrequired')) {
+        //        if (this.id == 'fuEligibility1_upDoc')
+        //            isValid = $(this).find("#" + this.id + "_docList tr").length > 1
+        //    }
+        //});
+
         var error = '';
         var ddlAddApprovalAgency = ValidateDropdown('', '<span class="notok"></span> Please select approval/accrediting agency<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_ddlAddApprovalAgency', $('#ContentPlaceHolder1_ucCertificationApplication1_ddlAddApprovalAgency').val());
-        var txtappagenDocNAme = ValidateTextbox('<span class="notok"></span> Please enter document name<br/>', '#fuEligibility1_upDoc_docName', $('#fuEligibility1_upDoc_docName').val());
+        ///var txtappagenDocNAme = ValidateTextbox('<span class="notok"></span> Please enter document name<br/>', '#fuEligibility1_upDoc_docName', $('#fuEligibility1_upDoc_docName').val());
         var txtAddExpirationDate = CheckDate('<span class="notok"></span> Please enter date in correct format (mm/dd/yyyy)<br/>', '<span class="notok"></span> Please enter date in correct format (mm/dd/yyyy)<br/>', '#AddExpirationDate1', $('#AddExpirationDate1').val());
-        var ddlAppAgencSup = ValidateDropdown('0', '<span class="notok"></span> Please select document type<br/>', '#fuEligibility1_upDoc_docType', $('#fuEligibility1_upDoc_docType').val());
-        error = ddlAddApprovalAgency + txtAddExpirationDate + txtappagenDocNAme + ddlAppAgencSup;
+        //var ddlAppAgencSup = ValidateDropdown('0', '<span class="notok"></span> Please select document type<br/>', '#fuEligibility1_upDoc_docType', $('#fuEligibility1_upDoc_docType').val());
+        error = ddlAddApprovalAgency + txtAddExpirationDate; //+ txtappagenDocNAme + ddlAppAgencSup;
         $('.errorinfo').html(error);
         if (error != '') {
             $('.errorinfo').show();
@@ -553,11 +647,19 @@
     function ApprovalAgencyAddNewSave1() {
         $('.errorinfo').text('');
         var error = '';
+        var isValid;
+        ////$("#Eligiblity .documentContainer").each(function () {
+        ////    if ($(this).data('isrequired')) {
+        ////        if (this.id == 'fuEligibility2_upDoc')
+        ////            isValid = $(this).find("#" + this.id + "_docList tr").length > 1
+        ////    }
+        ////});
+
         var txtApprovalAgency = ValidateDropdown('-1', '<span class="notok"></span> Please select approval/accrediting agency<br/>', '#txtApprovalAgency', $('#txtApprovalAgency').val());
-        var txtappagenDocNAme = ValidateTextbox('<span class="notok"></span> Please enter document name<br/>', '#fuEligibility2_upDoc_docName', $('#fuEligibility2_upDoc_docName').val());
+        //var txtappagenDocNAme = ValidateTextbox('<span class="notok"></span> Please enter document name<br/>', '#fuEligibility2_upDoc_docName', $('#fuEligibility2_upDoc_docName').val());
         var txtAddExpirationDate = CheckDate('<span class="notok"></span> Please enter date in correct format (mm/dd/yyyy)<br/>', '<span class="notok"></span> Please enter date in correct format (mm/dd/yyyy)<br/>', '#AddExpirationDate', $('#AddExpirationDate').val());
-        var ddlAppAgencSup = ValidateDropdown('0', '<span class="notok"></span> Please select document type<br/>', '#fuEligibility2_upDoc_docType', $('#fuEligibility2_upDoc_docType').val());
-        error = txtApprovalAgency + txtAddExpirationDate + txtappagenDocNAme + ddlAppAgencSup;
+        //var ddlAppAgencSup = ValidateDropdown('0', '<span class="notok"></span> Please select document type<br/>', '#fuEligibility2_upDoc_docType', $('#fuEligibility2_upDoc_docType').val());
+        error = txtApprovalAgency + txtAddExpirationDate;//+ txtappagenDocNAme + ddlAppAgencSup;
         $('.errorinfo').html(error);
         if (error != '') {
             $('.errorinfo').show();
@@ -588,12 +690,6 @@
         $('.errorinfo').html(error);
     }
 
-    $("#aboutSchool .documentContainer").each(function () {
-        var isValid;
-        if ($(this).data('isrequired')) {
-            isValid = $(this).find("#" + this.id + "_docList tr").length > 1
-        }
-    });
 
 
-}]);
+});
