@@ -10,7 +10,7 @@
             $('.errorinfo').text('');
 
             $scope.hasShow = 'true';
-            
+
         }
         else
             $scope.hasShow = 'false';
@@ -28,15 +28,19 @@
         });
 
         var issuccess = false;
-        for (var i = 0; i < listresult.length; i++) {
-            if (listresult[i] == true) {
-                issuccess = true;
-            }
-            else {
-                issuccess = false;
-                break;
+        if (listresult.length > 0) {
+            for (var i = 0; i < listresult.length; i++) {
+                if (listresult[i] == true) {
+                    issuccess = true;
+                }
+                else {
+                    issuccess = false;
+                    break;
+                }
             }
         }
+        else
+            issuccess = true;
         if (issuccess) {
             var obj = {};
             obj.ApplicationTabStatusId = 0;
