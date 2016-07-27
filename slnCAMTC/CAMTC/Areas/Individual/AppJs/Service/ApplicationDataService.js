@@ -12,8 +12,10 @@
       startUp: function(factory) {
         vm.factory = factory;
         vm.service.getIndividual(sessionStorage.IndividualId).then(function(response) {
-          console.log("Individual", response.data);
-          return factory.Individual = response.data;
+          console.log("Individual", response.data.IndividualResponse);
+          if (response.data.IndividualResponse.length === 1) {
+            return factory.Individual = response.data.IndividualResponse[0];
+          }
         });
         vm.service.getIndividualName(sessionStorage.IndividualId).then(function(response) {
           return factory.IndividualName = response.data.IndividualNameResponse[0];
@@ -39,12 +41,13 @@
           }
         });
         return vm.service.contact.get.all(sessionStorage.IndividualId).then(function(response) {
-          var primaryEmail, primaryPhone, secEmail, secPhone;
+          var primaryEmail, primaryPhone, secEmail, secPhone, website;
           console.log("Contacts", response.data);
           primaryPhone = $filter('contactByTypeId')(response.data.IndividualContactResponse, 6);
           secPhone = $filter('contactByTypeId')(response.data.IndividualContactResponse, 7);
           primaryEmail = $filter('contactByTypeId')(response.data.IndividualContactResponse, 18);
           secEmail = $filter('contactByTypeId')(response.data.IndividualContactResponse, 19);
+          website = $filter('contactByTypeId')(response.data.IndividualContactResponse, 17);
           if (primaryPhone === null) {
             factory.Applicant.PrimaryPhone = angular.copy(ObjectTemplateFactory.contact.newContact);
             factory.Applicant.PrimaryPhone.ContactTypeId = 6;
@@ -77,10 +80,19 @@
             factory.Applicant.SecondaryEmail = angular.copy(ObjectTemplateFactory.contact.newContact);
             factory.Applicant.SecondaryEmail.ContactTypeId = 19;
             factory.Applicant.SecondaryEmail.ContactInfo = "";
-            return factory.Applicant.SecondaryEmail.IndividualId = parseInt(sessionStorage.IndividualId);
+            factory.Applicant.SecondaryEmail.IndividualId = parseInt(sessionStorage.IndividualId);
           } else {
             secEmail.IsActive = true;
-            return factory.Applicant.SecondaryEmail = secEmail;
+            factory.Applicant.SecondaryEmail = secEmail;
+          }
+          if (website === null) {
+            factory.Applicant.Website = angular.copy(ObjectTemplateFactory.contact.newContact);
+            factory.Applicant.Website.ContactTypeId = 17;
+            factory.Applicant.Website.ContactInfo = "";
+            return factory.Applicant.Website.IndividualId = parseInt(sessionStorage.IndividualId);
+          } else {
+            website.IsActive = true;
+            return factory.Applicant.Website = website;
           }
         });
       },
@@ -91,7 +103,12 @@
         return $http.get(vm.baseUrl + "/Individual/IndividualAddressBYIndividualId/" + vm.key + "?IndividualId=" + ind_id);
       },
       getIndividual: function(ind_id) {
-        return $http.get(vm.baseUrl + "/Individual/IndividualBYIndividualId/" + vm.key + "?IndividualId=" + ind_id);
+        return $http.get(vm.baseUrl + "/Individual/IndividualOnlyBYIndividualId/" + vm.key + "?IndividualId=" + ind_id);
+      },
+      individual: {
+        save: function(individual) {
+          return $http.post(vm.baseUrl + "/Individual/IndividualSave/" + vm.key, individual);
+        }
       },
       address: {
         get: {

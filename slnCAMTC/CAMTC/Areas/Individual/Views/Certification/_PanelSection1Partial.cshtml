@@ -568,7 +568,7 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <table ng-if="applicant.haveWebsite > 0">
+                                    <table ng-if="applicant.appData.Applicant.Website.ContactInfo != ''">
                                         <tbody>
                                             <tr>
                                                 <td></td>
@@ -578,7 +578,7 @@
                                                     </label>
                                                 </td>
                                                 <td class="cursorpointer">
-                                                    <input data-ng-model="applicant.website" name="txtWebsite" type="text" maxlength="150" id="txtWebsite" class="inputTextbox NewAppPersonalTxtbx" autocomplete="off">
+                                                    <input data-ng-model="applicant.appData.Applicant.Website.ContactInfo" name="txtWebsite" type="text" maxlength="150" id="txtWebsite" class="inputTextbox NewAppPersonalTxtbx" autocomplete="off">
                                                     <br>
                                                     <span>eg: http://www.example.com</span>
                                                 </td>

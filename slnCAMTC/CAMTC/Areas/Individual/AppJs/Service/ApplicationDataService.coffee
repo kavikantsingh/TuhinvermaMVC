@@ -9,8 +9,10 @@
             vm.factory = factory
             vm.service.getIndividual(sessionStorage.IndividualId)
                 .then (response)->
-                    console.log "Individual", response.data
-                    factory.Individual = response.data
+                    console.log "Individual", response.data.IndividualResponse
+                    if response.data.IndividualResponse.length is 1
+                        factory.Individual = response.data.IndividualResponse[0]
+                        
             vm.service.getIndividualName(sessionStorage.IndividualId)
                 .then (response)->
                     factory.IndividualName = response.data.IndividualNameResponse[0]
@@ -34,6 +36,8 @@
                     
                     primaryEmail = $filter('contactByTypeId')(response.data.IndividualContactResponse, 18)
                     secEmail = $filter('contactByTypeId')(response.data.IndividualContactResponse, 19)
+                    
+                    website = $filter('contactByTypeId')(response.data.IndividualContactResponse, 17)
                     
                     
                     if primaryPhone is null
@@ -75,6 +79,16 @@
                         secEmail.IsActive = yes
                         factory.Applicant.SecondaryEmail = secEmail
                         #console.log primaryPhone
+                        
+                    if website is null
+                        factory.Applicant.Website = angular.copy(ObjectTemplateFactory.contact.newContact)
+                        factory.Applicant.Website.ContactTypeId = 17
+                        factory.Applicant.Website.ContactInfo = ""
+                        factory.Applicant.Website.IndividualId = parseInt(sessionStorage.IndividualId)
+                    else 
+                        website.IsActive = yes
+                        factory.Applicant.Website = website
+                        #console.log primaryPhone
                     
                         
                     
@@ -87,8 +101,13 @@
             $http.get(vm.baseUrl + "/Individual/IndividualAddressBYIndividualId/" + vm.key + "?IndividualId=" + ind_id )
             
         getIndividual : (ind_id)->
-            $http.get(vm.baseUrl + "/Individual/IndividualBYIndividualId/" + vm.key + "?IndividualId=" + ind_id )
-            
+            $http.get(vm.baseUrl + "/Individual/IndividualOnlyBYIndividualId/" + vm.key + "?IndividualId=" + ind_id )
+        
+        individual : {
+            save : (individual)->
+                $http.post(vm.baseUrl + "/Individual/IndividualSave/" + vm.key , individual)
+        }
+        
         address : {
             get : {
                 allByIndividualId : (ind_id)->

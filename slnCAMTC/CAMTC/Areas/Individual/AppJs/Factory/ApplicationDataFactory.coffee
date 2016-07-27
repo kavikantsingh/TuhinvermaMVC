@@ -1,11 +1,11 @@
-﻿ApplicationDataFactory = (ApplicationDataService)->
+﻿ApplicationDataFactory = (ApplicationDataService, ObjectTemplateFactory)->
     vm = @
     vm.baseUrl = ""
     vm.factory = {
         ReadInstruction : 0
         UnderstandQualification : 0
         
-        Individual : {}
+        Individual : angular.copy(ObjectTemplateFactory.individual.newIndividual)
         IndividualName : {}
         Applicant : {
             HomeAddress : {}
@@ -78,4 +78,4 @@
     }
 angular.module('IndividualApp')
     .factory("ApplicationDataFactory", ApplicationDataFactory)
-    ApplicationDataFactory.$inject = ['ApplicationDataService']
+    ApplicationDataFactory.$inject = ['ApplicationDataService', 'ObjectTemplateFactory']

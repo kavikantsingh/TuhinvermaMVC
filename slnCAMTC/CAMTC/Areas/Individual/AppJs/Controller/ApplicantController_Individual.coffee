@@ -88,7 +88,11 @@
             ApplicationDataService.contact.save(vm.appData.Applicant.SecondaryEmail)
                 .then (response)->
                     console.log response, "Saved Secondary Email"
-                
+        if vm.appData.Applicant.Website.ContactInfo != ""        
+            ApplicationDataService.contact.save(vm.appData.Applicant.Website)
+                .then (response)->
+                    console.log response, "Saved Website"
+                    
         window.location.hash = "#" + "/identification"
         IndividualSectionManager.changeSelection($("#liSection2"))
     

@@ -49,6 +49,38 @@
           "ContactInfo": "",
           "DateContactValidated": null
         }
+      },
+      individual: {
+        newIndividual: {
+          "IndividualId": 0,
+          "FirstName": "",
+          "MiddleName": "",
+          "LastName": "",
+          "SuffixId": null,
+          "SSN": "",
+          "IsItin": false,
+          "DateOfBirth": "",
+          "RaceId": 0,
+          "Gender": "",
+          "HairColorId": 0,
+          "EyeColorId": 0,
+          "Weight": 0,
+          "Height": 0,
+          "PlaceOfBirth": null,
+          "CitizenshipId": 1029,
+          "ExternalId": null,
+          "ExternalId2": null,
+          "IsArchived": false,
+          "IsActive": true,
+          "IsDeleted": false,
+          "Email": "",
+          "IsNameChanged": false,
+          "PlaceofBirthCity": "",
+          "PlaceofBirthState": "",
+          "PlaceofBirthCountry": 0,
+          "Picture": "",
+          "Name": ""
+        }
       }
     };
   };

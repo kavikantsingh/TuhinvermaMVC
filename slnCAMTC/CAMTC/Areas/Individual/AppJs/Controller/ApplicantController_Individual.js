@@ -70,6 +70,11 @@
           return console.log(response, "Saved Secondary Email");
         });
       }
+      if (vm.appData.Applicant.Website.ContactInfo !== "") {
+        ApplicationDataService.contact.save(vm.appData.Applicant.Website).then(function(response) {
+          return console.log(response, "Saved Website");
+        });
+      }
       window.location.hash = "#" + "/identification";
       return IndividualSectionManager.changeSelection($("#liSection2"));
     };

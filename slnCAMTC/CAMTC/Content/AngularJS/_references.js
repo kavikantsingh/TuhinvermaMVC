@@ -161,6 +161,7 @@
 /// <reference path="../../areas/individual/appjs/controller/maincontroller_individual.js" />
 /// <reference path="../../Areas/Individual/AppJs/Controller/ReCertificationController.js" />
 /// <reference path="../../areas/individual/appjs/controller/workinformationcontroller_individual.js" />
+/// <reference path="../../areas/individual/appjs/directive/appdirectives.js" />
 /// <reference path="../../areas/individual/appjs/factory/applicationdatafactory.js" />
 /// <reference path="../../areas/individual/appjs/factory/globalobjectsfactory.js" />
 /// <reference path="../../areas/individual/appjs/factory/objecttemplatefactory.js" />
