@@ -1082,6 +1082,12 @@
     <Content Include="Areas\Individual\AppJs\Factory\ObjectTemplateFactory.min.js">
       <DependentUpon>ObjectTemplateFactory.js</DependentUpon>
     </Content>
+    <Content Include="Areas\Individual\AppJs\Filter\ArrayFilters.js">
+      <DependentUpon>ArrayFilters.coffee</DependentUpon>
+    </Content>
+    <Content Include="Areas\Individual\AppJs\Filter\ArrayFilters.min.js">
+      <DependentUpon>ArrayFilters.js</DependentUpon>
+    </Content>
     <Content Include="Areas\Individual\AppJs\IndividualApp.js">
       <DependentUpon>IndividualApp.coffee</DependentUpon>
     </Content>
@@ -1204,6 +1210,7 @@
     <Content Include="Areas\BackOffice\Views\Home\PartialView\DeficiencyReason.cshtml" />
     <Content Include="Areas\Individual\AppJs\Controller\HistoryController_Individual.coffee" />
     <Content Include="Areas\Individual\AppJs\Factory\ObjectTemplateFactory.coffee" />
+    <Content Include="Areas\Individual\AppJs\Filter\ArrayFilters.coffee" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>

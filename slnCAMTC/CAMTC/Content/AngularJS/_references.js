@@ -164,6 +164,7 @@
 /// <reference path="../../areas/individual/appjs/factory/applicationdatafactory.js" />
 /// <reference path="../../areas/individual/appjs/factory/globalobjectsfactory.js" />
 /// <reference path="../../areas/individual/appjs/factory/objecttemplatefactory.js" />
+/// <reference path="../../areas/individual/appjs/filter/arrayfilters.js" />
 /// <reference path="../../areas/individual/appjs/individualapp.js" />
 /// <reference path="../../areas/individual/appjs/runindividualapp.js" />
 /// <reference path="../../areas/individual/appjs/service/applicationdataservice.js" />

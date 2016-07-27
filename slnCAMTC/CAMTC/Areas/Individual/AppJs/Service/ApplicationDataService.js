@@ -2,7 +2,7 @@
 (function() {
   var ApplicationDataService;
 
-  ApplicationDataService = function($http, $q, $rootScope, ObjectTemplateFactory) {
+  ApplicationDataService = function($http, $q, $rootScope, ObjectTemplateFactory, $filter) {
     var vm;
     vm = this;
     vm.baseUrl = "http://ws.camtc.inlumon.com/api";
@@ -18,7 +18,7 @@
         vm.service.getIndividualName(sessionStorage.IndividualId).then(function(response) {
           return factory.IndividualName = response.data.IndividualNameResponse[0];
         });
-        return vm.service.getIndividualAddress(sessionStorage.IndividualId).then(function(response) {
+        vm.service.getIndividualAddress(sessionStorage.IndividualId).then(function(response) {
           var address, _i, _len, _ref, _results;
           console.log("Address", response.data);
           if (response.data.IndividualAddressResponse.length > 0) {
@@ -36,6 +36,51 @@
           } else {
             factory.Applicant.HomeAddress = angular.copy(ObjectTemplateFactory.address.newAddress);
             return factory.Applicant.HomeAddress.AddressTypeId = 2;
+          }
+        });
+        return vm.service.contact.get.all(sessionStorage.IndividualId).then(function(response) {
+          var primaryEmail, primaryPhone, secEmail, secPhone;
+          console.log("Contacts", response.data);
+          primaryPhone = $filter('contactByTypeId')(response.data.IndividualContactResponse, 6);
+          secPhone = $filter('contactByTypeId')(response.data.IndividualContactResponse, 7);
+          primaryEmail = $filter('contactByTypeId')(response.data.IndividualContactResponse, 18);
+          secEmail = $filter('contactByTypeId')(response.data.IndividualContactResponse, 19);
+          if (primaryPhone === null) {
+            factory.Applicant.PrimaryPhone = angular.copy(ObjectTemplateFactory.contact.newContact);
+            factory.Applicant.PrimaryPhone.ContactTypeId = 6;
+            factory.Applicant.PrimaryPhone.ContactInfo = "";
+            factory.Applicant.PrimaryPhone.IndividualId = parseInt(sessionStorage.IndividualId);
+          } else {
+            primaryPhone.IsActive = true;
+            factory.Applicant.PrimaryPhone = primaryPhone;
+            console.log(primaryPhone);
+          }
+          if (secPhone === null) {
+            factory.Applicant.SecondaryPhone = angular.copy(ObjectTemplateFactory.contact.newContact);
+            factory.Applicant.SecondaryPhone.ContactTypeId = 7;
+            factory.Applicant.SecondaryPhone.ContactInfo = "";
+            factory.Applicant.SecondaryPhone.IndividualId = parseInt(sessionStorage.IndividualId);
+          } else {
+            secPhone.IsActive = true;
+            factory.Applicant.SecondaryPhone = secPhone;
+          }
+          if (primaryEmail === null) {
+            factory.Applicant.PrimaryEmail = angular.copy(ObjectTemplateFactory.contact.newContact);
+            factory.Applicant.PrimaryEmail.ContactTypeId = 18;
+            factory.Applicant.PrimaryEmail.ContactInfo = "";
+            factory.Applicant.PrimaryEmail.IndividualId = parseInt(sessionStorage.IndividualId);
+          } else {
+            primaryEmail.IsActive = true;
+            factory.Applicant.PrimaryEmail = primaryEmail;
+          }
+          if (secEmail === null) {
+            factory.Applicant.SecondaryEmail = angular.copy(ObjectTemplateFactory.contact.newContact);
+            factory.Applicant.SecondaryEmail.ContactTypeId = 19;
+            factory.Applicant.SecondaryEmail.ContactInfo = "";
+            return factory.Applicant.SecondaryEmail.IndividualId = parseInt(sessionStorage.IndividualId);
+          } else {
+            secEmail.IsActive = true;
+            return factory.Applicant.SecondaryEmail = secEmail;
           }
         });
       },
@@ -62,12 +107,22 @@
             return $http.post(vm.baseUrl + "/Individual/IndividualAddressSave/" + vm.key, newAddress);
           }
         }
+      },
+      contact: {
+        get: {
+          all: function(ind_id) {
+            return $http.get(vm.baseUrl + "/Individual/IndividualContactBYIndividualId/" + vm.key + "?IndividualId=" + ind_id);
+          }
+        },
+        save: function(contact) {
+          return $http.post(vm.baseUrl + "/Individual/IndividualContactSave/" + vm.key, contact);
+        }
       }
     };
   };
 
   angular.module('IndividualApp').service("ApplicationDataService", ApplicationDataService);
 
-  ApplicationDataService.$inject = ['$http', '$q', '$rootScope', 'ObjectTemplateFactory'];
+  ApplicationDataService.$inject = ['$http', '$q', '$rootScope', 'ObjectTemplateFactory', '$filter'];
 
 }).call(this);

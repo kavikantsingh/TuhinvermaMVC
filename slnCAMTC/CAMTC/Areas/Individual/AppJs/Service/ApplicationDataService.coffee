@@ -1,4 +1,4 @@
-﻿ApplicationDataService = ($http,$q, $rootScope, ObjectTemplateFactory)->
+﻿ApplicationDataService = ($http,$q, $rootScope, ObjectTemplateFactory, $filter)->
     vm = @
     vm.baseUrl = "http://ws.camtc.inlumon.com/api"
     #vm.baseUrl = "http://localhost:1530/api"
@@ -26,6 +26,59 @@
                         factory.Applicant.HomeAddress = angular.copy(ObjectTemplateFactory.address.newAddress)
                         factory.Applicant.HomeAddress.AddressTypeId = 2
                         
+            vm.service.contact.get.all(sessionStorage.IndividualId)
+                .then (response)->
+                    console.log "Contacts", response.data
+                    primaryPhone = $filter('contactByTypeId')(response.data.IndividualContactResponse, 6)
+                    secPhone = $filter('contactByTypeId')(response.data.IndividualContactResponse, 7)
+                    
+                    primaryEmail = $filter('contactByTypeId')(response.data.IndividualContactResponse, 18)
+                    secEmail = $filter('contactByTypeId')(response.data.IndividualContactResponse, 19)
+                    
+                    
+                    if primaryPhone is null
+                        factory.Applicant.PrimaryPhone = angular.copy(ObjectTemplateFactory.contact.newContact)
+                        factory.Applicant.PrimaryPhone.ContactTypeId = 6
+                        factory.Applicant.PrimaryPhone.ContactInfo = ""
+                        factory.Applicant.PrimaryPhone.IndividualId = parseInt(sessionStorage.IndividualId)
+                    else 
+                        primaryPhone.IsActive = yes
+                        factory.Applicant.PrimaryPhone = primaryPhone
+                        console.log primaryPhone
+                    
+                    if secPhone is null
+                        factory.Applicant.SecondaryPhone = angular.copy(ObjectTemplateFactory.contact.newContact)
+                        factory.Applicant.SecondaryPhone.ContactTypeId = 7
+                        factory.Applicant.SecondaryPhone.ContactInfo = ""
+                        factory.Applicant.SecondaryPhone.IndividualId = parseInt(sessionStorage.IndividualId)
+                    else 
+                        secPhone.IsActive = yes
+                        factory.Applicant.SecondaryPhone = secPhone
+                        
+                        
+                    if primaryEmail is null
+                        factory.Applicant.PrimaryEmail = angular.copy(ObjectTemplateFactory.contact.newContact)
+                        factory.Applicant.PrimaryEmail.ContactTypeId = 18
+                        factory.Applicant.PrimaryEmail.ContactInfo = ""
+                        factory.Applicant.PrimaryEmail.IndividualId = parseInt(sessionStorage.IndividualId)
+                    else 
+                        primaryEmail.IsActive = yes
+                        factory.Applicant.PrimaryEmail = primaryEmail
+                        #console.log primaryPhone
+                        
+                    if secEmail is null
+                        factory.Applicant.SecondaryEmail = angular.copy(ObjectTemplateFactory.contact.newContact)
+                        factory.Applicant.SecondaryEmail.ContactTypeId = 19
+                        factory.Applicant.SecondaryEmail.ContactInfo = ""
+                        factory.Applicant.SecondaryEmail.IndividualId = parseInt(sessionStorage.IndividualId)
+                    else 
+                        secEmail.IsActive = yes
+                        factory.Applicant.SecondaryEmail = secEmail
+                        #console.log primaryPhone
+                    
+                        
+                    
+                    
             
         getIndividualName : (ind_id)->
             $http.get(vm.baseUrl + "/Individual/IndividualNameBYIndividualId/" + vm.key + "?IndividualId=" + ind_id )
@@ -49,8 +102,18 @@
                 individualAddress : (newAddress)->
                     $http.post(vm.baseUrl + "/Individual/IndividualAddressSave/" + vm.key , newAddress)
             }
+        }
+        
+        contact : {
+            get : {
+                all : (ind_id)->
+                    $http.get(vm.baseUrl + "/Individual/IndividualContactBYIndividualId/" + vm.key + "?IndividualId=" + ind_id )
+            }
+            
+            save : (contact)->
+                $http.post(vm.baseUrl + "/Individual/IndividualContactSave/" + vm.key, contact)
         }    
     }
 angular.module('IndividualApp')
     .service("ApplicationDataService", ApplicationDataService)
-    ApplicationDataService.$inject = ['$http', '$q', '$rootScope', 'ObjectTemplateFactory']
+    ApplicationDataService.$inject = ['$http', '$q', '$rootScope', 'ObjectTemplateFactory', '$filter']

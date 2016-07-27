@@ -480,10 +480,10 @@
                                                     <label class="input-label required">Primary Phone :</label>
                                                 </td>
                                                 <td style="width: 165px;">
-                                                    <input data-ng-model="applicant.primaryPhone.number" name="TextBox3" type="text" id="TextBox3" class="phone_us" autocomplete="off" maxlength="14">
+                                                    <input data-ng-model="applicant.appData.Applicant.PrimaryPhone.ContactInfo" name="TextBox3" type="text" id="TextBox3" class="phone_us" autocomplete="off" maxlength="14">
                                                 </td>
                                                 <td class="cursorpointer">
-                                                    <input  data-ng-model="applicant.primaryPhone.isMobile" id="CheckBox10" type="checkbox" name="CheckBox10"><label for="CheckBox10">Mobile</label>
+                                                    <input  data-ng-model="applicant.appData.Applicant.PrimaryPhone.IsMobile" id="CheckBox10" type="checkbox" name="CheckBox10"><label for="CheckBox10">Mobile</label>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -491,10 +491,10 @@
                                                     <label class="input-label">Secondary Phone :</label>
                                                 </td>
                                                 <td>
-                                                    <input data-ng-model="applicant.secondaryPhone.number" name="TextBox4" type="text" id="TextBox4" class="phone_us" autocomplete="off" maxlength="14">
+                                                    <input data-ng-model="applicant.appData.Applicant.SecondaryPhone.ContactInfo" name="TextBox4" type="text" id="TextBox4" class="phone_us" autocomplete="off" maxlength="14">
                                                 </td>
                                                 <td class="cursorpointer">
-                                                    <input data-ng-model="applicant.secondaryPhone.isMobile" id="CheckBox11" type="checkbox" name="CheckBox11"><label for="CheckBox11">Mobile</label>
+                                                    <input data-ng-model="applicant.appData.Applicant.SecondaryPhone.IsMobile" id="CheckBox11" type="checkbox" name="CheckBox11"><label for="CheckBox11">Mobile</label>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -523,7 +523,7 @@
                                                     </label>
                                                 </td>
                                                 <td colspan="3">
-                                                    <input data-ng-model="applicant.primaryEmail" name="txtPrimaryEmail" type="text" maxlength="150" id="txtPrimaryEmail" class="inputTextbox NewAppPersonalTxtbx" style="width: 484px !important;" autocomplete="off">
+                                                    <input data-ng-model="applicant.appData.Applicant.PrimaryEmail.ContactInfo" name="txtPrimaryEmail" type="text" maxlength="150" id="txtPrimaryEmail" class="inputTextbox NewAppPersonalTxtbx" style="width: 484px !important;" autocomplete="off">
                                                 </td>
                                             </tr>
                                             <tr>
@@ -533,7 +533,7 @@
                                                     </label>
                                                 </td>
                                                 <td colspan="3">
-                                                    <input data-ng-model="applicant.secondaryEmail" name="txtSecondaryEmail" type="text" maxlength="150" id="txtSecondaryEmail" class="inputTextbox NewAppPersonalTxtbx" style="width: 484px !important;" autocomplete="off">
+                                                    <input data-ng-model="applicant.appData.Applicant.SecondaryEmail.ContactInfo" name="txtSecondaryEmail" type="text" maxlength="150" id="txtSecondaryEmail" class="inputTextbox NewAppPersonalTxtbx" style="width: 484px !important;" autocomplete="off">
                                                     <br>
                                                     <span>Email address must be provided by law, if you have one. </span>
                                                 </td>
