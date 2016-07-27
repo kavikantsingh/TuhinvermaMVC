@@ -134,6 +134,8 @@
     <Compile Include="Areas\BackOffice\Models\Administration\Configuration\BaseEntityServiceResponse.cs" />
     <Compile Include="Areas\BackOffice\Models\Administration\Configuration\DocumentViewModel.cs" />
     <Compile Include="Areas\BackOffice\Models\Administration\Configuration\PageSectionNameViewModel.cs" />
+    <Compile Include="Areas\ESD\Controllers\SchoolController.cs" />
+    <Compile Include="Areas\ESD\ESDAreaRegistration.cs" />
     <Compile Include="Areas\Individual\Controllers\AccountController.cs" />
     <Compile Include="Areas\Individual\Controllers\ApplicantDashboardController.cs" />
     <Compile Include="Areas\Individual\Controllers\CertificationController.cs" />
@@ -1217,6 +1219,10 @@
     <Content Include="Areas\Individual\AppJs\Controller\HistoryController_Individual.coffee" />
     <Content Include="Areas\Individual\AppJs\Factory\ObjectTemplateFactory.coffee" />
     <Content Include="Areas\Individual\AppJs\Filter\ArrayFilters.coffee" />
+    <Content Include="Areas\ESD\Views\School\Complaint.cshtml" />
+    <Content Include="Areas\ESD\Views\School\Index.cshtml" />
+    <Content Include="Areas\ESD\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\ESD\Views\web.config" />
     <Content Include="Areas\Individual\AppJs\Directive\AppDirectives.coffee" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
@@ -2185,6 +2191,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Agency\Models\" />
+    <Folder Include="Areas\ESD\Models\" />
     <Folder Include="Areas\School\Models\" />
     <Folder Include="Content\Agency\" />
     <Folder Include="Content\BackOffice\" />
