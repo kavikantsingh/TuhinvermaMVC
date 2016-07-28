@@ -430,7 +430,7 @@
         //var fluStaffFacility = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Facility Meeting Minutes/Agenda/Memos.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuStaff2_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuStaff2_hfStatus').val());
         //var fluStaffStTeRatio = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Student-Teacher Ratio.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuStaff3_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuStaff3_hfStatus').val());
 
-        error = txtBackCheckLastName + txtBackCheckFirstName + txtaddstaffEmail;//+ fluStaffHiring + fluStaffFacility + fluStaffStTeRatio + CheckBoxList3 + rblBackgroundChekReq + NoRegion;
+        error = txtBackCheckLastName + txtBackCheckFirstName + txtaddstaffEmail + CheckBoxList3 + NoRegion;//+ fluStaffHiring + fluStaffFacility + fluStaffStTeRatio + CheckBoxList3 + rblBackgroundChekReq + NoRegion;
         $('.errorinfo').html(error);
 
         if (error != '') {
