@@ -51,7 +51,7 @@
         <div class="header">
             <h4 style="text-align: left; margin: 0px !important;">
                 <span>
-                    <a href="" id="ContentPlaceHolder1_ucCertificationApplication1_lnkBacktoDashboard">← Log off</a>
+                    <a href="@Url.Action("Login", "Account")" id="schooollogoff">← Log off</a>
                 </span>
             </h4>
             <p style="text-align: center; vertical-align: middle; text-indent: 119px; margin-top: 10px; padding-bottom: 10px;">
@@ -110,7 +110,18 @@
         });
 
 
+        $('#schooollogoff').click(function () {
 
+            var i = sessionStorage.length;
+            while (i--) {
+                var key = sessionStorage.key(i);
+                if (/foo/.test(key)) {
+                    sessionStorage.removeItem(key);
+                }
+            }
+
+
+        });
 
     </script>
 }

@@ -55,6 +55,7 @@
         $scope.PrevAdd.AddressTypeId = 3;
         $scope.PreviousAddressId = 0;
         $('#divAddSchoolInfoPrevious').hide();
+        $scope.PrevAdd.StateCode = 'CA';
     }
 
     $scope.clearsateliteAddress = function () {
@@ -64,6 +65,7 @@
         $scope.SateliteAdd.ProviderId = $scope.ProviderId;
         $scope.SateliteAdd.AddressTypeId = 7;
         $scope.SateliteAddressId = 0;
+        $scope.SateliteAdd.StateCode = 'CA';
         $('#divAddSatelliteLocation').hide();
     }
 
@@ -630,7 +632,7 @@
 
                 SchoolInfoFactory.AddPreviousSchoolInSchoolInformation(prevschooldata, key).success(function (data) {
 
-                    _.each(data.ListOfPreviousAddress, function (value, key) {
+                    _.each(data.ListOfPreviousSchool, function (value, key) {
                         value.DateofNameChange = moment(value.DateofNameChange).format("MM/DD/YYYY");
                     });
                     $scope.PrevAddrGrid.api.setRowData(data.ListOfPreviousSchool);
@@ -877,7 +879,7 @@
         };
         ShowLoader();
         SchoolInfoFactory.Get_All_providermblex(key, obj).success(function (data) {
-            
+
             $scope.MBLExGrid.api.setRowData(data.ProvidermblexResponseList);
             HideLoader();
         }).error(function (error) {
