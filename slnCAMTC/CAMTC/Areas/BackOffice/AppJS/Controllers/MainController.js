@@ -1,6 +1,5 @@
-﻿LAPP.controller('MainController', ['$scope', '$rootScope', 'mySharedService', 'SchoolInfoFactory',  function ($scope, $rootScope, mySharedService, SchoolInfoFactory) {
+﻿LAPP.controller('MainController', function ($scope, $rootScope, mySharedService, SchoolInfoFactory, $window) {
     mySharedService.ApplicationName = 'BackOffice';
-
     $scope.Pagename = 'SchoolInfo';
 
     $scope.TabChangeClick = function (Pagename) {
@@ -64,14 +63,23 @@
 
     //get all providers
     $scope.GetAllProvider = function () {
+        ShowLoader();
+        var providerid = $window.sessionStorage.getItem('School_ProviderId');
+        mySharedService.Applicationid = $window.sessionStorage.getItem('School_ApplicationId');
+
+        mySharedService.prepForBroadcast(providerid, mySharedService.Applicationid);
+        
+        
 
         SchoolInfoFactory.GetAllProvider(key).success(function (data) {
+            HideLoader();
 
             $scope.providerGrid.api.setRowData(data.ProviderResponseList);
-
-            if (data.ProviderResponseList.length > 0) {
-                mySharedService.prepForBroadcast(data.ProviderResponseList[0].ProviderId, data.ProviderResponseList[0].ProviderName);
-            }
+            $scope.TabChangeClick('SchoolInfo');
+            //if (data.ProviderResponseList.length > 0) {
+            //    mySharedService.prepForBroadcast(data.ProviderResponseList[0].ProviderId, data.ProviderResponseList[0].ProviderName);
+            //    $scope.TabChangeClick('SchoolInfo');
+            //}
 
             //    $scope.ProviderId = data.ProviderResponseList[0].ProviderId;
             //    Provider.ProviderId = data.ProviderResponseList[0].ProviderId;
@@ -92,4 +100,5 @@
 
     $scope.GetAllProvider();
 
-}]);
+
+});

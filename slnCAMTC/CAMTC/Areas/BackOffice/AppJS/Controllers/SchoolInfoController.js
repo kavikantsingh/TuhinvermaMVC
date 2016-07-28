@@ -1,12 +1,5 @@
 ﻿LAPP.controller('SchoolController', function ($scope, $rootScope, mySharedService, SchoolInfoFactory, _, $http) {
 
-    if (mySharedService.ApplicationName == 'BackOffice') {
-        $scope.IsSchoolApplication = false;
-    }
-    else {
-        $scope.IsSchoolApplication = true;
-    }
-
     $('#dvPRevInfo').hide();
     $('#error_validation').hide();
     $scope.hasShow = 'false';
@@ -14,6 +7,15 @@
     $('#divAddSchoolInfoPrevious').hide();
     $('#divAddSatelliteLocation').hide();
     $('#divMblex').hide();
+
+
+    if (mySharedService.ApplicationName == 'BackOffice') {
+        $scope.IsSchoolApplication = false;
+    }
+    else {
+        $scope.IsSchoolApplication = true;
+        $scope.hasShow = 'true';
+    }
 
     $scope.ProviderId = '-1';
     $scope.ProviderNameId = 0;
@@ -273,6 +275,8 @@
 
     //Adding Mblex
     $scope.Save_providermblex = function () {
+        ShowLoader();
+
         $scope.Mblex.IsActive = 1;
         $scope.Mblex.IsDeleted = 0;
         $scope.Mblex.ProviderMBLExId = $scope.ProviderMBLExId;
@@ -280,7 +284,7 @@
         SchoolInfoFactory.Save_providermblex(key, $scope.Mblex).success(function (data) {
             $scope.clearMblex();
             $scope.MBLExGrid.api.setRowData(data.ProvidermblexResponseList);
-
+            HideLoader();
         }).error(function (error) {
             $scope.Error = error;
         });
@@ -842,7 +846,7 @@
                                 $rootScope.checked9 = true;
                             }
 
-                            
+
                         }
                         HideLoader();
                         mySharedService.prepForBroadcastTabClick('Eligibility');
@@ -871,11 +875,11 @@
         var obj = {
             ProviderId: $scope.ProviderId
         };
-
+        ShowLoader();
         SchoolInfoFactory.Get_All_providermblex(key, obj).success(function (data) {
-
+            
             $scope.MBLExGrid.api.setRowData(data.ProvidermblexResponseList);
-
+            HideLoader();
         }).error(function (error) {
             $scope.Error = error;
         });

@@ -1,27 +1,44 @@
 ﻿
 @{
+    Layout = "~/Areas/BackOffice/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "School";
 }
 <script type="text/javascript">
-    var key = 'abcd';
+    var key = window.sessionStorage.getItem('BackOffice_Key');
 </script>
 @*<script src="~/Content/Theme1/js/jquery-1.8.0.min.js"></script>*@
+
+<script type="text/javascript" src="~/AppContents/Errormessages/"></script>
 <link href="~/Content/Theme1/jquery-ui/css/start/jquery-ui-1.8.23.custom.css" rel="stylesheet" />
 <link href="~/Content/Public/css/style.css" rel="stylesheet" />
 <script src="~/Content/Public/js/ebsoft-loader.js"></script>
 <script src="~/Content/Public/js/ebsoft-loader.js" type="text/javascript"></script>
 <script src="~/Content/AngularJS/angular.js" type="text/javascript"></script>
+<script src="~/Content/AngularJS/Sanitize.js"></script>
 <script src="~/Content/AngularJS/ag-grid.min.js"></script>
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Areas/School/AppJS/Directive/CheckBoxSelection.js"></script>
+<script src="~/Content/AngularJS/angular-underscore.js"></script>
 <script src="~/Areas/BackOffice/AppJS/app.js"></script>
-
-<script src="~/Areas/BackOffice/AppJS/Controllers/MainController.js" type="text/javascript"></script>
+<script src="~/Areas/School/AppJS/Services/StaffService.js"></script>
+<script src="~/Areas/School/AppJS/Services/CurriculumService.js"></script>
+@*<script src="~/Areas/BackOffice/AppJS/Controllers/MainController.js" type="text/javascript"></script>*@
 <script src="~/Areas/BackOffice/AppJS/Controllers/SchoolInfoController.js" type="text/javascript"></script>
 <script src="~/Areas/BackOffice/AppJS/Controllers/EligibilityController.js" type="text/javascript"></script>
+<script src="~/Areas/School/AppJS/Services/AboutService.js"></script>
+<script src="~/Areas/School/AppJS/Controllers/AboutController.js"></script>
+<script src="~/Areas/School/AppJS/Controllers/CourseCatalogController.js"></script>
+<script src="~/Areas/School/AppJS/Controllers/CurriculumController.js"></script>
+<script src="~/Areas/School/AppJS/Controllers/EnrollmentController.js"></script>
+<script src="~/Areas/School/AppJS/Controllers/InstructionsController.js"></script>
+<script src="~/Areas/School/AppJS/Controllers/StaffController.js"></script>
 <script src="~/Areas/BackOffice/AppJS/Services/SchoolInfoServices.js" type="text/javascript"></script>
+<script src="~/Areas/School/AppJS/Controllers/TranscriptController.js"></script>
+<script src="~/Areas/BackOffice/AppJS/Controllers/MainController.js"></script>
+
 <script src="~/Areas/BackOffice/AppJS/Services/EligibiltiyService.js" type="text/javascript"></script>
 <link href="~/Content/Public/css/NewButton.css" rel="stylesheet" type="text/css" />
 <script src="~/Content/Public/js/jquery.mask.min.js" type="text/javascript"></script>
-
 @*<script src="../../Validation/FormValidation.js" type="text/javascript"></script>*@
 <link href="~/Content/Theme1/css/Individual.css?" rel="stylesheet" type="text/css" />
 <link href="~/Content/Theme1/css/IndividualDetails.css?" rel="stylesheet" type="text/css" />
@@ -30,21 +47,20 @@
 <link href="~/Content/Theme1/css/button.css" rel="stylesheet" />
 <link href="~/Content/Theme1/css/NewButton.css" rel="stylesheet" />
 <link href="~/Content/Theme1/css/style.css" rel="stylesheet" />
+
+
+
 <div class="container primary-content ">
     <div class="primary-column span-24" style="width: 600px;">
         @*bottom content Here*@
-
     </div>
 </div>
 
-
 <div data-ng-app="LAPP" class="container primary-content" ng-cloak>
-
     <div class="container primary-content ">
         <div class="clearb">
         </div>
         <div class="userHide searchBoxhidden" style="display: block !important" id="pnlSearch">
-
             <div class="container primary-content ">
                 <h3 style="float: left;">
                     School
@@ -52,7 +68,7 @@
                 <div class="clearb">
                 </div>
                 <div class="clearb" id="div1" style="display: none;">
-                    
+
                 </div>
                 @*<%--search box start--%>*@
                 <div class="userHide searchBoxhidden" style="display: block !important" id="Div2">
@@ -114,7 +130,6 @@
                                                     <select data-ng-model="ProviderInformationDetails.SchoolAddressState" name="SchoolAddressState" class="form-control" data-ng-options="item.StateCode as item.Name for item in StateList">
                                                         <option value="">- Select country -</option>
                                                     </select>
-
                                                 </td>
                                                 <td align="right" style="width: 47px;">
                                                     <span>
@@ -131,11 +146,9 @@
                                 </tr>
                             </tbody>
                         </table>
-
                         <div style="width: 90%; margin: 0 auto;">
                             <span class="fltrt">
                                 <input type="button" id="btnSearch" class="buttonGreen small" value="Search" />
-
                                 <input type="button" id="btnSearchCancel" class="secondary small" value="Cancel" />
                             </span>
                         </div>
@@ -143,7 +156,6 @@
                     <!------#############################################-Permit Search control End#####################################################---------------->
                 </div>
                 @*<%--search box end--%>*@
-
                 <div class="clearb">
                 </div>
                 <div class="main" style="position: relative">
@@ -152,10 +164,7 @@
         </div>
     </div>
 
-
-
     <div class="container primary-content ">
-
         @Html.Partial("_ProviderMaster");
 
     </div>
@@ -165,7 +174,46 @@
         <div class="primary-column span-24" style="width: 600px;">
             @Html.Partial("_SchoolInfo");
             @Html.Partial("_Eligibility");
+            
+            @Html.Partial("~/Areas/School/Views/Home/_SchoolApp_AboutTheSchool.cshtml")
+            @Html.Partial("~/Areas/School/Views/Home/_SchoolApp_Transcript.cshtml")
+            @Html.Partial("~/Areas/School/Views/Home/_SchoolApp_EnrollmentAgreement.cshtml")
+            @Html.Partial("~/Areas/School/Views/Home/_SchoolApp_CourseCatalog.cshtml")
+            @Html.Partial("~/Areas/School/Views/Home/_SchoolApp_Curriculum.cshtml")
+            @Html.Partial("~/Areas/School/Views/Home/_SchoolApp_Staff.cshtml")
+
 
         </div>
     </div>
 </div>
+
+@section scripts{
+    <script src="~/Scripts/elementExt.js"></script>
+    <script src="~/Scripts/DocumentManager/Uploader.js"></script>
+    <script src="~/Scripts/DocumentManager/DocumentUploader.js"></script>
+    <script src="~/Scripts/DocumentManager/DocumentManager.js"></script>
+    <script>
+
+
+        $(document).ready(function () {
+
+
+            window.DefaultDocumentManager = new DocumentManager({
+                ApiBaseUrl: "http://ws.camtc.inlumon.com/",
+                ApplicationId: sessionStorage.School_ApplicationId,
+                ProviderId: sessionStorage.School_ProviderId,
+                ApiSaveEndpoint: "api/Provider/ProviderDocumentSave/",
+                ApiDeleteEndpoint: "api/Provider/ProviderDocumentDelete/",
+                ApiGetDocumentsEndpoint: "api/Provider/ProviderGetProviderDocumentByProviderIdAndDocumentId/",
+                Key: sessionStorage.BackOffice_Key,
+                UploadUrl: "/School/Certification/Upload"
+            })
+
+
+        });
+
+
+
+
+    </script>
+}

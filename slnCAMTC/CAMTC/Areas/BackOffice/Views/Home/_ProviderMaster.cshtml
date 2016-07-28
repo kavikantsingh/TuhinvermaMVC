@@ -1,6 +1,5 @@
 ﻿
 <div class="main" style="position: relative">
-
     <div ng-controller="MainController as myctrl" ng-cloak>
         <div class="span-180 span-13 home-sidebar append-1">
             <div class="rounded-container peel-shadows">
@@ -20,7 +19,6 @@
                         <div id="recent-activity" class="activity-list">
                             <div>
                                 <div data-ag-grid="providerGrid" class="ag-blue" style="color: #000; height: 300px;"></div>
-
                             </div>
                         </div>
                     </div>
@@ -32,9 +30,7 @@
             </div>
             <!------#############################################-left member list end #####################################################---------------->
         </div>
-
         <div class="primary-column span-24" style="width: 600px;">
-
             <div id="dashboard-panels">
                 <div class="relative-box ">
                     <div class="dynamic-panels ui-sortable" style="">
@@ -47,13 +43,11 @@
                                 <div class="fltrt rightIcon">
                                     <input type="button" id="btnNewMember" class="button medium save green  pdng10"
                                            value="New Member" />
-
                                     <input type="image" id="btnPrint" src="~/Content/Theme1/images/search_icon.png" />
                                     <a title="Print" href="javascript:void(null);" onclick="javascript:toggleDiv('.divPrint');">
                                         <img src="../../Content/Theme1/images/Printer_Blue.png" />
                                     </a>
                                     <div id="Div3" style="display: none" class="divPrint">
-
 
                                         <h4 class="fltlft">
                                             Print
@@ -72,7 +66,6 @@
                                         </div>
                                         <input type="button" id="Button3" Width="125px" value="Email Pocket Card" placeholder="joe@email.com"
                                                class="buttonGreen small" Style="display: none;" />
-
                                     </div>
                                     <a title="comment" href="javasript:void(null);" onclick="showDiv('.popComment');">
                                         <img src="../../Content/Theme1/images/comment_icon.png" />
@@ -82,38 +75,29 @@
                                     </a>
                                 </div>
                             </div>
-
                             <div>
                                 <h4 class="" style="font-size: 16px; font-weight: bold; padding: 10px 13px;">
                                     School Details {{page.Pagename }}
                                     <span class="fltrt" ng-bind="page.Pagename"></span>
                                 </h4>
                             </div>
-
                             <div id="divButtonList" class="tabBtnBorder">
-
                                 <input type="button" id="btnGeneral" value="School Info" data-ng-class="{'tab_activeBtn': Pagename == 'SchoolInfo' }" class="tabBtn" ng-click="TabChangeClick('SchoolInfo')" />
                                 <input type="button" id="btnPersonal" value="Eligibility" data-ng-class="{'tab_activeBtn': Pagename == 'Eligibility' }" class="tabBtn" ng-click="TabChangeClick('Eligibility')" />
                                 <input type="button" id="btnAddress" value="About" class="tabBtn" ng-click="TabChangeClick('About')" />
                                 <input type="button" id="btnStaff" value="Staff" class="tabBtn" ng-click="TabChangeClick('Staff')" />
-
                                 <input type="button" id="btnEmployment" value="School Xref" class="tabBtn" ng-click="TabChangeClick('SchoolXref')" />
                                 <input type="button" id="btnApplicationData" value="Staff Xref" class="tabBtn" ng-click="TabChangeClick('StaffXref')" />
                                 <input type="button" id="btnCertificate" value="Transcript" class="tabBtn" ng-click="TabChangeClick('Transcript')" />
                                 <input type="button" id="btnPSD" value="Enrollment Agreement" class="tabBtn" ng-click="TabChangeClick('EnrollmenAgreement')" />
-
                                 <input type="button" id="btnComplaint" value="Complaint" class="tabBtn" ng-click="TabChangeClick('Complaint')" />
-
                                 <input type="button" id="btnDOJFBI" value="Course Catalog" class="tabBtn" ng-click="TabChangeClick('CourseCatalog')" />
                                 <input type="button" id="btnDeficiency" value="Curriculum" class="tabBtn" ng-click="TabChangeClick('Curriculum')" />
-
                                 <input type="button" id="btnFinance" value="Fees" class="tabBtn" ng-click="TabChangeClick('Fees')" />
                                 <input type="button" id="btnNotes" value="Notes" class="tabBtn" ng-click="TabChangeClick('Notes')" />
                                 <input type="button" id="btnInvestigateNotes" value="Investigative Notes" class="tabBtn" ng-click="TabChangeClick('InvestigativeNotes')" />
                                 <input type="button" id="btnMiscDocument" value="Documents" class="tabBtn" ng-click="TabChangeClick('Documents')" />
-
                             </div>
-
                             <div class="demo">
                                 <div>
                                     <h4 class="" style="font-size: 16px; font-weight: bold; padding: 10px 13px;">
@@ -130,14 +114,12 @@
                                             </div>
                                             <div class="statuscontent" style="width: 225px;">
                                                 @*<asp:DropDownList id="ddlAppStatus" Style="width: 160px;">
-                                                </asp:DropDownList>*@
+                                                    </asp:DropDownList>*@
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
                                 <div class="clear"></div>
-
                                 <div class="IndividuaDetail">
                                     <div class="divindv">
                                         <div class="brandytest">
@@ -152,9 +134,7 @@
                                                         </span>
                                                     </td>
                                                     <td>
-
                                                         @*<asp:Literal id="ltrIndividual1"></asp:Literal>*@
-
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -264,13 +244,11 @@
                                                     </td>
                                                 </tr>
 
-
                                                 <tr>
                                                     <td>
                                                         Livescan ATI
                                                     </td>
                                                 </tr>
-
                                             </table>
                                             <hr />
                                             <table class="IndividualTbl">
@@ -305,7 +283,6 @@
                                                         </span>
                                                     </td>
                                                 </tr>
-
                                             </table>
                                         </div>
                                     </div>
@@ -313,7 +290,6 @@
                                         <img style="width: 211px; margin: 0px auto;" src="../../Content/Theme1/images/indiviudal-sample.jpg" />
                                     </div>
                                 </div>
-
                             </div>
                             <div>
                                 <div id="error_validation" class="address-box posFixed" style="display: none; color: red; margin-top: 0px; border-radius: 5px;"></div>
@@ -321,19 +297,13 @@
                             <div id="divPanelList" style="border: 1px solid rgb(222, 222, 222); margin-top: 10px;">
                             </div>
 
-
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 </div>
-
 
 @*<script type="text/javascript">
         window.onload = function () {
