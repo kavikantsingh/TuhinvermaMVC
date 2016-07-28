@@ -396,7 +396,7 @@
             return false;
         }
         else {
-            if ($scope.viewProvClinicHours <= 75) {
+            if ($scope.viewProvClinicHours >= 75) {
                 $('.errorinfo').html('<span class="notok"></span> Please enter maximum number of clinic hours performed less than 75 hours.<br/>');
                 $('.errorinfo').show();
                 $(document).scrollTop(0);
