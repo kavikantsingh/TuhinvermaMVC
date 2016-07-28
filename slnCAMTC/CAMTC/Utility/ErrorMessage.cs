@@ -117,5 +117,9 @@ namespace ErrorModel
         public static string DeficiencyTemplateName = "Please enter Deficiency Template Name."; 
         public static string DeficiencyName = "Please enter Deficiency Name.";
 
+        public static string ApplicationType = "Please select Application Type."; 
+        public static string TemplateName = "Please enter Template Name.";
+        public static string Value = "Please enter Value.";
+
     }
 }
