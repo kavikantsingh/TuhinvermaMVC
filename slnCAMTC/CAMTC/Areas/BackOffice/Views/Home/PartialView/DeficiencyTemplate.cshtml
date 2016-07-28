@@ -217,8 +217,9 @@
                         </label>
                     </td>
                     <td colspan="3">
-                        <input type="text" CssClass="inputTextbox" Style="width: 542px; height: 60px;" ID="txtsub"
-                               TextMode="MultiLine" />
+                        @*<input type="text" CssClass="inputTextbox" Style="width: 542px; height: 60px;" ID="txtsub"
+                               TextMode="MultiLine" />*@
+                        <textarea id="txtsub"></textarea>
                     </td>
                 </tr>
                 <tr>
@@ -228,8 +229,9 @@
                         </label>
                     </td>
                     <td>
-                        <input type="text" CssClass="inputTextbox" Style="width: 542px; height: 60px;" ID="txtmsg"
-                               TextMode="MultiLine" />
+                        @*<input type="text" CssClass="inputTextbox" Style="width: 542px; height: 60px;" ID="txtmsg"
+                               TextMode="MultiLine" />*@
+                        <textarea id="txtmsg"></textarea>
                     </td>
                 </tr>
                 <tr>
@@ -282,6 +284,7 @@
 
                             <tr id='DT_{{m.Deficiency_Template_ID}}' style="display: none;">
                                 <td colspan='6'>
+                                    <div id="DTerror_validation_{{m.Deficiency_Template_ID}}" class="address-box posFixed" style="display: none; color: red;"></div>
                                     <div class="pdng5" style="padding: 15px 0px 15px 0px; width: 100%;">
 
                                         <table style="margin: 0 auto; width: 100%;">
@@ -318,7 +321,8 @@
                                                     </label>
                                                 </td>
                                                 <td align="left">
-                                                    <input type="text" id="txtsub_{{m.Deficiency_Template_ID}}" Style="width: 542px; height: 60px;" ng-value="m.Deficiency_Template_Subject" TextMode="MultiLine"/>
+                                                    @*<input type="text" id="txtsub_{{m.Deficiency_Template_ID}}" Style="width: 542px; height: 60px;" ng-value="m.Deficiency_Template_Subject" TextMode="MultiLine"/>*@
+                                                    <textarea id="txtsub_{{m.Deficiency_Template_ID}}">{{m.Deficiency_Template_Subject}}</textarea>
                                                  </td>
                                             </tr>
                                             <tr>
@@ -328,7 +332,8 @@
                                                     </label>
                                                 </td>
                                                 <td align="left">
-                                                    <input type="text" id="txtmsg_{{m.Deficiency_Template_ID}}" Style="width: 542px; height: 60px;" ng-value="m.Deficiency_Template_Message" TextMode="MultiLine" />
+                                                    @*<input type="text" id="txtmsg_{{m.Deficiency_Template_ID}}" Style="width: 542px; height: 60px;" ng-value="m.Deficiency_Template_Message" TextMode="MultiLine" />*@
+                                                    <textarea id="txtmsg_{{m.Deficiency_Template_ID}}">{{m.Deficiency_Template_Message}}</textarea>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -386,6 +391,27 @@
         }
         else {
             $('#DTerror_validation').hide();
+            return true;
+        }
+    }
+
+    function checkDTEditform(id) {
+        $('#DTerror_validation_'+id).text('');
+        var error = '';
+
+        error += ValidateDropdown('-1', '<span class=notok></span> @ErrorModel.ErrorMessage.TransactionType<br/>', '#ddlMasterTransaction_'+id, $('#ddlMasterTransaction_'+id).val());
+        error += ValidateTextbox('<span class="notok"></span> @ErrorModel.ErrorMessage.DeficiencyTemplateName<br/>', '#txtName_'+id, $('#txtName_'+id).val());
+
+        if (error != '') {
+            $('#DTerror_validation_' + id).show();
+
+            $(document).scrollTop(0);
+
+            $('#DTerror_validation_' + id).html(error);
+            return false;
+        }
+        else {
+            $('#DTerror_validation_' + id).hide();
             return true;
         }
     }

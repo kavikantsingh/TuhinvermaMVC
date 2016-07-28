@@ -223,8 +223,9 @@
                                 </label>
                             </td>
                             <td colspan="3">
-                                <input type="text" CssClass="inputTextbox" Style="width: 542px; height: 60px;" ID="txtsubject"
-                                       TextMode="MultiLine" />
+                                <textarea ID="txtsubject"></textarea>
+                                @*<input type="text" CssClass="inputTextbox" Style="width: 542px; height: 60px;" ID="txtsubject"
+                                       TextMode="MultiLine" />*@
                             </td>
                         </tr>
                         <tr>
@@ -234,8 +235,9 @@
                                 </label>
                             </td>
                             <td>
-                                <input type="text" CssClass="inputTextbox" Style="width: 542px; height: 60px;" ID="txtmsg"
-                                       TextMode="MultiLine" />
+                                <textarea ID="txtmsg"></textarea>
+                                @*<input type="text" CssClass="inputTextbox" Style="width: 542px; height: 60px;" ID="txtmsg"
+                                       TextMode="MultiLine" />*@
                             </td>
                         </tr>
                     </table>
@@ -275,6 +277,7 @@
 
                                     <tr id='TM_{{m.TemplateId}}' style="display: none;">
                                             <td colspan='6'>
+                                                <div id="TMerror_validation_{{m.TemplateId}}" class="address-box posFixed" style="display: none; color: red;"></div>
                                                 <div class="pdng5" style="padding: 15px 0px 15px 0px; width: 100%;">
 
                                                     <table style="margin: 0 auto; width: 100%;">
@@ -311,7 +314,8 @@
                                                                 </label>
                                                             </td>
                                                             <td align="left">
-                                                                <input type="text" id="txtsubject_{{m.TemplateId}}" Style="width: 542px; height: 60px;" ng-value="m.TemplateSubject" TextMode="MultiLine" />
+                                                                <textarea id="txtsubject_{{m.TemplateId}}">{{m.TemplateSubject}}</textarea>
+                                                                @*<input type="text" id="txtsubject_{{m.TemplateId}}" Style="width: 542px; height: 60px;" ng-value="m.TemplateSubject" TextMode="MultiLine" />*@
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -321,7 +325,8 @@
                                                                 </label>
                                                             </td>
                                                             <td align="left">
-                                                                <input type="text" id="txtmsg_{{m.TemplateId}}" Style="width: 542px; height: 60px;" ng-value="m.TemplateMessage" TextMode="MultiLine" />
+                                                                <textarea id="txtmsg_{{m.TemplateId}}">{{m.TemplateMessage}}</textarea>
+                                                                @*<input type="text" id="txtmsg_{{m.TemplateId}}" Style="width: 542px; height: 60px;" ng-value="m.TemplateMessage" TextMode="MultiLine" />*@
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -354,26 +359,47 @@
 
 <script type="text/javascript">
 
-    @*function checkDTform() {
-        $('#DTerror_validation').text('');
+    function checkTMform() {
+        $('#TMerror_validation').text('');
         var error = '';
 
-        error += ValidateDropdown('-1', '<span class=notok></span> @ErrorModel.ErrorMessage.TransactionType<br/>', '#ddlMasterTransaction', $('#ddlMasterTransaction').val());
-        error += ValidateTextbox('<span class="notok"></span> @ErrorModel.ErrorMessage.DeficiencyTemplateName<br/>', '#txtName', $('#txtName').val());
+        error += ValidateDropdown('-1', '<span class=notok></span> @ErrorModel.ErrorMessage.ApplicationType<br/>', '#ddlApplicationType', $('#ddlApplicationType').val());
+        error += ValidateTextbox('<span class="notok"></span> @ErrorModel.ErrorMessage.TemplateName<br/>', '#txtTempName', $('#txtTempName').val());
 
         if (error != '') {
-            $('#DTerror_validation').show();
+            $('#TMerror_validation').show();
 
             $(document).scrollTop(0);
 
-            $('#DTerror_validation').html(error);
+            $('#TMerror_validation').html(error);
             return false;
         }
         else {
-            $('#DTerror_validation').hide();
+            $('#TMerror_validation').hide();
             return true;
         }
-    }*@
+    }
+
+    function checkTMEditform(id) {
+        $('#TMerror_validation_'+id).text('');
+        var error = '';
+
+        error += ValidateDropdown('-1', '<span class=notok></span> @ErrorModel.ErrorMessage.ApplicationType<br/>', '#ddlApplicationType_'+id, $('#ddlApplicationType_'+id).val());
+        error += ValidateTextbox('<span class="notok"></span> @ErrorModel.ErrorMessage.TemplateName<br/>', '#txtTempName_'+id, $('#txtTempName_'+id).val());
+
+        if (error != '') {
+            $('#TMerror_validation_' + id).show();
+
+            $(document).scrollTop(0);
+
+            $('#TMerror_validation_' + id).html(error);
+            return false;
+        }
+        else {
+            $('#TMerror_validation_' + id).hide();
+            return true;
+        }
+    }
 
 
 

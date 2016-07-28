@@ -101,9 +101,9 @@
 
 <div ng-controller="DeficiencyReason as myctrl" ng-cloak>
     <div style="padding: 10px 0px 25px;" class="divDocumentType divaddnew" id="divAddNewbutton">
-        <h4 style="float: left;">
+        @*<h4 style="float: left;">
             Deficiency Reason
-        </h4>
+        </h4>*@
         <span style="float: right; margin-right: 0px;">
             <input type="button" ID="btnAddNew" CssClass="buttonGreen small" value="Add New" onclick="javascript:$('#DRdivAddAppReqPanel').show();" />
         </span>
@@ -215,8 +215,9 @@
                         </label>
                     </td>
                     <td colspan="3">
-                        <input type="text" CssClass="inputTextbox" Style="width: 542px; height: 60px;" ID="DRtxtDesc"
-                               TextMode="MultiLine" />
+                        @*<input type="text" CssClass="inputTextbox" Style="width: 542px; height: 60px;" ID="DRtxtDesc"
+                               TextMode="MultiLine" />*@
+                        <textarea id="DRtxtDesc"></textarea>
                     </td>
                 </tr>
                 <tr>
@@ -297,6 +298,7 @@
 
                             <tr id='DR_{{m.Deficiency_ID}}' style="display: none;">
                                 <td colspan='6'>
+                                    <div id="DRerror_validation_{{m.Deficiency_ID}}" class="address-box posFixed" style="display: none; color: red;"></div>
                                     <div class="pdng5" style="padding: 15px 0px 15px 0px; width: 100%;">
 
                                         <table style="margin: 0 auto; width: 100%;">
@@ -333,7 +335,8 @@
                                                     </label>
                                                 </td>
                                                 <td align="left">
-                                                    <input type="text" TextMode="MultiLine" Style="width: 542px; height: 60px;" id="DRtxtmsg_{{m.Deficiency_ID}}" ng-value=m.Description />
+                                                    @*<input type="text" TextMode="MultiLine" Style="width: 542px; height: 60px;" id="DRtxtmsg_{{m.Deficiency_ID}}" ng-value=m.Description />*@
+                                                    <textarea id="DRtxtmsg_{{m.Deficiency_ID}}">{{m.Description}}</textarea>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -417,6 +420,27 @@
         }
         else {
             $('#DRerror_validation').hide();
+            return true;
+        }
+    }
+
+    function checkDREditform(id) {
+        $('#DRerror_validation_'+id).text('');
+        var error = '';
+
+        error += ValidateDropdown('-1', '<span class=notok></span> @ErrorModel.ErrorMessage.TransactionType<br/>', '#DRddlMasterTransaction_' + id, $('#DRddlMasterTransaction_' + id).val());
+        error += ValidateTextbox('<span class="notok"></span> @ErrorModel.ErrorMessage.DeficiencyName<br/>', '#DRtxtName_' + id, $('#DRtxtName_' + id).val());
+
+        if (error != '') {
+            $('#DRerror_validation_' + id).show();
+
+            $(document).scrollTop(0);
+
+            $('#DRerror_validation_' + id).html(error);
+            return false;
+        }
+        else {
+            $('#DRerror_validation_' + id).hide();
             return true;
         }
     }

@@ -6,7 +6,7 @@ contentApp.controller('DeficiencyTemplate', ['$scope', '$rootScope', 'Configurat
     $scope.ddlMasterTransaction = [];
     $scope.DTSearch = {};
     $scope.DeficiencyTemplateInfo = {};
-    
+
 
     $scope.GetDeficiencyTemplate = function (isSearch) {
         ShowLoader();
@@ -45,17 +45,18 @@ contentApp.controller('DeficiencyTemplate', ['$scope', '$rootScope', 'Configurat
     $scope.GetDeficiencyTemplate();
 
     $scope.GetAllMasterTransaction();
+    tinymce.init({ mode: 'textareas' });
 
-    $scope.SaveDeficiencyTemplateAPI = function (Deficiency_Template_ID, Deficiency_Template_Name, Deficiency_Template_Message, Deficiency_Template_Subject, Is_Active, Master_Transaction_Id,IsDeleted) {
+    $scope.SaveDeficiencyTemplateAPI = function (Deficiency_Template_ID, Deficiency_Template_Name, Deficiency_Template_Message, Deficiency_Template_Subject, Is_Active, Master_Transaction_Id, IsDeleted) {
 
         ShowLoader();
 
         var objContent = {};
         objContent.Deficiency_Template_ID = Deficiency_Template_ID;
         objContent.Deficiency_Template_Name = Deficiency_Template_Name;
-        objContent.Deficiency_Template_Message=Deficiency_Template_Message;
-        objContent.Deficiency_Template_Subject=Deficiency_Template_Subject;
-        objContent.Master_Transaction_Id=Master_Transaction_Id;
+        objContent.Deficiency_Template_Message = Deficiency_Template_Message;
+        objContent.Deficiency_Template_Subject = Deficiency_Template_Subject;
+        objContent.Master_Transaction_Id = Master_Transaction_Id;
         objContent.Is_Active = Is_Active;
         objContent.Is_Deleted = IsDeleted;
 
@@ -65,7 +66,9 @@ contentApp.controller('DeficiencyTemplate', ['$scope', '$rootScope', 'Configurat
 
                             //alert(response.Message);
                             HideLoader();
-                            //$scope.GetDeficiencyTemplate();
+                            tinymce.remove('textarea');
+                            tinymce.init({ selector: '#txtsub' });
+                            tinymce.init({ selector: '#txtmsg' });
                             $scope.DeficiencyTemplateList = response.DeficiencyTemplateResponseList;
 
                         })
@@ -77,15 +80,17 @@ contentApp.controller('DeficiencyTemplate', ['$scope', '$rootScope', 'Configurat
     }
 
     $scope.SaveDeficiencyTemplate = function () {
-        $('#divAddAppReqPanel').hide();
+       
         if (checkDTform()) {
-            $scope.SaveDeficiencyTemplateAPI(0, $("#txtName").val(), $("#txtmsg").val(), $("#txtsub").val(), $("chkIsActive1").is(":checked"), $scope.DeficiencyTemplateInfo.MasterTransactionId, false);
+         $('#divAddAppReqPanel').hide();
+            $scope.SaveDeficiencyTemplateAPI(0, $("#txtName").val(), tinyMCE.get("txtmsg").getContent(), tinyMCE.get("txtsub").getContent(), $("chkIsActive1").is(":checked"), $scope.DeficiencyTemplateInfo.MasterTransactionId, false);
         }
     }
 
     $scope.EditStuff = function (id) {
-        //var index = $(id).attr('class');
-        document.getElementById('DT_'+id.m.Deficiency_Template_ID).style.display = 'table-row';
+        tinymce.init({ selector: '#txtsub_' + id.m.Deficiency_Template_ID });
+        tinymce.init({ selector: '#txtmsg_' + id.m.Deficiency_Template_ID });
+        document.getElementById('DT_' + id.m.Deficiency_Template_ID).style.display = 'table-row';
         $('#ddlMasterTransaction_' + id.m.Deficiency_Template_ID).val(id.m.Master_Transaction_Id);
 
         //tinymce.init({ mode: 'textareas' });
@@ -113,9 +118,10 @@ contentApp.controller('DeficiencyTemplate', ['$scope', '$rootScope', 'Configurat
     }
 
     $scope.doStuff = function (id) {
-
-        $scope.SaveDeficiencyTemplateAPI(id.m.Deficiency_Template_ID, $('#txtName_' + id.m.Deficiency_Template_ID).val(), $('#txtmsg_' + id.m.Deficiency_Template_ID).val(), $('#txtsub_' + id.m.Deficiency_Template_ID).val(), $('#txtIsActive_' + id.m.Deficiency_Template_ID).is(":checked"), $('#ddlMasterTransaction_' + id.m.Deficiency_Template_ID).val(),false);
-        document.getElementById(id.m.Deficiency_Template_ID).style.display = 'none';
+        if (checkDTEditform(id.m.Deficiency_Template_ID)) {
+            $scope.SaveDeficiencyTemplateAPI(id.m.Deficiency_Template_ID, $('#txtName_' + id.m.Deficiency_Template_ID).val(), tinyMCE.get('txtmsg_' + id.m.Deficiency_Template_ID).getContent(), tinyMCE.get('txtsub_' + id.m.Deficiency_Template_ID).getContent(), $('#txtIsActive_' + id.m.Deficiency_Template_ID).is(":checked"), $('#ddlMasterTransaction_' + id.m.Deficiency_Template_ID).val(), false);
+            document.getElementById(id.m.Deficiency_Template_ID).style.display = 'none';
+        }
     };
     $scope.IsConfirm = false;
     $scope.DeleteStuff = function (id) {
@@ -131,7 +137,7 @@ contentApp.controller('DeficiencyTemplate', ['$scope', '$rootScope', 'Configurat
         }
     };
 
-    
+
 
 }]);
 
@@ -140,7 +146,7 @@ contentApp.controller('DeficiencyReason', ['$scope', '$rootScope', 'Configuratio
     $scope.DRSearch = {};
     $scope.DeficiencyReasonInfo = {};
 
-    
+
 
 
     $scope.GetDeficiencyReason = function (isSearch) {
@@ -192,6 +198,7 @@ contentApp.controller('DeficiencyReason', ['$scope', '$rootScope', 'Configuratio
     $scope.GetDeficiencyReason();
     $scope.Get_All_LAPP_DeficiencyTemplate();
     $scope.GetAllMasterTransaction();
+    tinymce.init({ mode: 'textareas' });
 
     $scope.SaveDeficiencyReasonAPI = function (Deficiency_ID, Deficiency_Name, Description, Is_Active, Application_Type_ID, Deficiency_Template_ID, Additional_Text, Is_Deleted) {
 
@@ -214,8 +221,9 @@ contentApp.controller('DeficiencyReason', ['$scope', '$rootScope', 'Configuratio
                             //alert(response.Message);
                             HideLoader();
                             //$scope.GetDeficiencyTemplate();
+                            tinymce.remove('textarea');
+                            tinymce.init({ selector: '#DRtxtDesc' });
                             $scope.DeficiencyReasonList = response.DeficiencyReasonResponseList;
-
                         })
                         .error(function (data) {
                             alert('Oops! Some Error Occurred.');
@@ -225,46 +233,31 @@ contentApp.controller('DeficiencyReason', ['$scope', '$rootScope', 'Configuratio
     }
 
     $scope.SaveDeficiencyReason = function () {
-        $('#DRdivAddAppReqPanel').hide();
+        
         if (checkDRform()) {
-            $scope.SaveDeficiencyReasonAPI(0, $("#DRtxtName").val(), $("#DRtxtDesc").val(), $("#DRchkIsActive1").is(":checked"), $scope.DeficiencyReasonInfo.MasterTransactionId, $scope.DeficiencyReasonInfo.Deficiency_Template_ID, $("#DRchkadditional").is(":checked"), false);
+            $('#DRdivAddAppReqPanel').hide();
+            $scope.SaveDeficiencyReasonAPI(0, $("#DRtxtName").val(), tinyMCE.get("DRtxtDesc").getContent(), $("#DRchkIsActive1").is(":checked"), $scope.DeficiencyReasonInfo.MasterTransactionId, $scope.DeficiencyReasonInfo.Deficiency_Template_ID, $("#DRchkadditional").is(":checked"), false);
         }
     }
 
     $scope.DREditStuff = function (id) {
         //var index = $(id).attr('class');
-        document.getElementById('DR_'+id.m.Deficiency_ID).style.display = 'table-row';
+        tinymce.init({ selector: '#DRtxtmsg_' + id.m.Deficiency_ID });
+        document.getElementById('DR_' + id.m.Deficiency_ID).style.display = 'table-row';
         $('#DRddlMasterTransaction_' + id.m.Deficiency_ID).val(id.m.Application_Type_ID);
         $('#DRddldeftempEdit_' + id.m.Deficiency_ID).val(id.m.Deficiency_Template_ID);
-
-        //tinymce.init({ mode: 'textareas' });
-
-        ////tinymce.init({ mode: 'textareas', elements: '#txtEditor_' + index });
-
-        //$('#txtEffectiveDate_' + index).datepicker({
-        //    inline: true,
-        //    changeMonth: true,
-        //    changeYear: true,
-        //    yearRange: "2016:2030"
-        //});
-        //$('#txtEndDate_' + index).datepicker({
-        //    inline: true,
-        //    changeMonth: true,
-        //    changeYear: true,
-        //    yearRange: "2016:2030"
-        //});
-
     }
 
     $scope.DRhideStuff = function (id) {
         //var val = $(id).attr('name');
-        document.getElementById('DR_'+id.m.Deficiency_ID).style.display = 'none';
+        document.getElementById('DR_' + id.m.Deficiency_ID).style.display = 'none';
     }
 
     $scope.DRdoStuff = function (id) {
-
-        $scope.SaveDeficiencyReasonAPI(id.m.Deficiency_ID, $('#DRtxtName_' + id.m.Deficiency_ID).val(), $('#DRtxtmsg_' + id.m.Deficiency_ID).val(), $('#DRtxtIsActive_' + id.m.Deficiency_ID).is(":checked"), id.m.Application_Type_ID, id.m.Deficiency_Template_ID, $('#DRchkadditionalEdit_' + id.m.Deficiency_ID).is(":checked"), false);
-        document.getElementById(id.m.Deficiency_ID).style.display = 'none';
+        if (checkDREditform(id.m.Deficiency_ID)) {
+            $scope.SaveDeficiencyReasonAPI(id.m.Deficiency_ID, $('#DRtxtName_' + id.m.Deficiency_ID).val(), tinyMCE.get('DRtxtmsg_' + id.m.Deficiency_ID).getContent(), $('#DRtxtIsActive_' + id.m.Deficiency_ID).is(":checked"), id.m.Application_Type_ID, id.m.Deficiency_Template_ID, $('#DRchkadditionalEdit_' + id.m.Deficiency_ID).is(":checked"), false);
+            document.getElementById(id.m.Deficiency_ID).style.display = 'none';
+        }
     };
     $scope.DRDeleteStuff = function (id) {
         if ($scope.IsConfirm) {
@@ -293,7 +286,7 @@ contentApp.controller('ApplicationConfiguration', ['$scope', '$rootScope', 'Conf
             applicationConfigurationSearch.Setting = $scope.ACSearch.SettingName;
         else
             applicationConfigurationSearch.Setting = "";
-        
+
         ConfigurationFactory.ConfigurationSearch(sessionStorage.BackOffice_Key, applicationConfigurationSearch).success(function (data) {
             $scope.ApplicationConfigurationList = data.Configuration;
             HideLoader();
@@ -303,7 +296,7 @@ contentApp.controller('ApplicationConfiguration', ['$scope', '$rootScope', 'Conf
         });
     }
 
-    
+
     $scope.GetApplicationConfiguration();
 
     $scope.SaveApplicationConfigurationAPI = function (ConfigurationId, Value) {
@@ -313,7 +306,7 @@ contentApp.controller('ApplicationConfiguration', ['$scope', '$rootScope', 'Conf
         var objContent = {};
         objContent.ConfigurationId = ConfigurationId;
         objContent.Value = Value;
-       
+
         ConfigurationFactory.SaveApplicationConfiguration(sessionStorage.BackOffice_Key, objContent)
                         .success(function (response) {
 
@@ -342,9 +335,10 @@ contentApp.controller('ApplicationConfiguration', ['$scope', '$rootScope', 'Conf
     }
 
     $scope.ACdoStuff = function (id) {
-
-        $scope.SaveApplicationConfigurationAPI(id.m.ConfigurationId, $('#ACtxtValue_' + id.m.ConfigurationId).val());
-        document.getElementById('AC_' + id.m.ConfigurationId).style.display = 'none';
+        if (checkACEditform(id.m.ConfigurationId)) {
+            $scope.SaveApplicationConfigurationAPI(id.m.ConfigurationId, $('#ACtxtValue_' + id.m.ConfigurationId).val());
+            document.getElementById('AC_' + id.m.ConfigurationId).style.display = 'none';
+        }
     };
-    
+
 }]);

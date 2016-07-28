@@ -13,7 +13,7 @@ contentApp.controller('TemplateMessage', ['$scope', '$rootScope', 'TemplateMessa
         if (isSearch && ($scope.TMSearch.ApplicationTypeId != "-1" || $("#txttempnameSearch").val() != "")) {
             if ($scope.TMSearch.ApplicationTypeId == "-1") {
                 var objContent = {};
-                objContent.tempName=$("#txttempnameSearch").val();
+                objContent.tempName = $("#txttempnameSearch").val();
                 TemplateMessageFactory.GetAllTemplatesGetByTemplateName(sessionStorage.BackOffice_Key, objContent).success(function (data) {
                     $scope.TemplateMessageList = data;
                     HideLoader();
@@ -22,8 +22,7 @@ contentApp.controller('TemplateMessage', ['$scope', '$rootScope', 'TemplateMessa
                     HideLoader();
                 });
             }
-            else if($("#txttempnameSearch").val() == "")
-            {
+            else if ($("#txttempnameSearch").val() == "") {
                 var objContent = {};
                 objContent.applicationTy = parseInt($scope.TMSearch.ApplicationTypeId);
                 TemplateMessageFactory.GetAllTemplatesGetByAppTyId(sessionStorage.BackOffice_Key, objContent).success(function (data) {
@@ -34,8 +33,7 @@ contentApp.controller('TemplateMessage', ['$scope', '$rootScope', 'TemplateMessa
                     HideLoader();
                 });
             }
-            else
-            {
+            else {
                 var objContent = {};
                 objContent.tempName = $("#txttempnameSearch").val();
                 objContent.applicationTy = parseInt($scope.TMSearch.ApplicationTypeId);
@@ -64,7 +62,7 @@ contentApp.controller('TemplateMessage', ['$scope', '$rootScope', 'TemplateMessa
         TemplateMessageFactory.ApplicationTypeGetAll(sessionStorage.BackOffice_Key).success(function (data) {
             $scope.ddlApplicationType = data.ApplicationTypeGetList;
             $scope.TMSearch.ApplicationTypeId = "-1";
-            //$scope.DeficiencyTemplateInfo.MasterTransactionId = "-1";
+            $scope.TemplateMessageInfo.ApplicationTypeId = "-1";
             HideLoader();
         }).error(function (error) {
             $scope.Error = error;
@@ -76,6 +74,7 @@ contentApp.controller('TemplateMessage', ['$scope', '$rootScope', 'TemplateMessa
     $scope.GetTemplateMessage();
 
     $scope.ApplicationTypeGetAll();
+    tinymce.init({ mode: 'textareas' });
 
     //$scope.SaveTemplateMessageAPI = function (TemplateId, ApplicationTypeId, TemplateName, TemplateSubject, TemplateMessage) {
 
@@ -102,31 +101,37 @@ contentApp.controller('TemplateMessage', ['$scope', '$rootScope', 'TemplateMessa
     //}
 
     $scope.SaveTemplateMessage = function () {
-        $('#divAddAppReqPanel').hide();
-        //if (checkDTform()) {
-        ShowLoader();
+        
+        if (checkTMform()) {
+            ShowLoader();
+            $('#divAddAppReqPanel').hide();
+            var objContent = {};
+            objContent.TemplateId = 0;
+            objContent.ApplicationTypeId = $scope.TemplateMessageInfo.ApplicationTypeId;
+            objContent.TemplateName = $("#txtTempName").val();
+            objContent.TemplateSubject = tinyMCE.get("txtsubject").getContent();
+            objContent.TemplateMessage = tinyMCE.get("txtmsg").getContent();
 
-        var objContent = {};
-        objContent.TemplateId = 0;
-        objContent.ApplicationTypeId = $scope.TemplateMessageInfo.ApplicationTypeId;
-        objContent.TemplateName = $("#txtTempName").val();
-        objContent.TemplateSubject = $("#txtsubject").val();
-        objContent.TemplateMessage = $("#txtmsg").val();
+            TemplateMessageFactory.CreateTemplate(sessionStorage.BackOffice_Key, objContent)
+                            .success(function (response) {
+                                HideLoader();
+                                tinymce.remove('textarea');
+                                tinymce.init({ selector: '#txtsubject' });
+                                tinymce.init({ selector: '#txtmsg' });
 
-        TemplateMessageFactory.CreateTemplate(sessionStorage.BackOffice_Key, objContent)
-                        .success(function (response) {
-                            HideLoader();
-                            $scope.GetTemplateMessage();
+                                $scope.GetTemplateMessage();
 
-                        })
-                        .error(function (data) {
-                            alert('Oops! Some Error Occurred.');
-                            HideLoader();
-                        });
-        //}
+                            })
+                            .error(function (data) {
+                                alert('Oops! Some Error Occurred.');
+                                HideLoader();
+                            });
+        }
     }
 
     $scope.TMEditStuff = function (id) {
+        tinymce.init({ selector: '#txtsubject_' + id.m.TemplateId });
+        tinymce.init({ selector: '#txtmsg_' + id.m.TemplateId });
         document.getElementById('TM_' + id.m.TemplateId).style.display = 'table-row';
         $('#ddlApplicationType_' + id.m.TemplateId).val(id.m.ApplicationTypeId);
     }
@@ -136,26 +141,28 @@ contentApp.controller('TemplateMessage', ['$scope', '$rootScope', 'TemplateMessa
     }
 
     $scope.TMdoStuff = function (id) {
-        ShowLoader();
+        if (checkTMEditform(id.m.TemplateId)) {
+            ShowLoader();
 
-        var objContent = {};
-        objContent.TemplateId = id.m.TemplateId;
-        objContent.ApplicationTypeId = id.m.ApplicationTypeId;
-        objContent.TemplateName = $('#txtTempName_' + id.m.TemplateId).val();
-        objContent.TemplateSubject = $('#txtsubject_' + id.m.TemplateId).val();
-        objContent.TemplateMessage = $('#txtmsg_' + id.m.TemplateId).val();
+            var objContent = {};
+            objContent.TemplateId = id.m.TemplateId;
+            objContent.ApplicationTypeId = id.m.ApplicationTypeId;
+            objContent.TemplateName = $('#txtTempName_' + id.m.TemplateId).val();
+            objContent.TemplateSubject = tinyMCE.get('txtsubject_' + id.m.TemplateId).getContent();
+            objContent.TemplateMessage = tinyMCE.get('txtmsg_' + id.m.TemplateId).getContent();
 
-        TemplateMessageFactory.UpdateTemplate(sessionStorage.BackOffice_Key, objContent)
-                        .success(function (response) {
-                            HideLoader();
-                            $scope.GetTemplateMessage();
+            TemplateMessageFactory.UpdateTemplate(sessionStorage.BackOffice_Key, objContent)
+                            .success(function (response) {
+                                HideLoader();
+                                $scope.GetTemplateMessage();
 
-                        })
-                        .error(function (data) {
-                            alert('Oops! Some Error Occurred.');
-                            HideLoader();
-                        });
-        document.getElementById('TM_' + id.m.TemplateId).style.display = 'none';
+                            })
+                            .error(function (data) {
+                                alert('Oops! Some Error Occurred.');
+                                HideLoader();
+                            });
+            document.getElementById('TM_' + id.m.TemplateId).style.display = 'none';
+        }
     };
 
     $scope.IsConfirm = false;
