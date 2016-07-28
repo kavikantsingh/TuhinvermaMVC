@@ -1,0 +1,149 @@
+﻿@model IEnumerable<LAPP.ENTITY.Users>
+
+
+    <div class="gvDivUpr">
+        <table class="index  grid" cellspacing="0" cellpadding="5" id="gvNewApplication"
+               style="color: #333333; width: 100%; border-collapse: collapse;">  
+            <thead>
+                <tr>
+                    @if (ViewBag.isPasswordMgmt == true)
+                    {
+                        <th scope="col" style="text-decoration: underline;">
+                            <a href="javascript:void();" style="color: #333333;">Select #</a>
+                        </th>
+                    }
+                    <th scope="col" style="text-decoration: underline;">
+                        <a href="javascript:void();" style="color: #333333;">User Name #</a>
+                    </th>
+                    <th scope="col" style="text-decoration: underline; text-align: center;">
+                        <a href="javascript:void();" style="color: #333333;">Name</a>
+                    </th>
+                    <th scope="col" style="text-decoration: underline; width: 60px; text-align: center;">
+                        <a href="javascript:void();" style="color: #333333;">Email</a>
+                    </th>
+                    <th scope="col" style="text-decoration: underline; text-align: center; width: 60px;">
+                        <a href="javascript:void();" style="color: #333333;">Type</a>
+                    </th>
+                    <th scope="col" style="text-decoration: underline; width: 65px; text-align: center;">
+                        <a href="javascript:void();" style="color: #333333;">Status</a>
+                    </th>
+                    <th scope="col" style="text-decoration: underline; width: 70px; text-align: center;">
+                        <a href="javascript:void();" style="color: #333333;">Is Pending</a>
+                    </th>
+                    <th class="aligncenter" scope="col">
+                        Action
+                    </th>
+                </tr>
+                </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr id="trGridRow">
+                          @if (ViewBag.isPasswordMgmt == true)
+                          {
+                            <td style="text-align: center;">
+                               <input type="checkbox" value="@item.UserId" name="userid[]" />
+                            </td>
+                          }
+
+                        <td style="text-align: center;">
+                            @item.UserName
+                        </td>
+                        <td style="text-align:center">
+                            @item.FirstName
+                        </td>
+                        <td style="text-align: center;">
+                            @item.Email
+                        </td>
+                        <td style="text-align: center;">@item.UserTypeName</td>
+                        @if(item.UserStatusId!=1)
+                        { 
+                        <td style="text-align: center;color:red ">@item.UserStatusName</td>
+                        }
+                        else
+                        {
+                            <td style="text-align: center;color:green ">@item.UserStatusName</td>
+                        }
+                        <td>
+                            @if((bool)item.IsPending)
+                            { 
+                            <text>Yes</text>
+                            }
+                            else
+                            {
+                                <text> NO</text>
+                            }
+                              
+                        </td>
+                        <td align="center" valign="middle" style="width: 770px;" class="icon_set">
+                            <div>
+                                <input type="button" id="btnedit" title="Edit" text="Edit" class="Editbtn small"
+                                       style"width 95px;" value="Edit" onclick="EditUser(@item.UserId)" />  
+                                @if(item.UserStatusId!=1)
+                                { 
+                                <input type="button" id="btnEnable" title="Enable" class="Editbtn small" value="Enable" onclick="EnableUser(@item.UserId)" />
+                                }
+                                else
+                                {
+                                    <input type="button" id="btnEnable" title="Disable" class="Editbtn small" value="Disable" onclick="EnableUser(@item.UserId)" />
+                                }
+                                <input type="button" id="btnDelete" title="Delete" class="Editbtn small" value="Delete" onclick="DeleteUser(@item.UserId)" />
+                            </div>
+                            <div style="padding-top:10px">
+                                <input type="button" id="btnNotes" title="Notes" class="Editbtn small" value="Notes" />
+                        
+                                <input type="button" id="btnDocuments" title="Notes" class="Editbtn small" value="Documents" />
+                            </div>
+                        </td>
+                    </tr>
+                }
+               
+            </tbody>
+        </table>
+        <input type="button" value="Reset Password" class="Editbtn large " id="btnpwdreset" />
+    </div>
+<script>
+
+    $(document).ready(function () {
+        $('#gvNewApplication').DataTable({ bFilter: false, bInfo: false });
+
+
+
+        $("#btnpwdreset").click(function () {            
+            var searchIDs = $("#gvNewApplication input:checkbox:checked").map(function () {
+                
+                return $(this).val();
+            }).get();
+            alert(searchIDs);
+            $.ajax({
+                method: "POST",
+                url: '@Url.Action("PasswordReset", "Administration", new { area = "BackOffice",isPasswordMgmt=true })',
+                data: { "searchIDs": searchIDs },
+                success: function (result) {
+                    $("#searchResult").html(result);
+                    $(".loader2,#mask1").hide();
+                }
+            });
+        });
+    });
+
+    function EditUser(userid)
+    {
+        location.href = '/BackOffice/Administration/AddUser?userId=' + userid;
+        
+    }
+
+    function EnableUser(userid)
+    {
+        location.href = '/BackOffice/Administration/EnableUser?userId=' + userid;
+    }
+
+    function DeleteUser(userid)
+    {
+        location.href = '/BackOffice/Administration/DeleteUser?userId=' + userid;
+    }
+
+
+    
+
+</script>

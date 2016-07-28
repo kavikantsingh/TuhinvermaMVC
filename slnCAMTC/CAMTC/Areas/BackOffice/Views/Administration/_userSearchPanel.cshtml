@@ -1,0 +1,123 @@
+﻿
+<div class="container primary-content">
+    <div class="primary-column">
+        <div class="relative-box peel-shadows">
+            <div class="dynamic-panels ui-sortable" style="">
+                <div id="Cashflow" class="dashboard-panel clearfix rounded">
+                    <div class="get-started-content">
+                        <div class="divNewApplicationAddu">
+                            <span style="float: left; margin-right: 10px;">
+                                <h4>Administration:UserAccounts</h4>
+                            </span>
+                            <div class="clear">
+                            </div>
+
+                            <form id="userSearchform" method="post">
+                                <div class="searchBoxhidden">
+                                    <div class="clear">
+                                        <div class="close" onclick="javascript:hideDivSlide('.userHide'); showDivSlide('.searchBbutton');">
+                                        </div>
+                                    </div>
+                                    <fieldset class="PermitSearch" style="position:relative">
+                                        <legend></legend>
+                                        <table class="SearchTable boardinfo" align="center" style="height: 100px; height: 164px;">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="vertical-align: middle;">
+                                                        <label>
+                                                            Type :
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <select id="typeDropDown" name="UserTypeId">
+                                                            <option value="0">Select</option>
+                                                        </select>
+
+
+                                                    </td>
+                                                    <td style="width: 102px; vertical-align: middle;">
+                                                        <label>
+                                                            Last Name :
+                                                        </label>
+                                                    </td>
+                                                    <td style="vertical-align: middle;">
+                                                        <input type="text" maxlength="50" name="LastName" value=" ">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label>Role :</label>
+                                                    </td>
+                                                    <td>
+                                                        <select id="roleDropDown" name="RoleId">
+                                                            <option value="0">Select</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <label>Username :</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" id="UserName" name="UserName" value=" " />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label>Status :</label>
+                                                    </td>
+                                                    <td>
+                                                        <select id="statusDropDown" name="UserStatusId">
+                                                            <option value="0">Select</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <label>IsPending :</label>
+                                                    </td>
+                                                    <td>
+                                                        <select name="IsPending" id="isPendingDropDown">
+                                                            <option value="-1">Select</option>
+                                                            <option value="0">Yes</option>
+                                                            <option value="1">No</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label>Provider :</label>
+                                                    </td>
+                                                    <td>
+                                                        <select id="providerDropDown" name="Provider">
+                                                            <option value="0">Select</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <label>Email :</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" id="Email" name="Email" value="" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>
+                                                        <input type="button" class="Editbtn small" id="btnSearch" value="Search" />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </fieldset>
+                                </div>
+                                <input type="button" value="Add User" class="Editbtn large " id="btnAddUser" />
+                            </form>
+                            <div class="clear">
+                            </div>
+                            <div id="searchResult" style="padding-top:10px"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    loadDropDowns();
+</script>
