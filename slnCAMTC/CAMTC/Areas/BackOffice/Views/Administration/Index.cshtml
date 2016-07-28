@@ -1,8 +1,40 @@
 ﻿
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Areas/BackOffice/Views/Shared/_Layout.cshtml";
-}
 
-<h2>Index</h2>
+<script src="~/Scripts/WebApiCalls.js"></script>
 
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.css" />
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.js"></script>
+
+@{Html.RenderPartial("_userSearchPanel");}
+
+<script>
+
+    $(document).ready(function () {
+        
+      
+        $("#btnSearch").click(function () {
+           
+            $(".loader2,#mask1").show();
+            $.ajax({
+                method:"POST",
+                url: '@Url.Action("UserSearchResult","Administration",new{area="BackOffice"})',
+                data: $("#userSearchform").serialize(),
+                success: function (result) {
+                    $("#searchResult").html(result);
+                    $(".loader2,#mask1").hide();
+                }
+            });
+        });
+
+        $("#btnAddUser").click(function () {
+            location.href = '@Url.Action("AddUser","Administration")';
+
+        });
+
+        $("#btnpwdreset").hide();
+      
+
+    });
+
+</script>

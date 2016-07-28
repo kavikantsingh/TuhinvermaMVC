@@ -1,12 +1,5 @@
 ﻿LAPP.controller('SchoolController', function ($scope, $rootScope, mySharedService, SchoolInfoFactory, _, $http) {
 
-    if (mySharedService.ApplicationName == 'BackOffice') {
-        $scope.IsSchoolApplication = false;
-    }
-    else {
-        $scope.IsSchoolApplication = true;
-    }
-
     $('#dvPRevInfo').hide();
     $('#error_validation').hide();
     $scope.hasShow = 'false';
@@ -14,6 +7,15 @@
     $('#divAddSchoolInfoPrevious').hide();
     $('#divAddSatelliteLocation').hide();
     $('#divMblex').hide();
+
+
+    if (mySharedService.ApplicationName == 'BackOffice') {
+        $scope.IsSchoolApplication = false;
+    }
+    else {
+        $scope.IsSchoolApplication = true;
+        $scope.hasShow = 'true';
+    }
 
     $scope.ProviderId = '-1';
     $scope.ProviderNameId = 0;
@@ -53,6 +55,7 @@
         $scope.PrevAdd.AddressTypeId = 3;
         $scope.PreviousAddressId = 0;
         $('#divAddSchoolInfoPrevious').hide();
+        $scope.PrevAdd.StateCode = 'CA';
     }
 
     $scope.clearsateliteAddress = function () {
@@ -62,6 +65,7 @@
         $scope.SateliteAdd.ProviderId = $scope.ProviderId;
         $scope.SateliteAdd.AddressTypeId = 7;
         $scope.SateliteAddressId = 0;
+        $scope.SateliteAdd.StateCode = 'CA';
         $('#divAddSatelliteLocation').hide();
     }
 
@@ -273,6 +277,8 @@
 
     //Adding Mblex
     $scope.Save_providermblex = function () {
+        ShowLoader();
+
         $scope.Mblex.IsActive = 1;
         $scope.Mblex.IsDeleted = 0;
         $scope.Mblex.ProviderMBLExId = $scope.ProviderMBLExId;
@@ -280,7 +286,7 @@
         SchoolInfoFactory.Save_providermblex(key, $scope.Mblex).success(function (data) {
             $scope.clearMblex();
             $scope.MBLExGrid.api.setRowData(data.ProvidermblexResponseList);
-
+            HideLoader();
         }).error(function (error) {
             $scope.Error = error;
         });
@@ -626,7 +632,7 @@
 
                 SchoolInfoFactory.AddPreviousSchoolInSchoolInformation(prevschooldata, key).success(function (data) {
 
-                    _.each(data.ListOfPreviousAddress, function (value, key) {
+                    _.each(data.ListOfPreviousSchool, function (value, key) {
                         value.DateofNameChange = moment(value.DateofNameChange).format("MM/DD/YYYY");
                     });
                     $scope.PrevAddrGrid.api.setRowData(data.ListOfPreviousSchool);
@@ -842,7 +848,7 @@
                                 $rootScope.checked9 = true;
                             }
 
-                            
+
                         }
                         HideLoader();
                         mySharedService.prepForBroadcastTabClick('Eligibility');
@@ -871,11 +877,11 @@
         var obj = {
             ProviderId: $scope.ProviderId
         };
-
+        ShowLoader();
         SchoolInfoFactory.Get_All_providermblex(key, obj).success(function (data) {
 
             $scope.MBLExGrid.api.setRowData(data.ProvidermblexResponseList);
-
+            HideLoader();
         }).error(function (error) {
             $scope.Error = error;
         });

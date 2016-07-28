@@ -60,6 +60,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -132,8 +133,14 @@
     <Compile Include="Areas\BackOffice\Controllers\HomeController.cs" />
     <Compile Include="Areas\BackOffice\Models\Administration\Configuration\ApplicationTypeGetResponse.cs" />
     <Compile Include="Areas\BackOffice\Models\Administration\Configuration\BaseEntityServiceResponse.cs" />
+    <Compile Include="Areas\BackOffice\Models\Administration\Configuration\CommonResponse.cs" />
     <Compile Include="Areas\BackOffice\Models\Administration\Configuration\DocumentViewModel.cs" />
     <Compile Include="Areas\BackOffice\Models\Administration\Configuration\PageSectionNameViewModel.cs" />
+    <Compile Include="Areas\BackOffice\Models\Administration\Configuration\UserRole.cs" />
+    <Compile Include="Areas\BackOffice\Models\Administration\Configuration\Users.cs" />
+    <Compile Include="Areas\BackOffice\Models\Administration\Configuration\UserSession.cs" />
+    <Compile Include="Areas\BackOffice\Models\Administration\Configuration\UserStatus.cs" />
+    <Compile Include="Areas\BackOffice\Models\Administration\Configuration\UserType.cs" />
     <Compile Include="Areas\ESD\Controllers\SchoolController.cs" />
     <Compile Include="Areas\ESD\ESDAreaRegistration.cs" />
     <Compile Include="Areas\Individual\Controllers\AccountController.cs" />
@@ -1177,7 +1184,6 @@
     <Content Include="Areas\Individual\AppJs\Controller\LicensureController_Individual.coffee" />
     <Content Include="Areas\Individual\AppJs\Controller\EducationController_Individual.coffee" />
     <Content Include="Areas\BackOffice\Views\Administration\DcoumentType.cshtml" />
-    <Content Include="Areas\BackOffice\Views\Administration\Index.cshtml" />
     <Content Include="Areas\BackOffice\Views\Administration\TemplateMessage.cshtml" />
     <Content Include="Areas\Individual\AppJs\Controller\HistoryController_Individual.coffee" />
     <Content Include="Areas\Individual\AppJs\Controller\WorkInformationController_Individual.coffee" />
@@ -1224,6 +1230,11 @@
     <Content Include="Areas\ESD\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\ESD\Views\web.config" />
     <Content Include="Areas\Individual\AppJs\Directive\AppDirectives.coffee" />
+    <Content Include="Areas\BackOffice\Views\Administration\AddUser.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Administration\Index.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Administration\PasswordManagement.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Administration\_userSearchPanel.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Administration\_UserSearchResult.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -2170,6 +2181,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\Validation\FormValidation.js" />
     <Content Include="Scripts\Validation\TextboxFormating.js" />
+    <Content Include="Scripts\WebApiCalls.js" />
     <Content Include="Validation\FormValidation.js" />
     <Content Include="Validation\TextboxFormating.js" />
     <Content Include="Web.config">
