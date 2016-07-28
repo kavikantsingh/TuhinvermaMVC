@@ -64,8 +64,9 @@
 
 
     $scope.getallthestaffinfo = function () {
-
+        ShowLoader();
         CurriculumFactory.ProvClinicHoursGetByProviderId(key, $scope.applicationid, $scope.ProviderId).success(function (data) {
+            HideLoader();
             $scope.ProvClinicHoursId = data.ProvClinicHours.ProvClinicHoursId;
             $scope.viewProvClinicHours = parseInt(data.ProvClinicHours.ClinicHours);
         }).error(function (error) {
@@ -208,6 +209,7 @@
 
     $scope.Savefinal = function () {
         ShowLoader();
+
         if (btnNextProHo()) {
             $scope.ListOfProviderStaffDetails = {};
             $scope.ListOfProviderStaffDetails.IsActive = 1;
@@ -375,6 +377,7 @@
 
         var txtcarculam = ValidateTextbox('<span class="notok"></span> Please enter maximum number of clinic hours performed.<br/>', '#txtcarculam', $('#txtcarculam').val());
 
+
         //var fuCurriculum1 = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Massage Program Calendar.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuCurriculum1_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuCurriculum1_hfStatus').val());
         //var fuCurriculum2 = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Syllabi for Massage Course.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuCurriculum2_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuCurriculum2_hfStatus').val());
         //var fuCurriculum3 = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for List of Textbooks.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuCurriculum3_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuCurriculum3_hfStatus').val());
@@ -393,6 +396,13 @@
             return false;
         }
         else {
+            if ($scope.viewProvClinicHours <= 75) {
+                $('.errorinfo').html('<span class="notok"></span> Please enter maximum number of clinic hours performed less than 75 hours.<br/>');
+                $('.errorinfo').show();
+                $(document).scrollTop(0);
+                return false;
+            }
+
             $('.errorinfo').hide();
             return true;
         }

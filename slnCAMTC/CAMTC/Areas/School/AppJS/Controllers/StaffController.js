@@ -180,6 +180,7 @@
     $scope.Chk = 'No';
     //Adding staffinfo
     $scope.SaveStaffInfo = function () {
+        debugger;
         ShowLoader();
         if (BackgroundCheckAddNewSave()) {
             $scope.staff.IsActive = 1;
@@ -203,7 +204,7 @@
                 debugger;
                 for (var i = 0; i < len; i++) {
                     $scope.staff.posids += $scope.roles[i].posid;
-                    $scope.staff.ProvIndvNameTitlePositionId += $scope.idlist[i];
+                    $scope.staff.ProvIndvNameTitlePositionId += $scope.roles[i].Id;
                     $scope.staff.ProvIndvNameTitlePosition += $scope.roles[i].Name;
                     var test = angular.copy($scope.idlist);
                     var result = _.contains(test, $scope.roles[i].Id);
@@ -402,24 +403,28 @@
         var txtBackCheckLastName = ValidateTextbox('<span class="notok"></span> Please enter last name.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtBackCheckLastName', $('#ContentPlaceHolder1_ucCertificationApplication1_txtBackCheckLastName').val());
         var txtBackCheckFirstName = ValidateTextbox('<span class="notok"></span> Please enter first name.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtBackCheckFirstName', $('#ContentPlaceHolder1_ucCertificationApplication1_txtBackCheckFirstName').val());
         var txtaddstaffEmail = ValidateEmail('<span class="notok"></span> Please enter email in correct format (joe@email.com) <br/>', '<span class="notok"></span> Please enter email.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtaddstaffEmail', $('#ContentPlaceHolder1_ucCertificationApplication1_txtaddstaffEmail').val());
-        var CheckBoxList3 = ValidateCheckboxList('<span class="notok"></span> Please check any one from title/ position.<br/>', 'ContentPlaceHolder1_ucCertificationApplication1_CheckBoxList3', $('#ContentPlaceHolder1_ucCertificationApplication1_CheckBoxList3').val());
+        var CheckBoxList3 = '';
+        if ($scope.idlist.length <= 0) {
+            CheckBoxList3 += '<span class="notok"></span> Please check any one from title/ position.<br/>';
+        }
+
         //var rblBackgroundChekReq = ValidateRadioList('<span class="notok"></span> Please check yes or no of background check.<br/>', 'ContentPlaceHolder1_ucCertificationApplication1_rblBackgroundChekReq', $('#ContentPlaceHolder1_ucCertificationApplication1_rblBackgroundChekReq').val());
         var NoRegion = '';
         //var RDO = document.getElementById('ContentPlaceHolder1_ucCertificationApplication1_rblBackgroundChekReq');
         //var radio = RDO.getElementsByTagName("input");
-        //var RDO2 = document.getElementById('ContentPlaceHolder1_ucCertificationApplication1_RadioButtonList2');
-        //var radio2 = RDO2.getElementsByTagName("input");
+        var RDO2 = document.getElementById('ContentPlaceHolder1_ucCertificationApplication1_RadioButtonList2');
+        var radio2 = RDO2.getElementsByTagName("input");
         //RadioButtonList2
-        //if (radio[1].checked) {
-        //    radio2[0].checked = true;
-        //    if ($('#ContentPlaceHolder1_ucCertificationApplication1_txtchkCAMTC').val() == '') {
-        //        NoRegion = ValidateTextbox('<span class="notok"></span> Please enter reason (camtc#).<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtchkCAMTC', $('#ContentPlaceHolder1_ucCertificationApplication1_txtchkCAMTC').val());
-        //    }
-        //}
-        //else {
-        //    $('#ContentPlaceHolder1_ucCertificationApplication1_txtchkCAMTC').removeClass("error");
-        //    radio2[0].checked = false;
-        //}
+        if ($scope.Chk == 'Yes') {
+            radio2[0].checked = true;
+            if ($('#ContentPlaceHolder1_ucCertificationApplication1_txtchkCAMTC').val() == '') {
+                NoRegion = ValidateTextbox('<span class="notok"></span> Please enter reason (camtc#).<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_txtchkCAMTC', $('#ContentPlaceHolder1_ucCertificationApplication1_txtchkCAMTC').val());
+            }
+        }
+        else {
+            $('#ContentPlaceHolder1_ucCertificationApplication1_txtchkCAMTC').removeClass("error");
+            radio2[0].checked = false;
+        }
 
         //var fluStaffHiring = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Hiring, Training, Evaluating and Discipling Policies.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuStaff1_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuStaff1_hfStatus').val());
         //var fluStaffFacility = ValidateDropdown('0', '<span class="notok"></span>   Please upload document for Facility Meeting Minutes/Agenda/Memos.<br/>', '#ContentPlaceHolder1_ucCertificationApplication1_fuStaff2_upDoc', $('#ContentPlaceHolder1_ucCertificationApplication1_fuStaff2_hfStatus').val());

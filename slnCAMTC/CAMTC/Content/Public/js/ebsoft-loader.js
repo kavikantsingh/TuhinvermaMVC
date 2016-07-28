@@ -6,11 +6,14 @@
 //*****************
 function ShowLoader() {
     // $('.loader-element').center();
-
+    
     $('.loader-element').show();
+    
     $('#mask1').show();
+
 }
 function HideLoader() {
+    
     $('.loader-element').hide(); $('#mask1').hide();
 }
 function ShowLoaderSmall(element) {
@@ -31,8 +34,8 @@ jQuery.fn.center = function () {
     return this;
 }
 
-$(function () {
-    $('body').append('<div id="mask1" style="display: none"></div><div class="loader-element loader2" style="display: none">' +
+jQuery(function () {
+    $('body').append('<div id="mask1" class="maskclass" style="display: none"></div><div class="loader-element loader2" style="display: none">' +
     '<img src="http://staff.nvbmt.inlumon.com/App_Themes/theme1/images/ajax-loader.gif" /><br />' + /// <reference path="../images/ajax-loader.gif" />
       'please wait...' +
        '</div>');
