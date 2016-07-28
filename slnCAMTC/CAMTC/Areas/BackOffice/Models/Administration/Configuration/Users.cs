@@ -151,7 +151,7 @@ namespace CAMTC.Areas.BackOffice.Models.Administration.Configuration
 
     }
 
-    public class UsersRequest : BaseEntity
+    public class UsersRequest 
     {
 
         [Display(Description = "Required: No, Desc: Auto Generate")]
@@ -212,7 +212,7 @@ namespace CAMTC.Areas.BackOffice.Models.Administration.Configuration
     }
 
 
-    public class UsersSearch : BaseEntity
+    public class UsersSearch 
     {
         public string UserName { get; set; }
 
@@ -280,6 +280,6 @@ namespace CAMTC.Areas.BackOffice.Models.Administration.Configuration
 
     public class UsersResponse : BaseEntityServiceResponse
     {
-        public object Users { get; set; }
+        public Users Users { get; set; }
     }
 }

@@ -85,7 +85,7 @@ namespace CAMTC.Areas.BackOffice.Controllers
             try
             {
                 // New code:
-                HttpResponseMessage response = await GetApiResults(string.Concat(baseUri, "/Users/UsersSearchAdmin/" + Convert.ToString(ConfigurationManager.AppSettings["name"]) + "/"), data);
+                HttpResponseMessage response = await GetApiResults(string.Concat(baseUri, "/Users/UsersSearchAdmin/" + Convert.ToString(ConfigurationManager.AppSettings["name"]) + "/?userid="+searchIDs), "");
 
                 if (response.IsSuccessStatusCode)
                 {

@@ -133,6 +133,7 @@
     <Compile Include="Areas\BackOffice\Controllers\HomeController.cs" />
     <Compile Include="Areas\BackOffice\Models\Administration\Configuration\ApplicationTypeGetResponse.cs" />
     <Compile Include="Areas\BackOffice\Models\Administration\Configuration\BaseEntityServiceResponse.cs" />
+    <Compile Include="Areas\BackOffice\Models\Administration\Configuration\CommonResponse.cs" />
     <Compile Include="Areas\BackOffice\Models\Administration\Configuration\DocumentViewModel.cs" />
     <Compile Include="Areas\BackOffice\Models\Administration\Configuration\PageSectionNameViewModel.cs" />
     <Compile Include="Areas\BackOffice\Models\Administration\Configuration\UserRole.cs" />

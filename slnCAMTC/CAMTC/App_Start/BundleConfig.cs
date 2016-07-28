@@ -49,7 +49,7 @@ namespace CAMTC
                       "~/Content/Theme1/css/navigation.css",
                       "~/Content/Theme1/css/searchPanel.css",
                       "~/Content/Theme1/tabs/tabs.css",
-                      "~/Content/Theme1/css/button.css"
+                      "~/Content/Theme1/css/button.css","~/App_Themes/Agency/css/dashboard.css"
                       ));
 
             #endregion
