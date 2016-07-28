@@ -14,8 +14,6 @@
             
             getLookupByTypeId : (typeId, name)->
                 $http.get(vm.baseUrl + vm.lookupUrl + "LookupGetBYLookupTypeID/" + vm.key + "?LookupTypeID=" + typeId)
-                
-            
         }# lookup Methods
         
         typevalues : {
@@ -23,9 +21,7 @@
                 addresTypes : ()->
                     $http.get(vm.baseUrl + vm.typeValuesUrl + "AddressTypeGetAll/" + vm.key)
             }
-        }
-        
-        
+        }       
         getAllCountries : ()->
             $http.get(vm.baseUrl + "/Country/CountryGetAll/" + vm.key)
     }

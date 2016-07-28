@@ -203,6 +203,7 @@
       deleteBtn = $.el('img', {
         'src': '../\../\Content/\Theme1/\images/\delete.png'
       }).css('cursor', 'pointer');
+      doc.DocumentPath = this.Manager.ApiBaseUrl + "api/Provider/ProviderDocumentByProviderDocumentId/" + this.Manager.Key + "?ProviderDocumentId=" + doc.ProviderDocumentId;
       typeName = doc.DocumentTypeIdName;
       if (obj.isSimple) {
         typeName = doc.OtherDocumentTypeName;

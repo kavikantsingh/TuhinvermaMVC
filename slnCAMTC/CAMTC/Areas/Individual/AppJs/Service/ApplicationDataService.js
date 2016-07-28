@@ -22,6 +22,7 @@
         });
         vm.service.getIndividualAddress(sessionStorage.IndividualId).then(function(response) {
           var address, _i, _len, _ref, _results;
+          HideLoader();
           console.log("Address", response.data);
           if (response.data.IndividualAddressResponse.length > 0) {
             _ref = response.data.IndividualAddressResponse;

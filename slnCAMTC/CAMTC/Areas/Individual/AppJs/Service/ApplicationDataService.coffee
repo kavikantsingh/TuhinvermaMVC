@@ -19,6 +19,7 @@
             
             vm.service.getIndividualAddress(sessionStorage.IndividualId)
                 .then (response)->
+                    HideLoader()
                     console.log "Address", response.data
                     if response.data.IndividualAddressResponse.length > 0
                         for address in response.data.IndividualAddressResponse
