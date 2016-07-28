@@ -380,7 +380,7 @@
 
     //Adding PRevious school Information with address 4
     $scope.DeleteaddressRequestFromSchoolInformationTab = function (AddressId, AddressTypeId) {
-        //  ShowLoader();
+        ShowLoader();
         var addresss = { 'AddressId': AddressId, 'AddressTypeId': AddressTypeId, '$scope.ProviderId': $scope.$scope.ProviderId };
 
         SchoolInfoFactory.DeleteaddressRequestFromSchoolInformationTab(addresss, key).success(function (data) {
@@ -395,7 +395,7 @@
 
     //Adding SaveProviderGraduatesNumber
     $scope.SaveProviderGraduatesNumber = function () {
-        //  ShowLoader();
+        ShowLoader();
         $scope.ProviderGraduateNumber.IsActive = 1;
         $scope.ProviderGraduateNumber.IsDeleted = 0;
         $scope.ProviderGraduateNumber.AddressId = $scope.SateliteAddressId;
@@ -470,8 +470,7 @@
             $scope.user = [];
 
             AboutFactory.GetProviderBusinessTypeByProviderId(key, $scope.applicationid, $scope.ProviderId).success(function (data) {
-                apidone();
-                $scope.api1 = true;
+                
                 //for (var j = 0; j < $scope.List.length; j++) {
 
                 //    if (data.ProviderBusinessTypeList.length > 0) {
@@ -515,8 +514,7 @@
         });
 
         AboutFactory.GetAllProviderGraduatesNumber(key, $scope.applicationid, $scope.ProviderId).success(function (data) {
-            $scope.api2 = true;
-            apidone();
+
             $scope.GraduatesGrid.api.setRowData(data.ProviderGraduatesNumberList);
 
             if (data.ProviderGraduatesNumberList.length > 0) {
@@ -554,6 +552,8 @@
                         $scope.txtGradYear2016 = data.ProviderGraduatesNumberList[i].CalendarYearEstGradCount;
                     }
                 }
+
+                HideLoader();
             }
 
         }).error(function (error) {
@@ -562,8 +562,6 @@
 
 
         AboutFactory.GetAllProviderRelatedSchools(key, $scope.ProviderId, $scope.applicationid).success(function (data) {
-            $scope.api3 = true;
-            apidone();
             $scope.ProviderRelatedProgramGrid.api.setRowData(data.ProviderRelatedSchoolsList);
         }).error(function (error) {
             $scope.Error = error;
