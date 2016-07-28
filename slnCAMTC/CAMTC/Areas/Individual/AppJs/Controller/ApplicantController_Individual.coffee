@@ -8,6 +8,7 @@
         mailingAddressSameAsHome : no
     }
     
+    
     #console.log vm.globals
     #console.log ApplicationDataFactory
     vm.fullName = {}
@@ -98,6 +99,8 @@
     
     vm.thisObj = (obj, evt)->
         console.log evt
+        
+    
     return
     
 angular

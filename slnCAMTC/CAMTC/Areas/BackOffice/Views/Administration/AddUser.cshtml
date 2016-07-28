@@ -1,0 +1,136 @@
+﻿@model LAPP.ENTITY.UsersRequest
+    <script src="~/Scripts/WebApiCalls.js"></script>
+    <div class="main">
+        <div class="container primary-content ">
+            <div class="loading"></div>
+            <span style="float: left; margin-right: 10px;">
+                <h4>Administration:UserAccounts</h4>
+            </span>
+            <div class="clear">
+            </div>
+
+            <div class="clear">
+            </div>
+            <div id="dashboard-panels">
+                <div class="dynamic-panels ui-sortable" style="">
+                    <div class="rounded-container relative-box peel-shadows">
+                        <div id="Cashflow" class=" clearfix">
+                            <form id="AddUserForm" method="post" action="@Url.Action("AddEditUser")">
+                                <input type="hidden" value='@Model.UserId' name="UserId" />
+                                <input type="hidden" value="-1" name="IndividualGuid">
+                                <fieldset class="flsSignupForm signup">
+                                    <legend></legend>
+                                    <label><span style="color:red">*</span>Required</label>
+                                    <div class="posRelative" style="margin-top: 25px;">
+                                        <label class="input-label">
+                                            Status:
+                                        </label>
+                                        <select name="UserStatusId" id="statusDropDown" required>                                            
+                                           <option >Select</option>
+                                          
+                                        </select>
+                                    </div>
+                                    <div class="posRelative" style="margin-top: 10px;">
+                                        <label class="input-label required">
+                                            IsPending  :
+                                        </label>
+                                        <select name="IsPending" required>
+                                            <option value="1">Yes</option>
+                                            <option value="0">No</option>
+                                        </select>
+                                    </div>
+                                    <div class="posRelative" style="margin-top: 10px;">
+                                        <label class="input-label required">
+                                            User Name  :
+                                        </label>
+                                        <input type="text" class="inputTextbox UpperCase" name="UserName" value="@Model.UserName"  required/>
+                                    </div>
+                                    <div class="posRelative" style="margin-top: 10px;">
+                                        <label class="input-label required">
+                                            First Name  :
+                                        </label>
+                                        <input type="text" class="inputTextbox UpperCase" name="FirstName" value="@Model.FirstName" required />
+                                    </div>
+                                    <div class="posRelative" style="margin-top: 10px;">
+                                        <label class="input-label required">
+                                            Last Name  :
+                                        </label>
+                                        <input type="text" class="inputTextbox UpperCase" name="LastName" value="@Model.LastName" required />
+                                    </div>
+                                    <div class="posRelative" style="margin-top: 10px;">
+                                        <label class="input-label required">
+                                            Email  :
+                                        </label>
+                                        <input type="email" class="inputTextbox UpperCase" name="Email" value="@Model.Email" required />
+                                    </div>
+                                    <div class="posRelative" style="margin-top: 10px;">
+                                        <label class="input-label">
+                                            Phone  :
+                                        </label>
+                                        <input type="tel" class="inputTextbox UpperCase" name="Phone" value="@Model.Phone" required />
+                                    </div>
+                                    <div class="posRelative" style="margin-top: 10px;">
+                                        <label class="input-label required">
+                                            User Type  :
+                                        </label>
+                                        <select name="UserTypeId" id="typeDropDown" required>
+                                            <option value="">Select</option>
+                                        </select>
+                                    </div>
+                                    <div class="posRelative" style="margin-top: 10px;">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <label class="input-label required">
+                                                        Roles  :
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <div id="rolesDiv">
+                                                        <table id="rolesTable">
+                                                            <thead>
+                                                                <tr >
+                                                                    <th>Role</th>
+                                                                    <th>Selected</th>
+                                                                    <th>Grantable</th>
+                                                                </tr>
+                                                            </thead>
+                                                        </table>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </div>
+
+                                    <div class="posRelative" style="margin-top: 10px;">
+                                        <label class="input-label ">
+                                            Position  :
+                                        </label>
+                                        <input type="text" class="inputTextbox UpperCase" name="PositionTitle" />
+                                    </div>
+                                    <div style="float:right; margin:0px 30% 25px 0px ; ">
+                                        <input type="submit" value="Save" class="Editbtn large" id="btnAddUser" />
+                                        <input type="button" value="Back To Search" onclick="backtosearch();" class="Editbtn large" id="btnAddUser" />
+                                    </div>
+
+                                </fieldset>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        function backtosearch() {
+            location.href = '@Url.Action("Index","Administration")';
+        }
+
+        loadDropDowns();
+
+    </script>

@@ -228,7 +228,7 @@
                 AboutFactory.SaveProviderBusinessType(key, selectedBusTypes).success(function (data) {
                     $scope.call9 = true;
                     checkallapidone();
-                    
+
                 }).error(function (error) {
                     $scope.Error = error;
                 });
@@ -448,6 +448,10 @@
     //Adding SaveProviderOtherProgram 
 
     $scope.user = [];
+    $scope.api1 = false;
+    $scope.api2 = false;
+    $scope.api3 = false;
+
 
     $scope.GetAllProviderOtherProgram = function () {
         ShowLoader();
@@ -464,9 +468,10 @@
             //        $scope.List = data.Lookup;
             $scope.roles = data.Lookup;
             $scope.user = [];
+
             AboutFactory.GetProviderBusinessTypeByProviderId(key, $scope.applicationid, $scope.ProviderId).success(function (data) {
-
-
+                apidone();
+                $scope.api1 = true;
                 //for (var j = 0; j < $scope.List.length; j++) {
 
                 //    if (data.ProviderBusinessTypeList.length > 0) {
@@ -510,42 +515,43 @@
         });
 
         AboutFactory.GetAllProviderGraduatesNumber(key, $scope.applicationid, $scope.ProviderId).success(function (data) {
-            HideLoader();
+            $scope.api2 = true;
+            apidone();
             $scope.GraduatesGrid.api.setRowData(data.ProviderGraduatesNumberList);
 
             if (data.ProviderGraduatesNumberList.length > 0) {
                 for (var i = 0; i < data.ProviderGraduatesNumberList.length; i++) {
                     if (data.ProviderGraduatesNumberList[i].CalendarYear == '2009') {
                         $scope.ProviderGraduatesNumberId8 = data.ProviderGraduatesNumberList[i].ProviderGraduatesNumberId;
-                        $scope.txtGradYear2016 = data.ProviderGraduatesNumberList[i].CalendarYearEstGradCount;
+                        $scope.txtGradYear2009 = data.ProviderGraduatesNumberList[i].CalendarYearEstGradCount;
                     }
                     else if (data.ProviderGraduatesNumberList[i].CalendarYear == '2010') {
                         $scope.ProviderGraduatesNumberId7 = data.ProviderGraduatesNumberList[i].ProviderGraduatesNumberId;
-                        $scope.txtGradYear2015 = data.ProviderGraduatesNumberList[i].CalendarYearEstGradCount;
+                        $scope.txtGradYear2010 = data.ProviderGraduatesNumberList[i].CalendarYearEstGradCount;
                     }
                     else if (data.ProviderGraduatesNumberList[i].CalendarYear == '2011') {
                         $scope.ProviderGraduatesNumberId6 = data.ProviderGraduatesNumberList[i].ProviderGraduatesNumberId;
-                        $scope.txtGradYear2014 = data.ProviderGraduatesNumberList[i].CalendarYearEstGradCount;
+                        $scope.txtGradYear2011 = data.ProviderGraduatesNumberList[i].CalendarYearEstGradCount;
                     }
                     else if (data.ProviderGraduatesNumberList[i].CalendarYear == '2012') {
                         $scope.ProviderGraduatesNumberId5 = data.ProviderGraduatesNumberList[i].ProviderGraduatesNumberId;
-                        $scope.txtGradYear2013 = data.ProviderGraduatesNumberList[i].CalendarYearEstGradCount;
+                        $scope.txtGradYear2012 = data.ProviderGraduatesNumberList[i].CalendarYearEstGradCount;
                     }
                     else if (data.ProviderGraduatesNumberList[i].CalendarYear == '2013') {
                         $scope.ProviderGraduatesNumberId4 = data.ProviderGraduatesNumberList[i].ProviderGraduatesNumberId;
-                        $scope.txtGradYear2012 = data.ProviderGraduatesNumberList[i].CalendarYearEstGradCount;
+                        $scope.txtGradYear2013 = data.ProviderGraduatesNumberList[i].CalendarYearEstGradCount;
                     }
                     else if (data.ProviderGraduatesNumberList[i].CalendarYear == '2014') {
                         $scope.ProviderGraduatesNumberId3 = data.ProviderGraduatesNumberList[i].ProviderGraduatesNumberId;
-                        $scope.txtGradYear2011 = data.ProviderGraduatesNumberList[i].CalendarYearEstGradCount;
+                        $scope.txtGradYear2014 = data.ProviderGraduatesNumberList[i].CalendarYearEstGradCount;
                     }
                     else if (data.ProviderGraduatesNumberList[i].CalendarYear == '2015') {
                         $scope.ProviderGraduatesNumberId2 = data.ProviderGraduatesNumberList[i].ProviderGraduatesNumberId;
-                        $scope.txtGradYear2010 = data.ProviderGraduatesNumberList[i].CalendarYearEstGradCount;
+                        $scope.txtGradYear2015 = data.ProviderGraduatesNumberList[i].CalendarYearEstGradCount;
                     }
                     else if (data.ProviderGraduatesNumberList[i].CalendarYear == '2016') {
                         $scope.ProviderGraduatesNumberId1 = data.ProviderGraduatesNumberList[i].ProviderGraduatesNumberId;
-                        $scope.txtGradYear2009 = data.ProviderGraduatesNumberList[i].CalendarYearEstGradCount;
+                        $scope.txtGradYear2016 = data.ProviderGraduatesNumberList[i].CalendarYearEstGradCount;
                     }
                 }
             }
@@ -556,12 +562,19 @@
 
 
         AboutFactory.GetAllProviderRelatedSchools(key, $scope.ProviderId, $scope.applicationid).success(function (data) {
-
+            $scope.api3 = true;
+            apidone();
             $scope.ProviderRelatedProgramGrid.api.setRowData(data.ProviderRelatedSchoolsList);
         }).error(function (error) {
             $scope.Error = error;
         });
 
+    }
+
+    function apidone() {
+        if ($scope.api1 && $scope.api2 && $scope.api3) {
+            HideLoader();
+        }
     }
 
     $scope.showUpdatevalueOther = function (ProviderOtherProgramId, ProgramOtherName) {

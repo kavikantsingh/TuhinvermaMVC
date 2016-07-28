@@ -80,6 +80,8 @@ namespace CAMTC.Areas.School.Controllers
 
 
                 string url = "http://ws.camtc.inlumon.com/" + "api/Provider/ProviderDocumentSave/" + data["key"];
+                //string url = "http://localhost:1530/" + "api/Provider/ProviderDocumentSave/" + data["key"];
+
 
                 string Data = Newtonsoft.Json.JsonConvert.SerializeObject(objUpload);
 
