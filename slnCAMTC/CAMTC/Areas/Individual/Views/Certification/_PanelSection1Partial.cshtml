@@ -283,20 +283,42 @@
                     </div>
                     <div id="divVerifyHomeAddressBtn" style="padding: 10px;">
                         <span class="fltrt" style="margin-right: 50px;">
-                            <input type="submit" name="btnVerifyHomeAddress" value="Verify Address" id="btnVerifyHomeAddress" class="btn-success btn-xs">
+                            <input data-ng-click="main.verifyAddress(applicant.appData.Applicant.HomeAddress, 'VerifiedHomeAddress')" type="submit" name="btnVerifyHomeAddress" value="Verify Address" id="btnVerifyHomeAddress" class="btn-success btn-xs">
                         </span>
                     </div>
-
                     <div class="clear">
                     </div>
+
+                    <div class="verifiedAddress home" data-ng-show="applicant.appData.Applicant.VerifiedHomeAddress">
+                        <h5>Verified Home Address</h5>
+
+                        <div>
+                            Street Line 1 : {{applicant.appData.Applicant.VerifiedHomeAddress.StreetLine1}}
+                        </div>
+                        <div>
+                            Street Line 2 : {{applicant.appData.Applicant.VerifiedHomeAddress.StreetLine2}}
+                        </div>
+                        <div>
+                            City : {{applicant.appData.Applicant.VerifiedHomeAddress.City}}
+                        </div>
+                        <div>
+                            State : {{applicant.appData.Applicant.VerifiedHomeAddress.StateCode}}
+                        </div>
+
+                        <div>
+                            Zip : {{applicant.appData.Applicant.VerifiedHomeAddress.Zip}}
+                        </div>
+
+                        <button class="btn-success btn-xs" data-ng-click="main.useVerifiedAddress(applicant.appData.Applicant.VerifiedHomeAddress, applicant.appData.Applicant.HomeAddress)">Use Verified Address</button>
+                    </div>
+
                     <table class="tblLiveScanApp tblLiveScanApp1" width="100%">
                         <tbody>
                             <tr>
                                 <td style="width: 480px; padding-left: 0px;">
                                     <label class="input-label required">
                                         <b>
-                                            5.&nbsp;&nbsp;Is your Mailing Address the same as the above Home Address where you
-                                            live?
+                                            5. Is your Mailing Address the same as the above Home Address where you live?
                                         </b>
                                     </label>
 
@@ -305,8 +327,8 @@
                                     <table id="RadioButtonList1">
                                         <tbody>
                                             <tr>
-                                                <td><input id="RadioButtonList1_0" type="radio" name="RadioButtonList1" data-ng-model="applicant.mailingAddressSameAsHome" value="true"><label for="RadioButtonList1_0">Yes</label></td>
-                                                <td><input id="RadioButtonList1_1" type="radio" name="RadioButtonList1" data-ng-model="applicant.mailingAddressSameAsHome" value="false"><label for="RadioButtonList1_1">No</label></td>
+                                                <td><input id="RadioButtonList1_0" type="radio" name="RadioButtonList1" data-ng-model="applicant.appData.Applicant.HomeAddress.IsMailingSameasPhysical" data-ng-value="true"><label for="RadioButtonList1_0">Yes</label></td>
+                                                <td><input id="RadioButtonList1_1" type="radio" name="RadioButtonList1" data-ng-model="applicant.appData.Applicant.HomeAddress.IsMailingSameasPhysical" data-ng-value="false"><label for="RadioButtonList1_1">No</label></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -322,7 +344,7 @@
                             processing fees if you provide CAMTC with an incorrect Mailing Address.
                         </p>
                     </div>
-                    <div data-ng-show="applicant.mailingAddressSameAsHome == 'false'">
+                    <div data-ng-show="!applicant.appData.Applicant.HomeAddress.IsMailingSameasPhysical">
                         <table  class="tblApplReqForm5">
                             <tbody>
                                 <tr>

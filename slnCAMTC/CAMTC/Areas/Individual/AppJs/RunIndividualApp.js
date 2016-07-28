@@ -3,14 +3,17 @@
   angular.module('IndividualApp').run(function($rootScope, $http, GlobalObjectsService, GlobalObjectsFactory, ApplicationDataService, ApplicationDataFactory, ObjectTemplateFactory, $q) {
     var globalQ, lookupQ;
     console.log("Running App");
+    $rootScope.isMainLoading = true;
     ShowLoader();
     $rootScope.$on('$routeChangeStart', function(event, toState, toParams, fromState, fromParams) {
       console.log("Loading...");
-      return ShowLoader();
+      ShowLoader();
     });
     $rootScope.$on('$routeChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
       console.log("Done Loading...");
-      return HideLoader();
+      if (!$rootScope.isMainLoading) {
+        HideLoader();
+      }
     });
     lookupQ = [];
     lookupQ.push(GlobalObjectsService.lookup.getAllLookupTypes());

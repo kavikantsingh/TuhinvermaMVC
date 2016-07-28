@@ -1,5 +1,6 @@
 ﻿var reCertificationApp = angular.module("reCertificationApp", [])
-var BaseURL = 'http://localhost:1530/';
+//var BaseURL = 'http://localhost:1530/';
+var BaseURL = "http://ws.camtc.inlumon.com/";
 
 reCertificationApp.controller("reCertificationController", ['$scope', 'CertificationFactory', function ($scope, CertificationFactory) {
 

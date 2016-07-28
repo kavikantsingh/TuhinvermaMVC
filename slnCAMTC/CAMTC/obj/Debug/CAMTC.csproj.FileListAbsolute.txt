@@ -327,3 +327,5 @@ D:\Projects\camtc\cappcamtc\slnCAMTC\CAMTC\bin\System.Web.WebPages.Razor.xml
 D:\Projects\camtc\cappcamtc\slnCAMTC\CAMTC\bin\Antlr3.Runtime.pdb
 D:\Projects\camtc\cappcamtc\slnCAMTC\CAMTC\obj\Debug\CAMTC.dll
 D:\Projects\camtc\cappcamtc\slnCAMTC\CAMTC\obj\Debug\CAMTC.pdb
+C:\Users\Deva\Source\Repos\cappcamtc\slnCAMTC\CAMTC\bin\System.Net.Http.Formatting.dll
+C:\Users\Deva\Source\Repos\cappcamtc\slnCAMTC\CAMTC\bin\System.Net.Http.Formatting.xml

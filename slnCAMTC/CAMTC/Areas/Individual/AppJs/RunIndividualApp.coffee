@@ -2,6 +2,7 @@
     .module('IndividualApp')
     .run ($rootScope, $http, GlobalObjectsService, GlobalObjectsFactory, ApplicationDataService, ApplicationDataFactory, ObjectTemplateFactory, $q)->
         console.log "Running App"
+        $rootScope.isMainLoading = true
         ShowLoader()
         
         #listen on event for tab navigation
@@ -9,10 +10,13 @@
         #if (toState.resolve)
             console.log "Loading..."
             ShowLoader();
+            return
         $rootScope.$on '$routeChangeSuccess', (event, toState, toParams, fromState, fromParams)->
             #if (toState.resolve)
                 console.log "Done Loading..."
-                HideLoader();
+                if !$rootScope.isMainLoading
+                    HideLoader();
+                    return
         
         
         lookupQ = []

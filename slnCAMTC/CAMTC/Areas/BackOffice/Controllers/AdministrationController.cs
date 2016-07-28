@@ -11,7 +11,7 @@ using System.Web;
 using System.Web.Configuration;
 using System.Web.Mvc;
 using System.Net.Http.Formatting;
-
+using System.Dynamic;
 
 namespace CAMTC.Areas.BackOffice.Controllers
 {
@@ -80,7 +80,9 @@ namespace CAMTC.Areas.BackOffice.Controllers
         [HttpPost]
         public async Task<ActionResult> PasswordReset(int[] searchIDs)
         {
-            ForgetPasswordResponse _response = new ForgetPasswordResponse();
+            //ForgetPasswordResponse _response = new ForgetPasswordResponse();
+            dynamic _response = new ExpandoObject();
+
 
             try
             {
@@ -89,7 +91,7 @@ namespace CAMTC.Areas.BackOffice.Controllers
 
                 if (response.IsSuccessStatusCode)
                 {
-                    _response = await response.Content.ReadAsAsync<ForgetPasswordResponse>();
+                    _response = await response.Content.ReadAsAsync<dynamic>();
                     if (_response.Status)
                     {
                         ViewBag.message = _response.Message;

@@ -11,37 +11,33 @@
     return vm.service = {
       startUp: function(factory) {
         vm.factory = factory;
-        vm.service.getIndividual(sessionStorage.IndividualId).then(function(response) {
+        return vm.service.getIndividual(sessionStorage.IndividualId).then(function(response) {
           console.log("Individual", response.data.IndividualResponse);
           if (response.data.IndividualResponse.length === 1) {
-            return factory.Individual = response.data.IndividualResponse[0];
+            factory.Individual = response.data.IndividualResponse[0];
           }
-        });
-        vm.service.getIndividualName(sessionStorage.IndividualId).then(function(response) {
-          return factory.IndividualName = response.data.IndividualNameResponse[0];
-        });
-        vm.service.getIndividualAddress(sessionStorage.IndividualId).then(function(response) {
-          var address, _i, _len, _ref, _results;
+          return vm.service.getIndividualName(sessionStorage.IndividualId);
+        }).then(function(response) {
+          factory.IndividualName = response.data.IndividualNameResponse[0];
+          return vm.service.getIndividualAddress(sessionStorage.IndividualId);
+        }).then(function(response) {
+          var address, _i, _len, _ref;
           HideLoader();
           console.log("Address", response.data);
           if (response.data.IndividualAddressResponse.length > 0) {
             _ref = response.data.IndividualAddressResponse;
-            _results = [];
             for (_i = 0, _len = _ref.length; _i < _len; _i++) {
               address = _ref[_i];
               if (address.AddressTypeId === 2) {
-                _results.push(factory.Applicant.HomeAddress = address);
-              } else {
-                _results.push(void 0);
+                factory.Applicant.HomeAddress = address;
               }
             }
-            return _results;
           } else {
             factory.Applicant.HomeAddress = angular.copy(ObjectTemplateFactory.address.newAddress);
-            return factory.Applicant.HomeAddress.AddressTypeId = 2;
+            factory.Applicant.HomeAddress.AddressTypeId = 2;
           }
-        });
-        return vm.service.contact.get.all(sessionStorage.IndividualId).then(function(response) {
+          return vm.service.contact.get.all(sessionStorage.IndividualId);
+        }).then(function(response) {
           var primaryEmail, primaryPhone, secEmail, secPhone, website;
           console.log("Contacts", response.data);
           primaryPhone = $filter('contactByTypeId')(response.data.IndividualContactResponse, 6);
@@ -90,11 +86,13 @@
             factory.Applicant.Website = angular.copy(ObjectTemplateFactory.contact.newContact);
             factory.Applicant.Website.ContactTypeId = 17;
             factory.Applicant.Website.ContactInfo = "";
-            return factory.Applicant.Website.IndividualId = parseInt(sessionStorage.IndividualId);
+            factory.Applicant.Website.IndividualId = parseInt(sessionStorage.IndividualId);
           } else {
             website.IsActive = true;
-            return factory.Applicant.Website = website;
+            factory.Applicant.Website = website;
           }
+          HideLoader();
+          return $rootScope.isMainLoading = false;
         });
       },
       getIndividualName: function(ind_id) {
@@ -119,6 +117,9 @@
           byId: function(addressId) {
             return console.log(addressId);
           }
+        },
+        verify: function(address) {
+          return $http.post(vm.baseUrl + "/Individual/VerifyAddress/" + vm.key, address);
         },
         save: {
           individualAddress: function(newAddress) {
